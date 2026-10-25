@@ -1,0 +1,12 @@
+---
+import { getEntry } from 'astro:content';
+interface Props { artwork: string; image: 'full' | 'travelers' | 'brushwork'; hero?: boolean }
+const { artwork, image, hero = false } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<figure>
+  <img src={img.src} alt={img.alt} loading={hero ? 'eager' : 'lazy'} decoding="async" />
+  <figcaption>{img.caption} 《{record.data.titleZh}》，{record.data.artist}。</figcaption>
+</figure>

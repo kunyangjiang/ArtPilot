@@ -1,0 +1,6 @@
+---
+interface Props { kind: 'fact' | 'interpretation' }
+const { kind } = Astro.props;
+const label = kind === 'fact' ? '已知事实' : '解读（非定论）';
+---
+<aside class={`callout ${kind}`}><span class="label">{label}</span><slot /></aside>

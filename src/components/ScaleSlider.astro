@@ -1,0 +1,46 @@
+---
+import { SCALE_MIN, SCALE_MAX, SCALE_DEFAULT } from '../lib/scale.js';
+---
+<div class="panel scale">
+  <h3>尺度实验：山有多高，人就有多小</h3>
+  <svg viewBox="0 0 400 260" role="img" aria-label="示意图：一座山与一个人形的相对大小">
+    <polygon class="mountain" points="60,250 150,60 190,10 230,70 340,250" />
+    <g class="person" data-person transform="translate(300 250)">
+      <circle cx="0" cy="-40" r="5" />
+      <rect x="-4" y="-34" width="8" height="19" />
+      <rect x="-4" y="-15" width="3" height="15" />
+      <rect x="1" y="-15" width="3" height="15" />
+    </g>
+  </svg>
+  <label for="scale-range">山的高度是人的几倍</label>
+  <input id="scale-range" type="range" min={SCALE_MIN} max={SCALE_MAX} step="1" value={SCALE_DEFAULT} />
+  <div class="row">
+    <output data-readout aria-live="polite">山的高度约为人的 {SCALE_DEFAULT} 倍</output>
+    <button type="button" data-reset>重置</button>
+  </div>
+  <p class="schematic-label">示意图：仅用于体会“比例越悬殊，人越渺小”，并非《溪山行旅图》中山与人真实比例的精确复原。</p>
+</div>
+<script>
+  import { clampRatio, figureHeight, SCALE_DEFAULT } from '../lib/scale.js';
+
+  const MOUNTAIN_HEIGHT = 240; // svg units, baseline y=250 up to peak y=10
+  const FIGURE_DRAWN = 45; // figure height as drawn at scale 1
+
+  document.querySelectorAll<HTMLElement>('.scale').forEach((root) => {
+    const range = root.querySelector<HTMLInputElement>('input[type=range]')!;
+    const out = root.querySelector<HTMLElement>('[data-readout]')!;
+    const person = root.querySelector<SVGGElement>('[data-person]')!;
+    const update = () => {
+      const ratio = clampRatio(range.value);
+      const s = figureHeight(ratio, MOUNTAIN_HEIGHT) / FIGURE_DRAWN;
+      person.setAttribute('transform', `translate(300 250) scale(${s})`);
+      out.textContent = `山的高度约为人的 ${ratio} 倍`;
+    };
+    range.addEventListener('input', update);
+    root.querySelector('[data-reset]')!.addEventListener('click', () => {
+      range.value = String(SCALE_DEFAULT);
+      update();
+    });
+    update();
+  });
+</script>

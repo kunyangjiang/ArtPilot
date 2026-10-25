@@ -1,0 +1,55 @@
+{
+  "id": "art-fan-kuan-travelers-001",
+  "titleZh": "溪山行旅图",
+  "titleEn": "Travelers Among Mountains and Streams",
+  "artist": "范宽（Fan Kuan）",
+  "attributionNote": "画面中发现署名“范寬”，通行观点视为其存世代表作；范宽生卒年各家说法不一，大致活跃于北宋初。",
+  "dateApprox": "约公元 1000 年前后（北宋初）",
+  "medium": "立轴，绢本，水墨淡设色",
+  "dimensionsCm": { "height": 206.3, "width": 103.3 },
+  "collection": "国立故宫博物院（台北），馆藏编号 K2A00826",
+  "infoSources": [
+    {
+      "label": "Wikimedia Commons 文件页（含 Google Art Project 元数据：尺寸、材质、馆藏）",
+      "url": "https://commons.wikimedia.org/wiki/File:Fan_Kuan_-_Travelers_Among_Mountains_and_Streams_-_Google_Art_Project.jpg"
+    },
+    {
+      "label": "Wikipedia：Fan Kuan 条目",
+      "url": "https://en.wikipedia.org/wiki/Fan_Kuan"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/fan-kuan-full.jpg",
+      "alt": "范宽《溪山行旅图》全幅：一座高耸的主峰占据画面大部分，右侧有细长瀑布，山脚树丛中有极小的驮队。",
+      "caption": "范宽《溪山行旅图》全图（缩小版）。",
+      "kind": "full"
+    },
+    {
+      "key": "travelers",
+      "src": "/img/fan-kuan-travelers.jpg",
+      "alt": "画面右下部局部：几头驮货的骡子和赶骡人沿溪边小路前行。",
+      "caption": "局部：画面下方的驮队（由原图裁切）。",
+      "kind": "detail"
+    },
+    {
+      "key": "brushwork",
+      "src": "/img/fan-kuan-brushwork.jpg",
+      "alt": "主峰岩面局部：密集的短促竖向笔触，右侧是深色的瀑布。",
+      "caption": "局部：主峰岩面的密集笔触与瀑布（由原图裁切）。",
+      "kind": "detail"
+    }
+  ],
+  "imageSource": {
+    "label": "Wikimedia Commons（Google Art Project 高清图，2809×5633 px，原文件 6.8 MB）",
+    "url": "https://commons.wikimedia.org/wiki/File:Fan_Kuan_-_Travelers_Among_Mountains_and_Streams_-_Google_Art_Project.jpg",
+    "originalFile": "Fan Kuan - Travelers Among Mountains and Streams - Google Art Project.jpg"
+  },
+  "rights": {
+    "status": "公有领域（Public domain）",
+    "basis": "Commons 文件页标注 {{PD-Art|PD-old-100}}：平面艺术品的忠实复制，原作者逝世已逾百年。",
+    "verifiedOn": "2026-10-25",
+    "note": "本页图片为从上述文件缩小并裁切的派生版本，无新增版权主张。权利状态依据 Commons 页面标注，未另向馆方书面确认；若用于正式产品，应再核对馆方开放资料条款。"
+  }
+}

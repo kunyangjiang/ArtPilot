@@ -1,0 +1,41 @@
+---
+import { getEntry } from 'astro:content';
+interface Props { ids: string[] }
+const entries = await Promise.all(Astro.props.ids.map((id) => getEntry('glossary', id)));
+const terms = entries.map((e) => {
+  if (!e) throw new Error('Unknown glossary id in lesson');
+  return { id: e.id, ...e.data };
+});
+---
+<section id="glossary" class="glossary" aria-labelledby="glossary-h">
+  <h2 id="glossary-h">本课术语</h2>
+  <div class="tags" role="group" aria-label="术语标签">
+    {terms.map((t) => <button type="button" class="tag" aria-pressed="false" data-id={t.id}>{t.term}</button>)}
+  </div>
+  <div class="panel glossary-out" role="status" aria-live="polite" data-out>
+    <p class="meta">点击上方术语查看简短释义。</p>
+  </div>
+  <script type="application/json" id="glossary-data" set:html={JSON.stringify(terms)} />
+</section>
+<script>
+  const data: { id: string; term: string; pinyin: string; definition: string }[] = JSON.parse(
+    document.getElementById('glossary-data')!.textContent!,
+  );
+  const out = document.querySelector<HTMLElement>('[data-out]')!;
+  const tags = document.querySelectorAll<HTMLButtonElement>('.tag');
+  tags.forEach((tag) =>
+    tag.addEventListener('click', () => {
+      const opening = tag.getAttribute('aria-pressed') !== 'true';
+      tags.forEach((t) => t.setAttribute('aria-pressed', 'false'));
+      out.replaceChildren();
+      if (!opening) return;
+      tag.setAttribute('aria-pressed', 'true');
+      const t = data.find((d) => d.id === tag.dataset.id)!;
+      const h = document.createElement('h3');
+      h.textContent = `${t.term}（${t.pinyin}）`;
+      const p = document.createElement('p');
+      p.textContent = t.definition;
+      out.append(h, p);
+    }),
+  );
+</script>

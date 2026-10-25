@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+const lessons = await getCollection('lessons');
+---
+<Base title="ArtPilot · 技术验证">
+  <div class="wrap" style="padding-block: 3rem;">
+    <p class="meta">Technical Spike 01A · 本地验证，非正式产品</p>
+    <h1>从一幅画开始读懂艺术</h1>
+    {lessons.map((l) => (
+      <a class="card" href={`/lessons/${l.id}/`}>
+        <h2>{l.data.title}</h2>
+        <p class="meta">{l.data.summary}</p>
+      </a>
+    ))}
+  </div>
+</Base>

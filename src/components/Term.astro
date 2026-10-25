@@ -1,0 +1,8 @@
+---
+import { getEntry } from 'astro:content';
+interface Props { id: string }
+const { id } = Astro.props;
+const entry = await getEntry('glossary', id);
+if (!entry) throw new Error(`Unknown glossary id: ${id}`);
+---
+<dfn class="term" data-term={id} title={entry.data.definition}><slot /></dfn>

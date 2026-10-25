@@ -1,0 +1,52 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import GlossaryTags from '../../components/GlossaryTags.astro';
+import ArtworkFigure from '../../components/ArtworkFigure.astro';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const artworkId = entry.data.artwork.id;
+const art = (await getEntry('artworks', artworkId))!.data;
+---
+<Base title={`${entry.data.title} · ArtPilot`} description={entry.data.summary}>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <p class="meta">示例课程 · 技术验证</p>
+        <h1>{entry.data.title}</h1>
+        <p class="lede">{entry.data.summary}</p>
+        <dl class="meta">
+          <dt>作品</dt><dd>《{art.titleZh}》（{art.titleEn}）</dd>
+          <dt>作者</dt><dd>{art.artist}</dd>
+          <dt>年代</dt><dd>{art.dateApprox}</dd>
+          <dt>材质</dt><dd>{art.medium}</dd>
+          <dt>尺寸</dt><dd>{art.dimensionsCm.height} × {art.dimensionsCm.width} cm</dd>
+          <dt>收藏</dt><dd>{art.collection}</dd>
+        </dl>
+      </div>
+      <ArtworkFigure artwork={artworkId} image="full" hero />
+    </header>
+
+    <article class="lesson">
+      <Content />
+      <GlossaryTags ids={entry.data.glossary.map((g) => g.id)} />
+      <footer id="rights" class="rights">
+        <h2>图片与版权</h2>
+        <dl class="meta">
+          <dt>图片来源</dt><dd><a href={art.imageSource.url}>{art.imageSource.label}</a></dd>
+          <dt>权利状态</dt><dd>{art.rights.status}</dd>
+          <dt>依据</dt><dd>{art.rights.basis}</dd>
+          <dt>核对日期</dt><dd>{art.rights.verifiedOn}</dd>
+          <dt>说明</dt><dd>{art.rights.note}</dd>
+          <dt>资料来源</dt>
+          <dd>{art.infoSources.map((s) => <><a href={s.url}>{s.label}</a><br /></>)}</dd>
+        </dl>
+      </footer>
+    </article>
+  </div>
+</Base>

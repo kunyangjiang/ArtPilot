@@ -1,0 +1,59 @@
+---
+interface Props {
+  question: { prompt: string; options: { text: string; explanation: string }[]; answer: number };
+}
+const { question } = Astro.props;
+---
+<form class="panel quiz" data-question={JSON.stringify(question)} novalidate>
+  <h3>观察练习</h3>
+  <fieldset>
+    <legend>{question.prompt}</legend>
+    {question.options.map((o, i) => (
+      <label><input type="radio" name="choice" value={String(i)} /><span>{o.text}</span></label>
+    ))}
+  </fieldset>
+  <div class="actions">
+    <button type="submit" data-submit>提交答案</button>
+    <button type="button" data-retry hidden>重试</button>
+  </div>
+  <div class="feedback" data-feedback role="status" aria-live="polite" hidden></div>
+</form>
+<script>
+  import { evaluateAnswer } from '../lib/quiz.js';
+
+  document.querySelectorAll<HTMLFormElement>('form.quiz').forEach((form) => {
+    const question = JSON.parse(form.dataset.question!);
+    const radios = form.querySelectorAll<HTMLInputElement>('input[type=radio]');
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const retry = form.querySelector<HTMLButtonElement>('[data-retry]')!;
+    const box = form.querySelector<HTMLElement>('[data-feedback]')!;
+
+    const show = (cls: string, head: string, body: string) => {
+      box.className = `feedback ${cls}`;
+      box.replaceChildren();
+      const strong = document.createElement('strong');
+      strong.textContent = head;
+      box.append(strong, body);
+      box.hidden = false;
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const checked = [...radios].findIndex((r) => r.checked);
+      const result = evaluateAnswer(question, checked);
+      if (!result) return show('wrong', '请先选择一个选项', '选择后再提交。');
+      show(result.correct ? 'correct' : 'wrong', result.correct ? '回答正确' : '再想想', result.explanation);
+      radios.forEach((r) => (r.disabled = true));
+      submit.disabled = true;
+      retry.hidden = false;
+    });
+
+    retry.addEventListener('click', () => {
+      radios.forEach((r) => { r.disabled = false; r.checked = false; });
+      submit.disabled = false;
+      retry.hidden = true;
+      box.hidden = true;
+      radios[0]?.focus();
+    });
+  });
+</script>
