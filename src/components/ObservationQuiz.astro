@@ -44,6 +44,8 @@ const { question } = Astro.props;
       if (!result) return show('wrong', '请先选择一个选项', '选择后再提交。');
       show(result.correct ? 'correct' : 'wrong', result.correct ? '回答正确' : '再想想', result.explanation);
       form.dataset.result = result.correct ? 'correct' : 'wrong';
+      // Announce the outcome; the lesson page uses a correct answer to award the artwork's card.
+      form.dispatchEvent(new CustomEvent('artpilot:quiz', { bubbles: true, detail: { correct: result.correct } }));
       radios.forEach((r) => (r.disabled = true));
       submit.disabled = true;
       retry.hidden = false;

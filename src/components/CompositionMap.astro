@@ -1,18 +1,26 @@
 ---
 import { getEntry } from 'astro:content';
-// The full work with its compositional zones marked alongside (percentages of image height; schematic).
-interface Props { artwork: string; zones: { label: string; from: number; to: number }[] }
-const { artwork, zones } = Astro.props;
+// The full work with zones marked on it (percentages of the image; schematic).
+// Default: brackets alongside the image for vertical zones (composition).
+// `locator`: the exact rectangle each zone covers is outlined on the image itself, so the reader can find where a
+// detail comes from. A single zone is labelled above its box and the rest of the work is dimmed; several zones are
+// numbered inside their boxes. `left`/`right` default to the full width.
+interface Zone { label: string; from: number; to: number; left?: number; right?: number }
+interface Props { artwork: string; zones: Zone[]; locator?: boolean; caption?: string }
+const { artwork, zones, locator = false, caption } = Astro.props;
 const record = await getEntry('artworks', artwork);
 const img = record?.data.images.find((i) => i.key === 'full');
 if (!record || !img) throw new Error(`Unknown artwork: ${artwork}`);
+const cap = caption ?? (locator ? '方框为下文所指局部在全图中的位置（按裁切范围标出）。' : '构图分区示意：比例为目测近似。');
 ---
-<figure class="cmap">
+<figure class:list={['cmap', { 'is-locator': locator }]}>
   <div class="cmap-frame">
     <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
-    <ol aria-label="构图分区（示意）">
-      {zones.map((z) => <li style={`--from:${z.from};--to:${z.to}`}><span>{z.label}</span></li>)}
+    <ol aria-label={locator ? '局部在全图中的位置' : '构图分区（示意）'}>
+      {zones.map((z) => (
+        <li style={`--from:${z.from};--to:${z.to};--left:${z.left ?? 0};--right:${z.right ?? 100}`}><span>{z.label}</span></li>
+      ))}
     </ol>
   </div>
-  <figcaption><span class="cap">构图分区示意：比例为目测近似。</span><span class="credit">{record.data.artist}《{record.data.titleZh}》</span></figcaption>
+  <figcaption><span class="cap">{cap}</span><span class="credit">{record.data.artist}《{record.data.titleZh}》</span></figcaption>
 </figure>

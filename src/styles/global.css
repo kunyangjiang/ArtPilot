@@ -198,6 +198,41 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .cmap-frame li::after { bottom: 0; }
 .cmap-frame li:nth-child(2) { color: var(--ink-3); border-left-style: dotted; }
 
+/* Locator: where a detail comes from. The exact crop rectangle is outlined on the work itself (white with a dark
+   halo, legible on silk and on ink); the work keeps its colours. A lone box is labelled above and the rest of the
+   work is dimmed; several boxes carry small numbers that match the numbered details that follow. */
+.cmap.is-locator .cmap-frame { width: 100%; overflow: hidden; }
+.cmap.is-locator .cmap-frame img { display: block; width: 100%; height: auto; }
+.cmap.is-locator ol { inset: 0; width: auto; }
+.cmap.is-locator li {
+  display: block; top: calc(var(--from) * 1%); height: calc((var(--to) - var(--from)) * 1%);
+  left: calc(var(--left) * 1%); right: calc((100 - var(--right)) * 1%); padding: 0;
+  border: 1.5px solid #fff; border-radius: 2px; color: var(--ink);
+  box-shadow: 0 0 0 1px rgb(12 12 11 / .55), inset 0 0 0 1px rgb(12 12 11 / .35);
+}
+.cmap.is-locator li:only-child { box-shadow: 0 0 0 1px rgb(12 12 11 / .55), 0 0 0 100vmax rgb(12 12 11 / .38); }
+.cmap.is-locator li::before, .cmap.is-locator li::after { content: none; }
+.cmap.is-locator li span {
+  position: absolute; top: .2rem; left: .2rem; min-width: 1.15rem; padding: .05rem .3rem; border-radius: 2px;
+  background: #fff; color: var(--ink); font: 600 .6875rem/1.35 var(--sans); letter-spacing: .04em; text-align: center; white-space: nowrap;
+}
+.cmap.is-locator li:only-child span { top: auto; bottom: calc(100% + .3rem); left: -1.5px; font-weight: 500; }
+
+/* A locator sits in the margin beside the paragraph that needs it, so the prose keeps the normal reading line. */
+.lesson > .split:has(> .cmap.is-locator) {
+  grid-column: wide-start / text-end; grid-template-columns: subgrid; margin-block: .25rem 2rem;
+}
+.lesson > .split:has(> .cmap.is-locator) > figure { grid-column: 1; }
+.lesson > .split:has(> .cmap.is-locator) > :not(figure) { grid-column: 2; }
+
+/* The numbered details after a multi-box locator take the same numbers. */
+.lesson > .split:has(> .cmap.is-locator li:nth-child(2)) + .band-plates { counter-reset: plate; }
+.lesson > .split:has(> .cmap.is-locator li:nth-child(2)) + .band-plates figure { counter-increment: plate; }
+.lesson > .split:has(> .cmap.is-locator li:nth-child(2)) + .band-plates figcaption .cap::before {
+  content: counter(plate); display: inline-block; min-width: 1.15rem; margin-right: .5rem; padding: .05rem .3rem; border-radius: 2px;
+  background: var(--gallery-ink); color: var(--gallery); font-weight: 600; text-align: center;
+}
+
 /* ---------- Callouts: documentary fact vs authorial interpretation ---------- */
 .callout { margin: .5rem 0 2.25rem; }
 .callout .label { display: block; margin-bottom: .35rem; }
@@ -373,6 +408,253 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .rights .meta { grid-column: text-start / wide-end; grid-template-columns: 6rem 1fr; }
 .rights .meta dd a { color: var(--ink); }
 
+/* ---------- Artwork record (Art Collection sample) ---------- */
+/* A catalogue sheet, deliberately unlike a lesson: on the plain page, the whole work on the left (held in view
+   while the sheet scrolls on wide screens) and the facts on the right in the documentary sans. No dark opening,
+   no serif narrative, no section numerals. The work keeps its true colour. */
+.object {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 34rem); column-gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start; max-width: 76rem; margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+}
+.object-image { position: sticky; top: calc(3.5rem + 2rem); justify-self: end; margin: 0; }
+.object-image img { display: block; width: auto; max-width: 100%; max-height: calc(100svh - 3.5rem - 6.5rem); }
+.object-image figcaption { margin-top: .75rem; font: 400 .75rem/1.6 var(--sans); letter-spacing: .06em; color: var(--ink-3); }
+
+.object-sheet { font-family: var(--sans); }
+.object-sheet p { text-align: left; }
+.object-no { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: 0 0 1.25rem; font: 500 .75rem/1.6 var(--sans); letter-spacing: .16em; color: var(--ink-3); }
+.object-head h1 { margin: 0; font: 500 clamp(2rem, 3vw, 2.625rem)/1.3 var(--sans); letter-spacing: .08em; }
+.object-en { margin: .5rem 0 0; font: italic 400 1.0625rem/1.5 var(--latin); color: var(--ink-2); }
+
+.object-data { margin: 2.25rem 0 0; display: grid; grid-template-columns: 6.5rem 1fr; font: 400 .9375rem/1.75 var(--sans); letter-spacing: .03em; border-bottom: 1px solid var(--rule); }
+.object-data dt, .object-data dd { padding-block: .8rem; border-top: 1px solid var(--rule); }
+.object-data dt { padding-top: 1.05rem; font-size: .75rem; letter-spacing: .16em; color: var(--ink-3); }
+.object-data dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+.object-sub { display: block; margin-top: .3rem; font-size: .8125rem; line-height: 1.7; color: var(--ink-3); }
+.object-missing { color: var(--ink-3) !important; }
+/* Marks for approximate and missing information. */
+.flag {
+  display: inline-block; margin-left: .35rem; padding: .05rem .55rem; border: 1px solid var(--silver); border-radius: 999px;
+  font: 500 .6875rem/1.6 var(--sans); letter-spacing: .12em; color: var(--ink-3); vertical-align: .1em; white-space: nowrap;
+}
+
+.object-sheet h2.kicker { margin: 0 0 1rem; }
+.object-contents, .object-lessons { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.object-contents ol { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--rule); }
+.object-contents li { display: grid; grid-template-columns: 4rem 1fr auto; column-gap: 1rem; align-items: center; padding-block: .65rem; border-top: 1px solid var(--rule); }
+.object-thumb { display: block; padding: 0; border: 0; border-radius: .25rem; background: none; cursor: zoom-in; }
+.object-thumb:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.object-contents li img { display: block; width: 4rem; height: 4rem; object-fit: cover; border-radius: .25rem; background: var(--mist); }
+.object-contents li p { margin: 0; font-size: .9375rem; line-height: 1.6; color: var(--ink); }
+.object-where { display: block; font-size: .75rem; letter-spacing: .12em; color: var(--ink-3); }
+.object-span { font: 400 .8125rem/1 var(--sans); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.object-note { margin: .75rem 0 0; font-size: .75rem; line-height: 1.7; color: var(--ink-3); }
+
+.object-lesson {
+  display: flex; justify-content: space-between; gap: 1rem; padding-block: .9rem; border-block: 1px solid var(--rule);
+  font: 500 1rem/1.6 var(--sans); letter-spacing: .04em; color: var(--ink); text-decoration: none;
+}
+.object-lesson span { transition: transform var(--t) var(--ease); }
+.object-lesson:hover { text-decoration: underline 1px; text-underline-offset: .25em; }
+.object-lesson:hover span { transform: translateX(4px); }
+
+/* Detail viewer: full screen on the gallery dark, the detail in true colour, with a plain close button. Clicking the
+   dark surround or pressing Esc also closes it. */
+.object-viewer {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: clamp(3.5rem, 6vw, 4.5rem) 1.25rem 1.5rem;
+  border: 0; background: var(--gallery); color: var(--gallery-ink); cursor: zoom-out;
+}
+.object-viewer[open] { display: grid; place-items: center; }
+.object-viewer::backdrop { background: var(--gallery); }
+.object-viewer figure { margin: 0; cursor: auto; }
+.object-viewer img { display: block; width: auto; max-width: min(100%, 64rem); max-height: calc(100dvh - 9rem); margin-inline: auto; }
+.object-viewer figcaption { margin-top: .9rem; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .04em; color: var(--gallery-ink-2); text-align: center; }
+.object-viewer-close {
+  position: fixed; top: 1rem; right: clamp(1rem, 3vw, 2rem); padding: .5rem 1.1rem; border: 1px solid var(--gallery-rule); border-radius: 999px;
+  background: transparent; color: var(--gallery-ink); font: 500 .875rem/1.4 var(--sans); letter-spacing: .1em; cursor: pointer;
+}
+.object-viewer-close:hover { border-color: var(--gallery-ink-2); }
+.object-viewer-close:focus-visible { outline: 2px solid var(--gallery-ink); outline-offset: 3px; }
+
+.object-sheet > .rights { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.object-sheet > .rights h2 { margin: 0 0 1rem; }
+.object-sheet > .rights .meta { grid-template-columns: 6.5rem 1fr; }
+
+@media (max-width: 860px) {
+  .object { grid-template-columns: 1fr; row-gap: 2rem; padding-bottom: 5.5rem; } /* clear space for Back to top */
+  .object-image { position: static; justify-self: center; }
+  .object-image img { max-height: 70svh; }
+  .object-data, .object-sheet > .rights .meta { grid-template-columns: 5.5rem 1fr; }
+}
+
+/* ---------- Collectible cards ---------- */
+/* A card is a magazine cover, strictly black and white: masthead and issue line across the top, the work as a
+   full-bleed monochrome cover photograph, the Chinese title set vertically in a light display serif, and cover
+   lines (English title, maker, facets) at the foot. With no image, the issue number becomes the cover image.
+   Sized in em so the mini card is the same cover at a smaller size. */
+.art-card {
+  --paper-on: #f5f4f0;
+  --paper-on-2: rgb(245 244 240 / .66);
+  --paper-on-3: rgb(245 244 240 / .42);
+  --hair: rgb(245 244 240 / .32);
+  position: relative; width: 18em; font-size: 1rem;
+}
+.art-card-inner {
+  position: relative; aspect-ratio: 63 / 88; transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(calc(var(--tilt-y, 0deg) + var(--flip, 0deg)));
+  transition: transform 520ms var(--ease);
+}
+.art-card[data-flipped="true"] { --flip: 180deg; }
+.art-card[data-held="true"] .art-card-inner { transition-duration: 90ms; }
+
+.art-card-face, .art-card-locked {
+  position: absolute; inset: 0; overflow: hidden; backface-visibility: hidden;
+  border-radius: .45em; background: #0b0b0b; color: var(--paper-on);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 .1em .2em rgb(0 0 0 / .4), 0 1.2em 2.4em rgb(0 0 0 / .45);
+}
+.art-card[data-collected="false"] .art-card-face { display: none; }
+.art-card[data-collected="true"] .art-card-locked { display: none; }
+
+/* Front: the cover. */
+.art-card-front {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: .85em .9em .8em;
+}
+.art-card-cover {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.12) brightness(.92);
+}
+.art-card-shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgb(0 0 0 / .72) 0%, rgb(0 0 0 / .18) 22%, rgb(0 0 0 / 0) 40%, rgb(0 0 0 / .25) 62%, rgb(0 0 0 / .9) 100%);
+}
+.art-card[data-image="none"] .art-card-shade { background: none; }
+.art-card-front > :is(.art-card-mast, .art-card-title, .art-card-lines) { position: relative; z-index: 1; }
+
+/* Masthead: the wordmark set wide in the display cut of the serif, with a fine issue line beneath. */
+.art-card-mast { grid-column: 1 / -1; text-align: center; }
+.art-card-masthead {
+  display: block; font: 400 1.95em/1 var(--latin); letter-spacing: .26em; margin-right: -.26em;
+  text-transform: uppercase; font-optical-sizing: auto;
+}
+.art-card-issue {
+  display: flex; justify-content: space-between; margin-top: .5em; padding-top: .4em; border-top: 1px solid var(--hair);
+  font: 500 .5em/1 var(--sans); letter-spacing: .32em; color: var(--paper-on-2);
+}
+.art-card-issue span:last-child { font: italic 400 1.2em/1 var(--latin); letter-spacing: .06em; }
+
+/* The title, set vertically down the right edge in a light display weight. */
+.art-card-title {
+  grid-column: 2; grid-row: 2 / 4; align-self: start; margin: .5em -.05em 0 .35em; /* runs the full height beside the cover lines */
+  writing-mode: vertical-rl; text-orientation: upright;
+  font: 300 2.6em/1 var(--serif); letter-spacing: .12em; color: var(--paper-on);
+  text-shadow: 0 0 .5em rgb(0 0 0 / .35);
+}
+
+/* Cover lines at the foot. */
+.art-card-lines { grid-column: 1; grid-row: 3; }
+.art-card-en { margin: 0 0 .45em; max-width: 13em; font: italic 400 1.02em/1.15 var(--latin); color: var(--paper-on); }
+.art-card-by {
+  margin: 0 0 .55em; display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: .5em; border-bottom: 1px solid var(--hair);
+  font: 700 .66em/1 var(--serif); letter-spacing: .3em; color: var(--paper-on);
+}
+.art-card-by span:last-child { font: 400 .82em/1 var(--sans); letter-spacing: .26em; color: var(--paper-on-2); }
+.art-card-stats { margin: 0; display: grid; gap: .28em; }
+.art-card-stats div { display: flex; gap: .7em; align-items: baseline; }
+.art-card-stats dt { flex: none; font: 500 .44em/1.4 var(--sans); letter-spacing: .32em; color: var(--paper-on-3); }
+.art-card-stats dd { margin: 0; font: 400 .6em/1.4 var(--sans); letter-spacing: .06em; color: var(--paper-on); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Locked card: the outlined issue number stands in for a work not yet known. */
+.art-card-numeral {
+  /* left = the cover margin (.9em of the card) in the numeral's own em (9.2), so it lines up with the cover lines */
+  position: absolute; left: calc(.9em / 9.2); top: 44%; translate: 0 -50%; z-index: 0;
+  font: 400 9.2em/.8 var(--latin); letter-spacing: -.04em; font-optical-sizing: auto;
+  color: transparent; -webkit-text-stroke: 1px rgb(245 244 240 / .28);
+}
+/* Collected card with no image: the card's one-sentence description is the cover headline, set as a
+   pull-quote in the light display serif. It exists for every card, in any language and art form. */
+.art-card-coverline {
+  grid-column: 1; grid-row: 2; align-self: center; position: relative; z-index: 1;
+  margin: 0 .6em 0 0; font: 300 1.15em/1.6 var(--serif); letter-spacing: .05em; color: var(--paper-on);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden;
+}
+.art-card-coverline::before {
+  content: "\201C"; display: block; height: .55em; margin-bottom: .15em;
+  font: 400 2.6em/1 var(--latin); color: var(--paper-on-3);
+}
+
+/* Light: a faint, colourless pool follows the pointer while the card is held. */
+.art-card-holo {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 30%), rgb(255 255 255 / .1), transparent 48%);
+  transition: opacity 300ms var(--ease);
+}
+.art-card[data-held="true"] .art-card-holo { opacity: 1; }
+
+/* Back: the cover story, set like a contents page. */
+.art-card-back { transform: rotateY(180deg); display: flex; flex-direction: column; padding: .85em .9em 1em; background: #111; }
+.art-card-back .art-card-mast { margin-bottom: 1.4em; }
+.art-card-blurb { margin: 0; font: 300 1.32em/1.62 var(--serif); letter-spacing: .06em; color: var(--paper-on); }
+.art-card-fact { margin: auto 0 0; font: 400 .66em/1.75 var(--sans); letter-spacing: .04em; color: var(--paper-on-2); }
+.art-card-fact span { display: block; font: italic 400 1.15em/1.5 var(--latin); letter-spacing: 0; color: var(--paper-on); }
+.art-card-links { margin: .8em 0 0; display: flex; flex-wrap: wrap; gap: .3em 1.2em; padding-top: .7em; border-top: 1px solid var(--hair); }
+.art-card-links a { font: 500 .74em/1.6 var(--sans); letter-spacing: .14em; text-decoration: none; color: var(--paper-on); }
+.art-card-links a:hover { text-decoration: underline 1px; text-underline-offset: .3em; }
+.art-card :focus-visible { outline-color: var(--paper-on); }
+
+/* Locked: the uncollected issue — masthead and an outlined number, nothing of the work. */
+.art-card-locked { display: grid; grid-template-rows: auto 1fr auto; padding: .85em .9em 1em; background: #0e0e0e; color: var(--paper-on-2); box-shadow: 0 0 0 1px rgb(255 255 255 / .1); }
+.art-card-locked .art-card-numeral { -webkit-text-stroke-color: rgb(245 244 240 / .2); }
+.art-card-locked-text { grid-row: 3; position: relative; z-index: 1; text-align: left; padding-top: .6em; border-top: 1px solid var(--hair); }
+.art-card-locked-state { margin: 0 0 .5em; font: 300 1.2em/1 var(--serif); letter-spacing: .4em; color: var(--paper-on); }
+.art-card-locked a { font: 400 .68em/1.7 var(--sans); letter-spacing: .04em; color: var(--paper-on-2); text-underline-offset: .3em; text-decoration-color: var(--hair); display: block; }
+
+.art-card-flip {
+  display: block; margin: 1.1rem auto 0; padding: .45rem 1.1rem; min-height: 2.5rem; border-radius: 999px;
+  border: 1px solid var(--gallery-rule); background: transparent; color: var(--gallery-ink); cursor: pointer;
+  font: 500 .8125rem/1 var(--sans); letter-spacing: .1em; transition: border-color var(--t-fast) var(--ease);
+}
+.art-card-flip:hover { border-color: var(--gallery-ink-2); }
+.art-card-flip:focus-visible { outline-color: var(--gallery-ink); }
+
+.art-card-mini { font-size: .5625rem; } /* the same cover at about half size */
+
+/* Archive: the binder, on the gallery wall. */
+.archive { min-height: calc(100svh - 3.5rem); padding: clamp(3rem, 7vw, 5.5rem) max(1.25rem, calc((100% - 66rem) / 2)) 4rem; background: var(--gallery); color: var(--gallery-ink); }
+.archive-head .kicker { margin: 0 0 1rem; color: var(--gallery-ink-2); }
+.archive-head h1 { margin: 0; font: 500 clamp(2.25rem, 4vw, 3.25rem)/1.2 var(--serif); letter-spacing: .14em; }
+.archive-count { margin: 1rem 0 .5rem; font: 400 1.125rem/1.4 var(--latin); color: var(--gallery-ink); }
+.archive-count span { font-size: 1.75rem; }
+.archive-how { max-width: 34rem; margin: 0; font: 400 .9375rem/1.85 var(--sans); letter-spacing: .03em; color: var(--gallery-ink-2); }
+.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, 18rem); justify-content: start; gap: 3rem 2.5rem; margin: 3.5rem 0 0; padding: 0; list-style: none; }
+.archive-more { display: grid; place-items: center; aspect-ratio: 63 / 88; padding: 1.5rem; border: 1px dashed var(--gallery-rule); border-radius: 1rem; text-align: center; }
+.archive-more p { margin: 0; font: 400 .8125rem/1.8 var(--sans); letter-spacing: .04em; color: var(--gallery-ink-2); }
+.archive-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--gallery-rule); }
+.archive-foot p { margin: 0; font: 400 .8125rem/1.7 var(--sans); color: var(--gallery-ink-2); }
+.archive-clear { color: var(--gallery-ink); border-color: var(--gallery-rule); background: transparent; }
+.archive-clear:hover { border-color: var(--gallery-ink-2); }
+.archive-clear:focus-visible { outline-color: var(--gallery-ink); }
+
+/* Unlock moment, inside the lesson right after the quiz that earned it. */
+.card-unlock {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.75rem; align-items: center;
+  margin: -1.5rem 0 3.5rem; padding: 1.5rem; background: var(--gallery); color: var(--gallery-ink); border-radius: .875rem;
+}
+.card-unlock .kicker { margin: 0 0 .4rem; color: var(--gallery-ink-2); }
+.card-unlock-title { margin: 0 0 1.1rem !important; font: 500 1.125rem/1.6 var(--serif); letter-spacing: .04em; text-align: left !important; }
+.card-unlock .btn-secondary { color: var(--gallery-ink); border-color: var(--gallery-rule); }
+.card-unlock .btn-secondary:hover { border-color: var(--gallery-ink-2); }
+.card-unlock .btn:focus-visible { outline-color: var(--gallery-ink); }
+.card-unlock[data-fresh="true"]:not([hidden]) .art-card { animation: card-arrive 700ms var(--ease) both; }
+@keyframes card-arrive { from { opacity: 0; transform: translateY(14px) rotate(-4deg) scale(.94); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 860px) {
+  .archive-grid { grid-template-columns: 18rem; justify-content: center; }
+  .card-unlock { grid-template-columns: 1fr; justify-items: start; }
+}
+
 /* ---------- Back to top ---------- */
 .to-top {
   position: fixed; right: max(1.25rem, env(safe-area-inset-right)); bottom: max(1.25rem, env(safe-area-inset-bottom)); z-index: 10;
@@ -414,7 +696,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 
   .lesson { grid-template-columns: [full-start] 1.25rem [wide-start text-start] minmax(0, 1fr) [text-end wide-end] 1.25rem [full-end]; column-gap: 0; }
   .lesson > h2 { display: block; grid-column: text; margin-top: 4.5rem; }
-  .lesson > h2::before { display: block; margin-bottom: .75rem; font-size: 2.25rem; text-align: left; }
+  .lesson > h2::before { display: block; margin-bottom: .75rem; font-size: 2.25rem; text-align: left; justify-self: start; }
   .lesson > p { text-align: left; }
   .split > p { font-size: inherit; }
   .band-prelude { padding-top: 3.5rem; }
@@ -424,6 +706,13 @@ dfn.term:hover { text-decoration-color: var(--ink); }
   .split > figure:not(.cmap) { margin: 0 -1.25rem 1.75rem; }
   .split > figure:not(.cmap) figcaption { padding-inline: 1.25rem; }
   .split > figure.cmap { margin-bottom: 2.25rem; }
+  /* Phones: a locator becomes an inset; the paragraph wraps around it and continues at full width. */
+  .lesson > .split:has(> .cmap.is-locator) { display: block; grid-column: text; }
+  .lesson > .split:has(> .cmap.is-locator) > figure.cmap { float: left; width: 6.5rem; margin: .35rem 1rem .5rem 0; }
+  .lesson > .split:has(> .cmap.is-locator)::after { content: ""; display: block; clear: both; }
+  .cmap.is-locator li span { font-size: .5625rem; padding: .05rem .25rem; min-width: .95rem; }
+  .cmap.is-locator .cmap-frame { width: 100%; }
+  .cmap.is-locator figcaption { display: none; } /* too narrow for prose; the box label carries the meaning */
   .cmap-frame { width: calc(100% - 8.5rem); }
   .cmap-frame ol { width: 7.75rem; }
   .band-plates { grid-template-columns: 1fr; padding-inline: 1.25rem; }

@@ -1,0 +1,118 @@
+---
+// Art Collection sample: one artwork record page. A static route for this one record, not a collection system.
+// A plain catalogue sheet about the object itself: the work, its facts, what is in the picture, where the image
+// comes from. The reading of the work belongs to its lessons, so there is no narrative here.
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArtworkRights from '../../components/ArtworkRights.astro';
+import BackToTop from '../../components/BackToTop.astro';
+
+const ID = 'art-fan-kuan-travelers-001';
+const record = await getEntry('artworks', ID);
+if (!record) throw new Error(`Unknown artwork: ${ID}`);
+const art = record.data;
+const image = (key: string) => art.images.find((i) => i.key === key)!;
+const full = image('full');
+const lessons = (await getCollection('lessons')).filter((l) => l.data.artwork.id === ID);
+
+// What is in the picture, top to bottom. Each detail is a crop of the one source image; the span is its vertical
+// position in percent of the image height, taken from the crop rectangle, and approximate.
+const contents = [
+  { key: 'summit', where: '主峰顶部', what: '墨点堆积而成的密林', span: '4–23%' },
+  { key: 'waterfall', where: '主峰右侧', what: '一道细长的瀑布', span: '31–61%' },
+  { key: 'brushwork', where: '主峰岩面', what: '密集的短竖笔触', span: '36–46%' },
+  { key: 'temple', where: '中景树丛', what: '树后露出的楼阁屋檐', span: '65–74%' },
+  { key: 'travelers', where: '画面右下', what: '驮队：骡子与赶骡人', span: '84–94%' },
+];
+---
+<Base title={`${art.titleZh} · 藏品记录 · ArtPilot`} description={`${art.artist}《${art.titleZh}》的藏品记录：作品信息、画面内容与图像来源。`} nav={{
+  back: { href: '/', label: '课程列表' },
+  links: [{ href: '#rights', label: '来源与版权' }, { href: '/collection/', label: '图鉴' }],
+}}>
+  <article class="object">
+    <figure class="object-image">
+      <img src={full.src} alt={full.alt} loading="eager" decoding="async" />
+      <figcaption>全图（缩小版），未经修饰。</figcaption>
+    </figure>
+
+    <div class="object-sheet">
+      <header class="object-head">
+        <p class="object-no">藏品 No.{art.card?.no}{art.card && <span>{art.card.type} · {art.card.period}</span>}</p>
+        <h1>{art.titleZh}</h1>
+        <p class="object-en" lang="en">{art.titleEn}</p>
+      </header>
+
+      <dl class="object-data">
+        <dt>作者</dt>
+        <dd>{art.artist}<span class="object-sub">{art.attributionNote}</span></dd>
+        <dt>年代</dt>
+        <dd>{art.dateApprox} <span class="flag">近似</span></dd>
+        <dt>材质与形制</dt>
+        <dd>{art.medium}</dd>
+        <dt>尺寸</dt>
+        <dd>{art.dimensionsCm.height} × {art.dimensionsCm.width} cm（高 × 宽）<span class="object-sub">据图像来源所附元数据；未注明是否含装裱。</span></dd>
+        <dt>收藏</dt>
+        <dd>{art.collection}</dd>
+        <dt>流传经历</dt>
+        <dd class="object-missing">暂无可核实的流传与递藏信息，未作补写。 <span class="flag">待补充</span></dd>
+      </dl>
+
+      <section class="object-contents" aria-labelledby="contents-h">
+        <h2 class="kicker" id="contents-h">画面内容 · 由上而下</h2>
+        <ol>
+          {contents.map((c) => {
+            const img = image(c.key);
+            return (
+              <li>
+                <button type="button" class="object-thumb" data-view={img.src} data-alt={img.alt} data-caption={`${c.where}：${c.what}（纵向约 ${c.span}）`} aria-label={`查看局部大图：${c.where}`}>
+                  <img src={img.src} alt="" loading="lazy" decoding="async" />
+                </button>
+                <p><span class="object-where">{c.where}</span>{c.what}</p>
+                <span class="object-span">{c.span}</span>
+              </li>
+            );
+          })}
+        </ol>
+        <p class="object-note">局部均由同一图像裁切；百分比为纵向位置，按裁切范围估算。</p>
+      </section>
+
+      {lessons.length > 0 && (
+        <section class="object-lessons" aria-labelledby="lessons-h">
+          <h2 class="kicker" id="lessons-h">相关课程</h2>
+          {lessons.map((l) => <a class="object-lesson" href={`/lessons/${l.id}/`}>{l.data.title}<span aria-hidden="true">→</span></a>)}
+        </section>
+      )}
+
+      <ArtworkRights artwork={ID} />
+    </div>
+  </article>
+
+  <!-- Detail viewer: a detail opens at full size over the page instead of leaving it for the bare image file. -->
+  <dialog class="object-viewer" aria-label="局部大图">
+    <button type="button" class="object-viewer-close" data-close>关闭</button>
+    <figure>
+      <img alt="" />
+      <figcaption></figcaption>
+    </figure>
+  </dialog>
+  <BackToTop />
+</Base>
+
+<script>
+  const viewer = document.querySelector<HTMLDialogElement>('.object-viewer')!;
+  const img = viewer.querySelector('img')!;
+  const caption = viewer.querySelector('figcaption')!;
+  let opener: HTMLButtonElement | null = null;
+  document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      img.src = thumb.dataset.view!;
+      img.alt = thumb.dataset.alt!;
+      caption.textContent = thumb.dataset.caption!;
+      opener = thumb;
+      viewer.showModal(); // Esc closes it
+    });
+  });
+  viewer.addEventListener('close', () => opener?.focus({ preventScroll: true })); // back to the thumbnail it came from
+  viewer.querySelector('[data-close]')!.addEventListener('click', () => viewer.close());
+  viewer.addEventListener('click', (event) => { if (event.target === viewer) viewer.close(); }); // the dark surround
+</script>

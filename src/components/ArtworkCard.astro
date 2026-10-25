@@ -1,0 +1,124 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+// A collectible artwork card, composed like a magazine cover and strictly black and white.
+// It renders locked; a script reveals it when this device has collected it.
+// `full`: archive card with a flip to its back. `mini`: front only, for the unlock moment.
+// One design for every art form: with an image, the work is the full-bleed cover photograph; without one,
+// the cover is typographic and leads with the card's one-sentence description as a pull-quote headline —
+// text every card has, in any language and for any form. (The outlined issue number belongs to the locked
+// card alone, so an owned card is never mistaken for an uncollected one.)
+interface Props { artwork: string; variant?: 'full' | 'mini' }
+const { artwork, variant = 'full' } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const art = record?.data;
+if (!art?.card) throw new Error(`Artwork has no card face: ${artwork}`);
+const card = art.card;
+const imageKey = card.image === undefined ? 'full' : card.image;
+const img = imageKey ? art.images.find((i) => i.key === imageKey) : undefined;
+if (imageKey && card.image && !img) throw new Error(`Card image "${imageKey}" not found on ${artwork}`);
+const lesson = (await getCollection('lessons')).find((l) => l.data.artwork.id === artwork);
+const artist = art.artist.replace(/（.*）/, '');
+---
+<article class={`art-card art-card-${variant}`} data-card={artwork} data-collected="false" data-flipped="false"
+  data-image={img ? 'yes' : 'none'} aria-label={`藏品卡 No.${card.no}`}>
+  <div class="art-card-inner">
+    <section class="art-card-face art-card-front" aria-label={`${art.titleZh} 正面`}>
+      {img
+        ? <img class="art-card-cover" src={img.src} alt={img.alt} loading="lazy" decoding="async" style={card.focus ? `object-position:${card.focus}` : undefined} />
+        : <p class="art-card-coverline">{card.blurb}</p>}
+      <div class="art-card-shade" aria-hidden="true"></div>
+      <header class="art-card-mast">
+        <span class="art-card-masthead">ArtPilot</span>
+        <span class="art-card-issue"><span>藏品图鉴</span><span>No.{card.no}</span></span>
+      </header>
+      <h3 class="art-card-title">{art.titleZh}</h3>
+      <div class="art-card-lines">
+        <p class="art-card-en" lang="en">{art.titleEn}</p>
+        <p class="art-card-by"><span>{artist}</span><span>{card.period} · {card.type}</span></p>
+        <dl class="art-card-stats">
+          {card.facets.map((f) => <div><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
+        </dl>
+      </div>
+      <div class="art-card-holo" aria-hidden="true"></div>
+    </section>
+    {variant === 'full' && (
+      <section class="art-card-face art-card-back" aria-label={`${art.titleZh} 背面`} inert>
+        <header class="art-card-mast">
+          <span class="art-card-masthead">ArtPilot</span>
+          <span class="art-card-issue"><span>封面故事</span><span>No.{card.no}</span></span>
+        </header>
+        <p class="art-card-blurb">{card.blurb}</p>
+        <p class="art-card-fact">{art.titleZh}<span lang="en">{art.titleEn}</span>{art.dateApprox}<br />{art.collection}</p>
+        <p class="art-card-links">
+          <a href={`/artworks/${artwork}/`}>藏品记录 →</a>
+          {lesson && <a href={`/lessons/${lesson.id}/`}>相关课程 →</a>}
+        </p>
+      </section>
+    )}
+    <section class="art-card-locked" aria-label={`No.${card.no} 未收集`}>
+      <header class="art-card-mast">
+        <span class="art-card-masthead">ArtPilot</span>
+        <span class="art-card-issue"><span>藏品图鉴</span><span>No.{card.no}</span></span>
+      </header>
+      <span class="art-card-numeral" aria-hidden="true">{card.no}</span>
+      <div class="art-card-locked-text">
+        <p class="art-card-locked-state">未收集</p>
+        {lesson && variant === 'full' && <a href={`/lessons/${lesson.id}/`}>完成课程《{lesson.data.title}》的观察练习后获得</a>}
+      </div>
+    </section>
+  </div>
+  {variant === 'full' && <button type="button" class="art-card-flip" aria-pressed="false" hidden>翻面</button>}
+</article>
+
+<script>
+  import { readCollection, deviceStorage } from '../lib/collection.js';
+
+  // Show every card this device has collected; called again whenever a card is newly collected.
+  const sync = () => {
+    const collected = readCollection(deviceStorage());
+    document.querySelectorAll<HTMLElement>('[data-card]').forEach((card) => {
+      const has = Boolean(collected[card.dataset.card!]);
+      card.dataset.collected = String(has);
+      card.querySelector<HTMLButtonElement>('.art-card-flip')?.toggleAttribute('hidden', !has);
+    });
+    document.dispatchEvent(new CustomEvent('artpilot:cards-synced', { detail: { count: Object.keys(collected).length } }));
+  };
+  addEventListener('artpilot:collected', sync);
+  sync();
+
+  document.querySelectorAll<HTMLButtonElement>('.art-card-flip').forEach((button) => {
+    const card = button.closest<HTMLElement>('.art-card')!;
+    const front = card.querySelector<HTMLElement>('.art-card-front')!;
+    const back = card.querySelector<HTMLElement>('.art-card-back')!;
+    button.addEventListener('click', () => {
+      const flipped = card.dataset.flipped !== 'true';
+      card.dataset.flipped = String(flipped);
+      button.setAttribute('aria-pressed', String(flipped));
+      button.textContent = flipped ? '翻回正面' : '翻面';
+      // Only the visible face can be read or focused.
+      front.inert = flipped;
+      back.inert = !flipped;
+    });
+  });
+
+  // Held in the hand: on a mouse or pen, the collected card tilts toward the pointer and catches a faint light.
+  const steady = matchMedia('(prefers-reduced-motion: reduce)');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  document.querySelectorAll<HTMLElement>('.art-card-full').forEach((card) => {
+    const inner = card.querySelector<HTMLElement>('.art-card-inner')!;
+    inner.addEventListener('pointermove', (event) => {
+      if (steady.matches || !fine.matches || card.dataset.collected !== 'true') return;
+      const r = inner.getBoundingClientRect();
+      const x = (event.clientX - r.left) / r.width, y = (event.clientY - r.top) / r.height;
+      card.style.setProperty('--tilt-x', `${(0.5 - y) * 10}deg`);
+      card.style.setProperty('--tilt-y', `${(x - 0.5) * 12}deg`);
+      card.style.setProperty('--light-x', `${Math.round(x * 100)}%`);
+      card.style.setProperty('--light-y', `${Math.round(y * 100)}%`);
+      card.dataset.held = 'true';
+    });
+    inner.addEventListener('pointerleave', () => {
+      card.dataset.held = 'false';
+      ['--tilt-x', '--tilt-y'].forEach((p) => card.style.setProperty(p, '0deg'));
+    });
+  });
+</script>

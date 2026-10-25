@@ -45,6 +45,21 @@ test('lesson references existing artwork and >=3 valid glossary ids', () => {
   inline.forEach((id) => assert.ok(known.has(id), `unknown inline term ${id}`));
 });
 
+// Every lesson ends with its quiz: after the reflection, before the sources. Answering it correctly earns the card,
+// whose panel appears right after the quiz, so the card is the last thing the lesson gives.
+test('every lesson ends with one quiz between the reflection and the sources', () => {
+  for (const f of lessonFiles) {
+    const src = readFileSync(new URL(f, lessonDir), 'utf8');
+    const quizzes = [...src.matchAll(/<ObservationQuiz\b/g)];
+    assert.equal(quizzes.length, 1, `${f}: expected exactly one quiz`);
+    const reflection = src.indexOf('<Band kind="reflection">');
+    const sources = src.indexOf('<Band kind="sources">');
+    assert.ok(reflection >= 0 && sources > reflection, `${f}: needs a reflection band followed by a sources band`);
+    const quiz = quizzes[0].index;
+    assert.ok(quiz > src.indexOf('</Band>', reflection) && quiz < sources, `${f}: the quiz must sit between the reflection and the sources`);
+  }
+});
+
 const question = { options: [{ explanation: 'a' }, { explanation: 'b' }], answer: 0 };
 test('quiz: correct, wrong, and invalid choices', () => {
   assert.deepEqual(evaluateAnswer(question, 0), { correct: true, explanation: 'a' });

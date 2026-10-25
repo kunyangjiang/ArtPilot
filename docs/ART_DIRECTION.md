@@ -49,12 +49,15 @@ comes from the artworks. `--ok #2F6B4F` / `--err #A4473B` appear only as small q
    - single column with a full-width classical quotation
    - an image/text pair with the composition map
    - a gallery band of details followed by two-column notes
-   - a reversed image/text pair followed by a quiz
+   - a reversed image/text pair
    - a short closing text
 4. **Interactions**: introduced by a sentence of narrative and answered by one afterwards, so they read as
    part of the argument.
 5. **Reflection**: the opening question returns on a quiet wall as open questions.
-6. **Sources, glossary, rights**: documentary voice, small and orderly.
+6. **Closing challenge**: every lesson ends with one question or small interactive game. Answering it correctly
+   earns the work's card, and the unlock panel appears directly beneath it. Mid-lesson interactions (such as the
+   scale slider) never award cards. `tests/contract.test.js` checks the quiz sits between reflection and sources.
+7. **Sources, glossary, rights**: documentary voice, small and orderly.
 
 ## Components (current)
 
@@ -92,6 +95,46 @@ disables smooth scrolling.
 3. Should section numerals stay Latin, or move to Chinese numerals in the serif?
 4. Does the reading length (~15 minutes) feel right as the template for longer lessons?
 
+## Collectible cards (图鉴)
+
+Status: the front/back structure, the visual hierarchy and the flip are **accepted** (Product Owner). Adapt them
+to new media and aspect ratios as needed, but do not redesign the card system. This acceptance covers the card's
+visual design only. The archive page, collection rules and data persistence are judged separately.
+
+**Colour fidelity (product principle).** The card may be black and white; the artwork may not lose its colour
+because of it. On the artwork record, in lessons and in details, every work is shown in its true colour. A
+Mondrian, a Monet or a contemporary work keeps the monochrome card language, and its full colour and detail are
+one step away: the back of the card links to the artwork record. Colour-removing filters are allowed only inside
+`.art-card`, and `tests/color-fidelity.test.js` enforces this.
+
+- A card is a magazine cover, strictly black and white. No colour, no metallic finish.
+- One design for every art form: it must work with any image proportion, or with no image at all.
+- Front:
+  - **Masthead:** ARTPILOT in the display cut of the Latin serif, tracked wide, with an issue line beneath
+    (藏品图鉴 · italic `No.001`).
+  - **Cover image:** the work as a full-bleed monochrome photograph. The crop is a cover decision, set per work
+    with `card.focus`; the uncropped work is on the artwork record.
+  - **Title:** set vertically down the right edge in Noto Serif SC 300, running the full cover height.
+  - **Cover lines:** English title in Latin italic; maker (serif 700) against period and form; then 1–4
+    facets chosen per work, as label/value lines (a painting: 媒材/尺幅; a building: 材料/规模).
+- No image (rights not cleared, lost works, performance, a record awaiting its photograph): the cover becomes
+  purely typographic. The one-sentence description (`card.blurb`, at most 60 characters) becomes the cover
+  headline, set as a pull-quote in the light serif. Every card has it, in any language and for any art form.
+  The outlined issue number is reserved for the locked card, so an owned card is never mistaken for an
+  uncollected one.
+- What adapts per art form later, without redesign:
+  - facets (a building: 材料/规模; a performance: 首演/地点);
+  - the maker line (佚名 when anonymous);
+  - non-Chinese titles, which the vertical title handles.
+  If a work needs a punchier headline than its description, an optional cover-line field can be added then.
+- States:
+  - **Locked:** the masthead, an outlined issue number and how to earn the card. Nothing of the work is shown.
+  - **Collected:** the full cover.
+  - **Back:** the cover story, set like a contents page (light serif), with facts and links to the artwork
+    record and the course.
+- Motion: flipping takes 520 ms. On mouse or pen, the card tilts up to about 6° toward the pointer with a faint light. Under reduced motion, everything is instant and the card doesn't tilt.
+- Sized in `em`: the mini card in the unlock moment is the same design at about half size.
+
 ## Navigation (Phase 3.0-B)
 
 - **Back**: a quiet "← 课程列表" link at the start of the lesson nav, set off from the wordmark by a hairline.
@@ -102,3 +145,10 @@ disables smooth scrolling.
   focus moves to the lesson title. Press and hold for 0.5s (it lifts and darkens) to drag it anywhere in the window
   (kept 8px inside the edges); a press that slides off first is cancelled, like any button. Alt + arrow keys nudge it
   by 16px. The chosen spot is the only thing stored (`localStorage` key `artpilot.backtop`, a device preference).
+
+## Artwork record
+
+A catalogue sheet about the object, deliberately unlike a lesson: the plain page, the whole work on the left (held
+in view on wide screens) and facts on the right in the documentary sans. It holds only the work's data, what is in
+the picture (detail thumbnails with approximate positions), related lessons and the source/rights record. No dark
+opening, no serif narrative, no interpretation: reading the work belongs to the lessons.

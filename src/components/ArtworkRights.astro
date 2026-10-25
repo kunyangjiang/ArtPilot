@@ -1,0 +1,21 @@
+---
+import { getEntry } from 'astro:content';
+// Image source, rights status and information sources for one artwork record.
+// Shared by the lesson page and the artwork record page; each page lays it out with its own grid.
+interface Props { artwork: string }
+const record = await getEntry('artworks', Astro.props.artwork);
+if (!record) throw new Error(`Unknown artwork: ${Astro.props.artwork}`);
+const art = record.data;
+---
+<footer id="rights" class="rights">
+  <h2 class="kicker">来源与版权</h2>
+  <dl class="meta">
+    <dt>图片来源</dt><dd><a href={art.imageSource.url}>{art.imageSource.label}</a></dd>
+    <dt>权利状态</dt><dd>{art.rights.status}</dd>
+    <dt>依据</dt><dd>{art.rights.basis}</dd>
+    <dt>核对日期</dt><dd>{art.rights.verifiedOn}</dd>
+    <dt>说明</dt><dd>{art.rights.note}</dd>
+    <dt>资料来源</dt>
+    <dd>{art.infoSources.map((s) => <><a href={s.url}>{s.label}</a><br /></>)}</dd>
+  </dl>
+</footer>
