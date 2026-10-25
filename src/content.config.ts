@@ -18,7 +18,7 @@ const artworks = defineCollection({
     images: z
       .array(
         z.object({
-          key: z.enum(['full', 'travelers', 'brushwork']),
+          key: z.enum(['full', 'travelers', 'brushwork', 'summit', 'temple', 'waterfall']),
           src: z.string().startsWith('/img/'),
           alt: z.string(),
           caption: z.string(),

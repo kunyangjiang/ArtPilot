@@ -1,4 +1,6 @@
 ---
 // Wraps a <figure> and its explanation so they sit side by side (stacked on mobile).
+interface Props { reverse?: boolean }
+const { reverse = false } = Astro.props;
 ---
-<div class="split"><slot /></div>
+<div class:list={['split', { reverse }]}><slot /></div>

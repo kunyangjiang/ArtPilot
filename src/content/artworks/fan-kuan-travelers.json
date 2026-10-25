@@ -6,7 +6,10 @@
   "attributionNote": "画面中发现署名“范寬”，通行观点视为其存世代表作；范宽生卒年各家说法不一，大致活跃于北宋初。",
   "dateApprox": "约公元 1000 年前后（北宋初）",
   "medium": "立轴，绢本，水墨淡设色",
-  "dimensionsCm": { "height": 206.3, "width": 103.3 },
+  "dimensionsCm": {
+    "height": 206.3,
+    "width": 103.3
+  },
   "collection": "国立故宫博物院（台北），馆藏编号 K2A00826",
   "infoSources": [
     {
@@ -38,6 +41,27 @@
       "src": "/img/fan-kuan-brushwork.jpg",
       "alt": "主峰岩面局部：密集的短促竖向笔触，右侧是深色的瀑布。",
       "caption": "局部：主峰岩面的密集笔触与瀑布（由原图裁切）。",
+      "kind": "detail"
+    },
+    {
+      "key": "summit",
+      "src": "/img/fan-kuan-summit.jpg",
+      "alt": "主峰顶部局部：岩壁上方覆盖着由细密墨点堆积成的浓密树丛。",
+      "caption": "局部：主峰顶部的密林（由原图裁切）。",
+      "kind": "detail"
+    },
+    {
+      "key": "temple",
+      "src": "/img/fan-kuan-temple.jpg",
+      "alt": "中景局部：树丛后露出几层带飞檐的楼阁屋顶，右侧可见一方红色印章。",
+      "caption": "局部：中景树丛后的楼阁（由原图裁切）。",
+      "kind": "detail"
+    },
+    {
+      "key": "waterfall",
+      "src": "/img/fan-kuan-waterfall.jpg",
+      "alt": "主峰右侧局部：一道细长的白色瀑布从深色岩缝中垂直落下。",
+      "caption": "局部：主峰右侧的瀑布（由原图裁切）。",
       "kind": "detail"
     }
   ],

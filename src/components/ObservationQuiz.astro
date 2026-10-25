@@ -4,8 +4,8 @@ interface Props {
 }
 const { question } = Astro.props;
 ---
-<form class="panel quiz" data-question={JSON.stringify(question)} novalidate>
-  <h3>观察练习</h3>
+<form class="module quiz" data-question={JSON.stringify(question)} novalidate>
+  <p class="module-label">互动 · 观察练习</p>
   <fieldset>
     <legend>{question.prompt}</legend>
     {question.options.map((o, i) => (
@@ -13,8 +13,8 @@ const { question } = Astro.props;
     ))}
   </fieldset>
   <div class="actions">
-    <button type="submit" data-submit>提交答案</button>
-    <button type="button" data-retry hidden>重试</button>
+    <button type="submit" class="btn btn-primary" data-submit>提交答案</button>
+    <button type="button" class="btn btn-secondary" data-retry hidden>重试</button>
   </div>
   <div class="feedback" data-feedback role="status" aria-live="polite" hidden></div>
 </form>
@@ -43,6 +43,7 @@ const { question } = Astro.props;
       const result = evaluateAnswer(question, checked);
       if (!result) return show('wrong', '请先选择一个选项', '选择后再提交。');
       show(result.correct ? 'correct' : 'wrong', result.correct ? '回答正确' : '再想想', result.explanation);
+      form.dataset.result = result.correct ? 'correct' : 'wrong';
       radios.forEach((r) => (r.disabled = true));
       submit.disabled = true;
       retry.hidden = false;
@@ -53,6 +54,7 @@ const { question } = Astro.props;
       submit.disabled = false;
       retry.hidden = true;
       box.hidden = true;
+      delete form.dataset.result;
       radios[0]?.focus();
     });
   });

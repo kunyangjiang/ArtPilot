@@ -1,0 +1,18 @@
+---
+import { getEntry } from 'astro:content';
+// The full work with its compositional zones marked alongside (percentages of image height; schematic).
+interface Props { artwork: string; zones: { label: string; from: number; to: number }[] }
+const { artwork, zones } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === 'full');
+if (!record || !img) throw new Error(`Unknown artwork: ${artwork}`);
+---
+<figure class="cmap">
+  <div class="cmap-frame">
+    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+    <ol aria-label="构图分区（示意）">
+      {zones.map((z) => <li style={`--from:${z.from};--to:${z.to}`}><span>{z.label}</span></li>)}
+    </ol>
+  </div>
+  <figcaption><span class="cap">构图分区示意：比例为目测近似。</span><span class="credit">{record.data.artist}《{record.data.titleZh}》</span></figcaption>
+</figure>

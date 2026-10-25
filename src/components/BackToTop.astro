@@ -1,0 +1,147 @@
+---
+// A round "back to top" control for long lessons (behaviour after MatScope/DataPilot).
+// It stays away while the opening artwork is on screen. Where the side gutter is too narrow to keep it clear of
+// the text, it shows only while the reader scrolls up (fading after a short pause) or has reached the very end,
+// where the page leaves clear space for it. It is `inert` while hidden.
+//
+// Moving it: press and hold for 0.5 s (the button darkens to show the hold has taken), then drag. A short press
+// still goes back to the top. The spot is remembered on this device; Alt + arrow keys nudge it from the keyboard.
+---
+<button type="button" class="to-top" data-to-top aria-label="回到页面顶部" title="点击回到顶部；按住 0.5 秒后可拖动位置"
+  aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown Alt+ArrowLeft Alt+ArrowRight" inert>
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"
+    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+</button>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-to-top]')!;
+  const opening = document.querySelector<HTMLElement>('.opening');
+  const target = document.querySelector<HTMLElement>('.opening h1');
+  const roomy = matchMedia('(min-width: 1440px)'); // the right gutter can hold the button without covering content
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const IDLE_MS = 2200;
+  let lastY = scrollY;
+  let upward = false;
+  let queued = false;
+  let idle: number | undefined;
+
+  const update = () => {
+    queued = false;
+    const y = scrollY;
+    if (Math.abs(y - lastY) > 4) { upward = y < lastY; lastY = y; }
+    const past = y > (opening?.offsetHeight ?? innerHeight);
+    const atEnd = y + innerHeight >= document.documentElement.scrollHeight - 8;
+    const engaged = button.matches(':hover, :focus') || button.hasAttribute('data-armed');
+    const show = past && (roomy.matches || upward || atEnd || engaged);
+    button.toggleAttribute('inert', !show);
+    button.dataset.visible = String(show);
+  };
+  const onScroll = () => {
+    if (!queued) { queued = true; requestAnimationFrame(update); }
+    // In narrow layouts a scroll-up reveal is temporary, so the control never rests over the text.
+    clearTimeout(idle);
+    idle = window.setTimeout(() => { upward = false; update(); }, IDLE_MS);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  button.addEventListener('blur', update);
+  button.addEventListener('mouseleave', update);
+
+  // ---- Repositioning: hold 0.5 s, then drag; Alt + arrows from the keyboard ----
+  const HOLD_MS = 500;
+  const SLOP = 8;   // movement that cancels a hold that has not taken yet
+  const EDGE = 8;   // keep the button this far inside the window
+  const NUDGE = 16;
+  const STORAGE_KEY = 'artpilot.backtop';
+  type Offset = { x: number; y: number };
+  let offset: Offset = { x: 0, y: 0 };
+  let hold: { id: number; sx: number; sy: number; base: Offset; timer: number; active: boolean; slid: boolean } | null = null;
+  let suppressClick = false;
+
+  const apply = (next: Offset) => {
+    offset = next;
+    button.style.setProperty('--dx', `${next.x}px`);
+    button.style.setProperty('--dy', `${next.y}px`);
+  };
+  // Keep the control inside the window. Measured from its CSS resting corner (not its painted box, which the
+  // hide/arm animations shift and scale), so it is exact while hidden, armed or mid-animation.
+  const clamp = (next: Offset): Offset => {
+    const cs = getComputedStyle(button);
+    const w = button.offsetWidth, h = button.offsetHeight;
+    const left = innerWidth - parseFloat(cs.right) - w + next.x;
+    const top = innerHeight - parseFloat(cs.bottom) - h + next.y;
+    const x = next.x + Math.max(0, EDGE - left) - Math.max(0, left + w - (innerWidth - EDGE));
+    const y = next.y + Math.max(0, EDGE - top) - Math.max(0, top + h - (innerHeight - EDGE));
+    return { x: Math.round(x), y: Math.round(y) };
+  };
+  const save = () => {
+    try {
+      if (offset.x === 0 && offset.y === 0) localStorage.removeItem(STORAGE_KEY);
+      else localStorage.setItem(STORAGE_KEY, JSON.stringify(offset));
+    } catch { /* a preference only */ }
+  };
+  const restore = () => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
+      if (raw && Number.isFinite(raw.x) && Number.isFinite(raw.y)) apply(clamp({ x: raw.x, y: raw.y }));
+    } catch { /* a preference only */ }
+  };
+
+  button.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    // Capture now, so a press that slides off the button is still seen (and cancelled) before the hold takes.
+    button.setPointerCapture(event.pointerId);
+    const state = {
+      id: event.pointerId, sx: event.clientX, sy: event.clientY, base: offset, active: false, slid: false,
+      timer: window.setTimeout(() => {
+        state.active = true;
+        button.setAttribute('data-armed', '');
+        navigator.vibrate?.(8);
+      }, HOLD_MS),
+    };
+    hold = state;
+  });
+  button.addEventListener('pointermove', (event) => {
+    if (!hold || hold.id !== event.pointerId || hold.slid) return;
+    const dx = event.clientX - hold.sx, dy = event.clientY - hold.sy;
+    if (!hold.active) {
+      // Sliding before the hold completes cancels the press, like sliding off any button.
+      if (Math.hypot(dx, dy) > SLOP) { clearTimeout(hold.timer); hold.slid = true; }
+      return;
+    }
+    apply(clamp({ x: hold.base.x + dx, y: hold.base.y + dy }));
+  });
+  const finish = (event: PointerEvent) => {
+    if (!hold || hold.id !== event.pointerId) return;
+    clearTimeout(hold.timer);
+    const { active, slid } = hold;
+    hold = null;
+    if (!active && !slid) return;
+    // The release after a drag or a cancelled slide must not also count as a click that scrolls to the top.
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 0);
+    if (!active) return;
+    button.removeAttribute('data-armed');
+    save();
+    update();
+  };
+  button.addEventListener('pointerup', finish);
+  button.addEventListener('pointercancel', finish);
+  button.addEventListener('contextmenu', (event) => event.preventDefault()); // a long press must not open a menu
+  button.addEventListener('keydown', (event) => {
+    if (!event.altKey) return;
+    const step = ({ ArrowLeft: [-NUDGE, 0], ArrowRight: [NUDGE, 0], ArrowUp: [0, -NUDGE], ArrowDown: [0, NUDGE] } as Record<string, number[]>)[event.key];
+    if (!step) return;
+    event.preventDefault();
+    apply(clamp({ x: offset.x + step[0], y: offset.y + step[1] }));
+    save();
+  });
+  addEventListener('resize', () => { apply(clamp(offset)); update(); });
+  restore();
+  update();
+
+  button.addEventListener('click', () => {
+    if (suppressClick) return;
+    scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
+    // Keep keyboard position coherent: continue from the lesson title, not from the vanished button.
+    target?.focus({ preventScroll: true });
+  });
+</script>

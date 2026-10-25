@@ -1,0 +1,6 @@
+---
+// A change of space within the reading flow: prelude, gallery plates, detail notes, reflection, sources.
+interface Props { kind: 'prelude' | 'plates' | 'notes' | 'reflection' | 'sources' }
+const { kind } = Astro.props;
+---
+<section class={`band band-${kind}`}><slot /></section>

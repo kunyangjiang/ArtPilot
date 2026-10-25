@@ -1,10 +1,12 @@
 ---
 import { SCALE_MIN, SCALE_MAX, SCALE_DEFAULT } from '../lib/scale.js';
 ---
-<div class="panel scale">
-  <h3>尺度实验：山有多高，人就有多小</h3>
+<div class="module scale">
+  <p class="module-label">互动 · 尺度实验</p>
+  <h3>山有多高，人就有多小</h3>
   <svg viewBox="0 0 400 260" role="img" aria-label="示意图：一座山与一个人形的相对大小">
     <polygon class="mountain" points="60,250 150,60 190,10 230,70 340,250" />
+    <line class="ground" x1="20" y1="250.5" x2="380" y2="250.5" />
     <g class="person" data-person transform="translate(300 250)">
       <circle cx="0" cy="-40" r="5" />
       <rect x="-4" y="-34" width="8" height="19" />
@@ -12,11 +14,11 @@ import { SCALE_MIN, SCALE_MAX, SCALE_DEFAULT } from '../lib/scale.js';
       <rect x="1" y="-15" width="3" height="15" />
     </g>
   </svg>
-  <label for="scale-range">山的高度是人的几倍</label>
-  <input id="scale-range" type="range" min={SCALE_MIN} max={SCALE_MAX} step="1" value={SCALE_DEFAULT} />
-  <div class="row">
+  <div class="controls">
+    <label for="scale-range">山的高度是人的几倍</label>
     <output data-readout aria-live="polite">山的高度约为人的 {SCALE_DEFAULT} 倍</output>
-    <button type="button" data-reset>重置</button>
+    <input id="scale-range" type="range" min={SCALE_MIN} max={SCALE_MAX} step="1" value={SCALE_DEFAULT} />
+    <button type="button" class="btn btn-secondary" data-reset>重置</button>
   </div>
   <p class="schematic-label">示意图：仅用于体会“比例越悬殊，人越渺小”，并非《溪山行旅图》中山与人真实比例的精确复原。</p>
 </div>
