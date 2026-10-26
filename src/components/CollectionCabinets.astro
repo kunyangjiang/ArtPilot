@@ -244,6 +244,30 @@ const cabinets = stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range:
       show('cabinets', root.querySelector<HTMLElement>('#cc-title')!);
     }
   };
+  // Thumbnails in a cabinet are held in the hand like the full card: on a mouse or pen they tilt toward the pointer and
+  // catch a faint light (the same angles and light as ArtworkCard; off with reduced motion and on touch).
+  const steady = matchMedia('(prefers-reduced-motion: reduce)');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  const thumbCard = (t: EventTarget | null) => (t instanceof Element ? t.closest('.cc-thumb')?.querySelector<HTMLElement>('.art-card') : null) ?? null;
+  const wallEl = root.querySelector<HTMLElement>('[data-wall]')!;
+  wallEl.addEventListener('pointermove', (event) => {
+    const card = thumbCard(event.target);
+    if (!card || steady.matches || !fine.matches) return;
+    const r = card.querySelector('.art-card-inner')!.getBoundingClientRect();
+    const x = (event.clientX - r.left) / r.width, y = (event.clientY - r.top) / r.height;
+    card.style.setProperty('--tilt-x', `${(0.5 - y) * 10}deg`);
+    card.style.setProperty('--tilt-y', `${(x - 0.5) * 12}deg`);
+    card.style.setProperty('--light-x', `${Math.round(x * 100)}%`);
+    card.style.setProperty('--light-y', `${Math.round(y * 100)}%`);
+    card.dataset.held = 'true';
+  });
+  wallEl.addEventListener('pointerout', (event) => {
+    const card = thumbCard(event.target);
+    if (!card || card.closest('.cc-thumb')!.contains(event.relatedTarget as Node | null)) return;
+    card.dataset.held = 'false';
+    ['--tilt-x', '--tilt-y'].forEach((p) => card.style.setProperty(p, '0deg'));
+  });
+
   addEventListener('hashchange', render);
   // The cards' own script re-reads storage after a claim or a clear, and on a return through the back/forward cache.
   document.addEventListener('artpilot:cards-synced', () => { quiet = true; drawOverview(); render(); quiet = false; });
