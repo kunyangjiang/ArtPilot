@@ -563,6 +563,7 @@ const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back
     .m-current.m-turned.m-back { z-index: 2; transform-origin: 0 50%; animation: m-flip-down .64s cubic-bezier(.3, 0, .25, 1) both; }
     .cv { border-radius: 0 3px 3px 0; }
     .cv-inside { background: var(--sheet-back); }
+    .bk-endpaper { inset: 0; }   /* no board edge round the endpaper on a single page */
     .pg { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
     .pg::-webkit-scrollbar { display: none; }
     .m-more .pg { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--u) * 9), transparent calc(100% - var(--u) * 2.5));
