@@ -6,6 +6,7 @@
 // lessons, keep their full spreads; each of the other five gets one spread in the same structure, with its approved
 // course titles and a plain statement that its courses are in preparation.
 import '../../styles/fonts.css';
+import BackLink from '../BackLink.astro';
 import { stages, courseTitles, implemented, sampleIntro, TOTAL_COURSES } from '../../data/curriculum';
 interface Props { lessons: { id: string; title: string; kicker: string }[] }
 const { lessons } = Astro.props;
@@ -88,7 +89,7 @@ const wood = svg(2400, 1500, `<filter id='w' x='0' y='0' width='100%' height='10
   <feTurbulence type='fractalNoise' baseFrequency='0.004 0.55' numOctaves='2' seed='3'/>
   <feColorMatrix ${grey} result='p'/>
   <feComposite in='r' in2='p' operator='arithmetic' k2='0.42' k3='0.58'/>
-  <feColorMatrix values='0.11 0 0 0 0.04  0.097 0 0 0 0.037  0.09 0 0 0 0.035  0 0 0 0 1'/>
+  <feColorMatrix values='0.14 0 0 0 0.05  0.132 0 0 0 0.048  0.126 0 0 0 0.047  0 0 0 0 1'/>
 </filter><rect width='100%' height='100%' filter='url(#w)'/>`);
 // Paper: slow cloudy formation plus fine fibre, mapped near white; multiplied over each page.
 const paper = svg(520, 520, `<filter id='p' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
@@ -107,7 +108,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
 ---
 <div class="ad" style={`--wood:${wood};--paper-tex:${paper};--linen:${linen}`} data-archive-desk>
   <header class="ad-top">
-    <a class="ad-back" href="/"><span aria-hidden="true">←</span> 首页</a>
+    <BackLink class="ad-back" href="/" label="首页" />
     <span class="ad-tag">ArtPilot · 全球艺术史课程</span>
   </header>
   <h1 class="sr-only">全球艺术史课程目录：七个推荐阶段，{TOTAL_COURSES} 门核心课程</h1>
@@ -293,7 +294,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     /* A turning leaf comes toward the viewer in perspective and can reach past the window edge for a moment; clip that
        overhang (it is outside the window anyway) so it never makes the page scrollable and flashes a scrollbar. */
     overflow: clip;
-    color: #d9d8d3; background-color: #141312;
+    color: #d9d8d3; background-color: #191817;
     background-image:
       radial-gradient(ellipse 58% 52% at 50% 46%, rgb(255 248 236 / .075), transparent 72%),   /* the reading lamp */
       linear-gradient(115deg, transparent 30%, rgb(255 255 255 / .022) 46%, transparent 60%),     /* satin sheen */
@@ -306,8 +307,10 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   .ad :focus-visible { outline: 2px solid #f1f0ec; outline-offset: 3px; }
   .ad [lang="en"] { font-family: var(--didone); }
   .ad-top { align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; padding: 1rem clamp(1.5rem, 4vw, 4rem) 0; }
-  .ad-back { font: 400 .8125rem/1 var(--sans); letter-spacing: .06em; color: #b9b8b2; text-decoration: none; padding: .35rem 0; border-bottom: 1px solid transparent; transition: color var(--t) var(--ease), border-color var(--t) var(--ease); }
-  .ad-back:hover, .ad-back:focus-visible { color: #f1f0ec; border-bottom-color: currentColor; }
+  /* The way home: the shared back link, set as a quiet outlined pill so it reads at once against the dark desk. */
+  .ad-top :global(.ad-back) { position: relative; z-index: 1; gap: .55rem; margin: -.6rem 0 -.6rem -.15rem; /* full 44px target, without making the header taller */ padding: 0 1rem 0 .8rem; border: 1px solid rgb(255 255 255 / .2); border-radius: 999px;
+    font: 400 .9375rem/1 var(--sans); letter-spacing: .1em; color: #e6e5e0; transition: border-color var(--t) var(--ease), color var(--t) var(--ease), background-color var(--t) var(--ease); }
+  .ad-top :global(.ad-back:hover), .ad-top :global(.ad-back:focus-visible) { color: #f6f5f1; border-color: rgb(255 255 255 / .5); background: rgb(255 255 255 / .04); }
   .ad-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: #8f8e89; }
   .ad-desk { flex: 1; display: grid; place-items: center; width: 100%; padding: clamp(.75rem, 2.4vh, 1.6rem) 0 clamp(.75rem, 2vh, 1.25rem); }
 
@@ -548,6 +551,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   .ad-jump button[lang="en"] { font: 400 .9375rem/1 var(--didone); letter-spacing: 0; }
   .ad-jump button:hover, .ad-jump button:focus-visible, .ad-jump button[aria-current="true"] { color: #ecebe6; border-bottom-color: currentColor; }
 
+  .bk.is-restoring, .bk.is-restoring::before, .bk.is-restoring * { transition: none !important; animation: none !important; }
   @media (prefers-reduced-motion: reduce) {
     .bk, .bk::before, .bk-leaf, .bk-edge { transition: none !important; }
     .bk-shade, .bk-cast { animation: none !important; }
@@ -603,6 +607,19 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     const faceAt = (p: number) => faces.find((f) => Number(f.dataset.page) === p);
     const jumpButtons = [...root.querySelectorAll<HTMLElement>('.ad-jump [data-goto]')];
     let state = 0, page = 0, busy = false;
+    // Native Back/Forward normally brings this page back from the browser's back/forward cache, open where it was. When
+    // the browser had dropped it and reloads instead, reopen what this history entry was showing. The position lives on
+    // the history entry itself (replaceState: no new entries, URL unchanged), so a fresh visit still opens at the cover.
+    type Saved = { artpilotBook?: { state: number; page: number } } | null;
+    const saved = (history.state as Saved)?.artpilotBook;
+    if (saved) {
+      state = Math.max(0, Math.min(N, saved.state | 0)); page = Math.max(0, Math.min(P - 1, saved.page | 0));
+      book.classList.add('is-restoring');   // open straight to it, without turning every leaf on arrival
+    }
+    const remember = (small: boolean) => {
+      const at = small ? { page, state: spreadOf(page) } : { state, page: state === 0 ? 0 : 2 * state - 1 };
+      try { history.replaceState({ ...(history.state ?? {}), artpilotBook: at }, ''); } catch { /* nothing to restore later */ }
+    };
 
     // Only the visible page(s) can be read or focused; every other face is inert.
     const faceOf = (i: number, side: 'front' | 'back') => leaves[i]?.querySelector<HTMLElement>(`.bk-${side}`);
@@ -634,21 +651,35 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       const here = small ? page : state === 0 ? 0 : Math.min(2 * state, P - 1);
       const current = jumpButtons.filter((b) => Number(b.dataset.goto) <= here).pop();
       jumpButtons.forEach((b) => b.setAttribute('aria-current', String(b === current)));
+      remember(small);
     };
 
     const restart = (el: HTMLElement, cls: string) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
-    // Turn one leaf; resolves when its rotation has settled.
-    const turnLeaf = (i: number, forward: boolean, z: number) => new Promise<void>((resolve) => {
+    // When a turning leaf stands upright: the time at which the turn's easing reaches half its rotation, read from the
+    // leaf's own transition curve (cubic-bezier) so it follows the stylesheet.
+    const uprightAt = () => {
+      const m = getComputedStyle(leaves[0]).transitionTimingFunction.match(/cubic-bezier\(([^)]+)\)/);
+      const [x1, y1, x2, y2] = m ? m[1].split(',').map(Number) : [0.5, 0.04, 0.28, 1];
+      const bez = (a: number, b: number, t: number) => 3 * (1 - t) ** 2 * t * a + 3 * (1 - t) * t ** 2 * b + t ** 3;
+      let lo = 0, hi = 1; for (let n = 0; n < 40; n++) { const t = (lo + hi) / 2; if (bez(y1, y2, t) < 0.5) lo = t; else hi = t; }
+      return bez(x1, x2, lo) * dur();
+    };
+    // Turn one leaf; resolves when its rotation has settled. In a riffle several leaves are in the air at once, and the
+    // leaves are flat layers stacked by z-index, so the order has to follow the physics: while still on the side they
+    // left, an earlier leaf stands higher than the ones after it (rising: it is ahead; on its way down it is behind
+    // them), so it starts above them (zRising) and drops below them as it passes upright (zLanding).
+    const turnLeaf = (i: number, forward: boolean, zRising: number, zLanding: number, cast: boolean) => new Promise<void>((resolve) => {
       const leaf = leaves[i];
-      leaf.style.zIndex = String(z);
+      leaf.style.zIndex = String(zRising);
       leaf.classList.remove('flip-f', 'flip-b');
-      book.classList.remove('cast-f', 'cast-b');
+      if (cast) book.classList.remove('cast-f', 'cast-b');
       void leaf.offsetWidth;
       leaf.classList.add(forward ? 'flip-f' : 'flip-b');
-      restart(book, forward ? 'cast-f' : 'cast-b');
+      if (cast) restart(book, forward ? 'cast-f' : 'cast-b');
       leaf.classList.toggle('is-turned', forward);
+      const swap = setTimeout(() => { leaf.style.zIndex = String(zLanding); }, uprightAt());
       let done = false;
-      const finish = () => { if (done) return; done = true; leaf.removeEventListener('transitionend', onEnd); leaf.classList.remove('flip-f', 'flip-b'); resolve(); };
+      const finish = () => { if (done) return; done = true; clearTimeout(swap); leaf.removeEventListener('transitionend', onEnd); leaf.classList.remove('flip-f', 'flip-b'); resolve(); };
       const onEnd = (e: TransitionEvent) => { if (e.target === leaf && e.propertyName === 'transform') finish(); };
       leaf.addEventListener('transitionend', onEnd);
       setTimeout(finish, dur() + 250);
@@ -661,14 +692,21 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       busy = true; book.setAttribute('aria-busy', 'true');
       const forward = target > state;
       const order = forward ? Array.from({ length: target - state }, (_, k) => state + k) : Array.from({ length: state - target }, (_, k) => state - 1 - k);
-      // Page-block edges change with the turn, not after it.
-      book.style.setProperty('--el', String(Math.max(0, target - 1)));
+      // Page-block edges change with the turn, not after it. Opening from the cover, the left block has nothing to sit
+      // against until the front board lands there, so it waits for that leaf.
+      const opening = forward && state === 0, el = String(Math.max(0, target - 1));
+      if (!opening) book.style.setProperty('--el', el);
       book.style.setProperty('--er', String(N - target));
-      if (forward && state === 0) book.classList.remove('is-closed');
+      if (opening) book.classList.remove('is-closed');
       if (!forward && target === 0) book.classList.add('is-closed');
       // Several leaves riffle over with a short stagger, each landing on top of the last; long jumps riffle faster.
+      // Rising, the earlier leaf is above the later ones (zRising falls with k); landed, each later leaf lies on top
+      // (zLanding rises with k). Only the first leaf casts its shadow on the page beneath: one shadow, not a flicker.
       const gap = Math.min(170, 900 / order.length);
-      await Promise.all(order.map((i, k) => new Promise<void>((r) => setTimeout(() => turnLeaf(i, forward, 160 + k).then(r), k * gap))));
+      await Promise.all(order.map((i, k) => new Promise<void>((r) => setTimeout(() => turnLeaf(i, forward, 260 - k, 160 + k, k === 0).then(() => {
+        if (opening && k === 0) book.style.setProperty('--el', el);
+        r();
+      }), k * gap))));
       book.classList.remove('cast-f', 'cast-b');
       state = target; layout();
       busy = false; book.removeAttribute('aria-busy');
@@ -721,5 +759,6 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     };
     bake('--paper-tex', 520); bake('--linen', 300);
     layout();
+    if (saved) { void book.offsetWidth; requestAnimationFrame(() => book.classList.remove('is-restoring')); }
   }
 </script>

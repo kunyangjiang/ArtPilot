@@ -8,9 +8,9 @@ const cards = (await getCollection('artworks'))
   .filter((a) => a.data.card)
   .sort((a, b) => a.data.card!.no.localeCompare(b.data.card!.no));
 ---
-<Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" nav={{
+<Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" dark transition={260} nav={{
   tone: 'gallery',
-  back: { href: '/courses/', label: '课程列表' },
+  back: { href: '/', label: '首页' },
   links: [],
 }}>
   <section class="archive">

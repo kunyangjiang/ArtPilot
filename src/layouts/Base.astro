@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import BackLink from '../components/BackLink.astro';
 type NavLink = { href: string; label: string };
 interface Props {
   title: string;
@@ -8,13 +9,22 @@ interface Props {
   nav?: { tone?: 'gallery'; back?: NavLink; links?: NavLink[] };
   /** Full-bleed pages (homepage, course book) that carry their own header: no site navigation bar. */
   bare?: boolean;
+  /** Pages that are dark from edge to edge: a dark canvas behind them, so no light shows at the edges or between pages. */
+  dark?: boolean;
+  /** Length of the page transition into this page, in ms (see "Page transitions" in global.css). */
+  transition?: number;
 }
-const { title, description = 'ArtPilot：从一件作品开始，走进全球艺术史。', nav, bare = false } = Astro.props;
+const { title, description = 'ArtPilot：从一件作品开始，走进全球艺术史。', nav, bare = false, dark = false, transition } = Astro.props;
+// When the way back leads home, the wordmark goes there too: keep one tab stop for it, the explicit back link.
+const brandTab = nav?.back?.href === '/' ? -1 : undefined;
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-canvas={dark ? 'dark' : undefined} style={transition ? `--vt-duration: ${transition}ms` : undefined}>
   <head>
     <meta charset="utf-8" />
+    <!-- Opt in to native page transitions before any stylesheet arrives: a long page can render before its stylesheets
+         apply, and an opt-in found only there is too late (Chrome then skips the transition). Lengths: global.css. -->
+    <style is:inline>@view-transition{navigation:auto}@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -23,15 +33,8 @@ const { title, description = 'ArtPilot：从一件作品开始，走进全球艺
   <body>
     {!bare && <nav class="site-nav" aria-label="主导航" data-tone={nav?.tone}>
       <div class="nav-start">
-        <a class="brand" href="/">ArtPilot</a>
-        {nav?.back && (
-          // Back is a plain link: predictable, and browser Back/Forward stay untouched.
-          <a class="nav-back" href={nav.back.href} aria-label={`返回：${nav.back.label}`}>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
-            <span>{nav.back.label}</span>
-          </a>
-        )}
+        <a class="brand" href="/" tabindex={brandTab}>ArtPilot</a>
+        {nav?.back && <BackLink class="nav-back" href={nav.back.href} label={nav.back.label} />}
       </div>
       <ul>
         {nav

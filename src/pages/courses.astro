@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import BookCatalogue from '../components/courses/BookCatalogue.astro';
 const lessons = (await getCollection('lessons')).map((l) => ({ id: l.id, title: l.data.title, kicker: l.data.kicker }));
 ---
-<Base title="全球艺术史课程 · ArtPilot" description="ArtPilot 全球艺术史课程目录：七个推荐阶段，73 门核心课程，陆续开放。" bare>
+<Base title="全球艺术史课程 · ArtPilot" description="ArtPilot 全球艺术史课程目录：七个推荐阶段，73 门核心课程，陆续开放。" bare dark transition={320}>
   <link slot="head" rel="preload" href="/fonts/bodoni-moda-500.woff2" as="font" type="font/woff2" crossorigin />
   <link slot="head" rel="preload" href="/fonts/noto-serif-sc-300-600.woff2" as="font" type="font/woff2" crossorigin />
   <link slot="head" rel="preload" href="/fonts/noto-sans-sc-300-500.woff2" as="font" type="font/woff2" crossorigin />

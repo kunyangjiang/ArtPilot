@@ -80,19 +80,31 @@ main { overflow-x: clip; }
 .site-nav ul { white-space: nowrap; }
 /* Phones: the in-page section links give way to the wordmark and Back (the sections are a scroll away). */
 @media (max-width: 480px) { .site-nav[data-tone="gallery"] ul { display: none; } }
-/* Back: a quiet text link with an arrow just right of the wordmark, set apart from it by a short hairline
+/* Back to the parent page (BackLink.astro): an arrow and a short label, a 44px target, the arrow easing left on hover
+   or focus. Each page places and sizes it in its own composition. */
+.back-link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: inherit; text-decoration: none; }
+.back-link svg { flex: none; transition: transform var(--t) var(--ease); }
+.back-link:hover svg, .back-link:focus-visible svg { transform: translateX(-2px); }
+/* In the site bar: a quiet text link just right of the wordmark, set apart from it by a short hairline
    (about the height of the wordmark capitals, not the full 44px hit area). */
-.nav-back {
-  position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; padding-left: 1.125rem;
-  text-decoration: none; opacity: .72; transition: opacity var(--t-fast) var(--ease);
-}
+.nav-back { position: relative; padding-left: 1.125rem; opacity: .72; transition: opacity var(--t-fast) var(--ease); }
 .nav-back::before {
   content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: .875rem; translate: 0 -50%;
   background: currentColor; opacity: .35;
 }
-.nav-back svg { transition: transform var(--t) var(--ease); }
-.nav-back:hover { opacity: 1; }
-.nav-back:hover svg { transform: translateX(-2px); }
+.nav-back:hover, .nav-back:focus-visible { opacity: 1; }
+
+/* ---------- Page transitions ---------- */
+/* Native cross-document view transitions where the browser supports them; elsewhere navigation is unchanged. A plain
+   cross-fade (the browser's own, which keeps the two pages' opacities summing to one, so nothing shows through), its
+   length set by the page being entered (Base `transition`): quick into a lesson, a little slower onto the desk.
+   Nothing waits for it: the click navigates at once. Reduced motion: no transition at all. The opt-in itself is inline at
+   the top of every page (Base.astro), so it is known before this stylesheet applies. */
+::view-transition-old(root), ::view-transition-new(root) {
+  animation-duration: var(--vt-duration, 260ms); animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+/* Dark pages keep a dark canvas, so no light shows at the window edges, on overscroll, or between pages. */
+html[data-canvas="dark"] { background: var(--gallery); }
 .site-nav[data-tone="gallery"] :focus-visible { outline-color: var(--gallery-ink); }
 
 /* ---------- Opening: the work first, on a gallery wall ---------- */
