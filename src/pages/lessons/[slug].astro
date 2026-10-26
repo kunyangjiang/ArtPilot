@@ -6,6 +6,7 @@ import ArtworkFigure from '../../components/ArtworkFigure.astro';
 import BackToTop from '../../components/BackToTop.astro';
 import ArtworkRights from '../../components/ArtworkRights.astro';
 import ReadingTracker from '../../components/ReadingTracker.astro';
+import { stages } from '../../data/curriculum';
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -15,6 +16,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const artworkId = entry.data.artwork.id;
 const art = (await getEntry('artworks', artworkId))!.data;
+// Where the lesson sits in the curriculum, shown above the title: a reader arriving from Continue Reading or the
+// collection may not know which of the seven stages they are in.
+const course = entry.data.course;
+const stage = stages.find((s) => course >= s.first && course <= s.last);
+if (!stage) throw new Error(`Lesson "${entry.id}": course ${course} is in no stage`);
 // Break display titles after the Chinese comma so each clause sits on its own line.
 const titleLines = entry.data.title.split(/(?<=，)/);
 ---
@@ -27,6 +33,10 @@ const titleLines = entry.data.title.split(/(?<=，)/);
   <header class="opening">
     <div class="opening-art"><ArtworkFigure artwork={artworkId} image="full" hero /></div>
     <div class="opening-label">
+      <p class="stage-line">
+        <span>第 {stage.no} 阶段 · {stage.title}</span>
+        <span class="stage-course">第 {String(course).padStart(2, '0')} 课</span>
+      </p>
       <p class="kicker">{entry.data.kicker}</p>
       <h1 tabindex="-1">{titleLines.map((line) => <span>{line}</span>)}</h1>
       <p class="work">

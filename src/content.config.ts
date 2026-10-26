@@ -71,7 +71,7 @@ const artworks = defineCollection({
       // Collectible card face: short values sized for the card. Optional: only artworks with a card appear in the archive.
       // Its number is not stored here: a card is numbered by the course of the lesson that awards it (course 30 → No.030).
       // Works for any art form: facets are chosen per work (a building lists 材料/规模, a painting 媒材/尺幅),
-      // and the image is optional — without one the card is a purely typographic cover. Monochrome: no colour fields.
+      // and the image is optional — without one the card is a purely typographic cover. The cover photograph is shown in muted colour by the card style; no colour fields here.
       card: z
         .object({
           type: z.string(), // the art form, e.g. 山水画, 建筑, 雕塑

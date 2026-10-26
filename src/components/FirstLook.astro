@@ -1,0 +1,49 @@
+---
+// A reflective start: the reader marks where their eye went first (click, tap, or arrow keys and Enter), then the
+// explanation below opens. There is no right answer and nothing is checked, scored or stored; the point is to notice
+// one's own looking before reading about it. Reuses the look of FindOnImage.
+import { getEntry } from 'astro:content';
+interface Props { artwork: string; image: string; prompt: string }
+const { artwork, image, prompt } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module find first-look" data-first-look>
+  <p class="module-label">互动 · 先看再读</p>
+  <h3>{prompt}</h3>
+  <div class="find-stage" tabindex="0" role="application"
+    aria-label={`${img.alt} 用方向键移动十字准星，按回车标出你最先注意到的地方。`}>
+    <img src={img.src} alt="" loading="lazy" decoding="async" draggable="false" />
+    <span class="find-cross" aria-hidden="true" hidden></span>
+  </div>
+  <p class="first-look-hint" data-hint>点一下你的目光最先停下的地方。没有对错。</p>
+  <div class="first-look-after" data-after hidden><slot /></div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-first-look]').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('.find-stage')!;
+    const cross = root.querySelector<HTMLElement>('.find-cross')!;
+    let cx = 50, cy = 50;
+    const mark = (x: number, y: number) => {
+      stage.querySelector('.first-look-dot')?.remove();
+      const dot = document.createElement('span'); dot.className = 'first-look-dot';
+      dot.style.cssText = `left:${x}%;top:${y}%`; stage.append(dot);
+      root.querySelector<HTMLElement>('[data-hint]')!.textContent = '你标出的位置留在画上。可以换一处再点。';
+      root.querySelector<HTMLElement>('[data-after]')!.hidden = false;
+    };
+    stage.addEventListener('click', (e) => {
+      const r = stage.getBoundingClientRect();
+      mark(((e.clientX - r.left) / r.width) * 100, ((e.clientY - r.top) / r.height) * 100);
+    });
+    const place = () => { cross.hidden = false; cross.style.left = `${cx}%`; cross.style.top = `${cy}%`; };
+    stage.addEventListener('focus', () => { if (stage.matches(':focus-visible')) place(); });
+    stage.addEventListener('blur', () => { cross.hidden = true; });
+    stage.addEventListener('keydown', (e) => {
+      const step = e.shiftKey ? 8 : 2;
+      const moves: Record<string, [number, number]> = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (e.key in moves) { e.preventDefault(); cx = Math.min(100, Math.max(0, cx + moves[e.key][0])); cy = Math.min(100, Math.max(0, cy + moves[e.key][1])); place(); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(); mark(cx, cy); }
+    });
+  });
+</script>

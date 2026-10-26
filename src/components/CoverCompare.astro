@@ -1,0 +1,40 @@
+---
+// Covering one part of a painting at a time to test what holds attention. Each switch lays a patch of the
+// painting's own darkness over one region (a box in percent of the image) and shows a sentence about what changes.
+// Only one patch at a time, so each comparison stays clear. A tool for looking, not a reconstruction; nothing stored.
+import { getEntry } from 'astro:content';
+type Cover = { x: number; y: number; w: number; h: number; label: string; note: string };
+interface Props { artwork: string; image: string; prompt: string; covers: Cover[]; tone?: string }
+const { artwork, image, prompt, covers, tone = '#120d09' } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module cover-compare" data-cover-compare data-notes={JSON.stringify(covers.map((c) => c.note))} style={`--cover-tone:${tone}`}>
+  <p class="module-label">互动 · 遮住一处</p>
+  <h3>{prompt}</h3>
+  <div class="cover-stage">
+    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+    {covers.map((c, i) => <span class="cover-patch" data-patch={i} hidden style={`left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%`} aria-hidden="true"></span>)}
+  </div>
+  <div class="cover-controls" role="group" aria-label="选择要遮住的部分">
+    <button type="button" class="sort-bin" data-cover="-1" aria-pressed="true">原画</button>
+    {covers.map((c, i) => <button type="button" class="sort-bin" data-cover={i} aria-pressed="false">{c.label}</button>)}
+  </div>
+  <p class="cover-note" data-note role="status" aria-live="polite">先看原画，再一次遮住一处，留意自己的目光会跑到哪里去。</p>
+  <p class="torch-note">遮挡块是本课加的，用来做对比；它不属于原画。</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-cover-compare]').forEach((root) => {
+    const notes = [...root.querySelectorAll<HTMLButtonElement>('[data-cover]')];
+    const patches = [...root.querySelectorAll<HTMLElement>('[data-patch]')];
+    const note = root.querySelector<HTMLElement>('[data-note]')!;
+    const texts = JSON.parse(root.dataset.notes ?? '[]') as string[];
+    notes.forEach((b) => b.addEventListener('click', () => {
+      const i = Number(b.dataset.cover);
+      notes.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      patches.forEach((p, k) => (p.hidden = k !== i));
+      note.textContent = i < 0 ? '这是原画。' : texts[i];
+    }));
+  });
+</script>

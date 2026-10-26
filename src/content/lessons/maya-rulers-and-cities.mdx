@@ -35,15 +35,21 @@ import LessonComplete from '../../components/LessonComplete.astro';
 
 ## 谁坐着，谁站着
 
-<Split>
-<ArtworkFigure artwork="art-la-pasadita-lintel-001" image="full" />
+<FindOnImage
+  artwork="art-la-pasadita-lintel-001"
+  image="full"
+  prompt="先自己找一找：在浮雕上点出坐着的统治者，以及他正在接受的那件礼物。"
+  targets={[
+    { x: 52, y: 10, w: 26, h: 32, label: '坐着的统治者', note: '整幅画面里只有他坐着。他身体前倾，迎向献礼的人。' },
+    { x: 37, y: 16, w: 19, h: 30, label: '被献上的头饰', note: '一顶插满羽毛的高头饰，正被双手递向宝座。' },
+  ]}
+/>
 
 这是一块将近一米见方的石灰岩浮雕，藏于纽约大都会艺术博物馆。它出自危地马拉西北部一个叫拉帕萨迪塔的小遗址，大约刻于公元 770 年代，属于玛雅历史上的古典期。
 
 画面右边，一个人盘腿坐在宝座上，身体前倾，头上的羽饰向后飘起。左边两个人站着，面朝他。前面那人双手捧着一样东西，向坐着的人递过去；后面那人跟在他身后，戴着一顶宽檐的帽子。
 
 石头上还留着不少颜色：大片的红，宝座和珠饰上的一点蓝绿。原来整块浮雕是彩绘的，比今天鲜艳得多。
-</Split>
 
 <PhotoMarks
   artwork="art-la-pasadita-lintel-001"
@@ -65,15 +71,6 @@ import LessonComplete from '../../components/LessonComplete.astro';
 
 不认识一个字，也能看出这幅画在讲什么：一个地位高的人坐着接受，另外的人站着奉上。坐与站、高与低、给与受，画面用身体的位置排出了尊卑。
 
-<FindOnImage
-  artwork="art-la-pasadita-lintel-001"
-  image="full"
-  prompt="先自己找一找：在浮雕上点出坐着的统治者，以及他正在接受的那件礼物。"
-  targets={[
-    { x: 52, y: 10, w: 26, h: 32, label: '坐着的统治者', note: '整幅画面里只有他坐着。他身体前倾，迎向献礼的人。' },
-    { x: 37, y: 16, w: 19, h: 30, label: '被献上的头饰', note: '一顶插满羽毛的高头饰，正被双手递向宝座。' },
-  ]}
-/>
 
 但“地位高的人”是谁？献礼的又是谁？只凭姿势回答不了。答案刻在石头上，就在人物的身边。
 
