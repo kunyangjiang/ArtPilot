@@ -1,0 +1,232 @@
+---
+// Concept B — Museum Atlas. The homepage as the floor plan of the museum, drawn on the reading ground: the
+// entrance at the foot, the course hall straight ahead, the collection vault beside it, two side rooms and a long
+// corridor of "the same time" across the top. Open rooms have solid walls and doorways; rooms in preparation are
+// drawn in dashed lines. A guide beside the plan describes whichever room is pointed at or focused.
+import { destinations, SOON } from './destinations';
+import type { PreviewImages } from './images';
+interface Props { lessons: { id: string; title: string }[]; images: PreviewImages }
+const { lessons, images } = Astro.props;
+const d = Object.fromEntries(destinations.map((x) => [x.id, x]));
+const { wave, nataraja } = images;
+const entryText = '你在入口。正对面是课程大厅，现在开放 ' + lessons.length + ' 门课程；右侧是藏品图鉴。左侧的两间展室和上方的长廊正在筹备。';
+---
+<div class="ma" data-atlas>
+  <header class="ma-top">
+    <span class="ma-mark">ArtPilot</span>
+    <span class="ma-tag">首页概念 B · 馆内导览 · 本地预览</span>
+  </header>
+
+  <div class="ma-body">
+    <div class="ma-head">
+      <p class="ma-kicker">全球艺术史与艺术鉴赏</p>
+      <h1><span>一座数字美术馆，</span><span>五个展区。</span></h1>
+    </div>
+
+    <div class="ma-plan" aria-label="美术馆平面图">
+<section class="ma-room ma-courses is-open" data-room="courses" aria-labelledby="ma-courses-h">
+        <p class="ma-no">{d.courses.no}</p>
+        <h2 id="ma-courses-h"><a class="ma-enter" href={d.courses.href}>{d.courses.label}</a></h2>
+        <p class="ma-sub" lang="en">{d.courses.sub}</p>
+        <ul class="ma-works">
+          <li><a href="/lessons/mountain-and-smallness/"><img src="/img/fan-kuan-full.jpg" alt="" /><span>{lessons.find((l) => l.id === 'mountain-and-smallness')?.title}</span></a></li>
+          <li><a href="/lessons/stone-and-light/"><img src="/img/chartres-west.jpg" alt="" /><span>{lessons.find((l) => l.id === 'stone-and-light')?.title}</span></a></li>
+        </ul>
+        <a class="ma-go" href={d.courses.href}>进入课程，查看已开放的 {lessons.length} 门 <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section class="ma-room ma-collection is-open" data-room="collection" aria-labelledby="ma-collection-h">
+        <p class="ma-no">{d.collection.no}</p>
+        <h2 id="ma-collection-h" lang="en"><a class="ma-enter ma-stretch" href={d.collection.href}>{d.collection.label}</a></h2>
+        <p class="ma-sub">{d.collection.sub}</p>
+        <ol class="ma-drawers">
+          <li><span>No.001</span>溪山行旅图</li>
+          <li><span>No.002</span>沙特尔主教座堂</li>
+        </ol>
+        <span class="ma-go" aria-hidden="true">进入藏品图鉴 <span>→</span></span>
+      </section>
+
+      <section class="ma-room ma-stories is-soon" data-room="stories" aria-labelledby="ma-stories-h">
+        <p class="ma-no">{d.stories.no}</p>
+        <h2 id="ma-stories-h"><span tabindex="0" role="link" aria-disabled="true" class="ma-enter">{d.stories.label}</span></h2>
+        <p class="ma-sub" lang="en">{d.stories.sub}</p>
+        <img class="ma-thumb" src={wave.img.src} alt={wave.alt} loading="lazy" />
+        <p class="ma-state">{SOON}</p>
+      </section>
+
+      <section class="ma-room ma-cases is-soon" data-room="cases" aria-labelledby="ma-cases-h">
+        <p class="ma-no">{d.cases.no}</p>
+        <h2 id="ma-cases-h" lang="en"><span tabindex="0" role="link" aria-disabled="true" class="ma-enter">{d.cases.label}</span></h2>
+        <p class="ma-sub">{d.cases.sub}</p>
+        <p class="ma-state">{SOON}</p>
+      </section>
+
+      <section class="ma-room ma-atlas is-soon" data-room="atlas" aria-labelledby="ma-atlas-h">
+        <div class="ma-room-text">
+          <p class="ma-no">{d.atlas.no}</p>
+          <h2 id="ma-atlas-h"><span tabindex="0" role="link" aria-disabled="true" class="ma-enter">{d.atlas.label}</span></h2>
+          <p class="ma-sub" lang="en">{d.atlas.sub}</p>
+          <p class="ma-state">{SOON}</p>
+        </div>
+        <div class="ma-hang">
+          <img src={nataraja.img.src} alt={nataraja.alt} loading="lazy" />
+          <img src="/img/chartres-samaritan.jpg" alt="沙特尔主教座堂“好撒马利亚人”窗中的一格。" loading="lazy" />
+          <p class="ma-hang-note">约 1200 年前后：泰米尔纳德的青铜，沙特尔的玻璃</p>
+        </div>
+      </section>
+
+      <div class="ma-entry" aria-hidden="true"><span class="ma-dot"></span>入口 · 你在这里</div>
+    </div>
+
+    <aside class="ma-guide" aria-label="馆内导览">
+      <p class="ma-guide-head">馆内导览</p>
+      <dl class="ma-legend">
+        <div><dt><span class="ma-key is-open"></span>实线</dt><dd>已开放，可以进入</dd></div>
+        <div><dt><span class="ma-key is-soon"></span>虚线</dt><dd>筹备中，尚未开放</dd></div>
+      </dl>
+      <div class="ma-guide-out" aria-live="polite" data-guide>
+        <p class="ma-guide-title" data-guide-title>入口</p>
+        <p data-guide-text>{entryText}</p>
+      </div>
+      {destinations.map((x) => (
+        <template data-guide-for={x.id}><p class="ma-guide-title">{x.no}　{x.label}</p><p>{x.premise}{x.href ? '' : `（${SOON}）`}</p></template>
+      ))}
+      <template data-guide-for="entry"><p class="ma-guide-title">入口</p><p>{entryText}</p></template>
+    </aside>
+  </div>
+
+  <footer class="ma-credits">
+    <p>本页为首页概念预览，不是正式首页。</p>
+    <p>{wave.caption} {wave.credit}，<a href={wave.source}>来源</a>。</p>
+    <p>{nataraja.caption} {nataraja.credit}，<a href={nataraja.source}>来源</a>。</p>
+    <p>范宽《溪山行旅图》与沙特尔主教座堂的图片及其授权，见各课程页的“来源与版权”。</p>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-atlas]').forEach((root) => {
+    const out = root.querySelector<HTMLElement>('[data-guide]')!;
+    let current = '';
+    const show = (id: string) => {
+      if (id === current) return;
+      current = id;
+      root.dataset.active = id === 'entry' ? '' : id;
+      out.replaceChildren(root.querySelector<HTMLTemplateElement>(`template[data-guide-for="${id}"]`)!.content.cloneNode(true));
+    };
+    root.querySelectorAll<HTMLElement>('[data-room]').forEach((room) => {
+      room.addEventListener('mouseenter', () => show(room.dataset.room!));
+      room.addEventListener('focusin', () => show(room.dataset.room!));
+    });
+    root.querySelector('.ma-plan')!.addEventListener('mouseleave', () => {
+      if (!root.querySelector('.ma-plan')!.contains(document.activeElement)) show('entry');
+    });
+    root.querySelector('.ma-plan')!.addEventListener('focusout', (e) => {
+      if (!root.querySelector('.ma-plan')!.contains((e as FocusEvent).relatedTarget as Node)) show('entry');
+    });
+  });
+</script>
+
+<style>
+  .ma { min-height: 100vh; background: var(--paper); color: var(--ink); padding: 0 clamp(1.5rem, 4vw, 4.5rem) 4rem; }
+  .ma-top { display: flex; justify-content: space-between; align-items: baseline; padding: 1.6rem 0 0; }
+  .ma-mark { font: 400 1.0625rem/1 var(--latin); letter-spacing: .32em; text-transform: uppercase; }
+  .ma-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: var(--ink-3); }
+
+  .ma-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem); grid-template-rows: auto 1fr; column-gap: clamp(2rem, 4vw, 4rem); padding-top: clamp(2rem, 5vh, 3.5rem); }
+  .ma-head { grid-column: 1 / -1; margin-bottom: 2.25rem; }
+  .ma-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--ink-3); }
+  .ma h1 { margin: 0; font: 500 clamp(2rem, 3vw, 2.75rem)/1.35 var(--serif); letter-spacing: .04em; }
+  .ma h1 span { display: block; }
+
+  /* The plan: rooms share walls; the outer wall is heavier. */
+  .ma-plan {
+    position: relative; display: grid; border: 2.5px solid var(--ink);
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.15fr 1.15fr;
+    grid-template-rows: minmax(10.5rem, auto) minmax(11rem, auto) minmax(10rem, auto) 3.25rem;
+    grid-template-areas:
+      "atlas atlas atlas atlas atlas atlas"
+      "stories courses courses courses coll coll"
+      "cases courses courses courses coll coll"
+      "cases entry entry entry coll coll";
+  }
+  .ma-room { position: relative; padding: 1.1rem 1.25rem 1.25rem; margin: -1px; border: 1.5px solid var(--ink); background: var(--paper); transition: background-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+  .ma-room.is-soon { border-style: dashed; border-color: var(--ink-3); }
+  .ma-atlas { grid-area: atlas; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 2rem; }
+  .ma-stories { grid-area: stories; }
+  .ma-cases { grid-area: cases; }
+  .ma-courses { grid-area: courses; padding: 1.4rem 1.6rem; }
+  .ma-collection { grid-area: coll; }
+  .ma-entry { grid-area: entry; display: flex; align-items: center; justify-content: center; gap: .6rem; font: 500 .75rem/1 var(--sans); letter-spacing: .2em; color: var(--ink-2); }
+  .ma-dot { width: .6rem; height: .6rem; border-radius: 50%; background: var(--ink); }
+
+  /* Doorways: a gap in the wall, cut where a room opens onto the hall or the entrance. */
+  .ma-courses::after { content: ""; position: absolute; left: 38%; right: 38%; bottom: -2px; height: 4px; background: var(--paper); }
+  .ma-collection::before { content: ""; position: absolute; left: -2px; top: 30%; height: 22%; width: 4px; background: var(--paper); }
+
+  .ma-no { margin: 0; font: 400 .8125rem/1 var(--latin); letter-spacing: .1em; color: var(--ink-3); }
+  .ma-room h2 { margin: .3rem 0 0; font: 500 1.25rem/1.4 var(--serif); letter-spacing: .05em; }
+  .ma-courses h2 { font-size: 1.625rem; }
+  .ma-enter { color: inherit; text-decoration: none; }
+  a.ma-enter:hover, a.ma-enter:focus-visible { text-decoration: underline 1px; text-underline-offset: .3em; }
+  .ma-stretch::after { content: ""; position: absolute; inset: 0; } /* the whole vault is the link */
+  .ma-sub { margin: .25rem 0 0; font: italic 400 .875rem/1.4 var(--latin); color: var(--ink-3); }
+  .ma-state { display: inline-block; white-space: nowrap; margin: .8rem 0 0; padding: .15rem .65rem; border: 1px dashed var(--ink-3); border-radius: 999px; font: 500 .6875rem/1.6 var(--sans); letter-spacing: .14em; color: var(--ink-3); }
+  .is-soon h2, .is-soon .ma-sub { color: var(--ink-3); }
+
+  .ma-hang { display: flex; align-items: flex-end; gap: .9rem; }
+  .ma-hang img { display: block; height: 7.5rem; width: auto; }
+  .ma-hang-note { align-self: center; max-width: 9em; margin: 0; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); }
+  .ma-thumb { display: block; width: 100%; max-width: 12rem; height: auto; margin-top: .9rem; }
+
+  .ma-works { display: flex; gap: 1.5rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+  .ma-works a { display: grid; gap: .6rem; justify-items: start; color: inherit; text-decoration: none; }
+  .ma-works img { display: block; height: 8.5rem; width: auto; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+  .ma-works span { max-width: 13em; font: 400 .875rem/1.6 var(--serif); }
+  .ma-works a:hover img, .ma-works a:focus-visible img { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .18); }
+  .ma-works a:hover span, .ma-works a:focus-visible span { text-decoration: underline 1px; text-underline-offset: .3em; }
+  .ma-go { display: inline-block; margin-top: 1.2rem; color: var(--ink); font: 500 .875rem/1.5 var(--sans); letter-spacing: .08em; text-decoration: none; border-bottom: 1px solid var(--ink-3); }
+  .ma-go:hover, .ma-collection:hover .ma-go { border-bottom-color: var(--ink); }
+  .ma-go span { display: inline-block; transition: transform var(--t) var(--ease); }
+  .ma-collection:hover .ma-go span, .ma-collection:focus-within .ma-go span { transform: translateX(4px); }
+  .ma-drawers { margin: 1rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+  .ma-drawers li { padding: .55rem 0; border-bottom: 1px solid var(--rule); font: 400 .9375rem/1.5 var(--serif); }
+  .ma-drawers span { display: inline-block; min-width: 4.5em; font: italic 400 .8125rem/1 var(--latin); color: var(--ink-3); }
+
+  /* Pointing at a room: it takes the quiet wall tone and a heavier wall. Nothing else fades, so the works keep
+     their full colour. */
+  .ma[data-active="atlas"] .ma-atlas, .ma[data-active="stories"] .ma-stories, .ma[data-active="cases"] .ma-cases,
+  .ma[data-active="courses"] .ma-courses, .ma[data-active="collection"] .ma-collection {
+    background: var(--mist); box-shadow: inset 0 0 0 1.5px var(--ink); z-index: 1;
+  }
+  .ma :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  .ma-enter[aria-disabled="true"] { cursor: default; }
+
+  /* The guide: legend and the description of the room in view. */
+  .ma-guide { align-self: start; position: sticky; top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--ink); }
+  .ma-guide-head { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--ink-3); }
+  .ma-legend { margin: 0 0 1.5rem; display: grid; gap: .5rem; font: 400 .8125rem/1.5 var(--sans); color: var(--ink-2); }
+  .ma-legend div { display: flex; gap: .8rem; }
+  .ma-legend dt { display: flex; align-items: center; gap: .5rem; min-width: 4.5em; }
+  .ma-legend dd { margin: 0; }
+  .ma-key { display: inline-block; width: 1.6rem; border-top: 1.5px solid var(--ink); }
+  .ma-key.is-soon { border-top-style: dashed; border-color: var(--ink-3); }
+  .ma-guide-out { min-height: 9rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+  .ma-guide-out p { margin: 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .ma-guide-out .ma-guide-title { margin-bottom: .4rem; font: 500 1.125rem/1.5 var(--serif); color: var(--ink); }
+
+  .ma-credits { margin-top: clamp(3.5rem, 8vh, 5rem); padding-top: 1.25rem; border-top: 1px solid var(--rule); font: 400 .75rem/1.8 var(--sans); color: var(--ink-3); }
+  .ma-credits p { margin: 0; }
+  .ma-credits a { color: var(--ink-3); }
+
+  /* Narrow screens: the rooms stack in walking order; the guide follows. Not a mobile design, just safe. */
+  @media (max-width: 900px) {
+    .ma-body { grid-template-columns: 1fr; }
+    .ma-plan { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "entry" "courses" "coll" "stories" "cases" "atlas"; }
+    .ma-entry { min-height: 3rem; }
+    .ma-atlas { grid-template-columns: 1fr; row-gap: 1rem; }
+    .ma-hang { flex-wrap: wrap; }
+    .ma-hang-note { flex-basis: 100%; max-width: none; }
+    .ma-works { flex-direction: column; }
+    .ma-guide { position: static; margin-top: 2rem; }
+  }
+</style>
