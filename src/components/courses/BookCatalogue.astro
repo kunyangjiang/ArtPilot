@@ -279,7 +279,7 @@ const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back
   .cd :focus-visible { outline: 2px solid #f1f0ec; outline-offset: 3px; }
   .cd [lang="en"] { font-family: var(--didone); }
   /* The shared site bar (SiteBar.astro), light on the dark desk. */
-  .cd-top { align-self: stretch; position: relative; z-index: 1; }
+  .cd-top { align-self: stretch; position: relative; z-index: 210; /* above a page turning toward the reader */ }
   .cd-desk { flex: 1; display: grid; place-items: center; width: 100%; padding: clamp(.75rem, 2.4vh, 1.6rem) 0 clamp(.75rem, 2vh, 1.25rem); }
 
   /* ---- Book: two pages wide; the closed book shifts left so the cover sits centred ---- */
@@ -538,17 +538,23 @@ const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back
     .cd-desk { display: block; place-items: normal; padding: 1.5rem 1.25rem 1.5rem; }
     .bk, .bk.is-closed { width: auto; height: auto; transform: none; container-type: normal; --u: calc((100vw - 2.5rem) / 50); }
     .bk-board, .bk-edge, .bk-cast, .bk::before, .bk-shade, .bk-hot { display: none; }
-    .bk-leaf, .bk-cover, .bk-base { position: static; width: auto; height: auto; transform: none !important; }
+    /* Flat leaves: a 3D leaf is a layer of its own, which would keep a turning page under the page after it. */
+    .bk-leaf, .bk-cover, .bk-base { position: static; width: auto; height: auto; transform: none !important; transform-style: flat; }
     .bk-face, .bk-base { position: relative; inset: auto; transform: none; min-height: calc((100vw - 2.5rem) / .76);
       box-shadow: 0 1px 1px rgb(0 0 0 / .5), 0 8px 14px -6px rgb(0 0 0 / .5), 0 26px 44px -18px rgb(0 0 0 / .65); }
     .bk [data-face]:not(.m-current) { display: none; }
-    /* Turning a page: the page you leave slides away and fades as the next slides in from the side you are heading
-       to (and back the other way). The leaving page lies over the arriving one only while it goes. */
+    /* Turning a page, as in the book on a desktop: the sheet turns about the spine (its left edge), lifting toward the
+       reader in perspective and darkening as it turns away from the lamp, and the page it uncovers comes out of its
+       shadow. Back: the previous sheet swings down over the page you were on, which falls into shadow. The leaving page
+       lies over (or, going back, under) the arriving one only while the turn lasts. */
+    /* The site bar is a solid band on a phone, like the controls below, so a page lifting toward the reader passes
+       under it cleanly. */
+    .cd-top { background: rgb(22 21 20 / .94); }
     .bk [data-face].m-leaving { display: block; position: absolute; top: 0; left: 0; right: 0; z-index: 2; pointer-events: none;
-      animation: m-out .46s cubic-bezier(.4, 0, .2, 1) forwards; }
-    .bk [data-face].m-leaving.m-back { animation-name: m-out-back; }
-    .m-current.m-turned { animation: m-in .46s cubic-bezier(.2, .7, .2, 1) both; }
-    .m-current.m-turned.m-back { animation-name: m-in-back; }
+      transform-origin: 0 50%; animation: m-flip-away .64s cubic-bezier(.45, .05, .3, 1) forwards; }
+    .bk [data-face].m-leaving.m-back { z-index: 1; animation: m-into-shade .64s cubic-bezier(.3, 0, .25, 1) forwards; }
+    .m-current.m-turned { animation: m-out-of-shade .64s cubic-bezier(.45, .05, .3, 1) both; }
+    .m-current.m-turned.m-back { z-index: 2; transform-origin: 0 50%; animation: m-flip-down .64s cubic-bezier(.3, 0, .25, 1) both; }
     .cv { border-radius: 0 3px 3px 0; }
     .cv-inside { background: var(--sheet-back); }
     .bk-endpaper { position: relative; inset: auto; min-height: inherit; }
@@ -561,10 +567,13 @@ const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back
     /* The hanging caption beside a stage numeral would run into it on a page this narrow: set it beneath instead. */
     .op-cap { position: static; margin: calc(var(--u) * 1.6) 0 0; text-align: left !important; }
   }
-  @keyframes m-out { to { opacity: 0; transform: translateX(-28%) scale(.96); } }
-  @keyframes m-out-back { to { opacity: 0; transform: translateX(28%) scale(.96); } }
-  @keyframes m-in { from { opacity: 0; transform: translateX(22%); } }
-  @keyframes m-in-back { from { opacity: 0; transform: translateX(-22%); } }
+  /* Past 90° the sheet shows its back, which is hidden: it is gone once it has turned. */
+  @keyframes m-flip-away { from { transform: perspective(1800px) rotateY(0deg); filter: brightness(1); }
+    to { transform: perspective(1800px) rotateY(-100deg); filter: brightness(.6); } }
+  @keyframes m-flip-down { from { transform: perspective(1800px) rotateY(-100deg); filter: brightness(.6); }
+    to { transform: perspective(1800px) rotateY(0deg); filter: brightness(1); } }
+  @keyframes m-out-of-shade { from { filter: brightness(.74); } to { filter: brightness(1); } }
+  @keyframes m-into-shade { from { filter: brightness(1); } to { filter: brightness(.74); } }
   @media (prefers-reduced-motion: reduce) { .bk [data-face].m-leaving { display: none; } .m-current.m-turned { animation: none; } }
 </style>
 
@@ -709,6 +718,9 @@ const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back
         from.classList.add('m-leaving'); to.classList.add('m-turned');
         from.classList.toggle('m-back', back); to.classList.toggle('m-back', back);
         from.addEventListener('animationend', () => from.classList.remove('m-leaving', 'm-back'), { once: true });
+        // Once landed, the page carries no leftover transform or filter (which would soften its text).
+        const landed = (e: AnimationEvent) => { if (e.target !== to) return; to.removeEventListener('animationend', landed); to.classList.remove('m-turned', 'm-back'); };
+        to.addEventListener('animationend', landed);
       }
       const top = book.getBoundingClientRect().top;
       if (top < 0) window.scrollTo({ top: window.scrollY + top - 16, behavior: reduced.matches ? 'auto' : 'smooth' });
