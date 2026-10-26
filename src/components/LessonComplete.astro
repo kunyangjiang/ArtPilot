@@ -1,0 +1,50 @@
+---
+import ArtworkCard from './ArtworkCard.astro';
+// COL-01: finishing a core lesson earns its representative card. The reader says so explicitly, with one button
+// at the end of the lesson; no quiz answer is needed, and opening the page claims nothing. The card is stored once,
+// under its artwork id, so claiming again changes nothing; a reader who already has it sees it here on return.
+interface Props { artwork: string }
+const { artwork } = Astro.props;
+---
+<section class="lesson-complete" data-complete={artwork} aria-labelledby={`complete-${artwork}`}>
+  <p class="kicker" id={`complete-${artwork}`}>课程完成</p>
+  <div data-claim-step>
+    <p class="lesson-complete-text">读到这里，这一课就学完了。领取这件作品的藏品卡，收入你的图鉴。</p>
+    <button type="button" class="btn btn-primary" data-claim>完成本课 · 领取藏品卡</button>
+  </div>
+  <div class="card-unlock" data-unlock tabindex="-1" role="status" aria-live="polite" hidden>
+    <ArtworkCard artwork={artwork} variant="mini" />
+    <div class="card-unlock-text">
+      <p class="kicker" data-unlock-kicker>获得藏品卡</p>
+      <p class="card-unlock-title" data-unlock-title></p>
+      <a class="btn btn-secondary" href="/collection/">打开图鉴</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { collect, readCollection, deviceStorage } from '../lib/collection.js';
+
+  document.querySelectorAll<HTMLElement>('[data-complete]').forEach((root) => {
+    const id = root.dataset.complete!;
+    const step = root.querySelector<HTMLElement>('[data-claim-step]')!;
+    const panel = root.querySelector<HTMLElement>('[data-unlock]')!;
+    const show = (fresh: boolean) => {
+      panel.querySelector('[data-unlock-kicker]')!.textContent = fresh ? '获得藏品卡' : '已在图鉴中';
+      panel.querySelector('[data-unlock-title]')!.textContent = fresh
+        ? '本课已完成，这件作品的卡片已收入你的图鉴。'
+        : '本课已完成，这张卡片已在你的图鉴中。';
+      panel.dataset.fresh = String(fresh);
+      step.hidden = true;
+      panel.hidden = false;
+    };
+    // Returning reader: the card is already on this device.
+    if (readCollection(deviceStorage())[id]) show(false);
+    root.querySelector<HTMLButtonElement>('[data-claim]')!.addEventListener('click', () => {
+      const { added } = collect(deviceStorage(), id);
+      show(added);
+      panel.focus({ preventScroll: true }); // the button is gone; keep keyboard focus on the result
+      dispatchEvent(new Event('artpilot:collected'));
+    });
+  });
+</script>

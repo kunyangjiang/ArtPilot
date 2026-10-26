@@ -1,15 +1,20 @@
 ---
 import { getEntry } from 'astro:content';
-interface Props { artwork: string; image: 'full' | 'travelers' | 'brushwork' | 'summit' | 'temple' | 'waterfall'; hero?: boolean }
+interface Props { artwork: string; image: string; hero?: boolean }
 const { artwork, image, hero = false } = Astro.props;
 const record = await getEntry('artworks', artwork);
 const img = record?.data.images.find((i) => i.key === image);
 if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+// A painting is credited to its painter; a photograph of a building to its photographer and licence
+// (the full attribution is in the rights block at the end of the page).
+const credit = img.credit
+  ? `${img.subject ?? record.data.titleZh} · 摄影 ${img.credit.author} · ${img.credit.licence}`
+  : `${record.data.artist}《${record.data.titleZh}》`;
 ---
 <figure>
   <img src={img.src} alt={img.alt} loading={hero ? 'eager' : 'lazy'} decoding="async" />
   <figcaption>
     <span class="cap">{img.caption}</span>
-    <span class="credit">{record.data.artist}《{record.data.titleZh}》</span>
+    <span class:list={['credit', { photo: img.credit }]}>{credit}</span>
   </figcaption>
 </figure>

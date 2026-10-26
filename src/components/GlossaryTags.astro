@@ -21,8 +21,10 @@ const terms = entries.map((e) => {
   const data: { id: string; term: string; pinyin: string; definition: string }[] = JSON.parse(
     document.getElementById('glossary-data')!.textContent!,
   );
-  const out = document.querySelector<HTMLElement>('[data-out]')!;
-  const tags = document.querySelectorAll<HTMLButtonElement>('.tag');
+  // Scoped to this section: other modules on the page may also use tags or an output region.
+  const root = document.getElementById('glossary')!;
+  const out = root.querySelector<HTMLElement>('[data-out]')!;
+  const tags = root.querySelectorAll<HTMLButtonElement>('.tag');
   tags.forEach((tag) =>
     tag.addEventListener('click', () => {
       const opening = tag.getAttribute('aria-pressed') !== 'true';

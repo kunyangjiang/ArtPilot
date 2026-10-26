@@ -1,0 +1,266 @@
+{
+  "id": "art-chartres-cathedral-001",
+  "kind": "building",
+  "titleZh": "沙特尔主教座堂",
+  "titleEn": "Chartres Cathedral (Cathédrale Notre-Dame de Chartres)",
+  "attributionNote": "设计者姓名不详。主教座堂官方资料认为很可能不止一位：工程延续多年，不能假定有一位“总建筑师”从头到尾决定一切。",
+  "dateApprox": "1194 年大火后重建，主体约 1230 年代完成，1260 年祝圣；西立面为 12 世纪中叶",
+  "location": "法国，沙特尔",
+  "facts": [
+    {
+      "label": "中殿宽",
+      "value": "约 16.4 米"
+    },
+    {
+      "label": "拱顶高",
+      "value": "约 37 米"
+    },
+    {
+      "label": "彩窗",
+      "value": "176 扇（1240 年前后装齐）"
+    }
+  ],
+  "buildingType": "天主教主教座堂；哥特式建筑",
+  "materials": "石砌结构：柱墩、肋架拱顶与飞扶壁都是石造；窗中为彩色玻璃。屋顶自 1837 年起为金属屋架。",
+  "notes": [
+    "12 世纪中叶的西立面（“王者之门”、南塔与其上的三扇彩窗）在 1194 年的大火中幸存，被保留并并入新教堂。",
+    "1506–1513 年，建筑师让·德·博斯（Jehan de Beauce）建起北塔的晚期哥特式尖顶。",
+    "17 世纪，祭坛区前的圣坛屏被拆除。",
+    "1836 年屋顶失火，原有木构屋架被毁；1837 年起以金属屋架取代。",
+    "1862 年起整体列为法国历史古迹；1979 年列入联合国教科文组织世界遗产名录。",
+    "近年的室内修复清除烟尘，露出 13 世纪的淡赭色假石缝墙面；修复以哪个时代为准，曾引起公开争论。"
+  ],
+  "infoSources": [
+    {
+      "label": "UNESCO 世界遗产名录：Chartres Cathedral（No. 81）",
+      "url": "https://whc.unesco.org/en/list/81/"
+    },
+    {
+      "label": "沙特尔主教座堂官方网站：The 13th century Cathedral（建筑）",
+      "url": "https://www.cathedrale-chartres.org/en/cathedrale/monument/architecture/the-13th-century-cathedral/"
+    },
+    {
+      "label": "沙特尔主教座堂官方网站：Les grandes dates（编年）",
+      "url": "https://www.cathedrale-chartres.org/cathedrale/la-cathedrale/lhistoire/les-grandes-dates/"
+    },
+    {
+      "label": "Gilles Fresson（主教座堂教务处）：Le Labyrinthe de Chartres, enfin dévoilé ?",
+      "url": "https://www.cathedrale-chartres.org/cathedrale/la-cathedrale/le-labyrinthe/le-labyrinthe-enfin-devoile/"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/chartres-full.jpg",
+      "alt": "沙特尔主教座堂中殿，向东望去：两侧成排的柱墩和高侧窗，头顶一个个四分肋架拱顶一直延伸到远处的祭坛区。",
+      "caption": "中殿，向东望向祭坛区（2022 年摄，内墙修复之后）。",
+      "kind": "full",
+      "credit": {
+        "author": "Ludvig14",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Notre-Dame_Interior_018_2856.jpg",
+        "date": "2022 年 9 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "elevation",
+      "src": "/img/chartres-elevation.jpg",
+      "alt": "中殿侧墙的几个开间：最下面是尖拱构成的大拱廊，中间一排带小柱的窄通道，最上面是由两扇长窗和一扇小圆窗组成的高侧窗。",
+      "caption": "中殿侧墙：拱廊、三拱式拱廊、高侧窗（2006 年摄，内墙修复之前，墙面仍被熏黑）。",
+      "kind": "detail",
+      "credit": {
+        "author": "BjörnT（德语维基百科）",
+        "licence": "公有领域（作者声明放弃权利）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triforium_Chartres.jpg",
+        "date": "2006 年 8 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "west",
+      "src": "/img/chartres-west.jpg",
+      "alt": "从中殿向西回望：头顶一格格交叉的石肋组成的拱顶，下方是圆形的西玫瑰窗，玫瑰窗下并排三扇高大的长窗。",
+      "caption": "向西回望：头顶的四分肋架拱顶，西玫瑰窗，以及它下方三扇 12 世纪的彩窗（2022 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Ludvig14",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Notre-Dame_Interior_018_2904.jpg",
+        "date": "2022 年 9 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "buttresses",
+      "src": "/img/chartres-buttresses.jpg",
+      "alt": "从北侧看中殿外墙：一排厚重的扶壁墩上伸出上下两道石拱，越过侧廊屋顶顶住中殿高墙，两道石拱之间以一列小柱相连。",
+      "caption": "中殿北侧的飞扶壁（2007 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Andreas F. Borchert",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Cathedral_Buttresses_N_2007_08_31.jpg",
+        "date": "2007 年 8 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "saint-denis",
+      "src": "/img/chartres-saint-denis.jpg",
+      "alt": "圣德尼修道院教堂的回廊：细长的圆柱撑起交叉的石肋，外侧的小礼拜堂几乎整面开成大窗。",
+      "caption": "絮热主持建造的回廊与放射状小礼拜堂（2005 年摄）。照片中的彩窗不是 12 世纪的原件。",
+      "kind": "detail",
+      "subject": "圣德尼修道院教堂",
+      "credit": {
+        "author": "Beckstet",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basilica_Saint_Denis_ambulatory.JPG",
+        "date": "2005 年 4 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "belle-verriere",
+      "src": "/img/chartres-belle-verriere.jpg",
+      "alt": "“美丽玻璃窗圣母”彩窗：上方是红色底上的圣母抱子像，下方分格画着其他故事场景。",
+      "caption": "“美丽玻璃窗圣母”（2009 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Eusebius",
+        "licence": "公有领域（作者声明放弃权利）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_-_cath%C3%A9drale_-_ND_de_la_belle_verri%C3%A8re.JPG",
+        "date": "2009 年 2 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "samaritan",
+      "src": "/img/chartres-samaritan.jpg",
+      "alt": "彩窗中的一格：一位男子俯身照料躺在床上的受伤路人，背景是蓝色，边框为红色；深色的铅条勾出了人物轮廓。",
+      "caption": "“好撒马利亚人”窗中的一格：撒马利亚人照料受伤的路人（2015 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "JBThomas4",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Bay_44_Good_Samaritan_Panel_12.jpg",
+        "date": "2015 年 11 月",
+        "changes": "重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "restoration",
+      "src": "/img/chartres-restoration.jpg",
+      "alt": "中殿内部：已经清理和重新粉刷的浅色墙面，旁边是尚未清理、颜色发黑的部分。",
+      "caption": "修复后的浅色墙面与尚未清理、仍被熏黑的部分（2019 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Stephen Taber",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cleaned_and_restored_Nave_Chartres_Cathedral.jpg",
+        "date": "2019 年 5 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "royal-portal",
+      "src": "/img/chartres-royal-portal.jpg",
+      "alt": "西立面“王者之门”的门侧：几尊细长的人像与门柱连为一体，衣褶呈平行的直线。",
+      "caption": "“王者之门”的柱像，约 1145–1155 年（2007 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Andreas F. Borchert",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Cathedral_Royal_Portal_Statues_1_2007_08_31.jpg",
+        "date": "2007 年 8 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "north-porch",
+      "src": "/img/chartres-north-porch.jpg",
+      "alt": "北门廊中门左侧的一排人像：人物站在柱前，身体略有转动，衣褶更有起伏。",
+      "caption": "北门廊中门左侧的人像，约 1210–1225 年（2007 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Andreas F. Borchert",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_Cathedral_North_Porch_Central_Bay_Left_Jamb_2007_08_31.jpg",
+        "date": "2007 年 8 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "labyrinth",
+      "src": "/img/chartres-labyrinth.jpg",
+      "alt": "中殿地面上的圆形迷宫：深色石条之间的浅色小路一圈圈盘旋，几位参观者正沿着小路行走。",
+      "caption": "中殿地面的迷宫；照片中是今天的参观者在开放日沿路行走（2017 年摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "Patrick from Compiègne, France",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartres_(Eure-et-Loir)_-_Cath%C3%A9drale_Notre-Dame_-_Le_labyrinthe_(47005276914).jpg",
+        "date": "2017 年 7 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "labyrinth-plan",
+      "src": "/img/chartres-labyrinth-plan.jpg",
+      "alt": "一块圆形石刻，刻着沙特尔式迷宫的完整图案：11 圈同心通道，转折处隐约组成十字，中心是六瓣的花形，外缘有一圈齿状边饰。",
+      "caption": "依沙特尔迷宫图案制作的现代石刻复制品，便于看清整体图案；不是原物（2019 年摄）。",
+      "kind": "detail",
+      "subject": "沙特尔迷宫图案（现代复制品）",
+      "credit": {
+        "author": "EinDao",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labyrinth_der_Kathedrale_von_Notre-Dame_de_Chartres_in_Stein.jpg",
+        "date": "2019 年 1 月",
+        "changes": "缩小尺寸并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "建筑及其中世纪雕刻、彩窗属公有领域；照片各有授权，见上方“图片”。",
+    "basis": "照片均来自 Wikimedia Commons。CC BY-SA 照片按其条款署名作者、许可证与来源；标为公有领域的两张由作者本人声明放弃权利。本课对照片只做了缩小和重新压缩，未裁切、未调色。",
+    "verifiedOn": "2026-10-25",
+    "note": "许可信息依据各 Commons 文件页的标注，未另向摄影者确认。商业发布前应再次核对文件页，并确认法国关于国有建筑影像商业使用的规定（《文化遗产法典》L621-42 条）是否适用于沙特尔主教座堂。"
+  },
+  "card": {
+    "no": "002",
+    "type": "主教座堂",
+    "maker": "沙特尔",
+    "period": "13 世纪",
+    "facets": [
+      {
+        "label": "地域",
+        "value": "法国"
+      },
+      {
+        "label": "结构",
+        "value": "石砌 · 飞扶壁"
+      },
+      {
+        "label": "拱顶高",
+        "value": "约 37 米"
+      },
+      {
+        "label": "彩窗",
+        "value": "176 扇"
+      }
+    ],
+    "blurb": "1194 年大火后重建：尖拱、肋架拱顶与飞扶壁撑起框架，把墙面让给了彩窗。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

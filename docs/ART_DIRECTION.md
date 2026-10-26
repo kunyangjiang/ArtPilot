@@ -54,9 +54,12 @@ comes from the artworks. `--ok #2F6B4F` / `--err #A4473B` appear only as small q
 4. **Interactions**: introduced by a sentence of narrative and answered by one afterwards, so they read as
    part of the argument.
 5. **Reflection**: the opening question returns on a quiet wall as open questions.
-6. **Closing challenge**: every lesson ends with one question or small interactive game. Answering it correctly
-   earns the work's card, and the unlock panel appears directly beneath it. Mid-lesson interactions (such as the
-   scale slider) never award cards. `tests/contract.test.js` checks the quiz sits between reflection and sources.
+6. **Completion (COL-01)**: completing a core lesson earns its one representative card. The lesson ends with
+   one explicit action, 完成本课 · 领取藏品卡; the reader presses it and the card appears in a panel in its place.
+   Opening the page claims nothing. A closing question or small game may come before it, but it is optional:
+   neither skipping it nor a wrong answer blocks completion, and no interaction awards a card on its own.
+   `tests/contract.test.js` checks that each lesson with a card has exactly one completion action for its own
+   artwork, between the reflection and the sources.
 7. **Sources, glossary, rights**: documentary voice, small and orderly.
 
 ## Components (current)
@@ -134,6 +137,12 @@ one step away: the back of the card links to the artwork record. Colour-removing
     record and the course.
 - Motion: flipping takes 520 ms. On mouse or pen, the card tilts up to about 6° toward the pointer with a faint light. Under reduced motion, everything is instant and the card doesn't tilt.
 - Sized in `em`: the mini card in the unlock moment is the same design at about half size.
+- A building uses the same card: the maker line gives its place when its designers are unknown, and the back
+  gives its place where a painting gives its museum.
+- **Collection (COL-01):** one card per completed core course, stored once under the artwork's stable id in
+  this browser only (`localStorage` key `artpilot.collection`; no account, no sync). Claiming again changes
+  nothing and keeps the first date; a returning reader sees the card already collected. Clearing the browser's
+  data, or the archive's own clear button, removes it.
 
 ## Navigation (Phase 3.0-B)
 

@@ -2,52 +2,88 @@ import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+// Rights for one image when a record's images come from different photographers (e.g. a building photographed
+// on site). A record either has one `imageSource` for all its images (a painting reproduced from one file) or a
+// `credit` on every image.
+const imageCredit = z.object({
+  author: z.string(), // photographer or creator, as credited on the source page
+  licence: z.string(), // e.g. 'CC BY-SA 4.0'; '公有领域' when the author released it
+  licenceUrl: z.string().url().optional(),
+  sourceUrl: z.string().url(),
+  date: z.string().optional(), // when it was taken: matters where a restoration changed what is shown
+  changes: z.string(), // what ArtPilot did to it, e.g. '缩小尺寸、重新压缩；未裁切'
+});
+
 // Entry ids come from the record's own `id` field (stable, not file-name based).
+// `kind` keeps paintings and buildings honest: a building has a place and measured facts, not an artist, a canvas
+// size or a museum. Fields that only make sense for one kind are optional and checked below.
 const artworks = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/artworks', generateId: ({ data }) => String(data.id) }),
-  schema: z.object({
-    titleZh: z.string(),
-    titleEn: z.string(),
-    artist: z.string(),
-    attributionNote: z.string(),
-    dateApprox: z.string(),
-    medium: z.string(),
-    dimensionsCm: z.object({ height: z.number(), width: z.number() }),
-    collection: z.string(),
-    infoSources: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
-    images: z
-      .array(
-        z.object({
-          key: z.enum(['full', 'travelers', 'brushwork', 'summit', 'temple', 'waterfall']),
-          src: z.string().startsWith('/img/'),
-          alt: z.string(),
-          caption: z.string(),
-          kind: z.enum(['full', 'detail']),
-        }),
-      )
-      .min(1),
-    imageSource: z.object({ label: z.string(), url: z.string().url(), originalFile: z.string() }),
-    rights: z.object({
-      status: z.string(),
-      basis: z.string(),
-      verifiedOn: z.string(),
-      note: z.string(),
+  schema: z
+    .object({
+      kind: z.enum(['painting', 'building']).default('painting'),
+      titleZh: z.string(),
+      titleEn: z.string(),
+      artist: z.string().optional(), // painting
+      attributionNote: z.string(), // who made it, or why that is unknown
+      dateApprox: z.string(),
+      medium: z.string().optional(), // painting
+      dimensionsCm: z.object({ height: z.number(), width: z.number() }).optional(), // painting
+      collection: z.string().optional(), // painting: the museum that holds it
+      location: z.string().optional(), // building: where it stands
+      facts: z.array(z.object({ label: z.string(), value: z.string() })).max(4).optional(), // building: a few measured facts
+      buildingType: z.string().optional(), // building: e.g. 天主教主教座堂；哥特式建筑
+      materials: z.string().optional(), // building: structure and materials
+      notes: z.array(z.string()).optional(), // building: verified alterations, conservation and protection, oldest first
+      // painting: what is in the picture, top to bottom — an image key, where and what it shows, and its approximate
+      // vertical position in the full image
+      contents: z.array(z.object({ key: z.string(), where: z.string(), what: z.string(), span: z.string() })).optional(),
+      infoSources: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
+      images: z
+        .array(
+          z.object({
+            key: z.string(),
+            src: z.string().startsWith('/img/'),
+            alt: z.string(),
+            caption: z.string(),
+            kind: z.enum(['full', 'detail']),
+            subject: z.string().optional(), // when the image shows another place, e.g. a comparison
+            credit: imageCredit.optional(),
+          }),
+        )
+        .min(1),
+      imageSource: z.object({ label: z.string(), url: z.string().url(), originalFile: z.string() }).optional(),
+      rights: z.object({
+        status: z.string(),
+        basis: z.string(),
+        verifiedOn: z.string(),
+        note: z.string(),
+      }),
+      // Collectible card face: short values sized for the card. Optional: only artworks with a card appear in the archive.
+      // Works for any art form: facets are chosen per work (a building lists 材料/规模, a painting 媒材/尺幅),
+      // and the image is optional — without one the card is a purely typographic cover. Monochrome: no colour fields.
+      card: z
+        .object({
+          no: z.string().regex(/^\d{3}$/),
+          type: z.string(), // the art form, e.g. 山水画, 建筑, 雕塑
+          maker: z.string().optional(), // a short maker line when the artist field does not fit (a building: its city)
+          period: z.string(),
+          facets: z.array(z.object({ label: z.string(), value: z.string() })).min(1).max(4),
+          blurb: z.string().max(60), // one sentence; also the cover headline when there is no image, so it must fit
+          focus: z.string().regex(/^\d{1,3}% \d{1,3}%$/).optional(), // where the cover crop centres on the image, e.g. '50% 70%'
+          image: z.string().nullable().optional(), // an image key of this artwork; default 'full' when present, null for none
+        })
+        .optional(),
+    })
+    .superRefine((art, ctx) => {
+      const need = (ok: unknown, message: string) => ok || ctx.addIssue({ code: 'custom', message });
+      if (art.kind === 'painting') {
+        need(art.artist && art.medium && art.dimensionsCm && art.collection, 'a painting needs artist, medium, dimensionsCm and collection');
+      } else {
+        need(art.location, 'a building needs a location');
+      }
+      need(art.imageSource || art.images.every((i) => i.credit), 'give one imageSource, or a credit on every image');
     }),
-    // Collectible card face: short values sized for the card. Optional: only artworks with a card appear in the archive.
-    // Works for any art form: facets are chosen per work (a building lists 材料/规模, a painting 媒材/尺幅),
-    // and the image is optional — without one the card is a purely typographic cover. Monochrome: no colour fields.
-    card: z
-      .object({
-        no: z.string().regex(/^\d{3}$/),
-        type: z.string(), // the art form, e.g. 山水画, 建筑, 雕塑
-        period: z.string(),
-        facets: z.array(z.object({ label: z.string(), value: z.string() })).min(1).max(4),
-        blurb: z.string().max(60), // one sentence; also the cover headline when there is no image, so it must fit
-        focus: z.string().regex(/^\d{1,3}% \d{1,3}%$/).optional(), // where the cover crop centres on the image, e.g. '50% 70%'
-        image: z.string().nullable().optional(), // an image key of this artwork; default 'full' when present, null for none
-      })
-      .optional(),
-  }),
 });
 
 const glossary = defineCollection({
@@ -63,6 +99,7 @@ const lessons = defineCollection({
   loader: glob({ pattern: '*.mdx', base: './src/content/lessons' }),
   schema: z.object({
     title: z.string(),
+    kicker: z.string(), // the line above the title, e.g. 细读 · 北宋 · 山水
     summary: z.string(),
     artwork: reference('artworks'),
     glossary: z.array(reference('glossary')).min(3),

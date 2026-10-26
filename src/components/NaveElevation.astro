@@ -1,0 +1,92 @@
+---
+import { getEntry } from 'astro:content';
+// Interaction: read one wall of a nave from the floor up. Each level is a band on the photograph (percent of the
+// image height, measured by eye); choosing it outlines the band and explains it. A toggle shows a schematic of a
+// wall that still has a wide tribune, so the reader sees which height Chartres gave to its windows.
+interface Level { id: string; label: string; from: number; to: number; note: string }
+interface Props { artwork: string; image: string; levels: Level[] }
+const { artwork, image, levels } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+const credit = img.credit ? `摄影 ${img.credit.author} · ${img.credit.licence}` : '';
+---
+<div class="module elevation" data-elevation>
+  <p class="module-label">互动 · 读一面墙</p>
+  <h3>这面墙从下往上分成几层？</h3>
+  <figure class="elevation-photo">
+    <div class="elevation-frame">
+      <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+      <ol aria-hidden="true">
+        {levels.map((l) => <li data-band={l.id} style={`--from:${l.from};--to:${l.to}`}><span>{l.label}</span></li>)}
+      </ol>
+    </div>
+    <figcaption><span class="cap">{img.caption}</span><span class="credit">{credit}</span></figcaption>
+  </figure>
+  <div class="elevation-side">
+    <p class="elevation-hint">从下往上，依次选一层：</p>
+    <div class="elevation-levels" role="group" aria-label="墙的分层">
+      {[...levels].reverse().map((l) => <button type="button" class="tag elevation-level" aria-pressed="false" data-level={l.id}>{l.label}</button>)}
+    </div>
+    <div class="elevation-out" role="status" aria-live="polite" data-elevation-out>
+      <p>选中的一层会在照片上框出来。</p>
+    </div>
+    {levels.map((l) => <template data-note={l.id}><p><strong>{l.label}</strong>　{l.note}</p></template>)}
+    <button type="button" class="btn btn-secondary elevation-compare-btn" aria-pressed="false" aria-controls="elevation-compare" data-compare>
+      对照：带楼廊的墙（示意）
+    </button>
+  </div>
+  <figure class="elevation-compare" id="elevation-compare" hidden>
+    <svg viewBox="0 0 480 300" role="img" aria-labelledby="elevation-compare-title">
+      <title id="elevation-compare-title">示意图：左边是一面带宽大楼廊的墙，右边是沙特尔的三层墙；右边的高侧窗高得多。</title>
+      <g class="ec-wall" transform="translate(10 20)">
+        <rect class="ec-bay" x="0" y="0" width="150" height="250" />
+        <path class="ec-open" d="M20 250 V170 Q75 120 130 170 V250 Z" />
+        <path class="ec-open" d="M25 155 V122 Q48 102 71 122 V155 Z M79 155 V122 Q102 102 125 122 V155 Z" />
+        <rect class="ec-band" x="10" y="92" width="130" height="14" />
+        <path class="ec-glass" d="M55 80 V40 Q75 20 95 40 V80 Z" />
+        <text x="158" y="64">高侧窗</text>
+        <text x="158" y="103">三拱式拱廊</text>
+        <text x="158" y="142">楼廊</text>
+        <text x="158" y="214">拱廊</text>
+        <text class="ec-title" x="75" y="274" text-anchor="middle">带楼廊的墙（示意）</text>
+      </g>
+      <g class="ec-wall" transform="translate(250 20)">
+        <rect class="ec-bay" x="0" y="0" width="150" height="250" />
+        <path class="ec-open" d="M20 250 V150 Q75 95 130 150 V250 Z" />
+        <rect class="ec-band" x="10" y="110" width="130" height="14" />
+        <path class="ec-glass" d="M24 100 V40 Q38 22 52 40 V100 Z M98 100 V40 Q112 22 126 40 V100 Z" />
+        <circle class="ec-glass" cx="75" cy="28" r="12" />
+        <text x="158" y="64">高侧窗</text>
+        <text x="158" y="121">三拱式拱廊</text>
+        <text x="158" y="204">拱廊</text>
+        <text class="ec-title" x="75" y="274" text-anchor="middle">沙特尔的三层墙</text>
+      </g>
+    </svg>
+    <figcaption>
+      示意图，比例为近似，只比较墙面怎样分层。左边是一种带楼廊的布局，用来说明沙特尔省下了哪一段高度；它不代表所有早期教堂都是这样。
+    </figcaption>
+  </figure>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-elevation]').forEach((root) => {
+    const buttons = root.querySelectorAll<HTMLButtonElement>('[data-level]');
+    const out = root.querySelector<HTMLElement>('[data-elevation-out]')!;
+    buttons.forEach((b) =>
+      b.addEventListener('click', () => {
+        const id = b.dataset.level!;
+        buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        root.querySelectorAll<HTMLElement>('[data-band]').forEach((band) => band.toggleAttribute('data-on', band.dataset.band === id));
+        root.dataset.selected = id;
+        out.replaceChildren(root.querySelector<HTMLTemplateElement>(`template[data-note="${id}"]`)!.content.cloneNode(true));
+      }),
+    );
+    const compare = root.querySelector<HTMLButtonElement>('[data-compare]')!;
+    const panel = root.querySelector<HTMLElement>('.elevation-compare')!;
+    compare.addEventListener('click', () => {
+      const open = compare.getAttribute('aria-pressed') !== 'true';
+      compare.setAttribute('aria-pressed', String(open));
+      panel.hidden = !open;
+    });
+  });
+</script>

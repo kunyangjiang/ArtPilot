@@ -2,15 +2,35 @@
 import { getEntry } from 'astro:content';
 // Image source, rights status and information sources for one artwork record.
 // Shared by the lesson page and the artwork record page; each page lays it out with its own grid.
+// A painting reproduced from one file has one image source; a building photographed by several people lists
+// every photograph with its author, licence, source and what was changed.
 interface Props { artwork: string }
 const record = await getEntry('artworks', Astro.props.artwork);
 if (!record) throw new Error(`Unknown artwork: ${Astro.props.artwork}`);
 const art = record.data;
+const credited = art.images.filter((i) => i.credit);
 ---
 <footer id="rights" class="rights">
   <h2 class="kicker">来源与版权</h2>
   <dl class="meta">
-    <dt>图片来源</dt><dd><a href={art.imageSource.url}>{art.imageSource.label}</a></dd>
+    {art.imageSource && <><dt>图片来源</dt><dd><a href={art.imageSource.url}>{art.imageSource.label}</a></dd></>}
+    {credited.length > 0 && (
+      <>
+        <dt>图片</dt>
+        <dd>
+          <ol class="rights-images">
+            {credited.map((i) => (
+              <li>
+                {i.subject ?? art.titleZh}：{i.caption.replace(/。$/, '')}。
+                摄影 {i.credit!.author}{i.credit!.date && `（${i.credit!.date}）`}，
+                {i.credit!.licenceUrl ? <a href={i.credit!.licenceUrl}>{i.credit!.licence}</a> : i.credit!.licence}，
+                <a href={i.credit!.sourceUrl}>来源页面</a>；{i.credit!.changes}。
+              </li>
+            ))}
+          </ol>
+        </dd>
+      </>
+    )}
     <dt>权利状态</dt><dd>{art.rights.status}</dd>
     <dt>依据</dt><dd>{art.rights.basis}</dd>
     <dt>核对日期</dt><dd>{art.rights.verifiedOn}</dd>

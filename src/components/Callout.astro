@@ -1,6 +1,14 @@
 ---
-interface Props { kind: 'fact' | 'interpretation' }
+// Marks the status of a statement: an established fact, a primary source and how far it can be trusted,
+// an interpretation, an open scholarly question, or a teaching simplification.
+interface Props { kind: 'fact' | 'source' | 'interpretation' | 'open' | 'schematic' }
 const { kind } = Astro.props;
-const label = kind === 'fact' ? '已知事实' : '解读 · 非定论';
+const labels = {
+  fact: '已知事实',
+  source: '史料 · 需要读出处',
+  interpretation: '解读 · 非定论',
+  open: '未定 · 学界仍有分歧',
+  schematic: '示意 · 简化说明',
+};
 ---
-<aside class={`callout ${kind}`}><span class="label">{label}</span><slot /></aside>
+<aside class={`callout ${kind}`}><span class="label">{labels[kind]}</span><slot /></aside>

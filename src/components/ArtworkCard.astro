@@ -17,7 +17,12 @@ const imageKey = card.image === undefined ? 'full' : card.image;
 const img = imageKey ? art.images.find((i) => i.key === imageKey) : undefined;
 if (imageKey && card.image && !img) throw new Error(`Card image "${imageKey}" not found on ${artwork}`);
 const lesson = (await getCollection('lessons')).find((l) => l.data.artwork.id === artwork);
-const artist = art.artist.replace(/（.*）/, '');
+// The maker line: a painting's painter; a building, whose designers are often unknown, its place (card.maker
+// gives a short form). The English line drops a parenthetical original-language name, and the vertical title steps
+// down in size for titles longer than five characters so it still fits the cover height in one column.
+const maker = card.maker ?? (art.artist ? art.artist.replace(/（.*）/, '') : (art.location ?? ''));
+const titleEn = art.titleEn.replace(/\s*\(.*\)\s*$/, '');
+const titleSize = `${Math.min(2.6, 13 / [...art.titleZh].length).toFixed(2)}em`;
 ---
 <article class={`art-card art-card-${variant}`} data-card={artwork} data-collected="false" data-flipped="false"
   data-image={img ? 'yes' : 'none'} aria-label={`藏品卡 No.${card.no}`}>
@@ -31,10 +36,10 @@ const artist = art.artist.replace(/（.*）/, '');
         <span class="art-card-masthead">ArtPilot</span>
         <span class="art-card-issue"><span>藏品图鉴</span><span>No.{card.no}</span></span>
       </header>
-      <h3 class="art-card-title">{art.titleZh}</h3>
+      <h3 class="art-card-title" style={`--title-size:${titleSize}`}>{art.titleZh}</h3>
       <div class="art-card-lines">
-        <p class="art-card-en" lang="en">{art.titleEn}</p>
-        <p class="art-card-by"><span>{artist}</span><span>{card.period} · {card.type}</span></p>
+        <p class="art-card-en" lang="en">{titleEn}</p>
+        <p class="art-card-by"><span>{maker}</span><span>{card.period} · {card.type}</span></p>
         <dl class="art-card-stats">
           {card.facets.map((f) => <div><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
         </dl>
@@ -48,7 +53,7 @@ const artist = art.artist.replace(/（.*）/, '');
           <span class="art-card-issue"><span>封面故事</span><span>No.{card.no}</span></span>
         </header>
         <p class="art-card-blurb">{card.blurb}</p>
-        <p class="art-card-fact">{art.titleZh}<span lang="en">{art.titleEn}</span>{art.dateApprox}<br />{art.collection}</p>
+        <p class="art-card-fact">{art.titleZh}<span lang="en">{art.titleEn}</span>{art.dateApprox}<br />{art.collection ?? art.location}</p>
         <p class="art-card-links">
           <a href={`/artworks/${artwork}/`}>藏品记录 →</a>
           {lesson && <a href={`/lessons/${lesson.id}/`}>相关课程 →</a>}
@@ -63,7 +68,7 @@ const artist = art.artist.replace(/（.*）/, '');
       <span class="art-card-numeral" aria-hidden="true">{card.no}</span>
       <div class="art-card-locked-text">
         <p class="art-card-locked-state">未收集</p>
-        {lesson && variant === 'full' && <a href={`/lessons/${lesson.id}/`}>完成课程《{lesson.data.title}》的观察练习后获得</a>}
+        {lesson && variant === 'full' && <a href={`/lessons/${lesson.id}/`}>完成课程《{lesson.data.title}》后获得</a>}
       </div>
     </section>
   </div>

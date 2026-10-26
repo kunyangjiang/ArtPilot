@@ -65,6 +65,13 @@
       "kind": "detail"
     }
   ],
+  "contents": [
+    {"key": "summit", "where": "主峰顶部", "what": "墨点堆积而成的密林", "span": "4–23%"},
+    {"key": "waterfall", "where": "主峰右侧", "what": "一道细长的瀑布", "span": "31–61%"},
+    {"key": "brushwork", "where": "主峰岩面", "what": "密集的短竖笔触", "span": "36–46%"},
+    {"key": "temple", "where": "中景树丛", "what": "树后露出的楼阁屋檐", "span": "65–74%"},
+    {"key": "travelers", "where": "画面右下", "what": "驮队：骡子与赶骡人", "span": "84–94%"}
+  ],
   "imageSource": {
     "label": "Wikimedia Commons（Google Art Project 高清图，2809×5633 px，原文件 6.8 MB）",
     "url": "https://commons.wikimedia.org/wiki/File:Fan_Kuan_-_Travelers_Among_Mountains_and_Streams_-_Google_Art_Project.jpg",

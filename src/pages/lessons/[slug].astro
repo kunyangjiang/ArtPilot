@@ -5,7 +5,6 @@ import GlossaryTags from '../../components/GlossaryTags.astro';
 import ArtworkFigure from '../../components/ArtworkFigure.astro';
 import BackToTop from '../../components/BackToTop.astro';
 import ArtworkRights from '../../components/ArtworkRights.astro';
-import CardUnlock from '../../components/CardUnlock.astro';
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -26,19 +25,27 @@ const titleLines = entry.data.title.split(/(?<=，)/);
   <header class="opening">
     <div class="opening-art"><ArtworkFigure artwork={artworkId} image="full" hero /></div>
     <div class="opening-label">
-      <p class="kicker">细读 · 北宋 · 山水</p>
+      <p class="kicker">{entry.data.kicker}</p>
       <h1 tabindex="-1">{titleLines.map((line) => <span>{line}</span>)}</h1>
       <p class="work">
-        <span class="zh">{art.artist}《{art.titleZh}》</span>
+        <span class="zh">{art.kind === 'building' ? art.titleZh : `${art.artist}《${art.titleZh}》`}</span>
         <span class="en" lang="en">{art.titleEn}</span>
       </p>
       <p class="lede">{entry.data.summary}</p>
-      <dl class="meta">
-        <dt>年代</dt><dd>{art.dateApprox}</dd>
-        <dt>材质</dt><dd>{art.medium}</dd>
-        <dt>尺寸</dt><dd>{art.dimensionsCm.height} × {art.dimensionsCm.width} cm</dd>
-        <dt>收藏</dt><dd>{art.collection}</dd>
-      </dl>
+      {art.kind === 'building' ? (
+        <dl class="meta">
+          <dt>年代</dt><dd>{art.dateApprox}</dd>
+          <dt>地点</dt><dd>{art.location}</dd>
+          {art.facts?.map((f) => <><dt>{f.label}</dt><dd>{f.value}</dd></>)}
+        </dl>
+      ) : (
+        <dl class="meta">
+          <dt>年代</dt><dd>{art.dateApprox}</dd>
+          <dt>材质</dt><dd>{art.medium}</dd>
+          <dt>尺寸</dt><dd>{art.dimensionsCm!.height} × {art.dimensionsCm!.width} cm</dd>
+          <dt>收藏</dt><dd>{art.collection}</dd>
+        </dl>
+      )}
     </div>
   </header>
 
@@ -47,6 +54,5 @@ const titleLines = entry.data.title.split(/(?<=，)/);
     <GlossaryTags ids={entry.data.glossary.map((g) => g.id)} />
     <ArtworkRights artwork={artworkId} />
   </article>
-  {art.card && <CardUnlock artwork={artworkId} />}
   <BackToTop />
 </Base>

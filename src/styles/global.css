@@ -108,6 +108,7 @@ main { overflow-x: clip; }
 .opening-art figcaption { color: var(--gallery-ink-2); }
 .opening-art figcaption .cap { color: var(--gallery-ink-2); }
 .opening-art figcaption .credit { display: none; }
+.opening-art figcaption .credit.photo { display: block; } /* a photograph keeps its photographer and licence beside it */
 .opening-label { max-width: 34rem; padding-bottom: .5rem; }
 .opening .kicker { color: var(--gallery-ink-2); margin: 0 0 2rem; }
 .opening h1 {
@@ -150,12 +151,16 @@ figcaption .credit { display: block; }
 .lesson > h2 {
   grid-column: wide-start / wide-end; display: grid; grid-template-columns: subgrid; align-items: baseline;
   margin: clamp(5rem, 11vw, 8.5rem) 0 2rem; font: 500 clamp(1.625rem, 2.7vw, 2.25rem)/1.4 var(--serif); letter-spacing: .04em;
-  counter-increment: section;
+  counter-increment: section; text-wrap: balance;
 }
 .lesson > h2::before {
   content: counter(section); grid-column: 1; justify-self: end;
   font: 400 clamp(2.5rem, 4vw, 3.5rem)/1 var(--latin); letter-spacing: 0; color: var(--silver);
 }
+/* Sub-headings inside a long section: a quiet serif step, no numeral. */
+.lesson > h3 { margin: clamp(2.75rem, 5vw, 3.75rem) 0 1rem; font: 500 1.375rem/1.6 var(--serif); letter-spacing: .06em; }
+.lesson > ul { margin: 0 0 1.25em; padding-left: 1.2em; }
+.lesson > ul li { margin-bottom: .5em; }
 
 dfn.term {
   font-style: normal; font-weight: 600; text-decoration: underline dotted var(--silver) 1px; text-underline-offset: .32em;
@@ -184,6 +189,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .split.reverse > figure { grid-column: 2; }
 .split.reverse > :not(figure) { grid-column: 1; }
 .split img { display: block; width: 100%; height: auto; background: var(--mist); }
+.split > figure:not(.cmap) img { width: auto; max-width: 100%; max-height: 85svh; } /* tall works (a window, a portal) stay within one screen */
 
 /* Composition map: the full work with schematic zone brackets alongside. */
 .cmap-frame { position: relative; width: calc(100% - 10rem); }
@@ -239,6 +245,16 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .callout p:last-child { margin-bottom: 0; }
 .callout.fact { padding: 1.1rem 1.35rem 1.2rem; background: var(--mist); font: 400 .9375rem/1.9 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
 .callout.interpretation { padding: .15rem 0 .15rem 1.35rem; border-left: 1px solid var(--ink); font-size: 1.0625rem; line-height: 1.85; color: var(--ink-2); }
+/* A primary source reads like a fact (documentary sans on the quiet wall) but is framed by a rule: it needs reading. */
+.callout.source { padding: 1.1rem 1.35rem 1.2rem; background: var(--mist); border-top: 1px solid var(--ink); font: 400 .9375rem/1.9 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
+/* An open question keeps the interpretation's rule, dashed: the line is not settled. */
+.callout.open { padding: .15rem 0 .15rem 1.35rem; border-left: 1px dashed var(--ink); font-size: 1.0625rem; line-height: 1.85; color: var(--ink-2); }
+/* A teaching simplification: small and documentary, dotted rule. */
+.callout.schematic { padding: .1rem 0 .1rem 1.35rem; border-left: 1px dotted var(--ink-3); font: 400 .9375rem/1.85 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+.callout ol { margin: .25rem 0 0; padding-left: 1.4em; }
+.callout li { margin-bottom: .5em; }
+.rights-images { margin: 0; padding-left: 1.4em; }
+.rights-images li { margin-bottom: .45em; }
 
 /* ---------- Bands: deliberate changes of space ---------- */
 .band { margin: 0; }
@@ -248,6 +264,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .band-prelude { grid-column: text-start / wide-end; padding-top: clamp(4.5rem, 10vw, 8rem); }
 .band-prelude > p:first-child { max-width: 30em; font: 500 clamp(1.5rem, 2.6vw, 2.125rem)/1.65 var(--serif); letter-spacing: .06em; text-align: left; }
 .band-prelude > p { max-width: var(--measure); font-size: 1.3125rem; line-height: 1.85; color: var(--ink-2); }
+.lesson > .band-prelude + p { margin-top: clamp(1.75rem, 4vw, 2.5rem); }
 .band-prelude ol {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin: 3rem 0 0; padding: 2rem 0 0;
   list-style: none; counter-reset: look; border-top: 1px solid var(--rule);
@@ -270,6 +287,16 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .band-plates figure:nth-child(2) { grid-column: 2 / span 2; }
 .band-plates figcaption, .band-plates figcaption .cap { color: var(--gallery-ink-2); }
 .band-plates figcaption .credit { display: none; }
+
+/* Pair: two works side by side on the dark wall, for a comparison (e.g. two portals a lifetime apart). */
+.band-pair {
+  grid-column: full; margin-block: 2.5rem 3rem; background: var(--gallery); color: var(--gallery-ink);
+  padding: clamp(3rem, 7vw, 6rem) max(1.25rem, calc((100% - 60rem) / 2));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: start;
+}
+.band-pair figure { margin: 0; }
+.band-pair img { display: block; width: 100%; height: auto; max-height: 82vh; object-fit: contain; }
+.band-pair figcaption, .band-pair figcaption .cap, .band-pair figcaption .credit { color: var(--gallery-ink-2); }
 
 /* Notes: denser, two-column reading of the details just seen. */
 .band-notes { grid-column: text-start / wide-end; columns: 2; column-gap: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
@@ -355,6 +382,113 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .scale svg { grid-column: 1; grid-row: 3 / span 2; display: block; width: 100%; height: auto; background: var(--mist); }
 .scale .controls { grid-column: 2; grid-row: 3; align-self: end; }
 .scale .schematic-label { grid-column: 2; grid-row: 4; align-self: start; margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-3); text-align: left; }
+
+/* Reading a nave wall: the photograph on the left with the chosen level outlined, the levels and their notes on
+   the right; an optional schematic comparison below. */
+.lesson > .elevation { grid-column: wide; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); }
+.elevation > .module-label, .elevation > h3 { grid-column: 1 / -1; }
+.elevation-photo { grid-column: 1; margin: 0; }
+.elevation-frame { position: relative; overflow: hidden; }
+.elevation-frame img { display: block; width: 100%; height: auto; }
+.elevation-frame ol { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.elevation-frame li {
+  position: absolute; left: 1.5%; right: 1.5%; top: calc(var(--from) * 1%); height: calc((var(--to) - var(--from)) * 1%);
+  border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgb(12 12 11 / .55), 0 0 0 100vmax rgb(12 12 11 / .45);
+  opacity: 0; transition: opacity var(--t) var(--ease);
+}
+.elevation-frame li[data-on] { opacity: 1; }
+.elevation-frame li span {
+  position: absolute; top: .4rem; left: .4rem; padding: .1rem .45rem; border-radius: 2px; background: #fff; color: var(--ink);
+  font: 500 .75rem/1.5 var(--sans); letter-spacing: .08em;
+}
+.elevation-photo figcaption { margin-top: .6rem; }
+.elevation-side { grid-column: 2; align-self: end; }
+.elevation-hint { margin: 0 0 .75rem !important; font: 400 .8125rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+.elevation-levels { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; margin-bottom: 1.25rem; }
+.elevation-out { min-height: 7.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.elevation-out p { margin: 0 !important; font-size: 1rem; line-height: 1.85; color: var(--ink-2); }
+.elevation-out strong { color: var(--ink); font-weight: 600; }
+.elevation-out > * { animation: settle var(--t-slow) var(--ease) both; }
+.elevation-compare-btn { margin-top: 1.25rem; }
+.elevation-compare { grid-column: 1 / -1; margin: 2rem 0 0; }
+.elevation-compare svg { display: block; width: 100%; max-width: 34rem; height: auto; background: var(--mist); }
+.elevation-compare figcaption { max-width: 34rem; margin-top: .6rem; font: 400 .8125rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+.ec-bay { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+.ec-open { fill: var(--mist); stroke: var(--ink); stroke-width: 1; }
+.ec-band { fill: none; stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 3; }
+.ec-glass { fill: var(--ink); }
+.elevation-compare text { font: 400 11px var(--sans); fill: var(--ink-2); }
+.elevation-compare .ec-title { font-size: 12px; fill: var(--ink); }
+
+/* Teaching figures inside the reading column: a photograph with numbered points, an arch-geometry diagram, and the
+   stained-glass steps. Static; drawn in ink on the quiet wall like the other schematics. */
+.lesson > .marks, .lesson > .arches, .lesson > .glass-steps { grid-column: wide; margin: 2.5rem 0 3rem; }
+.marks { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); align-items: end; }
+.marks-frame { position: relative; }
+.marks-frame img { display: block; width: 100%; height: auto; }
+.marks-dot {
+  position: absolute; transform: translate(-50%, -50%); width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  display: grid; place-items: center; background: var(--ink); color: var(--paper); border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px rgb(12 12 11 / .5); font: 600 .8125rem/1 var(--sans);
+}
+.marks figcaption { margin: 0; }
+.marks-legend { margin: 0 0 1.25rem; padding: 0; list-style: none; counter-reset: mark; }
+.marks-legend li { counter-increment: mark; position: relative; padding: .6rem 0 .6rem 2.1rem; border-top: 1px solid var(--rule); font: 400 .9375rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
+.marks-legend li::before {
+  content: counter(mark); position: absolute; left: 0; top: .7rem; width: 1.4rem; height: 1.4rem; border-radius: 50%;
+  display: grid; place-items: center; background: var(--ink); color: var(--paper); font: 600 .75rem/1 var(--sans);
+}
+.marks-legend strong { color: var(--ink); font-weight: 600; }
+.arch-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 46rem; }
+.arches svg { display: block; width: 100%; height: auto; background: var(--mist); }
+.arches figcaption, .glass-steps > figcaption { max-width: 44rem; margin-top: .75rem; font: 400 .8125rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+.arch-ground { stroke: var(--ink); stroke-width: 1; }
+.arch-line { fill: none; stroke: var(--ink); stroke-width: 2; }
+.arch-level { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 4 4; }
+.arch-level.is-shared { stroke: var(--ink); }
+.arch-dim { stroke: var(--ink-3); stroke-width: 1; }
+.arch-head { font: 500 14px var(--sans); fill: var(--ink); }
+.arch-note { font: 400 12px var(--sans); fill: var(--ink-2); }
+.glass-steps ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.glass-steps li { counter-increment: step; }
+.glass-steps svg { display: block; width: 100%; height: auto; background: var(--mist); }
+.glass-steps p { margin: .75rem 0 0 !important; font: 400 .875rem/1.75 var(--sans); letter-spacing: .02em; color: var(--ink-2); text-align: left !important; }
+.glass-steps p strong { display: block; margin-bottom: .2rem; color: var(--ink); font-weight: 600; }
+.glass-steps p strong::before { content: counter(step) "　"; color: var(--ink-3); }
+.gs-line { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+.glass-steps marker path { fill: var(--ink); }
+.gs-melt { fill: #9fb1cc; stroke: none; }
+.gs-blue { fill: #3e5683; }
+.gs-clear { fill: #f1f1ee; stroke: var(--ink-3); stroke-width: .8; }
+.gs-red, .gs-redfill { fill: #94372f; }
+.gs-skin { fill: #e6dcc6; }
+.gs-cut { fill: none; stroke: #fff; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.gs-paint { fill: none; stroke: #2a2420; stroke-width: 2; stroke-linecap: round; }
+.gs-heat { fill: none; stroke: var(--ink-3); stroke-width: 1.2; }
+.gs-lead { fill: none; stroke: #2b2b2b; stroke-width: 4; stroke-linejoin: round; }
+.gs-iron { stroke: #111; stroke-width: 7; }
+.gs-came { fill: none; stroke: #2b2b2b; stroke-width: 6; }
+.gs-label { font: 400 10px var(--sans); fill: var(--ink-2); }
+
+/* Where the thrust goes: a schematic section on the left, the toggle and its explanation on the right. */
+.lesson > .thrust { grid-column: wide; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); }
+.thrust > .module-label, .thrust > h3 { grid-column: 1 / -1; }
+.thrust svg { grid-column: 1; display: block; width: 100%; height: auto; background: var(--mist); }
+.thrust-side { grid-column: 2; align-self: end; }
+.thrust-out { min-height: 7.5rem; margin: 1.25rem 0 0 !important; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 1rem; line-height: 1.85; color: var(--ink-2); }
+.thrust-out strong { color: var(--ink); font-weight: 600; }
+.thrust .schematic-label { margin: 1rem 0 0; font: 400 .8125rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-3); text-align: left; }
+.t-ground { stroke: var(--ink); stroke-width: 1; }
+.t-stone { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+.t-roof, .t-vault { fill: none; stroke: var(--ink); stroke-width: 1; }
+.t-vault { stroke-dasharray: 4 3; }
+.t-glass { fill: var(--ink); }
+.t-flyer { fill: none; stroke: var(--silver); stroke-width: 7; stroke-linecap: round; }
+.t-arrow { fill: none; stroke: var(--ink); stroke-width: 2; }
+.thrust marker path { fill: var(--ink); }
+.t-label { font: 400 11px var(--sans); fill: var(--ink-3); }
+.thrust .t-on, .thrust .t-off { transition: opacity var(--t) var(--ease); }
+.thrust[data-state="on"] .t-off, .thrust[data-state="off"] .t-on { opacity: 0; }
 .scale .mountain { fill: var(--paper); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
 .scale .ground { stroke: var(--ink); stroke-width: 1; }
 .scale .person { fill: var(--ink); transition: transform var(--t) var(--ease); }
@@ -449,6 +583,11 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .object-contents li p { margin: 0; font-size: .9375rem; line-height: 1.6; color: var(--ink); }
 .object-where { display: block; font-size: .75rem; letter-spacing: .12em; color: var(--ink-3); }
 .object-span { font: 400 .8125rem/1 var(--sans); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* Building records: measured facts in one line, dated alterations as a short list, photographs without a position column. */
+.object-fact { display: inline-block; margin-right: 1.25rem; white-space: nowrap; }
+.object-notes { margin: 0; padding-left: 1.2em; }
+.object-notes li { margin-bottom: .45em; }
+.object-photos li { grid-template-columns: 4rem 1fr; }
 .object-note { margin: .75rem 0 0; font-size: .75rem; line-height: 1.7; color: var(--ink-3); }
 
 .object-lesson {
@@ -548,7 +687,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .art-card-title {
   grid-column: 2; grid-row: 2 / 4; align-self: start; margin: .5em -.05em 0 .35em; /* runs the full height beside the cover lines */
   writing-mode: vertical-rl; text-orientation: upright;
-  font: 300 2.6em/1 var(--serif); letter-spacing: .12em; color: var(--paper-on);
+  font: 300 var(--title-size, 2.6em)/1 var(--serif); letter-spacing: .12em; color: var(--paper-on);
   text-shadow: 0 0 .5em rgb(0 0 0 / .35);
 }
 
@@ -637,7 +776,14 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .archive-clear:hover { border-color: var(--gallery-ink-2); }
 .archive-clear:focus-visible { outline-color: var(--gallery-ink); }
 
-/* Unlock moment, inside the lesson right after the quiz that earned it. */
+/* Lesson completion (COL-01): one explicit action at the end of the lesson; claiming shows the card in the panel. */
+.lesson > .lesson-complete { grid-column: text; margin: 3rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--ink); }
+.lesson-complete > .kicker { margin: 0 0 1rem; }
+.lesson-complete-text { margin: 0 0 1.25rem !important; font-size: 1.0625rem; line-height: 1.85; color: var(--ink-2); }
+.lesson-complete .card-unlock { margin: .5rem 0 0; }
+.lesson-complete .card-unlock:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* Unlock moment: the claimed card, shown in a dark panel. */
 .card-unlock {
   display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.75rem; align-items: center;
   margin: -1.5rem 0 3.5rem; padding: 1.5rem; background: var(--gallery); color: var(--gallery-ink); border-radius: .875rem;
@@ -721,6 +867,13 @@ dfn.term:hover { text-decoration-color: var(--ink); }
   .band-notes { columns: 1; }
   .lesson > .scale { grid-template-columns: 1fr; }
   .scale svg, .scale .controls, .scale .schematic-label { grid-column: 1; grid-row: auto; }
+  .lesson > .elevation, .lesson > .thrust { grid-template-columns: 1fr; }
+  .marks { grid-template-columns: 1fr; }
+  .arch-panels { grid-template-columns: 1fr; }
+  .marks figcaption { margin-top: 1rem; }
+  .glass-steps ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .elevation-photo, .elevation-side, .thrust svg, .thrust-side { grid-column: 1; }
+  .elevation-side, .thrust-side { margin-top: 1.25rem; }
   .scale .controls { margin-top: 1.25rem; }
   .rights h2, .rights .meta { grid-column: text; }
   .lesson > .rights { padding-bottom: 5.5rem; } /* clear space for Back to top at the end of the page */

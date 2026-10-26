@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { COLLECTION_KEY, readCollection, collect, clearCollection } from '../src/lib/collection.js';
 
 const fakeStorage = (initial = {}) => {
@@ -31,13 +31,33 @@ test('clearCollection empties the record', () => {
   assert.deepEqual(readCollection(s), {});
 });
 
-test('the Fan Kuan artwork has a complete card face', () => {
-  const art = JSON.parse(readFileSync(new URL('../src/content/artworks/fan-kuan-travelers.json', import.meta.url), 'utf8'));
-  assert.match(art.card.no, /^\d{3}$/);
-  for (const k of ['type', 'period', 'blurb']) assert.ok(art.card[k], `card.${k}`);
-  assert.ok(art.card.blurb.length <= 60, 'blurb fits the no-image cover');
-  assert.ok(art.card.facets.length >= 1 && art.card.facets.length <= 4 && art.card.facets.every((f) => f.label && f.value));
-  // A card image, when named, must be one of the artwork's own images.
-  if (art.card.image) assert.ok(art.images.some((i) => i.key === art.card.image));
-  if (art.card.focus) assert.match(art.card.focus, /^\d{1,3}% \d{1,3}%$/);
+test('claiming a second card keeps the first one and its date', () => {
+  const s = fakeStorage({ [COLLECTION_KEY]: JSON.stringify({ 'art-fan-kuan-travelers-001': { at: '2026-10-25T08:00:00.000Z' } }) });
+  assert.equal(collect(s, 'art-chartres-cathedral-001', '2026-10-26').added, true);
+  assert.equal(collect(s, 'art-chartres-cathedral-001', '2026-10-27').added, false);
+  assert.deepEqual(readCollection(s), {
+    'art-fan-kuan-travelers-001': { at: '2026-10-25T08:00:00.000Z' },
+    'art-chartres-cathedral-001': { at: '2026-10-26' },
+  });
+});
+
+// One design for every card: a complete face, a unique issue number, and an image that belongs to the artwork.
+test('every card face is complete and every card number is unique', () => {
+  const dir = new URL('../src/content/artworks/', import.meta.url);
+  const cards = readdirSync(dir).filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(readFileSync(new URL(f, dir), 'utf8')))
+    .filter((art) => art.card);
+  assert.deepEqual(cards.map((a) => a.id).sort(), ['art-chartres-cathedral-001', 'art-fan-kuan-travelers-001']);
+  assert.equal(new Set(cards.map((a) => a.card.no)).size, cards.length, 'card numbers are unique');
+  for (const art of cards) {
+    assert.match(art.card.no, /^\d{3}$/);
+    for (const k of ['type', 'period', 'blurb']) assert.ok(art.card[k], `${art.id}: card.${k}`);
+    assert.ok(art.card.blurb.length <= 60, `${art.id}: blurb fits the no-image cover`);
+    assert.ok(art.card.facets.length >= 1 && art.card.facets.length <= 4 && art.card.facets.every((f) => f.label && f.value));
+    // A card image, when named, must be one of the artwork's own images.
+    if (art.card.image) assert.ok(art.images.some((i) => i.key === art.card.image), `${art.id}: card image`);
+    if (art.card.focus) assert.match(art.card.focus, /^\d{1,3}% \d{1,3}%$/);
+    // The front's maker line: a painter, or for a building its place.
+    assert.ok(art.kind === 'building' ? art.location : art.artist, `${art.id}: maker line`);
+  }
 });

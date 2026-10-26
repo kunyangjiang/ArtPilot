@@ -1,0 +1,49 @@
+---
+// Static diagram: why pointed arches help when arches of different span must meet at one height.
+// Pure geometry, drawn to scale within each panel: a semicircular arch rises half its span; a pointed arch can be
+// drawn to the rise you need. It says nothing about thrust.
+// Pointed arcs: for half-span a and rise h, each arc's centre sits on the springing line at (a² + h²) / 2a from the
+// springing it starts at, with that distance as radius.
+const pointed = (x0: number, span: number, rise: number, base: number) => {
+  const a = span / 2;
+  const r = (a * a + rise * rise) / (2 * a);
+  return `M${x0} ${base} A${r} ${r} 0 0 1 ${x0 + a} ${base - rise} A${r} ${r} 0 0 1 ${x0 + span} ${base}`;
+};
+const semi = (x0: number, span: number, base: number) => `M${x0} ${base} A${span / 2} ${span / 2} 0 0 1 ${x0 + span} ${base}`;
+const B = 190; // springing line
+---
+<figure class="arches">
+  <div class="arch-panels">
+    <svg viewBox="0 0 320 250" role="img" aria-labelledby="arches-semi">
+      <title id="arches-semi">两个半圆拱，跨度一宽一窄：宽的顶点高，窄的顶点低，高低不齐。</title>
+      <text class="arch-head" x="160" y="22" text-anchor="middle">半圆拱：矢高总是跨度的一半</text>
+      <line class="arch-ground" x1="20" y1={B} x2="300" y2={B} />
+      <path class="arch-line" d={semi(30, 140, B)} />
+      <path class="arch-line" d={semi(205, 70, B)} />
+      <line class="arch-level" x1="20" y1={B - 70} x2="300" y2={B - 70} />
+      <line class="arch-level" x1="20" y1={B - 35} x2="300" y2={B - 35} />
+      <text class="arch-note" x="298" y={B - 74} text-anchor="end">宽拱顶点</text>
+      <text class="arch-note" x="298" y={B - 39} text-anchor="end">窄拱顶点</text>
+      <line class="arch-dim" x1="30" y1={B + 18} x2="170" y2={B + 18} />
+      <text class="arch-note" x="100" y={B + 38} text-anchor="middle">跨度</text>
+      <line class="arch-dim" x1="100" y1={B} x2="100" y2={B - 70} />
+      <text class="arch-note" x="106" y={B - 30}>矢高</text>
+    </svg>
+    <svg viewBox="0 0 320 250" role="img" aria-labelledby="arches-pointed">
+      <title id="arches-pointed">两个尖拱，跨度同样一宽一窄，却升到同一高度。</title>
+      <text class="arch-head" x="160" y="22" text-anchor="middle">尖拱：矢高可以按需要取</text>
+      <line class="arch-ground" x1="20" y1={B} x2="300" y2={B} />
+      <path class="arch-line" d={pointed(30, 140, 120, B)} />
+      <path class="arch-line" d={pointed(205, 70, 120, B)} />
+      <line class="arch-level is-shared" x1="20" y1={B - 120} x2="300" y2={B - 120} />
+      <text class="arch-note" x="298" y={B - 124} text-anchor="end">同一高度</text>
+      <line class="arch-dim" x1="30" y1={B + 18} x2="170" y2={B + 18} />
+      <text class="arch-note" x="100" y={B + 38} text-anchor="middle">跨度</text>
+      <line class="arch-dim" x1="100" y1={B} x2="100" y2={B - 120} />
+      <text class="arch-note" x="106" y={B - 50}>矢高</text>
+    </svg>
+  </div>
+  <figcaption>
+    示意图，只比较几何形状：两图各画一宽一窄两种跨度。半圆拱的矢高（从起拱处到拱顶的高度）固定为跨度的一半，所以宽窄不同的拱顶点高低不齐；尖拱可以在同一跨度上画出不同的矢高，宽拱和窄拱就能升到同一高度。哥特式建筑中的尖拱形状各不相同，这里只取两例。图中不涉及推力：一个拱向外推的力取决于它的形状、跨度和所受的重量，不能由“尖”或“圆”直接推出。
+  </figcaption>
+</figure>
