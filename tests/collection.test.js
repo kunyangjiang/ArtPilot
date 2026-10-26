@@ -72,8 +72,8 @@ test('every card face is complete and every card number is unique', () => {
     // A card image, when named, must be one of the artwork's own images.
     if (art.card.image) assert.ok(art.images.some((i) => i.key === art.card.image), `${art.id}: card image`);
     if (art.card.focus) assert.match(art.card.focus, /^\d{1,3}% \d{1,3}%$/);
-    // The front's maker line: a painter, or for a building its place.
-    assert.ok(art.kind === 'building' ? art.location : art.artist, `${art.id}: maker line`);
+    // The front's maker line: the card's own short line, else a painter, or for a building its place.
+    assert.ok(art.card.maker ?? (art.kind === 'building' ? art.location : art.artist), `${art.id}: maker line`);
   }
 });
 

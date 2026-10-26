@@ -1,0 +1,118 @@
+{
+  "id": "art-diadoumenos-001",
+  "kind": "object",
+  "titleZh": "束发带的青年",
+  "titleEn": "Diadoumenos (Youth Tying a Fillet)",
+  "attributionNote": "罗马时期的工匠依照希腊雕塑家波利克里托斯（Polykleitos）约公元前 430 年的青铜原作复制；复制者姓名不详。",
+  "dateApprox": "公元 1–2 世纪（罗马帝国时期）；原作约公元前 430 年",
+  "objectType": "大理石雕像 · 罗马复制品",
+  "medium": "大理石",
+  "dimensions": "高 170.8 厘米（不含基座），重 421.8 千克",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 03.12.8a",
+  "originalStatus": "罗马时期的大理石复制品；希腊原作是约公元前 430 年的青铜像，已经失传。头部与双臂缺失：17 世纪时曾被补上不属于这一类型的头和手臂，后来已经拆除。树干形支撑是大理石复制所需的加固，不属于青铜原作。",
+  "provenance": "17 世纪前三十年属于罗马的文森佐·朱斯蒂尼亚尼侯爵（Marchese Vincenzo Giustiniani）的收藏；1903 年由弗雷德里克·F. 汤普森夫人（Mrs. Frederick F. Thompson）捐赠大都会艺术博物馆。出土地点不详，其间的流传经历本站未作核实。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Marble statue of the Diadoumenos，03.12.8a", "url": "https://www.metmuseum.org/art/collection/search/246991" },
+    { "label": "大都会艺术博物馆藏品页：Marble statue of Hermes，56.234.15（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/254925" },
+    { "label": "大都会艺术博物馆藏品页：Marble statue of a kouros，32.11.1（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/253370" },
+    { "label": "大都会艺术博物馆《艺术史年表》：Roman Copies of Greek Statues（2002）", "url": "https://www.metmuseum.org/essays/roman-copies-of-greek-statues" },
+    { "label": "老普林尼《博物志》34.55（拉丁文，LacusCurtius）", "url": "https://penelope.uchicago.edu/Thayer/L/Roman/Texts/Pliny_the_Elder/34*.html" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/diadoumenos-full.jpg",
+      "width": 1182,
+      "height": 1600,
+      "alt": "一尊没有头和双臂的大理石青年裸像，略呈侧向站立：右腿伸直承重，左腿向后，只有脚趾着地；身旁有一截树干形的支撑，基座呈不规则的椭圆形。",
+      "caption": "《束发带的青年》，罗马复制品，公元 1–2 世纪，大理石，高 170.8 厘米；原作是波利克里托斯约公元前 430 年的青铜像。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/246991",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "side",
+      "src": "/img/diadoumenos-side.jpg",
+      "alt": "同一尊雕像换一个角度：躯干微微转向，右腿垂直落在基座上，左腿斜向后方，脚跟离地。",
+      "caption": "同一尊复制品的另一个角度：放松的左腿向后撤，只有脚趾着地。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/246991",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "hermes",
+      "src": "/img/hermes-full.jpg",
+      "alt": "一尊基本完整的大理石青年立像：短发，头微微低向一侧，左肩搭着一块垂到膝下的斗篷，左手前伸，右臂垂在身侧；右腿承重，左腿略微放松，身旁有树干支撑。",
+      "caption": "赫尔墨斯像，罗马复制品或改作，公元 1–2 世纪，大理石，高 181 厘米；原型被认为是公元前 5 世纪末或 4 世纪初、出自波利克里托斯一派的希腊雕像。大都会艺术博物馆藏（56.234.15）。",
+      "kind": "detail",
+      "subject": "赫尔墨斯像",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/254925",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "kouros",
+      "src": "/img/kouros-full.jpg",
+      "alt": "一尊正面直立的大理石青年裸像：长发垂在肩后，双肩平直，双臂紧贴身体两侧、拳头握起，左脚略向前迈，两脚都平踏在基座上。",
+      "caption": "库洛斯（青年）像，希腊原作，阿提卡，约公元前 590–580 年，纳克索斯大理石，高 194.6 厘米。大都会艺术博物馆藏（32.11.1）。",
+      "kind": "detail",
+      "subject": "库洛斯像",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/253370",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "kouros-side",
+      "src": "/img/kouros-side.jpg",
+      "alt": "库洛斯像的侧面：身体笔直，左脚向前迈出一步，但两只脚都整个踏在基座上，重心落在两腿之间。",
+      "caption": "库洛斯像的侧面：左脚向前，两脚却都平踏在地，身体并没有把重量交给哪一条腿。",
+      "kind": "detail",
+      "subject": "库洛斯像",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/253370",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "雕像属公有领域；照片来自大都会艺术博物馆开放获取计划，以 CC0 发布。",
+    "basis": "三件作品的藏品页均标注“Public Domain”，并说明开放获取的数据与公有领域图像可无偿用于商业与非商业用途，无需申请许可；博物馆收藏 API 对三件作品返回 isPublicDomain: true。本课对照片只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-26",
+    "note": "按惯例注明博物馆名称与来源页面。赫尔墨斯像与库洛斯像是用来对照的其他作品。"
+  },
+  "card": {
+    "type": "大理石雕像",
+    "maker": "罗马复制品",
+    "period": "1–2 世纪",
+    "facets": [
+      { "label": "原作", "value": "约前 430 年青铜（已失）" },
+      { "label": "材质", "value": "大理石" },
+      { "label": "高度", "value": "170.8 cm" },
+      { "label": "现状", "value": "头与双臂缺失" }
+    ],
+    "blurb": "失去了头和双臂的复制品，仍看得出一条腿承重、一条腿放松的站姿。",
+    "image": "full",
+    "focus": "50% 32%"
+  }
+}

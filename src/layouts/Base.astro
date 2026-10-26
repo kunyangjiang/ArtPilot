@@ -1,25 +1,22 @@
 ---
 import '../styles/global.css';
-import BackLink from '../components/BackLink.astro';
+import SiteBar from '../components/SiteBar.astro';
 type NavLink = { href: string; label: string };
+type Hall = 'courses' | 'stories' | 'cases' | 'atlas' | 'collection';
 interface Props {
   title: string;
   description?: string;
-  /** Page-specific navigation. Omitted: the plain index navigation. */
-  nav?: { tone?: 'gallery'; back?: NavLink; links?: NavLink[] };
+  /** The site bar (SiteBar.astro): the way back, the hall this page belongs to, and links within the page. */
+  nav?: { tone?: 'gallery'; back?: NavLink; hall?: Hall; here?: boolean; links?: NavLink[] };
   /** Full-bleed pages (homepage, course book) that carry their own header: no site navigation bar. */
   bare?: boolean;
   /** Pages that are dark from edge to edge: a dark canvas behind them, so no light shows at the edges or between pages. */
   dark?: boolean;
-  /** Length of the page transition into this page, in ms (see "Page transitions" in global.css). */
-  transition?: number;
 }
-const { title, description = 'ArtPilot：从一件作品开始，走进全球艺术史。', nav, bare = false, dark = false, transition } = Astro.props;
-// When the way back leads home, the wordmark goes there too: keep one tab stop for it, the explicit back link.
-const brandTab = nav?.back?.href === '/' ? -1 : undefined;
+const { title, description = 'ArtPilot：从一件作品开始，走进全球艺术史。', nav, bare = false, dark = false } = Astro.props;
 ---
 <!doctype html>
-<html lang="zh-CN" data-canvas={dark ? 'dark' : undefined} style={transition ? `--vt-duration: ${transition}ms` : undefined}>
+<html lang="zh-CN" data-canvas={dark ? 'dark' : undefined}>
   <head>
     <meta charset="utf-8" />
     <!-- Opt in to native page transitions before any stylesheet arrives: a long page can render before its stylesheets
@@ -31,17 +28,7 @@ const brandTab = nav?.back?.href === '/' ? -1 : undefined;
     <slot name="head" />
   </head>
   <body>
-    {!bare && <nav class="site-nav" aria-label="主导航" data-tone={nav?.tone}>
-      <div class="nav-start">
-        <a class="brand" href="/" tabindex={brandTab}>ArtPilot</a>
-        {nav?.back && <BackLink class="nav-back" href={nav.back.href} label={nav.back.label} />}
-      </div>
-      <ul>
-        {nav
-          ? nav.links?.map((l) => <li><a href={l.href}>{l.label}</a></li>)
-          : <><li><a href="/courses/">课程</a></li><li><a href="/collection/">图鉴</a></li></>}
-      </ul>
-    </nav>}
+    {!bare && <SiteBar {...nav} />}
     <main><slot /></main>
   </body>
 </html>

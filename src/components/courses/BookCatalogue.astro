@@ -6,7 +6,7 @@
 // lessons, keep their full spreads; each of the other five gets one spread in the same structure, with its approved
 // course titles and a plain statement that its courses are in preparation.
 import '../../styles/fonts.css';
-import BackLink from '../BackLink.astro';
+import SiteBar from '../SiteBar.astro';
 import { stages, courseTitles, sampleIntro, TOTAL_COURSES } from '../../data/curriculum';
 import { courseIndex } from '../../lib/publication.js';
 interface Props { lessons: { id: string; title: string; kicker: string; course: number; workLabel: string }[] }
@@ -75,42 +75,11 @@ const spreads = Array.from({ length: leaves.length + 1 }, (_, s) => spreadLabel(
 const jumps = [{ to: 0, label: '封面' }, { to: 2, label: '目录' }, ...stages.map((s) => ({ to: openerAt(s.no), label: s.no })), { to: creditsAt, label: '版权页' }];
 const faceClass = (p: (typeof indexed)[number]) => ['bk-face', p.left ? 'bk-back' : 'bk-front', p.kind === 'cover' ? 'cv' : p.kind === 'title' ? 'cv-inside' : 'pp'].join(' ');
 
-// Procedural textures, generated here (no image files, no rights questions). All filters work in sRGB so dark
-// values stay dark.
-const svg = (w: number, h: number, body: string) =>
-  `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}'>${body}</svg>`)}")`;
-const grey = `values='1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1'`;
-// Contour bands: a piecewise-linear table folds smooth noise into repeated rings.
-const rings = Array.from({ length: 41 }, (_, i) => (i % 2 ? 0.92 - (i % 4) * 0.06 : 0.12 + (i % 3) * 0.05).toFixed(2)).join(' ');
-// Table: a single slab of stained oak, grain running across the table, open pores.
-const wood = svg(2400, 1500, `<filter id='w' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
-  <feTurbulence type='fractalNoise' baseFrequency='0.0009 0.011' numOctaves='3' seed='8'/>
-  <feColorMatrix ${grey}/>
-  <feComponentTransfer result='r'><feFuncR type='table' tableValues='${rings}'/><feFuncG type='table' tableValues='${rings}'/><feFuncB type='table' tableValues='${rings}'/></feComponentTransfer>
-  <feTurbulence type='fractalNoise' baseFrequency='0.004 0.55' numOctaves='2' seed='3'/>
-  <feColorMatrix ${grey} result='p'/>
-  <feComposite in='r' in2='p' operator='arithmetic' k2='0.42' k3='0.58'/>
-  <feColorMatrix values='0.14 0 0 0 0.05  0.132 0 0 0 0.048  0.126 0 0 0 0.047  0 0 0 0 1'/>
-</filter><rect width='100%' height='100%' filter='url(#w)'/>`);
-// Paper: slow cloudy formation plus fine fibre, mapped near white; multiplied over each page.
-const paper = svg(520, 520, `<filter id='p' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
-  <feTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' seed='2' stitchTiles='stitch' result='m'/>
-  <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9' stitchTiles='stitch' result='f'/>
-  <feComposite in='m' in2='f' operator='arithmetic' k2='0.25' k3='0.75'/>
-  <feColorMatrix values='0.085 0 0 0 0.925  0.085 0 0 0 0.925  0.082 0 0 0 0.923  0 0 0 0 1'/>
-</filter><rect width='100%' height='100%' filter='url(#p)'/>`);
-// Book cloth: warp and weft threads.
-const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
-  <feTurbulence type='fractalNoise' baseFrequency='0.035 1.3' numOctaves='2' seed='4' stitchTiles='stitch' result='a'/>
-  <feTurbulence type='fractalNoise' baseFrequency='1.3 0.035' numOctaves='2' seed='6' stitchTiles='stitch' result='b'/>
-  <feComposite in='a' in2='b' operator='arithmetic' k2='0.5' k3='0.5'/>
-  <feColorMatrix values='0.2 0 0 0 0.82  0.2 0 0 0 0.82  0.195 0 0 0 0.816  0 0 0 0 1'/>
-</filter><rect width='100%' height='100%' filter='url(#l)'/>`);
+// Textures: bitmaps rendered once from procedural SVG noise (sources and sizes: scripts/textures/).
 ---
-<div class="cd" style={`--wood:${wood};--paper-tex:${paper};--linen:${linen}`} data-archive-desk>
+<div class="cd" data-archive-desk>
   <header class="cd-top">
-    <BackLink class="cd-back" href="/" label="首页" />
-    <span class="cd-tag">ArtPilot · 全球艺术史课程</span>
+    <SiteBar tone="desk" back={{ href: '/', label: '首页' }} hall="courses" here />
   </header>
   <h1 class="sr-only">全球艺术史课程目录：七个推荐阶段，{TOTAL_COURSES} 门核心课程</h1>
 
@@ -278,7 +247,8 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   /* "cd" = catalogue desk. Never name classes "ad-…": ad blockers' filter lists hide .ad-top, .ad-tag and the like. */
   .cd {
     --dur: 1000ms; --curve: cubic-bezier(.5, .04, .28, 1);
-    --pw: min(calc((100vh - 9.5rem) * .76), calc((100vw - 10rem) / 2), 780px); --ph: calc(var(--pw) / .76);
+    --wood: url("/img/textures/desk-oak.webp"); --paper-tex: url("/img/textures/paper.webp"); --linen: url("/img/textures/book-cloth.webp");
+    --pw: min(calc((100vh - 11rem) * .76), calc((100vw - 10rem) / 2), 780px); --ph: calc(var(--pw) / .76);
     /* Catalogue type, self-hosted (src/styles/fonts.css) so it is the same on every system: numerals and Latin accents
        in a Didone (Bodoni Moda), spaced capitals and running text in a light Hei (Noto Sans SC), Chinese titles in a
        light Song (Noto Serif SC). Local fonts after them only for characters outside the subsets. */
@@ -308,12 +278,8 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   :global(:where(.cd button)) { background: none; border: 0; padding: 0; cursor: pointer; }
   .cd :focus-visible { outline: 2px solid #f1f0ec; outline-offset: 3px; }
   .cd [lang="en"] { font-family: var(--didone); }
-  .cd-top { align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; padding: 1rem clamp(1.5rem, 4vw, 4rem) 0; }
-  /* The way home: the shared back link, set as a quiet outlined pill so it reads at once against the dark desk. */
-  .cd-top :global(.cd-back) { position: relative; z-index: 1; gap: .55rem; margin: -.6rem 0 -.6rem -.15rem; /* full 44px target, without making the header taller */ padding: 0 1rem 0 .8rem; border: 1px solid rgb(255 255 255 / .2); border-radius: 999px;
-    font: 400 .9375rem/1 var(--sans); letter-spacing: .1em; color: #e6e5e0; transition: border-color var(--t) var(--ease), color var(--t) var(--ease), background-color var(--t) var(--ease); }
-  .cd-top :global(.cd-back:hover), .cd-top :global(.cd-back:focus-visible) { color: #f6f5f1; border-color: rgb(255 255 255 / .5); background: rgb(255 255 255 / .04); }
-  .cd-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: #8f8e89; }
+  /* The shared site bar (SiteBar.astro), light on the dark desk. */
+  .cd-top { align-self: stretch; position: relative; z-index: 1; }
   .cd-desk { flex: 1; display: grid; place-items: center; width: 100%; padding: clamp(.75rem, 2.4vh, 1.6rem) 0 clamp(.75rem, 2vh, 1.25rem); }
 
   /* ---- Book: two pages wide; the closed book shifts left so the cover sits centred ---- */
@@ -321,7 +287,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     transition: transform var(--dur) var(--curve); }
   .bk.is-closed { transform: translateX(-25%); }
   .bk-board { position: absolute; left: 50%; top: -7px; bottom: -7px; right: -9px; z-index: 1; border-radius: 0 3px 3px 0;
-    background: var(--linen), var(--board); background-blend-mode: multiply;
+    background: var(--linen), var(--board); background-size: 300px 300px, auto; background-blend-mode: multiply;
     box-shadow: 0 1px 1px rgb(0 0 0 / .55), 0 10px 18px -6px rgb(0 0 0 / .5), 0 44px 80px -18px rgb(0 0 0 / .7); }
   /* Shadow under the left half: it appears as the front board lands there and goes as the board lifts away. */
   .bk::before {
@@ -413,7 +379,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       linear-gradient(to right, rgb(0 0 0 / .14), transparent 3%, transparent 6%, rgb(0 0 0 / .06) 6.6%, transparent 7.4%),   /* hinge groove */
       radial-gradient(120% 90% at 55% 35%, transparent 50%, rgb(0 0 0 / .1)),
       var(--linen); background-size: auto, auto, 300px 300px; }
-  .cv-inside { background: var(--linen), var(--board); background-blend-mode: multiply; border-radius: 3px 0 0 3px; }
+  .cv-inside { background: var(--linen), var(--board); background-size: 300px 300px, auto; background-blend-mode: multiply; border-radius: 3px 0 0 3px; }
   .bk-endpaper { position: absolute; inset: 7px 0 7px 9px; overflow: hidden; isolation: isolate; }
   .cv-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); }
   .cv-row li { padding: calc(var(--u) * .5) 0 0 calc(var(--u) * .45); border-left: 1px solid rgb(25 25 26 / .5);
@@ -554,6 +520,11 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   .cd-jump button:hover, .cd-jump button:focus-visible, .cd-jump button[aria-current="true"] { color: #ecebe6; border-bottom-color: currentColor; }
 
   .bk.is-restoring, .bk.is-restoring::before, .bk.is-restoring * { transition: none !important; animation: none !important; }
+  /* While the page arrives, pages out of sight are not drawn: drawing every page of the open book at once stalled the
+     page transition into the catalogue on a desktop. Once the transition is over and the browser is idle they are all
+     drawn (is-drawn), so a riffle never waits for them. A turn that starts sooner draws what it shows (is-live), and a
+     phone page on its way out stays drawn (m-leaving). */
+  .bk:not(.is-drawn) [data-face][aria-hidden="true"]:not(.is-live, .m-leaving) { content-visibility: hidden; }
   @media (prefers-reduced-motion: reduce) {
     .bk, .bk::before, .bk-leaf, .bk-edge { transition: none !important; }
     .bk-shade, .bk-cast { animation: none !important; }
@@ -564,7 +535,6 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
      the paper and its shadow. The controls stay at the bottom of the screen. ---- */
   @media (max-width: 900px) {
     .cd { --u: calc((100vw - 2.5rem) / 50); }
-    .cd-top { flex-direction: column; gap: .6rem; padding-top: 1.1rem; }
     .cd-desk { display: block; place-items: normal; padding: 1.5rem 1.25rem 1.5rem; }
     .bk, .bk.is-closed { width: auto; height: auto; transform: none; container-type: normal; --u: calc((100vw - 2.5rem) / 50); }
     .bk-board, .bk-edge, .bk-cast, .bk::before, .bk-shade, .bk-hot { display: none; }
@@ -572,7 +542,13 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     .bk-face, .bk-base { position: relative; inset: auto; transform: none; min-height: calc((100vw - 2.5rem) / .76);
       box-shadow: 0 1px 1px rgb(0 0 0 / .5), 0 8px 14px -6px rgb(0 0 0 / .5), 0 26px 44px -18px rgb(0 0 0 / .65); }
     .bk [data-face]:not(.m-current) { display: none; }
-    .m-current { animation: page-in .22s var(--ease); }
+    /* Turning a page: the page you leave slides away and fades as the next slides in from the side you are heading
+       to (and back the other way). The leaving page lies over the arriving one only while it goes. */
+    .bk [data-face].m-leaving { display: block; position: absolute; top: 0; left: 0; right: 0; z-index: 2; pointer-events: none;
+      animation: m-out .46s cubic-bezier(.4, 0, .2, 1) forwards; }
+    .bk [data-face].m-leaving.m-back { animation-name: m-out-back; }
+    .m-current.m-turned { animation: m-in .46s cubic-bezier(.2, .7, .2, 1) both; }
+    .m-current.m-turned.m-back { animation-name: m-in-back; }
     .cv { border-radius: 0 3px 3px 0; }
     .cv-inside { background: var(--sheet-back); }
     .bk-endpaper { position: relative; inset: auto; min-height: inherit; }
@@ -585,8 +561,11 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     /* The hanging caption beside a stage numeral would run into it on a page this narrow: set it beneath instead. */
     .op-cap { position: static; margin: calc(var(--u) * 1.6) 0 0; text-align: left !important; }
   }
-  @keyframes page-in { from { opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .m-current { animation: none; } }
+  @keyframes m-out { to { opacity: 0; transform: translateX(-28%) scale(.96); } }
+  @keyframes m-out-back { to { opacity: 0; transform: translateX(28%) scale(.96); } }
+  @keyframes m-in { from { opacity: 0; transform: translateX(22%); } }
+  @keyframes m-in-back { from { opacity: 0; transform: translateX(-22%); } }
+  @media (prefers-reduced-motion: reduce) { .bk [data-face].m-leaving { display: none; } .m-current.m-turned { animation: none; } }
 </style>
 
 <script>
@@ -701,6 +680,9 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       book.style.setProperty('--er', String(N - target));
       if (opening) book.classList.remove('is-closed');
       if (!forward && target === 0) book.classList.add('is-closed');
+      // Draw what the turn shows: both sides of every turning leaf, and the spread it lands on.
+      const live = [...order.flatMap((i) => [faceOf(i, 'front'), faceOf(i, 'back')]), faceOf(target - 1, 'back'), target < N ? faceOf(target, 'front') : base];
+      live.forEach((f) => f?.classList.add('is-live'));
       // Several leaves riffle over with a short stagger, each landing on top of the last; long jumps riffle faster.
       // Rising, the earlier leaf is above the later ones (zRising falls with k); landed, each later leaf lies on top
       // (zLanding rises with k). Only the first leaf casts its shadow on the page beneath: one shadow, not a flicker.
@@ -711,6 +693,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       }), k * gap))));
       book.classList.remove('cast-f', 'cast-b');
       state = target; layout();
+      live.forEach((f) => f?.classList.remove('is-live'));
       busy = false; book.removeAttribute('aria-busy');
     };
 
@@ -718,7 +701,15 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     const show = (target: number) => {
       target = Math.max(0, Math.min(P - 1, target));
       if (target === page) return;
+      const from = faceAt(page), back = target < page;
+      faces.forEach((f) => f.classList.remove('m-leaving', 'm-turned', 'm-back'));
       page = target; layout();
+      const to = faceAt(page);
+      if (!reduced.matches && from && to) {
+        from.classList.add('m-leaving'); to.classList.add('m-turned');
+        from.classList.toggle('m-back', back); to.classList.toggle('m-back', back);
+        from.addEventListener('animationend', () => from.classList.remove('m-leaving', 'm-back'), { once: true });
+      }
       const top = book.getBoundingClientRect().top;
       if (top < 0) window.scrollTo({ top: window.scrollY + top - 16, behavior: reduced.matches ? 'auto' : 'smooth' });
     };
@@ -746,21 +737,12 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       layout();
     });
 
-    // The paper and cloth textures are SVG noise filters. Chrome re-renders those whenever a turning leaf changes its
-    // raster scale, which drops a frame or two per turn; baked once into bitmaps they cost nothing.
-    const bake = async (prop: string, size: number) => {
-      try {
-        const m = getComputedStyle(root).getPropertyValue(prop).trim().match(/^url\("(.+)"\)$/s);
-        if (!m) return;
-        const img = new Image(); img.src = m[1]; await img.decode();
-        const c = document.createElement('canvas'); c.width = c.height = size * 2;
-        c.getContext('2d')!.drawImage(img, 0, 0, size * 2, size * 2);
-        const blob = await new Promise<Blob | null>((r) => c.toBlob(r));
-        if (blob) root.style.setProperty(prop, `url("${URL.createObjectURL(blob)}")`);
-      } catch { /* keep the SVG texture */ }
-    };
-    bake('--paper-tex', 520); bake('--linen', 300);
     layout();
+    // Draw the pages out of sight once the page has arrived (see .is-drawn).
+    const drawAll = () => book.classList.add('is-drawn');
+    const later = () => ('requestIdleCallback' in window ? requestIdleCallback(drawAll, { timeout: 1500 }) : setTimeout(drawAll, 700));
+    if ('onpagereveal' in window) addEventListener('pagereveal', (e) => { const vt = (e as Event & { viewTransition?: { finished: Promise<void> } }).viewTransition; vt ? vt.finished.then(later, later) : later(); }, { once: true });
+    else later();
     if (saved) { void book.offsetWidth; requestAnimationFrame(() => book.classList.remove('is-restoring')); }
   }
 </script>

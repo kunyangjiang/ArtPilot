@@ -1,11 +1,61 @@
 ---
-// The way up to a page's parent: an ordinary link to a fixed destination, so the browser's own Back and Forward stay
-// untouched. One visual language everywhere (arrow, short label, 44px target); each page places it in its own layout.
+// The way back: to the page the visitor came from, one layer up the path they actually took (a lesson opened from the
+// course book goes back to the book, open where it was; the collection opened from a lesson goes back to the lesson).
+// Built as an ordinary link to the page's parent, the way back for a visitor who arrived directly; in the browser it
+// is pointed at the previous ArtPilot page instead, and steps back in history when that page is the one just before,
+// so the browser restores it as it was. One visual language everywhere (arrow, short label, 44px target); each page
+// places it in its own layout.
 interface Props { href: string; label: string; class?: string }
 const { href, label, class: className } = Astro.props;
 ---
-<a class:list={['back-link', className]} href={href} aria-label={`返回：${label}`}>
+<a class:list={['back-link', className]} href={href} aria-label={`返回：${label}`} data-back>
   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"
     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
   <span>{label}</span>
 </a>
+
+<script>
+  // What each kind of page is called on the way back to it.
+  const kinds: [RegExp, string][] = [
+    [/^\/$/, '首页'], [/^\/courses\/$/, '课程目录'], [/^\/collection\/$/, '藏品图鉴'],
+    [/^\/lessons\/[^/]+\/$/, '课程页'], [/^\/artworks\/[^/]+\/$/, '藏品记录'],
+  ];
+  type Nav = { entries(): { url: string | null; key: string }[]; currentEntry: { index: number } | null; traverseTo(key: string): unknown };
+  const nav = (window as unknown as { navigation?: Nav }).navigation;
+
+  const previous = (): URL | null => {
+    if (!document.referrer) return null;
+    const from = new URL(document.referrer);
+    if (from.origin !== location.origin || from.pathname === location.pathname) return null;
+    return kinds.some(([re]) => re.test(from.pathname)) ? from : null;
+  };
+  // The history entry the visitor came from: the nearest earlier entry on another page (in-page jumps to #glossary and
+  // the like add entries on this page). Only where the browser lets us read history (the Navigation API).
+  const entryFor = (to: URL) => {
+    if (!nav?.currentEntry) return null;
+    const list = nav.entries();
+    for (let i = nav.currentEntry.index - 1; i >= 0; i--) {
+      const u = list[i].url ? new URL(list[i].url!) : null;
+      if (u && u.pathname !== location.pathname) return u.pathname === to.pathname ? list[i] : null;
+    }
+    return null;
+  };
+
+  document.querySelectorAll<HTMLAnchorElement>('a[data-back]').forEach((a) => {
+    const to = previous();
+    if (!to) return;
+    const label = kinds.find(([re]) => re.test(to.pathname))![1];
+    a.href = to.pathname + to.search;
+    a.setAttribute('aria-label', `返回：${label}`);
+    a.querySelector('span')!.textContent = label;
+    // The wordmark gives up its tab stop only while Back also leads home (SiteBar.astro).
+    if (to.pathname !== '/') a.closest('.site-nav')?.querySelector('.brand')?.removeAttribute('tabindex');
+    a.addEventListener('click', (e) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const entry = entryFor(to);
+      if (!entry) return;   // no readable history: follow the link
+      e.preventDefault();
+      nav!.traverseTo(entry.key);
+    });
+  });
+</script>

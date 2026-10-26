@@ -15,13 +15,14 @@ const imageCredit = z.object({
 });
 
 // Entry ids come from the record's own `id` field (stable, not file-name based).
-// `kind` keeps paintings and buildings honest: a building has a place and measured facts, not an artist, a canvas
-// size or a museum. Fields that only make sense for one kind are optional and checked below.
+// `kind` keeps paintings, buildings and objects honest: a building has a place and measured facts, not an artist, a
+// canvas size or a museum; an object (a vessel, a statue) is held by a museum, often has no known maker, and may be a
+// later copy of a lost original. Fields that only make sense for one kind are optional and checked below.
 const artworks = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/artworks', generateId: ({ data }) => String(data.id) }),
   schema: z
     .object({
-      kind: z.enum(['painting', 'building']).default('painting'),
+      kind: z.enum(['painting', 'building', 'object']).default('painting'),
       titleZh: z.string(),
       titleEn: z.string(),
       artist: z.string().optional(), // painting
@@ -29,7 +30,11 @@ const artworks = defineCollection({
       dateApprox: z.string(),
       medium: z.string().optional(), // painting
       dimensionsCm: z.object({ height: z.number(), width: z.number() }).optional(), // painting
-      collection: z.string().optional(), // painting: the museum that holds it
+      collection: z.string().optional(), // painting, object: the museum that holds it, with its object number
+      objectType: z.string().optional(), // object: what it is, e.g. 青铜礼器 · 尊（盛酒器）
+      dimensions: z.string().optional(), // object: as the holding museum publishes them (heights, diameters, weights)
+      originalStatus: z.string().optional(), // object: an original, or a copy of a lost original, and what has been restored
+      provenance: z.string().optional(), // object: the documented history of ownership and any findspot; nothing invented
       location: z.string().optional(), // building: where it stands
       facts: z.array(z.object({ label: z.string(), value: z.string() })).max(4).optional(), // building: a few measured facts
       buildingType: z.string().optional(), // building: e.g. 天主教主教座堂；哥特式建筑
@@ -83,6 +88,9 @@ const artworks = defineCollection({
       const need = (ok: unknown, message: string) => ok || ctx.addIssue({ code: 'custom', message });
       if (art.kind === 'painting') {
         need(art.artist && art.medium && art.dimensionsCm && art.collection, 'a painting needs artist, medium, dimensionsCm and collection');
+      } else if (art.kind === 'object') {
+        need(art.objectType && art.medium && art.dimensions && art.collection && art.originalStatus && art.provenance,
+          'an object needs objectType, medium, dimensions, collection, originalStatus and provenance');
       } else {
         need(art.location, 'a building needs a location');
       }

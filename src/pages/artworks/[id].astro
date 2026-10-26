@@ -19,22 +19,27 @@ const image = (key: string) => art.images.find((i) => i.key === key)!;
 const full = image('full');
 const lessons = (await getCollection('lessons')).filter((l) => l.data.artwork.id === ID);
 const building = art.kind === 'building';
+const object = art.kind === 'object'; // a vessel or a statue held by a museum, often an unsigned work or a later copy
+const photographed = building || object; // records whose pictures are photographs, each with its own credit
 const cardNo = art.card && lessons[0] ? cardNumber(lessons[0].data.course) : undefined;
-// A building's other photographs, in the order the record lists them.
-const photos = building ? art.images.filter((i) => i.key !== 'full') : [];
+// A building's or an object's other photographs, in the order the record lists them.
+const photos = photographed ? art.images.filter((i) => i.key !== 'full') : [];
 const description = building
   ? `${art.titleZh}的藏品记录：建筑信息、照片与图像来源。`
-  : `${art.artist}《${art.titleZh}》的藏品记录：作品信息、画面内容与图像来源。`;
+  : object
+    ? `${art.titleZh}的藏品记录：器物信息、原作与复制、流传与图像来源。`
+    : `${art.artist}《${art.titleZh}》的藏品记录：作品信息、画面内容与图像来源。`;
 ---
 <Base title={`${art.titleZh} · 藏品记录 · ArtPilot`} description={description} nav={{
   back: { href: '/collection/', label: '藏品图鉴' },
+  hall: 'collection',
   links: [{ href: '#rights', label: '来源与版权' }],
 }}>
   <article class="object">
     <figure class="object-image">
       <img src={full.src} alt={full.alt} loading="eager" decoding="async" />
       <figcaption>
-        {building ? <>{full.caption} 摄影 {full.credit?.author} · {full.credit?.licence}</> : '全图（缩小版），未经修饰。'}
+        {photographed ? <>{full.caption} 摄影 {full.credit?.author} · {full.credit?.licence}</> : '全图（缩小版），未经修饰。'}
       </figcaption>
     </figure>
 
@@ -59,6 +64,25 @@ const description = building
           <dt>设计者</dt>
           <dd class="object-missing">{art.attributionNote}</dd>
           {art.notes && <><dt>改动与保护</dt><dd><ol class="object-notes">{art.notes.map((n) => <li>{n}</li>)}</ol></dd></>}
+        </dl>
+      ) : object ? (
+        <dl class="object-data">
+          <dt>制作者</dt>
+          <dd class="object-missing">{art.attributionNote}</dd>
+          <dt>年代</dt>
+          <dd>{art.dateApprox} <span class="flag">近似</span></dd>
+          <dt>类型</dt>
+          <dd>{art.objectType}</dd>
+          <dt>材质</dt>
+          <dd>{art.medium}</dd>
+          <dt>尺寸</dt>
+          <dd>{art.dimensions}<span class="object-sub">据收藏机构公布的数据</span></dd>
+          <dt>原作与现状</dt>
+          <dd>{art.originalStatus}</dd>
+          <dt>收藏</dt>
+          <dd>{art.collection}</dd>
+          <dt>流传经历</dt>
+          <dd>{art.provenance}</dd>
         </dl>
       ) : (
         <dl class="object-data">
@@ -111,7 +135,7 @@ const description = building
               </li>
             ))}
           </ol>
-          <p class="object-note">照片均来自 Wikimedia Commons，只做了缩小与压缩，未裁切、未调色；完整署名与许可证链接见“来源与版权”。</p>
+          <p class="object-note">{building ? '照片均来自 Wikimedia Commons，只做了缩小与压缩，未裁切、未调色；完整署名与许可证链接见“来源与版权”。' : '照片均来自收藏机构的开放获取图像，只做了缩小与压缩，未裁切、未调色；来源与许可见“来源与版权”。'}</p>
         </section>
       )}
 
@@ -127,7 +151,7 @@ const description = building
   </article>
 
   <!-- Viewer: a picture opens at full size over the page instead of leaving it for the bare image file. -->
-  <dialog class="object-viewer" aria-label={building ? '照片大图' : '局部大图'}>
+  <dialog class="object-viewer" aria-label={photographed ? '照片大图' : '局部大图'}>
     <button type="button" class="object-viewer-close" data-close>关闭</button>
     <figure>
       <img alt="" />

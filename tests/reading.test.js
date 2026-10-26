@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  READING_KEY, KINDS, MIN_DWELL_MS, MIN_PROGRESS, WRITE_STEP, FINISHED,
+  READING_KEY, KINDS, MIN_DWELL_MS, MIN_PROGRESS, WRITE_STEP,
   progressAt, scrollFor, readReading, writeReading, clearReading, createTracker, resolveEntry,
 } from '../src/lib/reading.js';
 import { COLLECTION_KEY, collect, readCollection } from '../src/lib/collection.js';
@@ -106,14 +106,14 @@ test('once reading, later positions are stored only when they move, forward or b
   assert.equal(s.writes, 3);
 });
 
-test('reaching the end leaves nothing to continue', () => {
+test('reaching the end keeps the article as the one to continue', () => {
   const s = fakeStorage();
   writeReading(s, entry('lesson', 'mountain-and-smallness', 0.6));
-  const t = view(s, 'lesson', 'stone-and-light', [[0, 0.5], [20, 0.9], [40, FINISHED]]);
-  assert.equal(t.commit(), 'cleared');
-  assert.equal(stored(s), null);
-  assert.equal(t.commit(), 'none');
-  // A visit that never counted as reading does not clear anything, even at the end of the page.
+  const t = view(s, 'lesson', 'stone-and-light', [[0, 0.5], [20, 0.9], [40, 1]]);
+  assert.equal(t.commit('2026-10-26T05:00:00.000Z'), 'written');
+  assert.deepEqual(stored(s), entry('lesson', 'stone-and-light', 1, '2026-10-26T05:00:00.000Z'), 'a finished lesson does not disappear');
+  assert.equal(t.commit(), 'none', 'and is not written again while it stays at the end');
+  // A visit that never counted as reading changes nothing, even at the end of the page.
   writeReading(s, entry('lesson', 'mountain-and-smallness', 0.6));
   assert.equal(view(s, 'lesson', 'stone-and-light', [[0, 0.99], [3, 1]]).commit(), 'none');
   assert.equal(stored(s).id, 'mountain-and-smallness');

@@ -3,10 +3,10 @@
 import Base from '../layouts/Base.astro';
 import CollectionCabinets from '../components/CollectionCabinets.astro';
 ---
-<Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" dark transition={260} nav={{
+<Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" dark nav={{
   tone: 'gallery',
   back: { href: '/', label: '首页' },
-  links: [],
+  hall: 'collection', here: true,
 }}>
   <section class="archive">
     <CollectionCabinets />

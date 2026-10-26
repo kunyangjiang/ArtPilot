@@ -9,7 +9,6 @@ export const KINDS = ['lesson', 'artist-story', 'case'];
 export const MIN_DWELL_MS = 15000;
 export const MIN_PROGRESS = 0.08;
 export const WRITE_STEP = 0.02; // a later position is stored only when it moved at least this far
-export const FINISHED = 0.95; // reached the end: nothing left to continue
 export const READING_LINE = 0.4; // the point 40% down the window that counts as "where the reader is"
 
 const clamp01 = (x) => (Number.isFinite(x) ? Math.min(1, Math.max(0, x)) : 0);
@@ -69,7 +68,7 @@ export function createTracker({ storage, kind, id, now = () => Date.now() }) {
     commit(at = new Date().toISOString()) {
       if (!engaged) return 'none';
       const stored = readReading(storage);
-      if (p >= FINISHED) { if (stored) { clearReading(storage); return 'cleared'; } return 'none'; }
+      // Reaching the end is reading too: a finished article stays the most recent one until another is read.
       if (stored && stored.kind === kind && stored.id === id && Math.abs(stored.p - p) < WRITE_STEP) return 'none';
       return writeReading(storage, { v: 1, kind, id, p: Math.round(p * 1000) / 1000, at }) ? 'written' : 'none';
     },

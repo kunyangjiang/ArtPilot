@@ -115,12 +115,30 @@ test('every featured lesson has an image with size, shape, alt text, credit and 
   }
 });
 
-test('the accepted pair stays where it is without JavaScript: Fan Kuan tall, Chartres beside it', () => {
+// Without JavaScript the wall shows the first two featured lessons in course order, the narrower image in the tall place.
+test('without JavaScript: the first two featured lessons by course, Fan Kuan in the tall place', () => {
   const featured = inCourseOrder(lessons).filter((l) => l.featured).map((l) => {
     const img = artworks[l.artwork].images.find((i) => i.key === l.featured);
     return { id: l.id, aspect: img.width / img.height };
   });
   const first = assignSlots(featured.slice(0, 2));
   assert.equal(first.anchor.id, 'mountain-and-smallness');
-  assert.equal(first.second.id, 'stone-and-light');
+  assert.equal(first.second.id, inCourseOrder(lessons).filter((l) => l.featured)[1].id);
+});
+
+// The homepage credits whichever works it shows: each featured image's credit comes from its own record, and the page
+// shows exactly the credits of the two works the chooser picked.
+test('each featured image is credited from its own record', async () => {
+  const { imageCredit } = await import('../src/lib/credits.js');
+  for (const l of lessons.filter((x) => x.featured)) {
+    const art = artworks[l.artwork];
+    const img = art.images.find((i) => i.key === l.featured);
+    const c = imageCredit(img, art);
+    assert.equal(c.href, img.credit ? img.credit.sourceUrl : art.imageSource.url, `${l.id}: credit links to this image's own source`);
+    assert.ok(c.by && c.licence, `${l.id}: credit names a source and a licence`);
+  }
+  const wall = readFileSync(new URL('../src/components/home/ExhibitionWall.astro', import.meta.url), 'utf8');
+  assert.match(wall, /data-credit-for=\{c\.id\}/, 'one credit per candidate, keyed by lesson');
+  assert.match(wall, /credits\(pick\)/, 'the chooser shows the credits of the works it picked');
+  assert.doesNotMatch(wall, /范宽《溪山行旅图》与沙特尔主教座堂的图片/, 'no fixed credit naming two particular works');
 });

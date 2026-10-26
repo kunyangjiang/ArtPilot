@@ -18,10 +18,11 @@ const art = (await getEntry('artworks', artworkId))!.data;
 // Break display titles after the Chinese comma so each clause sits on its own line.
 const titleLines = entry.data.title.split(/(?<=，)/);
 ---
-<Base title={`${entry.data.title} · ArtPilot`} description={entry.data.summary} transition={220} nav={{
+<Base title={`${entry.data.title} · ArtPilot`} description={entry.data.summary} nav={{
   tone: 'gallery',
-  back: { href: '/courses/', label: '课程列表' },
-  links: [{ href: '#glossary', label: '术语' }, { href: '#rights', label: '来源与版权' }, { href: '/collection/', label: '图鉴' }],
+  back: { href: '/courses/', label: '课程目录' },
+  hall: 'courses',
+  links: [{ href: '#glossary', label: '术语' }, { href: '#rights', label: '来源与版权' }],
 }}>
   <header class="opening">
     <div class="opening-art"><ArtworkFigure artwork={artworkId} image="full" hero /></div>
@@ -29,11 +30,18 @@ const titleLines = entry.data.title.split(/(?<=，)/);
       <p class="kicker">{entry.data.kicker}</p>
       <h1 tabindex="-1">{titleLines.map((line) => <span>{line}</span>)}</h1>
       <p class="work">
-        <span class="zh">{art.kind === 'building' ? art.titleZh : `${art.artist}《${art.titleZh}》`}</span>
+        <span class="zh">{art.kind === 'painting' ? `${art.artist}《${art.titleZh}》` : art.titleZh}</span>
         <span class="en" lang="en">{art.titleEn}</span>
       </p>
       <p class="lede">{entry.data.summary}</p>
-      {art.kind === 'building' ? (
+      {art.kind === 'object' ? (
+        <dl class="meta">
+          <dt>年代</dt><dd>{art.dateApprox}</dd>
+          <dt>类型</dt><dd>{art.objectType}</dd>
+          <dt>尺寸</dt><dd>{art.dimensions}</dd>
+          <dt>收藏</dt><dd>{art.collection}</dd>
+        </dl>
+      ) : art.kind === 'building' ? (
         <dl class="meta">
           <dt>年代</dt><dd>{art.dateApprox}</dd>
           <dt>地点</dt><dd>{art.location}</dd>

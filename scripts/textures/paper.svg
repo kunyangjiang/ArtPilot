@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520'><filter id='p' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
+  <feTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' seed='2' stitchTiles='stitch' result='m'/>
+  <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9' stitchTiles='stitch' result='f'/>
+  <feComposite in='m' in2='f' operator='arithmetic' k2='0.25' k3='0.75'/>
+  <feColorMatrix values='0.085 0 0 0 0.925  0.085 0 0 0 0.925  0.082 0 0 0 0.923  0 0 0 0 1'/>
+</filter><rect width='100%' height='100%' filter='url(#p)'/></svg>

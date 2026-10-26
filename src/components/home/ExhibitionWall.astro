@@ -10,7 +10,7 @@ import { stages as syllabus } from '../../data/curriculum';
 import { assignSlots } from '../../lib/featured.js';
 import featuredSource from '../../lib/featured.js?raw';
 import { inCourseOrder } from '../../lib/publication.js';
-type Lesson = { id: string; title: string; course: number; workLabel: string; image?: { src: string; alt: string; width: number; height: number } };
+type Lesson = { id: string; title: string; course: number; workLabel: string; image?: { src: string; alt: string; width: number; height: number; credit: { by: string; licence: string; licenceUrl?: string; href: string } } };
 interface Props { lessons: Lesson[]; cards: { id: string; no: string; title: string }[] }
 const { lessons: unordered, cards } = Astro.props;
 const lessons = inCourseOrder(unordered);
@@ -27,7 +27,11 @@ var els=[].slice.call(wall.querySelectorAll('[data-feature]'));if(!els.length)re
 var pool=els.map(function(e){return{id:e.getAttribute('data-feature'),aspect:parseFloat(e.getAttribute('data-aspect')),order:+e.getAttribute('data-order'),el:e}}).sort(function(a,b){return a.order-b.order});
 var pick=pickFeatured(pool,dayNumber());
 els.forEach(function(e){var slot=pick.anchor&&pick.anchor.el===e?'anchor':pick.second&&pick.second.el===e?'second':'';e.hidden=!slot;e.classList.toggle('xw-anchor',slot==='anchor');e.classList.toggle('xw-second',slot==='second');if(slot){var img=e.querySelector('img');if(img)img.loading='eager'}});
-var intro=wall.querySelector('.xw-intro');if(pick.anchor)wall.insertBefore(pick.anchor.el,intro.nextSibling);if(pick.second)wall.insertBefore(pick.second.el,(pick.anchor?pick.anchor.el:intro).nextSibling)}
+var intro=wall.querySelector('.xw-intro');if(pick.anchor)wall.insertBefore(pick.anchor.el,intro.nextSibling);if(pick.second)wall.insertBefore(pick.second.el,(pick.anchor?pick.anchor.el:intro).nextSibling);
+credits(pick);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){credits(pick)},{once:true})}
+function credits(pick){var box=document.querySelector('[data-feature-credits]');if(!box)return;
+[].slice.call(box.children).forEach(function(p){p.hidden=true});
+[pick.anchor,pick.second].forEach(function(c){var p=c&&box.querySelector('[data-credit-for="'+c.id+'"]');if(p){p.hidden=false;box.appendChild(p)}})}
 run();addEventListener('pageshow',function(e){if(e.persisted)run()})})();`;
 // What "continue reading" may show: the articles this build has, by kind (stories and cases come later).
 const registry = {
@@ -158,7 +162,11 @@ const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0,
   <footer class="xw-credits">
     <p>{wave.caption} {wave.credit}，<a href={wave.source}>来源</a>。</p>
     <p>{nataraja.caption} {nataraja.credit}，<a href={nataraja.source}>来源</a>。</p>
-    <p>范宽《溪山行旅图》与沙特尔主教座堂的图片及其授权，见各课程页的“来源与版权”。</p>
+    <!-- The two featured works' own credits (the rest are hidden); full rights are on each lesson page. -->
+    <div data-feature-credits>
+      {candidates.map((c) => <p data-credit-for={c.id} hidden={!slotOf(c.id)}>{c.workLabel}。图片：{c.image.credit.by}，{c.image.credit.licenceUrl ? <a href={c.image.credit.licenceUrl}>{c.image.credit.licence}</a> : c.image.credit.licence}，<a href={c.image.credit.href}>来源</a>。</p>)}
+    </div>
+    <p>今日展出作品的完整来源与授权，见各课程页的“来源与版权”。</p>
   </footer>
 </div>
 
@@ -352,29 +360,32 @@ const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0,
      first. Each part moves on its own, so a part leaves only when it is itself at the edge, never because the rest of
      its room has gone. Progressive: without view timelines, or with reduced motion, none of this applies and
      everything is simply there. */
-  @keyframes xw-rise { from { opacity: 0; transform: translateY(var(--rise)); } to { opacity: 1; transform: none; } }
-  @keyframes xw-drift { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(var(--drift)); } }
+  @keyframes xw-rise { from { opacity: 0; transform: translateY(var(--rise)) scale(var(--grow, 1)); } to { opacity: 1; transform: none; } }
+  @keyframes xw-drift { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(var(--drift)) scale(var(--grow, 1)); } }
   @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *,
       .xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass {
-        --rise: 30px; --drift: -24px;
+        --rise: 80px; --drift: -64px;
         /* The drift fills forwards only: before a part starts to leave, the rise alone decides how it looks. */
         animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
       }
-      .xw-courses > .xw-premise, .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 22px; }
-      .xw-anchor, .xw-wave, .xw-bronze { --rise: 52px; --drift: -32px; }
-      .xw-second, .xw-glass { --rise: 68px; --drift: -32px; }
+      .xw-courses > .xw-premise, .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 64px; }
+      .xw-anchor, .xw-wave, .xw-bronze { --rise: 140px; --drift: -96px; --grow: .94; }
+      .xw-second, .xw-glass { --rise: 180px; --drift: -96px; --grow: .94; }
       /* Timeline and ranges in rules of their own: the build's minifier would otherwise fold them into the animation
-         shorthand, which browsers reject. Text settles within 150px of scrolling after its top edge appears (before it
-         is a fifth of the way up the screen) and fades from 40px below the top edge; works settle within 240px and
-         start to fade only once almost a third of them has passed the top edge. */
+         shorthand, which browsers reject. Text settles within 280px of scrolling after its top edge appears (about a third
+         of the way up the screen) and fades from 160px below the top edge; works settle within 420px and start to fade
+         as soon as they touch the top edge. Works also grow slightly as they arrive and shrink as they leave. */
       :where(.xw) :is(.xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
-        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 150px, exit -40px exit 100%;
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 280px, exit -160px exit 100%;
       }
       :where(.xw) :is(.xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass) {
-        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 240px, exit 30% exit 100%;
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 420px, exit 0% exit 100%;
       }
+      /* The first work is already partly on screen when a phone arrives: it settles sooner, so it is never half-faded
+         on arrival. */
+      :where(.xw) .xw-anchor { animation-range: entry 0% entry 240px, exit 0% exit 100%; }
     }
   }
 
@@ -385,29 +396,29 @@ const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0,
   @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .xw-intro > :not(.xw-courses), .xw-courses > *, .xw-anchor, .xw-second {
-        --drift: -16px; animation-name: xw-drift; animation-fill-mode: forwards; animation-timing-function: ease-in;
+        --drift: -56px; animation-name: xw-drift; animation-fill-mode: forwards; animation-timing-function: ease-in;
       }
-      .xw-anchor, .xw-second { --drift: -24px; }
+      .xw-anchor, .xw-second { --drift: -96px; --grow: .95; }
       .xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *, .xw-wave, .xw-bronze, .xw-glass {
-        --rise: 20px; --drift: -16px;
+        --rise: 64px; --drift: -56px;
         animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
       }
-      .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 16px; }
-      .xw-wave, .xw-bronze { --rise: 32px; --drift: -24px; }
-      .xw-glass { --rise: 44px; --drift: -24px; }
-      /* Timelines and ranges kept out of the shorthand (see the phone rules). Text settles within 120px of scrolling and
-         fades from 40px below the top edge; works settle within 200px and fade once about 30% has passed the top. */
+      .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 48px; }
+      .xw-wave, .xw-bronze { --rise: 120px; --drift: -96px; --grow: .95; }
+      .xw-glass { --rise: 160px; --drift: -96px; --grow: .95; }
+      /* Timelines and ranges kept out of the shorthand (see the phone rules). Text settles within 260px of scrolling and
+         fades from 160px below the top edge; works settle within 380px and fade as soon as they touch the top. */
       :where(.xw) :is(.xw-intro > :not(.xw-courses), .xw-courses > *) {
-        animation-duration: auto; animation-timeline: view(); animation-range: exit -40px exit 100%;
+        animation-duration: auto; animation-timeline: view(); animation-range: exit -160px exit 100%;
       }
       :where(.xw) :is(.xw-anchor, .xw-second) {
-        animation-duration: auto; animation-timeline: view(); animation-range: exit 30% exit 100%;
+        animation-duration: auto; animation-timeline: view(); animation-range: exit 0% exit 100%;
       }
       :where(.xw) :is(.xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
-        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 120px, exit -40px exit 100%;
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 260px, exit -160px exit 100%;
       }
       :where(.xw) :is(.xw-wave, .xw-bronze, .xw-glass) {
-        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 200px, exit 30% exit 100%;
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 380px, exit 0% exit 100%;
       }
     }
   }

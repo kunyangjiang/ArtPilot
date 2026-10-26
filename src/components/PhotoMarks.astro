@@ -3,9 +3,12 @@ import { getEntry } from 'astro:content';
 // A photograph with a few numbered points placed on real features (percent of the image width/height, set by
 // eye against the photo) and a legend beneath. Numbers rather than labels on the image, so nothing collides on a
 // phone. Static: no interaction.
+// `lines`: optional straight lines drawn on the photo (same percentages), e.g. the slope of the shoulders or the hips;
+// each is keyed in the legend by a short rule instead of a number.
 interface Mark { x: number; y: number; label: string; note: string }
-interface Props { artwork: string; image: string; marks: Mark[]; note?: string }
-const { artwork, image, marks, note } = Astro.props;
+interface Line { x1: number; y1: number; x2: number; y2: number; label: string; note: string }
+interface Props { artwork: string; image: string; marks: Mark[]; lines?: Line[]; note?: string }
+const { artwork, image, marks, lines = [], note } = Astro.props;
 const record = await getEntry('artworks', artwork);
 const img = record?.data.images.find((i) => i.key === image);
 if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
@@ -14,11 +17,17 @@ const credit = img.credit ? `${img.subject ?? record.data.titleZh} · 摄影 ${i
 <figure class="marks">
   <div class="marks-frame">
     <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+    {lines.length > 0 && (
+      <svg class="marks-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        {lines.map((l) => <line x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} vector-effect="non-scaling-stroke" />)}
+      </svg>
+    )}
     {marks.map((m, i) => <span class="marks-dot" style={`left:${m.x}%;top:${m.y}%`} aria-hidden="true">{i + 1}</span>)}
   </div>
   <figcaption>
     <ol class="marks-legend">
       {marks.map((m) => <li><strong>{m.label}</strong>　{m.note}</li>)}
+      {lines.map((l) => <li class="is-line"><strong>{l.label}</strong>　{l.note}</li>)}
     </ol>
     <span class="cap">{img.caption}{note && ` ${note}`}</span>
     <span class="credit photo">{credit}</span>

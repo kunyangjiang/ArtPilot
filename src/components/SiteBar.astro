@@ -1,0 +1,36 @@
+---
+// The site bar on every page but the homepage: the wordmark (home), the way back, and the five halls, so a visitor can
+// cross from any page to any hall. Halls that are not open yet are shown, muted, but are not links; opening one in
+// src/data/home.ts turns it into a link here too. Page-specific links (a lesson's glossary, its sources) sit at the
+// far end on wide screens.
+import BackLink from './BackLink.astro';
+import { destinations } from '../data/home';
+type NavLink = { href: string; label: string };
+interface Props {
+  tone?: 'gallery' | 'desk';
+  back?: NavLink;
+  /** The hall this page belongs to; `here` when the page is that hall's own entrance. */
+  hall?: (typeof destinations)[number]['id'];
+  here?: boolean;
+  links?: NavLink[];
+}
+const { tone, back, hall, here = false, links = [] } = Astro.props;
+// Short names that fit one row on a phone; the full, approved names are on the homepage.
+const short: Record<string, string> = { courses: '课程', stories: '艺术家故事', cases: '叙事案例', atlas: '同时代的世界', collection: '藏品图鉴' };
+// When the way back leads home, the wordmark goes there too: keep one tab stop for it, the explicit back link.
+const brandTab = back?.href === '/' ? -1 : undefined;
+---
+<nav class="site-nav" aria-label="主导航" data-tone={tone}>
+  <div class="nav-start">
+    <a class="brand" href="/" tabindex={brandTab}>ArtPilot</a>
+    {back && <BackLink class="nav-back" href={back.href} label={back.label} />}
+  </div>
+  <ul class="nav-halls" aria-label="五个展区">
+    {destinations.map((d) => (
+      <li>{d.href
+        ? <a href={d.href} aria-current={d.id === hall ? (here ? 'page' : 'location') : undefined}>{short[d.id]}</a>
+        : <span class="nav-soon" title="筹备中 · 尚未开放">{short[d.id]}<span class="sr-only">（筹备中）</span></span>}</li>
+    ))}
+  </ul>
+  {links.length > 0 && <ul class="nav-page">{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>}
+</nav>

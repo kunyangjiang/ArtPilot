@@ -1,0 +1,48 @@
+---
+// Static figure: how a Shang bronze vessel was cast in a piece mold, in four steps (after the Metropolitan Museum's
+// account of piece-mold casting). Simple drawings of relationships — a model, a clay mold cut into sections with the
+// decoration carved on its inner face, a core, molten bronze in the gap between them — not a reconstruction of any
+// particular vessel's molds. Uses the step layout of the stained-glass figure.
+// One vessel outline, centred on x = 80, reused in every step.
+const vessel = 'M46 12 H114 Q100 22 96 44 Q102 52 101 62 Q100 70 97 74 Q99 86 104 96 H56 Q61 86 63 74 Q60 70 59 62 Q58 52 64 44 Q60 22 46 12 Z';
+const band = 'M66 54 Q71 50 75 54 Q71 58 66 54 Z M85 54 Q89 50 94 54 Q89 58 85 54 Z M80 50 V66 M68 62 Q74 66 78 62 M82 62 Q86 66 92 62';
+---
+<figure class="glass-steps">
+  <ol>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="pm-clay" d={vessel} />
+        <path class="pm-pattern" d={band} />
+      </svg>
+      <p><strong>做一个模</strong>先用陶土做出器物的实心模型，外形与将来的铜器相同。纹饰可以先在模型上刻出大样。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="pm-clay" d="M22 6 H76 V104 H22 Z" transform="translate(-8 0)" />
+        <path class="pm-clay" d="M84 6 H138 V104 H84 Z" transform="translate(8 0)" />
+        <path class="pm-cut" d="M80 4 V106" />
+        <path class="pm-pattern" d="M54 54 Q60 50 64 54 Q60 58 54 54 Z M96 54 Q100 50 106 54 Q100 58 96 54 Z" />
+        <path class="gs-line" d="M60 30 Q46 22 40 12 M100 30 Q114 22 120 12" />
+      </svg>
+      <p><strong>翻范、分块</strong>把泥料贴在模型外压实，得到带有器形的外范；再把它切成几块取下。纹饰可以直接刻、压在范块的内壁上，烧过的范块质地坚硬。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="pm-clay" d="M30 4 H130 V104 H30 Z" />
+        <path d={vessel} fill="#fff" stroke="var(--ink)" stroke-width="1" />
+        <path class="pm-core" d="M54 16 H106 Q94 26 91 46 Q96 54 95 62 Q94 70 92 74 Q94 84 97 92 H63 Q66 84 68 74 Q66 70 65 62 Q64 54 69 46 Q66 26 54 16 Z" />
+        <path class="pm-cut" d="M80 4 V16 M80 92 V104" />
+      </svg>
+      <p><strong>放入内范、合范</strong>器物是空心的，所以要在中间放一块内范（芯）。把外范块重新拼合，内外范之间留下的一圈窄缝，就是将来铜器的器壁。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="pm-bronze" d={vessel} />
+        <path class="pm-pattern" d={band} />
+        <path class="pm-clay" d="M10 70 L26 62 L30 82 L14 88 Z M128 18 L146 24 L140 40 L126 34 Z M132 80 L150 76 L148 94 L134 96 Z" />
+      </svg>
+      <p><strong>浇铸、打碎范块</strong>把熔化的青铜（铜与锡的合金）从浇口灌入窄缝，冷却后打掉外范、掏出内范，再打磨修整。范块上的纹饰，就反过来凸现在铜器表面。</p>
+    </li>
+  </ol>
+  <figcaption>示意图：块范法四个步骤之间的关系，依据大都会艺术博物馆对块范法的说明绘制；范块的数目、形状与比例为示意，不是对某件器物铸范的复原。</figcaption>
+</figure>

@@ -1,0 +1,101 @@
+{
+  "id": "art-shang-zun-001",
+  "kind": "object",
+  "titleZh": "兽面纹青铜尊",
+  "titleEn": "Wine Vessel (Zun)",
+  "attributionNote": "作坊作品，未署名。商周青铜器由专门的铸铜作坊分工制作，工匠的名字没有留下。",
+  "dateApprox": "公元前 13–10 世纪（商代晚期至西周）",
+  "objectType": "青铜礼器 · 尊（盛酒器）",
+  "medium": "青铜，块范法铸造",
+  "dimensions": "高 24.4 厘米，口径 19.5 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1985.214.6",
+  "originalStatus": "商周时期铸造的原件，没有后世补配的记录。器表的绿色与斑驳是铜锈，刚铸成时青铜呈金褐色。",
+  "provenance": "1985 年以前由纽约的厄内斯特·埃里克森基金会（Ernest Erickson Foundation）收藏，1985 年捐赠大都会艺术博物馆。出土地点和更早的流传经历没有记录。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Wine vessel (Zun)，1985.214.6", "url": "https://www.metmuseum.org/art/collection/search/61323" },
+    { "label": "大都会艺术博物馆藏品页：Wine beaker (gu)，1985.214.4（对照器物）", "url": "https://www.metmuseum.org/art/collection/search/61322" },
+    { "label": "大都会艺术博物馆《艺术史年表》：Shang and Zhou Dynasties: The Bronze Age of China（2004）", "url": "https://www.metmuseum.org/essays/shang-and-zhou-dynasties-the-bronze-age-of-china" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/zun-full.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一件青铜尊：口沿向外大大张开，像一只喇叭；腰部收细，中段鼓起一圈带浮雕纹饰的宽带，下接外撇的圈足。器表布满绿色与灰褐色的锈斑。",
+      "caption": "兽面纹青铜尊，商代晚期至西周，公元前 13–10 世纪，高 24.4 厘米。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/61323",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "band",
+      "src": "/img/zun-band.jpg",
+      "alt": "尊中段纹饰带的近景：正中一道竖向分界，两侧各有一只凸起的椭圆形眼睛，眼中有一道横向的瞳孔；眼睛上方是向内卷曲的大块纹样，下方和两侧是卷曲的浮雕。",
+      "caption": "同一件尊的中段：一张正面的兽面，以中线为轴左右对称。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/61323",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "gu",
+      "src": "/img/gu-full.jpg",
+      "alt": "一件青铜觚：器身细高，上部是向外张开的长喇叭口，中段收细并带竖向扉棱，下部是外撇的圈足，中段和圈足上有纹饰。",
+      "caption": "青铜觚（饮酒器），商代，公元前 13–11 世纪，高 31.1 厘米。大都会艺术博物馆藏（1985.214.4）。",
+      "kind": "detail",
+      "subject": "青铜觚",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/61322",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "gu-base",
+      "src": "/img/gu-base.jpg",
+      "alt": "觚的圈足近景：正中和两侧各有一道带横向刻槽的竖向扉棱；扉棱之间是一张兽面，一对凸起的方形眼睛位于细密的回旋纹底子上。",
+      "caption": "觚的圈足：凸起的主纹铺在细密的雷纹底子上，扉棱标出中线与边界。",
+      "kind": "detail",
+      "subject": "青铜觚",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/61322",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "器物属公有领域；照片来自大都会艺术博物馆开放获取计划，以 CC0 发布。",
+    "basis": "两件器物的藏品页均标注“Public Domain”，并说明开放获取的数据与公有领域图像可无偿用于商业与非商业用途，无需申请许可；博物馆收藏 API 对两件器物返回 isPublicDomain: true。本课对照片只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-26",
+    "note": "按惯例注明博物馆名称与来源页面。觚（1985.214.4）是用来对照的另一件器物，与这件尊没有已知的出土关联。"
+  },
+  "card": {
+    "type": "青铜礼器",
+    "maker": "中国",
+    "period": "前 13–10 世纪",
+    "facets": [
+      { "label": "纹饰", "value": "兽面纹" },
+      { "label": "材质", "value": "青铜" },
+      { "label": "器类", "value": "尊（盛酒器）" },
+      { "label": "高度", "value": "24.4 cm" }
+    ],
+    "blurb": "一双凸起的眼睛，左右对称展开的纹样：商周的铸工把一张“脸”铸进了盛酒的礼器。",
+    "image": "full",
+    "focus": "50% 52%"
+  }
+}
