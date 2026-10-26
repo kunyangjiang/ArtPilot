@@ -648,10 +648,16 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .art-card[data-held="true"] .art-card-inner { transition-duration: 90ms; }
 
 .art-card-face, .art-card-locked {
-  position: absolute; inset: 0; overflow: hidden; backface-visibility: hidden;
+  position: absolute; inset: 0; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden;
   border-radius: .45em; background: #0b0b0b; color: var(--paper-on);
   box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 .1em .2em rgb(0 0 0 / .4), 0 1.2em 2.4em rgb(0 0 0 / .45);
 }
+/* The face turned away is also hidden outright, so the flip does not depend on backface-visibility alone: WebKit
+   (iOS Safari) paints a face's z-indexed children — the masthead, the vertical title, the cover lines — mirrored
+   through the other face. The switch happens as the card passes edge-on: 75 ms into the 520 ms turn on this easing. */
+.art-card-front, .art-card-back { transition: visibility 0s linear 75ms; }
+.art-card[data-flipped="true"] .art-card-front, .art-card:not([data-flipped="true"]) .art-card-back { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .art-card-front, .art-card-back { transition-delay: 0s; } }
 .art-card[data-collected="false"] .art-card-face { display: none; }
 .art-card[data-collected="true"] .art-card-locked { display: none; }
 
