@@ -106,14 +106,14 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   <feColorMatrix values='0.2 0 0 0 0.82  0.2 0 0 0 0.82  0.195 0 0 0 0.816  0 0 0 0 1'/>
 </filter><rect width='100%' height='100%' filter='url(#l)'/>`);
 ---
-<div class="ad" style={`--wood:${wood};--paper-tex:${paper};--linen:${linen}`} data-archive-desk>
-  <header class="ad-top">
-    <BackLink class="ad-back" href="/" label="首页" />
-    <span class="ad-tag">ArtPilot · 全球艺术史课程</span>
+<div class="cd" style={`--wood:${wood};--paper-tex:${paper};--linen:${linen}`} data-archive-desk>
+  <header class="cd-top">
+    <BackLink class="cd-back" href="/" label="首页" />
+    <span class="cd-tag">ArtPilot · 全球艺术史课程</span>
   </header>
   <h1 class="sr-only">全球艺术史课程目录：七个推荐阶段，{TOTAL_COURSES} 门核心课程</h1>
 
-  <div class="ad-desk">
+  <div class="cd-desk">
     <div class="bk is-closed" data-book aria-roledescription="书" aria-label="ArtPilot 全球艺术史课程目录">
       <div class="bk-board" aria-hidden="true"></div>
       <div class="bk-edge bk-edge-l" aria-hidden="true"></div>
@@ -261,20 +261,21 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     </div>
   </div>
 
-  <nav class="ad-ctl" aria-label="翻页">
-    <button type="button" class="ad-turn" data-step="-1" aria-label="上一页" aria-keyshortcuts="ArrowLeft" title="上一页（←）"><span class="arrow arrow-l" aria-hidden="true"></span></button>
-    <p class="ad-where" aria-live="polite"><span data-where-n lang="en">1 / {spreads.length}</span><span data-where-label>{spreads[0]}</span></p>
-    <span class="ad-jump" role="group" aria-label="跳到">
+  <nav class="cd-ctl" aria-label="翻页">
+    <button type="button" class="cd-turn" data-step="-1" aria-label="上一页" aria-keyshortcuts="ArrowLeft" title="上一页（←）"><span class="arrow arrow-l" aria-hidden="true"></span></button>
+    <p class="cd-where" aria-live="polite"><span data-where-n lang="en">1 / {spreads.length}</span><span data-where-label>{spreads[0]}</span></p>
+    <span class="cd-jump" role="group" aria-label="跳到">
       {jumps.map((j) => <button type="button" data-goto={j.to} lang={/^\d+$/.test(j.label) ? 'en' : undefined}>{j.label}</button>)}
     </span>
-    <button type="button" class="ad-turn" data-step="1" aria-label="下一页" aria-keyshortcuts="ArrowRight" title="下一页（→）"><span class="arrow" aria-hidden="true"></span></button>
+    <button type="button" class="cd-turn" data-step="1" aria-label="下一页" aria-keyshortcuts="ArrowRight" title="下一页（→）"><span class="arrow" aria-hidden="true"></span></button>
   </nav>
   <script type="application/json" data-book-labels set:html={JSON.stringify({ spreads, pages: indexed.map(pageLabel) })} />
 </div>
 
 <style>
   /* ---- Table ---- */
-  .ad {
+  /* "cd" = catalogue desk. Never name classes "ad-…": ad blockers' filter lists hide .ad-top, .ad-tag and the like. */
+  .cd {
     --dur: 1000ms; --curve: cubic-bezier(.5, .04, .28, 1);
     --pw: min(calc((100vh - 9.5rem) * .76), calc((100vw - 10rem) / 2), 780px); --ph: calc(var(--pw) / .76);
     /* Catalogue type, self-hosted (src/styles/fonts.css) so it is the same on every system: numerals and Latin accents
@@ -302,17 +303,17 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       var(--wood);
     background-size: auto, auto, auto, cover; background-position: center;
   }
-  :global(:where(.ad a, .ad button)) { color: inherit; font: inherit; }
-  :global(:where(.ad button)) { background: none; border: 0; padding: 0; cursor: pointer; }
-  .ad :focus-visible { outline: 2px solid #f1f0ec; outline-offset: 3px; }
-  .ad [lang="en"] { font-family: var(--didone); }
-  .ad-top { align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; padding: 1rem clamp(1.5rem, 4vw, 4rem) 0; }
+  :global(:where(.cd a, .cd button)) { color: inherit; font: inherit; }
+  :global(:where(.cd button)) { background: none; border: 0; padding: 0; cursor: pointer; }
+  .cd :focus-visible { outline: 2px solid #f1f0ec; outline-offset: 3px; }
+  .cd [lang="en"] { font-family: var(--didone); }
+  .cd-top { align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; padding: 1rem clamp(1.5rem, 4vw, 4rem) 0; }
   /* The way home: the shared back link, set as a quiet outlined pill so it reads at once against the dark desk. */
-  .ad-top :global(.ad-back) { position: relative; z-index: 1; gap: .55rem; margin: -.6rem 0 -.6rem -.15rem; /* full 44px target, without making the header taller */ padding: 0 1rem 0 .8rem; border: 1px solid rgb(255 255 255 / .2); border-radius: 999px;
+  .cd-top :global(.cd-back) { position: relative; z-index: 1; gap: .55rem; margin: -.6rem 0 -.6rem -.15rem; /* full 44px target, without making the header taller */ padding: 0 1rem 0 .8rem; border: 1px solid rgb(255 255 255 / .2); border-radius: 999px;
     font: 400 .9375rem/1 var(--sans); letter-spacing: .1em; color: #e6e5e0; transition: border-color var(--t) var(--ease), color var(--t) var(--ease), background-color var(--t) var(--ease); }
-  .ad-top :global(.ad-back:hover), .ad-top :global(.ad-back:focus-visible) { color: #f6f5f1; border-color: rgb(255 255 255 / .5); background: rgb(255 255 255 / .04); }
-  .ad-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: #8f8e89; }
-  .ad-desk { flex: 1; display: grid; place-items: center; width: 100%; padding: clamp(.75rem, 2.4vh, 1.6rem) 0 clamp(.75rem, 2vh, 1.25rem); }
+  .cd-top :global(.cd-back:hover), .cd-top :global(.cd-back:focus-visible) { color: #f6f5f1; border-color: rgb(255 255 255 / .5); background: rgb(255 255 255 / .04); }
+  .cd-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: #8f8e89; }
+  .cd-desk { flex: 1; display: grid; place-items: center; width: 100%; padding: clamp(.75rem, 2.4vh, 1.6rem) 0 clamp(.75rem, 2vh, 1.25rem); }
 
   /* ---- Book: two pages wide; the closed book shifts left so the cover sits centred ---- */
   .bk { position: relative; width: calc(var(--pw) * 2); height: var(--ph); container-type: inline-size; --u: 1cqw;
@@ -538,18 +539,18 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
   .co-btn { padding-bottom: .25em; border-bottom: 1px solid var(--ink); color: var(--ink); font-weight: 700; text-decoration: none; }
 
   /* ---- Controls: quiet, under the book ---- */
-  .ad-ctl { display: flex; align-items: center; gap: 1.6rem; margin: 0 0 clamp(.75rem, 2vh, 1.25rem); }
-  .ad-turn { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; color: #c9c8c2;
+  .cd-ctl { display: flex; align-items: center; gap: 1.6rem; margin: 0 0 clamp(.75rem, 2vh, 1.25rem); }
+  .cd-turn { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; color: #c9c8c2;
     border: 1px solid rgb(255 255 255 / .16); transition: border-color var(--t) var(--ease), color var(--t) var(--ease); }
-  .ad-turn .arrow { width: 1.2rem; min-width: 0; }
-  .ad-turn:hover, .ad-turn:focus-visible { color: #f1f0ec; border-color: rgb(255 255 255 / .5); }
-  .ad-turn[aria-disabled="true"] { opacity: .3; cursor: default; }
-  .ad-where { display: flex; gap: .9rem; align-items: baseline; min-width: 11.5rem; padding-right: 1.6rem; border-right: 1px solid rgb(255 255 255 / .14); margin: 0; font: 400 .8125rem/1 var(--sans); letter-spacing: .1em; color: #b9b8b2; }
-  .ad-where [lang="en"] { font-size: .875rem; letter-spacing: .02em; color: #e9e8e3; }
-  .ad-jump { display: flex; gap: 1.4rem; }
-  .ad-jump button { padding: .3rem 0; font: 400 .75rem/1 var(--sans); letter-spacing: .12em; color: #8f8e89; border-bottom: 1px solid transparent; transition: color var(--t) var(--ease), border-color var(--t) var(--ease); }
-  .ad-jump button[lang="en"] { font: 400 .9375rem/1 var(--didone); letter-spacing: 0; }
-  .ad-jump button:hover, .ad-jump button:focus-visible, .ad-jump button[aria-current="true"] { color: #ecebe6; border-bottom-color: currentColor; }
+  .cd-turn .arrow { width: 1.2rem; min-width: 0; }
+  .cd-turn:hover, .cd-turn:focus-visible { color: #f1f0ec; border-color: rgb(255 255 255 / .5); }
+  .cd-turn[aria-disabled="true"] { opacity: .3; cursor: default; }
+  .cd-where { display: flex; gap: .9rem; align-items: baseline; min-width: 11.5rem; padding-right: 1.6rem; border-right: 1px solid rgb(255 255 255 / .14); margin: 0; font: 400 .8125rem/1 var(--sans); letter-spacing: .1em; color: #b9b8b2; }
+  .cd-where [lang="en"] { font-size: .875rem; letter-spacing: .02em; color: #e9e8e3; }
+  .cd-jump { display: flex; gap: 1.4rem; }
+  .cd-jump button { padding: .3rem 0; font: 400 .75rem/1 var(--sans); letter-spacing: .12em; color: #8f8e89; border-bottom: 1px solid transparent; transition: color var(--t) var(--ease), border-color var(--t) var(--ease); }
+  .cd-jump button[lang="en"] { font: 400 .9375rem/1 var(--didone); letter-spacing: 0; }
+  .cd-jump button:hover, .cd-jump button:focus-visible, .cd-jump button[aria-current="true"] { color: #ecebe6; border-bottom-color: currentColor; }
 
   .bk.is-restoring, .bk.is-restoring::before, .bk.is-restoring * { transition: none !important; animation: none !important; }
   @media (prefers-reduced-motion: reduce) {
@@ -561,9 +562,9 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
      keeps the desktop page's layout and proportions (1 --u is still 1/50 of a page width), its gutter on the spine side,
      the paper and its shadow. The controls stay at the bottom of the screen. ---- */
   @media (max-width: 900px) {
-    .ad { --u: calc((100vw - 2.5rem) / 50); }
-    .ad-top { flex-direction: column; gap: .6rem; padding-top: 1.1rem; }
-    .ad-desk { display: block; place-items: normal; padding: 1.5rem 1.25rem 1.5rem; }
+    .cd { --u: calc((100vw - 2.5rem) / 50); }
+    .cd-top { flex-direction: column; gap: .6rem; padding-top: 1.1rem; }
+    .cd-desk { display: block; place-items: normal; padding: 1.5rem 1.25rem 1.5rem; }
     .bk, .bk.is-closed { width: auto; height: auto; transform: none; container-type: normal; --u: calc((100vw - 2.5rem) / 50); }
     .bk-board, .bk-edge, .bk-cast, .bk::before, .bk-shade, .bk-hot { display: none; }
     .bk-leaf, .bk-cover, .bk-base { position: static; width: auto; height: auto; transform: none !important; }
@@ -575,11 +576,11 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     .cv-inside { background: var(--sheet-back); }
     .bk-endpaper { position: relative; inset: auto; min-height: inherit; }
     .pg { position: relative; min-height: inherit; }
-    .ad-ctl { position: sticky; bottom: 0; z-index: 200; align-self: stretch; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; margin: 0;
+    .cd-ctl { position: sticky; bottom: 0; z-index: 200; align-self: stretch; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; margin: 0;
       padding: .55rem 1rem calc(.4rem + env(safe-area-inset-bottom)); background: rgb(22 21 20 / .94); border-top: 1px solid rgb(255 255 255 / .1); }
-    .ad-where { flex: 1; min-width: 0; justify-content: center; padding-right: 0; border-right: 0; }
-    .ad-jump { order: 3; flex-basis: 100%; flex-wrap: wrap; justify-content: space-between; gap: .1rem .5rem; }
-    .ad-jump button { padding: .55rem .1rem; }
+    .cd-where { flex: 1; min-width: 0; justify-content: center; padding-right: 0; border-right: 0; }
+    .cd-jump { order: 3; flex-basis: 100%; flex-wrap: wrap; justify-content: space-between; gap: .1rem .5rem; }
+    .cd-jump button { padding: .55rem .1rem; }
     /* The hanging caption beside a stage numeral would run into it on a page this narrow: set it beneath instead. */
     .op-cap { position: static; margin: calc(var(--u) * 1.6) 0 0; text-align: left !important; }
   }
@@ -605,7 +606,7 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
     const dur = () => { const v = parseFloat(getComputedStyle(leaves[0]).transitionDuration); return Number.isFinite(v) ? v * 1000 : 1000; };
     const spreadOf = (p: number) => Math.ceil(p / 2);   // page p lies in spread ceil(p / 2)
     const faceAt = (p: number) => faces.find((f) => Number(f.dataset.page) === p);
-    const jumpButtons = [...root.querySelectorAll<HTMLElement>('.ad-jump [data-goto]')];
+    const jumpButtons = [...root.querySelectorAll<HTMLElement>('.cd-jump [data-goto]')];
     let state = 0, page = 0, busy = false;
     // Native Back/Forward normally brings this page back from the browser's back/forward cache, open where it was. When
     // the browser had dropped it and reloads instead, reopen what this history entry was showing. The position lives on
@@ -644,9 +645,9 @@ const linen = svg(300, 300, `<filter id='l' x='0' y='0' width='100%' height='100
       root.querySelector('[data-where-n]')!.textContent = small ? `${page + 1} / ${P}` : `${state + 1} / ${N + 1}`;
       root.querySelector('[data-where-label]')!.textContent = small ? labels.pages[page] : labels.spreads[state];
       const atStart = small ? page === 0 : state === 0, atEnd = small ? page === P - 1 : state === N;
-      root.querySelectorAll<HTMLElement>('.ad-turn[data-step]').forEach((b) => b.setAttribute('aria-disabled', String(b.dataset.step === '-1' ? atStart : atEnd)));
+      root.querySelectorAll<HTMLElement>('.cd-turn[data-step]').forEach((b) => b.setAttribute('aria-disabled', String(b.dataset.step === '-1' ? atStart : atEnd)));
       // A focused link on a page that has just gone away would otherwise drop focus to the document.
-      if (document.activeElement instanceof HTMLElement && document.activeElement.closest('[inert]')) root.querySelector<HTMLElement>('.ad-turn[data-step="1"]')!.focus();
+      if (document.activeElement instanceof HTMLElement && document.activeElement.closest('[inert]')) root.querySelector<HTMLElement>('.cd-turn[data-step="1"]')!.focus();
       // The chapter you are in: the last jump at or before the page in view (on a desktop, the right-hand page).
       const here = small ? page : state === 0 ? 0 : Math.min(2 * state, P - 1);
       const current = jumpButtons.filter((b) => Number(b.dataset.goto) <= here).pop();
