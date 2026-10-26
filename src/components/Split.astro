@@ -1,6 +1,7 @@
 ---
-// Wraps a <figure> and its explanation so they sit side by side (stacked on mobile).
-interface Props { reverse?: boolean }
-const { reverse = false } = Astro.props;
+// Wraps a <figure> and its explanation so they sit side by side (stacked on mobile). `pair`: two figures side by
+// side for comparison, the explanation below them.
+interface Props { reverse?: boolean; pair?: boolean }
+const { reverse = false, pair = false } = Astro.props;
 ---
-<div class:list={['split', { reverse }]}><slot /></div>
+<div class:list={['split', { reverse, pair }]}><slot /></div>

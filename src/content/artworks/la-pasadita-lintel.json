@@ -1,0 +1,118 @@
+{
+  "id": "art-la-pasadita-lintel-001",
+  "kind": "object",
+  "titleZh": "宝座上的统治者（拉帕萨迪塔门楣）",
+  "titleEn": "Relief with Enthroned Ruler",
+  "attributionNote": "雕刻师查卡尔泰（Chakalte'）在浮雕上留下了署名，这在玛雅雕刻中比较少见。大都会艺术博物馆指出，他至少还为另外两件作品署过名。",
+  "dateApprox": "约公元 770 年代（古典期晚期）",
+  "objectType": "石灰岩浮雕 · 门楣",
+  "medium": "石灰岩，局部残留红、黄橙、蓝绿色颜料",
+  "dimensions": "高 88.9 厘米，宽 87.6 厘米，厚 7 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1979.206.1047",
+  "originalStatus": "古典期玛雅原作。原本很可能平放在拉帕萨迪塔一座神庙门道的顶上，刻面朝下；今天竖立陈列在博物馆里。表面保留了相当多的原有颜料，左右边缘与底部有磨损和缺口。",
+  "provenance": "1962 年以前在纽约的埃弗里特·拉西加（Everett Rassiga）手中；1962 年归纳尔逊·A. 洛克菲勒（Nelson A. Rockefeller）所有，1962–1978 年借展于纽约原始艺术博物馆；1979 年随洛克菲勒遗赠入藏大都会艺术博物馆。它何时、由谁从遗址上取下，没有记录。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Relief with enthroned ruler，1979.206.1047（James Doyle 撰文，2015；铭文释读；流传）", "url": "https://www.metmuseum.org/art/collection/search/313240" },
+    { "label": "大都会艺术博物馆《艺术史年表》：Ancient Maya Sculpture（James Doyle，2016）", "url": "https://www.metmuseum.org/essays/ancient-maya-sculpture" },
+    { "label": "大都会艺术博物馆藏品页：Column，1978.412.88（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/310540" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/maya-lintel-full.jpg",
+      "width": 1400,
+      "height": 1414,
+      "alt": "一块近乎正方形的石灰岩浮雕，表面残留大片红色和少量蓝绿色颜料。右边一人盘腿坐在宝座上，身体前倾；左边两人站立，前面一人双手捧着一顶羽毛高耸的头饰。画面上方有一排方块状的文字，宝座下方放着一只盛物的器皿。",
+      "caption": "宝座上的统治者，门楣浮雕，拉帕萨迪塔（今危地马拉西北部），约 770 年代，石灰岩与颜料，高 88.9 厘米。雕刻师查卡尔泰署名。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/313240",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "throne",
+      "src": "/img/maya-lintel-throne.jpg",
+      "alt": "浮雕右上部的近景：坐着的统治者侧脸朝左，头上是向后飘起的羽饰；他的头顶上方是一排浮雕文字，左侧另有一短列文字；左下方，在被献上的头饰与他的手臂之间，挤着一小组文字。",
+      "caption": "同一块浮雕的右上部：坐着的统治者，以及他身边的三处文字。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/313240",
+        "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色"
+      }
+    },
+    {
+      "key": "yaxchilan",
+      "src": "/img/yaxchilan-33.jpg",
+      "alt": "热带树林中的一座石砌神庙：建在多级台阶之上，下部是平整的墙，开着三个方形门洞；上部是满布浮雕残迹的屋顶装饰，再往上是一道镂空的顶冠墙。",
+      "caption": "亚斯奇兰 33 号建筑（今墨西哥恰帕斯州），通常认为由鸟豹四世在 8 世纪中叶建成。三个门洞的顶上各有一块浮雕门楣，刻面朝下，从外面看不到。",
+      "kind": "detail",
+      "subject": "亚斯奇兰 33 号建筑",
+      "credit": {
+        "author": "Arian Zwegers",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yaxchilan,_Structure_33_(14366382395).jpg",
+        "date": "2013-05-25",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "copan",
+      "src": "/img/copan-stela-a.jpg",
+      "alt": "草地广场上独立的一块高大石碑：碑身正面刻着一位正面站立的统治者，头戴层层叠叠的高冠，双手捧在胸前，周身布满繁密的浮雕；背景是树林。",
+      "caption": "科潘 A 号石碑（今洪都拉斯），立于大广场，约 731 年，刻画第十三代统治者瓦沙克拉胡恩·乌巴·卡维尔。",
+      "kind": "detail",
+      "subject": "科潘 A 号石碑",
+      "credit": {
+        "author": "Dennis G. Jarvis",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honduras-0265_-_Waxaklajuun_Ub%27aah_K%27awiil_(2213595909).jpg",
+        "date": "2007-02-18",
+        "changes": "按照片的方向信息转正，缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "column",
+      "src": "/img/puuc-column.jpg",
+      "alt": "一根石灰岩圆柱的正面浮雕：一个人正面站立，头戴巨大的层叠头饰，胸前挂着带人头装饰的项圈，身穿方块拼成的长围裙，一手持弯钩形的器具，另一侧有一面盾牌；右侧边缘站着一个矮小的人物。",
+      "caption": "刻有统治者形象的石柱，坎佩切州普克地区（今墨西哥），9 世纪，石灰岩与颜料，高 173.4 厘米。大都会艺术博物馆藏（1978.412.88）。",
+      "kind": "detail",
+      "subject": "普克地区石柱",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/310540",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "浮雕与石柱属公有领域，照片来自大都会艺术博物馆开放获取计划（CC0）；两处遗址照片分别采用 CC BY 2.0 与 CC BY-SA 2.0 许可。",
+    "basis": "两件藏品的大都会艺术博物馆藏品页均标注“Public Domain”，并说明开放获取的公有领域图像可无偿用于商业与非商业用途；收藏 API 返回 isPublicDomain: true。亚斯奇兰 33 号建筑照片由 Arian Zwegers 以 CC BY 2.0 发布，科潘 A 号石碑照片由 Dennis G. Jarvis 以 CC BY-SA 2.0 发布，均见维基共享资源原页面。",
+    "verifiedOn": "2026-10-26",
+    "note": "大都会艺术博物馆在同一藏品页还提供了一幅 2024 年的现代线描图（Mark Van Stone 绘），其权利不随藏品照片一同开放，本课未使用。课程中叠加在照片上的标注是 ArtPilot 的教学标注，不是古代证据。"
+  },
+  "card": {
+    "type": "石灰岩门楣",
+    "maker": "查卡尔泰",
+    "period": "约 770 年代",
+    "facets": [
+      { "label": "出处", "value": "拉帕萨迪塔" },
+      { "label": "材质", "value": "石灰岩、颜料" },
+      { "label": "尺寸", "value": "88.9 × 87.6 cm" },
+      { "label": "原位置", "value": "门道顶上" }
+    ],
+    "blurb": "一位地方领主向宝座上的王献上头饰，身边的文字写下了他们的名字，也写下了雕刻师自己。",
+    "image": "full",
+    "focus": "58% 30%"
+  }
+}

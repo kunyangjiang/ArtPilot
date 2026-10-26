@@ -1,11 +1,13 @@
 ---
 interface Props {
   question: { prompt: string; options: { text: string; explanation: string }[]; answer: number };
+  /** In the middle of a lesson: a short question inside the reading (随堂小问), set a little lighter. */
+  inline?: boolean;
 }
-const { question } = Astro.props;
+const { question, inline = false } = Astro.props;
 ---
-<form class="module quiz" data-question={JSON.stringify(question)} novalidate>
-  <p class="module-label">互动 · 观察练习</p>
+<form class:list={['module quiz', { 'quiz-inline': inline }]} data-question={JSON.stringify(question)} novalidate>
+  <p class="module-label">{inline ? '随堂小问' : '互动 · 观察练习'}</p>
   <fieldset>
     <legend>{question.prompt}</legend>
     {question.options.map((o, i) => (

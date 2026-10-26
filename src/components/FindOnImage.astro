@@ -1,0 +1,79 @@
+---
+// A looking game: find things on an artwork image. Click or tap the image; with the keyboard, the image takes focus,
+// the arrow keys move a crosshair (Shift: larger steps) and Enter or Space checks that spot. Each target is a box in
+// percent of the image; a hit marks it and shows its note. "显示答案" reveals what is left. Nothing here is scored or
+// stored, and nothing depends on it.
+import { getEntry } from 'astro:content';
+type Target = { x: number; y: number; w: number; h: number; label: string; note: string };
+interface Props { artwork: string; image: string; prompt: string; targets: Target[]; miss?: string }
+const { artwork, image, prompt, targets, miss = '不在这里，再找找看。' } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module find" data-find={JSON.stringify({ targets, miss })}>
+  <p class="module-label">互动 · 找一找</p>
+  <h3>{prompt}</h3>
+  <div class="find-stage" tabindex="0" role="application"
+    aria-label={`${img.alt} 用方向键移动十字准星，按回车检查这个位置。`}>
+    <img src={img.src} alt="" loading="lazy" decoding="async" draggable="false" />
+    <span class="find-cross" aria-hidden="true" hidden></span>
+  </div>
+  <div class="find-bar">
+    <p class="find-count" data-count aria-live="polite">已找到 0 / {targets.length}</p>
+    <button type="button" class="btn btn-secondary" data-reveal>显示答案</button>
+  </div>
+  <ol class="find-list" data-list></ol>
+  <p class="find-miss" data-miss role="status" aria-live="polite"></p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-find]').forEach((root) => {
+    const { targets, miss } = JSON.parse(root.dataset.find!) as { targets: { x: number; y: number; w: number; h: number; label: string; note: string }[]; miss: string };
+    const stage = root.querySelector<HTMLElement>('.find-stage')!;
+    const cross = root.querySelector<HTMLElement>('.find-cross')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const list = root.querySelector<HTMLElement>('[data-list]')!;
+    const missBox = root.querySelector<HTMLElement>('[data-miss]')!;
+    const found = new Set<number>();
+    let cx = 50, cy = 50;
+    const mark = (i: number, revealed = false) => {
+      if (found.has(i)) return;
+      found.add(i);
+      const t = targets[i];
+      const ring = document.createElement('span');
+      ring.className = 'find-ring' + (revealed ? ' is-revealed' : '');
+      ring.style.cssText = `left:${t.x}%;top:${t.y}%;width:${t.w}%;height:${t.h}%`;
+      ring.dataset.n = String(found.size);
+      stage.append(ring);
+      const li = document.createElement('li');
+      const b = document.createElement('strong'); b.textContent = t.label;
+      li.append(b, t.note);
+      list.append(li);
+      count.textContent = `已找到 ${found.size} / ${targets.length}` + (found.size === targets.length ? '　全部找到了' : '');
+      missBox.textContent = '';
+    };
+    const test = (px: number, py: number) => {
+      const i = targets.findIndex((t, k) => !found.has(k) && px >= t.x && px <= t.x + t.w && py >= t.y && py <= t.y + t.h);
+      if (i >= 0) return mark(i);
+      if (targets.some((t) => px >= t.x && px <= t.x + t.w && py >= t.y && py <= t.y + t.h)) { missBox.textContent = '这一处已经找到了。'; return; }
+      missBox.textContent = miss;
+      const dot = document.createElement('span'); dot.className = 'find-dot';
+      dot.style.cssText = `left:${px}%;top:${py}%`; stage.append(dot);
+      setTimeout(() => dot.remove(), 700);
+    };
+    stage.addEventListener('click', (e) => {
+      const r = stage.getBoundingClientRect();
+      test(((e.clientX - r.left) / r.width) * 100, ((e.clientY - r.top) / r.height) * 100);
+    });
+    const place = () => { cross.hidden = false; cross.style.left = `${cx}%`; cross.style.top = `${cy}%`; };
+    stage.addEventListener('focus', () => { if (stage.matches(':focus-visible')) place(); });
+    stage.addEventListener('blur', () => { cross.hidden = true; });
+    stage.addEventListener('keydown', (e) => {
+      const step = e.shiftKey ? 8 : 2;
+      const moves: Record<string, [number, number]> = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (e.key in moves) { e.preventDefault(); cx = Math.min(100, Math.max(0, cx + moves[e.key][0])); cy = Math.min(100, Math.max(0, cy + moves[e.key][1])); place(); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(); test(cx, cy); }
+    });
+    root.querySelector('[data-reveal]')!.addEventListener('click', () => targets.forEach((_, i) => mark(i, true)));
+  });
+</script>

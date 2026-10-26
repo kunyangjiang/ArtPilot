@@ -1,0 +1,68 @@
+---
+// A sorting exercise: put each statement in one of a few groups, then check. At most three statements: a longer
+// block of questions breaks the reading. Every statement has its own row of
+// buttons (one per group), so it works the same with a mouse, a finger or the keyboard. Checking marks each row right
+// or wrong and shows why; "重来" clears it. Not scored, not stored, never a condition for anything.
+type Bin = { id: string; label: string };
+type Item = { text: string; bin: string; note: string };
+interface Props { prompt: string; bins: Bin[]; items: Item[]; label?: string }
+const { prompt, bins, items, label = '互动 · 分一分' } = Astro.props;
+if (items.length > 3) throw new Error(`SortGame "${prompt}": ${items.length} statements; keep it to three at most.`);
+---
+<section class="module sort" data-sort={JSON.stringify(items.map((i) => ({ bin: i.bin, note: i.note })))}>
+  <p class="module-label">{label}</p>
+  <h3>{prompt}</h3>
+  <ol class="sort-items">
+    {items.map((item, i) => (
+      <li data-item={i}>
+        <p class="sort-text">{item.text}</p>
+        <div class="sort-bins" role="group" aria-label={`把“${item.text}”归入`}>
+          {bins.map((b) => <button type="button" class="sort-bin" data-bin={b.id} aria-pressed="false">{b.label}</button>)}
+        </div>
+        <p class="sort-note" data-note hidden></p>
+      </li>
+    ))}
+  </ol>
+  <div class="actions">
+    <button type="button" class="btn btn-primary" data-check>核对</button>
+    <button type="button" class="btn btn-secondary" data-reset hidden>重来</button>
+  </div>
+  <p class="sort-result" data-result role="status" aria-live="polite"></p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-sort]').forEach((root) => {
+    const key = JSON.parse(root.dataset.sort!) as { bin: string; note: string }[];
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-item]')];
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    const check = root.querySelector<HTMLButtonElement>('[data-check]')!;
+    const reset = root.querySelector<HTMLButtonElement>('[data-reset]')!;
+    const choice = (row: HTMLElement) => row.querySelector<HTMLElement>('.sort-bin[aria-pressed="true"]')?.dataset.bin;
+    rows.forEach((row) => row.querySelectorAll<HTMLButtonElement>('.sort-bin').forEach((b) => b.addEventListener('click', () => {
+      if (root.dataset.checked) return;
+      row.querySelectorAll('.sort-bin').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      result.textContent = '';
+    })));
+    check.addEventListener('click', () => {
+      const open = rows.filter((r) => !choice(r)).length;
+      if (open) { result.textContent = `还有 ${open} 条没有归类。`; return; }
+      let right = 0;
+      rows.forEach((row, i) => {
+        const ok = choice(row) === key[i].bin; if (ok) right++;
+        row.dataset.state = ok ? 'right' : 'wrong';
+        const note = row.querySelector<HTMLElement>('[data-note]')!;
+        note.textContent = (ok ? '对。' : '再想想：') + key[i].note; note.hidden = false;
+        row.querySelectorAll<HTMLButtonElement>('.sort-bin').forEach((b) => { b.disabled = true; b.classList.toggle('is-key', b.dataset.bin === key[i].bin); });
+      });
+      root.dataset.checked = 'true';
+      result.textContent = `${rows.length} 条里归对了 ${right} 条。` + (right === rows.length ? '全部正确。' : '每一条下面都写了理由。');
+      check.hidden = true; reset.hidden = false;
+    });
+    reset.addEventListener('click', () => {
+      delete root.dataset.checked;
+      rows.forEach((row) => { delete row.dataset.state; row.querySelector<HTMLElement>('[data-note]')!.hidden = true;
+        row.querySelectorAll<HTMLButtonElement>('.sort-bin').forEach((b) => { b.disabled = false; b.setAttribute('aria-pressed', 'false'); b.classList.remove('is-key'); }); });
+      result.textContent = ''; check.hidden = false; reset.hidden = true;
+      rows[0]?.querySelector<HTMLButtonElement>('.sort-bin')?.focus();
+    });
+  });
+</script>

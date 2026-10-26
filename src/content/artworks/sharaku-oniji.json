@@ -1,0 +1,164 @@
+{
+  "id": "art-sharaku-oniji-001",
+  "kind": "object",
+  "titleZh": "三代目大谷鬼次之奴江户兵卫",
+  "titleEn": "The Actor Ōtani Oniji III as Edobei",
+  "attributionNote": "画上落款“东洲斋写乐画”，由版元茑屋重三郎（耕书堂）出版。和所有锦绘一样，它还经过雕版师和摺师之手，他们的名字没有留在这张画上。",
+  "dateApprox": "1794 年（宽政六年）五月",
+  "objectType": "锦绘（多色木版画）· 役者绘 · 大判",
+  "medium": "木版印刷，墨与颜料，背景为云母摺，纸本",
+  "dimensions": "37.9 × 25 厘米",
+  "collection": "芝加哥艺术博物馆，藏品编号 1934.207（克拉伦斯·白金汉藏品）",
+  "originalStatus": "江户时代印制的原版印张。同一套版木印出过许多张，各地博物馆收藏的是其中不同的几张；这一张的背景呈灰色，云母的光泽已经不明显，纸面有轻微的折痕与磨损。",
+  "provenance": "查尔斯·希巴德·钱德勒（Charles Hibbard Chandler，1859–1946），伊利诺伊州埃文斯顿；1934 年 6 月 7 日售予凯特·斯特吉斯·白金汉（Kate Sturges Buckingham），同日捐赠芝加哥艺术博物馆。",
+  "infoSources": [
+    {
+      "label": "芝加哥艺术博物馆藏品页：The actor Otani Oniji III as Edobei，1934.207（本课所用印张）",
+      "url": "https://www.artic.edu/artworks/18765"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Kabuki Actor Ōtani Oniji III as Yakko Edobei，JP2822（同一设计的另一张；剧目与材料）",
+      "url": "https://www.metmuseum.org/art/collection/search/37358"
+    },
+    {
+      "label": "荷兰国立博物馆藏品页：Busteportret van Otani Oniji，RP-P-1963-16（同一设计的另一张；剧场、版元、云母底）",
+      "url": "https://www.rijksmuseum.nl/en/collection/RP-P-1963-16"
+    },
+    {
+      "label": "国立文化财机构 e国宝：三代目大谷鬼次の奴江戸兵衛（东京国立博物馆 A-10569-471；宽政六年五月河原崎座上演）",
+      "url": "https://emuseum.nich.go.jp/detail?langId=ja&content_base_id=100297&content_part_id=26"
+    },
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Otani Tokuji I as the Retainer Sodesuke，1930.206（同组的另一幅；版元标记与“极”印）",
+      "url": "https://www.clevelandart.org/art/1930.206"
+    },
+    {
+      "label": "大都会艺术博物馆《艺术史年表》：Woodblock Prints in the Ukiyo-e Style（2003）",
+      "url": "https://www.metmuseum.org/essays/woodblock-prints-in-the-ukiyo-e-style"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/sharaku-oniji-full.jpg",
+      "width": 1200,
+      "height": 1791,
+      "alt": "一幅竖长的木版画：灰黑色的背景前，一个男人的上半身几乎占满画面。他梳着高耸的发髻，眉毛粗黑倒竖，眼睛周围勾着红色，嘴角向下紧抿；身体向右前方探出，两只手张开五指伸在胸前。他穿着红褐色竖条纹的外衣，里面是黑衣。右下方竖写着落款。",
+      "caption": "东洲斋写乐《三代目大谷鬼次之奴江户兵卫》，1794 年，锦绘，37.9 × 25 厘米，版元茑屋重三郎。芝加哥艺术博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（公有领域作品图像）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/18765",
+        "changes": "由博物馆 IIIF 图像服务的分块拼合后缩小、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "marks",
+      "src": "/img/sharaku-oniji-marks.jpg",
+      "alt": "画面右下角的近景：灰色底子上可见细碎的反光颗粒和纸纤维；上方是落款的最后两个字“乐画”，下面一枚圆形小印，再下面是一个山形线条罩着一片叶子的图案。",
+      "caption": "同一张画的右下角：落款末尾、圆形的“极”印、山形下一片蔦叶的版元标记，以及含云母的底色。",
+      "kind": "detail",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（公有领域作品图像）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/18765",
+        "changes": "取自博物馆 IIIF 图像服务的原尺寸局部，裁切、重新压缩；未调色"
+      }
+    },
+    {
+      "key": "workshop",
+      "src": "/img/utamaro-workshop.jpg",
+      "alt": "由三张纸拼成的横幅版画，画中都是衣着讲究的女子在做版画的各道工序：左边一人在大张纸上刷胶液，旁边的人把纸晾起来；中间几人坐在矮桌前，用凿子和木槌雕刻木版；右边一人展开一张画稿给旁人看，身后是屏风和装纸的箱子。",
+      "caption": "喜多川歌麿《江户名物锦绘耕作》之“绘师、板木师、礬水引”，约 1803 年，三联锦绘，版元鹤屋喜右卫门。芝加哥艺术博物馆藏（1939.2141）。",
+      "kind": "detail",
+      "subject": "歌麿《江户名物锦绘耕作》",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（公有领域作品图像）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/36175",
+        "changes": "由博物馆 IIIF 图像服务的分块拼合后缩小、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "calendar",
+      "src": "/img/harunobu-calendar.jpg",
+      "alt": "一幅中等大小的木版画：夜里，一位长发女子披着浅黄色的外衣站在神社的大树旁，仰头望向远处；右边是一根粗大的柱子，背景是溪流。左下角有几行小字，左侧有一枚方印。",
+      "caption": "铃木春信《丑时参》，1765 年，绘历（画中藏着当年月份的日历），中判锦绘。大都会艺术博物馆藏（JP2438）。",
+      "kind": "detail",
+      "subject": "春信《丑时参》",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/56874",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "shower-a",
+      "src": "/img/hiroshige-shower-jp2522.jpg",
+      "alt": "一幅竖长的风景版画：一座木桥斜着横过画面下部，桥上几个行人打着伞、低头赶路；密密的细线从天而降，是骤雨；河面上漂着一只木筏，对岸是一片灰蓝的树影。天空上方是深色的云。",
+      "caption": "歌川广重《名所江户百景·大桥安宅骤雨》，1857 年，大判锦绘。大都会艺术博物馆藏（JP2522）。",
+      "kind": "detail",
+      "subject": "广重《大桥安宅骤雨》（JP2522）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/55433",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "shower-b",
+      "src": "/img/hiroshige-shower-jp643.jpg",
+      "alt": "同一构图的另一张印本：桥、行人、雨线和木筏都在同样的位置，但画面顶部的乌云更黑、更厚，边缘起伏不规则；对岸的树影也更深。",
+      "caption": "同一设计的另一张印本，1857 年。大都会艺术博物馆藏（JP643）。",
+      "kind": "detail",
+      "subject": "广重《大桥安宅骤雨》（JP643）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/36461",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "五件版画均属公有领域；图像来自芝加哥艺术博物馆与大都会艺术博物馆的开放获取，以 CC0 发布。",
+    "basis": "芝加哥艺术博物馆的 API 对 1934.207 与 1939.2141 返回 is_public_domain: true，馆方规定公有领域作品图像以 CC0 提供；大都会艺术博物馆藏品页对 JP2438、JP2522、JP643 标注“Public Domain”，收藏 API 返回 isPublicDomain: true。",
+    "verifiedOn": "2026-10-26",
+    "note": "芝加哥艺术博物馆的图像服务单次只给出较小的图，大图由同一服务的分块拼合而成，内容与原图一致。荷兰国立博物馆与克利夫兰艺术博物馆的记录只用作文字依据，没有使用其图像。"
+  },
+  "card": {
+    "type": "锦绘 · 役者绘",
+    "maker": "东洲斋写乐",
+    "period": "1794 年",
+    "facets": [
+      {
+        "label": "版元",
+        "value": "茑屋重三郎"
+      },
+      {
+        "label": "剧场",
+        "value": "河原崎座"
+      },
+      {
+        "label": "尺寸",
+        "value": "37.9 × 25 cm"
+      },
+      {
+        "label": "底色",
+        "value": "云母摺"
+      }
+    ],
+    "blurb": "一位演员、一个角色、一个演出季：这张画是为看过这出戏的江户观众印的。",
+    "image": "full",
+    "focus": "62% 34%"
+  }
+}

@@ -1,0 +1,54 @@
+---
+// Seeing a relief the way a visitor in a dark doorway might have: the image is dark except for a pool of warm light
+// that follows the pointer or a finger (keyboard: the arrow keys move it). One switch tilts the image as if it were
+// overhead, seen from below; another turns the museum lights on, for comparison. A simulation for looking, not a
+// reconstruction: the Metropolitan Museum suggests visitors may have needed torchlight to read this lintel.
+import { getEntry } from 'astro:content';
+interface Props { artwork: string; image: string; prompt: string }
+const { artwork, image, prompt } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module torch" data-torch>
+  <p class="module-label">互动 · 模拟体验</p>
+  <h3>{prompt}</h3>
+  <div class="torch-frame">
+    <div class="torch-stage" tabindex="0" role="application" aria-label={`${img.alt} 用方向键移动火光。`} style="--x:50%;--y:40%">
+      <img src={img.src} alt="" loading="lazy" decoding="async" draggable="false" />
+      <span class="torch-dark" aria-hidden="true"></span>
+      <span class="torch-glow" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="torch-controls">
+    <button type="button" class="btn btn-secondary" data-tilt aria-pressed="false">抬头看（门道中的角度）</button>
+    <button type="button" class="btn btn-secondary" data-lights aria-pressed="false">打开展厅灯光</button>
+  </div>
+  <p class="torch-hint">移动鼠标、用手指拖动，或者按方向键，让火光在石头上移动。斜照的光会让浅浅的浮雕显出起伏。</p>
+  <p class="torch-note">模拟：光线、角度与明暗是示意的，不是对原址光照的复原。</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-torch]').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('.torch-stage')!;
+    let x = 50, y = 40;
+    const set = () => { stage.style.setProperty('--x', `${x}%`); stage.style.setProperty('--y', `${y}%`); };
+    const fromEvent = (e: PointerEvent) => {
+      const r = stage.getBoundingClientRect();
+      x = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
+      y = Math.min(100, Math.max(0, ((e.clientY - r.top) / r.height) * 100)); set();
+    };
+    stage.addEventListener('pointermove', fromEvent);
+    stage.addEventListener('pointerdown', (e) => { fromEvent(e); if (e.pointerType !== 'mouse') stage.setPointerCapture(e.pointerId); });
+    stage.addEventListener('keydown', (e) => {
+      const step = e.shiftKey ? 10 : 4;
+      const moves: Record<string, [number, number]> = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (!(e.key in moves)) return;
+      e.preventDefault(); x = Math.min(100, Math.max(0, x + moves[e.key][0])); y = Math.min(100, Math.max(0, y + moves[e.key][1])); set();
+    });
+    const toggle = (sel: string, cls: string) => {
+      const b = root.querySelector<HTMLButtonElement>(sel)!;
+      b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); root.classList.toggle(cls, on); });
+    };
+    toggle('[data-tilt]', 'is-tilted'); toggle('[data-lights]', 'is-lit');
+  });
+</script>

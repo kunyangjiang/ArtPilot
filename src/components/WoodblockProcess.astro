@@ -1,0 +1,50 @@
+---
+// Static figure: how a multicolour woodblock print (nishiki-e) was made, in four steps, after the Metropolitan
+// Museum's account: a designer's drawing on thin paper, pasted face down on a block and carved as the key (line) block;
+// one further block for each colour, each with the same two registration marks (kentō) cut at its edge; the printer
+// brushing pigment on a block, laying the sheet against the marks and rubbing its back, block after block. The
+// publisher who commissioned and sold the print is named in the caption. Simple drawings of relationships, not a
+// reconstruction of any particular print's blocks.
+const kento = 'M20 92 V100 H28 M108 100 H124'; // corner mark at lower left, straight mark further along the same edge
+---
+<figure class="glass-steps">
+  <ol>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="wb-paper" d="M30 10 H130 V100 H30 Z" />
+        <path class="wb-line" d="M66 42 Q66 30 80 28 Q96 28 98 44 Q99 58 88 66 Q76 70 70 60 Q66 52 66 42 Z M74 30 Q78 18 88 22 Q92 24 90 30 M70 66 Q58 80 48 92 M92 66 Q108 78 120 92" />
+      </svg>
+      <p><strong>画师画稿</strong>画师（绘师）先在纸上画出画面，再把它誊到一张薄而半透明的纸上，作为刻版用的底稿。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="wb-wood" d="M16 8 H144 V102 H16 Z" />
+        <path class="wb-cut" d="M66 42 Q66 30 80 28 Q96 28 98 44 Q99 58 88 66 Q76 70 70 60 Q66 52 66 42 Z M74 30 Q78 18 88 22 Q92 24 90 30 M70 66 Q58 80 48 92 M92 66 Q108 78 120 92" transform="translate(160 0) scale(-1 1)" />
+        <path class="wb-mark" d={kento} />
+      </svg>
+      <p><strong>雕版师刻主版</strong>底稿贴在木版上（通常是樱木）。雕版师（板木师）顺着透过纸的线条下刀，把线条以外的木头剔掉，线条凸起，成为印轮廓线的主版。版上的图像左右相反，印出来才是正的。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="wb-wood" d="M8 14 H84 V96 H8 Z" />
+        <path class="wb-red" d="M30 40 H66 V70 H30 Z" />
+        <path class="wb-mark" d="M14 84 V90 H20 M58 90 H72" />
+        <path class="wb-wood" d="M88 14 H152 V96 H88 Z" />
+        <path class="wb-blue" d="M96 24 H144 V44 H96 Z" />
+        <path class="wb-mark" d="M92 84 V90 H98 M132 90 H146" />
+      </svg>
+      <p><strong>每种颜色一块版</strong>每种颜色另刻一块版，只留下这种颜色要印的区域；一张画可以多达二十来块。每块版的边上，都在同样的位置刻出两个定位记号，叫“见当”。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 110" aria-hidden="true">
+        <path class="wb-wood" d="M16 8 H144 V102 H16 Z" />
+        <path class="wb-paper" d="M28 18 H124 V100 H28 Z" style="opacity:.92" />
+        <path class="wb-mark" d={kento} />
+        <circle class="wb-baren" cx="88" cy="56" r="16" />
+        <path class="gs-line" d="M80 50 Q88 46 96 50 M80 62 Q88 66 96 62" />
+      </svg>
+      <p><strong>摺师逐版套印</strong>摺师在版面上刷色，把纸靠着见当放下，用一个圆形的垫子（马连）在纸背摩擦。一张纸依次经过每一块版，颜色一层层对齐叠上。</p>
+    </li>
+  </ol>
+  <figcaption>示意图：锦绘制作的四个步骤，依据大都会艺术博物馆对木版画工艺的说明绘制；版的数目、形状与比例为示意。整个过程由版元出资并组织，印好的画由版元发售。</figcaption>
+</figure>
