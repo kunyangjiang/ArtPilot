@@ -25,7 +25,7 @@ const description = building
   : `${art.artist}《${art.titleZh}》的藏品记录：作品信息、画面内容与图像来源。`;
 ---
 <Base title={`${art.titleZh} · 藏品记录 · ArtPilot`} description={description} nav={{
-  back: { href: '/', label: '课程列表' },
+  back: { href: '/courses/', label: '课程列表' },
   links: [{ href: '#rights', label: '来源与版权' }, { href: '/collection/', label: '图鉴' }],
 }}>
   <article class="object">

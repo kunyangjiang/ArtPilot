@@ -1,7 +1,7 @@
 // Images new in Phase 4.1A (preview only), with their rights. Loaded by the preview route only when previews are
 // enabled, so a normal production build neither renders nor emits them.
-import hokusaiWave from '../../assets/preview/hokusai-wave.jpg';
-import cholaNataraja from '../../assets/preview/chola-nataraja.jpg';
+import hokusaiWave from '../../assets/home/hokusai-wave.jpg';
+import cholaNataraja from '../../assets/home/chola-nataraja.jpg';
 
 export const previewImages = {
   wave: {
