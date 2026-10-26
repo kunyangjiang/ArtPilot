@@ -1,11 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ExhibitionWall from '../components/home/ExhibitionWall.astro';
-const lessons = (await getCollection('lessons')).map((l) => ({ id: l.id, title: l.data.title }));
+import { fitsWall } from '../lib/featured.js';
+import { cardNumber } from '../lib/publication.js';
+// A lesson opts in to the homepage rotation with `featured`: its image comes from the lesson's artwork record, which
+// must give the file's size (a box is reserved before it loads) and a shape that fits the two wall positions.
+const lessons = await Promise.all((await getCollection('lessons')).map(async (l) => {
+  const base = { id: l.id, title: l.data.title, course: l.data.course, workLabel: l.data.workLabel, artwork: l.data.artwork.id };
+  if (!l.data.featured) return base;
+  const art = (await getEntry('artworks', l.data.artwork.id))!.data;
+  const img = art.images.find((i) => i.key === l.data.featured!.image);
+  if (!img?.width || !img.height || !fitsWall(img.width, img.height)) throw new Error(`Lesson "${l.id}": featured image "${l.data.featured.image}" needs width, height and a tall, narrow shape`);
+  return { ...base, image: { src: img.src, alt: img.alt, width: img.width, height: img.height } };
+}));
+// Every card a visitor could hold, in card-number (= course) order; the page shows only the ones this browser has claimed.
+const courseOf = new Map(lessons.map((l) => [l.artwork, l.course]));
+const cards = (await getCollection('artworks')).filter((a) => a.data.card && courseOf.has(a.id))
+  .map((a) => ({ id: a.id, no: cardNumber(courseOf.get(a.id)!), title: a.data.titleZh }))
+  .sort((a, b) => a.no.localeCompare(b.no));
 ---
 <Base title="ArtPilot · 全球艺术史与艺术鉴赏" description="ArtPilot 是一座数字美术馆：从一件作品开始，走进全球艺术史。" bare dark transition={280}>
   <link slot="head" rel="preload" href="/fonts/noto-serif-sc-300-600.woff2" as="font" type="font/woff2" crossorigin />
   <link slot="head" rel="preload" href="/fonts/noto-sans-sc-300-500.woff2" as="font" type="font/woff2" crossorigin />
-  <ExhibitionWall lessons={lessons} />
+  <ExhibitionWall lessons={lessons} cards={cards} />
 </Base>

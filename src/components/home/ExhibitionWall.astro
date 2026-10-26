@@ -2,17 +2,48 @@
 // The homepage: the Exhibition Wall accepted in Phase 4.1A. One authored wall in the gallery: a tall anchor work with a
 // second course hung beside it, then a lower wall where the other areas are hung as works and wall labels. Five areas,
 // each with its own label; only areas that exist are links. No grid of equal cards.
+// The two works on the first wall rotate daily among the lessons that opt in (`featured` in their frontmatter); the
+// page is built with a fixed default pair, so it reads the same without JavaScript. The lower wall stays as hung.
 import '../../styles/fonts.css';
 import { destinations, SOON, homeImages } from '../../data/home';
 import { stages as syllabus } from '../../data/curriculum';
-interface Props { lessons: { id: string; title: string }[] }
-const { lessons } = Astro.props;
+import { assignSlots } from '../../lib/featured.js';
+import featuredSource from '../../lib/featured.js?raw';
+import { inCourseOrder } from '../../lib/publication.js';
+type Lesson = { id: string; title: string; course: number; workLabel: string; image?: { src: string; alt: string; width: number; height: number } };
+interface Props { lessons: Lesson[]; cards: { id: string; no: string; title: string }[] }
+const { lessons: unordered, cards } = Astro.props;
+const lessons = inCourseOrder(unordered);
 const d = Object.fromEntries(destinations.map((x) => [x.id, x]));
-const fanKuan = lessons.find((l) => l.id === 'mountain-and-smallness');
-const chartres = lessons.find((l) => l.id === 'stone-and-light');
+// Featured candidates in their fixed editorial order (by course). The first two are the no-JavaScript default.
+const pool = lessons.flatMap((l, order) => (l.image ? [{ ...l, image: l.image, order, aspect: l.image.width / l.image.height }] : []));
+const first = assignSlots(pool.slice(0, 2));
+const slotOf = (id: string) => (first.anchor?.id === id ? 'anchor' : first.second?.id === id ? 'second' : undefined);
+const candidates = [first.anchor, first.second, ...pool.slice(2)].filter((c): c is (typeof pool)[number] => Boolean(c));
+// The same choice the page makes in the browser: src/lib/featured.js, minus its `export` keywords, run before first paint.
+const chooseScript = `(function(){${featuredSource.replace(/^\/\/.*\r?\n/gm, '').replace(/^export /gm, '')}
+function run(){var wall=document.querySelector('.xw-wall-1');if(!wall)return;
+var els=[].slice.call(wall.querySelectorAll('[data-feature]'));if(!els.length)return;
+var pool=els.map(function(e){return{id:e.getAttribute('data-feature'),aspect:parseFloat(e.getAttribute('data-aspect')),order:+e.getAttribute('data-order'),el:e}}).sort(function(a,b){return a.order-b.order});
+var pick=pickFeatured(pool,dayNumber());
+els.forEach(function(e){var slot=pick.anchor&&pick.anchor.el===e?'anchor':pick.second&&pick.second.el===e?'second':'';e.hidden=!slot;e.classList.toggle('xw-anchor',slot==='anchor');e.classList.toggle('xw-second',slot==='second');if(slot){var img=e.querySelector('img');if(img)img.loading='eager'}});
+var intro=wall.querySelector('.xw-intro');if(pick.anchor)wall.insertBefore(pick.anchor.el,intro.nextSibling);if(pick.second)wall.insertBefore(pick.second.el,(pick.anchor?pick.anchor.el:intro).nextSibling)}
+run();addEventListener('pageshow',function(e){if(e.persisted)run()})})();`;
+// What "continue reading" may show: the articles this build has, by kind (stories and cases come later).
+const registry = {
+  lesson: { label: '课程', items: Object.fromEntries(lessons.map((l) => [l.id, { title: l.title, href: `/lessons/${l.id}/` }])) },
+  'artist-story': { label: d.stories.label, items: {} },
+  case: { label: d.cases.label, items: {} },
+};
 // The approved curriculum route (seven recommended stages), shown as a route, not as content that exists.
 const stages = syllabus.map((s) => s.title);
 const { wave, nataraja } = homeImages;
+// The five areas are permanent; only their availability changes. Whether an area is open comes from its `href` in
+// src/data/home.ts, and nothing about its size or place depends on it: opening one turns its label into a link and its
+// "in preparation" note into an entrance, with no other change to this page.
+const latin = (t: string) => (/^[\x20-\x7e]+$/.test(t) ? 'en' : undefined);
+// An area being prepared is a focusable label that says so; an open one has a linked name and an entrance.
+const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0, role: 'link', 'aria-disabled': 'true' });
 ---
 <div class="xw">
   <header class="xw-top">
@@ -24,35 +55,48 @@ const { wave, nataraja } = homeImages;
     <div class="xw-intro">
       <p class="xw-kicker">全球艺术史与艺术鉴赏</p>
       <h1 id="xw-title"><span>从一件作品开始，</span><span>走进全球艺术史。</span></h1>
-      <p class="xw-lede">ArtPilot 是一座数字美术馆，分为五个展区。现在开放的是课程与藏品图鉴，其余展区正在筹备。</p>
+      <p class="xw-lede">ArtPilot 是一座数字美术馆，分为五个展区：课程、艺术家故事、叙事案例、同时代的世界与藏品图鉴。</p>
+
+      <nav class="xw-plan" aria-label="五个展区">
+        <p class="xw-plan-head">五个展区</p>
+        <ol>
+          {destinations.map((x) => (
+            <li><a href={`#hall-${x.id}`}>
+              <span class="xw-plan-no" lang="en">{x.no}</span>
+              <span class="xw-plan-label">{latin(x.label) ? x.sub : x.label}</span>
+              {!x.href && <span class="xw-plan-state">筹备中</span>}
+            </a></li>
+          ))}
+        </ol>
+      </nav>
 
       <div class="xw-label xw-courses" data-zone="courses">
-        <p class="xw-no">{d.courses.no}</p>
+        <p class="xw-no" id="hall-courses">{d.courses.no}</p>
         <h2><a href={d.courses.href}>{d.courses.label}</a></h2>
         <p class="xw-sub" lang="en">{d.courses.sub}</p>
         <p class="xw-premise">{d.courses.premise}</p>
-        <ul class="xw-lessons">
-          {lessons.map((l) => <li><a href={`/lessons/${l.id}/`}>{l.title}</a></li>)}
-        </ul>
         <a class="xw-go-primary" href={d.courses.href}>
           <span class="xw-go-main">进入课程</span><span class="xw-go-arrow" aria-hidden="true"></span>
           <span class="xw-go-meta">查看已开放的 {lessons.length} 门</span>
         </a>
+        <p class="xw-continue" data-continue>
+          <span class="xw-continue-kind" data-continue-kind>继续阅读</span>
+          <a class="xw-continue-link" data-continue-link href="/courses/"></a>
+          <span class="xw-continue-p" data-continue-p></span>
+        </p>
       </div>
     </div>
 
-    {fanKuan && (
-      <a class="xw-work xw-anchor" href={`/lessons/${fanKuan.id}/`}>
-        <img src="/img/fan-kuan-full.jpg" alt="范宽《溪山行旅图》全幅：高耸的主峰占据画面大部分，山脚有极小的驮队。" />
-        <span class="xw-cap"><span>课程 · 已开放</span>范宽《溪山行旅图》<em>{fanKuan.title}</em></span>
-      </a>
-    )}
-    {chartres && (
-      <a class="xw-work xw-second" href={`/lessons/${chartres.id}/`}>
-        <img src="/img/chartres-west.jpg" alt="沙特尔主教座堂中殿向西回望：交叉的石肋拱顶下，是圆形的西玫瑰窗和三扇长窗。" />
-        <span class="xw-cap"><span>课程 · 已开放</span>沙特尔主教座堂<em>{chartres.title}</em></span>
-      </a>
-    )}
+    {candidates.map((c) => {
+      const slot = slotOf(c.id);
+      return (
+        <a class:list={['xw-work', slot && `xw-${slot}`]} href={`/lessons/${c.id}/`} data-feature={c.id} data-aspect={c.aspect.toFixed(4)} data-order={c.order} hidden={!slot}>
+          <img src={c.image.src} alt={c.image.alt} width={c.image.width} height={c.image.height} style={`--w:${c.image.width};--h:${c.image.height}`} loading="lazy" />
+          <span class="xw-cap"><span>课程 · 已开放</span>{c.workLabel}<em>{c.title}</em></span>
+        </a>
+      );
+    })}
+    <script is:inline set:html={chooseScript}></script>
 
     <p class="xw-route" aria-label="课程路线（规划中，陆续开放）">
       <span class="xw-route-head">课程路线 · 规划中，陆续开放</span>
@@ -64,20 +108,20 @@ const { wave, nataraja } = homeImages;
     <figure class="xw-hung xw-wave">
       <img src={wave.img.src} width={wave.img.width} height={wave.img.height} alt={wave.alt} loading="lazy" />
     </figure>
-    <div class="xw-label xw-stories xw-soon" data-zone="stories" tabindex="0" role="link" aria-disabled="true">
-      <p class="xw-no">{d.stories.no}</p>
-      <h2>{d.stories.label}</h2>
+    <div class:list={['xw-label xw-stories', { 'xw-soon': !d.stories.href }]} data-zone="stories" {...soon(d.stories)}>
+      <p class="xw-no" id="hall-stories">{d.stories.no}</p>
+      <h2>{d.stories.href ? <a href={d.stories.href}>{d.stories.label}</a> : d.stories.label}</h2>
       <p class="xw-sub" lang="en">{d.stories.sub}</p>
       <p class="xw-premise">{d.stories.premise}</p>
-      <p class="xw-state">{SOON}</p>
+      {d.stories.href ? <a class="xw-go" href={d.stories.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
     </div>
 
-    <div class="xw-label xw-cases xw-soon" data-zone="cases" tabindex="0" role="link" aria-disabled="true">
-      <p class="xw-no xw-no-large">{d.cases.no}</p>
-      <h2 lang="en">{d.cases.label}</h2>
+    <div class:list={['xw-label xw-cases', { 'xw-soon': !d.cases.href }]} data-zone="cases" {...soon(d.cases)}>
+      <p class="xw-no xw-no-large" id="hall-cases">{d.cases.no}</p>
+      <h2 lang="en">{d.cases.href ? <a href={d.cases.href}>{d.cases.label}</a> : d.cases.label}</h2>
       <p class="xw-sub">{d.cases.sub}</p>
       <p class="xw-premise">{d.cases.premise}</p>
-      <p class="xw-state">{SOON}</p>
+      {d.cases.href ? <a class="xw-go" href={d.cases.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
     </div>
 
     <div class="xw-pair">
@@ -87,28 +131,30 @@ const { wave, nataraja } = homeImages;
       <figure class="xw-hung xw-glass">
         <img src="/img/chartres-samaritan.jpg" alt="沙特尔主教座堂“好撒马利亚人”窗中的一格：撒马利亚人照料受伤的路人。" loading="lazy" />
       </figure>
-      <div class="xw-label xw-atlas xw-soon" data-zone="atlas" tabindex="0" role="link" aria-disabled="true">
-        <p class="xw-no">{d.atlas.no}</p>
-        <h2>{d.atlas.label}</h2>
+      <div class:list={['xw-label xw-atlas', { 'xw-soon': !d.atlas.href }]} data-zone="atlas" {...soon(d.atlas)}>
+        <p class="xw-no" id="hall-atlas">{d.atlas.no}</p>
+        <h2>{d.atlas.href ? <a href={d.atlas.href}>{d.atlas.label}</a> : d.atlas.label}</h2>
         <p class="xw-sub" lang="en">{d.atlas.sub}</p>
         <p class="xw-premise">{d.atlas.premise}比如约 1200 年前后：泰米尔纳德的青铜舞王像，与沙特尔的彩色玻璃。</p>
-        <p class="xw-state">{SOON}</p>
+        {d.atlas.href ? <a class="xw-go" href={d.atlas.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
       </div>
     </div>
 
     <a class="xw-label xw-collection" data-zone="collection" href={d.collection.href}>
-      <p class="xw-no">{d.collection.no}</p>
+      <p class="xw-no" id="hall-collection">{d.collection.no}</p>
       <h2 lang="en">{d.collection.label}</h2>
       <p class="xw-sub">{d.collection.sub}</p>
       <p class="xw-premise">{d.collection.premise}</p>
-      <ol class="xw-vitrine">
-        <li><span>No.001</span>溪山行旅图</li>
-        <li><span>No.002</span>沙特尔主教座堂</li>
+      <!-- This browser's own cards: hidden until the script below finds claims; at most two, then the total. -->
+      <ol class="xw-vitrine" data-vitrine hidden>
+        {cards.map((c) => <li data-card-row={c.id} hidden><span>No.{c.no}</span>{c.title}</li>)}
+        <li class="xw-vitrine-more" data-card-total hidden><span>共 <b data-card-count></b> 张</span>已收集</li>
       </ol>
       <span class="xw-go">进入藏品图鉴 <span aria-hidden="true">→</span></span>
     </a>
   </section>
 
+  <script type="application/json" data-reading-registry set:html={JSON.stringify(registry).replace(/</g, "\u003c")}></script>
   <footer class="xw-credits">
     <p>{wave.caption} {wave.credit}，<a href={wave.source}>来源</a>。</p>
     <p>{nataraja.caption} {nataraja.credit}，<a href={nataraja.source}>来源</a>。</p>
@@ -122,7 +168,8 @@ const { wave, nataraja } = homeImages;
     --serif: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
     --sans: "ArtPilot Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     --latin: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif;
-    min-height: 100vh; background: var(--gallery); color: var(--gallery-ink); padding: 0 clamp(1.5rem, 4vw, 4.5rem) 4rem; }
+    --gutter: clamp(1.5rem, 4vw, 4.5rem);
+    min-height: 100vh; background: var(--gallery); color: var(--gallery-ink); padding: 0 var(--gutter) 4rem; }
   .xw-top { display: flex; justify-content: space-between; align-items: baseline; padding: 1.6rem 0 0; }
   .xw-mark { font: 400 1.0625rem/1 var(--latin); letter-spacing: .32em; text-transform: uppercase; }
   .xw-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: var(--gallery-ink-2); }
@@ -141,10 +188,15 @@ const { wave, nataraja } = homeImages;
 
   /* Works: true colour, hung without frames; a link work lifts its caption on hover/focus. */
   .xw-work { display: block; color: inherit; text-decoration: none; }
+  .xw-work[hidden] { display: none; }
   .xw-work img, .xw-hung img { display: block; width: 100%; height: auto; }
-  .xw-anchor img { max-height: 78vh; width: auto; max-width: 100%; margin-inline: auto; }
-  .xw-second { align-self: end; margin-bottom: 6vh; }
-  .xw-second img { max-height: 54vh; width: auto; max-width: 100%; }
+  /* The size an image will have once loaded, known before it loads (--w and --h are its pixel size): the tallest it may
+     be, the width that gives, the column it sits in and its own width. A box that fills in only when the file arrives
+     would push the wall around. */
+  .xw-anchor { --hmax: 78vh; }
+  .xw-second { --hmax: 54vh; align-self: end; margin-bottom: 6vh; }
+  .xw-anchor img, .xw-second img { width: min(100%, calc(var(--hmax) * var(--w) / var(--h)), calc(var(--w) * 1px)); max-height: var(--hmax); }
+  .xw-anchor img { margin-inline: auto; }
   .xw-cap { display: block; margin-top: .85rem; font: 400 .8125rem/1.7 var(--sans); letter-spacing: .04em; color: var(--gallery-ink-2); }
   .xw-cap span { display: block; font-size: .6875rem; letter-spacing: .2em; color: var(--gallery-ink-2); }
   .xw-cap em { display: block; font: 500 .9375rem/1.6 var(--serif); font-style: normal; color: var(--gallery-ink); }
@@ -165,10 +217,6 @@ const { wave, nataraja } = homeImages;
   .xw-sub { margin: .3rem 0 0; font: italic 400 .9375rem/1.4 var(--latin); color: var(--gallery-ink-2); }
   .xw-premise { max-width: 24em; margin: .9rem 0 0; font: 400 .9375rem/1.8 var(--sans); letter-spacing: .02em; color: var(--gallery-ink-2); }
   .xw-state { display: inline-block; margin: 1rem 0 0; padding: .2rem .7rem; border: 1px dashed var(--gallery-rule); border-radius: 999px; font: 500 .6875rem/1.6 var(--sans); letter-spacing: .16em; color: var(--gallery-ink-2); }
-  .xw-lessons { margin: 1.1rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--gallery-rule); }
-  .xw-lessons li { border-bottom: 1px solid var(--gallery-rule); }
-  .xw-lessons a { display: block; padding: .7rem 0; color: var(--gallery-ink); font: 400 .9375rem/1.6 var(--serif); text-decoration: none; }
-  .xw-lessons a:hover, .xw-lessons a:focus-visible { text-decoration: underline 1px; text-underline-offset: .3em; }
   .xw-go { display: inline-block; margin-top: 1.2rem; color: var(--gallery-ink); font: 500 .875rem/1.5 var(--sans); letter-spacing: .08em; text-decoration: none; border-bottom: 1px solid var(--gallery-ink-2); padding-bottom: .15rem; }
   .xw-go:hover, .xw-collection:hover .xw-go { border-bottom-color: var(--gallery-ink); }
   .xw-go span { display: inline-block; transition: transform var(--t) var(--ease); }
@@ -178,7 +226,7 @@ const { wave, nataraja } = homeImages;
   .xw-go-main { font: 500 clamp(1.5rem, 2vw, 1.875rem)/1.3 var(--serif); letter-spacing: .08em; text-decoration: underline 1px transparent; text-underline-offset: .32em; transition: text-decoration-color var(--t) var(--ease); }
   .xw-go-arrow { position: relative; width: 2.75rem; height: 1px; background: currentColor; transition: width var(--t) var(--ease); }
   .xw-go-arrow::after { content: ""; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
-  .xw-go-meta { grid-column: 1 / -1; margin-top: .4rem; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .12em; color: var(--gallery-ink-2); }
+  .xw-go-meta { grid-column: 1 / -1; margin-top: .4rem; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .12em; color: var(--gallery-ink-2); white-space: nowrap; }
   .xw-go-primary:hover .xw-go-main, .xw-go-primary:focus-visible .xw-go-main { text-decoration-color: var(--gallery-ink-2); }
   .xw-go-primary:hover .xw-go-arrow, .xw-go-primary:focus-visible .xw-go-arrow { width: 4rem; }
   .xw-go:hover span, .xw-collection:hover .xw-go span, .xw-collection:focus-visible .xw-go span { transform: translateX(4px); }
@@ -204,16 +252,202 @@ const { wave, nataraja } = homeImages;
   .xw-collection:hover { border-color: var(--gallery-ink-2); }
   .xw-vitrine { margin: 1.25rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; font: 400 .9375rem/1.6 var(--serif); }
   .xw-vitrine span { display: inline-block; min-width: 4.5em; font: italic 400 .8125rem/1 var(--latin); color: var(--gallery-ink-2); }
+  .xw-vitrine-more { color: var(--gallery-ink-2); }
+  .xw-vitrine-more span { font: 400 .8125rem/1 var(--sans); letter-spacing: .08em; }
+  .xw-vitrine-more b { font-weight: inherit; }
+
+  /* Continue reading: one line under a hairline, below the primary entrance and smaller than it. The line always keeps
+     its place (invisible when there is nothing to resume), and a long title is cut to fit, so the label never changes
+     height. */
+  .xw-continue { display: flex; align-items: baseline; gap: .85rem; max-width: 28rem; margin: 1.75rem 0 0; padding-top: .8rem;
+    height: 1.4rem; border-top: 1px solid var(--gallery-rule); font: 400 .6875rem/1.6 var(--sans); letter-spacing: .18em; color: var(--gallery-ink-2); visibility: hidden; }
+  .xw-continue.is-on { visibility: visible; }
+  .xw-continue-kind, .xw-continue-p { flex: none; }
+  .xw-continue-p { letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+  .xw-continue-link { flex: 1 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--gallery-ink);
+    font: 400 .875rem/1.6 var(--serif); letter-spacing: .03em; text-decoration: underline 1px transparent; text-underline-offset: .3em; }
+  .xw-continue-link:hover, .xw-continue-link:focus-visible { text-decoration-color: var(--gallery-ink-2); }
+
+  /* The plan of the five rooms is for phones; on the wall the rooms are in view together. */
+  .xw-plan { display: none; }
 
   .xw-credits { margin-top: clamp(4rem, 10vh, 6rem); padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); font: 400 .75rem/1.8 var(--sans); color: var(--gallery-ink-2); }
   .xw-credits p { margin: 0; }
   .xw-credits a { color: var(--gallery-ink-2); }
 
-  /* Narrow screens: a single column, in reading order. */
+  /* Phones: a gallery walk, not the wall in one long column. The title, then a plan of the five rooms, then the rooms in
+     order. Every room opens the same way (a rule, its number, its name, one line on what it is, its entrance or its
+     "in preparation" note) and then shows what it is made of: today's two works for the courses, the wave for the
+     artist stories, a passage of text for the cases, the bronze and the glass for the world at the same time, the
+     card list for the collection. Sizes follow the content, never whether a room is open yet.
+     The page becomes one two-column grid; the walls and labels hand their parts to it (display: contents). */
   @media (max-width: 900px) {
-    .xw-wall-1, .xw-wall-2, .xw-pair { grid-template-columns: 1fr; row-gap: 2.5rem; }
-    .xw-wall-2 > *, .xw-pair { grid-column: 1; grid-row: auto; }
-    .xw-second { margin-bottom: 0; }
-    .xw-anchor img { max-height: 70vh; }
+    .xw { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); column-gap: 1rem; align-items: end; padding-bottom: 2.5rem; }
+    .xw-wall-1, .xw-wall-2, .xw-intro, .xw-courses, .xw-pair { display: contents; }
+    :where(.xw, .xw-wall-1, .xw-wall-2, .xw-intro, .xw-courses, .xw-pair) > * { grid-column: 1 / -1; }
+    .xw-wave, .xw-stories, .xw-cases, .xw-atlas, .xw-collection { grid-area: auto / 1 / auto / -1; }
+    .xw-top { order: 0; padding-top: 1.25rem; }
+    .xw-kicker, .xw h1, .xw-lede { order: 1; }
+    .xw-plan { order: 2; }
+    .xw-courses > * { order: 10; }
+    .xw-work { order: 11; }
+    .xw-courses > .xw-go-primary, .xw-courses > .xw-continue { order: 12; }
+    .xw-stories { order: 20; }
+    .xw-wave { order: 21; }
+    .xw-cases { order: 30; }
+    .xw-atlas { order: 40; }
+    .xw-bronze, .xw-glass { order: 41; }
+    .xw-collection { order: 50; }
+    .xw-credits { order: 60; }
+    .xw-route { display: none; }
+
+    /* Opening */
+    .xw-kicker { margin: 2.25rem 0 .85rem; }
+    .xw h1 { font-size: clamp(1.875rem, 8.2vw, 2.5rem); }
+    .xw-lede { margin-top: 1.25rem; font-size: 1rem; }
+
+    /* The plan: five rooms, five equal places. */
+    .xw-plan { display: block; margin-top: 2.25rem; }
+    .xw-plan-head { margin: 0 0 .6rem; font: 500 .6875rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+    .xw-plan ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--gallery-ink-2); }
+    .xw-plan li + li { border-left: 1px solid var(--gallery-rule); }
+    .xw-plan a { display: grid; align-content: start; gap: .4rem; height: 100%; padding: .7rem .4rem .3rem .45rem; color: inherit; text-decoration: none; }
+    .xw-plan-no { font: 400 1.625rem/1 var(--latin); }
+    .xw-plan-label { min-height: 2.9em; font: 500 .6875rem/1.45 var(--sans); letter-spacing: .03em; }
+    .xw-plan-state { font: 400 .5625rem/1.4 var(--sans); letter-spacing: .14em; color: var(--gallery-ink-2); }
+
+    /* Every room opens the same way. */
+    .xw-courses > .xw-no, .xw-stories, .xw-cases, .xw-atlas, .xw-collection { margin-top: 3.5rem; padding-top: 1.1rem; border-top: 1px solid var(--gallery-rule); }
+    .xw-no, .xw-no-large { margin: 0 0 .35rem; font: 400 2.75rem/.9 var(--latin); letter-spacing: 0; color: var(--gallery-ink); scroll-margin-top: 1.5rem; }
+    .xw-label h2 { font-size: 1.375rem; }
+    .xw-soon h2 { color: var(--gallery-ink); }
+    .xw-cases { padding-top: 1.1rem; }
+    .xw-collection { padding: 1.1rem 0 0; border-width: 1px 0 0; }
+    .xw-go-primary { margin-top: 1.5rem; }
+    .xw-go-main { font-size: 1.375rem; }
+    .xw-continue { display: none; max-width: none; margin-top: 1.25rem; }
+    .xw-continue.is-on { display: flex; }
+
+    /* What each room is made of */
+    .xw-work { margin-top: 1.5rem; }
+    .xw-anchor { grid-column: 1; --hmax: 60vh; }
+    .xw-second { grid-column: 2; --hmax: 42vh; margin-bottom: 0; }
+    .xw-cap { margin-top: .6rem; font-size: .75rem; line-height: 1.55; }
+    .xw-cap > span { display: none; }
+    .xw-cap em { margin-top: .15rem; font-size: .8125rem; line-height: 1.5; }
+    .xw-wave { margin: 1.5rem calc(-1 * var(--gutter)) 0; }
+    .xw-wave img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% 55%; }
+    .xw-cases .xw-premise { max-width: none; margin-top: 1.25rem; padding-left: 1rem; border-left: 1px solid var(--gallery-ink-2); font: 400 1.25rem/1.75 var(--serif); letter-spacing: .03em; color: var(--gallery-ink); }
+    .xw-bronze, .xw-glass { margin-top: 1.5rem; }
+    .xw-bronze { grid-column: 1; }
+    .xw-glass { grid-column: 2; align-self: end; }
+    .xw-credits { margin-top: 3.5rem; }
+  }
+
+  /* Phones, walking through the five rooms. Every part of a room rises into place as it comes up from the bottom of
+     the screen, is still and fully opaque through the middle of the screen, and drifts up and fades only as it reaches
+     the top edge. Driven by scroll position alone (CSS view timelines): scrolling back plays the same sequence in
+     reverse, and nothing depends on time or scroll direction. One vocabulary for all five rooms: room text moves least
+     (running text least of all), works more, and each room's smaller second work most, so it settles just after the
+     first. Each part moves on its own, so a part leaves only when it is itself at the edge, never because the rest of
+     its room has gone. Progressive: without view timelines, or with reduced motion, none of this applies and
+     everything is simply there. */
+  @keyframes xw-rise { from { opacity: 0; transform: translateY(var(--rise)); } to { opacity: 1; transform: none; } }
+  @keyframes xw-drift { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(var(--drift)); } }
+  @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *,
+      .xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass {
+        --rise: 30px; --drift: -24px;
+        /* The drift fills forwards only: before a part starts to leave, the rise alone decides how it looks. */
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
+      }
+      .xw-courses > .xw-premise, .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 22px; }
+      .xw-anchor, .xw-wave, .xw-bronze { --rise: 52px; --drift: -32px; }
+      .xw-second, .xw-glass { --rise: 68px; --drift: -32px; }
+      /* Timeline and ranges in rules of their own: the build's minifier would otherwise fold them into the animation
+         shorthand, which browsers reject. Text settles within 150px of scrolling after its top edge appears (before it
+         is a fifth of the way up the screen) and fades from 40px below the top edge; works settle within 240px and
+         start to fade only once almost a third of them has passed the top edge. */
+      :where(.xw) :is(.xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 150px, exit -40px exit 100%;
+      }
+      :where(.xw) :is(.xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 240px, exit 30% exit 100%;
+      }
+    }
+  }
+
+  /* The wall (desktop): the same vocabulary, smaller. Every part moves by its own position on the screen, so works and
+     labels in one row come and go separately, each as it reaches an edge. The first wall is what a visitor arrives in
+     front of: it is already there, so it only recedes (and returns when scrolling back); a part low on a short screen
+     is never half-faded on arrival. The route and the lower wall rise in and recede. */
+  @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .xw-intro > :not(.xw-courses), .xw-courses > *, .xw-anchor, .xw-second {
+        --drift: -16px; animation-name: xw-drift; animation-fill-mode: forwards; animation-timing-function: ease-in;
+      }
+      .xw-anchor, .xw-second { --drift: -24px; }
+      .xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *, .xw-wave, .xw-bronze, .xw-glass {
+        --rise: 20px; --drift: -16px;
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
+      }
+      .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 16px; }
+      .xw-wave, .xw-bronze { --rise: 32px; --drift: -24px; }
+      .xw-glass { --rise: 44px; --drift: -24px; }
+      /* Timelines and ranges kept out of the shorthand (see the phone rules). Text settles within 120px of scrolling and
+         fades from 40px below the top edge; works settle within 200px and fade once about 30% has passed the top. */
+      :where(.xw) :is(.xw-intro > :not(.xw-courses), .xw-courses > *) {
+        animation-duration: auto; animation-timeline: view(); animation-range: exit -40px exit 100%;
+      }
+      :where(.xw) :is(.xw-anchor, .xw-second) {
+        animation-duration: auto; animation-timeline: view(); animation-range: exit 30% exit 100%;
+      }
+      :where(.xw) :is(.xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 120px, exit -40px exit 100%;
+      }
+      :where(.xw) :is(.xw-wave, .xw-bronze, .xw-glass) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 200px, exit 30% exit 100%;
+      }
+    }
   }
 </style>
+
+<script>
+  import { readReading, resolveEntry } from '../../lib/reading.js';
+  import { readCollection, previewClaimed } from '../../lib/collection.js';
+  import { deviceStorage } from '../../lib/storage.js';
+
+  // The collection preview: only cards claimed in this browser, lowest numbers first, at most two plus the total.
+  const showCards = () => {
+    const list = document.querySelector<HTMLElement>('[data-vitrine]');
+    if (!list) return;
+    const rows = [...list.querySelectorAll<HTMLElement>('[data-card-row]')];
+    const { shown, total } = previewClaimed(readCollection(deviceStorage()), rows.map((r) => ({ id: r.dataset.cardRow! })));
+    const visible = new Set(shown.map((c) => c.id));
+    rows.forEach((r) => { r.hidden = !visible.has(r.dataset.cardRow!); });
+    list.querySelector<HTMLElement>('[data-card-count]')!.textContent = String(total);
+    list.querySelector<HTMLElement>('[data-card-total]')!.hidden = total <= 2;
+    list.hidden = total === 0;
+  };
+  showCards();
+  addEventListener('pageshow', (e) => { if (e.persisted) showCards(); });
+
+  // Show the one article this device read most recently, if this build still has it.
+  const show = () => {
+    const root = document.querySelector<HTMLElement>('[data-continue]');
+    const raw = document.querySelector('[data-reading-registry]')?.textContent;
+    if (!root || !raw) return;
+    const hit = resolveEntry(readReading(deviceStorage()), JSON.parse(raw));
+    if (!hit) { root.classList.remove('is-on'); return; }
+    root.querySelector('[data-continue-kind]')!.textContent = `继续阅读 · ${hit.label}`;
+    root.querySelector('[data-continue-p]')!.textContent = `${Math.round(hit.p * 100)}%`;
+    const link = root.querySelector<HTMLAnchorElement>('[data-continue-link]')!;
+    link.textContent = hit.title;
+    link.title = hit.title;
+    link.href = `${hit.href}#resume`;
+    root.classList.add('is-on');
+  };
+  show();
+  addEventListener('pageshow', (e) => { if (e.persisted) show(); });
+</script>

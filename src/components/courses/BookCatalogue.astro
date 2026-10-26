@@ -7,23 +7,24 @@
 // course titles and a plain statement that its courses are in preparation.
 import '../../styles/fonts.css';
 import BackLink from '../BackLink.astro';
-import { stages, courseTitles, implemented, sampleIntro, TOTAL_COURSES } from '../../data/curriculum';
-interface Props { lessons: { id: string; title: string; kicker: string }[] }
+import { stages, courseTitles, sampleIntro, TOTAL_COURSES } from '../../data/curriculum';
+import { courseIndex } from '../../lib/publication.js';
+interface Props { lessons: { id: string; title: string; kicker: string; course: number; workLabel: string }[] }
 const { lessons } = Astro.props;
-const byId = Object.fromEntries(lessons.map((l) => [l.id, l]));
+const byCourse = courseIndex(lessons);
 const pad = (n: number) => String(n).padStart(2, '0');
-const work: Record<string, string> = { 'mountain-and-smallness': '范宽《溪山行旅图》', 'stone-and-light': '沙特尔主教座堂' };
 const courses = (first: number, last: number) =>
   Array.from({ length: last - first + 1 }, (_, i) => first + i).map((n) => {
-    const lesson = implemented[n] ? byId[implemented[n]] : undefined;
+    const lesson = byCourse[n];
     return lesson
-      ? { n, title: lesson.title, href: `/lessons/${lesson.id}/`, descriptor: `${work[lesson.id]} · ${lesson.kicker}` }
+      ? { n, title: lesson.title, href: `/lessons/${lesson.id}/`, descriptor: `${lesson.workLabel} · ${lesson.kicker}` }
       : { n, title: courseTitles[n] };
   });
 const openIn = (s: (typeof stages)[number]) => courses(s.first, s.last).filter((c) => c.href).length;
 const stage = Object.fromEntries(stages.map((s) => [s.no, s]));
-const fanKuan = byId['mountain-and-smallness'], chartres = byId['stone-and-light'];
-const open = Object.values(implemented).filter((id) => byId[id]).length;
+// The plates and feature pages below are hand-set for these two lessons (courses 1 and 30).
+const fanKuan = byCourse[1], chartres = byCourse[30];
+const open = lessons.length;
 
 // ---- The pages, in reading order ----
 type Page =

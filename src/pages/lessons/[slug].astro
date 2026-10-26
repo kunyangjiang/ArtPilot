@@ -5,6 +5,7 @@ import GlossaryTags from '../../components/GlossaryTags.astro';
 import ArtworkFigure from '../../components/ArtworkFigure.astro';
 import BackToTop from '../../components/BackToTop.astro';
 import ArtworkRights from '../../components/ArtworkRights.astro';
+import ReadingTracker from '../../components/ReadingTracker.astro';
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -55,4 +56,5 @@ const titleLines = entry.data.title.split(/(?<=，)/);
     <ArtworkRights artwork={artworkId} />
   </article>
   <BackToTop />
+  <ReadingTracker kind="lesson" id={entry.id} />
 </Base>

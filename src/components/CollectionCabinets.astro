@@ -1,0 +1,253 @@
+---
+// The collection (藏品图鉴) as a private gallery of cabinets (私人收藏展柜), from the concept accepted in Phase 4.2.
+// Three views on one page: an overview of the cabinets that hold something (one per approved stage), one cabinet's
+// compact wall of cards, and one card in focus with its own front and back. Views are hash locations (#cabinets,
+// #cabinet-04, #card-<artwork id>), so links, Back/Forward and the keyboard behave natively; no modal, no framework.
+// Only cards this browser has claimed are shown (claims live in localStorage under the artwork id); every published
+// card is in the page once, hidden, and thumbnails are copies of its front. Cards are numbered and ordered by the
+// course of the lesson that awards them; a card from any other series would have no number or cabinet yet, and the
+// build stops in ArtworkCard until that is decided.
+import '../styles/fonts.css';
+import { getCollection } from 'astro:content';
+import ArtworkCard from './ArtworkCard.astro';
+import { stages } from '../data/curriculum';
+import { cardNumber } from '../lib/publication.js';
+
+const courseOf = new Map((await getCollection('lessons')).map((l) => [l.data.artwork.id, l.data.course]));
+const stageOf = (n: number) => stages.find((s) => n >= s.first && n <= s.last)!.no;
+const cards = (await getCollection('artworks')).filter((a) => a.data.card)
+  .map((a) => ({ id: a.id, course: courseOf.get(a.id)!, title: a.data.titleZh }))
+  .sort((a, b) => a.course - b.course)
+  .map((c) => ({ id: c.id, no: cardNumber(c.course), title: c.title, cabinet: stageOf(c.course) }));
+const cabinets = stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range: `第 ${s.first}–${s.last} 课` }));
+---
+<div class="cc" data-cc>
+  <!-- 1. Overview: the cabinets that hold something. -->
+  <section class="cc-view" data-view="cabinets" aria-labelledby="cc-title">
+    <header class="cc-head">
+      <p class="cc-kicker">藏品图鉴 · 私人收藏展柜</p>
+      <h1 id="cc-title" tabindex="-1">我的收藏</h1>
+      <p class="cc-total" data-total aria-live="polite">还没有收藏</p>
+    </header>
+    <p class="cc-intro" data-empty-intro>读完一门课程，在课末领取它的藏品卡。你收藏的作品会按照课程的七个阶段，陈列在各自的展柜里。</p>
+    <ol class="cc-cabinets" data-cabinet-list></ol>
+    <div class="cc-more" aria-hidden="true"><span class="cc-plus"></span><p>更多作品，等待发现</p></div>
+  </section>
+
+  <!-- 2. One cabinet: a compact wall of its cards. -->
+  <section class="cc-view" data-view="cabinet" aria-labelledby="cc-cabinet-title" hidden>
+    <a class="cc-back" href="#cabinets"><span aria-hidden="true">←</span> 全部展柜</a>
+    <header class="cc-cabinet-head">
+      <p class="cc-cabinet-no" data-cabinet-no aria-hidden="true"></p>
+      <div>
+        <h2 id="cc-cabinet-title" tabindex="-1" data-cabinet-title></h2>
+        <p class="cc-cabinet-meta" data-cabinet-meta></p>
+      </div>
+    </header>
+    <ol class="cc-wall" data-wall></ol>
+  </section>
+
+  <!-- 3. One card in focus, full size, with its own front and back. -->
+  <section class="cc-view" data-view="card" aria-labelledby="cc-card-title" hidden>
+    <a class="cc-back" data-card-back href="#cabinets"><span aria-hidden="true">←</span> <span data-card-back-label></span></a>
+    <h2 class="cc-sr" id="cc-card-title" tabindex="-1" data-card-title></h2>
+    <div class="cc-stage" data-stage></div>
+    <nav class="cc-steps" aria-label="同一展柜中的其他作品">
+      <a data-prev href="#cabinets"><span aria-hidden="true">←</span> 上一件</a>
+      <span data-position></span>
+      <a data-next href="#cabinets">下一件 <span aria-hidden="true">→</span></a>
+    </nav>
+  </section>
+
+  <!-- Every published card, once; shown only when claimed. -->
+  <div class="cc-pool" hidden>
+    {cards.map((c) => <div data-pool={c.id}><ArtworkCard artwork={c.id} /></div>)}
+  </div>
+  <script type="application/json" data-cc-data set:html={JSON.stringify({ cards, cabinets }).replace(/</g, '\\u003c')}></script>
+</div>
+
+<style is:global>
+  .cc { --serif-d: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", serif; --latin-d: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif; }
+  .cc a { color: inherit; }
+  .cc :focus-visible { outline: 2px solid var(--gallery-ink); outline-offset: 4px; }
+  .cc-view[hidden] { display: none; }
+  .cc-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* Overview */
+  .cc-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .cc h1 { margin: 0; font: 500 clamp(2.25rem, 5vw, 3.25rem)/1.2 var(--serif-d); letter-spacing: .12em; }
+  .cc-total { margin: 1rem 0 0; font: 400 .9375rem/1.6 var(--sans); letter-spacing: .06em; color: var(--gallery-ink-2); }
+  .cc-total b { font: 400 1.75rem/1 var(--latin-d); color: var(--gallery-ink); margin: 0 .2em; }
+  .cc-intro { max-width: 30rem; margin: 1.25rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+  .cc-intro[hidden] { display: none; }
+  .cc-cabinets { margin: 2.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--gallery-ink-2); }
+  .cc-cabinets:empty { display: none; }
+  .cc-cabinets > li { border-bottom: 1px solid var(--gallery-rule); }
+  .cc-cab { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto; grid-template-areas: 'no name count' 'no strip strip'; column-gap: 1rem; row-gap: .8rem;
+    padding: 1.25rem 0 1.4rem; text-decoration: none; }
+  .cc-cab-no { grid-area: no; font: 400 3rem/.85 var(--latin-d); }
+  .cc-cab-name { grid-area: name; display: grid; gap: .2rem; }
+  .cc-cab-title { font: 500 1.125rem/1.45 var(--serif-d); letter-spacing: .04em; }
+  .cc-cab-range { font: 400 .75rem/1.5 var(--sans); letter-spacing: .08em; color: var(--gallery-ink-2); }
+  .cc-cab-count { grid-area: count; align-self: start; font: 400 .8125rem/1.4 var(--sans); letter-spacing: .08em; color: var(--gallery-ink-2); white-space: nowrap; }
+  .cc-cab-count b { font: 400 1.375rem/1 var(--latin-d); color: var(--gallery-ink); margin-right: .15em; }
+  .cc-strip { grid-area: strip; display: flex; align-items: flex-end; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+  .cc-strip > li { width: 2.9rem; }
+  .cc-strip > .cc-strip-more, .cc-strip > .cc-strip-go { width: auto; }
+  .cc-strip-more { font: 400 .75rem/1 var(--sans); color: var(--gallery-ink-2); padding: 0 0 .2rem .3rem; }
+  .cc-strip-go { margin-left: auto; font: 500 .8125rem/1 var(--sans); letter-spacing: .08em; padding-bottom: .2rem; }
+  .cc-cab:hover .cc-cab-title, .cc-cab:focus-visible .cc-cab-title { text-decoration: underline 1px; text-underline-offset: .3em; }
+  .cc-more { display: grid; place-content: center; justify-items: center; gap: .75rem; width: 9rem; aspect-ratio: 63 / 88; margin-top: 2.5rem; padding: 1rem;
+    border: 1px dashed var(--gallery-rule); border-radius: .6rem; text-align: center; }
+  .cc-more p { margin: 0; font: 400 .75rem/1.7 var(--sans); color: var(--gallery-ink-2); }
+  .cc-plus { position: relative; width: 1.25rem; height: 1.25rem; }
+  .cc-plus::before, .cc-plus::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--gallery-ink-2); transform: translate(-50%, -50%); }
+  .cc-plus::before { width: 100%; height: 1px; }
+  .cc-plus::after { width: 1px; height: 100%; }
+
+  /* Any card at any size: cards are em-sized, so a thumbnail is the same cover scaled to its box. */
+  .cc-fit { container-type: inline-size; }
+  .cc-fit .art-card { font-size: calc(100cqw / 18); width: 18em; }
+
+  /* Cabinet */
+  .cc-back { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font: 400 .875rem/1 var(--sans); letter-spacing: .08em; text-decoration: none; color: var(--gallery-ink-2); }
+  .cc-back:hover, .cc-back:focus-visible { color: var(--gallery-ink); }
+  .cc-cabinet-head { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; column-gap: 1.25rem; margin-top: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--gallery-ink-2); }
+  .cc-cabinet-no { margin: 0; font: 400 clamp(3.5rem, 9vw, 5.5rem)/.8 var(--latin-d); }
+  .cc h2 { margin: 0; font: 500 clamp(1.25rem, 2.6vw, 1.75rem)/1.4 var(--serif-d); letter-spacing: .05em; }
+  .cc-cabinet-meta { margin: .35rem 0 0; font: 400 .8125rem/1.5 var(--sans); letter-spacing: .08em; color: var(--gallery-ink-2); }
+  .cc-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(9rem, calc(50% - .6rem)), 1fr)); gap: 1.75rem 1.1rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  @media (min-width: 720px) { .cc-wall { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 2.25rem 1.75rem; } }
+  .cc-thumb { display: block; text-decoration: none; border-radius: .45rem; }
+  .cc-thumb .art-card { transition: transform var(--t, .25s) var(--ease); }
+  .cc-thumb:hover .art-card, .cc-thumb:focus-visible .art-card { transform: translateY(-3px); }
+  .cc-cap { display: block; margin-top: .6rem; font: 400 .8125rem/1.5 var(--serif-d); }
+  .cc-cap span { display: block; font: italic 400 .75rem/1.4 var(--latin-d); color: var(--gallery-ink-2); }
+
+  /* Focus */
+  .cc-stage { display: grid; justify-items: center; margin-top: 1.25rem; }
+  .cc-stage .art-card { font-size: min(1.3rem, calc((100vw - 2.5rem) / 18)); }
+  .cc-steps { display: flex; justify-content: space-between; align-items: center; gap: 1rem; max-width: 26rem; margin: 2rem auto 0; font: 400 .875rem/1 var(--sans); letter-spacing: .06em; color: var(--gallery-ink-2); }
+  .cc-steps a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; text-decoration: none; color: var(--gallery-ink); }
+  .cc-steps a[aria-disabled="true"] { visibility: hidden; }
+
+  @media (max-width: 520px) {
+    .cc-cab { grid-template-columns: 3.5rem minmax(0, 1fr) auto; }
+    .cc-cab-no { font-size: 2.5rem; }
+    .cc-strip > li { width: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .cc-thumb .art-card { transition: none; } }
+</style>
+
+<script>
+  import { readCollection } from '../lib/collection.js';
+  import { deviceStorage } from '../lib/storage.js';
+  type Card = { id: string; no: string; title: string; cabinet: string };
+  type Cabinet = { id: string; no: string; title: string; range: string };
+
+  const root = document.querySelector<HTMLElement>('[data-cc]')!;
+  const { cards, cabinets } = JSON.parse(root.querySelector('[data-cc-data]')!.textContent!) as { cards: Card[]; cabinets: Cabinet[] };
+  // The one real card for an artwork: in the hidden pool, or on the stage while it is in focus.
+  const fullCard = (id: string) => root.querySelector<HTMLElement>(`[data-pool="${id}"] .art-card-full, [data-stage] [data-card="${id}"]`)!;
+  let mine: Card[] = [];
+  const inCabinet = (id: string) => mine.filter((c) => c.cabinet === id);
+
+  // A thumbnail: a copy of the card's front, scaled to its box (no back, no flip, not focusable).
+  const thumbnail = (c: Card, label: boolean) => {
+    const box = document.createElement('div'); box.className = 'cc-fit';
+    const copy = fullCard(c.id).cloneNode(true) as HTMLElement;
+    copy.querySelectorAll('.art-card-back, .art-card-locked, .art-card-flip').forEach((e) => e.remove());
+    copy.classList.replace('art-card-full', 'art-card-mini');
+    copy.removeAttribute('data-card'); copy.removeAttribute('aria-label'); copy.dataset.collected = 'true';
+    copy.querySelectorAll('img').forEach((i) => { i.alt = ''; });
+    box.append(copy);
+    if (!label) box.setAttribute('aria-hidden', 'true');
+    return box;
+  };
+
+  // Overview: only cabinets with claimed cards, cards in number order (the order of `cards`).
+  const drawOverview = () => {
+    const claimed = readCollection(deviceStorage());
+    mine = cards.filter((c) => claimed[c.id]);
+    const filled = cabinets.filter((k) => inCabinet(k.id).length);
+    root.querySelector<HTMLElement>('[data-total]')!.innerHTML = mine.length ? `已收藏<b>${mine.length}</b>件 · 陈列在 ${filled.length} 个展柜` : '还没有收藏';
+    root.querySelector<HTMLElement>('[data-empty-intro]')!.hidden = mine.length > 0;
+    const list = root.querySelector<HTMLElement>('[data-cabinet-list]')!;
+    list.replaceChildren();
+    for (const k of filled) {
+      const own = inCabinet(k.id);
+      const li = document.createElement('li');
+      const a = document.createElement('a'); a.className = 'cc-cab'; a.href = `#cabinet-${k.id}`;
+      a.setAttribute('aria-label', `第 ${k.no} 展柜：${k.title}，${own.length} 件`);
+      a.innerHTML = '<span class="cc-cab-no" lang="en"></span><span class="cc-cab-name"><span class="cc-cab-title"></span><span class="cc-cab-range"></span></span><span class="cc-cab-count"><b></b>件</span><ul class="cc-strip"></ul>';
+      a.querySelector('.cc-cab-no')!.textContent = k.no;
+      a.querySelector('.cc-cab-title')!.textContent = k.title;
+      a.querySelector('.cc-cab-range')!.textContent = k.range;
+      a.querySelector('.cc-cab-count b')!.textContent = String(own.length);
+      const strip = a.querySelector('.cc-strip')!;
+      own.slice(0, 4).forEach((c) => { const s = document.createElement('li'); s.append(thumbnail(c, false)); strip.append(s); });
+      if (own.length > 4) { const m = document.createElement('li'); m.className = 'cc-strip-more'; m.textContent = `+${own.length - 4}`; strip.append(m); }
+      const go = document.createElement('li'); go.className = 'cc-strip-go'; go.textContent = '打开展柜 →'; strip.append(go);
+      li.append(a); list.append(li);
+    }
+  };
+
+  const views = Object.fromEntries([...root.querySelectorAll<HTMLElement>('[data-view]')].map((v) => [v.dataset.view!, v]));
+  let arrived = false, quiet = false;
+  const show = (name: string, focus: HTMLElement) => {
+    for (const [k, v] of Object.entries(views)) v.hidden = k !== name;
+    // Moving between views: start at the top, focus on the new view's heading (not on arrival or a quiet refresh).
+    if (arrived && !quiet) { scrollTo({ top: 0, behavior: 'instant' }); focus.focus({ preventScroll: true }); }
+    arrived = true;
+  };
+  const stage = root.querySelector<HTMLElement>('[data-stage]')!;
+  // A focused card goes back to the pool face up when another view opens.
+  const park = () => stage.querySelectorAll<HTMLElement>('.art-card-full').forEach((card) => {
+    if (card.dataset.flipped === 'true') card.querySelector<HTMLButtonElement>('.art-card-flip')!.click();
+    root.querySelector(`[data-pool="${card.dataset.card}"]`)!.append(card);
+  });
+  const render = () => {
+    const h = location.hash.slice(1);
+    park(); stage.replaceChildren();
+    const cab = h.startsWith('cabinet-') ? cabinets.find((k) => k.id === h.slice(8)) : undefined;
+    const card = h.startsWith('card-') ? mine.find((c) => c.id === h.slice(5)) : undefined;
+    if (cab && inCabinet(cab.id).length) {
+      const own = inCabinet(cab.id);
+      root.querySelector('[data-cabinet-no]')!.textContent = cab.no;
+      root.querySelector('[data-cabinet-title]')!.textContent = cab.title;
+      root.querySelector('[data-cabinet-meta]')!.textContent = `${cab.range} · 已收藏 ${own.length} 件`;
+      const wall = root.querySelector<HTMLElement>('[data-wall]')!; wall.replaceChildren();
+      for (const c of own) {
+        const li = document.createElement('li');
+        const a = document.createElement('a'); a.className = 'cc-thumb'; a.href = `#card-${c.id}`;
+        a.setAttribute('aria-label', `No.${c.no} ${c.title}`);
+        a.append(thumbnail(c, false));
+        const cap = document.createElement('span'); cap.className = 'cc-cap'; cap.setAttribute('aria-hidden', 'true');
+        const no = document.createElement('span'); no.textContent = `No.${c.no}`; cap.append(no, c.title);
+        a.append(cap); li.append(a); wall.append(li);
+      }
+      show('cabinet', root.querySelector('[data-cabinet-title]')!);
+    } else if (card) {
+      const cab = cabinets.find((k) => k.id === card.cabinet)!;
+      const peers = inCabinet(cab.id), i = peers.indexOf(card);
+      root.querySelector<HTMLAnchorElement>('[data-card-back]')!.href = `#cabinet-${cab.id}`;
+      root.querySelector('[data-card-back-label]')!.textContent = `返回第 ${cab.no} 展柜`;
+      root.querySelector('[data-card-title]')!.textContent = `No.${card.no} ${card.title}`;
+      stage.append(fullCard(card.id));
+      const step = (sel: string, to?: Card) => { const a = root.querySelector<HTMLAnchorElement>(sel)!; a.href = to ? `#card-${to.id}` : `#cabinet-${cab.id}`; a.setAttribute('aria-disabled', String(!to)); a.tabIndex = to ? 0 : -1; };
+      step('[data-prev]', peers[i - 1]); step('[data-next]', peers[i + 1]);
+      root.querySelector('[data-position]')!.textContent = `${i + 1} / ${peers.length}`;
+      show('card', root.querySelector('[data-card-title]')!);
+    } else {
+      // The overview, also for an address whose cabinet or card is not in this collection (any more).
+      if (h && h !== 'cabinets') history.replaceState(history.state, '', location.pathname + location.search);
+      show('cabinets', root.querySelector<HTMLElement>('#cc-title')!);
+    }
+  };
+  addEventListener('hashchange', render);
+  // The cards' own script re-reads storage after a claim or a clear, and on a return through the back/forward cache.
+  document.addEventListener('artpilot:cards-synced', () => { quiet = true; drawOverview(); render(); quiet = false; });
+  addEventListener('pageshow', (e) => { if (e.persisted) dispatchEvent(new Event('artpilot:collected')); });
+  drawOverview();
+  render();
+</script>

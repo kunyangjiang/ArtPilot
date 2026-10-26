@@ -1,12 +1,7 @@
 ---
-// The card archive (图鉴): every artwork that has a card, locked until collected on this device.
-import { getCollection } from 'astro:content';
+// The collection (藏品图鉴): this browser's collected cards, kept in cabinets by stage (src/components/CollectionCabinets.astro).
 import Base from '../layouts/Base.astro';
-import ArtworkCard from '../components/ArtworkCard.astro';
-
-const cards = (await getCollection('artworks'))
-  .filter((a) => a.data.card)
-  .sort((a, b) => a.data.card!.no.localeCompare(b.data.card!.no));
+import CollectionCabinets from '../components/CollectionCabinets.astro';
 ---
 <Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" dark transition={260} nav={{
   tone: 'gallery',
@@ -14,20 +9,7 @@ const cards = (await getCollection('artworks'))
   links: [],
 }}>
   <section class="archive">
-    <header class="archive-head">
-      <p class="kicker">藏品图鉴</p>
-      <h1>图鉴</h1>
-      <p class="archive-count" aria-live="polite"><span data-archive-count>0</span> / {cards.length} 已收集</p>
-      <p class="archive-how">读完一门课程，在课末点击“完成本课 · 领取藏品卡”，即可收集该课程作品的卡片；课末的思考题可答可不答。翻到卡片背面，可进入完整的藏品记录。</p>
-    </header>
-
-    <ul class="archive-grid">
-      {cards.map((a) => <li><ArtworkCard artwork={a.id} /></li>)}
-      <li class="archive-more" aria-label="更多卡片">
-        <p>更多卡片将随新课程加入。</p>
-      </li>
-    </ul>
-
+    <CollectionCabinets />
     <footer class="archive-foot">
       <p>收集记录只保存在这台设备的浏览器中，不上传、不同步。</p>
       <button type="button" class="btn btn-secondary archive-clear" data-archive-clear>清除本机收集记录</button>
@@ -37,11 +19,6 @@ const cards = (await getCollection('artworks'))
 
 <script>
   import { clearCollection, deviceStorage } from '../lib/collection.js';
-
-  const count = document.querySelector<HTMLElement>('[data-archive-count]')!;
-  const recount = () => { count.textContent = String(document.querySelectorAll('[data-card][data-collected="true"]').length); };
-  document.addEventListener('artpilot:cards-synced', recount);
-  recount();
 
   document.querySelector('[data-archive-clear]')!.addEventListener('click', () => {
     if (!confirm('清除这台设备上的全部收集记录？此操作无法撤销。')) return;

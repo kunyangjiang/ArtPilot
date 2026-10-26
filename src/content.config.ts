@@ -47,6 +47,10 @@ const artworks = defineCollection({
             alt: z.string(),
             caption: z.string(),
             kind: z.enum(['full', 'detail']),
+            // Pixel size of the file in /public: required for an image the homepage features, so its box is reserved
+            // before it loads (tests check these against the real file).
+            width: z.number().int().positive().optional(),
+            height: z.number().int().positive().optional(),
             subject: z.string().optional(), // when the image shows another place, e.g. a comparison
             credit: imageCredit.optional(),
           }),
@@ -60,11 +64,11 @@ const artworks = defineCollection({
         note: z.string(),
       }),
       // Collectible card face: short values sized for the card. Optional: only artworks with a card appear in the archive.
+      // Its number is not stored here: a card is numbered by the course of the lesson that awards it (course 30 → No.030).
       // Works for any art form: facets are chosen per work (a building lists 材料/规模, a painting 媒材/尺幅),
       // and the image is optional — without one the card is a purely typographic cover. Monochrome: no colour fields.
       card: z
         .object({
-          no: z.string().regex(/^\d{3}$/),
           type: z.string(), // the art form, e.g. 山水画, 建筑, 雕塑
           maker: z.string().optional(), // a short maker line when the artist field does not fit (a building: its city)
           period: z.string(),
@@ -101,6 +105,13 @@ const lessons = defineCollection({
     title: z.string(),
     kicker: z.string(), // the line above the title, e.g. 细读 · 北宋 · 山水
     summary: z.string(),
+    // Which of the 73 syllabus courses this lesson is. A lesson with a course number is published: the course book
+    // links it and the homepage lists it.
+    course: z.number().int().min(1).max(73),
+    workLabel: z.string(), // the work as the book and the homepage name it, e.g. 范宽《溪山行旅图》
+    // Opt in to the homepage's daily artwork rotation: an image key of the lesson's artwork. Its caption is built from
+    // workLabel and the lesson title; alt text, credit and rights come from the artwork record.
+    featured: z.object({ image: z.string() }).optional(),
     artwork: reference('artworks'),
     glossary: z.array(reference('glossary')).min(3),
   }),

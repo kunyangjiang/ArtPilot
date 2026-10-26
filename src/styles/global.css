@@ -780,14 +780,6 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 
 /* Archive: the binder, on the gallery wall. */
 .archive { min-height: calc(100svh - 3.5rem); padding: clamp(3rem, 7vw, 5.5rem) max(1.25rem, calc((100% - 66rem) / 2)) 4rem; background: var(--gallery); color: var(--gallery-ink); }
-.archive-head .kicker { margin: 0 0 1rem; color: var(--gallery-ink-2); }
-.archive-head h1 { margin: 0; font: 500 clamp(2.25rem, 4vw, 3.25rem)/1.2 var(--serif); letter-spacing: .14em; }
-.archive-count { margin: 1rem 0 .5rem; font: 400 1.125rem/1.4 var(--latin); color: var(--gallery-ink); }
-.archive-count span { font-size: 1.75rem; }
-.archive-how { max-width: 34rem; margin: 0; font: 400 .9375rem/1.85 var(--sans); letter-spacing: .03em; color: var(--gallery-ink-2); }
-.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, 18rem); justify-content: start; gap: 3rem 2.5rem; margin: 3.5rem 0 0; padding: 0; list-style: none; }
-.archive-more { display: grid; place-items: center; aspect-ratio: 63 / 88; padding: 1.5rem; border: 1px dashed var(--gallery-rule); border-radius: 1rem; text-align: center; }
-.archive-more p { margin: 0; font: 400 .8125rem/1.8 var(--sans); letter-spacing: .04em; color: var(--gallery-ink-2); }
 .archive-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--gallery-rule); }
 .archive-foot p { margin: 0; font: 400 .8125rem/1.7 var(--sans); color: var(--gallery-ink-2); }
 .archive-clear { color: var(--gallery-ink); border-color: var(--gallery-rule); background: transparent; }
@@ -815,7 +807,6 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 @keyframes card-arrive { from { opacity: 0; transform: translateY(14px) rotate(-4deg) scale(.94); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 860px) {
-  .archive-grid { grid-template-columns: 18rem; justify-content: center; }
   .card-unlock { grid-template-columns: 1fr; justify-items: start; }
 }
 

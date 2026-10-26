@@ -1,0 +1,51 @@
+---
+// Remembers where this device has read to in the article on the page, so the homepage can offer "continue reading".
+// One entry for the whole site (src/lib/reading.js); a quick look at an article stores nothing. Kept apart from the
+// card collection: finishing an article here does not claim anything.
+interface Props { kind: 'lesson' | 'artist-story' | 'case'; id: string }
+const { kind, id } = Astro.props;
+---
+<div hidden data-reading data-kind={kind} data-id={id}></div>
+
+<script>
+  import { createTracker, progressAt, scrollFor, readReading } from '../lib/reading.js';
+  import { deviceStorage } from '../lib/storage.js';
+
+  const root = document.querySelector<HTMLElement>('[data-reading]');
+  const article = document.querySelector<HTMLElement>('main article');
+  if (root && article) {
+    const storage = deviceStorage();
+    const kind = root.dataset.kind as 'lesson' | 'artist-story' | 'case';
+    const id = root.dataset.id!;
+    const top = () => article.getBoundingClientRect().top + scrollY;
+
+    // Arrived from "continue reading" on the homepage (…#resume): go to where this article was left. Any other way in
+    // (the course book, a link, reload, back/forward) keeps the browser's own scroll behaviour.
+    if (location.hash === '#resume') {
+      const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+      const saved = readReading(storage);
+      history.replaceState(history.state, '', location.pathname + location.search);
+      if (saved && saved.kind === kind && saved.id === id && nav?.type === 'navigate') {
+        const resume = () => scrollTo({ top: scrollFor(saved.p, top(), article.offsetHeight, innerHeight), behavior: 'instant' });
+        resume();
+        addEventListener('load', resume, { once: true });
+      }
+    }
+
+    // observe() only updates numbers; the one write happens in commit(), after scrolling settles and when leaving.
+    const tracker = createTracker({ storage, kind, id });
+    const visible = () => document.visibilityState === 'visible';
+    const sample = () => tracker.observe(progressAt(scrollY, top(), article.offsetHeight, innerHeight), visible());
+    let frame = 0, settle = 0;
+    addEventListener('scroll', () => {
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; sample(); });
+      clearTimeout(settle);
+      settle = window.setTimeout(() => tracker.commit(), 1500);
+    }, { passive: true });
+    // Time on the page counts only while it is visible; a second-by-second look (no writes unless a position is new).
+    setInterval(() => { sample(); if (tracker.engaged) tracker.commit(); }, 1000);
+    const flush = () => { sample(); tracker.commit(); };
+    document.addEventListener('visibilitychange', () => { if (!visible()) flush(); });
+    addEventListener('pagehide', flush);
+  }
+</script>

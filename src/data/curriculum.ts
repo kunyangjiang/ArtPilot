@@ -1,7 +1,8 @@
 // The approved core syllabus v1.0: 73 courses in seven recommended stages, copied verbatim from "ArtPilot — Master
 // Product Baseline", §5 (2026-10-25). The stages are a recommended pathway, not a replacement for separate strands.
-// Courses that exist are linked by lesson id; for those the page shows the lesson's own title (course 30 uses the
-// title the Product Owner approved in Phase 4.0-A, which replaces the baseline's working title below).
+// Courses that exist are the lessons whose frontmatter names their course number (see src/lib/publication.js); for
+// those the page shows the lesson's own title (course 30 uses the title the Product Owner approved in Phase 4.0-A,
+// which replaces the baseline's working title below).
 
 export type Stage = { no: string; title: string; first: number; last: number };
 
@@ -15,7 +16,7 @@ export const stages: Stage[] = [
   { no: '07', title: '艺术走向当代世界', first: 67, last: 73 },
 ];
 
-export const TOTAL_COURSES = 73;
+export { TOTAL_COURSES } from '../lib/publication.js';
 
 export const courseTitles: Record<number, string> = {
   1: '一座山，为什么让人感到如此渺小？',
@@ -91,12 +92,6 @@ export const courseTitles: Record<number, string> = {
   71: '两件当代作品如何讲述南亚与东南亚的城市和身份？',
   72: '非洲当代艺术怎样重新使用材料与传统？',
   73: '美洲艺术如何重新讲述身份与历史？',
-};
-
-// Syllabus number → implemented lesson id.
-export const implemented: Record<number, string> = {
-  1: 'mountain-and-smallness',
-  30: 'stone-and-light',
 };
 
 // Short introductions for the two stages that have built lessons. Not approved copy: shown on the page as sample text.

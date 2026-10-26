@@ -34,11 +34,13 @@ export function clearCollection(storage) {
   }
 }
 
-/** localStorage when the browser allows it, otherwise null (private modes can throw on access). */
-export function deviceStorage() {
-  try {
-    return globalThis.localStorage ?? null;
-  } catch {
-    return null;
-  }
+export { deviceStorage } from './storage.js';
+
+/**
+ * The homepage's view of this device's collection: the claimed cards among `cards` (all published cards, in card-number
+ * order), at most `max` of them, and how many are claimed in all. Cards the build no longer has are not counted.
+ */
+export function previewClaimed(collection, cards, max = 2) {
+  const claimed = cards.filter((c) => collection[c.id]);
+  return { shown: claimed.slice(0, max), total: claimed.length };
 }

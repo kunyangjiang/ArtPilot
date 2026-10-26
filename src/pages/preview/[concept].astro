@@ -1,5 +1,6 @@
 ---
-// Phase 4.1A: two homepage concepts for comparison; Phase 4.1B-0 and 4.1C: two course catalogue concepts. Local only.
+// Phase 4.1A: two homepage concepts for comparison; Phase 4.1B-0 and 4.1C: two course catalogue concepts; the
+// Collection Cabinets spike (a scalable personal collection). Local only.
 // The routes exist in `astro dev`, or in a build run with PUBLIC_ARTPILOT_PREVIEW=1; a normal production build generates
 // no preview pages. The real homepage (src/pages/index.astro) is untouched.
 import '../../styles/global.css';
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
     { params: { concept: 'home-museum-atlas' }, props: { name: 'B · Museum Atlas' } },
     { params: { concept: 'history-catalogue' }, props: { name: 'History Catalogue' } },
     { params: { concept: 'book-catalogue' }, props: { name: 'Archive Desk' } },
+    { params: { concept: 'collection-cabinets' }, props: { name: 'Collection Cabinets' } },
   ];
 }
 const { concept } = Astro.params;
@@ -28,6 +30,7 @@ const preview = import.meta.env.DEV || import.meta.env.PUBLIC_ARTPILOT_PREVIEW =
         'home-museum-atlas': () => import('../../components/preview/HomeMuseumAtlas.astro'),
         'history-catalogue': () => import('../../components/preview/HistoryCatalogue.astro'),
         'book-catalogue': () => import('../../components/preview/BookCatalogue.astro'),
+        'collection-cabinets': () => import('../../components/preview/CollectionCabinets.astro'),
       } as Record<string, () => Promise<{ default: any }>>)[concept!]()).default,
     }
   : null;
@@ -40,6 +43,7 @@ const preview = import.meta.env.DEV || import.meta.env.PUBLIC_ARTPILOT_PREVIEW =
     <meta name="robots" content="noindex" />
     <title>{concept === 'history-catalogue' ? '课程目录概念 · ArtPilot（本地预览）'
       : concept === 'book-catalogue' ? '课程目录概念 · 档案桌 · ArtPilot（本地预览）'
+      : concept === 'collection-cabinets' ? '藏品图鉴概念 · 私人收藏展柜 · ArtPilot（本地预览）'
       : `首页概念 ${name} · ArtPilot（本地预览）`}</title>
   </head>
   <body>
