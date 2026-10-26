@@ -119,8 +119,7 @@ const cabinets = stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range:
   .cc-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(9rem, calc(50% - .6rem)), 1fr)); gap: 1.75rem 1.1rem; margin: 2rem 0 0; padding: 0; list-style: none; }
   @media (min-width: 720px) { .cc-wall { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 2.25rem 1.75rem; } }
   .cc-thumb { display: block; text-decoration: none; border-radius: .45rem; }
-  .cc-thumb .art-card { transition: transform var(--t, .25s) var(--ease); }
-  .cc-thumb:hover .art-card, .cc-thumb:focus-visible .art-card { transform: translateY(-3px); }
+  .cc-thumb:focus-visible { outline-offset: 6px; } /* the tilt (script below) is the only hover motion, as on the full card */
   .cc-cap { display: block; margin-top: .6rem; font: 400 .8125rem/1.5 var(--serif-d); }
   .cc-cap span { display: block; font: italic 400 .75rem/1.4 var(--latin-d); color: var(--gallery-ink-2); }
 
@@ -136,7 +135,6 @@ const cabinets = stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range:
     .cc-cab-no { font-size: 2.5rem; }
     .cc-strip > li { width: 2.5rem; }
   }
-  @media (prefers-reduced-motion: reduce) { .cc-thumb .art-card { transition: none; } }
 </style>
 
 <script>
