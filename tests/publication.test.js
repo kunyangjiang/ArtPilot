@@ -34,15 +34,15 @@ test('the course book and the homepage learn what is published from the lessons,
   assert.match(book, /courseIndex\(lessons\)/);
   assert.doesNotMatch(book, /\bimplemented\b/);
   assert.doesNotMatch(source('src/data/curriculum.ts'), /export const implemented/);
-  const home = source('src/pages/index.astro');
+  const home = source('src/components/home/StudyTable.astro');
+  assert.match(home, /getCollection\('lessons'\)/);
   assert.match(home, /l\.data\.featured/);
-  assert.doesNotMatch(source('src/components/home/ExhibitionWall.astro'), /fan-kuan-full|chartres-west|mountain-and-smallness|stone-and-light/);
+  assert.doesNotMatch(home, /fan-kuan-full|chartres-west|mountain-and-smallness|stone-and-light/);
 });
 
-test('the homepage card list shows only this browser\'s claims: hidden until the script finds them', () => {
-  const wall = source('src/components/home/ExhibitionWall.astro');
-  assert.match(wall, /<ol class="xw-vitrine" data-vitrine hidden>/);
-  assert.match(wall, /<li data-card-row=\{c\.id\} hidden>/);
-  assert.match(wall, /previewClaimed\(readCollection\(deviceStorage\(\)\)/);
-  assert.doesNotMatch(wall, /No\.0\d\d/);
+test('the homepage card box shows only this browser\'s claims: empty places until the script finds them', () => {
+  const table = source('src/components/home/StudyTable.astro');
+  assert.match(table, /<span class="st-mini st-mini-empty"><\/span>/);
+  assert.match(table, /readCollection\(deviceStorage\(\)\)/);
+  assert.doesNotMatch(table, /No\.0\d\d/);
 });

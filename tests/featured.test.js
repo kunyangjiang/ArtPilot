@@ -137,8 +137,8 @@ test('each featured image is credited from its own record', async () => {
     assert.equal(c.href, img.credit ? img.credit.sourceUrl : art.imageSource.url, `${l.id}: credit links to this image's own source`);
     assert.ok(c.by && c.licence, `${l.id}: credit names a source and a licence`);
   }
-  const wall = readFileSync(new URL('../src/components/home/ExhibitionWall.astro', import.meta.url), 'utf8');
-  assert.match(wall, /data-credit-for=\{c\.id\}/, 'one credit per candidate, keyed by lesson');
-  assert.match(wall, /credits\(pick\)/, 'the chooser shows the credits of the works it picked');
-  assert.doesNotMatch(wall, /范宽《溪山行旅图》与沙特尔主教座堂的图片/, 'no fixed credit naming two particular works');
+  const table = readFileSync(new URL('../src/components/home/StudyTable.astro', import.meta.url), 'utf8');
+  assert.match(table, /data-credit-for=\{l\.id\}/, 'one credit per lesson, keyed by lesson');
+  assert.match(table, /data-credit-for[^\n]*p\.hidden=ids\.indexOf/, 'the dealer shows the credits of the prints it laid out');
+  assert.doesNotMatch(table, /范宽《溪山行旅图》与沙特尔主教座堂的图片/, 'no fixed credit naming two particular works');
 });

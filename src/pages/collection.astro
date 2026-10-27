@@ -1,5 +1,6 @@
 ---
-// The collection (藏品图鉴): this browser's collected cards, kept in cabinets by stage (src/components/CollectionCabinets.astro).
+// The collection (藏品图鉴): this browser's collected cards, kept in cabinets by stage (src/components/CollectionCabinets.astro),
+// over the same network of lines as the homepage (src/lib/lineField.ts).
 import Base from '../layouts/Base.astro';
 import CollectionCabinets from '../components/CollectionCabinets.astro';
 ---
@@ -9,6 +10,7 @@ import CollectionCabinets from '../components/CollectionCabinets.astro';
   hall: 'collection', here: true,
 }}>
   <section class="archive">
+    <canvas class="archive-web" data-web aria-hidden="true"></canvas>
     <CollectionCabinets />
     <footer class="archive-foot">
       <p>收集记录只保存在这台设备的浏览器中，不上传、不同步。</p>
@@ -17,8 +19,19 @@ import CollectionCabinets from '../components/CollectionCabinets.astro';
   </section>
 </Base>
 
+<style>
+  /* The lines sit behind the cabinets, over the archive's own ground (the canvas is fixed to the window; the archive
+     is its stacking context, so the site bar stays above it). */
+  .archive { position: relative; isolation: isolate; }
+  .archive-web { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
+</style>
+
 <script>
   import { clearCollection, deviceStorage } from '../lib/collection.js';
+  import { startLineField } from '../lib/lineField';
+
+  // The lines spread out from behind the page title.
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2]);
 
   document.querySelector('[data-archive-clear]')!.addEventListener('click', () => {
     if (!confirm('清除这台设备上的全部收集记录？此操作无法撤销。')) return;

@@ -1,0 +1,170 @@
+{
+  "/img/altamira-bison.jpg": {
+    "large": {
+      "src": "/img/table/altamira-bison.jpg",
+      "width": 1100,
+      "height": 735
+    },
+    "small": {
+      "src": "/img/table/s-altamira-bison.jpg",
+      "width": 260,
+      "height": 174
+    }
+  },
+  "/img/caravaggio-denial.jpg": {
+    "large": {
+      "src": "/img/table/caravaggio-denial.jpg",
+      "width": 1100,
+      "height": 818
+    },
+    "small": {
+      "src": "/img/table/s-caravaggio-denial.jpg",
+      "width": 260,
+      "height": 193
+    }
+  },
+  "/img/chartres-full.jpg": {
+    "large": {
+      "src": "/img/table/chartres-full.jpg",
+      "width": 855,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-chartres-full.jpg",
+      "width": 201,
+      "height": 260
+    }
+  },
+  "/img/chartres-west.jpg": {
+    "large": {
+      "src": "/img/table/chartres-west.jpg",
+      "width": 734,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-chartres-west.jpg",
+      "width": 173,
+      "height": 260
+    }
+  },
+  "/img/diadoumenos-full.jpg": {
+    "large": {
+      "src": "/img/table/diadoumenos-full.jpg",
+      "width": 813,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-diadoumenos-full.jpg",
+      "width": 192,
+      "height": 260
+    }
+  },
+  "/img/fan-kuan-full.jpg": {
+    "large": {
+      "src": "/img/table/fan-kuan-full.jpg",
+      "width": 548,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-fan-kuan-full.jpg",
+      "width": 130,
+      "height": 260
+    }
+  },
+  "/img/gubbio-studiolo-cabinet.jpg": {
+    "large": {
+      "src": "/img/table/gubbio-studiolo-cabinet.jpg",
+      "width": 785,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-gubbio-studiolo-cabinet.jpg",
+      "width": 185,
+      "height": 260
+    }
+  },
+  "/img/gubbio-studiolo.jpg": {
+    "large": {
+      "src": "/img/table/gubbio-studiolo.jpg",
+      "width": 1100,
+      "height": 881
+    },
+    "small": {
+      "src": "/img/table/s-gubbio-studiolo.jpg",
+      "width": 260,
+      "height": 208
+    }
+  },
+  "/img/hatshepsut-seated.jpg": {
+    "large": {
+      "src": "/img/table/hatshepsut-seated.jpg",
+      "width": 761,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-hatshepsut-seated.jpg",
+      "width": 180,
+      "height": 260
+    }
+  },
+  "/img/hippo-william.jpg": {
+    "large": {
+      "src": "/img/table/hippo-william.jpg",
+      "width": 824,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-hippo-william.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
+  "/img/liangzhu-cong.jpg": {
+    "large": {
+      "src": "/img/table/liangzhu-cong.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-liangzhu-cong.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
+  "/img/maya-lintel-full.jpg": {
+    "large": {
+      "src": "/img/table/maya-lintel-full.jpg",
+      "width": 1089,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-maya-lintel-full.jpg",
+      "width": 258,
+      "height": 260
+    }
+  },
+  "/img/sharaku-oniji-full.jpg": {
+    "large": {
+      "src": "/img/table/sharaku-oniji-full.jpg",
+      "width": 737,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-sharaku-oniji-full.jpg",
+      "width": 174,
+      "height": 260
+    }
+  },
+  "/img/zun-full.jpg": {
+    "large": {
+      "src": "/img/table/zun-full.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-zun-full.jpg",
+      "width": 195,
+      "height": 260
+    }
+  }
+}
