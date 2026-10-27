@@ -3,6 +3,7 @@
 // over the same network of lines as the homepage (src/lib/lineField.ts).
 import Base from '../layouts/Base.astro';
 import CollectionCabinets from '../components/CollectionCabinets.astro';
+import BackToTop from '../components/BackToTop.astro';
 ---
 <Base title="藏品图鉴 · ArtPilot" description="ArtPilot 藏品卡片图鉴：完成课程，收集作品卡片。" dark nav={{
   tone: 'gallery',
@@ -17,6 +18,7 @@ import CollectionCabinets from '../components/CollectionCabinets.astro';
       <button type="button" class="btn btn-secondary archive-clear" data-archive-clear>清除本机收集记录</button>
     </footer>
   </section>
+  <BackToTop />
 </Base>
 
 <style>

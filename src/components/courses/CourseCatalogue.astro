@@ -51,7 +51,6 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
         <p class="ec-en">A Catalogue of Courses in Global Art History</p>
       </div>
       <div class="ec-title-side">
-        <p class="ec-stages" aria-hidden="true">{sections.map((s) => <span>{s.no}</span>)}</p>
         <p class="ec-count-label">七个阶段 · {TOTAL_COURSES} 门核心课程</p>
       </div>
     </div>
@@ -155,10 +154,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
   .ec-title h1 { margin: clamp(28px, 5vw, 64px) 0 0; font: 300 clamp(36px, 4.6vw, 62px)/1.25 var(--serif); letter-spacing: .14em; }
   .ec-en { margin: 16px 0 0; font: italic 400 clamp(15px, 1.4vw, 19px)/1.4 var(--latin); color: var(--paper-ink-2); }
   .ec-title-side { text-align: right; }
-  .ec-stages { margin: 0; display: flex; justify-content: flex-end; font: 400 clamp(28px, 3.4vw, 46px)/1 var(--latin); color: var(--paper-ink); }
-  .ec-stages span { padding: 0 clamp(6px, .9vw, 12px); border-left: 1px solid var(--paper-rule); }
-  .ec-stages span:first-child { border-left: 0; }
-  .ec-count-label { margin: 10px 0 0; font: 400 14px/1.6 var(--sans); letter-spacing: .08em; color: var(--paper-ink-2); }
+  .ec-count-label { margin: 0; font: 400 14px/1.6 var(--sans); letter-spacing: .08em; color: var(--paper-ink-2); }
   .ec-plates { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 18px clamp(10px, 1.4vw, 20px); }
   .ec-plate { display: grid; }
   .ec-plate-img { display: block; aspect-ratio: 4 / 5; padding: 6px; background: var(--paper); box-shadow: 0 14px 24px -14px rgb(0 0 0 / .9); }
@@ -234,10 +230,8 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
     .ec-plates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   @media (max-width: 760px) {
-    .ec-title { grid-template-columns: 1fr; gap: 24px; }
-    .ec-title-side { text-align: left; padding-top: 16px; border-top: 1px solid var(--paper-rule); }
-    .ec-stages { justify-content: space-between; font-size: 26px; }
-    .ec-stages span { padding: 0; border-left: 0; }
+    .ec-title { grid-template-columns: 1fr; gap: 14px; }
+    .ec-title-side { text-align: left; }
     .ec-plates { gap: 18px 10px; }
     .ec-plate-no { margin-top: 8px; }
     .ec-plate-title { font-size: 12px; line-height: 1.45; }

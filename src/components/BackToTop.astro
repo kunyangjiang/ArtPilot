@@ -1,52 +1,32 @@
 ---
-// A round "back to top" control for long lessons (behaviour after MatScope/DataPilot).
-// It stays away while the opening artwork is on screen. Where the side gutter is too narrow to keep it clear of
-// the text, it shows only while the reader scrolls up (fading after a short pause) or has reached the very end,
-// where the page leaves clear space for it. It is `inert` while hidden.
+// A round "back to top" control (behaviour after MatScope/DataPilot), the same on every page and at every width: it
+// appears once the reader is more than one screen down and stays, whichever way they scroll, until they are back
+// within the first screen. It is `inert` while hidden.
 //
-// Moving it: press and hold for 0.5 s (the button darkens to show the hold has taken), then drag. A short press
+// Moving it: press and hold for 0.3 s (the button darkens to show the hold has taken), then drag. A short press
 // still goes back to the top. The spot is remembered on this device; Alt + arrow keys nudge it from the keyboard.
 ---
-<button type="button" class="to-top" data-to-top aria-label="回到页面顶部" title="点击回到顶部；按住 0.5 秒后可拖动位置"
+<button type="button" class="to-top" data-to-top aria-label="回到页面顶部" title="点击回到顶部；按住 0.3 秒后可拖动位置"
   aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown Alt+ArrowLeft Alt+ArrowRight" inert>
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"
     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
 </button>
 <script>
   const button = document.querySelector<HTMLButtonElement>('[data-to-top]')!;
-  const opening = document.querySelector<HTMLElement>('.opening');
   const target = document.querySelector<HTMLElement>('.opening h1');
-  const roomy = matchMedia('(min-width: 1440px)'); // the right gutter can hold the button without covering content
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const IDLE_MS = 2200;
-  let lastY = scrollY;
-  let upward = false;
   let queued = false;
-  let idle: number | undefined;
 
   const update = () => {
     queued = false;
-    const y = scrollY;
-    if (Math.abs(y - lastY) > 4) { upward = y < lastY; lastY = y; }
-    const past = y > (opening?.offsetHeight ?? innerHeight);
-    const atEnd = y + innerHeight >= document.documentElement.scrollHeight - 8;
-    const engaged = button.matches(':hover, :focus') || button.hasAttribute('data-armed');
-    const show = past && (roomy.matches || upward || atEnd || engaged);
+    const show = scrollY > innerHeight;
     button.toggleAttribute('inert', !show);
     button.dataset.visible = String(show);
   };
-  const onScroll = () => {
-    if (!queued) { queued = true; requestAnimationFrame(update); }
-    // In narrow layouts a scroll-up reveal is temporary, so the control never rests over the text.
-    clearTimeout(idle);
-    idle = window.setTimeout(() => { upward = false; update(); }, IDLE_MS);
-  };
-  addEventListener('scroll', onScroll, { passive: true });
-  button.addEventListener('blur', update);
-  button.addEventListener('mouseleave', update);
+  addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(update); } }, { passive: true });
 
-  // ---- Repositioning: hold 0.5 s, then drag; Alt + arrows from the keyboard ----
-  const HOLD_MS = 500;
+  // ---- Repositioning: hold 0.3 s, then drag; Alt + arrows from the keyboard ----
+  const HOLD_MS = 300;
   const SLOP = 8;   // movement that cancels a hold that has not taken yet
   const EDGE = 8;   // keep the button this far inside the window
   const NUDGE = 16;
