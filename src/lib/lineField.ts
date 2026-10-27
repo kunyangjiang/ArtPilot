@@ -1,6 +1,9 @@
 // The line network drawn behind the homepage (src/components/home/StudyTable.astro) and the collection. One canvas, fixed
 // to the window; call startLineField(canvas) once. Reads only the pointer, the scroll position and the motion setting.
-export function startLineField(web: HTMLCanvasElement, origin: [number, number] = [0.86, 0.12]) {
+// Opt-in `touch`: on a phone the magnet also follows a finger while it scrolls (pointer events stop as soon as a touch
+// becomes a scroll; touch events keep coming), springs back when the finger lifts, and the field is a little sparser.
+// The homepage and the collection do not pass it, so they behave exactly as before.
+export function startLineField(web: HTMLCanvasElement, origin: [number, number] = [0.86, 0.12], opts: { touch?: boolean } = {}) {
   // The desk's network. Points are scattered loosely over the whole screen, each joined to its nearest neighbours,
   // with a few faint facets filled in. Every point has a depth: nearer
   // ones are brighter and drift further; scrolling carries them up, and the points near the pointer follow it (below).
@@ -18,7 +21,7 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
     W = innerWidth; H = innerHeight;
     web.width = W * dpr; web.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     seed = 7;
-    const phone = W < 901, cell = phone ? 108 : 152;
+    const phone = W < 901, cell = phone ? (opts.touch ? 124 : 108) : 152;
     M = cell; HF = H + 2 * M; LMAX = cell * 2.4;
     pts = [];
     // A jittered grid with gaps, plus the odd close neighbour: loose overall, with a few tighter knots.
@@ -46,6 +49,13 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
   addEventListener('pointermove', (e) => { px = e.clientX; py = e.clientY; }, { passive: true });
   document.addEventListener('pointerleave', () => { px = py = -9999; });
   addEventListener('pointercancel', () => { px = py = -9999; });
+  if (opts.touch) {
+    const follow = (e: TouchEvent) => { const t = e.touches[0]; if (t) { px = t.clientX; py = t.clientY; } };
+    addEventListener('touchstart', follow, { passive: true });
+    addEventListener('touchmove', follow, { passive: true });
+    addEventListener('touchend', (e) => { if (!e.touches.length) px = py = -9999; }, { passive: true });
+    addEventListener('touchcancel', () => { px = py = -9999; }, { passive: true });
+  }
   const REACH = 190, PULL = 72;
   const pos = (p: Pt, t: number) => {
     const drift = still.matches ? 0 : 1;

@@ -1,0 +1,341 @@
+---
+// The course catalogue (/courses/): one responsive page at every width. An entrance (the title leaf and the seven stages
+// as plates), a thin index of Bodoni numerals that stays under the site bar while reading, and one section per stage —
+// a large numeral, a fanned pile of up to three of the stage's prints, and a paper leaf with the stage's full course
+// index. The layout rearranges with the width (side by side on a desk, stacked on a phone); the content, order and
+// navigation do not change. It shows no completion counts, which would mean nothing once every course is open; only
+// the faint 筹备中 on a course not yet written, and an empty plate for a stage with none, both of which go by themselves.
+// Prints are held like a collection card: with a mouse they come to the front and tilt toward the pointer; on a touch
+// screen the first tap picks one up and a tap on the top print opens its lesson, and each pile opens a little once as
+// it reaches the middle of the screen. The line network follows a finger too (startLineField's touch option).
+// It reads the syllabus (src/data/curriculum.ts), the published lessons and the table's image copies; nothing is
+// stored. Replaces the physical book (Phase 4.10).
+import '../../styles/fonts.css';
+import SiteBar from '../SiteBar.astro';
+import { getCollection, getEntry } from 'astro:content';
+import { stages, courseTitles, TOTAL_COURSES } from '../../data/curriculum';
+import tableImages from '../../data/table-images.json';
+import { inCourseOrder } from '../../lib/publication.js';
+
+type Sized = { src: string; width: number; height: number };
+const copies = tableImages as Record<string, { large: Sized; small: Sized }>;
+const lessons = inCourseOrder(await Promise.all((await getCollection('lessons')).map(async (l) => {
+  const art = (await getEntry('artworks', l.data.artwork.id))!.data;
+  const img = art.images.find((i) => i.key === (l.data.featured?.image ?? 'full')) ?? art.images[0];
+  const copy = copies[img.src];
+  return { id: l.id, course: l.data.course, title: l.data.title, workLabel: l.data.workLabel,
+    large: copy?.large ?? { src: img.src, width: 0, height: 0 }, small: copy?.small.src ?? img.src, alt: img.alt };
+})));
+const sections = stages.map((st) => {
+  const courses = Array.from({ length: st.last - st.first + 1 }, (_, i) => st.first + i).map((n) => {
+    const l = lessons.find((x) => x.course === n);
+    return { n, title: l?.title ?? courseTitles[n], lesson: l };
+  });
+  const works = courses.filter((c) => c.lesson).map((c) => c.lesson!);
+  return { ...st, courses, works, opened: works.length, total: courses.length, rows: Math.ceil(courses.length / 2) };
+});
+const two = (n: number) => String(n).padStart(2, '0');
+const three = (n: number) => String(n).padStart(3, '0');
+// A pile shows up to three prints; the first published work lies on top.
+const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, k })).reverse();
+---
+<div class="ec" data-ec>
+  <canvas class="ec-web" data-web aria-hidden="true"></canvas>
+  <SiteBar tone="gallery" hall="courses" here />
+
+  <header class="ec-entry">
+    <div class="ec-title">
+      <div>
+        <p class="ec-kicker">课程目录 · ARTPILOT</p>
+        <h1>全球艺术史<br />课程目录</h1>
+        <p class="ec-en">A Catalogue of Courses in Global Art History</p>
+      </div>
+      <div class="ec-title-side">
+        <p class="ec-stages" aria-hidden="true">{sections.map((s) => <span>{s.no}</span>)}</p>
+        <p class="ec-count-label">七个阶段 · {TOTAL_COURSES} 门核心课程</p>
+      </div>
+    </div>
+    <ol class="ec-plates">
+      {sections.map((s) => (
+        <li>
+          <a class:list={['ec-plate', { 'is-empty': !s.opened }]} href={`#stage-${s.no}`}>
+            <span class="ec-plate-img">
+              {s.works[0] ? <img src={s.works[0].small} alt="" decoding="async" /> : <span class="ec-plate-blank" aria-hidden="true"></span>}
+            </span>
+            <span class="ec-plate-no">{s.no}</span>
+            <span class="ec-plate-title">{s.title}</span>
+            <span class="ec-plate-meta">第 {s.first}–{s.last} 课</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </header>
+
+  <nav class="ec-index" aria-label="阶段">
+    <ol>
+      {sections.map((s) => <li><a href={`#stage-${s.no}`} data-to={s.no} title={s.title}>{s.no}</a></li>)}
+    </ol>
+  </nav>
+
+  {sections.map((s) => (
+    <section class:list={['ec-stage', { 'is-empty': !s.opened }]} id={`stage-${s.no}`} data-stage={s.no} aria-labelledby={`stage-${s.no}-h`}>
+      <div class="ec-head">
+        <p class="ec-big" aria-hidden="true">{s.no}</p>
+        <div class="ec-head-text">
+          <p class="ec-kicker">第 {s.no} 阶段 · 第 {s.first}–{s.last} 课</p>
+          <h2 id={`stage-${s.no}-h`}>{s.title}</h2>
+          <p class="ec-stage-meta">{s.total} 门课程</p>
+        </div>
+        {s.works.length > 0 && (
+          <div class:list={['ec-pile', `n-${Math.min(s.works.length, 3)}`]}>
+            {pileOf(s.works).map(({ w, k }) => (
+              <a class="ec-print" href={`/lessons/${w.id}/`} data-pos={k}>
+                <img src={w.large.src} width={w.large.width || undefined} height={w.large.height || undefined} alt={w.alt} decoding="async" />
+                <span class="ec-print-cap">No.{three(w.course)}</span>
+                <span class="ec-print-light" aria-hidden="true"></span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="ec-leaf">
+        <p class="ec-leaf-head"><span>CONTENTS</span><span>目录 · 第 {s.first}–{s.last} 课</span></p>
+        <ol class="ec-list" style={`--rows:${s.rows}`}>
+          {s.courses.map((c) => (
+            <li class:list={{ 'is-open': !!c.lesson }}>
+              {c.lesson ? (
+                <a href={`/lessons/${c.lesson.id}/`}>
+                  <span class="ec-n">{two(c.n)}</span>
+                  <span class="ec-t">{c.title}<em>{c.lesson.workLabel}</em></span>
+                  <img class="ec-thumb" src={c.lesson.small} alt="" decoding="async" />
+                </a>
+              ) : (
+                <span class="ec-row">
+                  <span class="ec-n">{two(c.n)}</span>
+                  <span class="ec-t">{c.title}<em>筹备中</em></span>
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  ))}
+
+  <footer class="ec-colophon">
+    <p class="ec-kicker">版权页</p>
+    <p>核心课程大纲第 1 版 · 七个推荐阶段，{TOTAL_COURSES} 门核心课程。</p>
+  </footer>
+</div>
+
+<style>
+  :global(html:has(.ec)) { background: #171716; scroll-behavior: smooth; scroll-padding-top: calc(var(--ec-bar, 56px) + 60px); }
+  :global(body:has(.ec)) { margin: 0; }
+  :global(.ec > :not(.site-nav)) {
+    --serif: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --sans: "ArtPilot Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --latin: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif;
+  }
+  .ec {
+    --desk: #171716; --ink: #ecebe7; --ink-2: #a9a8a2; --ink-3: #6f6e69; --rule: rgb(255 255 255 / .14);
+    --paper: #efeee9; --paper-ink: #1b1b1a; --paper-ink-2: #5b5a56; --paper-rule: rgb(0 0 0 / .13);
+    --gut: clamp(16px, 4vw, 64px);
+    position: relative; isolation: isolate; min-height: 100vh; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased;
+    background: radial-gradient(60% 40% at 45% 12%, rgb(255 244 225 / .05), transparent 70%), var(--desk);
+  }
+  .ec-web { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; opacity: .7; }
+  .ec a { color: inherit; text-decoration: none; }
+  .ec-kicker { margin: 0; font: 500 12px/1.5 var(--sans); letter-spacing: .22em; color: var(--ink-2); }
+
+  /* Entrance: the title leaf, then the seven stages as plates in one row. */
+  .ec-entry { max-width: 1320px; margin: 0 auto; padding: clamp(28px, 5vw, 72px) var(--gut) clamp(32px, 4vw, 56px); }
+  .ec-title { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; padding: clamp(26px, 4vw, 52px);
+    background: var(--paper); color: var(--paper-ink); box-shadow: 0 1px 2px rgb(0 0 0 / .5), 0 24px 40px -18px rgb(0 0 0 / .8); }
+  .ec-title .ec-kicker { color: var(--paper-ink-2); }
+  .ec-title h1 { margin: clamp(28px, 5vw, 64px) 0 0; font: 300 clamp(36px, 4.6vw, 62px)/1.25 var(--serif); letter-spacing: .14em; }
+  .ec-en { margin: 16px 0 0; font: italic 400 clamp(15px, 1.4vw, 19px)/1.4 var(--latin); color: var(--paper-ink-2); }
+  .ec-title-side { text-align: right; }
+  .ec-stages { margin: 0; display: flex; justify-content: flex-end; font: 400 clamp(28px, 3.4vw, 46px)/1 var(--latin); color: var(--paper-ink); }
+  .ec-stages span { padding: 0 clamp(6px, .9vw, 12px); border-left: 1px solid var(--paper-rule); }
+  .ec-stages span:first-child { border-left: 0; }
+  .ec-count-label { margin: 10px 0 0; font: 400 14px/1.6 var(--sans); letter-spacing: .08em; color: var(--paper-ink-2); }
+  .ec-plates { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 18px clamp(10px, 1.4vw, 20px); }
+  .ec-plate { display: grid; }
+  .ec-plate-img { display: block; aspect-ratio: 4 / 5; padding: 6px; background: var(--paper); box-shadow: 0 14px 24px -14px rgb(0 0 0 / .9); }
+  .ec-plate-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ec-plate.is-empty .ec-plate-img { background: none; border: 1px dashed rgb(255 255 255 / .22); box-shadow: none; }
+  .ec-plate-blank { display: block; width: 100%; height: 100%; }
+  .ec-plate-no { margin-top: 12px; font: 400 clamp(26px, 2.8vw, 40px)/1 var(--latin); color: var(--ink); }
+  .ec-plate-title { margin-top: 8px; font: 400 14px/1.5 var(--serif); letter-spacing: .04em; color: var(--ink); }
+  .ec-plate-meta { margin-top: 4px; font: 400 12px/1.5 var(--sans); letter-spacing: .04em; color: var(--ink-2); }
+  .ec-plate.is-empty .ec-plate-no, .ec-plate.is-empty .ec-plate-title { color: var(--ink-2); }
+  .ec-plate:hover .ec-plate-title { text-decoration: underline; text-underline-offset: .35em; text-decoration-thickness: 1px; }
+
+  /* The index that stays */
+  .ec-index { position: sticky; top: var(--ec-bar, 0px); z-index: 3; background: #171716; border-block: 1px solid var(--rule); }
+  .ec-index ol { list-style: none; max-width: 1320px; margin: 0 auto; padding: 0 var(--gut); display: flex; justify-content: space-between; }
+  .ec-index a { display: block; padding: 12px 6px 10px; font: 400 clamp(20px, 2.2vw, 28px)/1 var(--latin); color: var(--ink-3); border-bottom: 2px solid transparent; }
+  .ec-index a:hover { color: var(--ink); }
+  .ec-index a.is-here { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* A stage: the numeral, the title, the pile of prints; then its leaf. */
+  .ec-stage { max-width: 1320px; margin: 0 auto; padding: clamp(56px, 8vw, 120px) var(--gut) 0; }
+  .ec-head { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 440px); gap: clamp(18px, 3vw, 44px); align-items: end; }
+  .ec-big { margin: 0; font: 400 clamp(110px, 15vw, 230px)/.78 var(--latin); letter-spacing: -.02em; color: var(--ink); }
+  .ec-stage.is-empty .ec-big { color: transparent; -webkit-text-stroke: 1px rgb(236 235 231 / .45); }
+  .ec-head h2 { margin: 10px 0 0; font: 400 clamp(26px, 3vw, 40px)/1.3 var(--serif); letter-spacing: .08em; text-wrap: balance; }
+  .ec-stage-meta { margin: 10px 0 0; font: 400 14px/1.6 var(--sans); letter-spacing: .06em; color: var(--ink-2); }
+  .ec-stage.is-empty .ec-head { grid-template-columns: auto minmax(0, 1fr); }
+
+  .ec-pile { position: relative; height: 330px; margin-bottom: -48px; z-index: 1; }
+  /* Held in the hand like a collection card: on a mouse or pen the print comes to the front and tilts toward the pointer,
+     catching a faint light (the same angles, perspective, timing and light as ArtworkCard; script below). */
+  .ec-print { position: absolute; bottom: 0; display: block; padding: 8px 8px 0; background: var(--paper); color: var(--paper-ink);
+    box-shadow: 0 1px 2px rgb(0 0 0 / .5), 0 22px 34px -16px rgb(0 0 0 / .85); transform-origin: bottom center;
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 520ms var(--ease, cubic-bezier(.2, .7, .2, 1)), rotate 700ms var(--ease, cubic-bezier(.2, .7, .2, 1)), translate 700ms var(--ease, cubic-bezier(.2, .7, .2, 1)); }
+  .ec-print[data-held="true"] { transition-duration: 90ms, 700ms, 700ms; }
+  .ec-print-light { position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 30%), rgb(255 255 255 / .1), transparent 48%);
+    transition: opacity 300ms var(--ease, cubic-bezier(.2, .7, .2, 1)); }
+  .ec-print[data-held="true"] .ec-print-light, .ec-print.is-glint .ec-print-light { opacity: 1; }
+  /* Touch screens: as a pile reaches the middle of the screen it opens a little, once (script below). */
+  .ec-pile.is-fanned .ec-print[data-pos="1"] { rotate: -9deg; translate: -8px 0; }
+  .ec-pile.is-fanned .ec-print[data-pos="2"] { rotate: 8deg; translate: 8px 0; }
+  .ec-print img { display: block; height: 250px; width: auto; max-width: 280px; object-fit: contain; }
+  .ec-print-cap { display: block; padding: 7px 2px 8px; font: 400 13px/1.3 var(--latin); color: var(--paper-ink-2); }
+  .ec-print[data-pos="0"] { left: 50%; translate: -50% 0; rotate: 1.5deg; z-index: 3; }
+  .ec-print[data-pos="1"] { left: 0; rotate: -6deg; z-index: 2; bottom: 18px; }
+  .ec-print[data-pos="2"] { right: 0; rotate: 5deg; z-index: 1; bottom: 30px; }
+  .ec-pile.n-1 .ec-print[data-pos="0"] { rotate: -1.5deg; }
+
+  .ec-leaf { position: relative; margin-top: clamp(24px, 3vw, 36px); padding: clamp(22px, 3.4vw, 52px) clamp(20px, 3.4vw, 52px) clamp(18px, 2.6vw, 36px);
+    background: var(--paper); color: var(--paper-ink); box-shadow: 0 1px 2px rgb(0 0 0 / .5), 0 24px 40px -18px rgb(0 0 0 / .8); }
+  .ec-leaf-head { display: flex; gap: 16px; margin: 0 0 12px; font: 500 12px/1.5 var(--sans); letter-spacing: .28em; color: var(--paper-ink-2); }
+  .ec-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-rows: repeat(var(--rows), auto); grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: clamp(28px, 4vw, 64px); }
+  .ec-list li { border-top: 1px solid var(--paper-rule); }
+  .ec-list a, .ec-row { display: grid; grid-template-columns: 2.1em minmax(0, 1fr) auto; gap: 14px; align-items: center; min-height: 64px; padding: 10px 0; }
+  .ec-n { font: 400 24px/1 var(--latin); color: var(--paper-ink-2); }
+  .ec-t { font: 400 16px/1.55 var(--serif); letter-spacing: .02em; color: var(--paper-ink); }
+  .ec-t em { display: block; margin-top: 2px; font: normal 400 12px/1.5 var(--sans); letter-spacing: .06em; color: var(--paper-ink-2); }
+  .ec-list li:not(.is-open) .ec-t, .ec-list li:not(.is-open) .ec-n { color: #9a9993; }
+  .ec-list li:not(.is-open) .ec-t em { color: #b0afa9; }
+  .ec-list .is-open .ec-n { color: var(--paper-ink); }
+  .ec-thumb { width: 40px; height: 50px; object-fit: cover; background: #dcdbd5; }
+  .ec-list a:hover .ec-t { text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; }
+
+  .ec-colophon { max-width: 1320px; margin: clamp(64px, 8vw, 120px) auto 0; padding: 28px var(--gut) 64px; border-top: 1px solid var(--rule); }
+  .ec-colophon p:last-child { margin: 10px 0 0; font: 400 14px/1.8 var(--sans); color: var(--ink-2); }
+
+  /* Narrower: the same page, rearranged. */
+  @media (max-width: 1080px) {
+    .ec-head { grid-template-columns: auto minmax(0, 1fr); }
+    .ec-pile { grid-column: 1 / -1; grid-row: 1; height: 300px; margin: 0 0 8px; }
+    .ec-plates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .ec-title { grid-template-columns: 1fr; gap: 24px; }
+    .ec-title-side { text-align: left; padding-top: 16px; border-top: 1px solid var(--paper-rule); }
+    .ec-stages { justify-content: space-between; font-size: 26px; }
+    .ec-stages span { padding: 0; border-left: 0; }
+    .ec-plates { gap: 18px 10px; }
+    .ec-plate-no { margin-top: 8px; }
+    .ec-plate-title { font-size: 12px; line-height: 1.45; }
+    .ec-plate-meta { font-size: 11px; }
+    .ec-index a { padding: 11px 2px 9px; }
+    .ec-head { gap: 4px 14px; }
+    .ec-big { font-size: 96px; }
+    .ec-head h2 { font-size: 20px; letter-spacing: .03em; }
+    .ec-stage-meta { font-size: 13px; }
+    .ec-pile { width: min(100% - 28px, 300px); height: 236px; margin-inline: auto; }
+    .ec-print img { height: 170px; max-width: 150px; }
+    .ec-print[data-pos="1"] { left: 0; }
+    .ec-print[data-pos="2"] { right: 0; }
+    .ec-list { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: minmax(0, 1fr); }
+    .ec-t { font-size: 15px; }
+    .ec-n { font-size: 21px; }
+    .ec-thumb { width: 36px; height: 46px; }
+  }
+  @media (prefers-reduced-motion: reduce) { :global(html:has(.ec)) { scroll-behavior: auto; } .ec-print { transition: none; } }
+</style>
+
+<script>
+  import { startLineField } from '../../lib/lineField';
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, undefined, { touch: true });
+  // The stage index stays just under the site bar, whose height differs on a phone.
+  const bar = document.querySelector<HTMLElement>('.ec .site-nav');
+  const setBar = () => document.documentElement.style.setProperty('--ec-bar', `${bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight : 0}px`);
+  setBar(); addEventListener('resize', setBar);
+  // Prints are held like a collection card (the same angles and light as ArtworkCard; off with reduced motion and on touch).
+  const steady = matchMedia('(prefers-reduced-motion: reduce)');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  // The print the pointer lands on comes to the front at once and stays there after the pointer leaves: each pile keeps
+  // its own running stack order, so after a quick pass over all three the last one landed on is the one on top.
+  const tops = new WeakMap<Element, { z: number; el: Element | null }>();
+  const raise = (print: HTMLElement) => {
+    const pile = print.parentElement!;
+    const top = tops.get(pile) ?? { z: 3, el: pile.querySelector('[data-pos="0"]') };
+    if (top.el === print) return;
+    tops.set(pile, { z: top.z + 1, el: print });
+    print.style.zIndex = String(top.z + 1);
+  };
+  const isTop = (print: HTMLElement) => (tops.get(print.parentElement!)?.el ?? print.parentElement!.querySelector('[data-pos="0"]')) === print;
+  // Touch: no hover, so the first tap on a print picks it up (to the front, tilted toward the finger, catching the light)
+  // and sets it down again; a tap on the print already on top opens its lesson.
+  let touchAt: { x: number; y: number } | null = null;
+  document.querySelectorAll<HTMLElement>('.ec-print').forEach((print) => {
+    print.addEventListener('pointerdown', (event) => { touchAt = event.pointerType === 'mouse' ? null : { x: event.clientX, y: event.clientY }; });
+    print.addEventListener('click', (event) => {
+      if (!touchAt || isTop(print)) return;
+      event.preventDefault();
+      raise(print);
+      if (steady.matches) return;
+      const r = print.getBoundingClientRect();
+      const x = (touchAt.x - r.left) / r.width, y = (touchAt.y - r.top) / r.height;
+      print.style.setProperty('--tilt-x', `${(0.5 - y) * 10}deg`);
+      print.style.setProperty('--tilt-y', `${(x - 0.5) * 12}deg`);
+      print.style.setProperty('--light-x', `${Math.round(x * 100)}%`);
+      print.style.setProperty('--light-y', `${Math.round(y * 100)}%`);
+      print.dataset.held = 'true';
+      setTimeout(() => { print.dataset.held = 'false'; ['--tilt-x', '--tilt-y'].forEach((p) => print.style.setProperty(p, '0deg')); }, 260);
+    });
+    print.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') raise(print); });
+    print.addEventListener('pointermove', (event) => {
+      if (steady.matches || !fine.matches) return;
+      const r = print.getBoundingClientRect();
+      const x = (event.clientX - r.left) / r.width, y = (event.clientY - r.top) / r.height;
+      print.style.setProperty('--tilt-x', `${(0.5 - y) * 10}deg`);
+      print.style.setProperty('--tilt-y', `${(x - 0.5) * 12}deg`);
+      print.style.setProperty('--light-x', `${Math.round(x * 100)}%`);
+      print.style.setProperty('--light-y', `${Math.round(y * 100)}%`);
+      print.dataset.held = 'true';
+    });
+    print.addEventListener('pointerleave', () => {
+      print.dataset.held = 'false';
+      ['--tilt-x', '--tilt-y'].forEach((p) => print.style.setProperty(p, '0deg'));
+    });
+  });
+  // Touch screens: each pile opens a little as it reaches the middle of the screen, once, and its top print catches the light.
+  if (matchMedia('(hover: none)').matches && !steady.matches) {
+    const fan = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const pile = e.target as HTMLElement;
+      fan.unobserve(pile);
+      pile.classList.add('is-fanned');
+      const top = pile.querySelector<HTMLElement>('[data-pos="0"]');
+      top?.classList.add('is-glint');
+      setTimeout(() => top?.classList.remove('is-glint'), 900);
+    }), { rootMargin: '-30% 0px -30% 0px' });
+    document.querySelectorAll('.ec-pile.n-2, .ec-pile.n-3').forEach((p) => fan.observe(p));
+  }
+  // Mark the stage being read in the index.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.ec-index [data-to]')];
+  const seen = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const no = (e.target as HTMLElement).dataset.stage;
+      links.forEach((a) => a.classList.toggle('is-here', a.dataset.to === no));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll<HTMLElement>('[data-stage]').forEach((s) => seen.observe(s));
+</script>

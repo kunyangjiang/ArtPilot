@@ -29,10 +29,10 @@ test('the approved syllabus is untouched: 73 titles in seven stages with no gaps
   assert.equal(courseTitles[67], '战后艺术为什么突破既有绘画观念？');
 });
 
-test('the course book and the homepage learn what is published from the lessons, not from a hand-kept list', () => {
-  const book = source('src/components/courses/BookCatalogue.astro');
-  assert.match(book, /courseIndex\(lessons\)/);
-  assert.doesNotMatch(book, /\bimplemented\b/);
+test('the course catalogue and the homepage learn what is published from the lessons, not from a hand-kept list', () => {
+  const catalogue = source('src/components/courses/CourseCatalogue.astro');
+  assert.match(catalogue, /getCollection\('lessons'\)/);
+  assert.doesNotMatch(catalogue, /\bimplemented\b/);
   assert.doesNotMatch(source('src/data/curriculum.ts'), /export const implemented/);
   const home = source('src/components/home/StudyTable.astro');
   assert.match(home, /getCollection\('lessons'\)/);
