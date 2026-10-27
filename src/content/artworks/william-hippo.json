@@ -1,0 +1,75 @@
+{
+  "id": "art-william-hippo-001",
+  "kind": "object",
+  "titleZh": "河马小像（“威廉”）",
+  "titleEn": "Hippopotamus (\"William\")",
+  "attributionNote": "古埃及中王国时期作坊的作品，制作者姓名不详。",
+  "dateApprox": "约公元前 1961–前 1878 年（中王国，第十二王朝，森乌塞特一世至森乌塞特二世在位期间）",
+  "objectType": "动物小像",
+  "medium": "埃及费昂斯（以石英砂为主的釉陶），釉下以深色画出水生植物",
+  "dimensions": "长 20 厘米，宽 7.5 厘米，高 11.2 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 17.9.1",
+  "originalStatus": "中王国原作。四条腿中只有左前腿是原来的，另外三条是近代修复的；颈部也有修复。博物馆的修复人员在紫外线下确认了修复的范围，并用 X 射线荧光分析发现了一处此前未被记录的近代修补。",
+  "provenance": "出自埃及中部迈尔（Meir），州长森比二世的 B3 号墓，管家森比的 1 号竖井；1910 年 5 月由赛义德·帕夏·哈沙巴（Sayyid Pasha Khashaba）发掘，按当时的分配制度归发掘者所有。1910 年 11 月在开罗古董商莫里斯·纳赫曼处，1911 年由迪克兰·凯勒基安购得，1917 年由爱德华·S. 哈克尼斯购得并捐赠给大都会艺术博物馆。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Hippopotamus (\"William\")，17.9.1（出土地点、成对出土、修复的腿、绰号来历、递藏、Catharine Roehrig 的语音导览）", "url": "https://www.metmuseum.org/art/collection/search/544227" },
+    { "label": "Anna Serotta, Carolyn Riccardelli, Debbie Schorsch, “Getting to Know ‘William’—Inside and Out”，大都会艺术博物馆 Perspectives，2017（费昂斯的制作、紫外线、X 射线与 XRF 检查）", "url": "https://www.metmuseum.org/perspectives/william-hippo-conservation" },
+    { "label": "Isabel Stünkel, “Hippopotami in Ancient Egypt”，大都会艺术博物馆 Heilbrunn 艺术史年表，2017（河马在古埃及的两面性、费昂斯河马的不同解释、打断腿的推测）", "url": "https://www.metmuseum.org/essays/hippopotami-in-ancient-egypt" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/hippo-william.jpg",
+      "width": 1184,
+      "height": 1580,
+      "alt": "一只亮蓝色的小河马，斜对着观者站在灰色背景前：身体圆鼓鼓的，四条短腿，小眼睛和小耳朵。蓝色的釉面上用深色线条画着莲花和叶子，有些地方釉色发白、有细裂纹。",
+      "caption": "河马小像（“威廉”），古埃及中王国，约公元前 1961–前 1878 年，费昂斯，长 20 厘米。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544227", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/hippo-william-side.jpg",
+      "alt": "同一只河马的正侧面，头朝右：身上画满莲花的花苞、盛开的花和圆形的叶子。四条腿里，三条颜色偏浅、表面发哑，另一条（远处那条前腿）颜色更深、带着亮光和黑色斑点。",
+      "caption": "正侧面。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544227", "changes": "博物馆提供的另一角度照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "back",
+      "src": "/img/hippo-william-back.jpg",
+      "alt": "从后方斜看河马的背部和臀部：大片蓝色釉面上画着一片叶脉向四周放射的圆形莲叶，旁边是几枝带斑点的莲花和花苞，线条流畅。",
+      "caption": "背部和臀部：圆形的莲叶，带斑点的莲花与花苞。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544227", "changes": "博物馆提供的另一角度照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "front",
+      "src": "/img/hippo-william-front.jpg",
+      "alt": "河马的正面近景：宽宽的鼻子正对观者，两只小眼睛在头顶鼓起，嘴边画着深色的线条，釉面上有磨损和细裂纹。",
+      "caption": "正面：小眼睛、宽鼻子。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544227", "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色" }
+    }
+  ],
+  "rights": {
+    "status": "作品属公有领域；照片来自大都会艺术博物馆开放获取计划，以 CC0 发布。",
+    "basis": "大都会艺术博物馆藏品页标注“Public Domain”，并说明开放获取的公有领域图像可无偿用于商业与非商业用途；收藏 API 返回 isPublicDomain: true。本课只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-26",
+    "note": "按惯例注明博物馆名称与来源页面。修复人员文章里的紫外线和 X 射线照片没有单独的开放许可，本课不转载，只转述其结论。"
+  },
+  "card": {
+    "type": "随葬小像",
+    "maker": "古埃及",
+    "period": "约前 1961–前 1878",
+    "facets": [
+      { "label": "材料", "value": "埃及费昂斯" },
+      { "label": "长度", "value": "20 cm" },
+      { "label": "出土", "value": "迈尔，森比的墓" },
+      { "label": "绰号", "value": "1931 年才有" }
+    ],
+    "blurb": "它看上去憨态可掬，可在古埃及，河马是最危险的动物之一。它的三条腿，是后来补上的。",
+    "image": "full",
+    "focus": "50% 55%"
+  }
+}

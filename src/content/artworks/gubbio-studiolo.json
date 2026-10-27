@@ -1,0 +1,145 @@
+{
+  "id": "art-gubbio-studiolo-001",
+  "kind": "object",
+  "titleZh": "古比奥公爵宫书房",
+  "titleEn": "Studiolo from the Ducal Palace in Gubbio",
+  "attributionNote": "博物馆著录：可能由锡耶纳建筑师弗朗切斯科·迪·乔治·马尔蒂尼设计，并在他的监督下，由朱利亚诺·达·马亚诺与贝内代托·达·马亚诺的作坊制作。为乌尔比诺公爵费德里科·达·蒙泰费尔特罗而建。",
+  "dateApprox": "约 1478–1482 年",
+  "objectType": "室内装饰 · 书房",
+  "medium": "胡桃木、山毛榉、黄檀、橡木与多种果树木材，镶嵌在胡桃木底板上",
+  "dimensions": "高 485 厘米，宽 518 厘米，深 384 厘米（整个房间）",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 39.153",
+  "originalStatus": "15 世纪的原作，几百年间受过水渍、虫蛀，经过多次修复（1877 年的一次修复留下了木匠的字条）。1939 年入藏，1941–1967 年展出后拆下入库，1996 年全面修复后重新安装。今天书房里的地砖，看来是博物馆为陈列配置的：大都会藏有一套 1995 年烧制的地砖，与书房同在 501 展厅。",
+  "provenance": "原在意大利古比奥公爵宫，为费德里科·达·蒙泰费尔特罗所有（约 1479–1482 年）；1874 年起归弗拉斯卡蒂的菲利波·马西莫·兰切洛蒂亲王；兰切洛蒂家族持有至 1937 年，售予威尼斯的古董商阿道夫·勒维；1939 年由大都会艺术博物馆以罗杰斯基金购得。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Studiolo from the Ducal Palace in Gubbio，39.153（材料、尺寸、制作者、铭文、递藏、语音导览）", "url": "https://www.metmuseum.org/art/collection/search/198556" },
+    { "label": "Daniel Kershaw, “On the Gubbio Studiolo”，大都会艺术博物馆 Perspectives（视点高度、十五种木材、迁移与修复史）", "url": "https://www.metmuseum.org/perspectives/points-of-view-gubbio-studiolo" },
+    { "label": "大都会艺术博物馆藏品页：Floor tiles (set of 350)，Inst.1996.1.1–.350（1995 年烧制的地砖）", "url": "https://www.metmuseum.org/art/collection/search/208599" },
+    { "label": "大都会艺术博物馆藏品页：Case (Inrō) with Design of Chrysanthemums by a Stream，13.67.48（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/45467" },
+    { "label": "大都会艺术博物馆藏品页：The Actor Nakamura Rikō I with an Attendant，JP727（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/37175" },
+    { "label": "Anabelle Gambert-Jouan, “Celebrating #NetsukeNovember on Twitter”，大都会艺术博物馆 Perspectives（根付、印笼的佩戴方式）", "url": "https://www.metmuseum.org/perspectives/netsuke-november" },
+    { "label": "大都会艺术博物馆藏品页：Ci wara headdress，2016.574（对照作品）", "url": "https://www.metmuseum.org/art/collection/search/711020" },
+    { "label": "Wikimedia Commons：Danse Ciwara.JPG（Alexandre Magot 摄，2010 年巴马科的表演）", "url": "https://commons.wikimedia.org/wiki/File:Danse_Ciwara.JPG" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gubbio-studiolo.jpg",
+      "width": 1580,
+      "height": 1265,
+      "alt": "一间小小的房间的一角，四壁都是木头：下半部是长凳，上半部是一排排菱格门的柜子，有的柜门半开，露出里面的书和器物，都投着影子。墙顶有一圈蓝底金字的拉丁文饰带，右边墙上开着一扇窗，地上铺着红色方砖。",
+      "caption": "古比奥公爵宫书房，约 1478–1482 年，房间高 485 厘米。今天安装在大都会艺术博物馆 501 展厅。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/198556", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "cabinet",
+      "src": "/img/gubbio-studiolo-cabinet.jpg",
+      "width": 1127,
+      "height": 1580,
+      "alt": "一扇“柜子”的近景：两扇菱格小门向两边打开，柜里上层放着一把剑、一只带盖的壶和一本斜靠的书，下层挂着一面鼓，柜底散放着几样小东西。每样东西都有亮面和暗面，在柜壁上投下影子。",
+      "caption": "古比奥公爵宫书房墙上的一个“柜子”，约 1478–1482 年。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/198556", "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "sphere",
+      "src": "/img/gubbio-studiolo-sphere.jpg",
+      "alt": "另一个“柜子”的近景：上层挂着一架由几道圆环组成的天球仪，旁边摞着书；下层斜放着一本红褐色封面的大书和一把展开的扇形器物。",
+      "caption": "柜中的天球仪和书：圆环的弧度、书的斜面，都按房间里一个固定的观看位置来拼。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/198556", "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "wall",
+      "src": "/img/gubbio-studiolo-wall.jpg",
+      "alt": "书房一面墙的正面：上方三个菱格门的柜子，中间那个敞开，里面挂着一只圆环；下方是一条长凳，凳面像是可以翻起，凳下的格栅和凳腿在地上投出影子。",
+      "caption": "一面墙的正面：长凳和凳腿的影子，同样是镶嵌出来的。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/198556", "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "inro",
+      "src": "/img/inro-chrysanthemums.jpg",
+      "alt": "一套挂在绳上的日本小物：最上面是一个木雕的小东西，中间穿着一颗橙色的玛瑙珠，下面挂着一只扁圆的黑底金漆小盒，盒面上画着金色的菊花和溪水。",
+      "caption": "印笼（药盒）与根付、绪缔，日本江户时代，19 世纪。印笼高 8.4 厘米。大都会艺术博物馆藏（13.67.48）。",
+      "kind": "detail",
+      "subject": "菊花溪流图印笼",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/45467", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "netsuke",
+      "src": "/img/inro-netsuke-frog.jpg",
+      "alt": "根付的近景：一只木雕的小青蛙趴在一只旧木桶的边沿上，桶身的木纹刻得很深；一根紫红色的丝绳从桶底穿出，绳上串着一颗半透明的玛瑙珠。",
+      "caption": "同一套里的根付：一只青蛙趴在旧木桶上，木雕。绳子从底部的孔里穿过。",
+      "kind": "detail",
+      "subject": "菊花溪流图印笼",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/45467", "changes": "博物馆提供的局部照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "kiyonaga",
+      "src": "/img/kiyonaga-riko.jpg",
+      "alt": "一幅竖长的浮世绘：一位穿黄色长衣、腰插双刀的演员站在帷幕前，一个跪着的仆从在给他整理衣裳。仆从腰间黑色的腰带上，挂着几样小东西。",
+      "caption": "鸟居清长《初代中村里好与仆从》，约 1784 年，木版画，33.0 × 14.6 厘米。大都会艺术博物馆藏（JP727）。",
+      "kind": "detail",
+      "subject": "鸟居清长《初代中村里好与仆从》",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/37175", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "kiyonaga-sash",
+      "src": "/img/kiyonaga-riko-sash.jpg",
+      "alt": "同一幅版画的局部：仆从黑色的腰带上方卡着一个圆形的小东西，一根细绳从它下面垂下，吊着一只带提手的小袋；左边腰带上还插着一个筒形的东西。",
+      "caption": "同一幅画的局部：仆从腰带上的小物。",
+      "kind": "detail",
+      "subject": "鸟居清长《初代中村里好与仆从》",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/37175", "changes": "从原图裁出仆从腰部一段，缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "ciwara",
+      "src": "/img/ciwara-headdress.jpg",
+      "alt": "一件深褐色的木雕，竖立在灰色背景前的小底座上：上面是两只又长又细、微微弯曲的角，下面是一个由折线和镂空组成的动物身体，表面刻满细密的斜纹。",
+      "caption": "契瓦拉头饰，马里中南部，班巴拉人，19 世纪，木、金属，高 76.2 厘米。作者是一位班巴拉铁匠（numu），姓名不详。大都会艺术博物馆藏（2016.574）。",
+      "kind": "detail",
+      "subject": "契瓦拉头饰",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/711020", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ciwara-front",
+      "src": "/img/ciwara-headdress-front.jpg",
+      "alt": "同一件头饰的正面：两只长角并排向上，几乎平行，身体在正面看只剩一道窄窄的竖线。",
+      "caption": "同一件头饰的正面：从这个角度看，它几乎只剩下两道线。",
+      "kind": "detail",
+      "subject": "契瓦拉头饰",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/711020", "changes": "博物馆提供的另一角度照片；缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "dance",
+      "src": "/img/ciwara-dance-bamako.jpg",
+      "alt": "户外树林中的一块空地上，两位表演者从头到脚披着橙色、黄色和棕色的长纤维服装，头顶各戴着一件高高的黑色羚羊角木雕，手里拄着彩色的长杖。背景里有一只音箱。",
+      "caption": "2010 年 6 月，马里首都巴马科的一场契瓦拉舞展示表演。这是今天的演出，不是 19 世纪仪式的记录，头饰也不是上面那一件。",
+      "kind": "detail",
+      "subject": "巴马科的契瓦拉舞表演（2010 年）",
+      "credit": { "author": "Alexandre Magot", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danse_Ciwara.JPG", "date": "2010-06-17", "changes": "缩小尺寸、重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    }
+  ],
+  "rights": {
+    "status": "书房、印笼、版画与契瓦拉头饰的照片来自大都会艺术博物馆开放获取计划，以 CC0 发布；巴马科表演的照片由摄影者以 CC BY-SA 3.0 发布在维基共享资源。",
+    "basis": "四件作品的大都会艺术博物馆藏品页均标注“Public Domain”，收藏 API 返回 isPublicDomain: true，开放获取图像可无偿用于商业与非商业用途。表演照片的维基共享资源文件页注明作者 Alexandre Magot、“Own work”、许可证 CC BY-SA 3.0。",
+    "verifiedOn": "2026-10-26",
+    "note": "CC BY-SA 3.0 的照片须署名作者、注明许可证并链接原文件；本站对它的缩小和压缩版本同样按 CC BY-SA 3.0 提供。照片中是 2010 年的表演者，本课只用这张照片说明头饰是被戴着、在舞蹈中被看见的。契瓦拉头饰的递藏记录从 20 世纪中叶巴黎的古董商开始，它何时、怎样离开马里，著录没有说明。"
+  },
+  "card": {
+    "type": "室内木作",
+    "maker": "意大利",
+    "period": "约 1478–1482",
+    "facets": [
+      { "label": "材料", "value": "多种木材镶嵌" },
+      { "label": "大小", "value": "485 × 518 × 384 cm" },
+      { "label": "原址", "value": "古比奥公爵宫" },
+      { "label": "看法", "value": "走进去，站着看" }
+    ],
+    "blurb": "柜门半开，书斜靠，影子落在墙上，却没有一样是画的：整间书房是用木片拼出来的。",
+    "image": "full",
+    "focus": "40% 50%"
+  }
+}

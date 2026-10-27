@@ -83,7 +83,7 @@ main { overflow-x: clip; }
 .site-nav ul a:hover::after, .site-nav ul a[aria-current]::after { transform: scaleX(1); }
 /* The halls follow the way back, set apart by the same short hairline; a hall still in preparation is shown, muted,
    and is not a link. The page's own links keep to the far end. */
-.nav-halls { position: relative; padding-left: clamp(1.25rem, 3vw, 2.5rem); }
+.site-nav .nav-halls { position: relative; padding-left: clamp(1.25rem, 3vw, 2.5rem); } /* .site-nav ul would zero it */
 .nav-halls::before {
   content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: .875rem; translate: 0 -50%;
   background: currentColor; opacity: .35;
@@ -101,7 +101,7 @@ main { overflow-x: clip; }
 @media (max-width: 760px) {
   .site-nav { flex-wrap: wrap; row-gap: 0; padding-block: .25rem .375rem; }
   .nav-start { flex: 1 0 100%; }
-  .nav-halls { flex: 1 0 100%; gap: 1.125rem; padding-left: 0; overflow-x: auto; scrollbar-width: none; font-size: .8125rem; letter-spacing: .02em; }
+  .site-nav .nav-halls { flex: 1 0 100%; gap: 1.125rem; padding-left: 0; overflow-x: auto; scrollbar-width: none; font-size: .8125rem; letter-spacing: .02em; }
   .nav-halls::before { display: none; }
   .nav-halls a, .nav-halls .nav-soon { padding-block: .55rem; }
 }
@@ -535,6 +535,21 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .pm-pattern { fill: none; stroke: #5b4630; stroke-width: 1.4; stroke-linecap: round; }
 /* Two-step figures (LintelView). */
 .glass-steps.two ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* Three-step figures (BodyScale): one person as the yardstick for a room, a crest worn on the head, a case at the waist. */
+.glass-steps.three ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bs-room { fill: #ece8e1; stroke: var(--ink); stroke-width: 1; }
+.bs-panel { fill: none; stroke: #b59a77; stroke-width: 1; }
+.bs-fibre { fill: none; stroke: #b07a3c; stroke-width: 1.1; stroke-linecap: round; }
+.bs-crest { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.bs-staff { fill: none; stroke: var(--ink-2); stroke-width: 1.2; stroke-linecap: round; }
+.bs-sash { fill: none; stroke: var(--ink); stroke-width: 2; }
+.bs-sash-big { fill: #3a3a3c; }
+.bs-lens { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; }
+.bs-lead { fill: none; stroke: var(--ink-3); stroke-width: .8; stroke-dasharray: 2 2; }
+.bs-netsuke { fill: #b8915f; stroke: var(--ink); stroke-width: 1; }
+.bs-cord { fill: none; stroke: #7a3b4c; stroke-width: 1.2; }
+.bs-ojime { fill: #e6a96b; stroke: var(--ink); stroke-width: .8; }
+.bs-inro { fill: #2b2620; stroke: #b8915f; stroke-width: .8; }
 /* LintelView: stone, the carved slab with its carved face marked, a visitor's line of sight. */
 .lv-stone { fill: #d9d2c5; stroke: var(--ink); stroke-width: 1; }
 .lv-wall { fill: #ece8e1; stroke: var(--ink-3); stroke-width: 1; }
@@ -962,6 +977,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
   .arch-panels { grid-template-columns: 1fr; }
   .marks figcaption { margin-top: 1rem; }
   .glass-steps ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .glass-steps.three ol { grid-template-columns: 1fr; }
   .elevation-photo, .elevation-side, .thrust svg, .thrust-side { grid-column: 1; }
   .elevation-side, .thrust-side { margin-top: 1.25rem; }
   .scale .controls { margin-top: 1.25rem; }
