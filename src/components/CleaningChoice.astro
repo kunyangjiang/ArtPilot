@@ -1,0 +1,87 @@
+---
+// A conservation choice, made by the reader: how far to clean the outer face of a weathered panel. Three options; each
+// redraws the section through the glass and fills three bars (how much light passes, how much of the original surface
+// is kept, how exposed the glass is afterwards). The bars are qualitative — a teaching schematic, not measurements.
+// After any choice, the principle the profession works to opens beneath. Nothing is scored or stored.
+interface Option { id: string; label: string; light: number; kept: number; risk: number; text: string }
+interface Props { prompt: string; options: Option[]; principle: string }
+const { prompt, options, principle } = Astro.props;
+---
+<section class="module cc2" data-clean data-pick="">
+  <p class="module-label">互动 · 示意 · 洗到哪一层</p>
+  <h3>{prompt}</h3>
+  <div class="cc2-body">
+    <svg class="cc2-svg" viewBox="0 0 300 150" role="img" aria-label="清理后玻璃外表面的剖面示意">
+      <rect class="cc2-glass" x="20" y="64" width="260" height="56" />
+      <rect class="cc2-crust" x="20" y="44" width="260" height="20" />
+      <rect class="cc2-loose" x="20" y="34" width="260" height="10" />
+      <g class="cc2-pits">{[50, 96, 150, 196, 244].map((x) => <ellipse cx={x} cy="64" rx="8" ry="6" />)}</g>
+      <g class="cc2-light">{[60, 120, 180, 240].map((x, i) => <line x1={x} y1="6" x2={x} y2="146" style={`--i:${i}`} />)}</g>
+    </svg>
+    <div class="cc2-side">
+      <div class="cc2-options" role="group" aria-label="清理程度">
+        {options.map((o) => (
+          <button type="button" class="cc2-opt" data-opt={o.id} data-light={o.light} data-kept={o.kept} data-risk={o.risk} aria-pressed="false">{o.label}</button>
+        ))}
+      </div>
+      <dl class="cc2-bars">
+        <div><dt>透光</dt><dd><span data-bar="light"></span></dd></div>
+        <div><dt>保留的原有表面</dt><dd><span data-bar="kept"></span></dd></div>
+        <div><dt>之后受侵蚀的风险</dt><dd><span data-bar="risk"></span></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="cc2-notes" aria-live="polite">
+    {options.map((o) => <p data-text={o.id} hidden>{o.text}</p>)}
+    <p class="cc2-wait" data-wait>选一种清理程度，看它换来什么、失去什么。</p>
+  </div>
+  <aside class="callout source cc2-principle" data-principle hidden><span class="label">行业准则</span>{principle}</aside>
+</section>
+
+<style>
+  .cc2-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
+  .cc2-svg { display: block; width: 100%; height: auto; background: #eef1f4; }
+  .cc2-glass { fill: #2f5b9a; }
+  .cc2-crust { fill: #d4cfc4; transform-origin: 50% 64px; transition: transform 700ms var(--ease); }
+  .cc2-loose { fill: #8d8a83; transform-origin: 50% 44px; transition: transform 700ms var(--ease), opacity 700ms var(--ease); }
+  .cc2-pits ellipse { fill: #eef1f4; opacity: 0; transition: opacity 700ms var(--ease); }
+  .cc2-light line { stroke: #f2c94c; stroke-width: 3; opacity: .2; transition: opacity 700ms var(--ease); }
+  :global(.cc2[data-pick="loose"]) .cc2-loose { transform: scaleY(0); }
+  :global(.cc2[data-pick="loose"]) .cc2-light line { opacity: .5; }
+  :global(.cc2[data-pick="all"]) .cc2-loose { transform: scaleY(0); }
+  :global(.cc2[data-pick="all"]) .cc2-crust { transform: scaleY(0); }
+  :global(.cc2[data-pick="all"]) .cc2-pits ellipse { opacity: 1; }
+  :global(.cc2[data-pick="all"]) .cc2-light line { opacity: .95; }
+  @keyframes cc2-shine { 0%, 100% { stroke-dashoffset: 0; } 50% { stroke-dashoffset: 20; } }
+  @media (prefers-reduced-motion: no-preference) { .cc2-light line { stroke-dasharray: 6 4; animation: cc2-shine 2.4s linear infinite; animation-delay: calc(var(--i) * .3s); } }
+  .cc2-options { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .cc2-opt { padding: .6rem .9rem; border: 1px solid var(--rule); background: var(--paper); font: 500 .875rem/1.4 var(--sans); color: var(--ink-2); cursor: pointer;
+    transition: border-color var(--t) var(--ease), color var(--t) var(--ease); }
+  .cc2-opt[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+  .cc2-bars { display: grid; gap: .7rem; margin: 1.25rem 0 0; }
+  .cc2-bars div { display: grid; grid-template-columns: 8.5rem 1fr; align-items: center; gap: .75rem; }
+  .cc2-bars dt { font: 400 .8125rem/1.4 var(--sans); color: var(--ink-2); }
+  .cc2-bars dd { margin: 0; height: 6px; background: var(--rule); }
+  .cc2-bars span { display: block; height: 100%; width: 0; background: var(--ink); transition: width 700ms var(--ease); }
+  .cc2-notes { min-height: 5rem; margin-top: 1.25rem; padding: 1rem 1.25rem; background: var(--mist); font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .cc2-notes p { margin: 0; animation: cc2-in 420ms var(--ease) both; }
+  .cc2-wait { color: var(--ink-3); }
+  .cc2-principle { margin-top: 1.25rem; animation: cc2-in 520ms var(--ease) both; }
+  @keyframes cc2-in { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .cc2-notes p, .cc2-principle { animation: none; } .cc2-bars span, .cc2-crust, .cc2-loose, .cc2-pits ellipse, .cc2-light line { transition: none; } }
+  @media (max-width: 640px) { .cc2-body { grid-template-columns: 1fr; } .cc2-bars div { grid-template-columns: 7rem 1fr; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-clean]').forEach((root) => {
+    const opts = [...root.querySelectorAll<HTMLButtonElement>('.cc2-opt')];
+    opts.forEach((b) => b.addEventListener('click', () => {
+      opts.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      root.dataset.pick = b.dataset.opt!;
+      for (const k of ['light', 'kept', 'risk']) root.querySelector<HTMLElement>(`[data-bar="${k}"]`)!.style.width = `${b.dataset[k]}%`;
+      root.querySelectorAll<HTMLElement>('[data-text]').forEach((p) => { p.hidden = p.dataset.text !== b.dataset.opt; });
+      root.querySelector<HTMLElement>('[data-wait]')!.hidden = true;
+      root.querySelector<HTMLElement>('[data-principle]')!.hidden = false;
+    }));
+  });
+</script>

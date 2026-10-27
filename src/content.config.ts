@@ -125,4 +125,20 @@ const lessons = defineCollection({
   }),
 });
 
-export const collections = { artworks, glossary, lessons };
+// Artist stories and narrative cases: long-form articles outside the syllabus, read in the same reader as lessons and
+// listed in their own halls (/stories/, /cases/). `kind` is the Continue Reading kind. A story may award one card from
+// the artist series (src/lib/publication.js); a case awards none.
+const essays = defineCollection({
+  loader: glob({ pattern: '*.mdx', base: './src/content/essays' }),
+  schema: z.object({
+    kind: z.enum(['artist-story', 'case']),
+    title: z.string(),
+    kicker: z.string(), // the line above the title
+    subject: z.string(), // who or what it is about, with dates, e.g. 奥斯曼·哈姆迪·贝伊 · 1842–1910
+    summary: z.string(),
+    hero: z.object({ artwork: reference('artworks'), image: z.string() }), // the opening image
+    card: reference('artworks').optional(), // the card the end of a story awards
+  }),
+});
+
+export const collections = { artworks, glossary, lessons, essays };

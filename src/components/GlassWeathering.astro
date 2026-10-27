@@ -1,0 +1,105 @@
+---
+// Eight hundred years of weather on one piece of glass, as a section through it: the outside (rain, soot) on top, the
+// church on the bottom with the painted line on the inner face. Moving the slider through five moments grows the
+// weathering crust and the pits, fades the paint, brings condensation and the 1939 cleaning. A schematic, not a
+// measurement of any Chartres panel: thicknesses are exaggerated so they can be seen. Nothing is stored.
+interface Stage { year: string; label: string; text: string }
+interface Props { prompt: string; stages: Stage[] }
+const { prompt, stages } = Astro.props;
+if (stages.length !== 5) throw new Error('GlassWeathering draws exactly five moments');
+const pits = [70, 128, 190, 236, 300, 352, 410, 468, 520];
+const paint = [150, 205, 265, 330, 395, 450];
+---
+<section class="module gw" data-gw data-stage="0">
+  <p class="module-label">互动 · 示意 · 八百年的天气</p>
+  <h3>{prompt}</h3>
+  <svg class="gw-svg" viewBox="0 0 600 270" role="img" aria-label="一块彩窗玻璃的剖面示意：上面是室外，下面是教堂里">
+    <text class="gw-side" x="16" y="26">室外</text>
+    <text class="gw-side" x="16" y="258">教堂里</text>
+    <g class="gw-rain">{[60, 140, 220, 300, 380, 460, 540].map((x, i) => <line x1={x} y1="20" x2={x - 8} y2="44" style={`--d:${i * 0.17}s`} />)}</g>
+    <rect class="gw-lead" x="40" y="96" width="16" height="84" />
+    <rect class="gw-lead" x="544" y="96" width="16" height="84" />
+    <rect class="gw-glass" x="56" y="104" width="488" height="68" />
+    <rect class="gw-crust" x="56" y="84" width="488" height="20" />
+    <rect class="gw-soot" x="56" y="78" width="488" height="8" />
+    <g class="gw-pits">{pits.map((x, i) => <ellipse cx={x} cy="104" rx={6 + (i % 3) * 3} ry={5 + (i % 2) * 3} />)}</g>
+    <g class="gw-paint">{paint.map((x, i) => <rect x={x} y="172" width={34 + (i % 3) * 10} height="6" rx="2" data-p={i} />)}</g>
+    <g class="gw-drops">{[110, 175, 248, 318, 386, 470].map((x, i) => <circle cx={x} cy={186 + (i % 2) * 6} r={3 + (i % 3)} style={`--d:${i * 0.3}s`} />)}</g>
+    <text class="gw-tag" x="300" y="146" text-anchor="middle">玻璃</text>
+  </svg>
+  <label class="gw-range">
+    <span class="gw-range-label">时间</span>
+    <input type="range" min="0" max="4" step="1" value="0" data-range aria-valuetext={`${stages[0].year} ${stages[0].label}`} />
+  </label>
+  <ol class="gw-marks" aria-hidden="true">{stages.map((s) => <li lang="en">{s.year}</li>)}</ol>
+  <div class="gw-notes" aria-live="polite">
+    {stages.map((s, i) => (
+      <article data-s={i} hidden={i !== 0}>
+        <p class="gw-head"><b lang="en">{s.year}</b>{s.label}</p>
+        <p class="gw-text">{s.text}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gw-svg { display: block; width: 100%; height: auto; background: linear-gradient(to bottom, #e9edf1, #f6f6f4 40%, #f6f6f4 60%, #ece8e0); }
+  .gw-side, .gw-tag { font: 500 13px/1 var(--sans); letter-spacing: .12em; fill: var(--ink-3); }
+  .gw-tag { fill: rgb(255 255 255 / .85); letter-spacing: .3em; }
+  .gw-glass { fill: #2f5b9a; }
+  .gw-lead { fill: #3d3f44; transition: fill 600ms var(--ease); }
+  .gw-crust { fill: #d9d5cb; transform-origin: 50% 104px; transform: scaleY(0); transition: transform 800ms var(--ease); }
+  .gw-soot { fill: #4a4844; opacity: 0; transition: opacity 800ms var(--ease); }
+  .gw-pits ellipse { fill: #e9edf1; opacity: 0; transition: opacity 700ms var(--ease); }
+  .gw-paint rect { fill: #3a2a1e; transition: opacity 800ms var(--ease); }
+  .gw-drops circle { fill: #8fb3d6; opacity: 0; transition: opacity 600ms var(--ease); }
+  .gw-rain line { stroke: #9fb1c4; stroke-width: 1.5; opacity: 0; }
+  /* The five moments */
+  :global(.gw[data-stage="1"]) .gw-crust { transform: scaleY(.35); }
+  :global(.gw[data-stage="1"]) .gw-pits ellipse:nth-child(3n) { opacity: 1; }
+  :global(.gw[data-stage="2"]) .gw-crust { transform: scaleY(.8); }
+  :global(.gw[data-stage="2"]) .gw-soot { opacity: .85; }
+  :global(.gw[data-stage="2"]) .gw-pits ellipse:nth-child(odd) { opacity: 1; }
+  :global(.gw[data-stage="2"]) .gw-paint rect:nth-child(2), :global(.gw[data-stage="2"]) .gw-paint rect:nth-child(5) { opacity: .35; }
+  :global(.gw[data-stage="3"]) .gw-crust { transform: scaleY(.3); }
+  :global(.gw[data-stage="3"]) .gw-pits ellipse:nth-child(odd) { opacity: 1; }
+  :global(.gw[data-stage="3"]) .gw-paint rect:nth-child(2), :global(.gw[data-stage="3"]) .gw-paint rect:nth-child(5) { opacity: .35; }
+  :global(.gw[data-stage="3"]) .gw-lead { fill: #6b6e75; }
+  :global(.gw[data-stage="4"]) .gw-crust { transform: scaleY(.7); }
+  :global(.gw[data-stage="4"]) .gw-pits ellipse { opacity: 1; }
+  :global(.gw[data-stage="4"]) .gw-paint rect:nth-child(2), :global(.gw[data-stage="4"]) .gw-paint rect:nth-child(5) { opacity: .1; }
+  :global(.gw[data-stage="4"]) .gw-paint rect:nth-child(4) { opacity: .45; }
+  :global(.gw[data-stage="4"]) .gw-lead { fill: #6b6e75; }
+  :global(.gw:is([data-stage="2"], [data-stage="4"])) .gw-drops circle { opacity: 1; }
+  :global(.gw:not([data-stage="3"])) .gw-rain line { opacity: .9; }
+  @keyframes gw-fall { from { transform: translate(0, -8px); opacity: 0; } 30% { opacity: .9; } to { transform: translate(-6px, 18px); opacity: 0; } }
+  @keyframes gw-drip { 0%, 60% { transform: translateY(0); } 100% { transform: translateY(10px); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .gw-rain line { animation: gw-fall 1.4s linear infinite; animation-delay: var(--d); }
+    .gw-drops circle { animation: gw-drip 3s var(--ease) infinite alternate; animation-delay: var(--d); }
+  }
+  .gw-range { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem; margin-top: 1.25rem; }
+  .gw-range-label { font: 500 .75rem/1 var(--sans); letter-spacing: .16em; color: var(--ink-3); }
+  .gw-range input { width: 100%; accent-color: var(--ink); }
+  .gw-marks { display: flex; justify-content: space-between; margin: .4rem 0 0 3.25rem; padding: 0; list-style: none; font: 400 .75rem/1 var(--latin); color: var(--ink-3); }
+  .gw-notes { min-height: 7.5rem; margin-top: 1.25rem; padding: 1.1rem 1.4rem; background: var(--mist); }
+  .gw-notes article { animation: gw-in 420ms var(--ease) both; }
+  .gw-head { display: flex; gap: .75rem; align-items: baseline; margin: 0; font: 500 1rem/1.5 var(--serif); }
+  .gw-head b { font: 400 1.5rem/1 var(--latin); font-weight: 400; }
+  .gw-text { margin: .5rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  @keyframes gw-in { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .gw-notes article { animation: none; } .gw-crust, .gw-soot, .gw-pits ellipse, .gw-paint rect, .gw-drops circle, .gw-lead { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gw]').forEach((root) => {
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const notes = [...root.querySelectorAll<HTMLElement>('[data-s]')];
+    range.addEventListener('input', () => {
+      const i = Number(range.value);
+      root.dataset.stage = String(i);
+      notes.forEach((n, k) => { n.hidden = k !== i; });
+      range.setAttribute('aria-valuetext', notes[i].querySelector('.gw-head')!.textContent!.trim());
+    });
+  });
+</script>

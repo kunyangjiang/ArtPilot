@@ -143,6 +143,18 @@
       "height": 260
     }
   },
+  "/img/osman-hamdi-tortoise-trainer.jpg": {
+    "large": {
+      "src": "/img/table/osman-hamdi-tortoise-trainer.jpg",
+      "width": 588,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-osman-hamdi-tortoise-trainer.jpg",
+      "width": 139,
+      "height": 260
+    }
+  },
   "/img/sharaku-oniji-full.jpg": {
     "large": {
       "src": "/img/table/sharaku-oniji-full.jpg",

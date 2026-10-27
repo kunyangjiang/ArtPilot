@@ -3,7 +3,7 @@
 // About the object itself: the work, its facts, what the pictures show, where the images come from. The reading
 // of the work belongs to its lessons, so there is no narrative here.
 import { getCollection } from 'astro:content';
-import { cardNumber } from '../../lib/publication.js';
+import { cardNumber, artistCardNumber } from '../../lib/publication.js';
 import Base from '../../layouts/Base.astro';
 import ArtworkRights from '../../components/ArtworkRights.astro';
 import BackToTop from '../../components/BackToTop.astro';
@@ -21,7 +21,7 @@ const lessons = (await getCollection('lessons')).filter((l) => l.data.artwork.id
 const building = art.kind === 'building';
 const object = art.kind === 'object'; // a vessel or a statue held by a museum, often an unsigned work or a later copy
 const photographed = building || object; // records whose pictures are photographs, each with its own credit
-const cardNo = art.card && lessons[0] ? cardNumber(lessons[0].data.course) : undefined;
+const cardNo = art.card ? (lessons[0] ? cardNumber(lessons[0].data.course) : artistCardNumber(record.id)) : undefined;
 // A building's or an object's other photographs, in the order the record lists them.
 const photos = photographed ? art.images.filter((i) => i.key !== 'full') : [];
 const description = building

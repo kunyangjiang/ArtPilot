@@ -1,0 +1,90 @@
+---
+// Protective glazing as a section through a window opening, on a cold morning. "只有原窗": the old glass is the outer
+// skin; rain hits it outside and the church's warm, damp air condenses on its painted inner face. "加上第二层玻璃": a new,
+// nearly clear pane takes the outside place, the old panel moves a few centimetres in, and air from the church moves
+// through the gap (in at the bottom, out at the top); the condensation now forms on the new pane. After the system the
+// LRMH and Hervé Debitus described in 2001 and the Corpus Vitrearum guidance; a schematic, not a drawing of a Chartres
+// window. Nothing is stored. Reduced motion: still drawings.
+interface Props { prompt: string; before: string; after: string }
+const { prompt, before, after } = Astro.props;
+---
+<section class="module sp" data-sp data-mode="before">
+  <p class="module-label">互动 · 示意 · 第二层玻璃</p>
+  <h3>{prompt}</h3>
+  <div class="sp-toggle" role="group" aria-label="窗的做法">
+    <button type="button" class="sp-btn" data-to="before" aria-pressed="true">只有原窗</button>
+    <button type="button" class="sp-btn" data-to="after" aria-pressed="false">加上第二层玻璃</button>
+  </div>
+  <svg class="sp-svg" viewBox="0 0 520 300" role="img" aria-label="窗洞的水平剖面示意：左边是室外，右边是教堂里">
+    <text class="sp-side" x="18" y="30">室外 · 雨</text>
+    <text class="sp-side" x="390" y="30">教堂里 · 温暖潮湿</text>
+    <rect class="sp-stone" x="150" y="40" width="220" height="40" />
+    <rect class="sp-stone" x="150" y="230" width="220" height="40" />
+    <g class="sp-rain">{[40, 70, 100, 125].map((x, i) => <line x1={x} y1="60" x2={x + 10} y2="250" style={`--d:${i * 0.25}s`} />)}</g>
+    <!-- the new outer pane -->
+    <rect class="sp-new" x="196" y="80" width="6" height="150" />
+    <!-- the old painted panel: outer position (before) or moved in (after) -->
+    <g class="sp-old"><rect x="200" y="80" width="10" height="150" /><rect class="sp-paint" x="210" y="110" width="3" height="90" /></g>
+    <g class="sp-drops-old">{[100, 140, 175, 205].map((y, i) => <circle cx="216" cy={y} r="3" style={`--d:${i * 0.4}s`} />)}</g>
+    <g class="sp-drops-new">{[105, 150, 190].map((y, i) => <circle cx="206" cy={y} r="3" style={`--d:${i * 0.4}s`} />)}</g>
+    <g class="sp-air">
+      <path d="M300 238 C 250 238, 214 240, 214 222 L 214 90 C 214 78, 250 76, 300 76" />
+      <polygon points="296,70 308,76 296,82" />
+    </g>
+    <text class="sp-label sp-label-old" x="218" y="262">八百年的彩窗</text>
+    <text class="sp-label sp-label-new" x="150" y="290">新的保护玻璃（几乎透明）</text>
+  </svg>
+  <div class="sp-notes" aria-live="polite">
+    <p data-for="before">{before}</p>
+    <p data-for="after" hidden>{after}</p>
+  </div>
+</section>
+
+<style>
+  .sp-toggle { display: flex; gap: .5rem; margin-bottom: 1rem; }
+  .sp-btn { padding: .6rem 1rem; border: 1px solid var(--rule); background: var(--paper); font: 500 .875rem/1.4 var(--sans); color: var(--ink-2); cursor: pointer; }
+  .sp-btn[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+  .sp-svg { display: block; width: 100%; height: auto; background: linear-gradient(to right, #dfe5ec 0 40%, #f3efe6 60%); }
+  .sp-side, .sp-label { font: 500 13px/1 var(--sans); letter-spacing: .1em; fill: var(--ink-3); }
+  .sp-label { font-size: 12px; fill: var(--ink-2); transition: opacity 500ms var(--ease); }
+  .sp-stone { fill: #b8b2a6; }
+  .sp-rain line { stroke: #8ea3b8; stroke-width: 1.5; }
+  .sp-new { fill: #cfe3ee; stroke: #8aa8b8; stroke-width: 1; opacity: 0; transition: opacity 600ms var(--ease); }
+  .sp-old { transition: transform 800ms var(--ease); }
+  .sp-old rect:first-child { fill: #2f5b9a; }
+  .sp-paint { fill: #3a2a1e; }
+  .sp-drops-old circle, .sp-drops-new circle { fill: #6f9cc8; transition: opacity 500ms var(--ease); }
+  .sp-drops-new circle { opacity: 0; }
+  .sp-air { opacity: 0; transition: opacity 600ms var(--ease); }
+  .sp-air path { fill: none; stroke: #c9814a; stroke-width: 2; stroke-dasharray: 6 6; }
+  .sp-air polygon { fill: #c9814a; }
+  .sp-label-new { opacity: 0; }
+  :global(.sp[data-mode="after"]) .sp-new, :global(.sp[data-mode="after"]) .sp-air, :global(.sp[data-mode="after"]) .sp-label-new { opacity: 1; }
+  :global(.sp[data-mode="after"]) .sp-old { transform: translateX(26px); }
+  :global(.sp[data-mode="after"]) .sp-label-old { transform: translateX(26px); }
+  :global(.sp[data-mode="after"]) .sp-drops-old circle { opacity: 0; }
+  :global(.sp[data-mode="after"]) .sp-drops-new circle { opacity: 1; }
+  @keyframes sp-fall { from { transform: translateY(-20px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(20px); opacity: 0; } }
+  @keyframes sp-run { 0%, 50% { transform: translateY(0); } 100% { transform: translateY(14px); } }
+  @keyframes sp-flow { to { stroke-dashoffset: -24; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .sp-rain line { animation: sp-fall 1.2s linear infinite; animation-delay: var(--d); }
+    .sp-drops-old circle, .sp-drops-new circle { animation: sp-run 2.6s var(--ease) infinite alternate; animation-delay: var(--d); }
+    .sp-air path { animation: sp-flow 1.4s linear infinite; }
+  }
+  .sp-notes { min-height: 5rem; margin-top: 1.25rem; padding: 1rem 1.25rem; background: var(--mist); font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .sp-notes p { margin: 0; animation: sp-in 420ms var(--ease) both; }
+  @keyframes sp-in { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .sp-notes p { animation: none; } .sp-old, .sp-new, .sp-air, .sp-label { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-sp]').forEach((root) => {
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('.sp-btn')];
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      root.dataset.mode = b.dataset.to!;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      root.querySelectorAll<HTMLElement>('[data-for]').forEach((p) => { p.hidden = p.dataset.for !== b.dataset.to; });
+    }));
+  });
+</script>

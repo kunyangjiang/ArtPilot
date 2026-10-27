@@ -46,3 +46,32 @@ test('the homepage card box shows only this browser\'s claims: empty places unti
   assert.match(table, /readCollection\(deviceStorage\(\)\)/);
   assert.doesNotMatch(table, /No\.0\d\d/);
 });
+
+// Artist-series cards: No.074–093, each number given once by hand and unique, above every course number.
+test('artist-series cards are numbered inside 074–093, uniquely, and never collide with a course card', async () => {
+  const { ARTIST_SERIES, ARTIST_CARDS, artistCardNumber, cardNumber } = await import('../src/lib/publication.js');
+  assert.equal(ARTIST_SERIES.first, TOTAL_COURSES + 1);
+  assert.equal(ARTIST_SERIES.last, 93);
+  const numbers = Object.values(ARTIST_CARDS);
+  assert.equal(new Set(numbers).size, numbers.length, 'no two artist cards share a number');
+  for (const n of numbers) assert.ok(n >= ARTIST_SERIES.first && n <= ARTIST_SERIES.last);
+  assert.equal(artistCardNumber('art-osman-hamdi-tortoise-trainer-001'), '074');
+  assert.equal(artistCardNumber('art-fan-kuan-travelers-001'), undefined, 'a course card has no artist number');
+  assert.throws(() => artistCardNumber('x', { x: 94 }), /outside/);
+  assert.throws(() => cardNumber(74), 'course numbers stop at 073');
+});
+
+test('every essay names a real kind, and an artist story that awards a card awards an artist-series card', async () => {
+  const { ARTIST_CARDS } = await import('../src/lib/publication.js');
+  const { readdirSync } = await import('node:fs');
+  const files = readdirSync(new URL('../src/content/essays/', import.meta.url)).filter((f) => f.endsWith('.mdx'));
+  assert.ok(files.length >= 2);
+  for (const f of files) {
+    const fm = source(`src/content/essays/${f}`).split('---')[1];
+    const kind = fm.match(/^kind:\s*(\S+)/m)?.[1];
+    assert.ok(kind === 'artist-story' || kind === 'case', `${f}: kind`);
+    const card = fm.match(/^card:\s*(\S+)/m)?.[1];
+    if (kind === 'case') assert.equal(card, undefined, `${f}: a case awards no card`);
+    if (card) assert.ok(ARTIST_CARDS[card], `${f}: its card ${card} has an artist-series number`);
+  }
+});

@@ -1,0 +1,71 @@
+---
+// The entrance of a hall of long-form articles (艺术家故事, 叙事案例): its name and premise, then every published
+// article as an exhibit — the opening work shown whole, the number, the title, who or what it is about, one paragraph.
+// Only what is published is listed; nothing announces what is coming. Order: by file name, which is the number they were
+// published under, never by date, so the hall does not turn into a feed.
+import { getCollection, getEntry } from 'astro:content';
+import { destinations } from '../data/home';
+interface Props { kind: 'artist-story' | 'case' }
+const { kind } = Astro.props;
+const d = destinations.find((x) => x.id === (kind === 'artist-story' ? 'stories' : 'cases'))!;
+const base = kind === 'artist-story' ? '/stories/' : '/cases/';
+const tag = kind === 'artist-story' ? 'Story' : 'Case';
+const entries = (await getCollection('essays')).filter((e) => e.data.kind === kind).sort((a, b) => a.id.localeCompare(b.id));
+const items = await Promise.all(entries.map(async (e, i) => {
+  const art = (await getEntry('artworks', e.data.hero.artwork.id))!.data;
+  const img = art.images.find((x) => x.key === e.data.hero.image)!;
+  return { href: `${base}${e.id}/`, no: String(i + 1).padStart(2, '0'), title: e.data.title, subject: e.data.subject, summary: e.data.summary, img };
+}));
+---
+<section class="eh" aria-labelledby="eh-title">
+  <header class="eh-head">
+    <p class="eh-kicker">{d.label === 'Cases' ? d.sub : d.label} · <span lang="en">{d.label === 'Cases' ? d.label : d.sub}</span></p>
+    <h1 id="eh-title" tabindex="-1">{d.label === 'Cases' ? d.sub : d.label}</h1>
+    <p class="eh-premise">{d.premise}</p>
+  </header>
+  <ol class="eh-list">
+    {items.map((it) => (
+      <li>
+        <a class="eh-item" href={it.href}>
+          <span class="eh-print"><img src={it.img.src} alt={it.img.alt} width={it.img.width} height={it.img.height} loading="lazy" /></span>
+          <span class="eh-text">
+            <span class="eh-no" lang="en">{tag} {it.no}</span>
+            <span class="eh-title">{it.title}</span>
+            <span class="eh-subject">{it.subject}</span>
+            <span class="eh-summary">{it.summary}</span>
+            <span class="eh-go">开始阅读 <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .eh { --serif-d: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", serif; --latin-d: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif; }
+  .eh-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .eh h1 { margin: 0; font: 500 clamp(2.25rem, 5vw, 3.25rem)/1.25 var(--serif-d); letter-spacing: .06em; color: var(--gallery-ink); }
+  .eh-premise { max-width: 32em; margin: 1rem 0 0; font: 400 1rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+  .eh-list { margin: 3rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--gallery-ink-2); }
+  .eh-list > li { border-bottom: 1px solid var(--gallery-rule); }
+  .eh-item { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+    padding: 2.25rem 0; color: inherit; text-decoration: none; }
+  /* The opening work as a print on paper, shown whole. */
+  .eh-print { display: flex; justify-content: center; }
+  .eh-print img { display: block; width: auto; height: auto; max-width: 100%; max-height: 20rem; padding: .5rem; background: var(--gallery-ink);
+    box-shadow: 0 18px 32px -16px rgb(0 0 0 / .9); transform: rotate(-1.5deg); transition: transform var(--t) var(--ease); }
+  .eh-item:hover .eh-print img, .eh-item:focus-visible .eh-print img { transform: rotate(0deg) translateY(-4px); }
+  .eh-text { display: grid; gap: .5rem; }
+  .eh-no { font: 400 .9375rem/1 var(--latin-d); letter-spacing: .14em; color: var(--gallery-ink-2); }
+  .eh-title { font: 500 clamp(1.5rem, 3vw, 2rem)/1.4 var(--serif-d); letter-spacing: .04em; color: var(--gallery-ink); }
+  .eh-subject { font: 400 .875rem/1.6 var(--sans); letter-spacing: .08em; color: var(--gallery-ink-2); }
+  .eh-summary { max-width: 34em; margin-top: .25rem; font: 400 .9375rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+  .eh-go { margin-top: .5rem; font: 500 .875rem/1.5 var(--sans); letter-spacing: .08em; color: var(--gallery-ink); }
+  .eh-go span { display: inline-block; transition: transform var(--t) var(--ease); }
+  .eh-item:hover .eh-go span, .eh-item:focus-visible .eh-go span { transform: translateX(4px); }
+  .eh-item:focus-visible { outline: 2px solid var(--gallery-ink); outline-offset: 6px; }
+  @media (max-width: 640px) {
+    .eh-item { grid-template-columns: 1fr; gap: 1.25rem; }
+    .eh-print img { max-height: 24rem; }
+  }
+</style>

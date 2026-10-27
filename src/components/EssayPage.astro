@@ -1,0 +1,54 @@
+---
+// One artist story or narrative case, in the lesson reader: the same opening (the work first, on the gallery wall), the
+// same article typography and Continue Reading, a rights block for the opening image. What differs is the voice: these
+// are told as narrative, so the article adds two things a lesson does not need — scene breaks (a markdown `---`) and a
+// closing note that separates what is documented from what is reconstructed (a Callout in the text).
+import { getEntry, render, type CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ArtworkFigure from './ArtworkFigure.astro';
+import ArtworkRights from './ArtworkRights.astro';
+import BackToTop from './BackToTop.astro';
+import ReadingTracker from './ReadingTracker.astro';
+interface Props { entry: CollectionEntry<'essays'> }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const story = entry.data.kind === 'artist-story';
+const hall = story ? { id: 'stories' as const, href: '/stories/', label: '艺术家故事' } : { id: 'cases' as const, href: '/cases/', label: '叙事案例' };
+const art = (await getEntry('artworks', entry.data.hero.artwork.id))!.data;
+const titleLines = entry.data.title.split(/(?<=[，：])/);
+---
+<Base title={`${entry.data.title} · ArtPilot`} description={entry.data.summary} dark nav={{
+  tone: 'gallery',
+  back: { href: hall.href, label: hall.label },
+  hall: hall.id,
+  links: [{ href: '#rights', label: '来源与版权' }],
+}}>
+  <header class="opening">
+    <div class="opening-art"><ArtworkFigure artwork={entry.data.hero.artwork.id} image={entry.data.hero.image} hero /></div>
+    <div class="opening-label">
+      <p class="stage-line"><span>{hall.label}</span><span class="stage-course">{entry.data.subject}</span></p>
+      <p class="kicker">{entry.data.kicker}</p>
+      <h1 tabindex="-1">{titleLines.map((line) => <span>{line}</span>)}</h1>
+      <p class="work">
+        <span class="zh">{art.kind === 'painting' ? `${art.artist?.replace(/（.*）/, '')}《${art.titleZh}》` : art.titleZh}</span>
+        <span class="en" lang="en">{art.titleEn}</span>
+      </p>
+      <p class="lede">{entry.data.summary}</p>
+    </div>
+  </header>
+
+  <article class="lesson essay">
+    <Content />
+    <ArtworkRights artwork={entry.data.hero.artwork.id} />
+  </article>
+  <BackToTop />
+  <ReadingTracker kind={entry.data.kind} id={entry.id} />
+</Base>
+
+<style>
+  /* A scene break: three spaced points, as in a printed novel. */
+  .essay :global(> hr) { margin: 3.5rem 0; border: 0; text-align: center; }
+  .essay :global(> hr)::after { content: "·  ·  ·"; font: 400 1.25rem/1 var(--latin); letter-spacing: .6em; color: var(--silver); }
+  /* A dateline or place line at the head of a scene. */
+  .essay :global(> p.dateline) { margin: 0 0 1.25rem; font: 500 .8125rem/1.6 var(--sans); letter-spacing: .2em; color: var(--ink-3); text-align: left; }
+</style>

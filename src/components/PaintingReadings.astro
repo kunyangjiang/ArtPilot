@@ -1,0 +1,80 @@
+---
+// One painting, several ways it has been read. The painting stays put; choosing a reader (who, and when) changes the
+// note beside it and moves a soft frame to the part of the picture that reading leans on. The point is that a meaning
+// belongs to someone at some time; each note says who. Nothing is scored or stored.
+import { getEntry } from 'astro:content';
+interface Reading { who: string; when: string; text: string; source: string; box?: { x: number; y: number; w: number; h: number } }
+interface Props { artwork: string; image: string; prompt: string; readings: Reading[] }
+const { artwork, image, prompt, readings } = Astro.props;
+const art = (await getEntry('artworks', artwork))!.data;
+const img = art.images.find((i) => i.key === image)!;
+---
+<section class="module pr" data-pr>
+  <p class="module-label">互动 · 谁在读这幅画</p>
+  <h3>{prompt}</h3>
+  <div class="pr-body">
+    <div class="pr-frame">
+      <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
+      <span class="pr-focus" data-focus aria-hidden="true"></span>
+    </div>
+    <div class="pr-side">
+      <div class="pr-tabs" role="group" aria-label="读者">
+        {readings.map((r, i) => (
+          <button type="button" class="pr-tab" data-r={i} aria-pressed={i === 0 ? 'true' : 'false'}
+            data-box={r.box ? `${r.box.x},${r.box.y},${r.box.w},${r.box.h}` : ''}>
+            <span lang="en">{r.when}</span>{r.who}
+          </button>
+        ))}
+      </div>
+      <div class="pr-notes" aria-live="polite">
+        {readings.map((r, i) => (
+          <article data-note={i} hidden={i !== 0}>
+            <p class="pr-text">{r.text}</p>
+            <p class="pr-source">{r.source}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pr-body { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.75rem; align-items: start; }
+  .pr-frame { position: relative; overflow: hidden; }
+  .pr-frame img { display: block; width: 100%; height: auto; }
+  .pr-focus { position: absolute; border: 2px solid #fff; box-shadow: 0 0 0 999px rgb(0 0 0 / .38); opacity: 0;
+    transition: left 600ms var(--ease), top 600ms var(--ease), width 600ms var(--ease), height 600ms var(--ease), opacity 400ms var(--ease); }
+  .pr-focus.is-on { opacity: 1; }
+  .pr-tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .pr-tab { display: grid; gap: .15rem; padding: .6rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); text-align: left;
+    font: 500 .875rem/1.4 var(--sans); cursor: pointer; transition: border-color var(--t) var(--ease), color var(--t) var(--ease); }
+  .pr-tab span { font: 400 .8125rem/1 var(--latin); color: var(--ink-3); }
+  .pr-tab[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+  .pr-notes { margin-top: 1.25rem; }
+  .pr-notes article { animation: pr-in 450ms var(--ease) both; }
+  .pr-text { margin: 0; font: 400 1.0625rem/1.9 var(--serif); }
+  .pr-source { margin: .75rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  @keyframes pr-in { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .pr-focus, .pr-notes article { transition: none; animation: none; } }
+  @media (max-width: 640px) { .pr-body { grid-template-columns: 1fr; } .pr-frame { max-width: 14rem; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pr]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('.pr-tab')];
+    const notes = [...root.querySelectorAll<HTMLElement>('[data-note]')];
+    const focus = root.querySelector<HTMLElement>('[data-focus]')!;
+    const choose = (i: number) => {
+      tabs.forEach((t, k) => t.setAttribute('aria-pressed', String(k === i)));
+      notes.forEach((n, k) => { n.hidden = k !== i; });
+      const box = tabs[i].dataset.box;
+      if (box) {
+        const [x, y, w, h] = box.split(',').map(Number);
+        Object.assign(focus.style, { left: `${x}%`, top: `${y}%`, width: `${w}%`, height: `${h}%` });
+        focus.classList.add('is-on');
+      } else focus.classList.remove('is-on');
+    };
+    tabs.forEach((t, i) => t.addEventListener('click', () => choose(i)));
+    choose(0);
+  });
+</script>

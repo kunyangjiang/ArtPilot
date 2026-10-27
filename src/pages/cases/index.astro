@@ -1,0 +1,10 @@
+---
+// The cases hall: every published article of this kind (src/components/EssayHall.astro).
+import Base from '../../layouts/Base.astro';
+import EssayHall from '../../components/EssayHall.astro';
+---
+<Base title="叙事案例 · ArtPilot" description="叙事案例：从一件作品或一处遗址出发的调查与重建。" dark nav={{ tone: 'gallery', back: { href: '/', label: '首页' }, hall: 'cases', here: true }}>
+  <section class="archive">
+    <EssayHall kind="case" />
+  </section>
+</Base>

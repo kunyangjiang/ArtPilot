@@ -1,0 +1,130 @@
+---
+// One life on three tables: a timeline with a lane for each kind of work (the easel, the museum director's desk, the
+// excavation). Every event is a point on its lane; choosing one opens its note below, and "依次看" walks through them in
+// date order. The lanes draw themselves in when the timeline is first reached. Nothing is scored or stored. Reduced
+// motion: no drawing and no automatic stepping (the reader steps with "下一件").
+interface Event { year: number; lane: 'easel' | 'museum' | 'dig'; title: string; text: string }
+interface Props { prompt: string; from: number; to: number; events: Event[] }
+const { prompt, from, to, events } = Astro.props;
+const lanes = [
+  { id: 'easel', label: '画架' },
+  { id: 'museum', label: '馆长的书桌' },
+  { id: 'dig', label: '发掘坑' },
+] as const;
+const sorted = [...events].sort((a, b) => a.year - b.year);
+const pos = (y: number) => `${((y - from) / (to - from)) * 100}%`;
+const ticks = Array.from({ length: Math.floor((to - from) / 10) + 1 }, (_, k) => from + k * 10);
+---
+<section class="module tt" data-tt>
+  <p class="module-label">互动 · 三张桌子</p>
+  <h3>{prompt}</h3>
+  <div class="tt-chart">
+    {lanes.map((lane, li) => (
+      <div class="tt-lane" style={`--li:${li}`}>
+        <span class="tt-lane-label">{lane.label}</span>
+        <div class="tt-track">
+          <span class="tt-line" aria-hidden="true"></span>
+          {sorted.map((e, i) => e.lane === lane.id && (
+            <button type="button" class="tt-dot" style={`left:${pos(e.year)};--i:${i}`} data-i={i} aria-pressed="false" aria-label={`${e.year} 年：${e.title}`}>
+              <span class="tt-year" lang="en">{e.year}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
+    <div class="tt-axis" aria-hidden="true">
+      {ticks.map((t) => <span style={`left:${pos(t)}`} lang="en">{t}</span>)}
+    </div>
+  </div>
+  <div class="tt-note" data-note aria-live="polite">
+    {sorted.map((e, i) => (
+      <article data-n={i} hidden>
+        <p class="tt-note-head"><b lang="en">{e.year}</b><span>{lanes.find((l) => l.id === e.lane)!.label}</span></p>
+        <p class="tt-note-title">{e.title}</p>
+        <p class="tt-note-text">{e.text}</p>
+      </article>
+    ))}
+    <p class="tt-note-empty" data-empty>点一个圆点，看那一年他在哪张桌子前做了什么。</p>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn btn-primary" data-play>依次看</button>
+    <button type="button" class="btn btn-secondary" data-next>下一件</button>
+  </div>
+</section>
+
+<style>
+  .tt-chart { position: relative; padding-bottom: 2rem; }
+  .tt-lane { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: center; min-height: 3.5rem; }
+  .tt-lane + .tt-lane { border-top: 1px dashed var(--rule); }
+  .tt-lane-label { font: 500 .875rem/1.4 var(--serif); letter-spacing: .06em; }
+  .tt-track { position: relative; height: 3.5rem; margin-inline: .75rem; }
+  .tt-line { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--ink-3); transform-origin: left; }
+  .tt-dot { position: absolute; top: 50%; width: 1.75rem; height: 1.75rem; margin: -.875rem 0 0 -.875rem; padding: 0; border: 0; border-radius: 50%;
+    background: none; cursor: pointer; }
+  .tt-dot::before { content: ""; position: absolute; inset: .45rem; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink);
+    transition: transform var(--t) var(--ease), background var(--t) var(--ease); }
+  .tt-dot:hover::before, .tt-dot:focus-visible::before { transform: scale(1.3); }
+  .tt-dot[aria-pressed="true"]::before { background: var(--ink); transform: scale(1.45); }
+  /* A year shows over its point only when that point is chosen, pointed at or focused: close years would collide. */
+  .tt-year { position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); padding: .15rem .3rem; background: var(--paper);
+    font: 400 .8125rem/1 var(--latin); color: var(--ink); white-space: nowrap; opacity: 0; transition: opacity var(--t) var(--ease); pointer-events: none; }
+  .tt-dot:hover .tt-year, .tt-dot:focus-visible .tt-year, .tt-dot[aria-pressed="true"] .tt-year { opacity: 1; }
+  .tt-dot:hover, .tt-dot:focus-visible, .tt-dot[aria-pressed="true"] { z-index: 1; }
+  .tt-axis { position: absolute; left: 7.25rem; right: .75rem; bottom: 0; height: 1.5rem; border-top: 1px solid var(--rule); }
+  .tt-axis span { position: absolute; top: .4rem; transform: translateX(-50%); font: 400 .75rem/1 var(--latin); color: var(--ink-3); }
+  .tt-note { position: relative; min-height: 9rem; margin-top: 1.25rem; padding: 1.25rem 1.5rem; background: var(--mist); }
+  .tt-note article { animation: tt-in 420ms var(--ease) both; }
+  .tt-note-head { display: flex; gap: .75rem; align-items: baseline; margin: 0; }
+  .tt-note-head b { font: 400 1.75rem/1 var(--latin); font-weight: 400; }
+  .tt-note-head span { font: 500 .75rem/1.5 var(--sans); letter-spacing: .16em; color: var(--ink-3); }
+  .tt-note-title { margin: .5rem 0 0; font: 500 1.0625rem/1.6 var(--serif); }
+  .tt-note-text { margin: .35rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .tt-note-empty { margin: 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-3); }
+  @keyframes tt-in { from { opacity: 0; transform: translateY(8px); } }
+  @keyframes tt-draw { from { transform: scaleX(0); } }
+  @keyframes tt-pop { from { opacity: 0; transform: scale(.4); } }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.tt.is-in) .tt-line { animation: tt-draw 900ms var(--ease) both; animation-delay: calc(var(--li) * 160ms); }
+    :global(.tt.is-in) .tt-dot { animation: tt-pop 420ms var(--ease) both; animation-delay: calc(500ms + var(--i) * 70ms); }
+    :global(.tt:not(.is-in)) .tt-dot { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tt-note article { animation: none; } }
+  @media (max-width: 640px) {
+    .tt-lane { grid-template-columns: 1fr; min-height: 0; padding-top: .5rem; }
+    .tt-lane-label { font-size: .8125rem; }
+    .tt-axis { left: .75rem; }
+    .tt-year { font-size: .625rem; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tt]').forEach((root) => {
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('.tt-dot')].sort((a, b) => Number(a.dataset.i) - Number(b.dataset.i));
+    const notes = [...root.querySelectorAll<HTMLElement>('[data-n]')];
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+    const play = root.querySelector<HTMLButtonElement>('[data-play]')!;
+    const still = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = -1;
+    let timer = 0;
+    const show = (i: number) => {
+      current = i;
+      dots.forEach((d) => d.setAttribute('aria-pressed', String(Number(d.dataset.i) === i)));
+      notes.forEach((n) => { n.hidden = Number(n.dataset.n) !== i; });
+      empty.hidden = true;
+    };
+    const stop = () => { clearInterval(timer); timer = 0; play.textContent = '依次看'; };
+    dots.forEach((d) => d.addEventListener('click', () => { stop(); show(Number(d.dataset.i)); }));
+    root.querySelector('[data-next]')!.addEventListener('click', () => { stop(); show((current + 1) % notes.length); });
+    play.addEventListener('click', () => {
+      if (timer) { stop(); return; }
+      show((current + 1) % notes.length);
+      if (still.matches) return;
+      play.textContent = '停下';
+      timer = window.setInterval(() => {
+        if (current + 1 >= notes.length) { stop(); return; }
+        show(current + 1);
+      }, 2600);
+    });
+    new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { root.classList.add('is-in'); o.disconnect(); } }), { threshold: 0.35 }).observe(root);
+  });
+</script>

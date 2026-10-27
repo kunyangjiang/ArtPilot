@@ -43,7 +43,7 @@ test('claiming a second card keeps the first one and its date', () => {
 });
 
 // One design for every card: a complete face, a unique issue number, and an image that belongs to the artwork.
-test('every card face is complete and every card number is unique', () => {
+test('every card face is complete and every card number is unique', async () => {
   const dir = new URL('../src/content/artworks/', import.meta.url);
   const cards = readdirSync(dir).filter((f) => f.endsWith('.json'))
     .map((f) => JSON.parse(readFileSync(new URL(f, dir), 'utf8')))
@@ -52,14 +52,17 @@ test('every card face is complete and every card number is unique', () => {
   const have = cards.map((a) => a.id);
   for (const id of ['art-chartres-cathedral-001', 'art-fan-kuan-travelers-001']) assert.ok(have.includes(id), `${id} keeps its card`);
   assert.equal(new Set(have).size, have.length, 'one card per artwork');
-  // A card's number is the course of the one lesson that awards it; it is never stored on the card.
+  // A card's number is the course of the one lesson that awards it, or, for a card no lesson awards, its number in the
+  // artist series (src/lib/publication.js); it is never stored on the card.
   const lessonDir = new URL('../src/content/lessons/', import.meta.url);
   const lessons = readdirSync(lessonDir).filter((f) => f.endsWith('.mdx')).map((f) => readFileSync(new URL(f, lessonDir), 'utf8'))
     .map((src) => ({ artwork: src.match(/^artwork: (\S+)$/m)?.[1], course: Number(src.match(/^course: (\d+)$/m)?.[1]) }));
+  const { artistCardNumber } = await import('../src/lib/publication.js');
   const numbers = cards.map((art) => {
     const awarding = lessons.filter((l) => l.artwork === art.id);
-    assert.equal(awarding.length, 1, `${art.id}: exactly one lesson awards this card`);
-    return cardNumber(awarding[0].course);
+    const artist = artistCardNumber(art.id);
+    assert.equal(awarding.length + (artist ? 1 : 0), 1, `${art.id}: exactly one lesson, or one artist-series number, awards this card`);
+    return artist ?? cardNumber(awarding[0].course);
   });
   assert.equal(new Set(numbers).size, cards.length, 'card numbers are unique');
   assert.equal(numbers[cards.findIndex((a) => a.id === 'art-fan-kuan-travelers-001')], '001', 'Fan Kuan (course 1) is No.001');
@@ -111,7 +114,7 @@ test('the collection shows this browser\'s cards only, in cabinets, with one pla
   assert.match(cc, /<div class="cc-pool" hidden>/, 'every card starts hidden');
   assert.equal([...cc.matchAll(/<ArtworkCard /g)].length, 1, 'each published card is rendered once (thumbnails are copies)');
   assert.equal([...cc.matchAll(/class="cc-more"/g)].length, 1, 'exactly one placeholder');
-  assert.match(cc, /\.sort\(\(a, b\) => a\.course - b\.course\)/, 'card-number (course) order');
+  assert.match(cc, /\.sort\(\(a, b\) => a\.no\.localeCompare\(b\.no\)\)/, 'card-number order (the course cards, then the artist series)');
   assert.match(cc, /mine = cards\.filter\(\(c\) => claimed\[c\.id\]\)/, 'only claimed cards are shown');
   assert.doesNotMatch(cc, /sample|\?set=|示例/, 'no preview fixtures in production');
 });

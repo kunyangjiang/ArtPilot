@@ -1,0 +1,626 @@
+---
+// PREVIEW ONLY (/preview/home-gallery-enriched/): the accepted Exhibition Wall with an enriched exhibition environment
+// on the desktop and a recomposed "pocket gallery" on phones. Started from a copy of src/components/home/ExhibitionWall.astro;
+// production is not touched. It reads the same lessons, artwork records and cards as src/pages/index.astro, read-only,
+// and its scripts only read this browser's reading and collection records.
+//
+// The homepage: the Exhibition Wall accepted in Phase 4.1A. One authored wall in the gallery: a tall anchor work with a
+// second course hung beside it, then a lower wall where the other areas are hung as works and wall labels. Five areas,
+// each with its own label; only areas that exist are links. No grid of equal cards.
+// The two works on the first wall rotate daily among the lessons that opt in (`featured` in their frontmatter); the
+// page is built with a fixed default pair, so it reads the same without JavaScript. The lower wall stays as hung.
+import '../../styles/fonts.css';
+import { destinations, SOON, homeImages } from '../../data/home';
+import { stages as syllabus } from '../../data/curriculum';
+import { assignSlots } from '../../lib/featured.js';
+import featuredSource from '../../lib/featured.js?raw';
+import { inCourseOrder, cardNumber } from '../../lib/publication.js';
+import { getCollection, getEntry } from 'astro:content';
+import { fitsWall } from '../../lib/featured.js';
+import { imageCredit } from '../../lib/credits.js';
+type Lesson = { id: string; title: string; course: number; workLabel: string; image?: { src: string; alt: string; width: number; height: number; credit: { by: string; licence: string; licenceUrl?: string; href: string } } };
+// The same data src/pages/index.astro gives the production wall.
+const unordered: Lesson[] = await Promise.all((await getCollection('lessons')).map(async (l) => {
+  const base = { id: l.id, title: l.data.title, course: l.data.course, workLabel: l.data.workLabel, artwork: l.data.artwork.id };
+  if (!l.data.featured) return base;
+  const art = (await getEntry('artworks', l.data.artwork.id))!.data;
+  const img = art.images.find((i) => i.key === l.data.featured!.image)!;
+  if (!img.width || !img.height || !fitsWall(img.width, img.height)) return base;
+  return { ...base, image: { src: img.src, alt: img.alt, width: img.width, height: img.height, credit: imageCredit(img, art) } };
+}));
+const courseOf = new Map(unordered.map((l: any) => [l.artwork, l.course]));
+const cards = (await getCollection('artworks')).filter((a) => a.data.card && courseOf.has(a.id))
+  .map((a) => ({ id: a.id, no: cardNumber(courseOf.get(a.id)!), title: a.data.titleZh }))
+  .sort((a, b) => a.no.localeCompare(b.no));
+const lessons = inCourseOrder(unordered);
+const d = Object.fromEntries(destinations.map((x) => [x.id, x]));
+// Featured candidates in their fixed editorial order (by course). The first two are the no-JavaScript default.
+const pool = lessons.flatMap((l, order) => (l.image ? [{ ...l, image: l.image, order, aspect: l.image.width / l.image.height }] : []));
+const first = assignSlots(pool.slice(0, 2));
+const slotOf = (id: string) => (first.anchor?.id === id ? 'anchor' : first.second?.id === id ? 'second' : undefined);
+const candidates = [first.anchor, first.second, ...pool.slice(2)].filter((c): c is (typeof pool)[number] => Boolean(c));
+// The same choice the page makes in the browser: src/lib/featured.js, minus its `export` keywords, run before first paint.
+const chooseScript = `(function(){${featuredSource.replace(/^\/\/.*\r?\n/gm, '').replace(/^export /gm, '')}
+function run(){var wall=document.querySelector('.xw-wall-1');if(!wall)return;
+var els=[].slice.call(wall.querySelectorAll('[data-feature]'));if(!els.length)return;
+var pool=els.map(function(e){return{id:e.getAttribute('data-feature'),aspect:parseFloat(e.getAttribute('data-aspect')),order:+e.getAttribute('data-order'),el:e}}).sort(function(a,b){return a.order-b.order});
+var pick=pickFeatured(pool,dayNumber());
+els.forEach(function(e){var slot=pick.anchor&&pick.anchor.el===e?'anchor':pick.second&&pick.second.el===e?'second':'';e.hidden=!slot;e.classList.toggle('xw-anchor',slot==='anchor');e.classList.toggle('xw-second',slot==='second');if(slot){var img=e.querySelector('img');if(img)img.loading='eager'}});
+var intro=wall.querySelector('.xw-intro');if(pick.anchor)wall.insertBefore(pick.anchor.el,intro.nextSibling);if(pick.second)wall.insertBefore(pick.second.el,(pick.anchor?pick.anchor.el:intro).nextSibling);
+credits(pick);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){credits(pick)},{once:true})}
+function credits(pick){var box=document.querySelector('[data-feature-credits]');if(!box)return;
+[].slice.call(box.children).forEach(function(p){p.hidden=true});
+[pick.anchor,pick.second].forEach(function(c){var p=c&&box.querySelector('[data-credit-for="'+c.id+'"]');if(p){p.hidden=false;box.appendChild(p)}})}
+run();addEventListener('pageshow',function(e){if(e.persisted)run()})})();`;
+// What "continue reading" may show: the articles this build has, by kind (stories and cases come later).
+const registry = {
+  lesson: { label: '课程', items: Object.fromEntries(lessons.map((l) => [l.id, { title: l.title, href: `/lessons/${l.id}/` }])) },
+  'artist-story': { label: d.stories.label, items: {} },
+  case: { label: d.cases.label, items: {} },
+};
+// The approved curriculum route (seven recommended stages), shown as a route, not as content that exists.
+const stages = syllabus.map((s) => s.title);
+const { wave, nataraja } = homeImages;
+// The five areas are permanent; only their availability changes. Whether an area is open comes from its `href` in
+// src/data/home.ts, and nothing about its size or place depends on it: opening one turns its label into a link and its
+// "in preparation" note into an entrance, with no other change to this page.
+const latin = (t: string) => (/^[\x20-\x7e]+$/.test(t) ? 'en' : undefined);
+// An area being prepared is a focusable label that says so; an open one has a linked name and an entrance.
+const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0, role: 'link', 'aria-disabled': 'true' });
+---
+<div class="xw ge">
+  <header class="xw-top">
+    <span class="xw-mark">ArtPilot</span>
+    <span class="xw-tag">全球艺术史 · 数字美术馆</span>
+  </header>
+
+  <section class="xw-wall xw-wall-1" aria-labelledby="xw-title">
+    <!-- The exhibition environment (desktop): the bay the anchor work hangs in, a soft light on that part of the wall. -->
+    <div class="ge-bay" aria-hidden="true"></div>
+    <div class="xw-intro">
+      <p class="xw-kicker">全球艺术史与艺术鉴赏</p>
+      <h1 id="xw-title"><span>从一件作品开始，</span><span>走进全球艺术史。</span></h1>
+      <p class="xw-lede">ArtPilot 是一座数字美术馆，分为五个展区：课程、艺术家故事、叙事案例、同时代的世界与藏品图鉴。</p>
+
+      <nav class="xw-plan" aria-label="五个展区">
+        <p class="xw-plan-head">五个展区</p>
+        <ol>
+          {destinations.map((x) => (
+            <li><a href={`#hall-${x.id}`}>
+              <span class="xw-plan-no" lang="en">{x.no}</span>
+              <span class="xw-plan-label">{latin(x.label) ? x.sub : x.label}</span>
+              {!x.href && <span class="xw-plan-state">筹备中</span>}
+            </a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="xw-label xw-courses" data-zone="courses">
+        <p class="xw-no" id="hall-courses">{d.courses.no}</p>
+        <h2><a href={d.courses.href}>{d.courses.label}</a></h2>
+        <p class="xw-sub" lang="en">{d.courses.sub}</p>
+        <p class="xw-premise">{d.courses.premise}</p>
+        <a class="xw-go-primary" href={d.courses.href}>
+          <span class="xw-go-main">进入课程</span><span class="xw-go-arrow" aria-hidden="true"></span>
+          <span class="xw-go-meta">查看已开放的 {lessons.length} 门</span>
+        </a>
+        <p class="xw-continue" data-continue>
+          <span class="xw-continue-kind" data-continue-kind>继续阅读</span>
+          <a class="xw-continue-link" data-continue-link href="/courses/"></a>
+          <span class="xw-continue-p" data-continue-p></span>
+          <!-- Phones only: how far, and the way back in. -->
+          <span class="ge-bar" aria-hidden="true"><span data-continue-bar></span></span>
+          <a class="ge-resume" data-continue-resume href="/courses/">从上次读到的地方继续 <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+    </div>
+
+    {candidates.map((c) => {
+      const slot = slotOf(c.id);
+      return (
+        <a class:list={['xw-work', slot && `xw-${slot}`]} href={`/lessons/${c.id}/`} data-feature={c.id} data-aspect={c.aspect.toFixed(4)} data-order={c.order} hidden={!slot}>
+          <img src={c.image.src} alt={c.image.alt} width={c.image.width} height={c.image.height} style={`--w:${c.image.width};--h:${c.image.height}`} loading="lazy" />
+          <span class="xw-cap"><span>课程 · 已开放</span>{c.workLabel}<em>{c.title}</em></span>
+        </a>
+      );
+    })}
+    <script is:inline set:html={chooseScript}></script>
+
+    <p class="xw-route" aria-label="课程路线（规划中，陆续开放）">
+      <span class="xw-route-head">课程路线 · 规划中，陆续开放</span>
+      {stages.map((s) => <span>{s}</span>)}
+    </p>
+  </section>
+
+  <section class="xw-wall xw-wall-2" aria-label="其他展区">
+    <!-- A free-standing partition behind the lower wall's works, a shade lighter than the room. -->
+    <div class="ge-partition" aria-hidden="true"></div>
+    <figure class="xw-hung xw-wave">
+      <img src={wave.img.src} width={wave.img.width} height={wave.img.height} alt={wave.alt} loading="lazy" />
+    </figure>
+    <div class:list={['xw-label xw-stories', { 'xw-soon': !d.stories.href }]} data-zone="stories" {...soon(d.stories)}>
+      <p class="xw-no" id="hall-stories">{d.stories.no}</p>
+      <h2>{d.stories.href ? <a href={d.stories.href}>{d.stories.label}</a> : d.stories.label}</h2>
+      <p class="xw-sub" lang="en">{d.stories.sub}</p>
+      <p class="xw-premise">{d.stories.premise}</p>
+      {d.stories.href ? <a class="xw-go" href={d.stories.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
+    </div>
+
+    <div class:list={['xw-label xw-cases', { 'xw-soon': !d.cases.href }]} data-zone="cases" {...soon(d.cases)}>
+      <p class="xw-no xw-no-large" id="hall-cases">{d.cases.no}</p>
+      <h2 lang="en">{d.cases.href ? <a href={d.cases.href}>{d.cases.label}</a> : d.cases.label}</h2>
+      <p class="xw-sub">{d.cases.sub}</p>
+      <p class="xw-premise">{d.cases.premise}</p>
+      {d.cases.href ? <a class="xw-go" href={d.cases.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
+    </div>
+
+    <div class="xw-pair">
+      <figure class="xw-hung xw-bronze">
+        <img src={nataraja.img.src} width={nataraja.img.width} height={nataraja.img.height} alt={nataraja.alt} loading="lazy" />
+      </figure>
+      <figure class="xw-hung xw-glass">
+        <img src="/img/chartres-samaritan.jpg" alt="沙特尔主教座堂“好撒马利亚人”窗中的一格：撒马利亚人照料受伤的路人。" loading="lazy" />
+      </figure>
+      <div class:list={['xw-label xw-atlas', { 'xw-soon': !d.atlas.href }]} data-zone="atlas" {...soon(d.atlas)}>
+        <p class="xw-no" id="hall-atlas">{d.atlas.no}</p>
+        <h2>{d.atlas.href ? <a href={d.atlas.href}>{d.atlas.label}</a> : d.atlas.label}</h2>
+        <p class="xw-sub" lang="en">{d.atlas.sub}</p>
+        <p class="xw-premise">{d.atlas.premise}比如约 1200 年前后：泰米尔纳德的青铜舞王像，与沙特尔的彩色玻璃。</p>
+        {d.atlas.href ? <a class="xw-go" href={d.atlas.href}>进入展区 <span aria-hidden="true">→</span></a> : <p class="xw-state">{SOON}</p>}
+      </div>
+    </div>
+
+    <a class="xw-label xw-collection" data-zone="collection" href={d.collection.href}>
+      <p class="xw-no" id="hall-collection">{d.collection.no}</p>
+      <h2 lang="en">{d.collection.label}</h2>
+      <p class="xw-sub">{d.collection.sub}</p>
+      <p class="xw-premise">{d.collection.premise}</p>
+      <!-- This browser's own cards: hidden until the script below finds claims; at most two, then the total. -->
+      <ol class="xw-vitrine" data-vitrine hidden>
+        {cards.map((c) => <li data-card-row={c.id} hidden><span>No.{c.no}</span>{c.title}</li>)}
+        <li class="xw-vitrine-more" data-card-total hidden><span>共 <b data-card-count></b> 张</span>已收集</li>
+      </ol>
+      <span class="xw-go">进入藏品图鉴 <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <script type="application/json" data-reading-registry set:html={JSON.stringify(registry).replace(/</g, "\u003c")}></script>
+  <footer class="xw-credits">
+    <p>{wave.caption} {wave.credit}，<a href={wave.source}>来源</a>。</p>
+    <p>{nataraja.caption} {nataraja.credit}，<a href={nataraja.source}>来源</a>。</p>
+    <!-- The two featured works' own credits (the rest are hidden); full rights are on each lesson page. -->
+    <div data-feature-credits>
+      {candidates.map((c) => <p data-credit-for={c.id} hidden={!slotOf(c.id)}>{c.workLabel}。图片：{c.image.credit.by}，{c.image.credit.licenceUrl ? <a href={c.image.credit.licenceUrl}>{c.image.credit.licence}</a> : c.image.credit.licence}，<a href={c.image.credit.href}>来源</a>。</p>)}
+    </div>
+    <p>今日展出作品的完整来源与授权，见各课程页的“来源与版权”。</p>
+  </footer>
+</div>
+
+<style>
+  /* Self-hosted type (src/styles/fonts.css), the same on every system; local fonts only for characters outside the subset. */
+  .xw {
+    --serif: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --sans: "ArtPilot Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --latin: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif;
+    --gutter: clamp(1.5rem, 4vw, 4.5rem);
+    min-height: 100vh; background: var(--gallery); color: var(--gallery-ink); padding: 0 var(--gutter) 4rem; }
+  .xw-top { display: flex; justify-content: space-between; align-items: baseline; padding: 1.6rem 0 0; }
+  .xw-mark { font: 400 1.0625rem/1 var(--latin); letter-spacing: .32em; text-transform: uppercase; }
+  .xw-tag { font: 400 .75rem/1 var(--sans); letter-spacing: .14em; color: var(--gallery-ink-2); }
+
+  /* Wall 1: intro and the courses label on the left, the anchor work in the middle, a smaller work hung lower. */
+  .xw-wall-1 {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); column-gap: clamp(2rem, 4vw, 4.5rem);
+    align-items: end; padding-top: clamp(2.5rem, 6vh, 4.5rem);
+  }
+  .xw-intro { align-self: stretch; display: flex; flex-direction: column; }
+  .xw-kicker { margin: 0 0 1.25rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .xw h1 { margin: 0; font: 500 clamp(2.25rem, 3.4vw, 3.25rem)/1.35 var(--serif); letter-spacing: .04em; }
+  .xw h1 span { display: block; }
+  .xw-lede { max-width: 26em; margin: 1.5rem 0 0; font: 400 1.0625rem/1.85 var(--serif); color: var(--gallery-ink-2); }
+  .xw-courses { margin-top: auto; padding-top: 2.5rem; }
+
+  /* Works: true colour, hung without frames; a link work lifts its caption on hover/focus. */
+  .xw-work { display: block; color: inherit; text-decoration: none; }
+  .xw-work[hidden] { display: none; }
+  .xw-work img, .xw-hung img { display: block; width: 100%; height: auto; }
+  /* The size an image will have once loaded, known before it loads (--w and --h are its pixel size): the tallest it may
+     be, the width that gives, the column it sits in and its own width. A box that fills in only when the file arrives
+     would push the wall around. */
+  .xw-anchor { --hmax: 78vh; }
+  .xw-second { --hmax: 54vh; align-self: end; margin-bottom: 6vh; }
+  .xw-anchor img, .xw-second img { width: min(100%, calc(var(--hmax) * var(--w) / var(--h)), calc(var(--w) * 1px)); max-height: var(--hmax); }
+  .xw-anchor img { margin-inline: auto; }
+  .xw-cap { display: block; margin-top: .85rem; font: 400 .8125rem/1.7 var(--sans); letter-spacing: .04em; color: var(--gallery-ink-2); }
+  .xw-cap span { display: block; font-size: .6875rem; letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .xw-cap em { display: block; font: 500 .9375rem/1.6 var(--serif); font-style: normal; color: var(--gallery-ink); }
+  .xw-work img { transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+  .xw-work:hover img, .xw-work:focus-visible img { transform: translateY(-4px); box-shadow: 0 18px 40px rgb(0 0 0 / .45); }
+  .xw-work:hover em, .xw-work:focus-visible em { text-decoration: underline 1px; text-underline-offset: .3em; }
+
+  .xw-route { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin: 3rem 0 0; padding-top: 1.1rem; border-top: 1px solid var(--gallery-rule); font: 400 .8125rem/1.6 var(--serif); color: var(--gallery-ink-2); }
+  .xw-route-head { flex-basis: 100%; font: 500 .6875rem/1.5 var(--sans); letter-spacing: .2em; }
+  .xw-route span:not(.xw-route-head) + span:not(.xw-route-head)::before { content: "—"; margin-right: 1.6rem; color: var(--gallery-rule); }
+
+  /* Wall labels: the destination itself. Number, label, premise, state. */
+  .xw-label { display: block; color: inherit; text-decoration: none; border-radius: 2px; }
+  .xw-label h2 { margin: .1rem 0 0; font: 500 1.5rem/1.4 var(--serif); letter-spacing: .05em; }
+  .xw-label h2 a { color: inherit; text-decoration: none; }
+  .xw-no { margin: 0; font: 400 .875rem/1 var(--latin); letter-spacing: .1em; color: var(--gallery-ink-2); }
+  .xw-no-large { font-size: 4.5rem; color: var(--gallery-rule); letter-spacing: 0; margin-bottom: .5rem; }
+  .xw-sub { margin: .3rem 0 0; font: italic 400 .9375rem/1.4 var(--latin); color: var(--gallery-ink-2); }
+  .xw-premise { max-width: 24em; margin: .9rem 0 0; font: 400 .9375rem/1.8 var(--sans); letter-spacing: .02em; color: var(--gallery-ink-2); }
+  .xw-state { display: inline-block; margin: 1rem 0 0; padding: .2rem .7rem; border: 1px dashed var(--gallery-rule); border-radius: 999px; font: 500 .6875rem/1.6 var(--sans); letter-spacing: .16em; color: var(--gallery-ink-2); }
+  .xw-go { display: inline-block; margin-top: 1.2rem; color: var(--gallery-ink); font: 500 .875rem/1.5 var(--sans); letter-spacing: .08em; text-decoration: none; border-bottom: 1px solid var(--gallery-ink-2); padding-bottom: .15rem; }
+  .xw-go:hover, .xw-collection:hover .xw-go { border-bottom-color: var(--gallery-ink); }
+  .xw-go span { display: inline-block; transition: transform var(--t) var(--ease); }
+  /* The primary entrance: the one action set in the display serif, with a drawn arrow that reaches further on hover or
+     focus. No box or fill; it stays a line of type on the wall. */
+  .xw-go-primary { display: inline-grid; grid-template-columns: auto auto; align-items: center; column-gap: 1.1rem; margin-top: 2rem; color: var(--gallery-ink); text-decoration: none; }
+  .xw-go-main { font: 500 clamp(1.5rem, 2vw, 1.875rem)/1.3 var(--serif); letter-spacing: .08em; text-decoration: underline 1px transparent; text-underline-offset: .32em; transition: text-decoration-color var(--t) var(--ease); }
+  .xw-go-arrow { position: relative; width: 2.75rem; height: 1px; background: currentColor; transition: width var(--t) var(--ease); }
+  .xw-go-arrow::after { content: ""; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+  .xw-go-meta { grid-column: 1 / -1; margin-top: .4rem; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .12em; color: var(--gallery-ink-2); white-space: nowrap; }
+  .xw-go-primary:hover .xw-go-main, .xw-go-primary:focus-visible .xw-go-main { text-decoration-color: var(--gallery-ink-2); }
+  .xw-go-primary:hover .xw-go-arrow, .xw-go-primary:focus-visible .xw-go-arrow { width: 4rem; }
+  .xw-go:hover span, .xw-collection:hover .xw-go span, .xw-collection:focus-visible .xw-go span { transform: translateX(4px); }
+
+  /* Areas in preparation: present and focusable, but plainly not open. */
+  .xw-soon h2, .xw-soon .xw-premise { color: var(--gallery-ink-2); }
+  .xw-soon { cursor: default; transition: opacity var(--t) var(--ease); }
+  .xw-soon:hover .xw-state, .xw-soon:focus-visible .xw-state { border-style: solid; color: var(--gallery-ink); }
+  .xw :focus-visible { outline: 2px solid var(--gallery-ink); outline-offset: 6px; }
+
+  /* Wall 2: a wide print, a label, a text-only interjection, a pair of works, and the collection vitrine. */
+  .xw-wall-2 {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr); grid-template-rows: auto auto;
+    column-gap: clamp(2rem, 4vw, 4.5rem); row-gap: clamp(3rem, 7vh, 5rem); margin-top: clamp(5rem, 12vh, 8rem); align-items: start;
+  }
+  .xw-wave { grid-column: 1; grid-row: 1; margin: 0; }
+  .xw-stories { grid-column: 2; grid-row: 1; align-self: end; }
+  .xw-cases { grid-column: 3; grid-row: 1; align-self: start; padding-top: 1rem; border-top: 1px solid var(--gallery-rule); }
+  .xw-pair { grid-column: 1 / 3; grid-row: 2; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(0, 4fr); gap: clamp(1.25rem, 2.5vw, 2.5rem); align-items: end; }
+  .xw-bronze, .xw-glass { margin: 0; }
+  .xw-glass { align-self: center; }
+  .xw-collection { grid-column: 3; grid-row: 2; align-self: end; padding: 1.75rem; border: 1px solid var(--gallery-rule); }
+  .xw-collection:hover { border-color: var(--gallery-ink-2); }
+  .xw-vitrine { margin: 1.25rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; font: 400 .9375rem/1.6 var(--serif); }
+  .xw-vitrine span { display: inline-block; min-width: 4.5em; font: italic 400 .8125rem/1 var(--latin); color: var(--gallery-ink-2); }
+  .xw-vitrine-more { color: var(--gallery-ink-2); }
+  .xw-vitrine-more span { font: 400 .8125rem/1 var(--sans); letter-spacing: .08em; }
+  .xw-vitrine-more b { font-weight: inherit; }
+
+  /* Continue reading: one line under a hairline, below the primary entrance and smaller than it. The line always keeps
+     its place (invisible when there is nothing to resume), and a long title is cut to fit, so the label never changes
+     height. */
+  .xw-continue { display: flex; align-items: baseline; gap: .85rem; max-width: 28rem; margin: 1.75rem 0 0; padding-top: .8rem;
+    height: 1.4rem; border-top: 1px solid var(--gallery-rule); font: 400 .6875rem/1.6 var(--sans); letter-spacing: .18em; color: var(--gallery-ink-2); visibility: hidden; }
+  .xw-continue.is-on { visibility: visible; }
+  .xw-continue-kind, .xw-continue-p { flex: none; }
+  .xw-continue-p { letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+  .xw-continue-link { flex: 1 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--gallery-ink);
+    font: 400 .875rem/1.6 var(--serif); letter-spacing: .03em; text-decoration: underline 1px transparent; text-underline-offset: .3em; }
+  .xw-continue-link:hover, .xw-continue-link:focus-visible { text-decoration-color: var(--gallery-ink-2); }
+
+  /* The plan of the five rooms is for phones; on the wall the rooms are in view together. */
+  .xw-plan { display: none; }
+
+  .xw-credits { margin-top: clamp(4rem, 10vh, 6rem); padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); font: 400 .75rem/1.8 var(--sans); color: var(--gallery-ink-2); }
+  .xw-credits p { margin: 0; }
+  .xw-credits a { color: var(--gallery-ink-2); }
+
+  /* Phones: a gallery walk, not the wall in one long column. The title, then a plan of the five rooms, then the rooms in
+     order. Every room opens the same way (a rule, its number, its name, one line on what it is, its entrance or its
+     "in preparation" note) and then shows what it is made of: today's two works for the courses, the wave for the
+     artist stories, a passage of text for the cases, the bronze and the glass for the world at the same time, the
+     card list for the collection. Sizes follow the content, never whether a room is open yet.
+     The page becomes one two-column grid; the walls and labels hand their parts to it (display: contents). */
+  @media (max-width: 900px) {
+    .xw { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); column-gap: 1rem; align-items: end; padding-bottom: 2.5rem; }
+    .xw-wall-1, .xw-wall-2, .xw-intro, .xw-courses, .xw-pair { display: contents; }
+    :where(.xw, .xw-wall-1, .xw-wall-2, .xw-intro, .xw-courses, .xw-pair) > * { grid-column: 1 / -1; }
+    .xw-wave, .xw-stories, .xw-cases, .xw-atlas, .xw-collection { grid-area: auto / 1 / auto / -1; }
+    .xw-top { order: 0; padding-top: 1.25rem; }
+    .xw-kicker, .xw h1, .xw-lede { order: 1; }
+    .xw-plan { order: 2; }
+    .xw-courses > * { order: 10; }
+    .xw-work { order: 11; }
+    .xw-courses > .xw-go-primary, .xw-courses > .xw-continue { order: 12; }
+    .xw-stories { order: 20; }
+    .xw-wave { order: 21; }
+    .xw-cases { order: 30; }
+    .xw-atlas { order: 40; }
+    .xw-bronze, .xw-glass { order: 41; }
+    .xw-collection { order: 50; }
+    .xw-credits { order: 60; }
+    .xw-route { display: none; }
+
+    /* Opening */
+    .xw-kicker { margin: 2.25rem 0 .85rem; }
+    .xw h1 { font-size: clamp(1.875rem, 8.2vw, 2.5rem); }
+    .xw-lede { margin-top: 1.25rem; font-size: 1rem; }
+
+    /* The plan: five rooms, five equal places. */
+    .xw-plan { display: block; margin-top: 2.25rem; }
+    .xw-plan-head { margin: 0 0 .6rem; font: 500 .6875rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+    .xw-plan ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--gallery-ink-2); }
+    .xw-plan li + li { border-left: 1px solid var(--gallery-rule); }
+    .xw-plan a { display: grid; align-content: start; gap: .4rem; height: 100%; padding: .7rem .4rem .3rem .45rem; color: inherit; text-decoration: none; }
+    .xw-plan-no { font: 400 1.625rem/1 var(--latin); }
+    .xw-plan-label { min-height: 2.9em; font: 500 .6875rem/1.45 var(--sans); letter-spacing: .03em; }
+    .xw-plan-state { font: 400 .5625rem/1.4 var(--sans); letter-spacing: .14em; color: var(--gallery-ink-2); }
+
+    /* Every room opens the same way. */
+    .xw-courses > .xw-no, .xw-stories, .xw-cases, .xw-atlas, .xw-collection { margin-top: 3.5rem; padding-top: 1.1rem; border-top: 1px solid var(--gallery-rule); }
+    .xw-no, .xw-no-large { margin: 0 0 .35rem; font: 400 2.75rem/.9 var(--latin); letter-spacing: 0; color: var(--gallery-ink); scroll-margin-top: 1.5rem; }
+    .xw-label h2 { font-size: 1.375rem; }
+    .xw-soon h2 { color: var(--gallery-ink); }
+    .xw-cases { padding-top: 1.1rem; }
+    .xw-collection { padding: 1.1rem 0 0; border-width: 1px 0 0; }
+    .xw-go-primary { margin-top: 1.5rem; }
+    .xw-go-main { font-size: 1.375rem; }
+    .xw-continue { display: none; max-width: none; margin-top: 1.25rem; }
+    .xw-continue.is-on { display: flex; }
+
+    /* What each room is made of */
+    .xw-work { margin-top: 1.5rem; }
+    .xw-anchor { grid-column: 1; --hmax: 60vh; }
+    .xw-second { grid-column: 2; --hmax: 42vh; margin-bottom: 0; }
+    .xw-cap { margin-top: .6rem; font-size: .75rem; line-height: 1.55; }
+    .xw-cap > span { display: none; }
+    .xw-cap em { margin-top: .15rem; font-size: .8125rem; line-height: 1.5; }
+    .xw-wave { margin: 1.5rem calc(-1 * var(--gutter)) 0; }
+    .xw-wave img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% 55%; }
+    .xw-cases .xw-premise { max-width: none; margin-top: 1.25rem; padding-left: 1rem; border-left: 1px solid var(--gallery-ink-2); font: 400 1.25rem/1.75 var(--serif); letter-spacing: .03em; color: var(--gallery-ink); }
+    .xw-bronze, .xw-glass { margin-top: 1.5rem; }
+    .xw-bronze { grid-column: 1; }
+    .xw-glass { grid-column: 2; align-self: end; }
+    .xw-credits { margin-top: 3.5rem; }
+  }
+
+  /* Phones, walking through the five rooms. Every part of a room rises into place as it comes up from the bottom of
+     the screen, is still and fully opaque through the middle of the screen, and drifts up and fades only as it reaches
+     the top edge. Driven by scroll position alone (CSS view timelines): scrolling back plays the same sequence in
+     reverse, and nothing depends on time or scroll direction. One vocabulary for all five rooms: room text moves least
+     (running text least of all), works more, and each room's smaller second work most, so it settles just after the
+     first. Each part moves on its own, so a part leaves only when it is itself at the edge, never because the rest of
+     its room has gone. Progressive: without view timelines, or with reduced motion, none of this applies and
+     everything is simply there. */
+  @keyframes xw-rise { from { opacity: 0; transform: translateY(var(--rise)) scale(var(--grow, 1)); } to { opacity: 1; transform: none; } }
+  @keyframes xw-drift { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(var(--drift)) scale(var(--grow, 1)); } }
+  @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *,
+      .xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass {
+        --rise: 80px; --drift: -64px;
+        /* The drift does not fill: before a part starts to leave, and again once it has left the screen entirely, the
+           rise alone decides how it looks. A part that stayed at opacity 0 while out of sight would not be kept ready
+           to draw (Chrome skips fully transparent layers), and on the way back it could be missing for a moment. */
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, none; animation-timing-function: ease-out, ease-in;
+      }
+      .xw-courses > .xw-premise, .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 64px; }
+      .xw-anchor, .xw-wave, .xw-bronze { --rise: 140px; --drift: -96px; --grow: .94; }
+      .xw-second, .xw-glass { --rise: 180px; --drift: -96px; --grow: .94; }
+      /* Timeline and ranges in rules of their own: the build's minifier would otherwise fold them into the animation
+         shorthand, which browsers reject. Text settles within 280px of scrolling after its top edge appears (about a third
+         of the way up the screen) and fades from 160px below the top edge; works settle within 420px and start to fade
+         as soon as they touch the top edge. Works also grow slightly as they arrive and shrink as they leave. */
+      :where(.xw) :is(.xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 280px, exit -160px exit 100%;
+      }
+      :where(.xw) :is(.xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 420px, exit 0% exit 100%;
+      }
+      /* The first work is already partly on screen when a phone arrives: it settles sooner, so it is never half-faded
+         on arrival. */
+      :where(.xw) .xw-anchor { animation-range: entry 0% entry 240px, exit 0% exit 100%; }
+    }
+  }
+
+  /* The wall (desktop): the same vocabulary, smaller. Every part moves by its own position on the screen, so works and
+     labels in one row come and go separately, each as it reaches an edge. The first wall is what a visitor arrives in
+     front of: it is already there, so it only recedes (and returns when scrolling back); a part low on a short screen
+     is never half-faded on arrival. The route and the lower wall rise in and recede. */
+  @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .xw-intro > :not(.xw-courses), .xw-courses > *, .xw-anchor, .xw-second {
+        --drift: -56px; animation-name: xw-drift; animation-fill-mode: none; /* no fill: see the phone rules */ animation-timing-function: ease-in;
+      }
+      .xw-anchor, .xw-second { --drift: -96px; --grow: .95; }
+      .xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *, .xw-wave, .xw-bronze, .xw-glass {
+        --rise: 64px; --drift: -56px;
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, none; animation-timing-function: ease-out, ease-in;
+      }
+      .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 48px; }
+      .xw-wave, .xw-bronze { --rise: 120px; --drift: -96px; --grow: .95; }
+      .xw-glass { --rise: 160px; --drift: -96px; --grow: .95; }
+      /* Timelines and ranges kept out of the shorthand (see the phone rules). Text settles within 260px of scrolling and
+         fades from 160px below the top edge; works settle within 380px and fade as soon as they touch the top. */
+      :where(.xw) :is(.xw-intro > :not(.xw-courses), .xw-courses > *) {
+        animation-duration: auto; animation-timeline: view(); animation-range: exit -160px exit 100%;
+      }
+      :where(.xw) :is(.xw-anchor, .xw-second) {
+        animation-duration: auto; animation-timeline: view(); animation-range: exit 0% exit 100%;
+      }
+      :where(.xw) :is(.xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 260px, exit -160px exit 100%;
+      }
+      :where(.xw) :is(.xw-wave, .xw-bronze, .xw-glass) {
+        animation-duration: auto; animation-timeline: view(), view(); animation-range: entry 0% entry 380px, exit 0% exit 100%;
+      }
+    }
+  }
+</style>
+
+<script>
+  import { readReading, resolveEntry } from '../../lib/reading.js';
+  import { readCollection, previewClaimed } from '../../lib/collection.js';
+  import { deviceStorage } from '../../lib/storage.js';
+
+  // The collection preview: only cards claimed in this browser, lowest numbers first, at most two plus the total.
+  const showCards = () => {
+    const list = document.querySelector<HTMLElement>('[data-vitrine]');
+    if (!list) return;
+    const rows = [...list.querySelectorAll<HTMLElement>('[data-card-row]')];
+    const { shown, total } = previewClaimed(readCollection(deviceStorage()), rows.map((r) => ({ id: r.dataset.cardRow! })));
+    const visible = new Set(shown.map((c) => c.id));
+    rows.forEach((r) => { r.hidden = !visible.has(r.dataset.cardRow!); });
+    list.querySelector<HTMLElement>('[data-card-count]')!.textContent = String(total);
+    list.querySelector<HTMLElement>('[data-card-total]')!.hidden = total <= 2;
+    list.hidden = total === 0;
+  };
+  showCards();
+  addEventListener('pageshow', (e) => { if (e.persisted) showCards(); });
+
+  // Show the one article this device read most recently, if this build still has it.
+  const show = () => {
+    const root = document.querySelector<HTMLElement>('[data-continue]');
+    const raw = document.querySelector('[data-reading-registry]')?.textContent;
+    if (!root || !raw) return;
+    const hit = resolveEntry(readReading(deviceStorage()), JSON.parse(raw));
+    if (!hit) { root.classList.remove('is-on'); return; }
+    root.querySelector('[data-continue-kind]')!.textContent = `继续阅读 · ${hit.label}`;
+    root.querySelector('[data-continue-p]')!.textContent = `${Math.round(hit.p * 100)}%`;
+    const link = root.querySelector<HTMLAnchorElement>('[data-continue-link]')!;
+    link.textContent = hit.title;
+    link.title = hit.title;
+    link.href = `${hit.href}#resume`;
+    const bar = root.querySelector<HTMLElement>('[data-continue-bar]');
+    if (bar) bar.style.width = `${Math.round(hit.p * 100)}%`;
+    const resume = root.querySelector<HTMLAnchorElement>('[data-continue-resume]');
+    if (resume) resume.href = link.href;
+    root.classList.add('is-on');
+  };
+  show();
+  addEventListener('pageshow', (e) => { if (e.persisted) show(); });
+</script>
+
+<style>
+  /* ===================== PREVIEW: the enriched exhibition environment ===================== */
+  /* A preview page has no dark canvas of its own (Base.astro gives the real homepage one). */
+  :global(html:has(.ge)) { background: var(--gallery); }
+
+  /* ---- Desktop: a room, not a black page ----
+     Three quiet means, nothing repeated across the page: (1) the bay the anchor work hangs in, drawn by two faint
+     vertical lines and a short rail at the top, fading out at both ends; (2) a little more light on that part of the
+     wall, warm and very low; (3) a free-standing partition behind the lower wall's works, a shade lighter than the
+     room, so the works there hang on something and the label column beside it stands in the room. */
+  @media (min-width: 901px) {
+    .ge {
+      background:
+        radial-gradient(120% 70% at 50% -10%, rgb(255 255 255 / .028), transparent 60%),
+        linear-gradient(to bottom, transparent 70%, rgb(0 0 0 / .18)),
+        var(--gallery);
+    }
+    .ge .xw-wall-1, .ge .xw-wall-2 { position: relative; isolation: isolate; }
+    /* The bay holds a cell of its own, so the wall's parts are placed explicitly (production places them in order). */
+    .ge .xw-intro { grid-column: 1; grid-row: 1; }
+    .ge .xw-anchor { grid-column: 2; grid-row: 1; }
+    .ge .xw-second { grid-column: 3; grid-row: 1; }
+    .ge .xw-route { grid-row: 2; }
+    .ge-bay {
+      grid-column: 2; grid-row: 1; align-self: stretch; z-index: -1; pointer-events: none;
+      margin: calc(-1 * clamp(2.5rem, 6vh, 4.5rem) - 1.6rem) calc(-1 * clamp(1rem, 2vw, 2.25rem)) -1.5rem;
+      border-inline: 1px solid rgb(255 255 255 / .07);
+      background:
+        linear-gradient(to right, transparent calc(50% - 3.5rem), rgb(255 255 255 / .16) calc(50% - 3.5rem), rgb(255 255 255 / .16) calc(50% + 3.5rem), transparent calc(50% + 3.5rem)) top / 100% 1px no-repeat,
+        radial-gradient(70% 48% at 50% 46%, rgb(255 246 230 / .055), transparent 72%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 82%, transparent);
+              mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 82%, transparent);
+    }
+    .ge-partition {
+      grid-column: 1 / 3; grid-row: 1 / 3; align-self: stretch; z-index: -1; pointer-events: none;
+      margin: calc(-1 * clamp(2.5rem, 5vh, 3.5rem)) 0 calc(-1 * clamp(2.5rem, 5vh, 3.5rem)) calc(-1 * var(--gutter));
+      background:
+        radial-gradient(60% 50% at 34% 30%, rgb(255 255 255 / .022), transparent 70%),
+        linear-gradient(to bottom, #1c1c1b, #191918);
+      border-top: 1px solid rgb(255 255 255 / .06);
+      box-shadow: 1px 0 0 rgb(255 255 255 / .035);
+    }
+    /* The first wall ends on a skirting: the route line runs to both edges of the page. */
+    .ge .xw-route { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+    .ge-bar, .ge-resume { display: none; }
+  }
+
+  /* ---- Phones: a pocket gallery ----
+     One six-column grid instead of two. The entrance is one composition: the title, then today's two works hung
+     together (the first large, the second smaller and lower on the right, just overlapping the first's caption row,
+     never its picture), then the courses room's label and its entrance, then where you left off. The five rooms follow
+     as chapters with their own rhythm: a large faint room number set alternately left and right, image-led and
+     text-led rooms in turn, the two works of the fourth room hung unevenly, and a clear break between rooms. */
+  @media (max-width: 900px) {
+    .ge { grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: .75rem;
+      padding-bottom: max(2.5rem, env(safe-area-inset-bottom)); }
+    .ge-bay, .ge-partition { display: none; }
+
+    /* Opening */
+    .ge .xw-kicker { margin-top: 2.25rem; }
+    .ge h1 { font-size: clamp(2rem, 9vw, 2.625rem); line-height: 1.32; }
+    .ge .xw-lede { margin-top: 1rem; font-size: .9375rem; line-height: 1.8; }
+    .ge .xw-work { order: 2; margin-top: 1.75rem; }
+    .ge .xw-anchor { grid-column: 1 / 6; --hmax: 44vh; }
+    .ge .xw-anchor img { margin-inline: 0; }
+    .ge .xw-anchor .xw-cap { max-width: 46%; }
+    .ge .xw-second { grid-column: 4 / 7; --hmax: 26vh; margin-top: -3.25rem; position: relative; z-index: 1; align-self: start; }
+    .ge .xw-second img { box-shadow: 0 0 0 .5rem var(--gallery); }
+    .ge .xw-cap { font-size: .75rem; }
+    .ge .xw-cap > span { display: none; }
+
+    /* The courses room: its label follows the works, as the wall label beside them. */
+    .ge .xw-courses > * { order: 3; }
+    .ge .xw-courses > .xw-no { margin-top: 2.75rem; padding-top: 0; border-top: 0; }
+    .ge .xw-courses > .xw-go-primary { order: 4; margin-top: 1.25rem; justify-self: start; }
+    .ge .xw-courses > .xw-continue { order: 5; }
+    .ge .xw-plan { order: 6; margin-top: 3rem; }
+
+    /* Where you left off: its own small block under a hairline, not a list. */
+    .ge .xw-continue.is-on { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: .55rem .9rem;
+      height: auto; margin-top: 1.75rem; padding: 1rem 0 0; }
+    .ge .xw-continue-kind { grid-column: 1; grid-row: 1; }
+    .ge .xw-continue-p { grid-column: 2; grid-row: 1; justify-self: end; color: var(--gallery-ink); }
+    .ge .xw-continue-link { grid-column: 1 / -1; grid-row: 2; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      font-size: 1.0625rem; line-height: 1.55; letter-spacing: .02em; }
+    .ge-bar { grid-column: 1 / -1; grid-row: 3; display: block; height: 2px; background: var(--gallery-rule); }
+    .ge-bar > span { display: block; height: 100%; width: 0; background: var(--gallery-ink-2); }
+    .ge-resume { grid-column: 1 / -1; grid-row: 4; justify-self: start; display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--gallery-ink);
+      font: 500 .875rem/1.4 var(--sans); letter-spacing: .08em; text-decoration: none; }
+
+    /* Rooms: a clear break, a big faint number, alternately left and right. */
+    .ge .xw-no, .ge .xw-no-large { font: 400 4.75rem/.82 var(--latin); color: rgb(255 255 255 / .16); margin: 0 0 .5rem; }
+    .ge .xw-stories, .ge .xw-cases, .ge .xw-atlas, .ge .xw-collection { margin-top: 0; padding-top: 0; border-top: 0; }
+    .ge .xw-label h2 { font-size: 1.5rem; }
+    .ge .xw-premise { font-size: .9375rem; }
+
+    /* 02, image-led: the print first, across the screen, under a full-width rule; the label after it. */
+    .ge .xw-wave { order: 20; margin: 5rem calc(-1 * var(--gutter)) 0; padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); }
+    .ge .xw-wave img { aspect-ratio: 4 / 3; object-position: 32% 55%; }
+    .ge .xw-stories { order: 21; grid-column: 1 / 6; margin-top: 1.5rem; }
+
+    /* 03, text-led: no picture; the number on the right, the sentence set large and indented. */
+    .ge .xw-cases { order: 30; grid-column: 2 / 7; margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); }
+    .ge .xw-cases .xw-no { text-align: right; }
+    .ge .xw-cases .xw-premise { margin-top: 1.25rem; padding-left: 1rem; border-left: 1px solid var(--gallery-ink-2); font: 400 1.25rem/1.75 var(--serif); color: var(--gallery-ink); }
+
+    /* 04: two works hung unevenly, the bronze large on the left, the glass smaller and lower on the right. */
+    .ge .xw-atlas { order: 40; grid-column: 1 / 7; margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); }
+    .ge .xw-bronze, .ge .xw-glass { order: 41; margin-top: 1.75rem; }
+    .ge .xw-bronze { grid-column: 1 / 5; }
+    .ge .xw-glass { grid-column: 5 / 7; align-self: end; margin-bottom: 2.5rem; }
+
+    /* 05, the vitrine: the number on the right, the room a framed case. */
+    .ge .xw-collection { order: 50; grid-column: 1 / 7; margin-top: 5rem; padding: 1.25rem 1.25rem 1.5rem; border: 1px solid var(--gallery-rule); }
+    .ge .xw-collection .xw-no { text-align: right; }
+    .ge .xw-collection .xw-go { min-height: 2.75rem; display: inline-flex; align-items: center; }
+    .ge .xw-credits { order: 60; grid-column: 1 / 7; margin-top: 4rem; }
+
+    /* Touch targets in the plan. */
+    .ge .xw-plan a { min-height: 2.75rem; }
+  }
+  /* The second work belongs to the opening: it is already at the foot of the first screen, so it settles within a short
+     scroll instead of starting out invisible. */
+  @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .ge .xw-second { animation-range: entry 0% entry 80px, exit 0% exit 100%; --rise: 40px; --grow: .98; }
+    }
+  }
+</style>

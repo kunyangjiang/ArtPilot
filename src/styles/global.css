@@ -95,15 +95,24 @@ main { overflow-x: clip; }
 .site-nav[data-tone="gallery"] { background: var(--gallery); color: var(--gallery-ink); border-bottom-color: var(--gallery-rule); }
 .nav-start { display: flex; align-items: center; gap: 1.125rem; white-space: nowrap; }
 .site-nav ul { white-space: nowrap; }
-/* Narrower screens: the page's own links give way first (those sections are a scroll away). Phones: the halls take a
-   row of their own under the wordmark and Back, scrolling sideways within the bar if a very narrow screen needs it. */
+/* Narrower screens: the page's own links give way first (those sections are a scroll away). Phones: two rows on the
+   same side margins. The wordmark (and Back, at the far end) in a 48px row, the same on every page, the homepage
+   included; under a hairline, the five halls spread across the full width, each a 40px target with its text on one
+   centre line whether it is a link or not. A very narrow screen scrolls the halls sideways within the bar. */
 @media (max-width: 1100px) { .nav-page { display: none !important; } }
 @media (max-width: 760px) {
-  .site-nav { flex-wrap: wrap; row-gap: 0; padding-block: .25rem .375rem; }
-  .nav-start { flex: 1 0 100%; }
-  .site-nav .nav-halls { flex: 1 0 100%; gap: 1.125rem; padding-left: 0; overflow-x: auto; scrollbar-width: none; font-size: .8125rem; letter-spacing: .02em; }
+  .site-nav { flex-wrap: wrap; gap: 0; padding: 0 1.375rem; }
+  .site-nav .brand { font-size: 1.0625rem; letter-spacing: .18em; }
+  .nav-start { flex: 1 0 100%; justify-content: space-between; min-height: 3rem; }
+  .site-nav .nav-halls { flex: 1 0 100%; justify-content: space-between; align-items: center; gap: .5rem; padding-left: 0;
+    border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 14%, transparent);
+    overflow-x: auto; scrollbar-width: none; font-size: .8125rem; letter-spacing: .02em; }
   .nav-halls::before { display: none; }
-  .nav-halls a, .nav-halls .nav-soon { padding-block: .55rem; }
+  .nav-halls li { display: flex; }
+  .site-nav .nav-halls a, .site-nav .nav-halls .nav-soon { display: flex; align-items: center; height: 2.5rem; padding-block: 0; line-height: 1; }
+  .site-nav .nav-halls a::after { bottom: .55rem; }
+  .nav-back { padding-left: 0; }
+  .nav-back::before { display: none; }
 }
 /* Back to the parent page (BackLink.astro): an arrow and a short label, a 44px target, the arrow easing left on hover
    or focus. Each page places and sizes it in its own composition. */

@@ -15,9 +15,9 @@ export type Destination = {
 export const destinations: Destination[] = [
   { id: 'courses', no: '01', label: '全球艺术史课程', sub: 'Global Art History Courses', href: '/courses/',
     premise: '从一件真实的作品出发，读懂它为什么是这样。' },
-  { id: 'stories', no: '02', label: '艺术家故事馆', sub: 'Artist Stories',
+  { id: 'stories', no: '02', label: '艺术家故事馆', sub: 'Artist Stories', href: '/stories/',
     premise: '一位艺术家的生平，与他的艺术怎样一步步形成。' },
-  { id: 'cases', no: '03', label: 'Cases', sub: '叙事案例',
+  { id: 'cases', no: '03', label: 'Cases', sub: '叙事案例', href: '/cases/',
     premise: '从一件作品或一处遗址出发的调查与重建。' },
   { id: 'atlas', no: '04', label: '同时代的世界', sub: 'The World at the Same Time',
     premise: '选一个时代，看世界各地同时在创造什么。' },

@@ -3,14 +3,20 @@ import ArtworkCard from './ArtworkCard.astro';
 // COL-01: finishing a core lesson earns its representative card. The reader says so explicitly, with one button
 // at the end of the lesson; no quiz answer is needed, and opening the page claims nothing. The card is stored once,
 // under its artwork id, so claiming again changes nothing; a reader who already has it sees it here on return.
-interface Props { artwork: string }
-const { artwork } = Astro.props;
+// An artist story ends the same way with its artist-series card (`kind="story"`); only the words differ.
+interface Props { artwork: string; kind?: 'lesson' | 'story' }
+const { artwork, kind = 'lesson' } = Astro.props;
+const words = kind === 'story'
+  ? { kicker: '故事读完', text: '这个故事读完了。领取这件作品的藏品卡，收入你的图鉴。', button: '读完故事 · 领取藏品卡',
+      fresh: '故事已读完，这件作品的卡片已收入你的图鉴。', again: '故事已读完，这张卡片已在你的图鉴中。' }
+  : { kicker: '课程完成', text: '读到这里，这一课就学完了。领取这件作品的藏品卡，收入你的图鉴。', button: '完成本课 · 领取藏品卡',
+      fresh: '本课已完成，这件作品的卡片已收入你的图鉴。', again: '本课已完成，这张卡片已在你的图鉴中。' };
 ---
-<section class="lesson-complete" data-complete={artwork} aria-labelledby={`complete-${artwork}`}>
-  <p class="kicker" id={`complete-${artwork}`}>课程完成</p>
+<section class="lesson-complete" data-complete={artwork} data-fresh-text={words.fresh} data-again-text={words.again} aria-labelledby={`complete-${artwork}`}>
+  <p class="kicker" id={`complete-${artwork}`}>{words.kicker}</p>
   <div data-claim-step>
-    <p class="lesson-complete-text">读到这里，这一课就学完了。领取这件作品的藏品卡，收入你的图鉴。</p>
-    <button type="button" class="btn btn-primary" data-claim>完成本课 · 领取藏品卡</button>
+    <p class="lesson-complete-text">{words.text}</p>
+    <button type="button" class="btn btn-primary" data-claim>{words.button}</button>
   </div>
   <div class="card-unlock" data-unlock tabindex="-1" role="status" aria-live="polite" hidden>
     <ArtworkCard artwork={artwork} variant="mini" />
@@ -31,9 +37,7 @@ const { artwork } = Astro.props;
     const panel = root.querySelector<HTMLElement>('[data-unlock]')!;
     const show = (fresh: boolean) => {
       panel.querySelector('[data-unlock-kicker]')!.textContent = fresh ? '获得藏品卡' : '已在图鉴中';
-      panel.querySelector('[data-unlock-title]')!.textContent = fresh
-        ? '本课已完成，这件作品的卡片已收入你的图鉴。'
-        : '本课已完成，这张卡片已在你的图鉴中。';
+      panel.querySelector('[data-unlock-title]')!.textContent = (fresh ? root.dataset.freshText : root.dataset.againText)!;
       panel.dataset.fresh = String(fresh);
       step.hidden = true;
       panel.hidden = false;

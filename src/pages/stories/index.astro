@@ -1,0 +1,10 @@
+---
+// The stories hall: every published article of this kind (src/components/EssayHall.astro).
+import Base from '../../layouts/Base.astro';
+import EssayHall from '../../components/EssayHall.astro';
+---
+<Base title="艺术家故事 · ArtPilot" description="艺术家故事：跟着一位艺术家走完一生，看他的艺术怎样一步步形成。" dark nav={{ tone: 'gallery', back: { href: '/', label: '首页' }, hall: 'stories', here: true }}>
+  <section class="archive">
+    <EssayHall kind="artist-story" />
+  </section>
+</Base>

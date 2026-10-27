@@ -22,7 +22,9 @@ test('the shared layout opts every page in, and off under reduced motion', () =>
 test('every page is built on the shared layout', () => {
   const found = pages(pagesDir);
   assert.ok(found.length >= 5);
-  for (const p of found) assert.match(readFileSync(p, 'utf8'), /<Base[\s>]/, `${p} does not use Base.astro`);
+  // A page uses Base directly, or through the shared article page (src/components/EssayPage.astro), which does.
+  assert.match(read('src/components/EssayPage.astro'), /<Base[\s>]/);
+  for (const p of found) assert.match(readFileSync(p, 'utf8'), /<Base[\s>]|<EssayPage[\s>]/, `${p} does not use Base.astro`);
 });
 
 test('one transition for every page: a cross-fade of a measured length', () => {

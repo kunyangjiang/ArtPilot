@@ -1,0 +1,373 @@
+---
+// PREVIEW ONLY (/preview/home-magazine-cover/): a new homepage design, laid out like an art magazine. Production is not
+// touched. Same content as the real homepage: today's two works (the same daily choice, src/lib/featured.js), the course
+// entrance, one Continue Reading entry, the five halls (only open ones are links), this browser's cards, the credits.
+// It reads the lessons, artwork records and cards read-only, and its scripts only read this browser's records.
+//
+// Three "pages": a cover (masthead, today's first work uncropped, the headline and the cover lines), a spread for the
+// second work (a magnified detail beside the whole work), and a contents page for the five halls, then a colophon.
+import '../../styles/fonts.css';
+import { getCollection, getEntry } from 'astro:content';
+import { destinations, SOON, homeImages } from '../../data/home';
+import { stages as syllabus } from '../../data/curriculum';
+import featuredSource from '../../lib/featured.js?raw';
+import { fitsWall, assignSlots } from '../../lib/featured.js';
+import { imageCredit } from '../../lib/credits.js';
+import { inCourseOrder, cardNumber } from '../../lib/publication.js';
+
+// The same data src/pages/index.astro gives the production wall, plus each work's card number and crop focus.
+const all = inCourseOrder(await Promise.all((await getCollection('lessons')).map(async (l) => {
+  const base = { id: l.id, title: l.data.title, course: l.data.course, workLabel: l.data.workLabel, artwork: l.data.artwork.id };
+  if (!l.data.featured) return base;
+  const art = (await getEntry('artworks', l.data.artwork.id))!.data;
+  const img = art.images.find((i) => i.key === l.data.featured!.image)!;
+  if (!img.width || !img.height || !fitsWall(img.width, img.height)) return base;
+  const focus = art.card?.focus && (art.card.image ?? 'full') === img.key ? art.card.focus : '50% 45%';
+  return { ...base, image: { src: img.src, alt: img.alt, width: img.width, height: img.height, credit: imageCredit(img, art) }, focus };
+})));
+const pool = all.flatMap((l: any, order: number) => (l.image ? [{ ...l, order, aspect: l.image.width / l.image.height }] : []));
+const first = assignSlots(pool.slice(0, 2));
+const isCover = (id: string) => first.anchor?.id === id;
+const isDetail = (id: string) => first.second?.id === id;
+const courseOf = new Map(all.map((l: any) => [l.artwork, l.course]));
+const cards = (await getCollection('artworks')).filter((a) => a.data.card && courseOf.has(a.id))
+  .map((a) => ({ id: a.id, no: cardNumber(courseOf.get(a.id)!), title: a.data.titleZh }))
+  .sort((a, b) => a.no.localeCompare(b.no));
+const d = Object.fromEntries(destinations.map((x) => [x.id, x]));
+const registry = {
+  lesson: { label: '课程', items: Object.fromEntries(all.map((l) => [l.id, { title: l.title, href: `/lessons/${l.id}/` }])) },
+  'artist-story': { label: d.stories.label, items: {} },
+  case: { label: d.cases.label, items: {} },
+};
+const { wave, nataraja } = homeImages;
+const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0, role: 'link', 'aria-disabled': 'true' });
+// Today's choice, made before first paint from the same function as production; without JavaScript the first pair stays.
+const chooseScript = `(function(){${featuredSource.replace(/^\/\/.*\r?\n/gm, '').replace(/^export /gm, '')}
+function run(){var src=document.getElementById('mg-pool');if(!src)return;var pool=JSON.parse(src.textContent);
+var pick=pickFeatured(pool,dayNumber());
+function show(attr,c){[].slice.call(document.querySelectorAll('['+attr+']')).forEach(function(e){var on=!!c&&e.getAttribute(attr)===c.id;e.hidden=!on;if(on){[].slice.call(e.querySelectorAll('img')).forEach(function(i){i.loading='eager'})}})}
+show('data-cover',pick.anchor);show('data-coverline',pick.anchor);show('data-detail',pick.second);
+[].slice.call(document.querySelectorAll('[data-credit-for]')).forEach(function(p){var id=p.getAttribute('data-credit-for');p.hidden=!((pick.anchor&&pick.anchor.id===id)||(pick.second&&pick.second.id===id))});
+var dt=document.querySelector('[data-mg-date]');if(dt){var n=new Date();dt.textContent=(n.getMonth()+1)+' 月 '+n.getDate()+' 日'}}
+window.__mgPick=run;run();addEventListener('pageshow',function(e){if(e.persisted)run()})})();`;
+---
+<div class="mg">
+  <!-- Page 1: the cover -->
+  <section class="mg-cover" aria-labelledby="mg-title">
+    <header class="mg-mast">
+      <svg class="mg-masthead" viewBox="0 0 1000 214" preserveAspectRatio="xMinYMin meet" aria-hidden="true"><text x="2" y="196" textLength="996" lengthAdjust="spacingAndGlyphs">ArtPilot</text></svg>
+      <p class="mg-issue"><span>全球艺术史 · 数字美术馆</span><span>今日展出 <span data-mg-date></span></span></p>
+    </header>
+
+    {pool.map((c) => (
+      <figure class="mg-cover-art" data-cover={c.id} hidden={!isCover(c.id)} style={`--focus:${c.focus}`}>
+        <a href={`/lessons/${c.id}/`} tabindex="-1" aria-hidden="true">
+          <img src={c.image.src} alt="" width={c.image.width} height={c.image.height} loading={isCover(c.id) ? 'eager' : 'lazy'} />
+        </a>
+      </figure>
+    ))}
+
+    <div class="mg-lines">
+      <h1 id="mg-title" class="mg-headline"><span>从一件作品开始，</span><span>走进全球艺术史。</span></h1>
+      {pool.map((c) => (
+        <p class="mg-coverline" data-coverline={c.id} hidden={!isCover(c.id)}>
+          <span class="mg-no" lang="en">No.{cardNumber(c.course)}</span>
+          <span class="mg-coverline-work">封面作品 · {c.workLabel}</span>
+          <a href={`/lessons/${c.id}/`} aria-label={`${c.workLabel}：${c.title}`}>{c.title}</a>
+        </p>
+      ))}
+      <a class="mg-enter" href={d.courses.href}>
+        <span class="mg-enter-main">进入课程</span><span class="mg-arrow" aria-hidden="true"></span>
+        <span class="mg-enter-meta">已开放 {all.length} 门 · 七个阶段，陆续开放</span>
+      </a>
+      <p class="mg-continue" data-continue>
+        <span class="mg-continue-kind" data-continue-kind>继续阅读</span>
+        <span class="mg-continue-p" data-continue-p></span>
+        <a class="mg-continue-link" data-continue-link href="/courses/"></a>
+        <span class="mg-bar" aria-hidden="true"><span data-continue-bar></span></span>
+      </p>
+    </div>
+    <script type="application/json" id="mg-pool" set:html={JSON.stringify(pool.map((c) => ({ id: c.id, aspect: c.aspect, order: c.order })))}></script>
+    <script is:inline set:html={chooseScript}></script>
+  </section>
+
+  <!-- Page 2: the second work, a detail beside the whole -->
+  <section class="mg-spread" aria-label="今日第二件作品">
+    {pool.map((c) => (
+      <article class="mg-detail" data-detail={c.id} hidden={!isDetail(c.id)} style={`--focus:${c.focus}`}>
+        <a class="mg-detail-zoom" href={`/lessons/${c.id}/`} tabindex="-1" aria-hidden="true">
+          <img src={c.image.src} alt="" width={c.image.width} height={c.image.height} loading="lazy" />
+        </a>
+        <div class="mg-detail-text">
+          <p class="mg-kicker">细看 · 今日第二件</p>
+          <h2><a href={`/lessons/${c.id}/`}>{c.workLabel}</a></h2>
+          <p class="mg-detail-q">{c.title}</p>
+          <figure class="mg-detail-whole">
+            <img src={c.image.src} alt={c.image.alt} width={c.image.width} height={c.image.height} loading="lazy" />
+            <figcaption>全图。左侧为局部放大。</figcaption>
+          </figure>
+          <a class="mg-go" href={`/lessons/${c.id}/`}>进入本课 <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <!-- Page 3: contents -->
+  <section class="mg-toc" aria-labelledby="mg-toc-title">
+    <header class="mg-toc-head">
+      <h2 id="mg-toc-title">目录</h2>
+      <p lang="en">Contents · 五个展区</p>
+    </header>
+    <ol class="mg-toc-list">
+      <li class="mg-row">
+        <a class="mg-row-in" href={d.courses.href}>
+          <span class="mg-row-no" lang="en">{d.courses.no}</span>
+          <span class="mg-row-title">{d.courses.label}<em lang="en">{d.courses.sub}</em></span>
+          <span class="mg-row-premise">{d.courses.premise}</span>
+          <span class="mg-row-state is-open">{all.length} 门已开放 <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      <li class="mg-row mg-row-pic">
+        <div class="mg-row-in" {...soon(d.stories)}>
+          <span class="mg-row-no" lang="en">{d.stories.no}</span>
+          <span class="mg-row-title">{d.stories.label}<em lang="en">{d.stories.sub}</em></span>
+          <span class="mg-row-premise">{d.stories.premise}</span>
+          <span class="mg-row-state">{SOON}</span>
+        </div>
+        <figure class="mg-row-thumb mg-wave"><img src={wave.img.src} width={wave.img.width} height={wave.img.height} alt={wave.alt} loading="lazy" /></figure>
+      </li>
+      <li class="mg-row">
+        <div class="mg-row-in" {...soon(d.cases)}>
+          <span class="mg-row-no" lang="en">{d.cases.no}</span>
+          <span class="mg-row-title" lang="en">{d.cases.label}<em lang="zh-CN">{d.cases.sub}</em></span>
+          <span class="mg-row-premise">{d.cases.premise}</span>
+          <span class="mg-row-state">{SOON}</span>
+        </div>
+      </li>
+      <li class="mg-row mg-row-pic">
+        <div class="mg-row-in" {...soon(d.atlas)}>
+          <span class="mg-row-no" lang="en">{d.atlas.no}</span>
+          <span class="mg-row-title">{d.atlas.label}<em lang="en">{d.atlas.sub}</em></span>
+          <span class="mg-row-premise">{d.atlas.premise}比如约 1200 年前后：泰米尔纳德的青铜舞王像，与沙特尔的彩色玻璃。</span>
+          <span class="mg-row-state">{SOON}</span>
+        </div>
+        <div class="mg-row-thumb mg-pair">
+          <img src={nataraja.img.src} width={nataraja.img.width} height={nataraja.img.height} alt={nataraja.alt} loading="lazy" />
+          <img src="/img/chartres-samaritan.jpg" alt="沙特尔主教座堂“好撒马利亚人”窗中的一格：撒马利亚人照料受伤的路人。" loading="lazy" />
+        </div>
+      </li>
+      <li class="mg-row">
+        <a class="mg-row-in" href={d.collection.href}>
+          <span class="mg-row-no" lang="en">{d.collection.no}</span>
+          <span class="mg-row-title" lang="en">{d.collection.label}<em lang="zh-CN">{d.collection.sub}</em></span>
+          <span class="mg-row-premise">{d.collection.premise}</span>
+          <span class="mg-row-state is-open">进入藏品图鉴 <span aria-hidden="true">→</span></span>
+          <ol class="mg-vitrine" data-vitrine hidden>
+            {cards.map((c) => <li data-card-row={c.id} hidden><span lang="en">No.{c.no}</span>{c.title}</li>)}
+            <li class="mg-vitrine-more" data-card-total hidden>共 <b data-card-count></b> 张已收集</li>
+          </ol>
+        </a>
+      </li>
+    </ol>
+    <p class="mg-route"><span>课程路线 · 规划中，陆续开放</span>{syllabus.map((s) => <span>{s.title}</span>)}</p>
+  </section>
+
+  <script type="application/json" data-reading-registry set:html={JSON.stringify(registry).replace(/</g, '\\u003c')}></script>
+  <footer class="mg-colophon">
+    <p class="mg-colophon-head">图片与版权</p>
+    <p>{wave.caption} {wave.credit}，<a href={wave.source}>来源</a>。</p>
+    <p>{nataraja.caption} {nataraja.credit}，<a href={nataraja.source}>来源</a>。</p>
+    {pool.map((c) => <p data-credit-for={c.id} hidden={!isCover(c.id) && !isDetail(c.id)}>{c.workLabel}。图片：{c.image.credit.by}，{c.image.credit.licenceUrl ? <a href={c.image.credit.licenceUrl}>{c.image.credit.licence}</a> : c.image.credit.licence}，<a href={c.image.credit.href}>来源</a>。</p>)}
+    <p>今日展出作品的完整来源与授权，见各课程页的“来源与版权”。</p>
+  </footer>
+  <!-- The spread and the credits come after the choice above was first made: apply it to them too. -->
+  <script is:inline>window.__mgPick && window.__mgPick();</script>
+</div>
+
+<style>
+  .mg {
+    --serif: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --sans: "ArtPilot Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --latin: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif;
+    --gutter: clamp(1.25rem, 4vw, 4.5rem);
+    --ink: var(--gallery-ink); --ink-2: var(--gallery-ink-2); --rule: var(--gallery-rule);
+    background: var(--gallery); color: var(--ink); overflow-x: clip;
+  }
+  :global(html:has(.mg)) { background: var(--gallery); }
+  .mg a { color: inherit; }
+  .mg :focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+  .mg [hidden] { display: none !important; }
+  .mg img { display: block; max-width: 100%; height: auto; }
+
+  /* ---------- Cover ---------- */
+  .mg-cover { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); grid-template-rows: auto 1fr;
+    column-gap: clamp(2rem, 4vw, 4rem); min-height: 100svh; padding: 0 var(--gutter) clamp(2rem, 5vh, 3.5rem); }
+  .mg-mast { grid-column: 1 / -1; grid-row: 1; position: relative; z-index: 1; }
+  /* The masthead: the name set across the whole page, as on a magazine; the cover work stands in front of its foot. */
+  /* Set as SVG text stretched to the full measure, so it always spans the page exactly, at any width. */
+  .mg-masthead { display: block; width: 100%; height: auto; margin-top: clamp(1rem, 2.5vh, 1.75rem); overflow: visible; }
+  .mg-masthead text { font: 400 250px var(--latin); fill: var(--ink); }
+  .mg-issue { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: .25rem 2.5rem; margin: .9rem 0 0; padding-top: .7rem; border-top: 1px solid var(--rule);
+    font: 500 .75rem/1.5 var(--sans); letter-spacing: .18em; color: var(--ink-2); }
+  .mg-cover-art { grid-column: 2; grid-row: 1 / 3; position: relative; z-index: 2; align-self: end; justify-self: end; margin: 0;
+    margin-top: calc((100vw - 2 * var(--gutter)) * .214 * .5); }
+  .mg-cover-art img { width: auto; max-height: calc(100svh - (100vw - 2 * var(--gutter)) * .107 - 2rem); box-shadow: 0 30px 80px -30px rgb(0 0 0 / .8); }
+  .mg-lines { grid-column: 1; grid-row: 2; align-self: end; display: grid; gap: 0; padding-top: 2.5rem; }
+  .mg-headline { margin: 0; font: 500 clamp(2.25rem, 3.6vw, 3.6rem)/1.28 var(--serif); letter-spacing: .03em; }
+  .mg-headline span { display: block; }
+  .mg-coverline { display: grid; grid-template-columns: auto 1fr; column-gap: 1rem; margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+  .mg-no { grid-row: 1 / 3; font: italic 400 1.75rem/1 var(--latin); color: var(--ink-2); }
+  .mg-coverline-work { font: 500 .75rem/1.6 var(--sans); letter-spacing: .14em; color: var(--ink-2); }
+  .mg-coverline a { font: 500 1.0625rem/1.55 var(--serif); text-decoration: underline 1px transparent; text-underline-offset: .3em; }
+  .mg-coverline a:hover, .mg-coverline a:focus-visible { text-decoration-color: var(--ink-2); }
+  .mg-enter { display: inline-grid; grid-template-columns: auto auto; align-items: center; justify-self: start; column-gap: 1.1rem; margin-top: 2rem; text-decoration: none; }
+  .mg-enter-main { font: 500 clamp(1.625rem, 2.2vw, 2.125rem)/1.3 var(--serif); letter-spacing: .08em; }
+  .mg-arrow { position: relative; width: 3rem; height: 1px; background: currentColor; transition: width var(--t) var(--ease); }
+  .mg-arrow::after { content: ""; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+  .mg-enter:hover .mg-arrow, .mg-enter:focus-visible .mg-arrow { width: 4.25rem; }
+  .mg-enter-meta { grid-column: 1 / -1; margin-top: .35rem; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .1em; color: var(--ink-2); }
+  /* Continue reading: a cover line of its own; absent (not just hidden) when there is nothing to resume. */
+  .mg-continue { display: none; grid-template-columns: 1fr auto; gap: .35rem 1rem; max-width: 30rem; margin: 1.75rem 0 0; padding-top: .9rem; border-top: 1px solid var(--rule);
+    font: 500 .6875rem/1.6 var(--sans); letter-spacing: .18em; color: var(--ink-2); }
+  :global(.mg-continue.is-on) { display: grid; }
+  .mg-continue-p { justify-self: end; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .mg-continue-link { grid-column: 1 / -1; min-height: 2.75rem; display: flex; align-items: center; font: 400 1rem/1.5 var(--serif); letter-spacing: .02em; color: var(--ink);
+    text-decoration: underline 1px transparent; text-underline-offset: .3em; }
+  .mg-continue-link::after { content: "→"; margin-left: .6rem; font-family: var(--sans); }
+  .mg-continue-link:hover, .mg-continue-link:focus-visible { text-decoration-color: var(--ink-2); }
+  .mg-bar { grid-column: 1 / -1; height: 2px; background: var(--rule); }
+  .mg-bar > span { display: block; height: 100%; width: 0; background: var(--ink-2); }
+
+  /* ---------- Spread: the second work ---------- */
+  .mg-spread { padding: clamp(4rem, 10vh, 7rem) var(--gutter) 0; }
+  .mg-detail { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); column-gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  /* A magnified detail, centred on the point the work's collectible card crops to; labelled as a detail beside the whole. */
+  .mg-detail-zoom { display: block; overflow: hidden; aspect-ratio: 5 / 4; background: #0e0e0d; }
+  .mg-detail-zoom img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus); transform-origin: var(--focus); scale: 2.1; }
+  .mg-kicker { margin: 0; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--ink-2); }
+  .mg-detail-text h2 { margin: .8rem 0 0; font: 500 clamp(1.75rem, 2.6vw, 2.5rem)/1.3 var(--serif); letter-spacing: .04em; }
+  .mg-detail-text h2 a { text-decoration: none; }
+  .mg-detail-q { margin: .9rem 0 0; font: 400 1.125rem/1.7 var(--serif); color: var(--ink-2); }
+  .mg-detail-whole { margin: 2rem 0 0; }
+  .mg-detail-whole img { width: auto; max-height: 15rem; }
+  .mg-detail-whole figcaption { margin-top: .5rem; font: 400 .75rem/1.6 var(--sans); letter-spacing: .06em; color: var(--ink-2); }
+  .mg-go { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 1.25rem; font: 500 .9375rem/1.4 var(--sans); letter-spacing: .08em; text-decoration: none; border-bottom: 1px solid var(--ink-2); }
+
+  /* ---------- Contents ---------- */
+  .mg-toc { padding: clamp(5rem, 12vh, 8rem) var(--gutter) 0; }
+  .mg-toc-head { display: flex; align-items: baseline; gap: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--ink); }
+  .mg-toc-head h2 { margin: 0; font: 500 clamp(2.5rem, 5vw, 4.5rem)/1 var(--serif); letter-spacing: .1em; }
+  .mg-toc-head p { margin: 0; font: italic 400 1.125rem/1 var(--latin); color: var(--ink-2); }
+  .mg-toc-list { margin: 0; padding: 0; list-style: none; }
+  .mg-row { display: grid; grid-template-columns: minmax(0, 1fr); border-bottom: 1px solid var(--rule); }
+  .mg-row-pic { grid-template-columns: minmax(0, 1fr) clamp(10rem, 22vw, 20rem); column-gap: 2rem; align-items: center; }
+  .mg-row-in { display: grid; grid-template-columns: 6.5rem minmax(0, 1.1fr) minmax(0, 1.4fr) auto; align-items: baseline; column-gap: 2rem;
+    padding: 1.6rem 0; text-decoration: none; }
+  .mg-row-no { font: 400 3.25rem/.9 var(--latin); color: var(--ink-2); }
+  .mg-row-title { font: 500 1.5rem/1.35 var(--serif); letter-spacing: .04em; }
+  .mg-row-title em { display: block; margin-top: .3rem; font: italic 400 .9375rem/1.3 var(--latin); color: var(--ink-2); }
+  .mg-row-premise { font: 400 .9375rem/1.8 var(--sans); letter-spacing: .02em; color: var(--ink-2); }
+  .mg-row-state { justify-self: end; white-space: nowrap; font: 500 .75rem/1.6 var(--sans); letter-spacing: .16em; color: var(--ink-2); }
+  .mg-row-state.is-open { color: var(--ink); font-size: .875rem; letter-spacing: .08em; border-bottom: 1px solid var(--ink-2); }
+  a.mg-row-in:hover .mg-row-no, a.mg-row-in:focus-visible .mg-row-no { color: var(--ink); }
+  a.mg-row-in:hover .mg-row-state span, a.mg-row-in:focus-visible .mg-row-state span { display: inline-block; transform: translateX(4px); }
+  [aria-disabled="true"].mg-row-in { cursor: default; }
+  [aria-disabled="true"] .mg-row-title { color: var(--ink-2); }
+  .mg-row-thumb { margin: 0; padding: 1rem 0; }
+  .mg-wave img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% 55%; }
+  .mg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; align-items: end; }
+  .mg-pair img { width: 100%; }
+  .mg-vitrine { grid-column: 2 / -1; margin: .9rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; font: 400 .9375rem/1.6 var(--serif); }
+  .mg-vitrine span { margin-right: .5rem; font: italic 400 .8125rem/1 var(--latin); color: var(--ink-2); }
+  .mg-vitrine-more { color: var(--ink-2); font-family: var(--sans); font-size: .8125rem; }
+  .mg-route { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 2rem 0 0; font: 400 .8125rem/1.6 var(--serif); color: var(--ink-2); }
+  .mg-route span:first-child { flex-basis: 100%; font: 500 .6875rem/1.5 var(--sans); letter-spacing: .2em; }
+
+  .mg-colophon { margin: clamp(4rem, 10vh, 6rem) var(--gutter) 0; padding: 1.25rem 0 max(3rem, env(safe-area-inset-bottom)); border-top: 1px solid var(--rule);
+    font: 400 .75rem/1.8 var(--sans); color: var(--ink-2); }
+  .mg-colophon p { margin: 0; }
+  .mg-colophon-head { margin-bottom: .4rem !important; font-weight: 500; letter-spacing: .2em; }
+
+  /* ---------- Phones: the same three pages, one column ---------- */
+  @media (max-width: 900px) {
+    .mg-cover { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; min-height: 0; padding-bottom: 0; }
+    .mg-masthead { margin-top: 1rem; }
+    .mg-issue { font-size: .6875rem; letter-spacing: .12em; }
+    /* The cover: masthead, then the work edge to edge with the headline set on its foot, as on a magazine cover. The
+       picture keeps its own shape unless it is taller than about two thirds of the screen; then it is trimmed top and
+       bottom around the point its collectible card crops to. */
+    .mg-cover-art { grid-column: 1; grid-row: 2; justify-self: stretch; margin: .9rem calc(-1 * var(--gutter)) 0; }
+    .mg-cover-art img { width: 100%; max-height: 66svh; object-fit: cover; object-position: var(--focus); box-shadow: none; }
+    .mg-lines { display: contents; }
+    .mg-headline { grid-column: 1; grid-row: 2; align-self: end; position: relative; z-index: 3; margin: 0 calc(-1 * var(--gutter));
+      padding: 5rem var(--gutter) 1.1rem; font-size: clamp(1.75rem, 8.2vw, 2.375rem); text-shadow: 0 1px 12px rgb(0 0 0 / .45);
+      background: linear-gradient(to bottom, transparent, rgb(10 10 9 / .55) 45%, rgb(10 10 9 / .85)); }
+    .mg-coverline, .mg-enter, .mg-continue { grid-column: 1; }
+    .mg-coverline { margin-top: 1.25rem; }
+    .mg-enter { margin-top: 1.75rem; }
+
+    .mg-detail { grid-template-columns: minmax(0, 1fr); }
+    .mg-detail-zoom { margin: 0 calc(-1 * var(--gutter)); aspect-ratio: 4 / 3; }
+    .mg-detail-text { display: grid; grid-template-columns: minmax(0, 1fr) 7rem; grid-template-rows: auto auto auto 1fr; column-gap: 1.25rem; padding-top: 1.5rem; }
+    .mg-detail-text h2 { font-size: 1.625rem; }
+    .mg-go { justify-self: start; }
+    .mg-detail-text > :not(.mg-detail-whole) { grid-column: 1; }
+    .mg-detail-whole { grid-column: 2; grid-row: 1 / 5; margin: 0; align-self: start; }
+    .mg-go { align-self: start; }
+    .mg-detail-whole img { width: 100%; max-height: none; }
+
+    .mg-toc-head { flex-direction: column; gap: .4rem; }
+    .mg-row, .mg-row-pic { grid-template-columns: minmax(0, 1fr); }
+    .mg-row-in { grid-template-columns: 3.5rem minmax(0, 1fr); row-gap: .5rem; padding: 1.4rem 0; }
+    .mg-row-no { grid-row: 1 / 4; font-size: 2.5rem; }
+    .mg-row-title, .mg-row-premise, .mg-row-state, .mg-vitrine { grid-column: 2; }
+    .mg-row-state { justify-self: start; }
+    .mg-row-thumb { padding: 0 0 1.4rem 5.5rem; }
+  }
+
+  /* Restrained motion: the magnified detail eases in from slightly closer as the spread comes into view. Scroll-driven,
+     nothing on a timer; none with reduced motion. */
+  @keyframes mg-settle { from { scale: 2.5; } to { scale: 2.1; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .mg-detail-zoom img { animation: mg-settle linear both; }
+      :where(.mg) .mg-detail-zoom img { animation-timeline: view(); animation-range: entry 0% cover 50%; }
+    }
+  }
+</style>
+
+<script>
+  import { readReading, resolveEntry } from '../../lib/reading.js';
+  import { readCollection, previewClaimed } from '../../lib/collection.js';
+  import { deviceStorage } from '../../lib/storage.js';
+
+  // This browser's own cards, as on the production homepage: at most two, then the total.
+  const showCards = () => {
+    const list = document.querySelector<HTMLElement>('[data-vitrine]');
+    if (!list) return;
+    const rows = [...list.querySelectorAll<HTMLElement>('[data-card-row]')];
+    const { shown, total } = previewClaimed(readCollection(deviceStorage()), rows.map((r) => ({ id: r.dataset.cardRow! })));
+    const visible = new Set(shown.map((c) => c.id));
+    rows.forEach((r) => { r.hidden = !visible.has(r.dataset.cardRow!); });
+    list.querySelector<HTMLElement>('[data-card-count]')!.textContent = String(total);
+    list.querySelector<HTMLElement>('[data-card-total]')!.hidden = total <= 2;
+    list.hidden = total === 0;
+  };
+  // The one article this device read most recently, if this build still has it.
+  const show = () => {
+    const root = document.querySelector<HTMLElement>('[data-continue]');
+    const raw = document.querySelector('[data-reading-registry]')?.textContent;
+    if (!root || !raw) return;
+    const hit = resolveEntry(readReading(deviceStorage()), JSON.parse(raw));
+    if (!hit) { root.classList.remove('is-on'); return; }
+    root.querySelector('[data-continue-kind]')!.textContent = `继续阅读 · ${hit.label}`;
+    root.querySelector('[data-continue-p]')!.textContent = `${Math.round(hit.p * 100)}%`;
+    const link = root.querySelector<HTMLAnchorElement>('[data-continue-link]')!;
+    link.textContent = hit.title;
+    link.href = `${hit.href}#resume`;
+    root.querySelector<HTMLElement>('[data-continue-bar]')!.style.width = `${Math.round(hit.p * 100)}%`;
+    root.classList.add('is-on');
+  };
+  showCards(); show();
+  addEventListener('pageshow', (e) => { if (e.persisted) { showCards(); show(); } });
+</script>

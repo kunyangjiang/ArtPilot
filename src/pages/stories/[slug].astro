@@ -1,0 +1,12 @@
+---
+// One published article of this hall, in the shared reader (src/components/EssayPage.astro).
+import { getCollection } from 'astro:content';
+import EssayPage from '../../components/EssayPage.astro';
+
+export async function getStaticPaths() {
+  const essays = (await getCollection('essays')).filter((e) => e.data.kind === 'artist-story');
+  return essays.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+<EssayPage entry={entry} />

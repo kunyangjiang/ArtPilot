@@ -1,0 +1,50 @@
+{
+  "id": "art-osman-hamdi-tortoise-trainer-001",
+  "titleZh": "驯龟人",
+  "titleEn": "The Tortoise Trainer",
+  "artist": "奥斯曼·哈姆迪·贝伊（Osman Hamdi Bey）",
+  "attributionNote": "1906 年巴黎沙龙目录第 783 号，题为 L’homme aux tortues（《带乌龟的人》），画家署名“Hamdy Bey”。画家在 1907 年又画了一幅较小的第二版（136 × 87 厘米，画中有六只乌龟），题赠亲家萨利赫·穆尼尔帕夏，今在伊斯坦布尔土耳其商业银行绘画与雕塑博物馆。",
+  "dateApprox": "1906 年",
+  "medium": "布面油画",
+  "dimensionsCm": { "height": 221.5, "width": 120 },
+  "collection": "佩拉博物馆（伊斯坦布尔），苏纳与伊南·克拉奇基金会东方主义绘画收藏",
+  "infoSources": [
+    { "label": "佩拉博物馆，R. Barış Kıbrıs：From the Age of Reason to the “Tortoise Trainer”（2021，1906 年沙龙目录第 783 号）", "url": "https://peramuseum.org/blog/from-the-age-of-reason-to-the-tortoise-trainer/1566" },
+    { "label": "Wikimedia Commons 文件页（Google Art Project 元数据：年代、材质、尺寸、馆藏）", "url": "https://commons.wikimedia.org/wiki/File:Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg" },
+    { "label": "Edhem Eldem, “Making Sense of Osman Hamdi Bey and His Paintings”, Muqarnas 29 (2012)", "url": "https://doi.org/10.1163/22118993-90000189" },
+    { "label": "bianet：第二版《驯龟人》入藏土耳其商业银行绘画与雕塑博物馆", "url": "https://bianet.org/haber/the-second-turtle-trainer-is-at-the-isbank-museum-of-painting-and-sculpture-293066" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/osman-hamdi-tortoise-trainer.jpg",
+      "width": 640,
+      "height": 1197,
+      "alt": "一间墙皮剥落的旧屋，墙上贴着蓝色瓷砖、写着阿拉伯文书法。一位穿红色长袍、裹头巾的老人背着手，手里握着一支笛子，背上挂着一面小鼓，低头看着脚边五只正在吃菜叶的乌龟。",
+      "caption": "《驯龟人》全幅（缩小版）。",
+      "kind": "full"
+    }
+  ],
+  "imageSource": {
+    "label": "Wikimedia Commons（Google Art Project，原文件 9492 × 17758 px；本站用其 960 px 版本再缩小）",
+    "url": "https://commons.wikimedia.org/wiki/File:Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg",
+    "originalFile": "Osman Hamdi Bey - The Tortoise Trainer - Google Art Project.jpg"
+  },
+  "rights": {
+    "status": "公有领域（Public domain）",
+    "basis": "Commons 文件页标注 {{PD-Art|PD-old-100-expired}} 与公有领域标记 1.0：画家卒于 1910 年；平面艺术品的忠实复制。",
+    "verifiedOn": "2026-10-27",
+    "note": "本站图片由上述文件缩小而来，未裁切、未调色，无新增版权主张。未使用佩拉博物馆官网上的图片。PD-Art 并非所有法域都承认，Commons 页面对此有说明。"
+  },
+  "card": {
+    "type": "油画",
+    "maker": "哈姆迪·贝伊",
+    "period": "1906 年",
+    "facets": [
+      { "label": "媒材", "value": "布面油画" },
+      { "label": "尺幅", "value": "221.5 × 120 cm" },
+      { "label": "收藏", "value": "佩拉博物馆，伊斯坦布尔" }
+    ],
+    "blurb": "老人背着手握着笛子，五只乌龟只顾吃菜叶：到底是谁在驯谁？"
+  }
+}

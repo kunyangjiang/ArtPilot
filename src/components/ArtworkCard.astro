@@ -1,6 +1,6 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import { cardNumber } from '../lib/publication.js';
+import { cardNumber, artistCardNumber } from '../lib/publication.js';
 // A collectible artwork card, composed like a magazine cover and strictly black and white.
 // It renders locked; a script reveals it when this device has collected it.
 // `full`: archive card with a flip to its back. `mini`: front only, for the unlock moment.
@@ -18,9 +18,9 @@ const imageKey = card.image === undefined ? 'full' : card.image;
 const img = imageKey ? art.images.find((i) => i.key === imageKey) : undefined;
 if (imageKey && card.image && !img) throw new Error(`Card image "${imageKey}" not found on ${artwork}`);
 const lesson = (await getCollection('lessons')).find((l) => l.data.artwork.id === artwork);
-// The card's number is the course number of the lesson that awards it.
-if (!lesson) throw new Error(`Card ${artwork} has no lesson to award it, so it has no number`);
-const no = cardNumber(lesson.data.course);
+// The card's number is the course number of the lesson that awards it, or its number in the artist series.
+const no = lesson ? cardNumber(lesson.data.course) : artistCardNumber(artwork);
+if (!no) throw new Error(`Card ${artwork} has no lesson to award it and no artist-series number, so it has no number`);
 // The maker line: a painting's painter; a building, whose designers are often unknown, its place (card.maker
 // gives a short form). The English line drops a parenthetical original-language name, and the vertical title steps
 // down in size for titles longer than five characters so it still fits the cover height in one column.

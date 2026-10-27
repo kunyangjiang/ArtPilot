@@ -4,22 +4,32 @@
 // compact wall of cards, and one card in focus with its own front and back. Views are hash locations (#cabinets,
 // #cabinet-04, #card-<artwork id>), so links, Back/Forward and the keyboard behave natively; no modal, no framework.
 // Only cards this browser has claimed are shown (claims live in localStorage under the artwork id); every published
-// card is in the page once, hidden, and thumbnails are copies of its front. Cards are numbered and ordered by the
-// course of the lesson that awards them; a card from any other series would have no number or cabinet yet, and the
-// build stops in ArtworkCard until that is decided.
+// card is in the page once, hidden, and thumbnails are copies of its front. A course card is numbered by the course
+// of the lesson that awards it and sits in its stage's cabinet; an artist-series card (No.074–093, awarded at the end of
+// an artist story) sits in the artists' cabinet. A card with neither stops the build in ArtworkCard.
 import '../styles/fonts.css';
 import { getCollection } from 'astro:content';
 import ArtworkCard from './ArtworkCard.astro';
 import { stages } from '../data/curriculum';
-import { cardNumber } from '../lib/publication.js';
+import { cardNumber, artistCardNumber, ARTIST_SERIES } from '../lib/publication.js';
 
 const courseOf = new Map((await getCollection('lessons')).map((l) => [l.data.artwork.id, l.data.course]));
 const stageOf = (n: number) => stages.find((s) => n >= s.first && n <= s.last)!.no;
 const cards = (await getCollection('artworks')).filter((a) => a.data.card)
-  .map((a) => ({ id: a.id, course: courseOf.get(a.id)!, title: a.data.titleZh }))
-  .sort((a, b) => a.course - b.course)
-  .map((c) => ({ id: c.id, no: cardNumber(c.course), title: c.title, cabinet: stageOf(c.course) }));
-const cabinets = stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range: `第 ${s.first}–${s.last} 课` }));
+  .map((a) => {
+    const course = courseOf.get(a.id);
+    // A course card sits in its stage's cabinet; an artist-series card in the artists' cabinet.
+    if (course) return { id: a.id, no: cardNumber(course), title: a.data.titleZh, cabinet: stageOf(course) };
+    const no = artistCardNumber(a.id);
+    if (!no) throw new Error(`Card ${a.id} has no lesson and no artist-series number`);
+    return { id: a.id, no, title: a.data.titleZh, cabinet: 'artists' };
+  })
+  .sort((a, b) => a.no.localeCompare(b.no));
+const pad = (n: number) => String(n).padStart(3, '0');
+const cabinets = [
+  ...stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range: `第 ${s.first}–${s.last} 课` })),
+  { id: 'artists', no: 'A', title: '艺术家故事', range: `No.${pad(ARTIST_SERIES.first)}–${pad(ARTIST_SERIES.last)}` },
+];
 ---
 <div class="cc" data-cc>
   <!-- 1. Overview: the cabinets that hold something. -->

@@ -1,6 +1,7 @@
 ---
 // Phase 4.1A: two homepage concepts for comparison; Phase 4.1B-0 and 4.1C: two course catalogue concepts; the
-// Collection Cabinets spike (a scalable personal collection). Local only.
+// Collection Cabinets spike (a scalable personal collection); the enriched Exhibition Wall (home-gallery-enriched).
+// Local only.
 // The routes exist in `astro dev`, or in a build run with PUBLIC_ARTPILOT_PREVIEW=1; a normal production build generates
 // no preview pages. The real homepage (src/pages/index.astro) is untouched.
 import '../../styles/global.css';
@@ -15,6 +16,11 @@ export async function getStaticPaths() {
     { params: { concept: 'history-catalogue' }, props: { name: 'History Catalogue' } },
     { params: { concept: 'book-catalogue' }, props: { name: 'Archive Desk' } },
     { params: { concept: 'collection-cabinets' }, props: { name: 'Collection Cabinets' } },
+    { params: { concept: 'home-gallery-enriched' }, props: { name: 'Exhibition Wall · enriched environment' } },
+    { params: { concept: 'home-magazine-cover' }, props: { name: 'Magazine Cover' } },
+    { params: { concept: 'home-salon-wall' }, props: { name: 'Salon Wall' } },
+    { params: { concept: 'home-study-table' }, props: { name: 'Study Table' } },
+    { params: { concept: 'collection-lines' }, props: { name: 'Collection · lines' } },
   ];
 }
 const { concept } = Astro.params;
@@ -31,6 +37,11 @@ const preview = import.meta.env.DEV || import.meta.env.PUBLIC_ARTPILOT_PREVIEW =
         'history-catalogue': () => import('../../components/preview/HistoryCatalogue.astro'),
         'book-catalogue': () => import('../../components/preview/BookCatalogue.astro'),
         'collection-cabinets': () => import('../../components/preview/CollectionCabinets.astro'),
+        'home-gallery-enriched': () => import('../../components/preview/HomeGalleryEnriched.astro'),
+        'home-magazine-cover': () => import('../../components/preview/HomeMagazineCover.astro'),
+        'home-salon-wall': () => import('../../components/preview/HomeSalonWall.astro'),
+        'home-study-table': () => import('../../components/preview/HomeStudyTable.astro'),
+        'collection-lines': () => import('../../components/preview/CollectionLines.astro'),
       } as Record<string, () => Promise<{ default: any }>>)[concept!]()).default,
     }
   : null;
@@ -44,6 +55,7 @@ const preview = import.meta.env.DEV || import.meta.env.PUBLIC_ARTPILOT_PREVIEW =
     <title>{concept === 'history-catalogue' ? '课程目录概念 · ArtPilot（本地预览）'
       : concept === 'book-catalogue' ? '课程目录概念 · 档案桌 · ArtPilot（本地预览）'
       : concept === 'collection-cabinets' ? '藏品图鉴概念 · 私人收藏展柜 · ArtPilot（本地预览）'
+      : concept === 'collection-lines' ? '藏品图鉴 · ArtPilot（本地预览）'
       : `首页概念 ${name} · ArtPilot（本地预览）`}</title>
   </head>
   <body>
