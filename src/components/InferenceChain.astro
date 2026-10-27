@@ -1,0 +1,126 @@
+---
+// Following a claim back to its evidence, one step at a time. Each claim is a chain of steps, and every step says what
+// kind of ground it stands on: something visible on the object, an excavation record, an analogy from elsewhere, or a
+// gap that no evidence crosses. The reader may first guess how far the claim reaches (an optional choice, not checked
+// against anything), then walks the chain with "下一步"; at the end the claim's standing opens: justified, plausible,
+// or not knowable with present evidence. One claim at a time. Nothing is scored or stored; without script every step
+// and verdict shows.
+type Kind = 'see' | 'record' | 'analogy' | 'gap';
+type Verdict = 'justified' | 'plausible' | 'unknowable';
+interface Step { kind: Kind; text: string }
+interface Claim { claim: string; steps: Step[]; verdict: Verdict; note: string }
+interface Props { prompt: string; claims: Claim[] }
+const { prompt, claims } = Astro.props;
+const kinds: Record<Kind, string> = { see: '看得见', record: '发掘记录', analogy: '别处的类比', gap: '断处' };
+const verdicts: Record<Verdict, string> = { justified: '证据足以支持', plausible: '合理，但无法证实', unknowable: '以现有证据无法知道' };
+---
+<section class="module ic" data-ic>
+  <p class="module-label">互动 · 沿着证据走</p>
+  <h3>{prompt}</h3>
+  <div class="ic-tabs" role="tablist" aria-label="选择一个结论">
+    {claims.map((c, i) => (
+      <button type="button" role="tab" id={`ic-tab-${i}`} aria-controls={`ic-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>结论 {i + 1}</button>
+    ))}
+  </div>
+  {claims.map((c, i) => (
+    <div class="ic-panel" role="tabpanel" id={`ic-panel-${i}`} aria-labelledby={`ic-tab-${i}`} hidden={i !== 0} data-panel>
+      <p class="ic-claim">“{c.claim}”</p>
+      <div class="ic-guess" role="group" aria-label="先猜一猜（可选）">
+        <span>先猜一猜（可选）：</span>
+        {(Object.keys(verdicts) as Verdict[]).map((v) => <button type="button" data-guess={v} aria-pressed="false">{verdicts[v]}</button>)}
+      </div>
+      <ol class="ic-steps">
+        {c.steps.map((s) => (
+          <li class={`ic-step is-${s.kind}`} data-step>
+            <span class="ic-kind">{kinds[s.kind]}</span>
+            <span class="ic-text">{s.text}</span>
+          </li>
+        ))}
+      </ol>
+      <div class="ic-verdict" data-verdict>
+        <p class="ic-verdict-head">{verdicts[c.verdict]}</p>
+        <p class="ic-verdict-note">{c.note}</p>
+        <p class="ic-verdict-guess" data-guess-note></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-next>下一步</button>
+        <button type="button" class="btn btn-secondary" data-reset>重来</button>
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .ic-tabs { display: flex; gap: .5rem; margin-bottom: 1.25rem; }
+  .ic-tabs button { padding: .45rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    font: 500 .875rem/1.4 var(--sans); letter-spacing: .06em; cursor: pointer; }
+  .ic-tabs button[aria-selected="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .ic-claim { margin: 0 0 1rem; font: 500 1.125rem/1.7 var(--serif); letter-spacing: .03em; }
+  .ic-guess { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1.25rem; font: 400 .8125rem/1.5 var(--sans); color: var(--ink-3); }
+  .ic-guess button { padding: .35rem .7rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); font: 400 .8125rem/1.4 var(--sans); cursor: pointer; }
+  .ic-guess button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); background: var(--mist); }
+  .ic-steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  .ic-step { position: relative; display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; padding: .7rem 0 .7rem 1.25rem; border-left: 2px solid var(--ink); }
+  .ic-step.is-analogy { border-left-style: dotted; }
+  .ic-step.is-gap { border-left: 2px dashed var(--ink-3); }
+  .ic-step::before { content: ""; position: absolute; left: -6px; top: 1.05rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+  .ic-step.is-gap::before { background: var(--paper); border: 1.5px dashed var(--ink-3); left: -7px; }
+  .ic-kind { font: 600 .75rem/1.7 var(--sans); letter-spacing: .1em; color: var(--ink-3); }
+  .ic-step.is-gap .ic-kind { color: var(--ink); }
+  .ic-text { font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .ic-verdict { margin-top: 1rem; padding: 1rem 1.25rem; background: var(--mist); }
+  .ic-verdict-head { margin: 0; font: 500 1.0625rem/1.5 var(--serif); letter-spacing: .04em; }
+  .ic-verdict-note { margin: .4rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .ic-verdict-guess { margin: .4rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  .ic-verdict-guess:empty { display: none; }
+  /* With script, steps open one at a time and the verdict waits for the last one. */
+  :global(.ic.is-ready) .ic-step:not(.is-shown), :global(.ic.is-ready) .ic-verdict:not(.is-shown) { display: none; }
+  :global(.ic.is-ready) .is-shown { animation: ic-in 360ms var(--ease) both; }
+  @keyframes ic-in { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { :global(.ic) .is-shown { animation: none; } }
+  @media (max-width: 640px) { .ic-step { grid-template-columns: 1fr; gap: .15rem; } }
+</style>
+
+<script>
+  const names: Record<string, string> = { justified: '证据足以支持', plausible: '合理，但无法证实', unknowable: '以现有证据无法知道' };
+  document.querySelectorAll<HTMLElement>('[data-ic]').forEach((root) => {
+    root.classList.add('is-ready');
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p, k) => { p.hidden = k !== i; });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+    panels.forEach((p) => {
+      const steps = [...p.querySelectorAll<HTMLElement>('[data-step]')];
+      const verdict = p.querySelector<HTMLElement>('[data-verdict]')!;
+      const next = p.querySelector<HTMLButtonElement>('[data-next]')!;
+      const guessNote = p.querySelector<HTMLElement>('[data-guess-note]')!;
+      const guesses = [...p.querySelectorAll<HTMLButtonElement>('[data-guess]')];
+      const actual = verdict.querySelector('.ic-verdict-head')!.textContent;
+      let shown = 0;
+      let guess = '';
+      const update = () => {
+        steps.forEach((s, k) => s.classList.toggle('is-shown', k < shown));
+        const done = shown > steps.length;
+        verdict.classList.toggle('is-shown', done);
+        next.disabled = done;
+        next.textContent = shown === 0 ? '沿着证据走' : shown < steps.length ? '下一步' : done ? '已走到结论' : '看结论';
+        guessNote.textContent = done && guess ? (names[guess] === actual ? '你先前的判断与此相同。' : `你先前猜的是“${names[guess]}”。`) : '';
+      };
+      next.addEventListener('click', () => { shown = Math.min(shown + 1, steps.length + 1); update(); });
+      p.querySelector('[data-reset]')!.addEventListener('click', () => { shown = 0; guess = ''; guesses.forEach((g) => g.setAttribute('aria-pressed', 'false')); update(); });
+      guesses.forEach((g) => g.addEventListener('click', () => { guess = g.dataset.guess!; guesses.forEach((x) => x.setAttribute('aria-pressed', String(x === g))); update(); }));
+      update();
+    });
+  });
+</script>

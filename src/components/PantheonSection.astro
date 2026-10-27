@@ -1,0 +1,157 @@
+---
+// A section through the Pantheon's rotunda on its north–south axis, drawn to one scale (1 m = 8 units), with the
+// entrance (north) on the right. The interior is about as wide as it is high (published figures run from about 43.2 to
+// 43.4 m; the drawing uses 43.3), so a sphere of that diameter fits inside; the cylinder below the dome is half that
+// height. The dome thins from about 6.4 m at its base to about 1.2 m at the oculus (about 9 m across), the figures
+// usually cited after Mark and Hutchinson (1986). The aggregate is named from heavy to light without drawn boundaries.
+// The slider sets the month; the beam is the noon sun through the oculus for Rome (latitude 41.9° N), with the sun's
+// declination for the middle of each month. Edge rays from the oculus rim are traced to the floor, the drum wall or the
+// dome; the patch is where they land. The thickness of the oculus rim and the depth of the coffers are ignored, so the
+// patch is approximate. Nothing is stored. Reduced motion: the beam moves without a transition.
+const m = 8;
+const floor = 380, cx = 280;
+const R = 21.65 * m; // interior radius
+const spring = floor - R; // the dome springs at half the height
+const top = spring - R; // the oculus
+const oc = 4.5 * m; // half the oculus
+const wall = 6 * m; // the drum wall, approximately
+const tb = 6.4 * m, tt = 1.2 * m; // dome thickness at base and at the oculus
+const ox = R + tb, oy = R + tt; // outer curve, an ellipse through those two thicknesses
+const yIn = spring - Math.sqrt(R * R - oc * oc); // inner surface at the oculus rim
+const yOut = spring - oy * Math.sqrt(1 - (oc / ox) ** 2);
+const section = [
+  `M${cx - R - wall} ${floor}`, `L${cx - R - wall} ${spring}`,
+  `A${ox} ${oy} 0 0 1 ${cx - oc} ${yOut}`, `L${cx - oc} ${yIn}`,
+  `A${R} ${R} 0 0 0 ${cx - R} ${spring}`, `L${cx - R} ${floor}`, 'Z',
+].join(' ');
+const mirror = [
+  `M${cx + R + wall} ${floor}`, `L${cx + R + wall} ${spring}`,
+  `A${ox} ${oy} 0 0 0 ${cx + oc} ${yOut}`, `L${cx + oc} ${yIn}`,
+  `A${R} ${R} 0 0 1 ${cx + R} ${spring}`, `L${cx + R} ${floor}`, 'Z',
+].join(' ');
+const months = ['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月'];
+const geom = { floor, cx, R, spring, oc, yIn };
+---
+<section class="module pantheon-section" data-ps data-geom={JSON.stringify(geom)}>
+  <p class="module-label">互动 · 剖面与正午的光</p>
+  <h3>圆厅的剖面：一个球，和一束会移动的光</h3>
+  <svg viewBox="0 0 575 410" role="img" aria-labelledby="ps-title">
+    <title id="ps-title">万神殿圆厅南北向剖面示意：内部宽度与高度大致相等，可容下一个完整的球体；穹顶由下往上变薄，顶端开有圆眼；正午的阳光穿过圆眼，落在穹顶、墙面或地面上，随季节移动。</title>
+    <path class="ps-beam" data-beam d="" />
+    <path class="ps-wall" d={section} />
+    <path class="ps-wall" d={mirror} />
+    <circle class="ps-sphere" cx={cx} cy={spring} r={R} />
+    <path class="ps-patch" data-patch d="" />
+    <line class="ps-floor" x1="30" y1={floor} x2="530" y2={floor} />
+    <rect class="ps-door" x={cx + R} y={floor - 7.5 * m} width={wall} height={7.5 * m} />
+    <text class="ps-s" x={cx + R + wall + 4} y={floor - 8} text-anchor="start">门（北）</text>
+    <text class="ps-s" x={cx - R - wall - 4} y={floor - 8} text-anchor="end">南</text>
+    <!-- dimensions -->
+    <line class="ps-dim" x1={cx - R} y1={floor + 14} x2={cx + R} y2={floor + 14} />
+    <text class="ps-t" x={cx} y={floor + 28} text-anchor="middle">直径约 43 米</text>
+    <line class="ps-dim" x1={cx + R + wall + 14} y1={spring - 40} x2={cx + R + wall + 14} y2={top} />
+    <text class="ps-t" x={cx + R + wall + 20} y={top + 30} text-anchor="start">高</text>
+    <text class="ps-t" x={cx + R + wall + 20} y={top + 45} text-anchor="start">约</text>
+    <text class="ps-t" x={cx + R + wall + 20} y={top + 60} text-anchor="start">43</text>
+    <text class="ps-t" x={cx + R + wall + 20} y={top + 75} text-anchor="start">米</text>
+    <line class="ps-level" x1={cx - R - wall - 10} y1={spring} x2={cx + R + wall + 6} y2={spring} />
+    <text class="ps-s" x={cx - R + 8} y={spring - 6} text-anchor="start">穹顶起拱</text>
+    <text class="ps-t" x={cx} y={top - 14} text-anchor="middle">圆眼，约 9 米</text>
+    <line class="ps-lead" x1="85" y1={spring - 35} x2="60" y2="72" />
+    <text class="ps-s" x="8" y="66" text-anchor="start">下部厚约 6.4 米</text>
+    <line class="ps-lead" x1={cx - 70} y1={top + 18} x2={cx - 120} y2={top - 2} />
+    <text class="ps-s" x={cx - 124} y={top - 4} text-anchor="end">顶部厚约 1.2 米</text>
+    <text class="ps-s" x={cx} y={spring - 110} text-anchor="middle">骨料由下往上：</text>
+    <text class="ps-s" x={cx} y={spring - 94} text-anchor="middle">石灰华 → 砖、瓦 → 凝灰岩与浮石</text>
+    <text class="ps-s" x={cx} y={spring - 78} text-anchor="middle">（越往上越轻）</text>
+    <text class="ps-s ps-faint" x={cx} y={spring + 60} text-anchor="middle">虚线：直径与高度相同的球体</text>
+    <g class="ps-person" transform={`translate(${cx - 120} ${floor})`}>
+      <circle cx="0" cy={-12.2} r="1.6" />
+      <line x1="0" y1={-10.6} x2="0" y2={-5.5} />
+      <line x1="0" y1={-5.5} x2="-1.6" y2="0" />
+      <line x1="0" y1={-5.5} x2="1.6" y2="0" />
+    </g>
+    <text class="ps-s" x={cx - 120} y={floor - 18} text-anchor="middle">人</text>
+  </svg>
+  <div class="ps-control">
+    <label for="ps-month">月份（正午）</label>
+    <input id="ps-month" type="range" min="0" max="11" step="1" value="5" data-month list="ps-months" />
+    <output for="ps-month" data-out>6 月</output>
+  </div>
+  <datalist id="ps-months">{months.map((_, i) => <option value={i} />)}</datalist>
+  <p class="ps-read" data-read aria-live="polite"></p>
+  <p class="ps-caption">示意图：按同一比例画出万神殿圆厅的南北向剖面（门廊和过渡段未画），右侧是朝北的大门。外侧轮廓经过简化：实际的穹顶外面下部有一圈圈台阶状的加厚。骨料由重到轻的次序依据已发表的研究，分界并不精确，所以没有画出。光束按罗马的纬度和每月中旬正午的太阳高度计算；圆眼边缘的厚度和凹格的深浅没有计入，光斑的位置只是近似。</p>
+</section>
+
+<style>
+  .pantheon-section svg { display: block; width: 100%; max-width: 46rem; height: auto; margin-inline: auto; }
+  .ps-wall { fill: var(--mist, #e9e9e6); stroke: var(--ink-2); stroke-width: 1.2; }
+  .ps-sphere { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 5 5; }
+  .ps-floor { stroke: var(--ink-2); stroke-width: 1.2; }
+  .ps-door { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; }
+  .ps-beam { fill: rgba(226, 178, 74, .22); stroke: none; transition: d 420ms var(--ease); }
+  .ps-patch { fill: none; stroke: rgb(214, 152, 32); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; transition: d 420ms var(--ease); }
+  @media (prefers-reduced-motion: reduce) { .ps-beam, .ps-patch { transition: none; } }
+  .ps-dim { stroke: var(--ink-3); stroke-width: 1; }
+  .ps-level { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 4; }
+  .ps-lead { stroke: var(--ink-3); stroke-width: .8; }
+  .ps-person { stroke: var(--ink); stroke-width: 1; fill: var(--ink); }
+  .ps-t { font: 500 13px/1 var(--sans); fill: var(--ink-2); letter-spacing: .04em; }
+  .ps-s { font: 400 11.5px/1 var(--sans); fill: var(--ink-3); letter-spacing: .03em; }
+  .ps-faint { fill: var(--silver); }
+  .ps-control { display: grid; grid-template-columns: auto minmax(0, 1fr) 3.5rem; gap: 1rem; align-items: center; max-width: 36rem; margin: 1.25rem auto 0; }
+  .ps-control label { font: 500 .875rem/1.4 var(--sans); letter-spacing: .06em; }
+  .ps-control input { width: 100%; accent-color: var(--ink); }
+  .ps-control output { font: 500 1rem/1 var(--sans); text-align: right; }
+  .ps-read { max-width: 36rem; min-height: 3.6em; margin: .75rem auto 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .ps-caption { max-width: 44rem; margin: 1rem auto 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  /* Phones: the drawing shrinks to about two thirds, so the labels grow to stay readable. */
+  @media (max-width: 40rem) { .ps-t { font-size: 19px; } .ps-s { font-size: 17px; } .ps-control { grid-template-columns: 1fr 3.5rem; } .ps-control label { grid-column: 1 / -1; } }
+</style>
+
+<script>
+  // Declination of the sun for the middle of each month (degrees), and Rome's latitude.
+  const DEC = [-21.3, -13.0, -2.4, 9.4, 18.8, 23.3, 21.5, 13.8, 2.2, -9.6, -19.1, -23.3];
+  const LAT = 41.9;
+  document.querySelectorAll<HTMLElement>('[data-ps]').forEach((root) => {
+    const g = JSON.parse(root.dataset.geom!) as { floor: number; cx: number; R: number; spring: number; oc: number; yIn: number };
+    const beam = root.querySelector<SVGPathElement>('[data-beam]')!;
+    const patch = root.querySelector<SVGPathElement>('[data-patch]')!;
+    const input = root.querySelector<HTMLInputElement>('[data-month]')!;
+    const out = root.querySelector<HTMLOutputElement>('[data-out]')!;
+    const read = root.querySelector<HTMLElement>('[data-read]')!;
+    // Trace a ray from a point on the oculus rim towards the north (right) and down; return where it lands and on what.
+    const trace = (x0: number, alt: number) => {
+      const dx = Math.cos(alt), dy = Math.sin(alt); // SVG y grows downwards
+      // dome: |p + t d - c|^2 = R^2, with c = (cx, spring)
+      const px = x0 - g.cx, py = g.yIn - g.spring;
+      const b = px * dx + py * dy, c = px * px + py * py - g.R * g.R;
+      const t = -b + Math.sqrt(b * b - c);
+      const hx = x0 + t * dx, hy = g.yIn + t * dy;
+      if (hy <= g.spring) return { x: hx, y: hy, on: 'dome' };
+      const tw = (g.cx + g.R - x0) / dx, wy = g.yIn + tw * dy;
+      if (wy <= g.floor) return { x: g.cx + g.R, y: wy, on: 'wall' };
+      const tf = (g.floor - g.yIn) / dy;
+      return { x: x0 + tf * dx, y: g.floor, on: 'floor' };
+    };
+    const draw = () => {
+      const i = Number(input.value);
+      const altDeg = 90 - LAT + DEC[i];
+      const alt = (altDeg * Math.PI) / 180;
+      const pts = Array.from({ length: 13 }, (_, k) => trace(g.cx - g.oc + (2 * g.oc * k) / 12, alt));
+      const a = pts[0], z = pts[pts.length - 1];
+      beam.setAttribute('d', `M${g.cx - g.oc} ${g.yIn} L${g.cx + g.oc} ${g.yIn} L${z.x.toFixed(1)} ${z.y.toFixed(1)} L${a.x.toFixed(1)} ${a.y.toFixed(1)} Z`);
+      patch.setAttribute('d', 'M' + pts.map((p) => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L'));
+      out.textContent = `${i + 1} 月`;
+      const ons = new Set(pts.map((p) => p.on));
+      const where = ons.has('floor') && ons.size === 1 ? '落在靠北一侧的地面上'
+        : ons.has('floor') ? '一部分落在地面，一部分爬上北墙'
+        : ons.has('dome') && ons.has('wall') ? '落在北面墙体的上部和穹顶的底部'
+        : ons.has('dome') ? '高高地落在北面的穹顶上，照在凹格之间'
+        : '落在北面的墙上';
+      read.textContent = `${i + 1} 月中旬的正午，太阳高约 ${Math.round(altDeg)}°。光斑${where}。`;
+    };
+    input.addEventListener('input', draw);
+    draw();
+  });
+</script>

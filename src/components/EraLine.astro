@@ -1,0 +1,54 @@
+---
+// Static figure: when things happened, drawn to one scale, so that works centuries apart are not read as neighbours.
+// Each row is a span (a period, a reign, the life of a site) or, when from === to, a single date; years are negative
+// before the common era. The bars sit on one shared axis; `ticks` label it. Dates in the rows are written out in
+// words (`dates`), because most early dates are approximate and the bar alone would suggest more precision than
+// there is. Used by several Stage 02 lessons; nothing interactive.
+interface Row { label: string; from: number; to: number; dates: string; note?: string; here?: boolean }
+interface Props { from: number; to: number; ticks: number[]; rows: Row[]; caption: string }
+const { from, to, ticks, rows, caption } = Astro.props;
+const at = (y: number) => ((y - from) / (to - from)) * 100;
+const year = (y: number) => (y < 0 ? `前 ${-y}` : y === 0 ? '0' : `${y}`);
+---
+<figure class="era">
+  <ol class="era-rows">
+    {rows.map((r) => (
+      <li class:list={['era-row', { 'is-here': r.here, 'is-point': r.from === r.to }]}>
+        <p class="era-label"><strong>{r.label}</strong><span>{r.dates}</span>{r.note && <em>{r.note}</em>}</p>
+        <div class="era-track" aria-hidden="true">
+          <i style={`left:${at(r.from)}%;width:${Math.max(at(r.to) - at(r.from), 0)}%`}></i>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <div class="era-axis" aria-hidden="true">
+    {ticks.map((t) => <span style={`left:${at(t)}%`}>{year(t)}</span>)}
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .era { grid-column: wide; margin: 2.5rem 0 3rem; }
+  .era-rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+  .era-row { display: grid; grid-template-columns: 15rem 1fr; gap: 1.25rem; align-items: center;
+    padding: .7rem 0; border-bottom: 1px solid var(--rule); }
+  .era-label { margin: 0; font: 400 .8125rem/1.6 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+  .era-label strong { display: block; font: 600 .9375rem/1.5 var(--sans); color: var(--ink-2); }
+  .era-label span { display: block; }
+  .era-label em { display: block; font-style: normal; }
+  .era-track { position: relative; height: 10px; }
+  .era-track::before { content: ""; position: absolute; inset: 4px 0 auto; border-top: 1px dotted var(--rule); }
+  .era-track i { position: absolute; top: 0; height: 10px; min-width: 3px; background: var(--silver); }
+  .era-row.is-point .era-track i { width: 10px !important; margin-left: -5px; border-radius: 50%; }
+  .era-row.is-here strong { color: var(--ink); }
+  .era-row.is-here .era-track i { background: var(--ink); }
+  .era-axis { position: relative; height: 1.75rem; margin-left: 16.25rem; }
+  .era-axis span { position: absolute; top: .4rem; transform: translateX(-50%); white-space: nowrap;
+    font: 400 .75rem/1 var(--latin); letter-spacing: .04em; color: var(--ink-3); }
+  .era figcaption { max-width: 44rem; margin-top: .5rem; }
+  /* Phones: the label sits above its bar, and the axis spans the full width. */
+  @media (max-width: 40rem) {
+    .era-row { grid-template-columns: 1fr; gap: .45rem; }
+    .era-axis { margin-left: 0; }
+  }
+</style>

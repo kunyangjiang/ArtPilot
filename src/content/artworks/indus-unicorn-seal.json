@@ -1,0 +1,92 @@
+{
+  "id": "art-indus-unicorn-seal-001",
+  "kind": "object",
+  "titleZh": "独角兽纹印章",
+  "titleEn": "Stamp Seal and Modern Impression: Unicorn and Incense Burner (?)",
+  "attributionNote": "作者不详。印度河文明的印章出自专门的工匠之手，没有留下名字；印章上的文字至今无法释读，也就无从知道它属于谁。",
+  "dateApprox": "约公元前 2600–1900 年（印度河文明成熟期）",
+  "objectType": "方形印章（附现代翻制的印痕）",
+  "medium": "滑石，雕刻后经过烧制；背面有穿孔的钮",
+  "dimensions": "3.8 × 3.8 厘米，厚 1 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 49.40.1",
+  "originalStatus": "古代原件，一角残缺。照片中右边浅色的方块是现代用印章压出的印痕，用来看清图案的正面。",
+  "provenance": "1902–1934 年间，由时任印度考古局局长的约翰·马歇尔从英属印度旁遮普省的蒙哥马利县（今巴基斯坦境内）取得；1949 年大都会艺术博物馆从马歇尔手中购得。记录只到县一级：具体在哪处遗址、哪个地层出土，没有记载。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Stamp seal and modern impression: unicorn and incense burner (?)，49.40.1", "url": "https://www.metmuseum.org/art/collection/search/324062" },
+    { "label": "大都会艺术博物馆藏品页：Bead，59.41.42（尼普尔出土的印度河红玉髓珠）", "url": "https://www.metmuseum.org/art/collection/search/324872" },
+    { "label": "Harappa.com（J. M. Kenoyer 等）：印度河印章与独角兽图案的资料", "url": "https://www.harappa.com/category/essay-name/unicorn-seal" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/indus-unicorn-seal.jpg",
+      "alt": "灰色背景上并排放着两块小方块：左边是白色的石印章，一角残缺，上面刻着一只朝左的动物和一排符号，图案是凹进去的；右边是浅褐色的印痕，同样的动物朝右站立，图案凸起。",
+      "caption": "独角兽纹印章（左）与现代翻制的印痕（右），印度河文明，约公元前 2600–1900 年，印章 3.8 厘米见方。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/324062", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "impression",
+      "src": "/img/indus-unicorn-seal-impression.jpg",
+      "alt": "印痕的近景：一只身体粗壮、像牛一样的动物向右站立，头上一只长角向前弯曲，肩背上有一道道花纹；它面前立着一件上下两层的器物；画面上方是一排几个符号。",
+      "caption": "同一枚印章的现代印痕：图案和文字在这里是正向的。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/324062", "changes": "由原图裁切出右侧的印痕、缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "back",
+      "src": "/img/indus-unicorn-seal-back.jpg",
+      "alt": "黑白照片：印章的背面，中央隆起一个半球形的钮，钮上横穿一道凹槽和孔；印章边缘写着一个小小的“No. I”。",
+      "caption": "同一枚印章的背面：中央的钮上有穿孔，可以穿绳携带。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/324062", "changes": "由原图（黑白照片）缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "bead",
+      "src": "/img/nippur-carnelian-bead.jpg",
+      "alt": "一颗橙红色的桶形石珠，表面布满白色的小圆圈图案，中间穿孔。",
+      "caption": "红玉髓珠，大都会艺术博物馆将其文化归属定为印度河，出土于美索不达米亚的尼普尔，早王朝时期（约公元前 2900–2350 年），长 1.9 厘米。大都会艺术博物馆藏（59.41.42）。",
+      "kind": "detail",
+      "subject": "尼普尔出土的红玉髓珠",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/324872", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "great-bath",
+      "src": "/img/mohenjo-daro-great-bath.jpg",
+      "alt": "一个用红褐色烧砖砌成的长方形下沉水池，池壁陡直，两端有砖砌台阶通到池底；四周是同样用砖砌成的矮墙遗迹。",
+      "caption": "摩亨佐-达罗的“大浴池”（今巴基斯坦信德省，2014 年摄）。",
+      "kind": "detail",
+      "subject": "摩亨佐-达罗的大浴池",
+      "credit": { "author": "Saqib Qayyum", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_bath_view_Mohenjodaro.JPG", "date": "2014-03-08", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "priest-king",
+      "src": "/img/mohenjo-daro-priest-king-cast.jpg",
+      "alt": "展柜里，一尊浅黄色的男子半身像放在深色底座上：他留着胡子，额头束着带子，眼睛半闭，左肩披着一件布满三叶形花纹的外衣；底座前的标签写着“KING PRIEST (CAST)”。",
+      "caption": "“祭司王”半身像的复制品（标签写明 CAST，即翻模复制品），陈列于摩亨佐-达罗遗址的博物馆（2014 年摄）。原件高约 17.5 厘米，藏巴基斯坦国家博物馆（卡拉奇）。",
+      "kind": "detail",
+      "subject": "“祭司王”半身像（复制品）",
+      "credit": { "author": "Umair Shaikh", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Priest_King_of_Moenjo_Daro.jpg", "date": "2014-11-02", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "印章与红玉髓珠属公有领域，照片来自大都会艺术博物馆开放获取计划（CC0）；大浴池与“祭司王”复制品的照片由摄影者以知识共享许可发布。",
+    "basis": "大都会藏品页均标注“Public Domain”，公有领域图像可无偿用于商业与非商业用途；维基共享资源文件页分别标注 CC BY-SA 3.0（Saqib Qayyum，本人作品）和 CC BY-SA 2.0（Umair Shaikh，原发布于 Flickr）。本课对照片只做了缩小、重新压缩，以及一处标明的裁切。",
+    "verifiedOn": "2026-10-27",
+    "note": "按许可注明摄影者与许可协议；CC BY-SA 照片的改动同样以 CC BY-SA 方式提供。“祭司王”的照片拍的是复制品，不是原件。"
+  },
+  "card": {
+    "type": "印章",
+    "maker": "印度河流域",
+    "period": "前 2600–1900",
+    "facets": [
+      { "label": "材质", "value": "烧制滑石" },
+      { "label": "图案", "value": "“独角兽”" },
+      { "label": "文字", "value": "尚未破译" },
+      { "label": "尺寸", "value": "3.8 cm 见方" }
+    ],
+    "blurb": "一枚邮票大小的印章：图像看得清，名字读不出，四千多年来没人能念出它写的是什么。",
+    "image": "impression",
+    "focus": "50% 50%"
+  }
+}

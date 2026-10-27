@@ -1,0 +1,145 @@
+{
+  "id": "art-pantheon-001",
+  "kind": "building",
+  "titleZh": "万神殿",
+  "titleEn": "Pantheon, Rome",
+  "attributionNote": "设计者不详。门廊上的铭文写的是阿格里帕，但他建的是更早的一座，已毁于火灾；今天的建筑约公元 112–114 年动工、120 年代中期完成，有学者根据风格推测出自图拉真的建筑师大马士革的阿波罗多罗斯，没有定论。",
+  "dateApprox": "约公元 112–125 年（图拉真时动工，哈德良时完成）；前身由阿格里帕建于公元前 1 世纪 20 年代",
+  "location": "意大利，罗马，战神广场（今罗通达广场）",
+  "facts": [
+    {
+      "label": "圆厅直径",
+      "value": "约 43 米（各家测量 43.2–43.4 米）"
+    },
+    {
+      "label": "地面到圆眼",
+      "value": "约 43 米，与直径大致相等"
+    },
+    {
+      "label": "圆眼直径",
+      "value": "约 9 米"
+    },
+    {
+      "label": "门廊石柱",
+      "value": "16 根整根花岗岩，高近 12 米"
+    }
+  ],
+  "buildingType": "古罗马神庙（用途至今有争论）；609 年起为天主教堂",
+  "materials": "圆厅墙体与穹顶为罗马混凝土，墙面以砖砌面；穹顶不用钢筋，内侧有五圈凹格，骨料由下往上逐渐变轻。门廊石柱为埃及出产的整根花岗岩，一般认为灰色的出自东部沙漠的克劳狄山。",
+  "notes": [
+    "阿格里帕所建的前身于公元 80 年毁于火灾，经图密善重建，110 年再次焚毁。",
+    "根据砖戳，今天的建筑约 112–114 年在图拉真时动工，约 120 年代中期在哈德良时完成（Hetland 的年代，见 Rabun Taylor 在《美国考古学杂志》2017 年的书评）；门廊上重新刻上了阿格里帕的名字。",
+    "202 年，塞普蒂米乌斯·塞维鲁与卡拉卡拉在额枋上加刻了一行较小的铭文，记录这次修复。",
+    "609 年，拜占庭皇帝福卡斯把它赠给教宗博尼法斯四世，5 月 13 日祝圣为供奉圣母与殉道者的教堂；持续的使用让它得以完整保存。",
+    "教宗乌尔班八世（1623–1644 年在位）下令拆下门廊屋顶的青铜桁架熔铸大炮，并以一对钟楼取代中世纪的钟塔；这对钟楼于 1883 年拆除。"
+  ],
+  "infoSources": [
+    {
+      "label": "维基百科：Pantheon, Rome（建造年代、铭文、尺寸、骨料、609 年改为教堂、钟楼；含 Hetland 2015 等文献）",
+      "url": "https://en.wikipedia.org/wiki/Pantheon,_Rome"
+    },
+    {
+      "label": "Rabun Taylor，书评，American Journal of Archaeology 121.4（2017）：Hetland 根据砖戳提出的年代",
+      "url": "https://ajaonline.org/?p=4807"
+    },
+    {
+      "label": "Inscriptions of Roman Tripolitania（IRT 2009）：IRT 321，大莱普提斯剧场的建造铭文",
+      "url": "https://inslib.kcl.ac.uk/irt2009/IRT321.html"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/pantheon-portico.jpg",
+      "alt": "仰望万神殿的门廊：三角形山花下，一排粗大的科林斯式石柱；柱子上方的额枋刻着一行大写拉丁字母 M·AGRIPPA·L·F·COS·TERTIVM·FECIT，阳光从山花后面照过来。",
+      "caption": "万神殿门廊与额枋上的铭文（2018 年摄）。",
+      "kind": "full",
+      "credit": {
+        "author": "I.nunezarena",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantheon_portico_frontview.jpg",
+        "date": "2018-08-25",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "dome",
+      "src": "/img/pantheon-dome.jpg",
+      "alt": "从圆厅中央仰望穹顶：一圈圈方形的凹格向上逐渐变小，正中是一个明亮的圆形开口，露出天空。",
+      "caption": "从圆厅地面仰望穹顶与圆眼（2019 年 2 月，下午三点多摄）。",
+      "kind": "detail",
+      "credit": {
+        "author": "T. Le Berre",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_oculus_of_the_Rome_Pantheon.jpg",
+        "date": "2019-02-18",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "leptis-inscription",
+      "src": "/img/leptis-theatre-inscription.jpg",
+      "alt": "一座石砌门洞上方横着一块长方形的石板，板上刻着几行拉丁文大写字母，两端各有一个燕尾形的耳；石板上下是残存的砌石，背景是蓝天。",
+      "caption": "大莱普提斯剧场一座门洞上方的建造铭文（IRT 321），公元 1–2 年；拉丁文之后另有两行新布匿文（2007 年摄）。",
+      "kind": "detail",
+      "subject": "大莱普提斯剧场的建造铭文",
+      "credit": {
+        "author": "Papageizichta",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inscription_Theatre_Leptis_Magna_Libya.JPG",
+        "date": "2007-10-05",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "leptis-theatre",
+      "src": "/img/leptis-theatre.jpg",
+      "alt": "从高处俯瞰一座半圆形的古罗马剧场：一层层石砌座位环绕着半圆形的乐池，对面是残存的舞台背景墙和一排排石柱，远处是地中海。",
+      "caption": "大莱普提斯的罗马剧场（今利比亚，2006 年摄）。",
+      "kind": "detail",
+      "subject": "大莱普提斯剧场",
+      "credit": {
+        "author": "David Gunn（Daviegunn）",
+        "licence": "公有领域（作者声明放弃权利）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leptis_Magna_Theatre.jpg",
+        "date": "2006-09-16",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "建筑与铭文属公有领域；照片由摄影者以知识共享许可发布，其中一张由作者放弃权利、进入公有领域。",
+    "basis": "维基共享资源文件页分别标注：门廊 CC BY-SA 4.0（I.nunezarena）、穹顶 CC BY-SA 4.0（T. Le Berre）、大莱普提斯铭文 CC BY-SA 3.0（Papageizichta），均为摄影者本人作品；大莱普提斯剧场一张由作者 David Gunn 声明放弃版权、置于公有领域。本课对照片只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-27",
+    "note": "按许可注明摄影者与许可协议；CC BY-SA 照片的改动同样以 CC BY-SA 方式提供。大莱普提斯剧场是用来对照的另一处建筑，与万神殿没有关联。"
+  },
+  "card": {
+    "type": "建筑",
+    "maker": "罗马",
+    "period": "约 112–125",
+    "facets": [
+      {
+        "label": "结构",
+        "value": "混凝土穹顶"
+      },
+      {
+        "label": "直径",
+        "value": "约 43 m"
+      },
+      {
+        "label": "圆眼",
+        "value": "约 9 m"
+      },
+      {
+        "label": "用途",
+        "value": "神庙，后为教堂"
+      }
+    ],
+    "blurb": "一个能装下整个球体的圆厅，顶上开着天光；门廊上，刻着一个早已去世的人的名字。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

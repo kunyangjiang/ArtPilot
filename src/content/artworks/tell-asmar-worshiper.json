@@ -1,0 +1,103 @@
+{
+  "id": "art-tell-asmar-worshiper-001",
+  "kind": "object",
+  "titleZh": "站立的男性礼拜者像",
+  "titleEn": "Standing Male Worshiper",
+  "attributionNote": "作者不详。早王朝时期的礼拜者像出自神庙周围的作坊，没有留下雕刻者的名字；这一尊也没有铭文，供奉者的名字同样失传。",
+  "dateApprox": "约公元前 2900–2600 年（苏美尔，早王朝 I–II 期）",
+  "objectType": "还愿雕像 · 礼拜者像",
+  "medium": "石膏质雪花石膏雕刻；眼白用贝壳、瞳孔用黑色石灰岩镶嵌，以沥青固定",
+  "dimensions": "高 29.5 厘米，宽 12.9 厘米，厚 10 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 40.156",
+  "originalStatus": "早王朝时期的原件。雕像出土前在地下埋藏了数千年；原有的彩绘今已不存。",
+  "provenance": "出自今伊拉克迪亚拉河流域的泰勒阿斯马尔（古城埃什努纳）“方形神庙”。博物馆的文章说明，它属于 20 世纪 30 年代发掘出的一组十二尊雕像，这组雕像被埋在神庙地面之下，由谁埋下、为什么埋下都不清楚。1940 年以弗莱彻基金入藏大都会艺术博物馆。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Standing male worshiper，40.156", "url": "https://www.metmuseum.org/art/collection/search/323735" },
+    { "label": "大都会艺术博物馆《艺术史年表》：Early Dynastic Sculpture, 2900–2350 B.C.（2004）", "url": "https://www.metmuseum.org/essays/early-dynastic-sculpture-2900-2350-b-c" },
+    { "label": "Adam Eaker，“On the Standing Male Worshipper”，大都会艺术博物馆 Perspectives（2026）", "url": "https://www.metmuseum.org/perspectives/points-of-view-standing-male-worshipper" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/tell-asmar-worshiper.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一尊浅色石雕的站立男子像：大眼睛睁得很圆，留着一排排卷曲的长胡子，双手在胸前相握；下身穿一条带竖向流苏的长裙，裙摆宽大，像一个底座。",
+      "caption": "站立的男性礼拜者像，苏美尔，约公元前 2900–2600 年，高 29.5 厘米。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/323735", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "face",
+      "src": "/img/tell-asmar-worshiper-face.jpg",
+      "alt": "礼拜者像的头部和双手近景：眼白是贝壳，瞳孔是黑色石头，眉毛连成一道；胡子刻成一层层水平的卷，双手在胡子下方交握。",
+      "caption": "同一尊像的面部：贝壳与黑色石灰岩镶嵌的眼睛，在整尊像上最引人注目。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/323735", "changes": "由原图裁切出头部与双手、缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/tell-asmar-worshiper-side.jpg",
+      "alt": "礼拜者像的侧面：身体很薄，胡子和裙子向前略微突出，整尊像几乎像一块竖起的石板。",
+      "caption": "同一尊像的侧面。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/323735", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "ur",
+      "src": "/img/ur-ziggurat.jpg",
+      "alt": "平坦的荒原上，一座宽大的泥砖台基拔地而起，正面有斜向的阶梯通到顶部；近处是低矮的砖墙遗迹。",
+      "caption": "乌尔的塔庙（今伊拉克济加尔省），由乌尔纳姆约公元前 2100 年起建。阶梯和下层的外墙面在 20 世纪 70 年代经过修复，新砖包住了古砖（2024 年摄）。",
+      "kind": "detail",
+      "subject": "乌尔塔庙",
+      "credit": { "author": "Alli Khalil", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ziggurat_of_Ur_Site_in_Nasiriyah_03.jpg", "date": "2024-12-15", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "naram-sin",
+      "src": "/img/naram-sin-stele.jpg",
+      "alt": "一块顶部尖、边缘残破的红褐色石碑，表面布满浮雕人物：一群士兵沿斜坡向上，坡顶附近有一个比别人都大的人，再往上是一座尖山和几个星形符号。",
+      "caption": "纳拉姆辛胜利石碑，阿卡德，约公元前 2254–2218 年，残高约 2 米。卢浮宫藏（Sb 4）。",
+      "kind": "detail",
+      "subject": "纳拉姆辛胜利石碑",
+      "credit": { "author": "Rama", "licence": "CC BY-SA 3.0 FR", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victory_stele_of_Naram_Sin_9068.jpg", "date": "2007-10-20", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "hammurabi",
+      "src": "/img/hammurabi-stele-top.jpg",
+      "alt": "黑色石碑顶部的浮雕：左边一人站立，一手举到嘴前；右边一位戴多层角冠的神坐在宝座上，肩上有放射状的线条，伸手递出一根杆和一个环。浮雕下方是密密的楔形文字。",
+      "caption": "汉谟拉比法典碑顶部，古巴比伦，约公元前 1792–1750 年之间。卢浮宫藏（Sb 8）。",
+      "kind": "detail",
+      "subject": "汉谟拉比法典碑",
+      "credit": { "author": "sailko", "licence": "CC BY 2.5", "licenceUrl": "https://creativecommons.org/licenses/by/2.5/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Codice_di_hammurabi_03.JPG", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "relief",
+      "src": "/img/ashurnasirpal-relief.jpg",
+      "alt": "一块方形的浅灰色石板浮雕：左边是一位戴尖顶高冠、留长胡子的国王，一手托碗、一手持弓；右边是一位没有胡子的侍从，手持拂尘。两人身上横穿过一整条楔形文字。",
+      "caption": "尼姆鲁德西北宫的浮雕：国王（很可能是阿淑尔纳西尔帕二世）与侍从，新亚述，约公元前 883–859 年，高 234.3 厘米。大都会艺术博物馆藏（32.143.4）。",
+      "kind": "detail",
+      "subject": "阿淑尔纳西尔帕二世宫殿浮雕",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/322611", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "礼拜者像与亚述浮雕属公有领域，照片来自大都会艺术博物馆开放获取计划（CC0）；乌尔塔庙、纳拉姆辛石碑和汉谟拉比法典碑的照片由摄影者以知识共享许可发布。",
+    "basis": "两件大都会藏品的页面均标注“Public Domain”，并说明公有领域图像可无偿用于商业与非商业用途；其余三张照片的维基共享资源文件页分别标注 CC BY-SA 4.0（Alli Khalil）、CC BY-SA 3.0 FR（Rama）和 CC BY 2.5（sailko），均为摄影者本人作品。本课对照片只做了缩小、重新压缩，以及一处标明的裁切。",
+    "verifiedOn": "2026-10-27",
+    "note": "按许可注明摄影者与许可协议；CC BY-SA 照片的改动同样以 CC BY-SA 方式提供。纳拉姆辛石碑与汉谟拉比法典碑为卢浮宫藏品，照片由参观者拍摄，与卢浮宫的图像授权无关。"
+  },
+  "card": {
+    "type": "还愿雕像",
+    "maker": "埃什努纳",
+    "period": "前 2900–2600",
+    "facets": [
+      { "label": "材质", "value": "雪花石膏" },
+      { "label": "眼睛", "value": "贝壳、黑石" },
+      { "label": "出处", "value": "方形神庙" },
+      { "label": "高度", "value": "29.5 cm" }
+    ],
+    "blurb": "一双睁大的眼睛，替一位名字已经失传的人，在神面前站着、看着。",
+    "image": "full",
+    "focus": "50% 30%"
+  }
+}

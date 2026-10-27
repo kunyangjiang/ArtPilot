@@ -1,0 +1,70 @@
+---
+// Static figure: three ways of meeting an image, all three panels at one scale (1 unit = 5 cm, ground at y 112, the
+// person about 1.7 m). Left, San Lorenzo Colossal Head 1 (close to 3 m high; published figures differ slightly) set on
+// open ground, seen from a distance or walked up to. Middle, the Lanzón (about 4.5 m, after PromPerú) at the crossing of
+// narrow galleries, the stone rising into the ceiling and the walls close on either side, so it can only be looked up
+// at from close by; the gallery's width and height are not measured here, only suggested. Right, the Paracas jar
+// (18.4 cm, the Met's 1974.122) held in two hands, with an enlarged view: the figure is painted twice, once on each
+// side, so the jar has to be turned. Drawings of size and viewing relations, not reconstructions. Uses the step
+// layout of the stained-glass figure, in three columns.
+---
+<figure class="glass-steps three encounters">
+  <ol>
+    <li>
+      <svg viewBox="0 0 160 120" aria-hidden="true">
+        <path class="en-head" d="M59 112 V76 Q59 54 80 54 Q101 54 101 76 V112 Z" />
+        <path class="en-helmet" d="M61 72 H99 M61 72 V96 M99 72 V96" />
+        <path class="en-face" d="M68 82 H75 M85 82 H92 M80 84 V94 M75 96 Q80 98 85 96 M72 102 Q80 106 88 102" />
+        <circle class="lv-person" cx="128" cy="78.5" r="3" />
+        <path class="lv-person-line" d="M128 81.5 V97 M128 97 L124 112 M128 97 L132 112 M128 85 L123 95 M128 85 L133 95" />
+        <path class="en-sight" d="M125 78 L98 72" />
+        <path class="lv-ground" d="M0 112 H160" />
+      </svg>
+      <p><strong>露天：一张比人高的脸</strong>圣洛伦索一号头像高近 3 米，比站在它面前的人高出一米多。它立在露天，可以远远望见，也可以走近，仰头看那张脸。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 120" aria-hidden="true">
+        <path class="en-rock" d="M0 0 H160 V22 H0 Z M0 22 H58 V112 H0 Z M102 22 H160 V112 H102 Z" />
+        <path class="en-lanzon" d="M74 112 V28 L80 22 L86 28 V112 Z" />
+        <circle class="lv-person" cx="66" cy="78.5" r="3" />
+        <path class="lv-person-line" d="M66 81.5 V97 M66 97 L63 112 M66 97 L69 112 M66 85 L62 95 M66 85 L70 95" />
+        <path class="en-sight" d="M68 77 L78 32" />
+        <path class="lv-ground" d="M0 112 H160" />
+      </svg>
+      <p><strong>黑暗里：一根顶天立地的石柱</strong>兰松高约 4.5 米，从地面一直伸进走廊的顶部。两侧的石墙离得很近，人退不开，只能贴着它从下往上看；走廊里要靠人带进来的光。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 120" aria-hidden="true">
+        <circle class="lv-person" cx="40" cy="78.5" r="3" />
+        <path class="lv-person-line" d="M40 81.5 V97 M40 97 L36 112 M40 97 L44 112 M40 85 L44 89 L45 89" />
+        <ellipse class="en-jar" cx="46" cy="89" rx="2.2" ry="1.6" />
+        <path class="bs-lead" d="M48 88 L82 66" />
+        <circle class="bs-lens" cx="112" cy="60" r="36" />
+        <ellipse class="en-jar-big" cx="110" cy="66" rx="24" ry="17" />
+        <path class="en-spout" d="M126 54 L136 40 M100 50 V44 H106 V50" />
+        <circle class="en-eye" cx="104" cy="64" r="4" />
+        <circle class="en-eye" cx="114" cy="64" r="4" />
+        <path class="en-turn" d="M86 86 Q110 100 134 86" marker-end="url(#en-head)" />
+        <defs><marker id="en-head" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" /></marker></defs>
+        <path class="lv-ground" d="M0 112 H160" />
+      </svg>
+      <p><strong>手里：要转着看的罐子</strong>帕拉卡斯陶罐只有 18.4 厘米高，在人身上只是手中的一小团（右边是放大的样子）。圆眼的形象在罐身两面各画一个，要转动罐子，才能看全。</p>
+    </li>
+  </ol>
+  <figcaption>示意图：三个画面用同一个比例尺，人约 1.8 米高；放大圈不按比例。头像的高度各家给出的数字略有出入（约 2.8–2.9 米）；兰松的高度依据秘鲁国家旅游局的资料；走廊的宽窄和高低只是示意，不是测量值。三件东西出自三个互不相关的社会，放在一起只是为了比较观看的方式。</figcaption>
+</figure>
+
+<style>
+  .en-head { fill: var(--silver); stroke: var(--ink-2); stroke-width: 1; }
+  .en-helmet { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+  .en-face { fill: none; stroke: var(--ink-2); stroke-width: 1.2; stroke-linecap: round; }
+  .en-rock { fill: var(--silver); stroke: none; }
+  .en-lanzon { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1; }
+  .en-sight { stroke: var(--ink-3); stroke-width: .8; stroke-dasharray: 2 2; fill: none; }
+  .en-jar { fill: var(--ink-2); }
+  .en-jar-big { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1; }
+  .en-spout { fill: none; stroke: var(--ink-2); stroke-width: 1.4; }
+  .en-eye { fill: none; stroke: var(--ink-2); stroke-width: 1.2; }
+  .en-turn { fill: none; stroke: var(--ink-3); stroke-width: 1; }
+  .encounters marker path { fill: var(--ink-3); }
+</style>

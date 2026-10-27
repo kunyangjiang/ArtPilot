@@ -1,0 +1,77 @@
+{
+  "id": "art-olmec-head-1-001",
+  "kind": "object",
+  "titleZh": "圣洛伦索一号巨石头像",
+  "titleEn": "San Lorenzo Colossal Head 1 (Monument 1)",
+  "attributionNote": "作者不详。奥尔梅克的雕刻者没有留下名字；“奥尔梅克”这个名称也是后人取的，他们怎样称呼自己，并不知道。",
+  "dateApprox": "约公元前 1200–900 年（前古典期早期，圣洛伦索的鼎盛期）",
+  "objectType": "巨石雕像 · 头像",
+  "medium": "玄武岩，雕刻（石料出自图斯特拉山区）",
+  "dimensions": "高近 3 米（常引 2.84 米），宽约 2.1 米，重量估计二十吨以上；各家数字略有出入，本课未见到博物馆公布的测量值",
+  "collection": "哈拉帕人类学博物馆（Museo de Antropología de Xalapa，墨西哥韦拉克鲁斯州哈拉帕市；不是印度河的哈拉帕遗址），编号为圣洛伦索一号纪念碑",
+  "originalStatus": "古代原件，在户外遭受风化，没有大的补配记录。圣洛伦索的头像大约在公元前 900 年以前就已被泥土掩埋。",
+  "provenance": "1945 年，美国考古学家马修·斯特林在墨西哥韦拉克鲁斯州圣洛伦索遗址的一条冲沟边发现了它：头像半埋在土里，脸朝上仰卧。它出土的遗址明确，后来移交博物馆保存。",
+  "infoSources": [
+    { "label": "维基百科：Olmec colossal heads（尺寸、发现经过、石料来源、年代与解释，引用 Diehl、Cyphers 等研究）", "url": "https://en.wikipedia.org/wiki/Olmec_colossal_heads" },
+    { "label": "大都会艺术博物馆藏品页：Jar with flying figure (the Oculate Being)，1974.122（帕拉卡斯陶器的烧后彩绘与图像来源）", "url": "https://www.metmuseum.org/art/collection/search/309468" },
+    { "label": "秘鲁国家旅游局（PromPerú）：The enigmatic Chavín culture of Peru（兰松高 14.86 英尺、旧神庙与新神庙的年代、照明用的石钉、仅一颗榫头像留在原位）", "url": "https://peru.info/en-us/tourism/news/3/17/the-enigmatic-chavin-culture-of-peru" },
+    { "label": "UNESCO 世界遗产名录：Chavin (Archaeological Site)（No. 330）", "url": "https://whc.unesco.org/en/list/330/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/olmec-head-1.jpg",
+      "alt": "一座巨大的石雕人头立在博物馆庭院的低台上，背后是竹林和镂空的墙：头上戴着一顶紧贴的头盔状帽子，前额有横向的饰带；脸庞宽阔，鼻子宽而扁，嘴唇厚实，眼睛微微眯起。",
+      "caption": "圣洛伦索一号巨石头像，奥尔梅克，约公元前 1200–900 年，高近 3 米，陈列于墨西哥哈拉帕（Xalapa）人类学博物馆（2013 年摄）。",
+      "kind": "full",
+      "credit": { "author": "Mesoamerican", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olmec_Head_No._1_at_Xalapa,_Veracruz,_Mexico.jpg", "date": "2013-04-28", "changes": "重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "lanzon",
+      "src": "/img/chavin-lanzon.jpg",
+      "alt": "狭窄昏暗的石砌通道尽头，一根高大的石柱从地面直通到顶，表面刻着浅浮雕；两侧的石墙几乎贴着它，只有一条窄缝可以看过去。",
+      "caption": "查文德万塔尔神庙内部走廊中的“兰松”石柱，花岗岩，高约 4.5 米（2006 年从东侧的小开口摄）。",
+      "kind": "detail",
+      "subject": "查文德万塔尔的兰松石柱",
+      "credit": { "author": "Reto Luescher", "licence": "CC BY 2.5", "licenceUrl": "https://creativecommons.org/licenses/by/2.5/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:El-lanzon.JPG", "date": "2006-07-09", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tenon",
+      "src": "/img/chavin-tenon-head.jpg",
+      "alt": "一个浅色石雕头像放在地面上：圆睁的大眼，眼周有一圈圈刻纹，鼻子宽大，嘴部像兽一样咧开、露出牙齿；头像后面原本有一段插进墙里的石榫。",
+      "caption": "查文德万塔尔的榫头像之一，陈列于国家查文博物馆（2019 年摄）。",
+      "kind": "detail",
+      "subject": "查文德万塔尔的榫头像",
+      "credit": { "author": "BluesyPete", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9eChavin_01.jpg", "date": "2019-11-17", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "paracas",
+      "src": "/img/paracas-oculate-jar.jpg",
+      "alt": "一只扁圆的陶罐，一侧有短颈，另一侧伸出一个斜向的流嘴；罐身上用红、黄、黑等颜色画着一个圆眼睛的形象，身体弯曲，伸出手臂和尾巴。",
+      "caption": "带飞行形象（“圆眼神灵”）的陶罐，帕拉卡斯，公元前 350 年至公元 60 年，高 18.4 厘米。大都会艺术博物馆藏（1974.122）。",
+      "kind": "detail",
+      "subject": "帕拉卡斯陶罐",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/309468", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "头像、石柱和陶罐都属公有领域；头像、兰松石柱和榫头像的照片由摄影者以知识共享许可发布，陶罐照片来自大都会艺术博物馆开放获取计划（CC0）。",
+    "basis": "维基共享资源文件页分别标注 CC BY-SA 4.0（Mesoamerican）、CC BY 2.5（Reto Luescher）和 CC BY-SA 3.0（BluesyPete），均为摄影者本人作品；大都会藏品页标注“Public Domain”。本课对照片只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-27",
+    "note": "按许可注明摄影者与许可协议；CC BY-SA 照片的改动同样以 CC BY-SA 方式提供。兰松石柱、榫头像和帕拉卡斯陶罐来自南美洲的安第斯地区，与奥尔梅克头像没有任何已知的联系；放在一起只是为了比较。帕拉卡斯陶罐的出土地点没有记录。"
+  },
+  "card": {
+    "type": "巨石雕像",
+    "maker": "奥尔梅克",
+    "period": "约前 1200–900",
+    "facets": [
+      { "label": "材质", "value": "玄武岩" },
+      { "label": "高度", "value": "近 3 m" },
+      { "label": "重量", "value": "20 余吨" },
+      { "label": "发现", "value": "1945 年" }
+    ],
+    "blurb": "二十多吨的玄武岩，从远山运来，刻成一张戴着头盔的脸：它是谁，没有一个字告诉我们。",
+    "image": "full",
+    "focus": "50% 55%"
+  }
+}

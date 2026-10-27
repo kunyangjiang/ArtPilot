@@ -1,0 +1,87 @@
+{
+  "id": "art-taharqo-shabti-001",
+  "kind": "object",
+  "titleZh": "塔哈尔卡王的沙布提俑",
+  "titleEn": "Shabti of Taharqo",
+  "attributionNote": "作者不详。库施王室的随葬品出自王室作坊，雕刻者的名字没有留下。",
+  "dateApprox": "公元前 690–664 年（塔哈尔卡在位期间，埃及第二十五王朝，即库施王朝）",
+  "objectType": "随葬俑 · 沙布提",
+  "medium": "花岗岩（一种努比亚出产的品种），雕刻并刻有象形文字",
+  "dimensions": "高 20.3 厘米，宽 7.6 厘米，厚 5.4 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 18.2.10",
+  "originalStatus": "古代原件。表面有磨损，铭文仍大体可辨；馆方公布的照片为黑白照片。",
+  "provenance": "1918 年购自卢克索的古董商赛义德·莫拉塔姆（Sayed Molattam），以罗杰斯基金入藏。博物馆认为它“推测”出自塔哈尔卡在努比亚努里的金字塔；出土的具体位置与经过没有记录。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Shabti of Taharqo，18.2.10", "url": "https://www.metmuseum.org/art/collection/search/544883" },
+    { "label": "波士顿美术馆藏品页：Shawabty of King Taharqa（努里 1 号金字塔出土，哈佛—波士顿考古队）", "url": "https://collections.mfa.org/objects/144586/shawabty-of-king-taharqa" },
+    { "label": "大都会艺术博物馆《艺术史年表》：Sudan, 1000 B.C.–1 A.D.", "url": "https://www.metmuseum.org/toah/ht/04/afs" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/taharqo-shabti.jpg",
+      "width": 1048,
+      "height": 1600,
+      "alt": "一件裹成木乃伊形的小石像，黑白照片：头戴国王的头巾，额头正中有一条昂起的小蛇，下巴上是长长的假胡须；双臂交叉在胸前，肩头露出两件工具的柄；身体下半部刻着一行行横排的象形文字，最上面一行有一个椭圆形的圈。",
+      "caption": "塔哈尔卡王的沙布提俑，库施王朝，公元前 690–664 年，高 20.3 厘米。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544883", "changes": "由原图（黑白照片）缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "estate",
+      "src": "/img/meketre-estate-figure.jpg",
+      "alt": "一尊彩绘木雕女子像：头顶一只装满肉块的方篮，右手提着一只鸭子，向前迈步；她戴着青绿色的假发和项圈，身穿羽毛纹样的贴身长裙，站在一块红色的木座上。",
+      "caption": "梅克特拉墓中的庄园女像，中王国第十二王朝初，约公元前 1981–1975 年，高 112 厘米。大都会艺术博物馆藏（20.3.7）。",
+      "kind": "detail",
+      "subject": "梅克特拉墓的庄园女像",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544210", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "estate-detail",
+      "src": "/img/meketre-estate-figure-detail.jpg",
+      "alt": "庄园女像上半身近景：方篮由细木条编成，里面露出肉块；她一手扶着篮子，眼睛用黑色勾出轮廓，项圈和裙子上画着红、蓝、绿色的格纹。",
+      "caption": "同一尊像的上半身：颜色都是原来的，从未修补重绘。",
+      "kind": "detail",
+      "subject": "梅克特拉墓的庄园女像",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/544210", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "kerma",
+      "src": "/img/kerma-beaker.jpg",
+      "alt": "一只钟形的薄壁陶杯：上半部和杯口是有光泽的黑色，下半部是磨光的红色，中间夹着一圈不规则的银灰色带。",
+      "caption": "克尔玛杯，古典克尔玛风格，约公元前 1802–1640 年，高 10.8 厘米；出土于埃及阿拜多斯的 525 号墓。大都会艺术博物馆藏（20.2.45）。",
+      "kind": "detail",
+      "subject": "克尔玛杯",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/545772", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "nuri",
+      "src": "/img/nuri-taharqo-pyramid.jpg",
+      "alt": "沙漠中一座残损的大金字塔，砂岩外壳大多已经剥落，露出粗糙的内芯，四周是平坦的沙地。",
+      "caption": "努里的 1 号金字塔，塔哈尔卡的陵墓（今苏丹北方州，2019 年摄）。",
+      "kind": "detail",
+      "subject": "努里的塔哈尔卡金字塔",
+      "credit": { "author": "Sue Fleckney", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taharqo%27s_pyramid,_Nuri,_Sudan,_North-east_Africa.jpg", "date": "2019-12-31", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "三件大都会藏品属公有领域，照片来自大都会艺术博物馆开放获取计划（CC0）；努里金字塔的照片由摄影者以 CC BY-SA 2.0 发布。",
+    "basis": "大都会藏品页均标注“Public Domain”，公有领域图像可无偿用于商业与非商业用途；努里金字塔照片的维基共享资源文件页标注 CC BY-SA 2.0，原发布于摄影者的 Flickr 页面。本课对照片只做了缩小与重新压缩。",
+    "verifiedOn": "2026-10-27",
+    "note": "按许可注明摄影者与许可协议。庄园女像与克尔玛杯是用来对照的其他器物，与这件沙布提没有出土关联。"
+  },
+  "card": {
+    "type": "随葬俑",
+    "maker": "库施（努比亚）",
+    "period": "前 690–664",
+    "facets": [
+      { "label": "国王", "value": "塔哈尔卡" },
+      { "label": "材质", "value": "努比亚花岗岩" },
+      { "label": "器类", "value": "沙布提" },
+      { "label": "高度", "value": "20.3 cm" }
+    ],
+    "blurb": "一位统治过埃及的努比亚国王，回到故乡安葬，带着上千个替他干活的小石人。",
+    "image": "full",
+    "focus": "50% 30%"
+  }
+}

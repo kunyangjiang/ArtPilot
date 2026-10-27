@@ -1,0 +1,169 @@
+---
+// Where a work stood and who could see it. One work at a time, each with its own city and date in the heading, so
+// that works centuries apart are never drawn as one city. Each has a small schematic of its setting (a generic drawing
+// of a relationship, not a plan of the real building) and three rows: where it stood, who could see it, how we know.
+// Every row carries a tag for the kind of evidence (an excavation record, an ancient text, an inference, or not known).
+// Nothing is scored or stored. Works without script: every panel is in the page; the script only switches them.
+type Scene = 'temple' | 'ziggurat' | 'stele' | 'law' | 'palace';
+type Tag = 'record' | 'text' | 'infer' | 'unknown';
+interface Row { k: string; v: string; tag: Tag }
+interface Item { id: string; label: string; place: string; date: string; scene: Scene; rows: Row[] }
+interface Props { prompt: string; items: Item[]; caption: string }
+const { prompt, items, caption } = Astro.props;
+const tags: Record<Tag, string> = { record: '发掘记录', text: '古代文字', infer: '推断', unknown: '不知道' };
+---
+<section class="module wis" data-wis>
+  <p class="module-label">互动 · 位置与观众</p>
+  <h3>{prompt}</h3>
+  <div class="wis-tabs" role="tablist" aria-label="选择一件作品">
+    {items.map((it, i) => (
+      <button type="button" role="tab" id={`wis-tab-${it.id}`} aria-controls={`wis-panel-${it.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+        <span class="wis-tab-label">{it.label}</span>
+        <span class="wis-tab-date">{it.date}</span>
+      </button>
+    ))}
+  </div>
+  {items.map((it, i) => (
+    <div class="wis-panel" role="tabpanel" id={`wis-panel-${it.id}`} aria-labelledby={`wis-tab-${it.id}`} hidden={i !== 0}>
+      <p class="wis-where">{it.place} · {it.date}</p>
+      <div class="wis-body">
+        <svg viewBox="0 0 320 170" aria-hidden="true" class="wis-scene">
+          <path class="wis-ground" d="M0 150 H320" />
+          {it.scene === 'temple' && (
+            <g>
+              <rect class="wis-wall" x="40" y="30" width="240" height="110" />
+              <path class="wis-wall-in" d="M150 30 V140 M150 70 H160 M150 100 H160" />
+              <rect class="wis-room" x="200" y="45" width="70" height="80" />
+              <rect class="wis-altar" x="252" y="70" width="12" height="30" />
+              <path class="wis-door" d="M40 78 V92 M150 78 V92 M200 78 V92" />
+              <path class="wis-path" d="M10 85 H246" />
+              <text class="wis-s" x="95" y="22" text-anchor="middle">院落</text>
+              <text class="wis-s" x="235" y="22" text-anchor="middle">神殿深处</text>
+              <text class="wis-q" x="228" y="66" text-anchor="middle">?</text>
+              <rect class="wis-pit" x="70" y="153" width="60" height="12" />
+              <text class="wis-s" x="140" y="163" text-anchor="start">地面下的埋藏坑</text>
+            </g>
+          )}
+          {it.scene === 'ziggurat' && (
+            <g>
+              <path class="wis-mass" d="M60 150 V110 H260 V150 Z" />
+              <path class="wis-lost" d="M95 110 V82 H225 V110 M125 82 V60 H195 V82 M145 60 V44 H175 V60" />
+              <path class="wis-stair" d="M160 150 L160 110 M152 150 L156 110 M168 150 L164 110 M70 150 L120 110 M250 150 L200 110" />
+              <text class="wis-s" x="160" y="36" text-anchor="middle">上层没有保存（虚线为推想）</text>
+              <text class="wis-s" x="160" y="128" text-anchor="middle">第一层台基</text>
+              <g class="wis-person" transform="translate(30 150)"><circle cx="0" cy="-11" r="1.8" /><path d="M0 -9 V-4 M0 -4 L-2 0 M0 -4 L2 0" /></g>
+              <text class="wis-s" x="30" y="166" text-anchor="middle">人</text>
+              <text class="wis-s" x="290" y="166" text-anchor="middle">平原</text>
+            </g>
+          )}
+          {it.scene === 'stele' && (
+            <g>
+              <path class="wis-slab" d="M70 150 V58 Q70 40 88 34 L112 30 Q126 34 128 50 V150 Z" />
+              <path class="wis-relief" d="M78 128 L120 62 M84 120 L96 116 M104 84 L112 80" />
+              <g class="wis-person" transform="translate(150 150)"><circle cx="0" cy="-74" r="6" /><path d="M0 -68 V-34 M0 -34 L-7 0 M0 -34 L7 0 M0 -60 L-9 -40 M0 -60 L9 -40" /></g>
+              <path class="wis-arrow" d="M190 90 H290" marker-end="url(#wis-head)" />
+              <text class="wis-s" x="190" y="80" text-anchor="start">西帕尔（大概）</text>
+              <text class="wis-s" x="290" y="108" text-anchor="end">苏萨，前 12 世纪</text>
+            </g>
+          )}
+          {it.scene === 'law' && (
+            <g>
+              <path class="wis-slab" d="M60 150 V44 Q60 22 95 20 Q130 22 130 44 V150 Z" />
+              <rect class="wis-relief-box" x="68" y="28" width="54" height="34" />
+              <path class="wis-text" d="M66 72 H124 M66 80 H124 M66 88 H124 M66 96 H124 M66 104 H124 M66 112 H124 M66 120 H124 M66 128 H124 M66 136 H124" />
+              <g class="wis-person" transform="translate(162 150)"><circle cx="0" cy="-74" r="6" /><path d="M0 -68 V-34 M0 -34 L-7 0 M0 -34 L7 0 M0 -60 L-12 -66 M0 -60 L-10 -44" /></g>
+              <text class="wis-s" x="200" y="60" text-anchor="start">碑文设想的观众：</text>
+              <text class="wis-s" x="200" y="76" text-anchor="start">一个有冤屈、</text>
+              <text class="wis-s" x="200" y="92" text-anchor="start">来到像前的人</text>
+            </g>
+          )}
+          {it.scene === 'palace' && (
+            <g>
+              <rect class="wis-wall" x="20" y="20" width="280" height="130" />
+              <path class="wis-slabs" d="M20 50 H300 M90 50 V150 M160 50 V150 M230 50 V150" />
+              <path class="wis-band" d="M20 98 H300" />
+              <text class="wis-s" x="160" y="40" text-anchor="middle">浮雕石板贴满墙的下部</text>
+              <text class="wis-s" x="296" y="94" text-anchor="end">“标准铭文”横穿每一块</text>
+              <g class="wis-person" transform="translate(125 150)"><circle cx="0" cy="-74" r="6" /><path d="M0 -68 V-34 M0 -34 L-7 0 M0 -34 L7 0 M0 -60 L-9 -40 M0 -60 L9 -40" /></g>
+            </g>
+          )}
+          <defs><marker id="wis-head" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" /></marker></defs>
+        </svg>
+        <dl class="wis-rows">
+          {it.rows.map((r) => (
+            <div class="wis-row">
+              <dt>{r.k}<span class={`wis-tag is-${r.tag}`}>{tags[r.tag]}</span></dt>
+              <dd>{r.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  ))}
+  <p class="wis-caption">{caption}</p>
+</section>
+
+<style>
+  .wis-tabs { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: .5rem; margin-bottom: 1.25rem; }
+  .wis-tabs button { display: grid; gap: .2rem; padding: .7rem .8rem; text-align: left; background: var(--paper); border: 1px solid var(--rule);
+    color: var(--ink-2); cursor: pointer; transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .wis-tabs button:hover { border-color: var(--ink-3); }
+  .wis-tabs button[aria-selected="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .wis-tab-label { font: 500 .9375rem/1.4 var(--serif); letter-spacing: .03em; }
+  .wis-tab-date { font: 400 .75rem/1.4 var(--sans); color: var(--ink-3); letter-spacing: .04em; }
+  .wis-where { margin: 0 0 .9rem; font: 500 .8125rem/1.5 var(--sans); letter-spacing: .14em; color: var(--ink-3); }
+  .wis-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.75rem; align-items: start; }
+  .wis-scene { display: block; width: 100%; height: auto; background: var(--mist); }
+  .wis-rows { margin: 0; }
+  .wis-row + .wis-row { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--rule); }
+  .wis-row dt { display: flex; gap: .6rem; align-items: baseline; font: 600 .875rem/1.5 var(--sans); letter-spacing: .06em; color: var(--ink); }
+  .wis-row dd { margin: .3rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .wis-tag { padding: .05rem .4rem; border: 1px solid var(--rule); font: 400 .6875rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink-3); }
+  .wis-tag.is-record, .wis-tag.is-text { border-color: var(--ink-3); color: var(--ink-2); }
+  .wis-tag.is-unknown { border-style: dashed; }
+  .wis-caption { margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  .wis-ground { stroke: var(--ink-2); stroke-width: 1.2; }
+  .wis-wall, .wis-room { fill: none; stroke: var(--ink-2); stroke-width: 1.2; }
+  .wis-room { fill: var(--paper); }
+  .wis-wall-in { stroke: var(--ink-2); stroke-width: 1.2; fill: none; }
+  .wis-door { stroke: var(--mist); stroke-width: 3; }
+  .wis-path { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 4; }
+  .wis-altar, .wis-mass, .wis-slab { fill: var(--silver); stroke: var(--ink-2); stroke-width: 1; }
+  .wis-slab { fill: var(--paper); }
+  .wis-pit { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 3; }
+  .wis-lost { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 4 4; }
+  .wis-stair, .wis-relief, .wis-text, .wis-slabs { stroke: var(--ink-3); stroke-width: 1; fill: none; }
+  .wis-relief-box { fill: var(--mist); stroke: var(--ink-3); stroke-width: 1; }
+  .wis-band { stroke: var(--ink-2); stroke-width: 3; }
+  .wis-arrow { stroke: var(--ink-2); stroke-width: 1.2; }
+  .wis-scene marker path { fill: var(--ink-2); }
+  .wis-person { stroke: var(--ink); stroke-width: 1.4; fill: none; }
+  .wis-person circle { fill: var(--ink); }
+  .wis-s { font: 400 11px/1 var(--sans); fill: var(--ink-3); letter-spacing: .03em; }
+  .wis-q { font: 500 18px/1 var(--latin); fill: var(--ink-2); }
+  @media (max-width: 640px) {
+    .wis-tabs { grid-template-columns: 1fr 1fr; }
+    .wis-body { grid-template-columns: 1fr; gap: 1.25rem; }
+    .wis-s { font-size: 13px; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-wis]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p, k) => { p.hidden = k !== i; });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+  });
+</script>
