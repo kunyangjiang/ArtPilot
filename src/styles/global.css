@@ -550,6 +550,27 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .bs-cord { fill: none; stroke: #7a3b4c; stroke-width: 1.2; }
 .bs-ojime { fill: #e6a96b; stroke: var(--ink); stroke-width: .8; }
 .bs-inro { fill: #2b2620; stroke: #b8915f; stroke-width: .8; }
+/* DatingKinds: rock, charcoal or ochre paint, a calcite crust over it, sediment layers, the sampled spot. */
+.dk-rock { fill: #d8c3a0; stroke: var(--ink-3); stroke-width: 1; }
+.dk-char { fill: none; stroke: #1d1d1e; stroke-width: 3; stroke-linecap: round; }
+.dk-paint { fill: none; stroke: #a5452c; stroke-width: 3; stroke-linecap: round; }
+.dk-crust { fill: rgb(250 248 242 / .85); stroke: var(--ink-3); stroke-width: .8; }
+.dk-sample { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 2 2; }
+.dk-lead { fill: none; stroke: var(--ink-3); stroke-width: .8; }
+.dk-tag { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+.dk-ink { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-linecap: round; }
+.dk-layer-a { fill: #e6d9bf; }
+.dk-layer-b { fill: #cdb48a; }
+.dk-layer-c { fill: #b39468; }
+.dk-flake { fill: #9a8f80; stroke: var(--ink); stroke-width: 1; }
+/* DrillBothEnds: a section through the jade, the drill tube, the cut, the abrasive sand, the step where the bores meet (circled). */
+.db-jade { fill: #9fb3a2; stroke: var(--ink); stroke-width: 1; }
+.db-tube { fill: #c9a96e; stroke: var(--ink); stroke-width: .8; }
+.db-cut { fill: none; stroke: var(--paper); stroke-width: 1.4; }
+.db-done { stroke: #e8eee8; }
+.db-sand { fill: none; stroke: #8a6d3b; stroke-width: 1.6; stroke-linecap: round; }
+.db-turn { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 2; }
+.db-mark { fill: none; stroke: #a5452c; stroke-width: 1; }
 /* LintelView: stone, the carved slab with its carved face marked, a visitor's line of sight. */
 .lv-stone { fill: #d9d2c5; stroke: var(--ink); stroke-width: 1; }
 .lv-wall { fill: #ece8e1; stroke: var(--ink-3); stroke-width: 1; }

@@ -1,0 +1,110 @@
+{
+  "id": "art-liangzhu-cong-001",
+  "kind": "object",
+  "titleZh": "良渚文化玉琮",
+  "titleEn": "Ritual object (cong), Liangzhu culture",
+  "attributionNote": "新石器时代晚期良渚文化的制玉者所作，姓名不详。",
+  "dateApprox": "约公元前 2400 年（博物馆的断代；良渚文化约公元前 3300–前 2300 年）",
+  "objectType": "玉器 · 琮",
+  "medium": "软玉（透闪石类）",
+  "dimensions": "高 25.4 厘米，宽 7 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 2004.52",
+  "originalStatus": "新石器时代原作。四角的浮雕很浅，又经过长年磨损，大都会艺术博物馆的语音导览说，不借助放大镜几乎看不出来。",
+  "provenance": "博物馆公布的递藏只有一条：纽约古董商 J. J. Lally & Co. 持有至 2004 年，售予大都会艺术博物馆。出土地点、出土情境都没有记录。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Ritual object (cong)，2004.52（形制、人面纹、可能象征财富与地位；语音导览：重量、浅浮雕、常见于墓葬；递藏）", "url": "https://www.metmuseum.org/art/collection/search/72376" },
+    { "label": "联合国教科文组织世界遗产中心：Archaeological Ruins of Liangzhu City（约公元前 3300–前 2300 年；分等级的墓地；玉器）", "url": "https://whc.unesco.org/en/list/1592/" },
+    { "label": "刘斌，《良渚文化发现八十周年：1936–2016》，史密森尼国立亚洲艺术博物馆 Jades for Life and Death（草鞋山、寺墩、反山、瑶山的发掘与大小墓的差异）", "url": "https://publications.asia.si.edu/jades/essay-liu-bin.php" },
+    { "label": "J. Keith Wilson, “Charles Lang Freer and His Collection of Neolithic Liangzhu Culture Jades”，Jades for Life and Death（偶然出土与流散、两面对钻留下的台阶）", "url": "https://publications.asia.si.edu/jades/essay-wilson.php" },
+    { "label": "史密森尼国立亚洲艺术博物馆：Head ornament with mask，F1916.511（从“夏”“周”到新石器时代的重新断代）", "url": "https://publications.asia.si.edu/jades/object.php?q=8323" },
+    { "label": "芝加哥艺术博物馆藏品页：Cong，1926.2029（对照作品）；Cong，1950.526（管钻与墓葬的说明）", "url": "https://www.artic.edu/artworks/33098" },
+    { "label": "大都会艺术博物馆藏品页：Jar (Hu)，1992.165.9（对照作品：马家窑文化半山类型彩陶壶）", "url": "https://www.metmuseum.org/art/collection/search/44723" },
+    { "label": "大都会艺术博物馆藏品页：Quadrangular vase in the shape of a Neolithic cong，1993.456（对照作品：南宋铜琮式瓶）", "url": "https://www.metmuseum.org/art/collection/search/42065" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/liangzhu-cong.jpg",
+      "width": 1185,
+      "height": 1580,
+      "alt": "一件深灰黑色、带细小斑点的石器，竖立在灰色背景前：外形是一根细长的四方柱，上大下略小，中间贯通一个圆孔，上下两端露出圆形的口。四个转角被横向的凹槽分成一节一节，每一节的转角上都有凸起的横条。",
+      "caption": "良渚文化玉琮，约公元前 2400 年，软玉，高 25.4 厘米。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/72376", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "detail",
+      "src": "/img/liangzhu-cong-detail.jpg",
+      "alt": "同一件玉琮中段的近景：转角被分成一节一节，每节上方有两道凸起的横带，横带上刻着极细的平行线；下方有一个圆角的长条凸块。石面布满灰白色的细小斑点。",
+      "caption": "同一件玉琮的中段：一节一节的转角。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/72376", "changes": "从原图裁出中段，缩小并重新压缩，未调色" }
+    },
+    {
+      "key": "face",
+      "src": "/img/liangzhu-cong-face.jpg",
+      "alt": "玉琮一个转角上的一节，放大：上方两道凸起的横带，刻满细线；转角右侧有一个很浅的小圆圈；下方一个圆角的长条凸块横跨转角，里面刻着细细的回旋纹。",
+      "caption": "玉琮转角上的一节，放大。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/72376", "changes": "从原图裁出一节转角，未缩放、未调色" }
+    },
+    {
+      "key": "short",
+      "src": "/img/liangzhu-cong-short.jpg",
+      "alt": "一件矮而宽的四方形玉器，斜看：外面是方的，中间一个大圆孔，四面各被一道横槽分成上下两节。表面是红褐、乳白和黄褐交错的斑驳颜色，圆孔的内壁却露出青绿色。",
+      "caption": "另一件良渚文化玉琮，约公元前 3300–前 2400 年，高 8.3 厘米，宽 13.9 厘米。芝加哥艺术博物馆藏（1926.2029）。",
+      "kind": "detail",
+      "subject": "芝加哥艺术博物馆藏玉琮",
+      "credit": { "author": "芝加哥艺术博物馆", "licence": "CC0 1.0（公有领域）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.artic.edu/artworks/33098", "changes": "由博物馆 IIIF 图像拼接、缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "short-top",
+      "src": "/img/liangzhu-cong-short-top.jpg",
+      "alt": "同一件玉琮从正上方看：方形的外框里是一个正圆的孔，孔壁光滑，呈青绿色，带着一圈圈的色带；外框的表面是斑驳的红褐与乳白。",
+      "caption": "同一件玉琮从上往下看：外方内圆。",
+      "kind": "detail",
+      "subject": "芝加哥艺术博物馆藏玉琮",
+      "credit": { "author": "芝加哥艺术博物馆", "licence": "CC0 1.0（公有领域）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.artic.edu/artworks/33098", "changes": "由博物馆 IIIF 图像拼接、缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "jar",
+      "src": "/img/banshan-jar.jpg",
+      "width": 1185,
+      "height": 1580,
+      "alt": "一件圆鼓鼓的陶壶，小口，腹部两侧各有一个小耳：橙褐色的陶胎上，用黑色和红色画满一圈圈旋转的宽带，颈部画着锯齿状的三角。腹部下半截没有画，露出素面的陶土。",
+      "caption": "彩陶壶，马家窑文化半山类型，约公元前 2650–前 2350 年，陶，彩绘，高 34 厘米。大都会艺术博物馆藏（1992.165.9）。",
+      "kind": "detail",
+      "subject": "马家窑文化半山类型彩陶壶",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/44723", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "song-vase",
+      "src": "/img/song-cong-vase.jpg",
+      "alt": "一件深褐色的青铜瓶：四方柱形的瓶身，上下各有一个圆口，四个转角被分成一节节的横条，中间的竖带上铸着细密的纹样。",
+      "caption": "南宋铜琮式瓶，13 世纪，铜合金，高 21.3 厘米。大都会艺术博物馆藏（1993.456）。",
+      "kind": "detail",
+      "subject": "南宋铜琮式瓶",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/42065", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "大都会艺术博物馆的三件作品与芝加哥艺术博物馆的一件作品，照片均以 CC0 发布。",
+    "basis": "大都会艺术博物馆藏品页标注“Public Domain”，收藏 API 返回 isPublicDomain: true；芝加哥艺术博物馆的 API 返回 is_public_domain: true，馆方以 CC0 发布公有领域作品的图像。本课只做了拼接、裁切、缩小与重新压缩。",
+    "verifiedOn": "2026-10-26",
+    "note": "两件玉琮都没有出土记录：大都会的一件来自古董商，芝加哥的一件来自露西·莫德·白金汉的私人收藏，1926 年入藏。本课关于良渚墓葬的内容来自有记录的考古发掘，而不是这两件玉琮本身；发掘品的照片没有开放许可，本课只作文字转述。"
+  },
+  "card": {
+    "type": "玉器 · 琮",
+    "maker": "良渚文化",
+    "period": "约前 2400",
+    "facets": [
+      { "label": "材料", "value": "软玉" },
+      { "label": "高度", "value": "25.4 cm" },
+      { "label": "出土", "value": "没有记录" },
+      { "label": "纹饰", "value": "四角的简化人面" }
+    ],
+    "blurb": "外方内圆，四角刻着小小的脸。它没有出土记录，它的用途要靠发掘出来的同类来推断。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

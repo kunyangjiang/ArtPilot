@@ -367,8 +367,10 @@ const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0,
       .xw-courses > *, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *,
       .xw-anchor, .xw-second, .xw-wave, .xw-bronze, .xw-glass {
         --rise: 80px; --drift: -64px;
-        /* The drift fills forwards only: before a part starts to leave, the rise alone decides how it looks. */
-        animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
+        /* The drift does not fill: before a part starts to leave, and again once it has left the screen entirely, the
+           rise alone decides how it looks. A part that stayed at opacity 0 while out of sight would not be kept ready
+           to draw (Chrome skips fully transparent layers), and on the way back it could be missing for a moment. */
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, none; animation-timing-function: ease-out, ease-in;
       }
       .xw-courses > .xw-premise, .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 64px; }
       .xw-anchor, .xw-wave, .xw-bronze { --rise: 140px; --drift: -96px; --grow: .94; }
@@ -396,12 +398,12 @@ const soon = (x: (typeof destinations)[number]) => (x.href ? {} : { tabindex: 0,
   @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .xw-intro > :not(.xw-courses), .xw-courses > *, .xw-anchor, .xw-second {
-        --drift: -56px; animation-name: xw-drift; animation-fill-mode: forwards; animation-timing-function: ease-in;
+        --drift: -56px; animation-name: xw-drift; animation-fill-mode: none; /* no fill: see the phone rules */ animation-timing-function: ease-in;
       }
       .xw-anchor, .xw-second { --drift: -96px; --grow: .95; }
       .xw-route, .xw-stories > *, .xw-cases > *, .xw-atlas > *, .xw-collection > *, .xw-wave, .xw-bronze, .xw-glass {
         --rise: 64px; --drift: -56px;
-        animation-name: xw-rise, xw-drift; animation-fill-mode: both, forwards; animation-timing-function: ease-out, ease-in;
+        animation-name: xw-rise, xw-drift; animation-fill-mode: both, none; animation-timing-function: ease-out, ease-in;
       }
       .xw-stories > .xw-premise, .xw-cases > .xw-premise, .xw-atlas > .xw-premise, .xw-collection > .xw-premise { --rise: 48px; }
       .xw-wave, .xw-bronze { --rise: 120px; --drift: -96px; --grow: .95; }

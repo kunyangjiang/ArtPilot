@@ -1,0 +1,101 @@
+{
+  "id": "art-altamira-bison-001",
+  "kind": "object",
+  "titleZh": "阿尔塔米拉洞穴的多彩野牛",
+  "titleEn": "Polychrome bison, Cave of Altamira",
+  "attributionNote": "旧石器时代晚期的狩猎采集者所作，作者不详。",
+  "dateApprox": "洞内壁画至少延续了两万年（约 3.5 万至 1.52 万年前，铀系测年给出的最小年龄）；多彩野牛的木炭线条，放射性碳测年约为距今 14,000 年（未经校正）",
+  "objectType": "洞穴壁画（原址）",
+  "medium": "赭石等含铁矿物颜料与木炭，画在石灰岩洞顶上，借用了岩面的起伏",
+  "dimensions": "多彩画厅中的野牛大多长 1.5–1.8 米（据马德里康普顿斯大学的一篇讲稿）；管理机构未公布洞顶的整体尺寸",
+  "collection": "原址：西班牙坎塔布里亚，桑蒂利亚纳德尔马尔，阿尔塔米拉洞穴；由阿尔塔米拉国家博物馆与研究中心管理",
+  "originalStatus": "保存在原来的洞穴里。为保护壁画，进入洞穴受到严格限制；博物馆另建有一座复制洞（Neocueva）供参观。本课的洞内照片出自博物馆提供的照片系列，照片说明没有注明拍摄于原洞还是复制洞。",
+  "provenance": "1868 年前后，当地猎人莫德斯托·库维利亚斯发现了洞口；1879 年，业余考古爱好者马塞利诺·桑斯·德·绍图奥拉在女儿玛丽亚的提醒下注意到洞顶的壁画，1880 年发表了《桑坦德省若干史前物品简述》。壁画的年代长期受到怀疑，直到 1902 年，法国史前学家埃米尔·卡尔塔亚克发表《一个怀疑者的认错》，学界才普遍接受。1985 年列入世界遗产名录。",
+  "infoSources": [
+    { "label": "CENIEH（西班牙国家人类进化研究中心），“The uranium series dating confirms 20,000 years of cave art in Altamira”，2013（García-Diez et al., Journal of Archaeological Science 40: 4098–4106 的介绍）", "url": "https://www.cenieh.es/en/press/news/uranium-series-dating-confirms-20000-years-cave-art-altamira" },
+    { "label": "H. Valladas et al., “Direct radiocarbon dates for prehistoric paintings at the Altamira, El Castillo and Niaux caves”, Nature 357 (1992): 68–70", "url": "https://www.nature.com/articles/357068a0" },
+    { "label": "A. W. G. Pike et al., “U-Series Dating of Paleolithic Art in 11 Caves in Spain”, Science 336 (2012): 1409–1413", "url": "https://digitalcommons.usf.edu/kip_articles/5468" },
+    { "label": "坎塔布里亚大学：阿尔塔米拉的发现与争论（1868、1879、1880、1902）", "url": "https://grupos.unican.es/arte/Ingles/prehist/histo/D3.htm" },
+    { "label": "联合国教科文组织世界遗产中心：Cueva de las Manos, Río Pinturas（对照作品）", "url": "https://whc.unesco.org/en/list/936/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/altamira-bison.jpg",
+      "alt": "黄褐色的岩石洞顶上，一头红色的野牛侧身站着，背部高高隆起，头低垂；轮廓、角、腿和背上的毛用黑色线条勾出，身体涂满红色。岩面有起伏和细裂纹，旁边还有别的动物的局部。",
+      "caption": "阿尔塔米拉洞穴多彩画厅洞顶上的一头野牛，旧石器时代晚期，赭石与木炭（阿尔塔米拉博物馆照片，未注明拍摄于原洞还是复制洞）。",
+      "kind": "full",
+      "credit": { "author": "Museo de Altamira y D. Rodríguez", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:9_Bisonte_Magdaleniense_pol%C3%ADcromo.jpg", "date": "2010-11-15", "changes": "重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    },
+    {
+      "key": "ceiling",
+      "src": "/img/altamira-ceiling.jpg",
+      "alt": "从低处斜看一大片低矮的洞顶：许多红色和黑色的动物身体挤在一起，大小不一、朝向各异，岩面高低起伏。",
+      "caption": "多彩画厅洞顶的一部分（阿尔塔米拉博物馆照片，未注明拍摄于原洞还是复制洞）。",
+      "kind": "detail",
+      "credit": { "author": "Museo de Altamira y D. Rodríguez", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:12_Vista_general_del_techo_de_pol%C3%ADcromos.jpg", "date": "2013-02-07", "changes": "重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    },
+    {
+      "key": "mask",
+      "src": "/img/altamira-mask.jpg",
+      "alt": "洞穴深处一段黄褐色的岩壁，表面凹凸不平，有裂缝和白色的钙质斑块。中间一块凸起的岩石上，有几笔黑色的线条。",
+      "caption": "博物馆照片说明称之为“终端廊道的面具”（阿尔塔米拉博物馆照片，未注明拍摄于原洞还是复制洞）。",
+      "kind": "detail",
+      "credit": { "author": "Museo de Altamira y D. Rodríguez", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:14_M%C3%A1scara_en_la_Galer%C3%ADa_Final.JPG", "date": "2010-11-22", "changes": "重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    },
+    {
+      "key": "signs",
+      "src": "/img/altamira-signs.jpg",
+      "alt": "岩壁上几个用黑色线条画成的图形：方框里排着一道道竖线和横线，像栅格或梯子，旁边一个椭圆形里也填着斜线。它们不像任何动物。",
+      "caption": "终端廊道里的几个黑色符号（阿尔塔米拉博物馆照片，未注明拍摄于原洞还是复制洞）。",
+      "kind": "detail",
+      "credit": { "author": "Museo de Altamira y D. Rodríguez", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:13_Detalle_de_signos_en_la_Galer%C3%ADa_Final.JPG", "date": "2010-11-22", "changes": "重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    },
+    {
+      "key": "hands",
+      "src": "/img/altamira-hands.jpg",
+      "alt": "岩壁上一片模糊的红色：几只手的轮廓周围喷着红色颜料，手的形状留成了空白；旁边还有红色线条画的马的局部。",
+      "caption": "阿尔塔米拉洞穴里的负形手印和红色的马（阿尔塔米拉博物馆照片，未注明拍摄于原洞还是复制洞）。",
+      "kind": "detail",
+      "credit": { "author": "Museo de Altamira y D. Rodríguez", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:11_Manos_en_negativo_de_Altamira.JPG", "date": "2010-11-22", "changes": "重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    },
+    {
+      "key": "sautuola",
+      "src": "/img/altamira-sautuola-1880.jpg",
+      "alt": "一幅黑白线描图：洞顶上的许多野牛、马和鹿，排满了横长的画面，动物的身体用排线涂黑，底部画着岩石的边缘。",
+      "caption": "1880 年，绍图奥拉在《桑坦德省若干史前物品简述》中发表的洞顶摹绘图。",
+      "kind": "detail",
+      "subject": "绍图奥拉 1880 年发表的摹绘",
+      "credit": { "author": "Marcelino Sanz de Sautuola（1880 年出版）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altamira-1880.jpg", "changes": "缩小尺寸、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "manos",
+      "src": "/img/cueva-de-las-manos.jpg",
+      "alt": "一面浅红褐色的岩壁上密密麻麻地布满手的轮廓：大多是白色或浅色的手形，周围是喷上的红色、黑色和紫色颜料，有的手重叠在一起。",
+      "caption": "阿根廷圣克鲁斯省平图拉斯河畔的“手洞”（Cueva de las Manos）。",
+      "kind": "detail",
+      "subject": "阿根廷“手洞”",
+      "credit": { "author": "Mariano", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg", "date": "2005-08-12", "changes": "缩小尺寸、重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供。" }
+    }
+  ],
+  "rights": {
+    "status": "阿尔塔米拉洞内的照片由阿尔塔米拉国家博物馆与研究中心（摄影 D. Rodríguez）以 CC BY-SA 3.0 发布；手洞照片由摄影者 Mariano 以 CC BY-SA 3.0（并 GFDL）发布；1880 年的摹绘图属公有领域。",
+    "basis": "博物馆照片的维基共享资源文件页注明作者“Museo de Altamira y D. Rodríguez”、许可证 CC BY-SA 3.0，并有志愿者回复团队（VRT）存档的授权邮件（工单 #2013031810013815）。手洞照片的文件页注明摄影者本人以 CC BY-SA 3.0 与 GFDL 发布；页面上的“公有领域”标签指的是岩画本身。绍图奥拉的摹绘发表于 1880 年，作者 1888 年去世。",
+    "verifiedOn": "2026-10-26",
+    "note": "CC BY-SA 3.0 的照片须署名、注明许可证并链接原文件；本站的缩小、压缩版本同样按 CC BY-SA 3.0 提供。博物馆照片的说明没有写明拍的是原洞还是复制洞，现有资料无法核实拍摄地点，因此本课的图注都注明了这一点。图像内容（哪一头野牛、哪一处符号）的辨认不受影响。"
+  },
+  "card": {
+    "type": "洞穴壁画",
+    "maker": "西班牙",
+    "period": "旧石器时代晚期",
+    "facets": [
+      { "label": "颜料", "value": "赭石与木炭" },
+      { "label": "位置", "value": "洞顶（原址）" },
+      { "label": "年代", "value": "至少延续两万年" },
+      { "label": "发现", "value": "1879 年被注意到" }
+    ],
+    "blurb": "野牛画在洞顶的岩石起伏上。人们 1879 年才注意到它，它被画出来却早了一万多年。",
+    "image": "full",
+    "focus": "45% 50%"
+  }
+}
