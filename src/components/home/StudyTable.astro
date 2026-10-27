@@ -33,10 +33,10 @@ const lessons = inCourseOrder(await Promise.all((await getCollection('lessons'))
   };
 })));
 const stageOf = (n: number) => stages.find((st) => n >= st.first && n <= st.last)!;
-// Stages that have at least one course; the others are not shown.
-const shelves = stages
-  .map((st) => ({ ...st, lessons: lessons.filter((l) => stageOf(l.course) === st) }))
-  .filter((st) => st.lessons.length);
+// All seven stages, in order. A stage with courses is a stack that opens into its spread; a stage without any yet is
+// an empty place on the shelf, with its lesson range.
+const shelves = stages.map((st) => ({ ...st, lessons: lessons.filter((l) => stageOf(l.course) === st) }));
+const openShelves = shelves.filter((st) => st.lessons.length);
 // Places on the table (canvas 1440 × 820): the box a print may fill, and its turn. Place 0 is the largest, today's
 // first work. A print is scaled to fit its box whole; a wide work in a tall box simply lies smaller.
 const places = [
@@ -184,7 +184,7 @@ window.__stHero=hero})();`;
 
       <nav class="st-shelves" aria-label="按阶段浏览课程">
         <p class="st-kicker">{shelves.length} 个阶段 · {lessons.length} 门课程</p>
-        {shelves.map((st) => (
+        {shelves.map((st) => st.lessons.length ? (
           <button class="st-stack" type="button" data-open={st.no} aria-haspopup="dialog">
             <span class="st-deckpile" aria-hidden="true">
               {st.lessons.length > 2 && <i></i>}{st.lessons.length > 1 && <i></i>}
@@ -192,6 +192,11 @@ window.__stHero=hero})();`;
             </span>
             <span class="st-stack-t"><b lang="en">{st.no}</b><span>{st.title}</span><em>第 {st.first}–{st.last} 课 · {st.lessons.length} 门</em></span>
           </button>
+        ) : (
+          <div class="st-stack is-empty">
+            <span class="st-deckpile" aria-hidden="true"><i class="st-empty"></i></span>
+            <span class="st-stack-t"><b lang="en">{st.no}</b><span>{st.title}</span><em>第 {st.first}–{st.last} 课</em></span>
+          </div>
         ))}
         <a class="st-all" href="/courses/">翻开全部课程 →</a>
       </nav>
@@ -270,7 +275,7 @@ window.__stHero=hero})();`;
   <!-- A stage, opened: all its courses laid out as prints. -->
   <div class="st-spread" data-spread hidden>
     <div class="st-spread-back" data-close></div>
-    {shelves.map((st) => (
+    {openShelves.map((st) => (
       <section class="st-spread-panel" role="dialog" aria-modal="true" aria-labelledby={`st-s-${st.no}`} data-panel={st.no} hidden>
         <header class="st-spread-h">
           <p class="st-kicker">第 {st.no} 阶段 · 第 {st.first}–{st.last} 课</p>
@@ -392,7 +397,7 @@ window.__stHero=hero})();`;
   /* The stacks: one per stage that has courses; a stack opens into a spread. */
   .st-shelves { position: absolute; left: 1176px; top: 44px; width: 220px; }
   .st-shelves .st-kicker { margin-bottom: 14px; font-size: 11px; }
-  .st-stack { display: flex; align-items: center; gap: 16px; width: 100%; min-height: 84px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; font: inherit; }
+  .st-stack { display: flex; align-items: center; gap: 16px; width: 100%; min-height: 78px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; font: inherit; }
   .st-deckpile { position: relative; width: 52px; height: 66px; flex: none; }
   .st-deckpile i { position: absolute; inset: 0; border: 1px solid rgb(255 255 255 / .25); background: #1d1d1b; transition: transform 260ms var(--ease); }
   .st-deckpile i:nth-child(1):not(.st-top) { transform: translate(8px, -6px) rotate(4deg); }
@@ -403,6 +408,11 @@ window.__stHero=hero})();`;
   .st-stack:hover .st-deckpile i:nth-child(2):not(.st-top), .st-stack:focus-visible .st-deckpile i:nth-child(2):not(.st-top) { transform: translate(7px, -5px) rotate(5deg); }
   .st-stack:hover .st-top, .st-stack:focus-visible .st-top { transform: translateY(-3px); }
   .st-stack:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  /* A stage with no course yet: an empty place on the shelf, quieter, and not a control. */
+  .st-stack.is-empty { cursor: default; }
+  .st-deckpile .st-empty { border: 1px dashed rgb(255 255 255 / .22); background: none; }
+  .st-stack.is-empty .st-stack-t span { color: var(--ink-2); }
+  .st-stack.is-empty .st-stack-t em { color: var(--ink-3); }
   .st-stack-t b { display: block; font: 400 13px/1 var(--latin); color: var(--ink-2); }
   .st-stack-t span { display: block; margin-top: 5px; font: 400 13.5px/1.35 var(--serif); }
   .st-stack-t em { display: block; margin-top: 4px; font: 400 11px/1 var(--sans); font-style: normal; letter-spacing: .08em; color: var(--ink-2); }

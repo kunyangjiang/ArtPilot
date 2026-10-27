@@ -25,7 +25,7 @@ font name. The subsets keep every name record (copyright, trademark, licence).
 
 The Latin files hold printable ASCII and a few punctuation marks. The Chinese files hold printable ASCII and every
 character that appears on `/`, `/courses/`, `/collection/`, `/stories/` and `/cases/`, including the labels the
-homepage note card shows and the text its scripts write (945 Han characters at the time of writing). A character that
+homepage note card shows and the text its scripts write (948 Han characters at the time of writing). A character that
 is not in the subset falls back to the next font in the stack (a locally installed Noto or the system's Song / Hei),
 so new text never disappears, but it should be added to the subset.
 
