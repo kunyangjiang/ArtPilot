@@ -1,0 +1,69 @@
+{
+  "id": "art-gandhara-buddha-001",
+  "kind": "object",
+  "titleZh": "犍陀罗佛立像",
+  "titleEn": "Buddha (Gandhara)",
+  "attributionNote": "作者不详。博物馆根据面部、身体比例和衣纹的雕刻水准，认为出自一位技艺高超的雕刻师之手，但没有留下名字或铭文。",
+  "dateApprox": "3 世纪",
+  "objectType": "佛教造像 · 佛立像",
+  "medium": "片岩雕刻",
+  "dimensions": "高 92.7 厘米，宽 27.9 厘米，厚 14 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 2014.188",
+  "originalStatus": "原件。右手和右前臂已经缺失；博物馆推测原来举起，作无畏印。头光边缘也有残损。",
+  "provenance": "博物馆标注的产地是“巴基斯坦开伯尔-普什图省，可能出自塔赫特巴希寺院，古犍陀罗地区”，“可能”二字说明出土地点并不确定，没有发掘记录。已知的经历：1958 年在伦敦 Spink & Son 古董行；2014 年 3 月 19 日纽约苏富比拍卖（第 29 号拍品），同年入藏大都会艺术博物馆。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Buddha，2014.188（含来源）", "url": "https://www.metmuseum.org/art/collection/search/646117" },
+    { "label": "克利夫兰艺术博物馆藏品页：Seated Shakyamuni Buddha，1970.63", "url": "https://www.clevelandart.org/art/1970.63" },
+    { "label": "克利夫兰艺术博物馆藏品页：Seated Buddha，1941.94（博物馆对秣菟罗衣纹的说明）", "url": "https://www.clevelandart.org/art/1941.94" },
+    { "label": "大英博物馆藏品页：迦腻色伽一世金币，IOC.289（背面铭文 Boddo，约 127–150 年，出土于阿富汗阿欣波什）", "url": "https://www.britishmuseum.org/collection/object/C_IOC-289" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gandhara-buddha.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一尊灰黑色石雕的站立佛像，立在深色背景前：身披一件厚重的袈裟，从双肩垂下，布料形成一道道弧形的深褶；头发呈波浪状，向上束成发髻；头后有圆形头光，右臂从肘部以下缺失。",
+      "caption": "犍陀罗佛立像，3 世纪，片岩，高 92.7 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/646117", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "mathura",
+      "src": "/img/mathura-buddha.jpg",
+      "alt": "一尊带红色斑点的砂岩佛坐像：佛双腿交叠坐在台座上，右手举起，掌心向外；身上的衣服很薄，几乎看不出衣褶，身体的轮廓清楚可见；头顶有螺旋形的发髻，左侧残存一个小小的侍者像。",
+      "caption": "秣菟罗的佛坐像，约 120 年，红色斑点砂岩，高 51.4 厘米，克利夫兰艺术博物馆藏（1970.63）。",
+      "kind": "detail",
+      "subject": "秣菟罗佛坐像（克利夫兰艺术博物馆）",
+      "credit": { "author": "克利夫兰艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1970.63", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "coins",
+      "src": "/img/kanishka-coins.jpg",
+      "alt": "四枚古钱币背面的放大图，排成两行：每枚上都有一个站立的人形，身后有圆形头光，身披长袍，一手举起；钱币边缘有一圈字母。",
+      "caption": "迦腻色伽一世钱币背面的佛像（几枚钱币的局部，CNG 钱币图像）。",
+      "kind": "detail",
+      "subject": "迦腻色伽一世钱币上的佛像",
+      "credit": { "author": "Classical Numismatic Group（CNG）", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shakyamuni_Buddha_on_coins_of_Kanihska_I.jpg", "changes": "缩小、重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 3.0 提供" }
+    }
+  ],
+  "rights": {
+    "status": "两尊佛像的照片来自大都会艺术博物馆和克利夫兰艺术博物馆的开放获取计划（CC0）；钱币图像由 CNG 授权，以 CC BY-SA 3.0 发布。",
+    "basis": "大都会藏品页标注“Public Domain”；克利夫兰艺术博物馆开放获取接口标注该件 share_license_status 为 CC0。钱币图像的维基共享资源文件页注明来自 Classical Numismatic Group，经其许可以 CC BY-SA 3.0 发布。",
+    "verifiedOn": "2026-10-27",
+    "note": "钱币图像拼合了几枚不同的钱币，不是大英博物馆 IOC.289 那一枚；本课引用大英博物馆的著录说明铭文、年代和出土地，用 CNG 的图像让读者看见这种钱币上的佛像。"
+  },
+  "card": {
+    "type": "佛教造像",
+    "maker": "犍陀罗",
+    "period": "3 世纪",
+    "facets": [
+      { "label": "材质", "value": "片岩" },
+      { "label": "高度", "value": "92.7 cm" },
+      { "label": "手势", "value": "右手已失" },
+      { "label": "出处", "value": "可能出自塔赫特巴希" }
+    ],
+    "blurb": "同一位佛陀，在犍陀罗和秣菟罗被雕成了两种样子。像是怎样一步步被定下来的？",
+    "focus": "50% 40%"
+  }
+}

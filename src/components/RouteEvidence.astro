@@ -1,0 +1,105 @@
+---
+// Places on the Silk Road network and what each one can actually prove. A small map drawn from real latitudes and
+// longitudes (an equirectangular sketch, not a survey map), with a few routes as schematic lines: the network was many
+// changing paths, not one road. Choosing a place opens what survives there and how we know, each row tagged by the
+// kind of evidence: a dated object or inscription, a written record, only a visual likeness, or an open question.
+// Nothing is scored or stored. Without script every place's panel is in the page.
+type Tag = 'dated' | 'text' | 'look' | 'open';
+interface Row { k: string; v: string; tag: Tag }
+interface Site { id: string; label: string; sub: string; lat: number; lon: number; rows: Row[]; dx?: number; dy?: number }
+interface Props { prompt: string; sites: Site[]; routes: [number, number][][]; caption: string }
+const { prompt, sites, routes, caption } = Astro.props;
+const tags: Record<Tag, string> = { dated: '实物与纪年', text: '文字记载', look: '只是相像', open: '仍有争议' };
+const W = 640, H = 300;
+const box = { lon0: 67, lon1: 117, lat0: 26, lat1: 44.5 };
+const px = (lon: number) => 16 + ((lon - box.lon0) / (box.lon1 - box.lon0)) * (W - 32);
+const py = (lat: number) => 16 + ((box.lat1 - lat) / (box.lat1 - box.lat0)) * (H - 32);
+---
+<section class="module re" data-re>
+  <p class="module-label">互动 · 地点与证据</p>
+  <h3>{prompt}</h3>
+  <div class="re-body">
+    <svg class="re-map" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="示意地图：从犍陀罗、秣菟罗经龟兹、敦煌到平城、洛阳的几处地点与路线">
+      <ellipse class="re-desert" cx={px(83)} cy={py(39)} rx="100" ry="36" />
+      <text class="re-region" x={px(83)} y={py(39) + 4} text-anchor="middle">塔克拉玛干沙漠</text>
+      {routes.map((r) => <polyline class="re-route" points={r.map(([lat, lon]) => `${px(lon).toFixed(1)},${py(lat).toFixed(1)}`).join(' ')} />)}
+      {sites.map((s, i) => (
+        <g class="re-site" data-site={s.id}>
+          <circle cx={px(s.lon)} cy={py(s.lat)} r="6" />
+          <text x={px(s.lon) + (s.dx ?? 9)} y={py(s.lat) + (s.dy ?? 4)}>{s.label}</text>
+        </g>
+      ))}
+    </svg>
+    <div class="re-picks" role="tablist" aria-label="选择一个地点">
+      {sites.map((s, i) => (
+        <button type="button" role="tab" id={`re-tab-${s.id}`} aria-controls={`re-panel-${s.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-s={s.id}>
+          <span class="re-pick-label">{s.label}</span><span class="re-pick-sub">{s.sub}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+  {sites.map((s, i) => (
+    <div class="re-panel" role="tabpanel" id={`re-panel-${s.id}`} aria-labelledby={`re-tab-${s.id}`} data-panel={s.id} hidden={i !== 0}>
+      <p class="re-where">{s.label} · {s.sub}</p>
+      <dl class="re-rows">
+        {s.rows.map((r) => <div class="re-row"><dt>{r.k}<span class={`re-tag is-${r.tag}`}>{tags[r.tag]}</span></dt><dd>{r.v}</dd></div>)}
+      </dl>
+    </div>
+  ))}
+  <p class="re-caption">{caption}</p>
+</section>
+
+<style>
+  .re-body { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; margin-bottom: 1.25rem; }
+  .re-map { display: block; width: 100%; height: auto; background: var(--mist); }
+  .re-desert { fill: none; stroke: var(--ink-3); stroke-width: .8; stroke-dasharray: 2 4; }
+  .re-region { font: 400 14px/1 var(--sans); fill: var(--ink-3); letter-spacing: .2em; }
+  .re-route { fill: none; stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 5 4; }
+  .re-site circle { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1.4; transition: fill var(--t) var(--ease); }
+  .re-site text { font: 500 16px/1 var(--sans); fill: var(--ink-2); letter-spacing: .04em; }
+  .re-site.is-on circle { fill: var(--ink); stroke: var(--ink); }
+  .re-site.is-on text { fill: var(--ink); font-weight: 700; }
+  .re-picks { display: grid; gap: .4rem; }
+  .re-picks button { display: grid; gap: .1rem; padding: .5rem .7rem; border: 1px solid var(--rule); background: var(--paper);
+    color: var(--ink-2); text-align: left; cursor: pointer; }
+  .re-picks button[aria-selected="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .re-pick-label { font: 500 .875rem/1.4 var(--serif); letter-spacing: .03em; }
+  .re-pick-sub { font: 400 .75rem/1.4 var(--sans); color: var(--ink-3); }
+  .re-where { margin: 0 0 .8rem; font: 500 .8125rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .re-rows { margin: 0; }
+  .re-row + .re-row { margin-top: .9rem; padding-top: .9rem; border-top: 1px dashed var(--rule); }
+  .re-row dt { display: flex; gap: .6rem; align-items: baseline; font: 600 .875rem/1.5 var(--sans); letter-spacing: .06em; color: var(--ink); }
+  .re-row dd { margin: .3rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .re-tag { padding: .05rem .4rem; border: 1px solid var(--rule); font: 400 .6875rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink-3); white-space: nowrap; }
+  .re-tag.is-dated, .re-tag.is-text { border-color: var(--ink-3); color: var(--ink-2); }
+  .re-tag.is-look, .re-tag.is-open { border-style: dashed; }
+  .re-caption { margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  :global(.re:not(.is-ready)) .re-panel[hidden] { display: block; margin-top: 1.5rem; }
+  @media (max-width: 720px) { .re-body { grid-template-columns: 1fr; } .re-picks { grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-re]').forEach((root) => {
+    root.classList.add('is-ready');
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const dots = [...root.querySelectorAll<SVGGElement>('[data-site]')];
+    const select = (i: number, focus = false) => {
+      const id = tabs[i].dataset.s;
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p) => { p.hidden = p.dataset.panel !== id; });
+      dots.forEach((d) => d.classList.toggle('is-on', d.dataset.site === id));
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+    dots.forEach((d) => d.addEventListener('click', () => select(tabs.findIndex((t) => t.dataset.s === d.dataset.site))));
+    select(0);
+  });
+</script>

@@ -1,0 +1,102 @@
+---
+import { getEntry } from 'astro:content';
+// Two sculptures side by side, compared one feature at a time (the robe, the head, the hand, the stone ...). Choosing a
+// feature rings the same place on both images and opens a note for each, then a line on what the comparison can and
+// cannot show: a shared or different form is an observation, not proof of who learned from whom. Nothing is scored or
+// stored. Without script every feature's notes are in the page and no rings are drawn.
+interface Side { artwork: string; image: string; label: string }
+interface Spot { x: number; y: number; r?: number; note: string }
+interface Feature { id: string; label: string; left: Spot; right: Spot; limit: string }
+interface Props { prompt: string; left: Side; right: Side; features: Feature[] }
+const { prompt, left, right, features } = Astro.props;
+const load = async (s: Side) => {
+  const rec = await getEntry('artworks', s.artwork);
+  const img = rec?.data.images.find((i) => i.key === s.image);
+  if (!rec || !img) throw new Error(`Unknown artwork/image: ${s.artwork}/${s.image}`);
+  return { rec: rec.data, img };
+};
+const sides = [{ ...left, ...(await load(left)), key: 'left' as const }, { ...right, ...(await load(right)), key: 'right' as const }];
+---
+<section class="module fc" data-fc>
+  <p class="module-label">互动 · 一处一处对照</p>
+  <h3>{prompt}</h3>
+  <div class="fc-tabs" role="tablist" aria-label="选择要对照的地方">
+    {features.map((f, i) => (
+      <button type="button" role="tab" id={`fc-tab-${f.id}`} aria-controls={`fc-panel-${f.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-f={f.id}>{f.label}</button>
+    ))}
+  </div>
+  <div class="fc-pair">
+    {sides.map((s) => (
+      <figure class="fc-side">
+        <div class="fc-frame">
+          <img src={s.img.src} alt={s.img.alt} loading="lazy" decoding="async" />
+          {features.map((f) => {
+            const p = f[s.key];
+            return <span class="fc-ring" data-ring={f.id} style={`left:${p.x}%;top:${p.y}%;--r:${p.r ?? 9}%`} aria-hidden="true"></span>;
+          })}
+        </div>
+        <figcaption><span class="fc-label">{s.label}</span><span class="credit">{s.img.subject ?? s.rec.titleZh}</span></figcaption>
+      </figure>
+    ))}
+  </div>
+  {features.map((f, i) => (
+    <div class="fc-panel" role="tabpanel" id={`fc-panel-${f.id}`} aria-labelledby={`fc-tab-${f.id}`} data-panel={f.id} hidden={i !== 0}>
+      <div class="fc-notes">
+        <p><span class="fc-side-name">{left.label}</span>{f.left.note}</p>
+        <p><span class="fc-side-name">{right.label}</span>{f.right.note}</p>
+      </div>
+      <p class="fc-limit"><span>这能说明什么</span>{f.limit}</p>
+    </div>
+  ))}
+</section>
+
+<style>
+  .fc-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+  .fc-tabs button { padding: .45rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    font: 500 .875rem/1.4 var(--sans); letter-spacing: .06em; cursor: pointer; }
+  .fc-tabs button[aria-selected="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .fc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0 0 1.25rem; }
+  .fc-side { margin: 0; }
+  .fc-frame { position: relative; background: var(--mist); }
+  .fc-frame img { display: block; width: 100%; height: auto; }
+  .fc-ring { position: absolute; width: calc(var(--r) * 2); aspect-ratio: 1; translate: -50% -50%; border: 2px solid #fff;
+    border-radius: 50%; box-shadow: 0 0 0 1px rgb(0 0 0 / .55), inset 0 0 0 1px rgb(0 0 0 / .35); opacity: 0; transition: opacity var(--t) var(--ease); pointer-events: none; }
+  .fc-ring.is-on { opacity: 1; }
+  .fc-side figcaption { display: grid; gap: .1rem; margin-top: .45rem; }
+  .fc-label { font: 500 .875rem/1.5 var(--serif); letter-spacing: .04em; color: var(--ink); }
+  .fc-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .fc-notes p { margin: 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .fc-side-name { display: block; margin-bottom: .2rem; font: 600 .8125rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink); }
+  .fc-limit { margin: 1rem 0 0; padding: .8rem 1rem; background: var(--mist); font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
+  .fc-limit span { display: block; margin-bottom: .15rem; font: 600 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  /* Without script every feature's notes are listed. */
+  :global(.fc:not(.is-ready)) .fc-panel[hidden] { display: block; margin-top: 1.5rem; }
+  :global(.fc:not(.is-ready)) .fc-tabs { display: none; }
+  @media (max-width: 640px) { .fc-notes { grid-template-columns: 1fr; } .fc-pair { gap: .6rem; } }
+  @media (prefers-reduced-motion: reduce) { .fc-ring { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-fc]').forEach((root) => {
+    root.classList.add('is-ready');
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const rings = [...root.querySelectorAll<HTMLElement>('[data-ring]')];
+    const select = (i: number, focus = false) => {
+      const id = tabs[i].dataset.f;
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p) => { p.hidden = p.dataset.panel !== id; });
+      rings.forEach((r) => r.classList.toggle('is-on', r.dataset.ring === id));
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+    select(0);
+  });
+</script>

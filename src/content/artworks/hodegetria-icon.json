@@ -1,0 +1,76 @@
+{
+  "id": "art-hodegetria-icon-001",
+  "kind": "painting",
+  "titleZh": "圣母子圣像（引路圣母的变体）",
+  "titleEn": "Icon of the Virgin and Child, Hodegetria variant",
+  "artist": "佚名（博物馆标注为“拜占庭或十字军”画家）",
+  "attributionNote": "画家不详。博物馆把作者标为“拜占庭或十字军”，产地标为埃及：13 世纪，从意大利、法国、英格兰等地来到东方的十字军画家，和东正教拜占庭传统的画家在这里相遇，两种可能都无法排除。",
+  "dateApprox": "13 世纪",
+  "medium": "木板蛋彩",
+  "dimensionsCm": { "height": 25.4, "width": 18.4 },
+  "collection": "大都会艺术博物馆（纽约），藏品编号 2020.401",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Icon of the Virgin and Child, Hodegetria variant，2020.401（含来源）", "url": "https://www.metmuseum.org/art/collection/search/831188" },
+    { "label": "Sarah T. Brooks，“Icons and Iconoclasm in Byzantium”，大都会艺术博物馆《艺术史年表》（2001，2009 年修订）", "url": "https://www.metmuseum.org/essays/icons-and-iconoclasm-in-byzantium" },
+    { "label": "第二次尼西亚公会议（787）决议，H. R. Percival 英译（《尼西亚与后尼西亚教父》第二辑第 14 卷，1900），New Advent 网站", "url": "https://www.newadvent.org/fathers/3819.htm" },
+    { "label": "维基百科：Chludov Psalter（9 世纪中叶，莫斯科国家历史博物馆；第 67 页的图像）", "url": "https://en.wikipedia.org/wiki/Chludov_Psalter" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/hodegetria-icon.jpg",
+      "width": 1190,
+      "height": 1600,
+      "alt": "一块小木板上的圣像：金色背景前，圣母披着深紫红色的头巾和斗篷，脸微微侧向一边，眼睛望向观者；她左臂抱着穿红色衣服的圣子，右手张开，指向他。圣子仰起脸看她，一只手搭在自己肩上。木板四边的颜料有剥落，露出底层。",
+      "caption": "圣母子圣像，13 世纪，木板蛋彩，25.4 × 18.4 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/831188", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "sinai",
+      "src": "/img/sinai-pantocrator.jpg",
+      "alt": "一幅竖长的木板圣像：基督正面半身，金色的圆形头光，深色长发和胡须；右手举在胸前作祝福的手势，左手托着一本镶满宝石的厚书。他的脸左右两边并不对称：一边的眉毛更高、眼神更平静，另一边的眼睛更大、神情更严厉。背景是一座建筑和天空。",
+      "caption": "西奈山圣凯瑟琳修道院的基督全能者像，6 世纪，木板蜡画（热蜡颜料）。",
+      "kind": "detail",
+      "subject": "西奈山的基督全能者像",
+      "credit": { "author": "圣凯瑟琳修道院藏品（维基共享资源图像，来源注明为圣吉洪东正教大学圣像数据库）", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spas_vsederzhitel_sinay.jpg", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "chludov",
+      "src": "/img/chludov-psalter-67r.jpg",
+      "alt": "一页羊皮纸手抄本：左边是几栏希腊文；右边上方画着十字架上的基督，一个士兵用长杆举着海绵伸向他；下方两个人物，一个举着一幅画有基督头像的圆形画，另一个人用长杆上的东西去涂抹这幅画，脚边放着一个盆。",
+      "caption": "《赫卢多夫诗篇》第 67 页正面，9 世纪中叶，莫斯科国家历史博物馆藏。",
+      "kind": "detail",
+      "subject": "《赫卢多夫诗篇》",
+      "credit": { "author": "莫斯科国家历史博物馆藏品（维基共享资源图像）", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crucifixion_with_iconoclasts,_Chludov_Psalter,_folio_67r.jpg", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ivory",
+      "src": "/img/ivory-hodegetria.jpg",
+      "alt": "一尊象牙雕刻的站立圣母像，在灰色背景前：她左臂抱着圣子，右手举在胸前，长袍的衣褶笔直地垂到脚下；圣子坐在她臂弯里，正面朝外。",
+      "caption": "象牙圣母子像，10 世纪中至 11 世纪中，大都会艺术博物馆藏（17.190.103）。",
+      "kind": "detail",
+      "subject": "象牙圣母子像（大都会艺术博物馆）",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/463984", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "两件大都会藏品的照片来自开放获取计划（CC0）；西奈山圣像与《赫卢多夫诗篇》的图像是中世纪平面作品的忠实复制，属公有领域。",
+    "basis": "大都会藏品页标注“Public Domain”。另两件的维基共享资源文件页以公有领域标注：原作作者去世已逾千年，照片是平面复制。",
+    "verifiedOn": "2026-10-27",
+    "note": "平面复制不产生新著作权，是美国法律下的通行判断，各国规定不一。西奈山圣像的尺寸各处引用不一，本课不给出尺寸。"
+  },
+  "card": {
+    "type": "圣像",
+    "maker": "拜占庭或十字军",
+    "period": "13 世纪",
+    "facets": [
+      { "label": "材质", "value": "木板蛋彩" },
+      { "label": "尺寸", "value": "25.4 × 18.4 cm" },
+      { "label": "类型", "value": "引路圣母的变体" },
+      { "label": "来历", "value": "西奈山修道院旧藏" }
+    ],
+    "blurb": "她看着你，又指向孩子。圣像要观者做的，不只是认出画的是谁。",
+    "focus": "50% 40%"
+  }
+}

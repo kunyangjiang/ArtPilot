@@ -1,0 +1,108 @@
+{
+  "id": "art-maitreya-486-001",
+  "kind": "object",
+  "titleZh": "北魏太和十年鎏金铜弥勒佛立像",
+  "titleEn": "Buddha Maitreya (Mile), dated 486",
+  "attributionNote": "铸造者不详。像座背后的铭文记下了年代、用途和尊像的名称，没有记下工匠的名字。",
+  "dateApprox": "北魏太和十年（486 年），据铭文",
+  "objectType": "佛教造像 · 鎏金铜佛立像",
+  "medium": "青铜，用分范法铸造，表面鎏金，残留彩绘痕迹",
+  "dimensions": "高 140.3 厘米，宽 62.2 厘米，厚 48.9 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 26.123",
+  "originalStatus": "原件。博物馆称它是今天所知最大的早期中国鎏金铜像。",
+  "provenance": "博物馆标注出自山西省，没有更具体的出土记录。1926 年以前在大阪浅野梅吉手中，1926 年售予大都会艺术博物馆（约翰·斯图尔特·肯尼迪基金）。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Buddha Maitreya (Mile)，26.123（含铭文录文与英译、来源、语音导览）", "url": "https://www.metmuseum.org/art/collection/search/42733" },
+    { "label": "大都会艺术博物馆藏品页：Buddha Maitreya (Mile) Altarpiece，38.158.1a–n（524 年铭文英译）", "url": "https://www.metmuseum.org/art/collection/search/42162" },
+    { "label": "大都会艺术博物馆藏品页：Emperor Xiaowen and his entourage worshipping the Buddha，35.146", "url": "https://www.metmuseum.org/art/collection/search/42707" },
+    { "label": "联合国教科文组织世界遗产中心：Silk Roads: the Routes Network of Chang'an-Tianshan Corridor", "url": "https://whc.unesco.org/en/list/1442/" },
+    { "label": "联合国教科文组织世界遗产中心：Yungang Grottoes", "url": "https://whc.unesco.org/en/list/1039/" },
+    { "label": "联合国教科文组织世界遗产中心：Longmen Grottoes", "url": "https://whc.unesco.org/en/list/1003/" },
+    { "label": "联合国教科文组织世界遗产中心：Mogao Caves", "url": "https://whc.unesco.org/en/list/440/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/maitreya-486.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一尊金色的铜佛立像，站在莲花台座上：右手举起掌心向外，左手垂下；袈裟紧贴身体，从双肩垂下，胸前和腿上刻满一道道细密、规则的衣褶，像一层层波纹；双肩宽厚，腿很长。",
+      "caption": "鎏金铜弥勒佛立像，北魏太和十年（486 年），高 140.3 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/42733", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "altar524",
+      "src": "/img/maitreya-524.jpg",
+      "alt": "一座镂空的鎏金铜佛龛：正中的佛站在莲台上，身后是火焰形的大背光，背光边上排着许多飞天；佛的衣服下摆向两侧张开，像一层层垂下的裙边；两侧站着菩萨，前面有供养人、狮子和香炉。",
+      "caption": "鎏金铜弥勒佛造像龛，北魏正光五年（524 年），高 76.8 厘米，大都会艺术博物馆藏（38.158.1a–n）。",
+      "kind": "detail",
+      "subject": "524 年弥勒佛造像龛",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/42162", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "binyang",
+      "src": "/img/binyang-xiaowen-relief.jpg",
+      "alt": "一大块横长的石灰岩浮雕：二十多个人物挤成一列，大多面朝右方行进；靠右中间一位头戴高冠、身形较大的人物，身后有两柄像棕榈叶一样展开的大扇；人物都穿宽袖长袍，衣褶一直垂到脚面。石面磨损严重，许多面孔已经模糊。",
+      "caption": "《孝文帝礼佛图》浮雕，约 522–523 年，原在洛阳龙门宾阳中洞，大都会艺术博物馆藏（35.146）。",
+      "kind": "detail",
+      "subject": "龙门宾阳中洞《孝文帝礼佛图》",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/42707", "changes": "由原图缩小并重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "kizil77",
+      "src": "/img/kizil-cave77-fragment.jpg",
+      "alt": "一块形状不规则的壁画残片：深红色袈裟的佛坐在台座上，周围有几个听法的人物，颜色以红褐、石青和白色为主，人物有明显的晕染，边缘是切割后留下的直线。",
+      "caption": "克孜尔石窟第 77 窟的壁画残片，约 5–6 世纪，今藏柏林。20 世纪初被揭取运走。",
+      "kind": "detail",
+      "subject": "克孜尔第 77 窟壁画残片（柏林）",
+      "credit": { "author": "原作：克孜尔石窟画工，约 5–6 世纪；照片：Flickr 用户 Byrnzie", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kizil_Caves_Buddha_scene.jpg", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "kizil207",
+      "src": "/img/kizil-cave207-drawing.jpg",
+      "alt": "一幅白底黑线的线描图：一排穿甲胄、持剑和长矛的武士，挤在城门和建筑之间，线条细而清楚，没有颜色。",
+      "caption": "克孜尔石窟第 207 窟（画家洞）一幅武士壁画的线描，德国考察队在揭取之前画下；壁画本身在揭取时碎裂失去，只有少数残片还在原窟。图版出自勒柯克 1920 年出版的图集。",
+      "kind": "detail",
+      "subject": "克孜尔第 207 窟壁画的线描",
+      "credit": { "author": "阿尔伯特·冯·勒柯克（Albert von Le Coq）图集，1920 年出版", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mural_with_warriors,_Cave_of_the_Painters,_Kizil_Caves.jpg", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "mogao275",
+      "src": "/img/mogao-275-jataka.jpg",
+      "alt": "一幅橘红底色的壁画局部：中间一个上身赤裸、白色身体的人物盘腿坐着，身边一个人举手作敲击状；周围有几位头光的人物在空中，线条粗放，身体用深色勾出轮廓。",
+      "caption": "敦煌莫高窟第 275 窟北壁的本生故事画（毗楞竭梨王本生），一般定为北凉时期（5 世纪前期），年代有不同意见。图像扫描自图录。",
+      "kind": "detail",
+      "subject": "敦煌莫高窟第 275 窟",
+      "credit": { "author": "莫高窟画工，5 世纪；图像扫描自《5000 ans d'art chinois》第 14 卷，图版 248（维基共享资源用户 Ismoon 上传）", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:King_Bhilanjili_Jataka._Northern_Liang._Mogao_cave_275.jpg", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "yungang20",
+      "src": "/img/yungang-cave20.jpg",
+      "alt": "露天的巨大石雕佛坐像，前方的窟壁早已崩塌：佛脸方圆，两耳很长，嘴角上翘，双肩宽厚，身上的袈裟只露出一边肩膀，衣纹一道道凸起；右侧站着一尊较小的立佛。",
+      "caption": "大同云冈石窟第 20 窟的大佛，北魏，5 世纪后半叶。窟前壁崩塌，佛像今天露天可见。",
+      "kind": "detail",
+      "subject": "云冈石窟第 20 窟",
+      "credit": { "author": "Mario Biondi", "licence": "CC BY-SA 2.5", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great.Buddha.Datong.jpg", "date": "2006-07-04", "changes": "缩小、重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 2.5 提供" }
+    }
+  ],
+  "rights": {
+    "status": "三件大都会藏品的照片来自开放获取计划（CC0）；克孜尔与莫高窟的图像是古代平面作品的复制或 1920 年出版的图版，属公有领域；云冈照片由摄影者以 CC BY-SA 2.5 发布。",
+    "basis": "大都会藏品页均标注“Public Domain”。克孜尔第 77 窟残片与莫高窟第 275 窟的图像，维基共享资源以“平面艺术品的忠实复制”标为公有领域（{{PD-Art}}）；第 207 窟线描出自勒柯克 1920 年的图集，作者 1930 年去世。云冈照片是 Mario Biondi 本人拍摄。",
+    "verifiedOn": "2026-10-27",
+    "note": "平面复制不产生新著作权，是美国法律下的通行判断，各国规定不一。克孜尔残片的照片是参观者在柏林拍摄的，不是博物馆的图像；莫高窟图像是图录扫描。按许可注明云冈照片的摄影者与许可协议。"
+  },
+  "card": {
+    "type": "鎏金铜像",
+    "maker": "北魏 · 山西",
+    "period": "486 年",
+    "facets": [
+      { "label": "材质", "value": "鎏金青铜" },
+      { "label": "高度", "value": "140.3 cm" },
+      { "label": "铭文", "value": "太和十年" },
+      { "label": "为谁", "value": "太皇太后" }
+    ],
+    "blurb": "衣纹来自远方，铭文用的是汉字。一尊铜佛，记下了一段长路的终点。",
+    "focus": "50% 30%"
+  }
+}

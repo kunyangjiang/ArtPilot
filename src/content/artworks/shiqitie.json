@@ -1,0 +1,167 @@
+{
+  "id": "art-shiqitie-001",
+  "kind": "object",
+  "titleZh": "王羲之《十七帖》（十三世纪拓本）",
+  "titleEn": "On the Seventeenth Day (13th-century rubbing)",
+  "attributionNote": "帖中的文字是王羲之（303–361）的书信；我们看到的不是他写的纸，而是根据唐代收集、摹写的本子刻石、再从石上捶拓下来的拓片。刻工和拓工的名字都没有留下。",
+  "dateApprox": "4 世纪的书信；本册是 13 世纪的拓本",
+  "objectType": "法帖拓本 · 册页（三十开）",
+  "medium": "纸本墨拓",
+  "dimensions": "每开 24.4 × 12.7 厘米",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1991.380",
+  "originalStatus": "王羲之的原迹早已不存。博物馆说明：这组二十九封书信由唐太宗主持收集；今天传世的拓本都是宋代或更晚的，质量差别很大，宋拓本又依据唐代的摹本或拓本。本册属于最常见的一类：末尾有一个大大的“敕”字，并有一行字说明皇帝下令把它刻石，作为弘文馆的官方范本。册中钤有许多后代收藏印，行间有朱笔小字。",
+  "provenance": "纽约翁万戈夫妇旧藏，1991 年捐赠大都会艺术博物馆。",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：On the Seventeenth Day，1991.380（含来源）",
+      "url": "https://www.metmuseum.org/art/collection/search/39899"
+    },
+    {
+      "label": "故宫博物院：冯承素行书摹兰亭序卷（神龙本；纵 24.5 厘米，横 69.9 厘米；无署款，传冯承素摹）",
+      "url": "https://www.dpm.org.cn/collection/handwriting/228279.html"
+    },
+    {
+      "label": "大英博物馆藏品页：女史箴图，1903,0408,0.1（“After: Gu Kaizhi”，5–7 世纪；卷末“顾恺之画”为后加）",
+      "url": "https://www.britishmuseum.org/collection/object/A_1903-0408-0-1"
+    },
+    {
+      "label": "史密森尼国立亚洲艺术博物馆（弗利尔美术馆）：洛神图，F1914.53（12 世纪中至 13 世纪中，传顾恺之）",
+      "url": "https://asia.si.edu/object/F1914.53/"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/shiqitie-leaf.jpg",
+      "width": 1600,
+      "height": 1351,
+      "alt": "一本打开的册页，左右两面各贴着一块黑底的拓片：黑色上是一个个白色的草书字，从右往左竖着排列，笔画连绵，粗细变化很大；右页第一行开头是“十七日”三个字。字的旁边有一些红色的小字，拓片四周和纸上盖着许多红色的印章。",
+      "caption": "王羲之《十七帖》，13 世纪拓本，第一开，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/39899",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "page",
+      "src": "/img/shiqitie-page.jpg",
+      "width": 860,
+      "height": 1600,
+      "alt": "一整块竖长的黑色拓片：白色的草书从右往左排成六行，第一行开头是“十七日”；字之间夹着红色的小字释文，下半部和右下角盖着好几方红色的收藏印。",
+      "caption": "《十七帖》第一开的右页。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/39899",
+        "changes": "由原图裁出右页整块拓片，缩小并重新压缩，未调色"
+      }
+    },
+    {
+      "key": "detail",
+      "src": "/img/shiqitie-detail.jpg",
+      "alt": "拓片的竖长近景：黑底上白色的草书一列列排下来，最右一列从“十七日”开始；字的边缘有的清楚、有的毛糙，黑底上有斑驳的纹理；红色的小字夹在两列之间。",
+      "caption": "同一开右页的近景：“十七日先书……”。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/39899",
+        "changes": "由原图裁出右页前三行，缩小并重新压缩，未调色"
+      }
+    },
+    {
+      "key": "lanting",
+      "src": "/img/lanting-shenlong.jpg",
+      "alt": "一段横长的书法手卷：浅黄褐色的纸上，墨色的行书从右往左一列列写下去，二十多列，字有大有小、有浓有淡；卷首和接缝处盖着许多红色印章。",
+      "caption": "《兰亭序》摹本（“神龙本”），唐代，传冯承素摹，纵 24.5 厘米，横 69.9 厘米，北京故宫博物院藏。",
+      "kind": "detail",
+      "subject": "《兰亭序》神龙本（故宫博物院）",
+      "credit": {
+        "author": "北京故宫博物院藏品（维基共享资源图像）",
+        "licence": "公有领域（平面艺术品的忠实复制）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:LantingXu.jpg",
+        "changes": "缩小、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "lanting-open",
+      "src": "/img/lanting-opening.jpg",
+      "alt": "《兰亭序》开头几列的近景：“永和九年岁在癸丑暮春之初会”等字，墨色有浓有淡，有的笔画末端露出细细的笔锋；第四列“有”和“峻领”之间的右侧，挤着两个小一号的字“崇山”；几方红色大印直接盖在字上；最右边是另一张纸，上面有半个印。",
+      "caption": "同一卷开头的近景。",
+      "kind": "detail",
+      "subject": "《兰亭序》神龙本开头",
+      "credit": {
+        "author": "北京故宫博物院藏品（维基共享资源图像）",
+        "licence": "公有领域（平面艺术品的忠实复制）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:LantingXu.jpg",
+        "changes": "由同一图像裁出卷首约 1140 像素宽的一段，未缩小、未调色"
+      }
+    },
+    {
+      "key": "admonitions",
+      "src": "/img/admonitions-lady-ban.jpg",
+      "alt": "一段绢本手卷画：左边一群轿夫弯着身子，抬着一顶有黑色顶篷和红色边框的大轿向左走，轿中坐着一个男子；右边一位女子独自跟在轿后，衣带细长，向后飘起；最右边是一列题字和一方大印。人物都用极细、均匀的线勾出，绢面发黄，有许多裂纹和剥落。",
+      "caption": "《女史箴图》中班婕妤辞辇一段，大英博物馆藏。博物馆定为 5–7 世纪，著录为“After: Gu Kaizhi”（追仿顾恺之）。",
+      "kind": "detail",
+      "subject": "《女史箴图》（大英博物馆）",
+      "credit": {
+        "author": "大英博物馆藏品（维基共享资源图像）",
+        "licence": "公有领域（平面艺术品的忠实复制）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Admonitions_Scroll_Scene_5.jpg",
+        "changes": "缩小、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "luoshen",
+      "src": "/img/luoshen-freer-opening.jpg",
+      "alt": "一段长卷画：左边一群穿长袍的人站在几棵垂柳下；中间一列小树和山石，人比树还高；右边一位女子衣带飘飘，像飘在空中，旁边还有一位乘着云气的神人。",
+      "caption": "《洛神图》卷首一段，南宋摹本（12 世纪中至 13 世纪中），传顾恺之，弗利尔美术馆藏（F1914.53）。",
+      "kind": "detail",
+      "subject": "《洛神图》（弗利尔美术馆）",
+      "credit": {
+        "author": "弗利尔美术馆藏品（维基共享资源图像）",
+        "licence": "公有领域（平面艺术品的忠实复制）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Gu_Kaizhi._Nymph_of_the_Luo_River._(24,2x310,9_cm)_Southern_Song_Copy._Freer_Gallery_of_Art._Washington..jpg",
+        "changes": "由全卷裁出卷首约四分之一，缩小、重新压缩，未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "《十七帖》的照片来自大都会艺术博物馆开放获取计划（CC0）；《兰亭序》、《女史箴图》、《洛神图》的图像是古代平面作品的忠实复制，属公有领域。",
+    "basis": "大都会藏品页标注“Public Domain”。其余三件的维基共享资源文件页均以 {{PD-Art}} 标注：原作作者去世已逾千年，照片是平面复制，不产生新的著作权。",
+    "verifiedOn": "2026-10-27",
+    "note": "弗利尔美术馆自己的网页对图像标注“Usage Conditions Apply”，大英博物馆的图像以 CC BY-NC-SA 4.0 提供；本课使用的不是这两家博物馆网站上的文件，而是维基共享资源上的公有领域复制件。平面复制不产生新著作权，是美国法律下的通行判断，各国规定不一。"
+  },
+  "card": {
+    "type": "法帖拓本",
+    "maker": "王羲之（书）",
+    "period": "4 世纪书 · 13 世纪拓",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "纸本墨拓"
+      },
+      {
+        "label": "书体",
+        "value": "草书"
+      },
+      {
+        "label": "内容",
+        "value": "二十九封书信"
+      },
+      {
+        "label": "每开",
+        "value": "24.4 × 12.7 cm"
+      }
+    ],
+    "blurb": "白字黑底，是刻在石上又拓下来的字。我们看到的王羲之，隔着好几双手。",
+    "focus": "70% 50%"
+  }
+}

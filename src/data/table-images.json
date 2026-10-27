@@ -71,6 +71,18 @@
       "height": 260
     }
   },
+  "/img/gandhara-buddha.jpg": {
+    "large": {
+      "src": "/img/table/gandhara-buddha.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-gandhara-buddha.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
   "/img/gubbio-studiolo-cabinet.jpg": {
     "large": {
       "src": "/img/table/gubbio-studiolo-cabinet.jpg",
@@ -119,6 +131,18 @@
       "height": 260
     }
   },
+  "/img/hodegetria-icon.jpg": {
+    "large": {
+      "src": "/img/table/hodegetria-icon.jpg",
+      "width": 818,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-hodegetria-icon.jpg",
+      "width": 193,
+      "height": 260
+    }
+  },
   "/img/indus-unicorn-seal.jpg": {
     "large": {
       "src": "/img/table/indus-unicorn-seal.jpg",
@@ -140,6 +164,30 @@
     "small": {
       "src": "/img/table/s-liangzhu-cong.jpg",
       "width": 195,
+      "height": 260
+    }
+  },
+  "/img/maitreya-486.jpg": {
+    "large": {
+      "src": "/img/table/maitreya-486.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-maitreya-486.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
+  "/img/mawangdui-banner.jpg": {
+    "large": {
+      "src": "/img/table/mawangdui-banner.jpg",
+      "width": 500,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-mawangdui-banner.jpg",
+      "width": 118,
       "height": 260
     }
   },
@@ -200,6 +248,30 @@
     "small": {
       "src": "/img/table/s-sharaku-oniji-full.jpg",
       "width": 174,
+      "height": 260
+    }
+  },
+  "/img/shiqitie-leaf.jpg": {
+    "large": {
+      "src": "/img/table/shiqitie-leaf.jpg",
+      "width": 1100,
+      "height": 929
+    },
+    "small": {
+      "src": "/img/table/s-shiqitie-leaf.jpg",
+      "width": 260,
+      "height": 219
+    }
+  },
+  "/img/shiqitie-page.jpg": {
+    "large": {
+      "src": "/img/table/shiqitie-page.jpg",
+      "width": 591,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-shiqitie-page.jpg",
+      "width": 140,
       "height": 260
     }
   },

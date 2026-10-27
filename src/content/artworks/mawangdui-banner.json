@@ -1,0 +1,95 @@
+{
+  "id": "art-mawangdui-banner-001",
+  "kind": "object",
+  "titleZh": "马王堆一号汉墓 T 形帛画",
+  "titleEn": "T-shaped Painting on Silk, Mawangdui Tomb 1",
+  "attributionNote": "作者不详。帛画出自西汉初年长沙国丞相、轪侯利苍家族的墓地，画工的名字没有留下来。",
+  "dateApprox": "西汉初年，约公元前 2 世纪前期（墓主辛追死于利苍之后；利苍卒于公元前 186 年）",
+  "objectType": "随葬帛画 · T 形旌幡",
+  "medium": "丝绢上墨线勾勒，再敷重彩",
+  "dimensions": "长 205 厘米，上部宽 92 厘米，下部宽 47.7 厘米（据湖南博物院公布的数据）",
+  "collection": "湖南博物院（长沙）",
+  "originalStatus": "原件。出土时盖在四层套棺中最里面一层的棺盖上；今天在博物馆里，它被装裱后单独展出，和棺、墓室分开了。",
+  "provenance": "1972 年 1–4 月发掘湖南长沙马王堆一号汉墓时出土。墓主是轪侯利苍的妻子辛追。帛画在第四层（最里一层）棺的盖上发现。此后一直由湖南省博物馆（今湖南博物院）收藏。",
+  "infoSources": [
+    { "label": "Google 艺术与文化：T-Shaped Painting on Silk（湖南省博物馆藏品，尺寸 205 × 92/47.7 厘米与分段说明）", "url": "https://artsandculture.google.com/asset/awGXKDnVvhEzuQ" },
+    { "label": "韦正、谢安琪，《马王堆一号汉墓帛画三题》，《故宫博物院院刊》2021 年第 12 期（澎湃新闻 2022 年 1 月 7 日经授权转载）", "url": "https://m.thepaper.cn/baijiahao_16137932" },
+    { "label": "中国日报：T-shaped silk painting from Han dynasty aristocratic tomb（2021，转述湖南博物院：出殡时在前引导，下葬时盖在内棺上）", "url": "https://www.chinaservicesinfo.com/s/202109/02/WS61306f04498e6a12c1205260/t-shaped-silk-painting-from-han-dynasty-aristocratic-tomb.html" },
+    { "label": "维基百科：Mawangdui（墓主、利苍卒年、四层套棺、发掘年份）", "url": "https://en.wikipedia.org/wiki/Mawangdui" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mawangdui-banner.jpg",
+      "width": 727,
+      "height": 1600,
+      "alt": "一幅深红褐色丝绢上的 T 形画：上部横宽，右上角是一轮红日，日中站着一只黑鸟；左上角是一弯白色新月；中间有一个红色盘曲的人首蛇身像。下面竖长的部分里，有一个拄杖的妇人和侍从，一块被两条龙穿过的璧，再往下是摆着器物的场景，最底下一个人托起一块平台。",
+      "caption": "马王堆一号汉墓 T 形帛画，西汉初年，长 205 厘米，湖南博物院藏（Google 艺术项目图像）。",
+      "kind": "full",
+      "credit": { "author": "湖南博物院藏品；Google 艺术项目图像", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:T-shaped_Painting_on_Silk_-_Google_Art_Project.jpg", "changes": "裁去照片四周的装裱与背景，只留帛画本身（底部穗子的末端略有裁去）；缩小、重新压缩，未调色" }
+    },
+    {
+      "key": "heaven",
+      "src": "/img/mawangdui-banner-heaven.jpg",
+      "alt": "帛画上部横宽部分的近景：右边一轮红日中站着黑鸟，下面一串较小的红色圆点挂在枝叶间；左边一弯白色新月，月上有一只蟾蜍；正中是一个红色盘绕身体的人首蛇身像，两侧有龙和鸟兽；下方两个人对坐在一道门两边。",
+      "caption": "帛画上部的近景：日、月和正中的人首蛇身像。",
+      "kind": "detail",
+      "credit": { "author": "湖南博物院藏品；Google 艺术项目图像", "licence": "公有领域（平面艺术品的忠实复制）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:T-shaped_Painting_on_Silk_-_Google_Art_Project.jpg", "changes": "由同一图像裁出帛画上部约三分之一，缩小、重新压缩，未调色" }
+    },
+    {
+      "key": "coffin-outer",
+      "src": "/img/mawangdui-coffin-outer.jpg",
+      "alt": "博物馆展厅里一具巨大的长方形木棺，表面是素净的深色漆，没有任何纹样。",
+      "caption": "一号墓最外一层棺：黑漆素棺，没有纹饰（湖南博物院陈列）。",
+      "kind": "detail",
+      "subject": "一号墓第一层棺",
+      "credit": { "author": "Gary Todd", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mawangdui_Han_Outer_Coffin_from_Tomb_-1_(10113121823).jpg", "date": "2010-08-20", "changes": "缩小、重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "coffin-black",
+      "src": "/img/mawangdui-coffin-black.jpg",
+      "alt": "一具黑底漆棺的侧面近景：满布浅色的流动云纹，云气之间有许多细小的怪兽和人形，在云中奔跑、搏斗。",
+      "caption": "第二层棺：黑地彩绘棺，云气纹之间画着许多小神怪（湖南博物院陈列）。",
+      "kind": "detail",
+      "subject": "一号墓第二层棺",
+      "credit": { "author": "Gary Todd", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mawangdui_Han_Third_Coffin_from_Tomb_-1_(10113010035).jpg", "date": "2010-08-20", "changes": "缩小、重新压缩；未裁切、未调色。摄影者把这张照片标为“第三层棺”；本课按纹饰把它认作黑地彩绘棺，即从外往里的第二层" }
+    },
+    {
+      "key": "coffin-red",
+      "src": "/img/mawangdui-coffin-red.jpg",
+      "alt": "一具朱红底漆棺的一端：正中一座尖顶的三角形山，两侧各有一只龙或鹿一样的动物相对而立，四周是卷曲的纹样。",
+      "caption": "第三层棺：朱地彩绘棺的头挡，正中一座三峰的山，两侧有瑞兽（湖南博物院陈列）。",
+      "kind": "detail",
+      "subject": "一号墓第三层棺",
+      "credit": { "author": "Gary Todd", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mawangdui_Han_Second_Coffin_from_Tomb_-1_(10113019345).jpg", "date": "2010-08-20", "changes": "缩小、重新压缩；未裁切、未调色。摄影者把这张照片标为“第二层棺”；本课按纹饰与学者对第三层棺头挡“昆仑山”的描述，把它认作朱地彩绘棺" }
+    },
+    {
+      "key": "coffin-inner",
+      "src": "/img/mawangdui-coffin-inner.jpg",
+      "alt": "展柜中一具较小的长方形内棺，外面包着有花纹的织物，颜色暗红，边上有一道道装饰带。",
+      "caption": "最里一层棺：外面包着织物的内棺，帛画就盖在它的棺盖上（湖南博物院陈列）。",
+      "kind": "detail",
+      "subject": "一号墓第四层棺（内棺）",
+      "credit": { "author": "Gary Todd", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mawangdui_Han_Inner_Coffin_from_Tomb_-1_(10113102663).jpg", "date": "2010-08-20", "changes": "缩小、重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "帛画图像属公有领域；四张棺的照片由摄影者以 CC0 放弃权利。",
+    "basis": "帛画图像来自 Google 艺术项目（湖南省博物馆提供的藏品），维基共享资源文件页标注公有领域：两千多年前的平面作品，照片是忠实的平面复制，不产生新的著作权。棺的照片是 Gary Todd 本人拍摄、在 Flickr 以 CC0 发布，再转载到维基共享资源。",
+    "verifiedOn": "2026-10-27",
+    "note": "平面复制不产生新著作权，是美国法律下的通行判断，各国规定不一。棺的照片拍摄于 2010 年的湖南省博物馆陈列，摄影者对四具棺的编号与本课不同，本课按纹饰重新认定，已在每张照片的说明中写明。"
+  },
+  "card": {
+    "type": "随葬帛画",
+    "maker": "长沙马王堆",
+    "period": "西汉初年",
+    "facets": [
+      { "label": "材质", "value": "丝绢、墨、重彩" },
+      { "label": "尺寸", "value": "长 205 cm" },
+      { "label": "位置", "value": "最里一层棺盖上" },
+      { "label": "出土", "value": "1972 年，一号墓" }
+    ],
+    "blurb": "它不挂在墙上，而是盖在棺上。读它，要先问它在墓里的什么位置。",
+    "focus": "50% 22%"
+  }
+}

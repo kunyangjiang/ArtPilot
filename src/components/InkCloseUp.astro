@@ -1,0 +1,89 @@
+---
+import { getEntry } from 'astro:content';
+// Close looking at brush and ink, one surviving object at a time: a rubbing, a traced copy, a later painted copy. Each
+// close-up says what kind of object it is (and so what it can keep of the original line) and lists what is visible on
+// the surface apart from what has to be inferred from it, such as the speed or direction of a brush, and what was added
+// by later hands. Nothing is scored or stored. Without script every close-up is in the page.
+type Tag = 'see' | 'infer' | 'later';
+interface Row { v: string; tag: Tag }
+interface Item { id: string; label: string; kind: string; artwork: string; image: string; keeps: string; rows: Row[] }
+interface Props { prompt: string; items: Item[] }
+const { prompt, items } = Astro.props;
+const tags: Record<Tag, string> = { see: '看得见', infer: '推断', later: '后人加的' };
+const loaded = await Promise.all(items.map(async (it) => {
+  const rec = await getEntry('artworks', it.artwork);
+  const img = rec?.data.images.find((i) => i.key === it.image);
+  if (!rec || !img) throw new Error(`Unknown artwork/image: ${it.artwork}/${it.image}`);
+  return { ...it, img, credit: img.credit ? `摄影 ${img.credit.author} · ${img.credit.licence}` : rec.data.collection ?? '' };
+}));
+---
+<section class="module ink" data-ink>
+  <p class="module-label">互动 · 凑近看线</p>
+  <h3>{prompt}</h3>
+  <div class="ink-tabs" role="tablist" aria-label="选择一件">
+    {loaded.map((it, i) => (
+      <button type="button" role="tab" id={`ink-tab-${it.id}`} aria-controls={`ink-panel-${it.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+        <span class="ink-tab-label">{it.label}</span><span class="ink-tab-kind">{it.kind}</span>
+      </button>
+    ))}
+  </div>
+  {loaded.map((it, i) => (
+    <div class="ink-panel" role="tabpanel" id={`ink-panel-${it.id}`} aria-labelledby={`ink-tab-${it.id}`} hidden={i !== 0}>
+      <figure class="ink-figure">
+        <img src={it.img.src} alt={it.img.alt} loading="lazy" decoding="async" />
+        <figcaption>{it.img.caption}</figcaption>
+      </figure>
+      <div class="ink-text">
+        <p class="ink-keeps"><span>这种东西能留下什么</span>{it.keeps}</p>
+        <ul class="ink-rows">
+          {it.rows.map((r) => <li><span class={`ink-tag is-${r.tag}`}>{tags[r.tag]}</span>{r.v}</li>)}
+        </ul>
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .ink-tabs { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .5rem; margin-bottom: 1.25rem; }
+  .ink-tabs button { display: grid; gap: .15rem; padding: .6rem .8rem; border: 1px solid var(--rule); background: var(--paper);
+    color: var(--ink-2); text-align: left; cursor: pointer; }
+  .ink-tabs button[aria-selected="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .ink-tab-label { font: 500 .9375rem/1.4 var(--serif); letter-spacing: .03em; }
+  .ink-tab-kind { font: 400 .75rem/1.4 var(--sans); color: var(--ink-3); letter-spacing: .06em; }
+  .ink-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .ink-figure { margin: 0; background: var(--mist); }
+  .ink-figure img { display: block; width: 100%; height: auto; max-height: 34rem; object-fit: contain; }
+  .ink-figure figcaption { padding: .5rem .2rem 0; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); background: var(--paper); }
+  .ink-keeps { margin: 0 0 1rem; padding: .8rem 1rem; background: var(--mist); font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
+  .ink-keeps span { display: block; margin-bottom: .15rem; font: 600 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .ink-rows { list-style: none; margin: 0; padding: 0; }
+  .ink-rows li { font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .ink-rows li + li { margin-top: .7rem; padding-top: .7rem; border-top: 1px dashed var(--rule); }
+  .ink-tag { display: inline-block; margin-right: .5rem; padding: .05rem .4rem; border: 1px solid var(--ink-3); font: 400 .6875rem/1.5 var(--sans);
+    letter-spacing: .08em; color: var(--ink-2); vertical-align: .1em; }
+  .ink-tag.is-infer { border-style: dashed; color: var(--ink-3); }
+  .ink-tag.is-later { border-color: var(--rule); color: var(--ink-3); }
+  :global(.ink:not(.is-ready)) .ink-panel[hidden] { display: grid; margin-top: 2rem; }
+  @media (max-width: 720px) { .ink-panel { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ink]').forEach((root) => {
+    root.classList.add('is-ready');
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p, k) => { p.hidden = k !== i; });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+  });
+</script>

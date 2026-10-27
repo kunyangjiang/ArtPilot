@@ -1,0 +1,134 @@
+---
+import { getEntry } from 'astro:content';
+// From the outside of a tomb in to the body, one layer at a time: where an image lay matters as much as what it shows.
+// A schematic end-on section of nested boxes (a drawing of the order, not a measured section) beside a panel for the
+// current layer: a photograph from the artwork record and a few rows, each tagged by the kind of evidence (what can be
+// seen, the excavation record, or an interpretation). One layer at a time, moved with 往里 / 往外 or by choosing it.
+// Nothing is scored or stored. Without script every layer's panel is in the page.
+type Tag = 'see' | 'record' | 'interp';
+interface Row { k: string; v: string; tag: Tag }
+interface Layer { id: string; label: string; image?: string; rows: Row[] }
+interface Props { artwork: string; prompt: string; layers: Layer[]; caption: string }
+const { artwork, prompt, layers, caption } = Astro.props;
+const record = await getEntry('artworks', artwork);
+if (!record) throw new Error(`Unknown artwork: ${artwork}`);
+const imageOf = (key?: string) => {
+  if (!key) return undefined;
+  const img = record.data.images.find((i) => i.key === key);
+  if (!img) throw new Error(`Unknown image ${key} on ${artwork}`);
+  return img;
+};
+const tags: Record<Tag, string> = { see: '看得见', record: '发掘记录', interp: '解读' };
+// The section: layer i is a box inset by i steps; the last layer is a thin sheet lying on the innermost lid.
+const W = 320, H = 210, step = 17;
+const boxes = layers.map((l, i) => {
+  const last = i === layers.length - 1;
+  const inset = Math.min(i, layers.length - 2) * step;
+  return last
+    ? { id: l.id, x: 18 + inset + 6, y: 26 + inset - 6, w: W - 36 - inset * 2 - 12, h: 4, sheet: true }
+    : { id: l.id, x: 18 + inset, y: 26 + inset, w: W - 36 - inset * 2, h: H - 40 - inset * 2, sheet: false };
+});
+---
+<section class="module tl" data-tl>
+  <p class="module-label">互动 · 一层一层往里走</p>
+  <h3>{prompt}</h3>
+  <div class="tl-body">
+    <div class="tl-figure">
+      <svg class="tl-section" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="示意：从外到里一层套一层的木椁与棺，帛画盖在最里一层棺的盖上">
+        <line class="tl-ground" x1="4" y1={H - 6} x2={W - 4} y2={H - 6} />
+        {boxes.map((b, i) => (
+          <rect class:list={['tl-box', { 'tl-sheet': b.sheet }]} data-l={b.id} x={b.x} y={b.y} width={b.w} height={b.h} rx={b.sheet ? 1 : 2} />
+        ))}
+      </svg>
+      <ol class="tl-list" aria-label="选择一层">
+        {layers.map((l, i) => (
+          <li><button type="button" data-go={i} aria-pressed={i === 0 ? 'true' : 'false'}><span class="tl-n">{i + 1}</span>{l.label}</button></li>
+        ))}
+      </ol>
+    </div>
+    <div class="tl-panels">
+      {layers.map((l, i) => {
+        const img = imageOf(l.image);
+        return (
+          <div class="tl-panel" data-panel={i} aria-live="polite">
+            <p class="tl-where">第 {i + 1} 层 / 共 {layers.length} 层 · {l.label}</p>
+            {img && (
+              <figure class="tl-photo">
+                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width={img.width} height={img.height} />
+                {img.credit && <figcaption>摄影 {img.credit.author} · {img.credit.licence}</figcaption>}
+              </figure>
+            )}
+            <dl class="tl-rows">
+              {l.rows.map((r) => (
+                <div class="tl-row"><dt>{r.k}<span class={`tl-tag is-${r.tag}`}>{tags[r.tag]}</span></dt><dd>{r.v}</dd></div>
+              ))}
+            </dl>
+          </div>
+        );
+      })}
+      <div class="actions tl-actions">
+        <button type="button" class="btn btn-secondary" data-out>往外一层</button>
+        <button type="button" class="btn btn-primary" data-in>往里一层</button>
+      </div>
+    </div>
+  </div>
+  <p class="tl-caption">{caption}</p>
+</section>
+
+<style>
+  .tl-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.75rem; align-items: start; }
+  .tl-section { display: block; width: 100%; height: auto; background: var(--mist); }
+  .tl-ground { stroke: var(--ink-3); stroke-width: 1; }
+  .tl-box { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; transition: fill var(--t) var(--ease), stroke var(--t) var(--ease); }
+  .tl-sheet { fill: var(--ink-3); }
+  .tl-box.is-on { fill: var(--silver); stroke: var(--ink); stroke-width: 2; }
+  .tl-sheet.is-on { fill: var(--ink); }
+  .tl-box.is-inside { fill: var(--mist); }
+  .tl-list { list-style: none; margin: .9rem 0 0; padding: 0; display: grid; gap: .35rem; }
+  .tl-list button { display: flex; gap: .6rem; align-items: baseline; width: 100%; padding: .45rem .6rem; border: 1px solid var(--rule);
+    background: var(--paper); color: var(--ink-2); text-align: left; font: 400 .875rem/1.5 var(--sans); cursor: pointer; }
+  .tl-list button[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .tl-n { font: 500 .75rem/1.5 var(--latin); color: var(--ink-3); min-width: 1em; }
+  .tl-where { margin: 0 0 .8rem; font: 500 .8125rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .tl-photo { margin: 0 0 1rem; }
+  .tl-photo img { display: block; width: 100%; height: auto; background: var(--mist); }
+  .tl-photo figcaption { margin-top: .35rem; font: 400 .75rem/1.5 var(--sans); color: var(--ink-3); }
+  .tl-rows { margin: 0; }
+  .tl-row + .tl-row { margin-top: .9rem; padding-top: .9rem; border-top: 1px dashed var(--rule); }
+  .tl-row dt { display: flex; gap: .6rem; align-items: baseline; font: 600 .875rem/1.5 var(--sans); letter-spacing: .06em; color: var(--ink); }
+  .tl-row dd { margin: .3rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .tl-tag { padding: .05rem .4rem; border: 1px solid var(--rule); font: 400 .6875rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink-3); }
+  .tl-tag.is-record { border-color: var(--ink-3); color: var(--ink-2); }
+  .tl-tag.is-interp { border-style: dashed; }
+  .tl-caption { margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  .tl-actions { display: none; }
+  .tl-panel + .tl-panel { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  /* With script: one layer at a time. */
+  :global(.tl.is-ready) .tl-panel:not(.is-shown) { display: none; }
+  :global(.tl.is-ready) .tl-panel + .tl-panel { margin-top: 0; padding-top: 0; border-top: 0; }
+  :global(.tl.is-ready) .tl-actions { display: flex; }
+  @media (max-width: 720px) { .tl-body { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tl]').forEach((root) => {
+    root.classList.add('is-ready');
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const boxes = [...root.querySelectorAll<SVGElement>('[data-l]')];
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const inBtn = root.querySelector<HTMLButtonElement>('[data-in]')!;
+    const outBtn = root.querySelector<HTMLButtonElement>('[data-out]')!;
+    let at = 0;
+    const show = () => {
+      panels.forEach((p, i) => p.classList.toggle('is-shown', i === at));
+      boxes.forEach((b, i) => { b.classList.toggle('is-on', i === at); b.classList.toggle('is-inside', i > at); });
+      picks.forEach((b, i) => b.setAttribute('aria-pressed', String(i === at)));
+      inBtn.disabled = at === panels.length - 1;
+      outBtn.disabled = at === 0;
+    };
+    inBtn.addEventListener('click', () => { at = Math.min(at + 1, panels.length - 1); show(); });
+    outBtn.addEventListener('click', () => { at = Math.max(at - 1, 0); show(); });
+    picks.forEach((b, i) => b.addEventListener('click', () => { at = i; show(); }));
+    show();
+  });
+</script>
