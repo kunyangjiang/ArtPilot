@@ -18,6 +18,8 @@ const items = await Promise.all(entries.map(async (e, i) => {
 }));
 ---
 <section class="eh" aria-labelledby="eh-title">
+  <!-- The same network of lines as the homepage and the collection, behind the hall. -->
+  <canvas class="eh-web" data-web aria-hidden="true"></canvas>
   <header class="eh-head">
     <p class="eh-kicker">{d.label === 'Cases' ? d.sub : d.label} · <span lang="en">{d.label === 'Cases' ? d.label : d.sub}</span></p>
     <h1 id="eh-title" tabindex="-1">{d.label === 'Cases' ? d.sub : d.label}</h1>
@@ -42,6 +44,8 @@ const items = await Promise.all(entries.map(async (e, i) => {
 </section>
 
 <style>
+  .eh { position: relative; isolation: isolate; }
+  .eh-web { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
   .eh { --serif-d: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", serif; --latin-d: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif; }
   .eh-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
   .eh h1 { margin: 0; font: 500 clamp(2.25rem, 5vw, 3.25rem)/1.25 var(--serif-d); letter-spacing: .06em; color: var(--gallery-ink); }
@@ -69,3 +73,10 @@ const items = await Promise.all(entries.map(async (e, i) => {
     .eh-print img { max-height: 24rem; }
   }
 </style>
+
+<script>
+  import { startLineField } from '../lib/lineField';
+
+  // The lines spread out from behind the hall's title.
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2]);
+</script>

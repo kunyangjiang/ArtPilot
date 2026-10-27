@@ -13,7 +13,7 @@ interface Props { entry: CollectionEntry<'essays'> }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const story = entry.data.kind === 'artist-story';
-const hall = story ? { id: 'stories' as const, href: '/stories/', label: '艺术家故事' } : { id: 'cases' as const, href: '/cases/', label: '叙事案例' };
+const hall = story ? { id: 'stories' as const, href: '/stories/', label: '艺术家故事馆' } : { id: 'cases' as const, href: '/cases/', label: '案例库' };
 const art = (await getEntry('artworks', entry.data.hero.artwork.id))!.data;
 const titleLines = entry.data.title.split(/(?<=[，：])/);
 ---

@@ -69,7 +69,7 @@ const pick = async (artwork: string, key: string) => {
 // in (Pera Museum, Istanbul; public domain, PD-Art: Google Art Project via Wikimedia Commons). Dates: Shaw, Possessors
 // and Possessed (2003); Eldem, Muqarnas 29 (2012); Pera Museum (Salon of 1906, no. 783).
 const story = {
-  href: '/stories/osman-hamdi-bey/',
+  href: '/stories/',
   img: { src: '/img/osman-hamdi-tortoise-trainer.jpg', width: 640, height: 1197,
     alt: '一间墙皮剥落的旧屋，墙上贴着蓝色瓷砖、写着阿拉伯文书法。一位穿红色长袍、裹头巾的老人背着手，手里握着一支笛子，背上挂着一面小鼓，低头看着脚边五只正在吃菜叶的乌龟。' },
   caption: '《驯龟人》，1906 年，布面油画，221.5 × 120 厘米。伊斯坦布尔，佩拉博物馆',
@@ -171,7 +171,7 @@ window.__stHero=hero})();`;
         <span class="st-note-q" data-note-q>{shown[0]?.title}</span>
       </p>
 
-      <a class="st-tray" href="/collection/" data-tray>
+      <a class="st-tray" id="st-collection" href="/collection/" data-tray>
         <span class="st-tray-h">我的收藏</span>
         <span class="st-tray-n" data-tray-count>读完一门课程，在课末领取它的藏品卡</span>
         <span class="st-tray-cards" data-tray-cards>
@@ -198,7 +198,6 @@ window.__stHero=hero})();`;
             <span class="st-stack-t"><b lang="en">{st.no}</b><span>{st.title}</span><em>第 {st.first}–{st.last} 课</em></span>
           </div>
         ))}
-        <a class="st-all" href="/courses/">翻开全部课程 →</a>
       </nav>
     </div>
   </div>
@@ -208,7 +207,7 @@ window.__stHero=hero})();`;
   <section class="st-stories" id="st-stories" aria-labelledby="st-h-stories">
     <div class="st-paper st-sto-label">
       <p class="st-kicker">艺术家故事馆</p>
-      <h2 id="st-h-stories">一个人，<br />三张桌子。</h2>
+      <h2 id="st-h-stories" tabindex="-1">一个人，<br />三张桌子。</h2>
       <p class="st-sto-lede">画架、发掘坑、博物馆馆长的书桌。艺术家故事跟着一个人走完一生；第一位，是十九世纪末伊斯坦布尔的奥斯曼·哈姆迪·贝伊。</p>
     </div>
     <article class="st-folder" aria-labelledby="st-h-osman" data-folder>
@@ -234,7 +233,7 @@ window.__stHero=hero})();`;
           ))}
         </ol>
       </div>
-      <a class="st-folder-go" href={story.href}>打开这个故事 <span aria-hidden="true">→</span></a>
+      <a class="st-folder-go" href={story.href}>进入艺术家故事馆 <span aria-hidden="true">→</span></a>
     </article>
   </section>
 
@@ -263,11 +262,11 @@ window.__stHero=hero})();`;
       <ol class="st-case-dates">
         {caseDates.map((c, i) => <li style={`--i:${i}`}><b lang="en">{c.year}</b><span>{c.text}</span></li>)}
       </ol>
-      <a class="st-folder-go" href="/cases/chartres-glass/">打开这个案例 <span aria-hidden="true">→</span></a>
+      <a class="st-folder-go" href="/cases/">进入案例库 <span aria-hidden="true">→</span></a>
     </article>
     <div class="st-paper st-sto-label st-case-label">
       <p class="st-kicker">叙事案例</p>
-      <h2 id="st-h-cases">一个问题，<br />一桌证据。</h2>
+      <h2 id="st-h-cases" tabindex="-1">一个问题，<br />一桌证据。</h2>
       <p class="st-sto-lede">叙事案例是一场调查：人物与场景依史料重建，证据都摆在桌上。第一个案子，发生在沙特尔的彩窗前。</p>
     </div>
   </section>
@@ -381,6 +380,11 @@ window.__stHero=hero})();`;
     border: 1px solid rgb(255 255 255 / .2); background: #121211; box-shadow: inset 0 10px 24px rgb(0 0 0 / .7), 0 18px 30px -12px rgb(0 0 0 / .7);
     transform: rotate(-1.5deg); transition: border-color var(--t) var(--ease); }
   .st-tray:hover, .st-tray:focus-visible { border-color: rgb(255 255 255 / .4); }
+  /* Reached from the site bar: the box catches the light for a moment, so the eye finds it. */
+  @keyframes st-called { 0%, 100% { box-shadow: inset 0 10px 24px rgb(0 0 0 / .7), 0 18px 30px -12px rgb(0 0 0 / .7); border-color: rgb(255 255 255 / .2); }
+    35% { box-shadow: inset 0 10px 24px rgb(0 0 0 / .7), 0 0 0 1px rgb(236 235 231 / .6), 0 0 36px rgb(236 235 231 / .18); border-color: rgb(236 235 231 / .7); } }
+  :global(.st-tray.is-called) { animation: st-called 1600ms var(--ease) 350ms; }
+  @media (prefers-reduced-motion: reduce) { :global(.st-tray.is-called) { animation: none; } }
   .st-tray-h { display: block; font: 500 16px/1.4 var(--serif); letter-spacing: .05em; }
   .st-tray-h::after { content: " →"; font-family: var(--sans); color: var(--ink-2); }
   .st-tray-n { display: block; margin-top: 2px; font: 400 12px/1.6 var(--sans); letter-spacing: .06em; color: var(--ink-2); }
@@ -505,6 +509,8 @@ window.__stHero=hero})();`;
 
 
   /* ---------- Artist stories ---------- */
+  .st-stories, .st-cases { scroll-margin-top: 24px; }
+  .st-stories :global(h2:focus), .st-cases :global(h2:focus) { outline: none; }
   .st-stories { position: relative; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 1328px; margin: 0 auto; padding: 120px 56px 110px; }
   .st .st-sto-label { position: relative; padding: 28px 30px 30px; transform: rotate(1.5deg); margin-top: 40px; }
   .st-sto-label .st-kicker { color: var(--paper-ink-2); }
@@ -595,20 +601,22 @@ window.__stHero=hero})();`;
     .st-question { position: relative; left: auto; top: auto; width: auto; transform: rotate(-1deg); }
     .st-evidence { position: relative; left: auto; top: auto; width: auto; transform: rotate(calc(var(--r) / 2)); }
     .st-evidence img { max-height: 220px; }
-    .st-case-dates { position: relative; left: auto; right: auto; bottom: auto; grid-template-columns: 1fr; gap: 16px; margin-top: 30px; padding: 0 0 0 20px; border-top: 0; border-left: 1px solid rgb(236 235 231 / .45); }
+    /* Phones: the folder and the board keep their pictures; the dated timelines stay on the desktop, where there is
+       room for them (the articles themselves tell the dates). */
+    .st-case-dates { display: none; }
     .st-case-dates li::before { left: -25px; top: 4px; }
     .st .st-sto-label { margin: 0; padding: 22px 22px 24px; transform: rotate(-1deg); }
     .st-sto-label h2 { font-size: 22px; }
     .st-folder { height: auto; margin-top: 54px; padding: 22px 18px 24px; transform: none; }
     .st-clip { position: relative; left: auto; top: auto; width: auto; margin-top: 30px; }
     .st-clip img { max-height: none; }
-    .st-life-area { position: relative; left: auto; right: auto; top: auto; bottom: auto; margin-top: 30px; padding-left: 22px; }
+    .st-life-area { display: none; }
     .st-thread { display: none; }
     .st-life-area::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: rgb(236 235 231 / .45); }
     .st-life { display: grid; gap: 16px; }
     .st-life li { position: relative; left: auto; top: auto; width: auto; transform: rotate(calc(var(--r) / 3)); }
     .st-life li::before { left: -23px; top: 20px; margin: 0; }
-    .st-folder-go { position: static; display: inline-block; margin-top: 24px; }
+    .st-folder-go { position: static; display: inline-block; margin-top: 20px; }
     @keyframes st-pin-m { from { opacity: 0; transform: translateX(-12px) rotate(calc(var(--r) / 3)); } }
     .st-print:hover { transform: rotate(var(--r)); }
   }
@@ -724,6 +732,34 @@ window.__stHero=hero})();`;
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
     const ro = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { el.classList.add('is-in'); ro.disconnect(); } }), { threshold: 0.3 });
     ro.observe(el);
+  });
+
+  // On the homepage the site bar points at the desk itself rather than off the page: 课程 is the table already in view,
+  // so it does nothing here; 藏品图鉴 brings the card box into view (and lights it briefly); 艺术家故事馆 and 案例库 lead
+  // down to their folder and board, which then lead into the halls. On every other page, and without scripts, the
+  // links go to their pages as usual.
+  const sections: Record<string, { id: string; block: ScrollLogicalPosition }> = {
+    '/collection/': { id: 'st-collection', block: 'center' },
+    '/stories/': { id: 'st-stories', block: 'start' },
+    '/cases/': { id: 'st-cases', block: 'start' },
+  };
+  document.querySelectorAll<HTMLAnchorElement>('.site-nav .nav-halls a').forEach((a) => {
+    const href = a.getAttribute('href') ?? '';
+    if (href === '/courses/') { a.addEventListener('click', (e) => e.preventDefault()); return; }
+    const to = sections[href];
+    if (!to) return;
+    a.addEventListener('click', (e) => {
+      const target = document.getElementById(to.id);
+      if (!target) return;
+      e.preventDefault();
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: to.block });
+      history.replaceState(history.state, '', `#${to.id}`);
+      if (to.id === 'st-collection') {
+        target.classList.remove('is-called'); void target.offsetWidth; target.classList.add('is-called');
+        target.focus({ preventScroll: true });
+      } else target.querySelector<HTMLElement>('h2')?.focus({ preventScroll: true });
+    });
   });
 
   // A stack opens into its spread; Escape, the backdrop or "收起" put it back and return focus to the stack.

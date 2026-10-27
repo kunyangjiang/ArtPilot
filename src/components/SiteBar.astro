@@ -16,7 +16,10 @@ interface Props {
 }
 const { tone, back, hall, here = false, links = [] } = Astro.props;
 // Short names that fit one row on a phone; the full, approved names are on the homepage.
-const short: Record<string, string> = { courses: '课程', stories: '艺术家故事', cases: '叙事案例', atlas: '同时代的世界', collection: '藏品图鉴' };
+const short: Record<string, string> = { courses: '课程', stories: '艺术家故事馆', cases: '案例库', atlas: '同时代的世界', collection: '藏品图鉴' };
+// The bar's order follows the homepage: the courses, then the collection (right beside them on the desk), then the halls.
+const order = ['courses', 'collection', 'stories', 'cases', 'atlas'];
+const halls = order.map((id) => destinations.find((d) => d.id === id)!);
 // When the way back leads home, the wordmark goes there too: keep one tab stop for it, the explicit back link.
 const brandTab = back?.href === '/' ? -1 : undefined;
 ---
@@ -26,7 +29,7 @@ const brandTab = back?.href === '/' ? -1 : undefined;
     {back && <BackLink class="nav-back" href={back.href} label={back.label} />}
   </div>
   <ul class="nav-halls" aria-label="五个展区">
-    {destinations.map((d) => (
+    {halls.map((d) => (
       <li>{d.href
         ? <a href={d.href} aria-current={d.id === hall ? (here ? 'page' : 'location') : undefined}>{short[d.id]}</a>
         : <span class="nav-soon" title="筹备中 · 尚未开放">{short[d.id]}<span class="sr-only">（筹备中）</span></span>}</li>
