@@ -1,7 +1,7 @@
 ---
 // Remembers where this device has read to in the article on the page, so the homepage can offer "continue reading".
-// One entry for the whole site (src/lib/reading.js); a quick look at an article stores nothing. Kept apart from the
-// card collection: finishing an article here does not claim anything.
+// One entry for the whole site (src/lib/reading.js), stored as soon as the article opens and wherever the reader
+// stops, like an e-reader. Kept apart from the card collection: finishing an article here does not claim anything.
 interface Props { kind: 'lesson' | 'artist-story' | 'case'; id: string }
 const { kind, id } = Astro.props;
 ---
@@ -32,20 +32,22 @@ const { kind, id } = Astro.props;
       }
     }
 
-    // observe() only updates numbers; the one write happens in commit(), after scrolling settles and when leaving.
+    // observe() only updates numbers; the writes happen in commit(): on opening, once scrolling settles, and when
+    // leaving. At the very bottom of the page the article counts as finished (100%), even though the reading line
+    // (40% down the window) cannot reach its last line.
     const tracker = createTracker({ storage, kind, id });
-    const visible = () => document.visibilityState === 'visible';
-    const sample = () => tracker.observe(progressAt(scrollY, top(), article.offsetHeight, innerHeight), visible());
+    const atEnd = () => scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+    const sample = () => tracker.observe(atEnd() ? 1 : progressAt(scrollY, top(), article.offsetHeight, innerHeight));
     let frame = 0, settle = 0;
     addEventListener('scroll', () => {
       if (!frame) frame = requestAnimationFrame(() => { frame = 0; sample(); });
       clearTimeout(settle);
-      settle = window.setTimeout(() => tracker.commit(), 1500);
+      settle = window.setTimeout(() => { sample(); tracker.commit(); }, 400);
     }, { passive: true });
-    // Time on the page counts only while it is visible; a second-by-second look (no writes unless a position is new).
-    setInterval(() => { sample(); if (tracker.engaged) tracker.commit(); }, 1000);
     const flush = () => { sample(); tracker.commit(); };
-    document.addEventListener('visibilitychange', () => { if (!visible()) flush(); });
+    flush(); // opening an article makes it the one to continue
+    addEventListener('load', flush, { once: true });
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState !== 'visible') flush(); });
     addEventListener('pagehide', flush);
   }
 </script>

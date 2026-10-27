@@ -4,11 +4,10 @@
 export const READING_KEY = 'artpilot.reading';
 export const KINDS = ['lesson', 'artist-story', 'case'];
 
-// An article counts as read, rather than visited, after 15 s of visible time in one page view and once the reading
-// line has been 8% of the way down it. A shorter look never writes, so it cannot replace real progress elsewhere.
-export const MIN_DWELL_MS = 15000;
-export const MIN_PROGRESS = 0.08;
-export const WRITE_STEP = 0.02; // a later position is stored only when it moved at least this far
+// Like an e-reader: opening an article makes it the one to continue, and wherever the reader is, that is stored, up
+// to 100% at the end. The one exception keeps a place: reopening the article already stored (from the course book,
+// say, which shows its top) changes nothing until the reader actually scrolls.
+export const WRITE_STEP = 0.005; // positions closer than this to the stored one are not written again
 export const READING_LINE = 0.4; // the point 40% down the window that counts as "where the reader is"
 
 const clamp01 = (x) => (Number.isFinite(x) ? Math.min(1, Math.max(0, x)) : 0);
@@ -53,26 +52,26 @@ export function clearReading(storage) {
 
 /**
  * Follows one article through one page view. The page calls `observe` often (it only updates numbers) and `commit`
- * rarely (it alone writes), so scrolling never means a write per event.
+ * after scrolling settles and when leaving (it alone writes), so scrolling never means a write per event.
  * `registry`-free on purpose: the title and address are looked up when the entry is shown, so they are never stale.
  */
-export function createTracker({ storage, kind, id, now = () => Date.now() }) {
-  let lastT = now(), lastVisible = true, dwell = 0, p = 0, maxP = 0, engaged = false;
+export function createTracker({ storage, kind, id }) {
+  let p = 0, start = null, moved = false;
   return {
-    observe(progress, visible = true, t = now()) {
-      if (lastVisible) dwell += Math.max(0, t - lastT);
-      lastT = t; lastVisible = visible; p = clamp01(progress); maxP = Math.max(maxP, p);
-      if (!engaged && dwell >= MIN_DWELL_MS && maxP >= MIN_PROGRESS) engaged = true;
+    observe(progress) {
+      p = clamp01(progress);
+      if (start === null) start = p;
+      else if (Math.abs(p - start) >= WRITE_STEP) moved = true;
     },
-    /** Writes the position when this page view has been real reading and the position is new. Returns what it did. */
+    /** Stores where the reader is, if that is new. Returns 'written' or 'none'. */
     commit(at = new Date().toISOString()) {
-      if (!engaged) return 'none';
+      if (start === null) return 'none';
       const stored = readReading(storage);
-      // Reaching the end is reading too: a finished article stays the most recent one until another is read.
-      if (stored && stored.kind === kind && stored.id === id && Math.abs(stored.p - p) < WRITE_STEP) return 'none';
+      const same = stored && stored.kind === kind && stored.id === id;
+      if (same && !moved) return 'none'; // reopened and not scrolled yet: keep the place it was left at
+      if (same && Math.abs(stored.p - p) < WRITE_STEP) return 'none';
       return writeReading(storage, { v: 1, kind, id, p: Math.round(p * 1000) / 1000, at }) ? 'written' : 'none';
     },
-    get engaged() { return engaged; },
   };
 }
 
