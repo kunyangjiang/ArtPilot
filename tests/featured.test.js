@@ -80,7 +80,7 @@ const lessons = read('../src/content/lessons/', '.mdx').map(([file, src]) => {
   return { id: file.replace(/\.mdx$/, ''), course: Number(get('course')), workLabel: get('workLabel'), title: get('title'), artwork: get('artwork'), featured: front.match(/^featured:\r?\n\s+image: (\S+)/m)?.[1] };
 });
 
-test('every lesson names a distinct course of the 73, and the courses sort in syllabus order', () => {
+test('every lesson names a distinct course of the 83, and the courses sort in syllabus order', () => {
   const index = courseIndex(lessons);
   assert.equal(Object.keys(index).length, lessons.length);
   assert.deepEqual(inCourseOrder(lessons).map((l) => l.course), lessons.map((l) => l.course).sort((a, b) => a - b));
@@ -90,7 +90,7 @@ test('every lesson names a distinct course of the 73, and the courses sort in sy
 test('course numbers must be unique and inside the syllabus', () => {
   assert.throws(() => courseIndex([{ id: 'a', course: 3 }, { id: 'b', course: 3 }]), /claimed by both/);
   assert.throws(() => courseIndex([{ id: 'a', course: 0 }]), /course number/);
-  assert.throws(() => courseIndex([{ id: 'a', course: 74 }]), /course number/);
+  assert.throws(() => courseIndex([{ id: 'a', course: 84 }]), /course number/);
   assert.throws(() => courseIndex([{ id: 'a' }]), /course number/);
 });
 

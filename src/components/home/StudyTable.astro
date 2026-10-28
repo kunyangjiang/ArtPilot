@@ -33,7 +33,7 @@ const lessons = inCourseOrder(await Promise.all((await getCollection('lessons'))
   };
 })));
 const stageOf = (n: number) => stages.find((st) => n >= st.first && n <= st.last)!;
-// All seven stages, in order. A stage with courses is a stack that opens into its spread; a stage without any yet is
+// All the stages, in order. A stage with courses is a stack that opens into its spread; a stage without any yet is
 // an empty place on the shelf, with its lesson range.
 const shelves = stages.map((st) => ({ ...st, lessons: lessons.filter((l) => stageOf(l.course) === st) }));
 const openShelves = shelves.filter((st) => st.lessons.length);

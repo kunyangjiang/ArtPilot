@@ -1,5 +1,5 @@
 ---
-// The course catalogue (/courses/): one responsive page at every width. An entrance (the title leaf and the seven stages
+// The course catalogue (/courses/): one responsive page at every width. An entrance (the title leaf and the eight stages
 // as plates), a thin index of Bodoni numerals that stays under the site bar while reading, and one section per stage —
 // a large numeral, a fanned pile of up to three of the stage's prints, and a paper leaf with the stage's full course
 // index. The layout rearranges with the width (side by side on a desk, stacked on a phone); the content, order and
@@ -27,6 +27,8 @@ const lessons = inCourseOrder(await Promise.all((await getCollection('lessons'))
   return { id: l.id, course: l.data.course, title: l.data.title, workLabel: l.data.workLabel,
     large: copy?.large ?? { src: img.src, width: 0, height: 0 }, small: copy?.small.src ?? img.src, alt: img.alt };
 })));
+// The number of stages in words, for the lines that name it (七个阶段, 八个阶段 ...).
+const stageCount = '一二三四五六七八九十'[stages.length - 1] ?? String(stages.length);
 const sections = stages.map((st) => {
   const courses = Array.from({ length: st.last - st.first + 1 }, (_, i) => st.first + i).map((n) => {
     const l = lessons.find((x) => x.course === n);
@@ -52,10 +54,10 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
         <p class="ec-en">A Catalogue of Courses in Global Art History</p>
       </div>
       <div class="ec-title-side">
-        <p class="ec-count-label">七个阶段 · {TOTAL_COURSES} 门核心课程</p>
+        <p class="ec-count-label">{stageCount}个阶段 · {TOTAL_COURSES} 门核心课程</p>
       </div>
     </div>
-    <ol class="ec-plates">
+    <ol class="ec-plates" style={`--stages: ${sections.length}`}>
       {sections.map((s) => (
         <li>
           <a class:list={['ec-plate', { 'is-empty': !s.opened }]} href={`#stage-${s.no}`}>
@@ -124,7 +126,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
 
   <footer class="ec-colophon">
     <p class="ec-kicker">版权页</p>
-    <p>核心课程大纲第 1 版 · 七个推荐阶段，{TOTAL_COURSES} 门核心课程。</p>
+    <p>核心课程大纲第 2 版 · {stageCount}个推荐阶段，{TOTAL_COURSES} 门核心课程。</p>
   </footer>
 </div>
 
@@ -147,7 +149,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
   .ec a { color: inherit; text-decoration: none; }
   .ec-kicker { margin: 0; font: 500 12px/1.5 var(--sans); letter-spacing: .22em; color: var(--ink-2); }
 
-  /* Entrance: the title leaf, then the seven stages as plates in one row. */
+  /* Entrance: the title leaf, then the stages as plates in one row (two rows of four on narrower screens). */
   .ec-entry { max-width: 1320px; margin: 0 auto; padding: clamp(28px, 5vw, 72px) var(--gut) clamp(32px, 4vw, 56px); }
   .ec-title { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; padding: clamp(26px, 4vw, 52px);
     background: var(--paper); color: var(--paper-ink); box-shadow: 0 1px 2px rgb(0 0 0 / .5), 0 24px 40px -18px rgb(0 0 0 / .8); }
@@ -156,7 +158,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
   .ec-en { margin: 16px 0 0; font: italic 400 clamp(15px, 1.4vw, 19px)/1.4 var(--latin); color: var(--paper-ink-2); }
   .ec-title-side { text-align: right; }
   .ec-count-label { margin: 0; font: 400 14px/1.6 var(--sans); letter-spacing: .08em; color: var(--paper-ink-2); }
-  .ec-plates { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 18px clamp(10px, 1.4vw, 20px); }
+  .ec-plates { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(var(--stages, 8), minmax(0, 1fr)); gap: 18px clamp(10px, 1.4vw, 20px); }
   .ec-plate { display: grid; }
   .ec-plate-img { display: block; aspect-ratio: 4 / 5; padding: 6px; background: var(--paper); box-shadow: 0 14px 24px -14px rgb(0 0 0 / .9); }
   .ec-plate-img img { display: block; width: 100%; height: 100%; object-fit: cover; }

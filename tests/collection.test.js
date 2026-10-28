@@ -80,9 +80,9 @@ test('every card face is complete and every card number is unique', async () => 
   }
 });
 
-test('card numbers follow the course: three digits, from 001 to 073', () => {
-  for (const [course, no] of [[1, '001'], [8, '008'], [11, '011'], [24, '024'], [30, '030'], [48, '048'], [73, '073']]) assert.equal(cardNumber(course), no);
-  for (const bad of [0, 74, 1.5, '1', undefined]) assert.throws(() => cardNumber(bad));
+test('card numbers follow the course: three digits, from 001 to 083', () => {
+  for (const [course, no] of [[1, '001'], [8, '008'], [11, '011'], [24, '024'], [30, '030'], [48, '048'], [73, '073'], [83, '083']]) assert.equal(cardNumber(course), no);
+  for (const bad of [0, 84, 1.5, '1', undefined]) assert.throws(() => cardNumber(bad));
 });
 
 // The homepage previews this browser's own cards only: never one merely because its record exists.

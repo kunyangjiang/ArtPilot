@@ -5,7 +5,7 @@
 // #cabinet-04, #card-<artwork id>), so links, Back/Forward and the keyboard behave natively; no modal, no framework.
 // Only cards this browser has claimed are shown (claims live in localStorage under the artwork id); every published
 // card is in the page once, hidden, and thumbnails are copies of its front. A course card is numbered by the course
-// of the lesson that awards it and sits in its stage's cabinet; an artist-series card (No.074–093, awarded at the end of
+// of the lesson that awards it and sits in its stage's cabinet; an artist-series card (No.084 onward, awarded at the end of
 // an artist story) sits in the artists' cabinet. A card with neither stops the build in ArtworkCard.
 import '../styles/fonts.css';
 import { getCollection } from 'astro:content';
@@ -28,7 +28,7 @@ const cards = (await getCollection('artworks')).filter((a) => a.data.card)
 const pad = (n: number) => String(n).padStart(3, '0');
 const cabinets = [
   ...stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range: `第 ${s.first}–${s.last} 课` })),
-  { id: 'artists', no: 'A', title: '艺术家故事', range: `No.${pad(ARTIST_SERIES.first)}–${pad(ARTIST_SERIES.last)}` },
+  { id: 'artists', no: 'A', title: '艺术家故事', range: `No.${pad(ARTIST_SERIES.first)} 起` },
 ];
 ---
 <div class="cc" data-cc>
@@ -39,7 +39,7 @@ const cabinets = [
       <h1 id="cc-title" tabindex="-1">我的收藏</h1>
       <p class="cc-total" data-total aria-live="polite">还没有收藏</p>
     </header>
-    <p class="cc-intro" data-empty-intro>读完一门课程，在课末领取它的藏品卡。你收藏的作品会按照课程的七个阶段，陈列在各自的展柜里。</p>
+    <p class="cc-intro" data-empty-intro>读完一门课程，在课末领取它的藏品卡。你收藏的作品会按照课程的八个阶段，陈列在各自的展柜里。</p>
     <ol class="cc-cabinets" data-cabinet-list></ol>
     <div class="cc-more" aria-hidden="true"><span class="cc-plus"></span><p>更多作品，等待发现</p></div>
   </section>

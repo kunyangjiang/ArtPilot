@@ -113,9 +113,9 @@ const lessons = defineCollection({
     title: z.string(),
     kicker: z.string(), // the line above the title, e.g. 细读 · 北宋 · 山水
     summary: z.string(),
-    // Which of the 73 syllabus courses this lesson is. A lesson with a course number is published: the course book
+    // Which of the 83 syllabus courses this lesson is. A lesson with a course number is published: the course book
     // links it and the homepage lists it.
-    course: z.number().int().min(1).max(73),
+    course: z.number().int().min(1).max(83), // TOTAL_COURSES in src/lib/publication.js
     workLabel: z.string(), // the work as the book and the homepage name it, e.g. 范宽《溪山行旅图》
     // Opt in to the homepage's daily artwork rotation: an image key of the lesson's artwork. Its caption is built from
     // workLabel and the lesson title; alt text, credit and rights come from the artwork record.
