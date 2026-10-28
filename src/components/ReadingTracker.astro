@@ -1,14 +1,15 @@
 ---
 // Remembers where this device has read to in the article on the page, so the homepage can offer "continue reading".
 // One entry for the whole site (src/lib/reading.js), stored as soon as the article opens and wherever the reader
-// stops, like an e-reader. Kept apart from the card collection: finishing an article here does not claim anything.
+// stops, like an e-reader, and reopens each article where it was left. Kept apart from the card collection: finishing
+// an article here does not claim anything.
 interface Props { kind: 'lesson' | 'artist-story' | 'case'; id: string }
 const { kind, id } = Astro.props;
 ---
 <div hidden data-reading data-kind={kind} data-id={id}></div>
 
 <script>
-  import { createTracker, progressAt, scrollFor, readReading } from '../lib/reading.js';
+  import { createTracker, progressAt, scrollFor, readReading, startingPlace } from '../lib/reading.js';
   import { deviceStorage } from '../lib/storage.js';
 
   const root = document.querySelector<HTMLElement>('[data-reading]');
@@ -19,17 +20,24 @@ const { kind, id } = Astro.props;
     const id = root.dataset.id!;
     const top = () => article.getBoundingClientRect().top + scrollY;
 
-    // Arrived from "continue reading" on the homepage (…#resume): go to where this article was left. Any other way in
-    // (the course book, a link, reload, back/forward) keeps the browser's own scroll behaviour.
+    // Like an e-reader, opening an article goes back to where it was left. From "continue reading" on the homepage
+    // (…#resume): the stored entry, wherever it is. Any other ordinary way in (the course book, a link): this article's
+    // own place, unless it was read to the end. A reload, back/forward or a link to a section keeps the browser's own
+    // scroll position.
+    const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    let target: number | null = null;
     if (location.hash === '#resume') {
-      const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
       const saved = readReading(storage);
       history.replaceState(history.state, '', location.pathname + location.search);
-      if (saved && saved.kind === kind && saved.id === id && nav?.type === 'navigate') {
-        const resume = () => scrollTo({ top: scrollFor(saved.p, top(), article.offsetHeight, innerHeight), behavior: 'instant' });
-        resume();
-        addEventListener('load', resume, { once: true });
-      }
+      if (nav?.type === 'navigate') target = saved && saved.kind === kind && saved.id === id ? saved.p : startingPlace(storage, kind, id);
+    } else if (!location.hash && nav?.type === 'navigate') {
+      target = startingPlace(storage, kind, id);
+    }
+    if (target !== null) {
+      const p = target;
+      const resume = () => scrollTo({ top: scrollFor(p, top(), article.offsetHeight, innerHeight), behavior: 'instant' });
+      resume();
+      addEventListener('load', resume, { once: true });
     }
 
     // observe() only updates numbers; the writes happen in commit(): on opening, once scrolling settles, and when

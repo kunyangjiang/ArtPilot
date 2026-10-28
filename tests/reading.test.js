@@ -2,8 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  READING_KEY, KINDS, WRITE_STEP,
+  READING_KEY, KINDS, WRITE_STEP, PLACES_KEY, MAX_PLACES,
   progressAt, scrollFor, readReading, writeReading, clearReading, createTracker, resolveEntry,
+  readPlaces, placeOf, writePlace, startingPlace,
 } from '../src/lib/reading.js';
 import { COLLECTION_KEY, collect, readCollection } from '../src/lib/collection.js';
 
@@ -11,7 +12,8 @@ const fakeStorage = (initial = {}) => {
   const data = { ...initial };
   return { getItem: (k) => (k in data ? data[k] : null), setItem: (k, v) => { data[k] = String(v); }, removeItem: (k) => { delete data[k]; }, data, writes: 0 };
 };
-const counting = (s) => { const set = s.setItem; s.setItem = (k, v) => { s.writes++; set(k, v); }; return s; };
+// Counts writes of the continue-reading entry (places are kept under their own key).
+const counting = (s) => { const set = s.setItem; s.setItem = (k, v) => { if (k === READING_KEY) s.writes++; set(k, v); }; return s; };
 const entry = (kind, id, p, at = '2026-10-26T00:00:00.000Z') => ({ v: 1, kind, id, p, at });
 const stored = (s) => readReading(s);
 // One page view: the positions the page observes, in order (the first is where the article opened).
@@ -145,10 +147,58 @@ test('reading state is not coupled to collecting cards', () => {
 });
 
 // Wiring that a unit test can pin down without a browser.
-test('the tracker is mounted once, by the lesson page, and only a resume link scrolls', () => {
+test('the tracker is mounted once, by the lesson page; it scrolls only on an ordinary visit or a resume link', () => {
   const page = readFileSync(new URL('../src/pages/lessons/[slug].astro', import.meta.url), 'utf8');
   assert.equal([...page.matchAll(/<ReadingTracker/g)].length, 1);
   const tracker = readFileSync(new URL('../src/components/ReadingTracker.astro', import.meta.url), 'utf8');
   assert.match(tracker, /#resume/);
+  assert.match(tracker, /startingPlace\(storage, kind, id\)/);
+  assert.match(tracker, /!location\.hash && nav\?\.type === 'navigate'/, 'reload, back/forward and section links keep the browser scroll');
   assert.match(tracker, /passive: true/);
+});
+
+test('each article keeps its own place, and opening it again goes back there', () => {
+  const s = fakeStorage();
+  view(s, 'lesson', 'stone-and-light', [0, 0.42]).commit('2026-10-27T01:00:00.000Z');
+  view(s, 'lesson', 'tomb-worlds', [0, 0.3]).commit('2026-10-27T02:00:00.000Z');
+  // Continue reading now points at the later article; the earlier one still remembers where it was left.
+  assert.equal(stored(s).id, 'tomb-worlds');
+  assert.equal(placeOf(s, 'lesson', 'stone-and-light'), 0.42);
+  assert.equal(startingPlace(s, 'lesson', 'stone-and-light'), 0.42);
+  assert.equal(startingPlace(s, 'lesson', 'never-opened'), null);
+});
+
+test('merely opening an article never moves its place', () => {
+  const s = fakeStorage();
+  writePlace(s, 'lesson', 'stone-and-light', 0.5, '2026-10-27T01:00:00.000Z');
+  view(s, 'lesson', 'stone-and-light', [0]).commit();
+  assert.equal(placeOf(s, 'lesson', 'stone-and-light'), 0.5);
+});
+
+test('an article read to the end, or barely begun, opens at its top', () => {
+  const s = fakeStorage();
+  writePlace(s, 'lesson', 'done', 1);
+  writePlace(s, 'lesson', 'begun', WRITE_STEP);
+  assert.equal(startingPlace(s, 'lesson', 'done'), null);
+  assert.equal(startingPlace(s, 'lesson', 'begun'), null);
+});
+
+test('before places were kept, the continue-reading entry stands in for its own article', () => {
+  const s = fakeStorage();
+  writeReading(s, entry('artist-story', 'osman-hamdi-bey', 0.6));
+  assert.equal(startingPlace(s, 'artist-story', 'osman-hamdi-bey'), 0.6);
+  assert.equal(startingPlace(s, 'lesson', 'osman-hamdi-bey'), null, 'kind and id must both match');
+});
+
+test('places are validated, capped and never break reading', () => {
+  const s = fakeStorage({ [PLACES_KEY]: JSON.stringify({ 'lesson:a': { p: 0.3, at: '2025-01-01T00:00:00.000Z' }, 'poem:b': { p: 0.3, at: 'x' }, 'lesson:c': { p: 2, at: 'x' } }) });
+  assert.deepEqual(Object.keys(readPlaces(s)), ['lesson:a']);
+  assert.deepEqual(readPlaces(fakeStorage({ [PLACES_KEY]: 'not json' })), {});
+  for (let i = 0; i < MAX_PLACES + 5; i++) writePlace(s, 'lesson', `l${i}`, 0.5, new Date(Date.UTC(2026, 0, 1, 0, i)).toISOString());
+  const kept = readPlaces(s);
+  assert.equal(Object.keys(kept).length, MAX_PLACES);
+  assert.ok(!('lesson:a' in kept) && 'lesson:l' + (MAX_PLACES + 4) in kept, 'the oldest places are dropped first');
+  const blocked = { getItem() { throw new Error('blocked'); }, setItem() { throw new Error('blocked'); } };
+  assert.equal(startingPlace(blocked, 'lesson', 'a'), null);
+  assert.equal(writePlace(blocked, 'lesson', 'a', 0.5), false);
 });

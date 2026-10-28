@@ -50,6 +50,52 @@ export function clearReading(storage) {
   }
 }
 
+// Where each article was left, one place per article, so that opening an article any ordinary way (the course book,
+// a link) goes back to it, as an e-reader reopens a book. Kept beside the single "continue reading" entry above, whose
+// contract the homepage relies on, under its own key: { "<kind>:<id>": { p, at } }, the oldest dropped past MAX_PLACES.
+export const PLACES_KEY = 'artpilot.places';
+export const MAX_PLACES = 200;
+export const FINISHED = 0.98; // read to the end: opening it again starts at the top
+
+const placeKey = (kind, id) => `${kind}:${id}`;
+
+/** Every valid stored place, as { "<kind>:<id>": { p, at } }; anything malformed is left out. */
+export function readPlaces(storage) {
+  try {
+    const raw = JSON.parse(storage?.getItem(PLACES_KEY) ?? 'null');
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+    return Object.fromEntries(Object.entries(raw).filter(([k, v]) => KINDS.includes(k.split(':')[0]) && k.indexOf(':') > 0
+      && v && typeof v.p === 'number' && v.p >= 0 && v.p <= 1 && typeof v.at === 'string'));
+  } catch {
+    return {};
+  }
+}
+
+/** Where this article was left (0–1), or null when it has no place yet. */
+export const placeOf = (storage, kind, id) => readPlaces(storage)[placeKey(kind, id)]?.p ?? null;
+
+export function writePlace(storage, kind, id, p, at = new Date().toISOString()) {
+  if (!storage) return false;
+  const places = { ...readPlaces(storage), [placeKey(kind, id)]: { p: Math.round(clamp01(p) * 1000) / 1000, at } };
+  const keep = Object.entries(places).sort((a, b) => (a[1].at < b[1].at ? 1 : -1)).slice(0, MAX_PLACES);
+  try {
+    storage.setItem(PLACES_KEY, JSON.stringify(Object.fromEntries(keep)));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Where opening this article should go, or null for its top: its own place; for an article read before places were
+ * kept, the "continue reading" entry when that is this article. Not where it was finished, nor the first lines.
+ */
+export function startingPlace(storage, kind, id) {
+  const entry = readReading(storage);
+  const p = placeOf(storage, kind, id) ?? (entry && entry.kind === kind && entry.id === id ? entry.p : null);
+  return p !== null && p >= 2 * WRITE_STEP && p < FINISHED ? p : null;
+}
+
 /**
  * Follows one article through one page view. The page calls `observe` often (it only updates numbers) and `commit`
  * after scrolling settles and when leaving (it alone writes), so scrolling never means a write per event.
@@ -66,6 +112,9 @@ export function createTracker({ storage, kind, id }) {
     /** Stores where the reader is, if that is new. Returns 'written' or 'none'. */
     commit(at = new Date().toISOString()) {
       if (start === null) return 'none';
+      // The article's own place moves only when the reader has scrolled, so merely opening it never loses it.
+      const place = moved ? placeOf(storage, kind, id) : null;
+      if (moved && (place === null || Math.abs(place - p) >= WRITE_STEP)) writePlace(storage, kind, id, p, at);
       const stored = readReading(storage);
       const same = stored && stored.kind === kind && stored.id === id;
       if (same && !moved) return 'none'; // reopened and not scrolled yet: keep the place it was left at
