@@ -16,7 +16,10 @@ export function startGround(web: HTMLCanvasElement, draw: Draw) {
   ground.style.opacity = '1';
   web.before(ground);
   const ctx = ground.getContext('2d')!;
-  let W = 0, H = 0, raf = 0, eased = scrollY, last = 0;
+  // The page's scroll, held inside the page: a phone's bounce past either end (scrollY below 0, or beyond the bottom)
+  // would otherwise hand the drawings a scroll they were never made for.
+  const scroll = () => Math.max(0, Math.min(scrollY, document.documentElement.scrollHeight - innerHeight));
+  let W = 0, H = 0, raf = 0, eased = scroll(), last = 0;
   const size = () => {
     const dpr = Math.min(2, devicePixelRatio || 1);
     W = innerWidth; H = innerHeight;
@@ -27,14 +30,17 @@ export function startGround(web: HTMLCanvasElement, draw: Draw) {
     raf = 0;
     const dt = last ? Math.min(64, t - last) : 16;
     last = t;
-    eased += (scrollY - eased) * (1 - Math.exp(-dt / 110));
-    if (Math.abs(scrollY - eased) < 0.5) { eased = scrollY; last = 0; } else kick();
+    const to = scroll();
+    eased += (to - eased) * (1 - Math.exp(-dt / 110));
+    if (Math.abs(to - eased) < 0.5) { eased = to; last = 0; } else kick();
     ctx.clearRect(0, 0, W, H);
     draw(ctx, W, H, t, eased);
   };
   const kick = () => { if (!raf) raf = requestAnimationFrame(frame); };
   size();
-  addEventListener('resize', () => { size(); kick(); });
+  // Resizing a canvas empties it, and a phone resizes the window as its address bar comes and goes: redraw at once,
+  // so the room is never shown blank for a frame.
+  addEventListener('resize', () => { size(); ctx.clearRect(0, 0, W, H); draw(ctx, W, H, performance.now(), eased); kick(); });
   addEventListener('scroll', kick, { passive: true });
   kick();
 }

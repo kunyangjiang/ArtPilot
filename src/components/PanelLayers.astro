@@ -1,0 +1,80 @@
+---
+// How one Netherlandish oil portrait was built up, layer by layer, following the Metropolitan Museum's technical notes
+// on Petrus Christus's Portrait of a Carthusian (1446, 49.7.19): the oak board, the white ground, the brush
+// underdrawing, the light underpaint, the glazes, the last touches, the painted frame and fly, and the later halo that
+// was removed. A schematic cross-section grows as the reader steps through; at the glaze step a small demonstration
+// shows why thin transparent layers over a light underlayer deepen a colour (a simple absorption model, not a
+// measurement of this painting's pigments). Nothing is scored or stored.
+interface Step { title: string; text: string }
+interface Props { prompt: string; steps: Step[] }
+const { prompt, steps } = Astro.props;
+---
+<section class="module layers" data-layers data-step="1">
+  <p class="module-label">互动 · 一块油画板是怎样一层层画成的</p>
+  <h3>{prompt}</h3>
+  <div class="layers-body">
+    <svg viewBox="0 0 520 300" role="img" aria-label="示意的剖面图：从下往上依次是橡木板、白色底层、底稿、浅色底色、几层透明罩染、最后的高光，以及后人加上又被去掉的光环。">
+      <defs>
+        <pattern id="layers-grain" width="40" height="10" patternUnits="userSpaceOnUse"><path d="M0 5 Q10 2 20 5 T40 5" fill="none" stroke="#7a5631" stroke-width="1" /></pattern>
+      </defs>
+      <g class="ly" data-at="1"><rect x="20" y="210" width="360" height="70" fill="#a77b4b" /><rect x="20" y="210" width="360" height="70" fill="url(#layers-grain)" /><text x="200" y="250" text-anchor="middle">橡木板</text></g>
+      <g class="ly" data-at="2"><rect x="20" y="192" width="360" height="18" fill="#f3f0e6" stroke="#cfc8b6" /><text x="390" y="210">白色底层</text></g>
+      <g class="ly" data-at="3"><path d="M60 196 l22 10 M90 196 l22 10 M120 196 l22 10 M150 196 l22 10 M180 196 l22 10" stroke="#3a3a3a" stroke-width="1.2" /><text x="390" y="196">底稿</text></g>
+      <g class="ly" data-at="4"><rect x="20" y="178" width="360" height="14" fill="#e6c9a8" /><text x="390" y="182">浅色底色</text></g>
+      <g class="ly" data-at="5">
+        <rect x="20" y="168" width="360" height="10" fill="rgb(150 40 30 / .35)" />
+        <rect x="80" y="158" width="300" height="10" fill="rgb(150 40 30 / .35)" />
+        <rect x="160" y="148" width="220" height="10" fill="rgb(120 30 25 / .4)" />
+        <text x="390" y="158">透明罩染</text>
+      </g>
+      <g class="ly" data-at="6"><rect x="250" y="140" width="22" height="6" rx="2" fill="#fbfaf6" /><rect x="278" y="140" width="14" height="6" rx="2" fill="#fbfaf6" /><path d="M110 150 q8 -10 16 0" stroke="#3a2a1a" stroke-width="1.5" fill="none" /><text x="390" y="138">高光与划痕</text></g>
+      <g class="ly" data-at="7"><rect x="20" y="118" width="110" height="22" fill="#8a2c22" /><circle cx="70" cy="114" r="4" fill="#2b2b2b" /><text x="138" y="133">画出来的石头画框和苍蝇</text></g>
+      <g class="ly ly-later" data-at="8"><path d="M210 92 a40 12 0 1 0 80 0 a40 12 0 1 0 -80 0" fill="none" stroke="#c9a227" stroke-width="5" /><path class="ly-strike" d="M200 108 L300 76" stroke="var(--err)" stroke-width="2.5" /><text x="250" y="66" text-anchor="middle">后人加的光环</text></g>
+    </svg>
+    <div class="layers-side">
+      <ol class="layers-steps">
+        {steps.map((s, i) => <li><button type="button" data-go={i + 1} aria-current={i === 0 ? 'true' : 'false'}>{s.title}</button></li>)}
+      </ol>
+      <div class="layers-out" aria-live="polite" data-out></div>
+      {steps.map((s, i) => <template data-text={i + 1}><strong>{s.title}。</strong>{s.text}</template>)}
+      <div class="glaze" data-glaze hidden>
+        <p class="glaze-label">罩染试验：在浅色底上叠 <output data-n>0</output> 层同样的透明红色</p>
+        <input type="range" min="0" max="6" step="1" value="0" aria-label="罩染层数" data-range />
+        <div class="glaze-row">
+          <figure><span data-sw="glaze"></span><figcaption>一层层透明地叠上去</figcaption></figure>
+          <figure><span data-sw="mix"></span><figcaption>同样的红颜料和白色调在一起</figcaption></figure>
+        </div>
+        <p class="glaze-note">简化的吸收模型：光穿过每一层被吸收一部分，碰到浅色底层再反射出来，又被吸收一次。不是对这幅画颜料的测量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-layers]').forEach((root) => {
+    const out = root.querySelector<HTMLElement>('[data-out]')!;
+    const glaze = root.querySelector<HTMLElement>('[data-glaze]')!;
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const show = (n: number) => {
+      root.dataset.step = String(n);
+      root.querySelectorAll<SVGGElement>('.ly').forEach((g) => g.classList.toggle('is-on', Number(g.dataset.at) <= n));
+      root.querySelectorAll<SVGGElement>('.ly').forEach((g) => g.classList.toggle('is-now', Number(g.dataset.at) === n));
+      root.querySelectorAll<HTMLButtonElement>('[data-go]').forEach((b) => b.setAttribute('aria-current', String(Number(b.dataset.go) === n)));
+      out.innerHTML = root.querySelector<HTMLTemplateElement>(`template[data-text="${n}"]`)?.innerHTML ?? '';
+      glaze.hidden = n !== 5;
+    };
+    // A light underlayer seen through n glazes: each glaze lets through a fraction t of each channel, twice (in and out).
+    const base = [230, 201, 168], t = [0.927, 0.707, 0.693];
+    const paint = () => {
+      const n = Number(range.value);
+      root.querySelector('[data-n]')!.textContent = String(n);
+      const g = base.map((b, i) => Math.round(b * Math.pow(t[i], 2 * n)));
+      // The same pigment ground into white: it lightens and greys instead of deepening.
+      const red = [150, 40, 30], white = [240, 236, 230], share = (n / 6) * 0.55, m = red.map((r, i) => Math.round(r * share + white[i] * (1 - share)));
+      root.querySelector<HTMLElement>('[data-sw="glaze"]')!.style.background = `rgb(${g.join(' ')})`;
+      root.querySelector<HTMLElement>('[data-sw="mix"]')!.style.background = `rgb(${m.join(' ')})`;
+    };
+    root.querySelectorAll<HTMLButtonElement>('[data-go]').forEach((b) => b.addEventListener('click', () => show(Number(b.dataset.go))));
+    range.addEventListener('input', paint);
+    paint(); show(1);
+  });
+</script>

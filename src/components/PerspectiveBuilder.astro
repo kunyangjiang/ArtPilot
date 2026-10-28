@@ -1,0 +1,129 @@
+---
+// Building a floor in perspective the way Alberti describes it in Della pittura (1435, book I, §19–20), one step at a
+// time: the window and a man three braccia tall, the centric point, the lines from it to the divisions of the base,
+// the cross-lines found from a chosen eye distance, and the check that one straight diagonal crosses the squares.
+// Two sliders move the centric point (the eye's height) and the eye's distance; a switch draws the workshop rule
+// Alberti rejects (each band two thirds of the one before), so the diagonal check can be seen to fail. The geometry
+// is exact for the drawing; the drawing itself is a schematic, not a reconstruction of any painting.
+---
+<section class="module persp" data-persp data-step="1" data-mode="alberti">
+  <p class="module-label">互动 · 按阿尔伯蒂的步骤画地面</p>
+  <h3>一步一步，把一块方砖地画进“窗”里。</h3>
+  <svg viewBox="0 0 600 380" role="img" aria-labelledby="persp-title" aria-describedby="persp-out">
+    <title id="persp-title">示意图：一个长方形的画框，左边站着一个人，地面上的方砖按透视画出。</title>
+    <rect class="p-window" x="20" y="20" width="560" height="340" />
+    <g data-layer="horizon"></g>
+    <g data-layer="ortho"></g>
+    <g data-layer="trans"></g>
+    <g data-layer="diag"></g>
+    <g data-layer="base"></g>
+    <g data-layer="men"></g>
+    <g data-layer="point"></g>
+  </svg>
+  <div class="persp-side">
+    <ol class="persp-steps" data-steps>
+      <li><button type="button" data-go="1">画一扇“窗”，量好人的身高</button></li>
+      <li><button type="button" data-go="2">定下中心点</button></li>
+      <li><button type="button" data-go="3">从中心点向底边画线</button></li>
+      <li><button type="button" data-go="4">按眼睛的距离画横线</button></li>
+      <li><button type="button" data-go="5">用一条对角线检验</button></li>
+    </ol>
+    <p class="persp-out" id="persp-out" aria-live="polite" data-out></p>
+    <div class="persp-controls">
+      <label>中心点的高度 <output data-hv></output>
+        <input type="range" min="1" max="4.5" step="0.1" value="3" data-h />
+      </label>
+      <label>眼睛离画面的距离 <output data-dv></output>
+        <input type="range" min="2" max="16" step="0.5" value="6" data-d />
+      </label>
+      <button type="button" class="btn btn-secondary" aria-pressed="false" data-shop>改用作坊的“三分之二”法</button>
+    </div>
+    <p class="schematic-label">示意：尺寸以“臂长”（braccio，约 0.58 米）为单位，一个人约三臂高，这是阿尔伯蒂自己的设定。几何是按他的步骤精确计算的；图本身不是哪一幅画的复原。</p>
+  </div>
+  <template data-text="1"><strong>第一步。</strong>阿尔伯蒂说：先在要画的地方画一个直角四边形，把它看作一扇打开的窗。再定下画里的人有多高，把这个身高分成三份，每份就是一“臂”；用这个单位，把四边形的底边分成若干段。</template>
+  <template data-text="2"><strong>第二步。</strong>在四边形里定一个点，叫“中心点”，它是眼睛正对着的地方。阿尔伯蒂要求它离底边的高度不超过画中人的身高，这样，看画的人和画中的东西就像站在同一块地面上。试着拉动“中心点的高度”。</template>
+  <template data-text="3"><strong>第三步。</strong>从中心点向底边上的每一个分点画直线。这些线就是地砖的纵向边，在现实中互相平行，在画上一起收向中心点。</template>
+  <template data-text="4"><strong>第四步。</strong>横线的间距不能随手定。阿尔伯蒂在旁边另画一个侧面图，先定下眼睛离画面多远，再用它算出每一条横线的高度：越远的地砖越扁，间距越小。试着拉动“眼睛离画面的距离”。</template>
+  <template data-text="5"><strong>第五步。</strong>检验：如果画得对，一条直线可以连续穿过好几块地砖的对角。再看远处的小人：中心点正好是一个人的高度（3 臂）时，他的头顶落在经过中心点的那条水平线上，和前面那个人一样；把中心点调高或调低，就对不上了。</template>
+  <template data-text="shop">当时有些作坊的做法是：随手画第一条横线，以后每一条横线的间距都取前一条的三分之二。阿尔伯蒂说这样做是错的：第一条线放在哪里没有根据，后面的线再“合乎规则”也没用。看看对角线：它不再是一条直线，地面在远处也和中心点对不上。</template>
+</section>
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll<HTMLElement>('[data-persp]').forEach((root) => {
+    const svg = root.querySelector('svg')!;
+    const layer = (n: string) => svg.querySelector<SVGGElement>(`[data-layer="${n}"]`)!;
+    const hIn = root.querySelector<HTMLInputElement>('[data-h]')!, dIn = root.querySelector<HTMLInputElement>('[data-d]')!;
+    const shop = root.querySelector<HTMLButtonElement>('[data-shop]')!, out = root.querySelector<HTMLElement>('[data-out]')!;
+    const text = (k: string) => root.querySelector<HTMLTemplateElement>(`template[data-text="${k}"]`)!.innerHTML;
+    const S = 70, BASE = 360, LEFT = 20, CX = 300, COLS = 8, ROWS = 14;
+    const el = (tag: string, attrs: Record<string, string | number>, cls?: string) => {
+      const e = document.createElementNS(NS, tag);
+      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
+      if (cls) e.setAttribute('class', cls);
+      return e;
+    };
+    const line = (x1: number, y1: number, x2: number, y2: number, cls: string) => el('line', { x1, y1, x2, y2 }, cls);
+    // A standing figure, `tall` px high, feet at (x, y).
+    const man = (x: number, y: number, tall: number) => {
+      const g = el('g', {}, 'p-man'), r = tall / 14;
+      g.append(el('circle', { cx: x, cy: y - tall + r * 1.4, r: r * 1.4 }));
+      g.append(el('rect', { x: x - r * 1.6, y: y - tall + r * 3, width: r * 3.2, height: tall - r * 3, rx: r }));
+      return g;
+    };
+
+    const draw = () => {
+      const step = Number(root.dataset.step), wrong = root.dataset.mode === 'shop';
+      const h = Number(hIn.value), d = Number(dIn.value), yh = BASE - h * S;
+      root.querySelector('[data-hv]')!.textContent = `${h.toFixed(1)} 臂`;
+      root.querySelector('[data-dv]')!.textContent = `${d.toFixed(1)} 臂`;
+      for (const n of ['horizon', 'ortho', 'trans', 'diag', 'base', 'men', 'point']) layer(n).replaceChildren();
+
+      // Step 1: the base divided into braccia, and a man three braccia tall at the front.
+      for (let k = 0; k <= COLS; k++) layer('base').append(line(LEFT + k * S, BASE, LEFT + k * S, BASE - 6, 'p-tick'));
+      layer('men').append(man(LEFT + 0.5 * S, BASE, 3 * S));
+      if (step < 2) return;
+
+      // Step 2: the centric point and the line through it.
+      layer('horizon').append(line(20, yh, 580, yh, 'p-horizon'));
+      layer('point').append(el('circle', { cx: CX, cy: yh, r: 5 }, 'p-point'));
+      if (step < 3) return;
+
+      // Step 3: lines from the centric point to every division of the base.
+      for (let k = 0; k <= COLS; k++) layer('ortho').append(line(LEFT + k * S, BASE, CX, yh, 'p-ortho'));
+      if (step < 4) return;
+
+      // Step 4: the cross-lines. Alberti: the height of the floor line at depth z is h·z/(z+d) braccia above the base.
+      const rows: number[] = [BASE];
+      if (!wrong) for (let z = 1; z <= ROWS; z++) rows.push(BASE - S * h * z / (z + d));
+      else { let gap = S * h / (1 + d), y = BASE; for (let z = 1; z <= ROWS; z++) { y -= gap; rows.push(y); gap *= 2 / 3; } }
+      const xAt = (k: number, y: number) => CX + (LEFT + k * S - CX) * (y - yh) / (BASE - yh);
+      rows.slice(1).forEach((y) => { if (y > yh + 0.5) layer('trans').append(line(xAt(0, y), y, xAt(COLS, y), y, 'p-trans')); });
+      // A second figure, three braccia tall, standing on the floor five braccia in.
+      const z5 = Math.min(5, rows.length - 1), y5 = rows[z5], t5 = 3 * S * (y5 - yh) / (BASE - yh);
+      if (y5 > yh) layer('men').append(man(xAt(6.5, y5), y5, t5));
+      if (step < 5) return;
+
+      // Step 5: the diagonal through the corners (k, k).
+      const pts: [number, number][] = [];
+      for (let k = 0; k <= COLS && k < rows.length; k++) if (rows[k] > yh) pts.push([xAt(k, rows[k]), rows[k]]);
+      layer('diag').append(el('polyline', { points: pts.map((p) => p.join(',')).join(' ') }, 'p-diag'));
+      const [a, b] = [pts[0], pts[pts.length - 1]];
+      layer('diag').append(line(a[0], a[1], b[0] + (b[0] - a[0]) * 0.25, b[1] + (b[1] - a[1]) * 0.25, 'p-ruler'));
+    };
+
+    const show = () => {
+      const step = Number(root.dataset.step);
+      root.querySelectorAll<HTMLButtonElement>('[data-go]').forEach((b) => b.setAttribute('aria-current', String(Number(b.dataset.go) === step)));
+      out.innerHTML = text(String(step)) + (root.dataset.mode === 'shop' && step >= 4 ? `<span class="persp-warn">${text('shop')}</span>` : '');
+      shop.hidden = step < 4;
+      draw();
+    };
+    root.querySelectorAll<HTMLButtonElement>('[data-go]').forEach((b) => b.addEventListener('click', () => { root.dataset.step = b.dataset.go!; show(); }));
+    hIn.addEventListener('input', draw); dIn.addEventListener('input', draw);
+    shop.addEventListener('click', () => {
+      const on = root.dataset.mode !== 'shop'; root.dataset.mode = on ? 'shop' : 'alberti';
+      shop.setAttribute('aria-pressed', String(on)); shop.textContent = on ? '改回阿尔伯蒂的方法' : '改用作坊的“三分之二”法'; show();
+    });
+    show();
+  });
+</script>

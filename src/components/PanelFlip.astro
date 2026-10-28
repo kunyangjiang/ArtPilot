@@ -1,0 +1,49 @@
+---
+// A two-sided panel: the front and the back of the same board, turned over with a button (a 3D flip; with reduced
+// motion it simply swaps). Each side has a short note shown beneath while that side is up. For paintings that were
+// made to be seen from both sides, or whose back carries evidence (an emblem, a seal, an inscription).
+import { getEntry } from 'astro:content';
+interface Side { image: string; label: string; note: string }
+interface Props { artwork: string; prompt: string; front: Side; back: Side }
+const { artwork, prompt, front, back } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const pick = (key: string) => {
+  const img = record?.data.images.find((i) => i.key === key);
+  if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${key}`);
+  return img;
+};
+const f = pick(front.image), b = pick(back.image);
+---
+<section class="module flip" data-flip data-side="front">
+  <p class="module-label">互动 · 把木板翻过来</p>
+  <h3>{prompt}</h3>
+  <div class="flip-stage">
+    <div class="flip-card">
+      <figure class="flip-face flip-front"><img src={f.src} alt={f.alt} loading="lazy" decoding="async" /></figure>
+      <figure class="flip-face flip-back"><img src={b.src} alt={b.alt} loading="lazy" decoding="async" /></figure>
+    </div>
+  </div>
+  <div class="flip-side">
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-turn>翻到背面</button>
+    <p class="flip-label" data-label>{front.label}</p>
+    <p class="flip-note" aria-live="polite" data-note>{front.note}</p>
+  </div>
+  <template data-face="front"><span data-l>{front.label}</span><span data-n>{front.note}</span></template>
+  <template data-face="back"><span data-l>{back.label}</span><span data-n>{back.note}</span></template>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-flip]').forEach((root) => {
+    const btn = root.querySelector<HTMLButtonElement>('[data-turn]')!;
+    const label = root.querySelector<HTMLElement>('[data-label]')!, note = root.querySelector<HTMLElement>('[data-note]')!;
+    const faces = root.querySelectorAll<HTMLElement>('.flip-face');
+    const set = (side: 'front' | 'back') => {
+      root.dataset.side = side;
+      const t = root.querySelector<HTMLTemplateElement>(`template[data-face="${side}"]`)!.content;
+      label.textContent = t.querySelector('[data-l]')!.textContent; note.textContent = t.querySelector('[data-n]')!.textContent;
+      btn.textContent = side === 'front' ? '翻到背面' : '翻回正面'; btn.setAttribute('aria-pressed', String(side === 'back'));
+      faces[0].toggleAttribute('inert', side === 'back'); faces[1].toggleAttribute('inert', side === 'front');
+    };
+    btn.addEventListener('click', () => set(root.dataset.side === 'front' ? 'back' : 'front'));
+    set('front');
+  });
+</script>

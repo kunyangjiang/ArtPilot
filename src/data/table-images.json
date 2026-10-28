@@ -35,6 +35,18 @@
       "height": 133
     }
   },
+  "/img/bellini-feast-gods.jpg": {
+    "large": {
+      "src": "/img/table/bellini-feast-gods.jpg",
+      "width": 1100,
+      "height": 1008
+    },
+    "small": {
+      "src": "/img/table/s-bellini-feast-gods.jpg",
+      "width": 260,
+      "height": 238
+    }
+  },
   "/img/borobudur-gallery.jpg": {
     "large": {
       "src": "/img/table/borobudur-gallery.jpg",
@@ -57,6 +69,18 @@
       "src": "/img/table/s-borobudur.jpg",
       "width": 260,
       "height": 173
+    }
+  },
+  "/img/caravaggio-calling.jpg": {
+    "large": {
+      "src": "/img/table/caravaggio-calling.jpg",
+      "width": 1100,
+      "height": 1039
+    },
+    "small": {
+      "src": "/img/table/s-caravaggio-calling.jpg",
+      "width": 260,
+      "height": 245
     }
   },
   "/img/caravaggio-denial.jpg": {
@@ -92,6 +116,18 @@
     "small": {
       "src": "/img/table/s-chartres-west.jpg",
       "width": 173,
+      "height": 260
+    }
+  },
+  "/img/christus-goldsmith.jpg": {
+    "large": {
+      "src": "/img/table/christus-goldsmith.jpg",
+      "width": 946,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-christus-goldsmith.jpg",
+      "width": 224,
       "height": 260
     }
   },
@@ -261,6 +297,18 @@
       "src": "/img/table/s-hodegetria-icon.jpg",
       "width": 193,
       "height": 260
+    }
+  },
+  "/img/ideal-city.jpg": {
+    "large": {
+      "src": "/img/table/ideal-city.jpg",
+      "width": 1100,
+      "height": 406
+    },
+    "small": {
+      "src": "/img/table/s-ideal-city.jpg",
+      "width": 260,
+      "height": 96
     }
   },
   "/img/ife-head-bm.jpg": {
@@ -467,6 +515,18 @@
       "height": 164
     }
   },
+  "/img/raphael-alba-madonna.jpg": {
+    "large": {
+      "src": "/img/table/raphael-alba-madonna.jpg",
+      "width": 1100,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-raphael-alba-madonna.jpg",
+      "width": 260,
+      "height": 260
+    }
+  },
   "/img/sharaku-oniji-full.jpg": {
     "large": {
       "src": "/img/table/sharaku-oniji-full.jpg",
@@ -536,6 +596,18 @@
     "small": {
       "src": "/img/table/s-tell-asmar-worshiper.jpg",
       "width": 195,
+      "height": 260
+    }
+  },
+  "/img/velazquez-pareja.jpg": {
+    "large": {
+      "src": "/img/table/velazquez-pareja.jpg",
+      "width": 950,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-velazquez-pareja.jpg",
+      "width": 224,
       "height": 260
     }
   },

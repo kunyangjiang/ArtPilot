@@ -1,0 +1,193 @@
+{
+  "id": "art-raphael-alba-madonna-001",
+  "kind": "painting",
+  "titleZh": "阿尔巴圣母",
+  "titleEn": "The Alba Madonna",
+  "artist": "拉斐尔（Raphael）",
+  "attributionNote": "拉斐尔·桑齐奥（1483–1520）作于他在罗马的时期，约 1510 年。画名来自后来的收藏者：据美国国家美术馆的来源记录，它 1686 年被卖给西班牙的卡尔皮奥侯爵，此后经他的女儿传入阿尔巴公爵家族。",
+  "dateApprox": "约 1510 年",
+  "medium": "木板油画，后转移到画布上",
+  "dimensionsCm": {
+    "height": 94.5,
+    "width": 94.5
+  },
+  "collection": "美国国家美术馆（华盛顿），安德鲁·W. 梅隆收藏，藏品编号 1937.1.24",
+  "infoSources": [
+    {
+      "label": "美国国家美术馆藏品页：The Alba Madonna, 1937.1.24（年代、媒材、直径、说明、“细看”注释、来源）",
+      "url": "https://www.nga.gov/artworks/26-alba-madonna"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Leonardo da Vinci, Ginevra de' Benci, 1967.6.1.a",
+      "url": "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Michelangelo, Studies for the Libyan Sibyl, 24.197.2",
+      "url": "https://www.metmuseum.org/art/collection/search/337497"
+    },
+    {
+      "label": "Giorgio Vasari，《名人传》1568 年版，提香传（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Le_vite_de%27_pi%C3%B9_eccellenti_pittori,_scultori_e_architettori_(1568)/Tiziano_da_Cador"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Leonardo da Vinci, Wreath of Laurel, Palm, and Juniper with a Scroll inscribed Virtutem Forma Decorat [reverse], 1967.6.1.b",
+      "url": "https://www.nga.gov/artworks/50725-wreath-laurel-palm-and-juniper-scroll-inscribed-virtutem-forma-decorat-reverse"
+    },
+    {
+      "label": "美国国家美术馆：“10 Surprising Facts About Leonardo da Vinci’s ‘Ginevra de’ Benci’”（2024）",
+      "url": "https://www.nga.gov/stories/articles/10-surprising-facts-about-leonardo-da-vincis-ginevra-de-benci"
+    },
+    {
+      "label": "Michelangelo Buonarroti, Rime, 第 5 首（“I' ho già fatto un gozzo in questo stento”），意大利语维基文库（据 1960 年 Girardi 编本）",
+      "url": "https://it.wikisource.org/wiki/Rime_(Michelangelo)/5._I%27_ho_gi%C3%A0_fatto_un_gozzo_in_questo_stento"
+    },
+    {
+      "label": "Giorgio Vasari, Le vite（1568），米开朗基罗传（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Le_vite_de%27_pi%C3%B9_eccellenti_pittori,_scultori_e_architettori_(1568)/Michelagnolo_Buonarruoti"
+    },
+    {
+      "label": "Cennino Cennini, Il libro dell'arte, 第 67 章（意大利语维基文库，据 1859 年版）",
+      "url": "https://it.wikisource.org/wiki/Il_libro_dell%27arte/Capitolo_LXVII"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/raphael-alba-madonna.jpg",
+      "width": 1600,
+      "height": 1600,
+      "alt": "一幅圆形的油画：圣母坐在草地上，穿玫瑰色衣裙、披深蓝色斗篷，手里拿着一本书，身体朝左转；她膝前站着裸身的幼年耶稣，伸手握住一根细长的木十字架；左边跪着披兽皮的幼年施洗约翰，抬头望着十字架。三人身后是开阔的绿色原野、远山和几座房子。",
+      "caption": "拉斐尔《阿尔巴圣母》，约 1510 年，木板油画后转移到画布，直径 94.5 厘米，美国国家美术馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/26-alba-madonna",
+        "changes": "由开放获取图缩小到 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "ginevra",
+      "src": "/img/leonardo-ginevra.jpg",
+      "alt": "一幅近乎方形的半身肖像：一位年轻女子正面略侧，面色苍白，金红色的卷发贴着脸颊，眼神没有看向观者；她身后是一大丛深色的刺柏，右边远处是一片湖水、树林和隐约的尖塔。",
+      "caption": "列奥纳多·达·芬奇《吉内薇拉·德·本奇》（正面），约 1474/1478 年，木板油画，原木板 38.1 × 37 厘米，美国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "列奥纳多《吉内薇拉·德·本奇》（华盛顿美国国家美术馆）",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
+        "changes": "由开放获取图缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "ginevra-face",
+      "src": "/img/leonardo-ginevra-face.jpg",
+      "alt": "局部：吉内薇拉的脸。皮肤从额头到下巴的明暗变化极其平缓，看不到明显的轮廓线；卷发一缕缕画得很细，眼睑半垂。",
+      "caption": "局部：脸部的明暗过渡。",
+      "kind": "detail",
+      "subject": "列奥纳多《吉内薇拉·德·本奇》局部",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "ginevra-landscape",
+      "src": "/img/leonardo-ginevra-landscape.jpg",
+      "alt": "局部：画面右侧的远景，细瘦的树木后面是一片淡蓝色的湖水和远山，水边有几座小小的尖塔，越远越淡，几乎融进天空。",
+      "caption": "局部：远处的湖水与尖塔。",
+      "kind": "detail",
+      "subject": "列奥纳多《吉内薇拉·德·本奇》局部",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/50724-ginevra-de-benci-obverse",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "ginevra-reverse",
+      "src": "/img/leonardo-ginevra-reverse.jpg",
+      "alt": "一块近乎方形木板的背面：深红褐色、布满细小斑点的底子上，左边一枝月桂、右边一片棕榈叶弯过来，合成一个花环；花环中间立着一小枝刺柏；一条卷轴缠绕在枝叶下方，上面写着拉丁文 VIRTVTEM FORMA DECORAT。花环的下端被木板下缘截断，右上角有一枚红色的蜡印。",
+      "caption": "列奥纳多《吉内薇拉·德·本奇》的背面：月桂、棕榈与刺柏组成的花环，卷轴上写着“美饰美德”，约 1474–1478 年，木板蛋彩，美国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "列奥纳多《吉内薇拉·德·本奇》背面（美国国家美术馆）",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/50725-wreath-laurel-palm-and-juniper-scroll-inscribed-virtutem-forma-decorat-reverse",
+        "changes": "由开放获取图缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "sibyl-study",
+      "src": "/img/michelangelo-sibyl-study.jpg",
+      "alt": "一张红粉笔素描：一个肌肉结实的男性背影，身体向左扭转，双臂抬起，头转向左侧露出侧脸；纸的其余地方散布着几处更小的习作：左下角一个放大的侧脸，中下部几个弯曲的脚趾，右上角一只举起的手。",
+      "caption": "米开朗基罗《〈利比亚女先知〉习作》，约 1510–1511 年，红粉笔，左肩有少量白粉笔，28.9 × 21.4 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "米开朗基罗《〈利比亚女先知〉习作》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/337497",
+        "changes": "由原图缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "sibyl-fresco",
+      "src": "/img/michelangelo-sibyl-fresco.jpg",
+      "alt": "一幅湿壁画的局部：一位包着头巾、穿橙色和淡紫色衣裙的女子坐在石座上，身体向后扭转，双手高高举起一本打开的大书；她的一只赤脚踮在一块石墩上，脚趾用力弯起。两侧是画出来的浮雕和石柱。",
+      "caption": "米开朗基罗《利比亚女先知》，约 1511 年，湿壁画，梵蒂冈西斯廷礼拜堂穹顶（修复后）。",
+      "kind": "detail",
+      "subject": "米开朗基罗《利比亚女先知》（梵蒂冈西斯廷礼拜堂）",
+      "credit": {
+        "author": "Jörg Bittner Unna",
+        "licence": "CC BY 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%27LibyanSibyl_Sistine_Chapel_ceiling%27_by_Michelangelo_JBU34.jpg",
+        "date": "2011-08-16",
+        "changes": "裁去上方的圆形饰板和下方的题名牌（保留全宽），由 3400 × 3471 像素缩小到 1200 × 1225 像素并重新压缩；未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "三件作品均属公有领域；美国国家美术馆与大都会的照片以 CC0 发布，西斯廷穹顶的照片由摄影者以 CC BY 3.0 发布",
+    "basis": "美国国家美术馆藏品页写明“This object's media is free and in the public domain”；大都会藏品页标注“Public Domain”，API 返回 isPublicDomain: true；《利比亚女先知》的照片由 Jörg Bittner Unna 于 2011 年 8 月 16 日拍摄并亲自上传到 Commons（文件页标为“own work”），以 CC BY 3.0 许可发布，使用时署名。",
+    "verifiedOn": "2026-10-28",
+    "note": "西斯廷穹顶的照片是在礼拜堂里从下方拍的，颜色受现场光线影响，只用来对照姿势，不用来讨论颜色。"
+  },
+  "card": {
+    "type": "圆形油画",
+    "period": "约 1510 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "拉斐尔"
+      },
+      {
+        "label": "媒材",
+        "value": "木板油画转画布"
+      },
+      {
+        "label": "尺幅",
+        "value": "直径 94.5 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "美国国家美术馆"
+      }
+    ],
+    "blurb": "三个人的目光都落在一根细小的十字架上：一个圆里的平衡。",
+    "image": "full",
+    "focus": "45% 45%"
+  }
+}

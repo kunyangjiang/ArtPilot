@@ -1,0 +1,97 @@
+---
+// Where the light falls: a slider keeps only the brightest part of a painting's photograph and dims the rest, so a
+// reader can see how little of a tenebrist picture is lit and which places the light picks out first. The measure is
+// the photograph's own brightness (relative luminance), worked out in the browser from the image itself; a photograph's
+// exposure and colour shift it, so the module says so. `stops` are short notes, each for one setting of the slider
+// (keep: percent of the picture left visible); the note nearest the slider is shown. "演示" sweeps the slider from the
+// whole picture down to the brightest few percent. Nothing is scored or stored.
+import { getEntry } from 'astro:content';
+interface Stop { keep: number; text: string }
+interface Props { artwork: string; image: string; prompt: string; stops?: Stop[]; note?: string }
+const { artwork, image, prompt, stops = [], note } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module lmask" data-lmask data-stops={JSON.stringify(stops)}>
+  <p class="module-label">互动 · 光落在哪里</p>
+  <h3>{prompt}</h3>
+  <div class="lmask-stage">
+    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" draggable="false" />
+    <canvas aria-hidden="true"></canvas>
+  </div>
+  <div class="lmask-controls">
+    <label class="lmask-label" for={`lmask-${image}`}>只留下画面里最亮的 <output data-keep>100</output>%</label>
+    <input id={`lmask-${image}`} type="range" min="2" max="100" step="1" value="100" data-range />
+    <button type="button" class="btn btn-secondary" data-play>演示</button>
+  </div>
+  <p class="lmask-read" aria-live="polite" data-read></p>
+  <p class="lmask-note">{note ?? '亮度按照片逐点计算：照片的曝光和颜色会让结果有出入，它显示的是这张照片里光的分布，不是对原作的测量。'}</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-lmask]').forEach((root) => {
+    const img = root.querySelector('img')!;
+    const canvas = root.querySelector('canvas')!;
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const keepOut = root.querySelector('[data-keep]')!;
+    const read = root.querySelector('[data-read]')!;
+    const play = root.querySelector<HTMLButtonElement>('[data-play]')!;
+    const stops: { keep: number; text: string }[] = JSON.parse(root.dataset.stops || '[]');
+    const still = matchMedia('(prefers-reduced-motion: reduce)');
+    let lum: Uint8Array | null = null, src: ImageData | null = null, ctx: CanvasRenderingContext2D | null = null;
+    const hist = new Uint32Array(256);
+
+    const prepare = () => {
+      const scale = Math.min(1, 900 / img.naturalWidth);
+      canvas.width = Math.round(img.naturalWidth * scale); canvas.height = Math.round(img.naturalHeight * scale);
+      ctx = canvas.getContext('2d', { willReadFrequently: true })!;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      src = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = src.data; lum = new Uint8Array(d.length / 4);
+      for (let i = 0; i < lum.length; i++) {
+        const v = Math.round(0.2126 * d[i * 4] + 0.7152 * d[i * 4 + 1] + 0.0722 * d[i * 4 + 2]);
+        lum[i] = v; hist[v]++;
+      }
+      draw();
+    };
+
+    // The brightness at which `keep` percent of the picture is as bright or brighter.
+    const cutoff = (keep: number) => {
+      const want = (lum!.length * keep) / 100; let n = 0;
+      for (let v = 255; v >= 0; v--) { n += hist[v]; if (n >= want) return v; }
+      return 0;
+    };
+
+    const draw = () => {
+      const keep = Number(range.value);
+      keepOut.textContent = String(keep);
+      root.classList.toggle('is-masked', keep < 100);
+      const near = stops.reduce<{ keep: number; text: string } | null>((a, s) => (!a || Math.abs(s.keep - keep) < Math.abs(a.keep - keep) ? s : a), null);
+      read.textContent = keep === 100 ? '整幅画都看得见。把滑块往左拉，只留下最亮的地方。' : near ? near.text : '';
+      if (!ctx || !src || !lum) return;
+      const cut = cutoff(keep), out = ctx.createImageData(src.width, src.height), a = src.data, b = out.data;
+      for (let i = 0; i < lum.length; i++) {
+        const k = i * 4, on = lum[i] >= cut, f = on ? 1 : 0.1;
+        b[k] = a[k] * f; b[k + 1] = a[k + 1] * f; b[k + 2] = a[k + 2] * f; b[k + 3] = 255;
+      }
+      ctx.putImageData(out, 0, 0);
+    };
+
+    let raf = 0;
+    play.addEventListener('click', () => {
+      cancelAnimationFrame(raf);
+      if (still.matches) { range.value = '10'; draw(); return; }
+      const t0 = performance.now(), from = 100, to = 4, dur = 3600;
+      const step = (t: number) => {
+        const u = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - u, 2);
+        range.value = String(Math.round(from + (to - from) * e)); draw();
+        if (u < 1) raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+    });
+    range.addEventListener('input', () => { cancelAnimationFrame(raf); draw(); });
+
+    if (img.complete && img.naturalWidth) prepare(); else img.addEventListener('load', prepare, { once: true });
+    draw();
+  });
+</script>

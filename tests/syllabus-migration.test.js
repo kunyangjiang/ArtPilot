@@ -147,15 +147,22 @@ const PUBLISHED_AT_MIGRATION = [
   'southern-song-corner', 'stone-and-light', 'telling-faith', 'tomb-worlds', 'ukiyo-e-city-prints', 'why-humans-made-images',
   'yuan-brush-and-antiquity',
 ];
-test('every published lesson sits on its v1.0 topic; of the lessons published at the migration only the ukiyo-e lesson moved (48 → 50), and none claims an added course', () => {
+test('every lesson published at the migration sits on its v1.0 topic, only the ukiyo-e lesson moved (48 → 50) and none claims an added course; later lessons sit on their v2.0 topic', () => {
   const dir = new URL('../src/content/lessons/', import.meta.url);
-  const lessons = readdirSync(dir).filter((f) => f.endsWith('.mdx'))
-    .map((f) => ({ id: f.replace(/\.mdx$/, ''), course: Number(readFileSync(new URL(f, dir), 'utf8').match(/^course: (\d+)\r?$/m)[1]) }));
+  const lessons = readdirSync(dir).filter((f) => f.endsWith('.mdx')).map((f) => {
+    const text = readFileSync(new URL(f, dir), 'utf8');
+    return { id: f.replace(/\.mdx$/, ''), course: Number(text.match(/^course: (\d+)\r?$/m)[1]), title: text.match(/^title: (.+?)\r?$/m)[1] };
+  });
   assert.equal(PUBLISHED_AT_MIGRATION.length, 32);
   const ids = new Set(lessons.map((l) => l.id));
   for (const id of PUBLISHED_AT_MIGRATION) assert.ok(ids.has(id), `${id}, published at the migration, is still published`);
   assert.equal(new Set(lessons.map((l) => l.course)).size, lessons.length, 'no two lessons claim the same course');
-  for (const { id, course } of lessons) {
+  // Lessons written after the migration are numbered on the v2.0 syllabus from the start, added courses included.
+  const migrated = new Set(PUBLISHED_AT_MIGRATION);
+  for (const { id, course, title } of lessons.filter((l) => !migrated.has(l.id))) {
+    assert.equal(title, courseTitles[course], `${id} carries the v2.0 title of course ${course}`);
+  }
+  for (const { id, course } of lessons.filter((l) => migrated.has(l.id))) {
     const was = PUBLISHED_V1[id] ?? course;
     assert.equal(course, v2Of(was), `${id}: v1 course ${was} is now ${v2Of(was)}`);
     assert.equal(courseTitles[course], V1[was], `${id} keeps its syllabus topic`);
