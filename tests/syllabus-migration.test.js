@@ -137,11 +137,24 @@ test('the ten added courses have their approved numbers and titles, and are new 
 
 // The published lessons and the v1.0 course each one was: 1–31, and the ukiyo-e lesson, which was course 48.
 const PUBLISHED_V1 = { 'ukiyo-e-city-prints': 48 };
-test('the 32 published lessons keep their topic; only the ukiyo-e lesson moves (48 → 50), and none claims an added course', () => {
+// The 32 lessons published at the migration (src/content/lessons at 66953d9). Later lessons may join them; none may go.
+const PUBLISHED_AT_MIGRATION = [
+  'ancient-american-visual-worlds', 'animal-faces-on-bronze', 'art-beyond-painting', 'borobudur-walking', 'brush-and-line',
+  'buddha-image-formation', 'buddhism-korea-japan', 'byzantine-icons', 'early-chinese-jade-and-pottery', 'egypt-nubia-burials',
+  'giotto-space', 'greek-ideal-body', 'guiding-the-eye', 'how-we-know-meaning', 'indus-evidence', 'maya-rulers-and-cities',
+  'mesopotamian-gods-and-kings', 'mihrab-and-script', 'mountain-and-smallness', 'northern-song-landscape',
+  'pacific-ancestors-and-waves', 'portraits-and-identity', 'roman-monuments', 'silk-road-buddhist-art', 'song-yuan-ceramics',
+  'southern-song-corner', 'stone-and-light', 'telling-faith', 'tomb-worlds', 'ukiyo-e-city-prints', 'why-humans-made-images',
+  'yuan-brush-and-antiquity',
+];
+test('every published lesson sits on its v1.0 topic; of the lessons published at the migration only the ukiyo-e lesson moved (48 → 50), and none claims an added course', () => {
   const dir = new URL('../src/content/lessons/', import.meta.url);
   const lessons = readdirSync(dir).filter((f) => f.endsWith('.mdx'))
     .map((f) => ({ id: f.replace(/\.mdx$/, ''), course: Number(readFileSync(new URL(f, dir), 'utf8').match(/^course: (\d+)\r?$/m)[1]) }));
-  assert.equal(lessons.length, 32);
+  assert.equal(PUBLISHED_AT_MIGRATION.length, 32);
+  const ids = new Set(lessons.map((l) => l.id));
+  for (const id of PUBLISHED_AT_MIGRATION) assert.ok(ids.has(id), `${id}, published at the migration, is still published`);
+  assert.equal(new Set(lessons.map((l) => l.course)).size, lessons.length, 'no two lessons claim the same course');
   for (const { id, course } of lessons) {
     const was = PUBLISHED_V1[id] ?? course;
     assert.equal(course, v2Of(was), `${id}: v1 course ${was} is now ${v2Of(was)}`);

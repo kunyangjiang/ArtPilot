@@ -1,0 +1,87 @@
+{
+  "id": "art-ife-head-bm-001",
+  "kind": "object",
+  "titleZh": "伊费头像（戴冠的头像）",
+  "titleEn": "The Ife Head",
+  "attributionNote": "伊费的约鲁巴工匠用失蜡法铸造，没有留名。大英博物馆定为 14 世纪至 15 世纪初（“可能”）。它代表谁、做什么用，馆方说明“仍不确定”；精致的珠冠提示它可能与伊费的统治者奥尼有关。",
+  "dateApprox": "14 世纪至 15 世纪初（可能）",
+  "objectType": "头像，独立放置的金属铸像",
+  "medium": "黄铜（含铅量高的锌黄铜），失蜡法铸造，刻线，局部残留红色与黑色颜料",
+  "dimensions": "高 35 厘米，宽 12.5 厘米，深 15 厘米，重 5.1 千克（据大英博物馆）",
+  "collection": "大英博物馆（英国伦敦），Af1939,34.1",
+  "originalStatus": "原件，保存状况良好。下颌右侧有一个不规则的大洞；嘴周围和颈部有成排的小孔。",
+  "provenance": "1938 年在伊费的翁莫尼耶（Wunmonije）院落盖房时偶然发现，与另外十六件黄铜和红铜头像及一尊黄铜人像的上半身一同出土。《尼日利亚每日时报》编辑亨利·贝特（Henry Maclear Bate）在伊费买下这件头像，后来由国家美术馆馆长肯尼斯·克拉克代表国家艺术收藏基金会购得，捐赠给大英博物馆（据大英博物馆）。",
+  "infoSources": [
+    { "label": "大英博物馆藏品页：The Ife Head，Af1939,34.1（描述、年代、出土地、材料与技法、尺寸、馆员评述、来源与入藏）", "url": "https://www.britishmuseum.org/collection/object/E_Af1939-34-1" },
+    { "label": "金贝尔艺术博物馆藏品页：Head, possibly a King，AP 1994.04（陶塑头像、纹线、出土地点与埋藏、来源）", "url": "https://kimbellart.org/collection/ap-199404" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/ife-head-bm.jpg",
+      "width": 734,
+      "height": 1600,
+      "alt": "一尊深色金属头像的正面，背景是红色的展墙：头上戴着一顶由一圈圈珠串构成的冠，冠的正前方是一个同心圆的圆形饰物，后面竖起一根编辫状的尖饰。脸略长，五官端正，眼睛是杏仁形的；整张脸布满一道道竖直的细线；上唇上方和下巴一带有成排的小孔。脖子很长，有几道横纹。",
+      "caption": "伊费头像，14 世纪至 15 世纪初，黄铜，高 35 厘米，大英博物馆藏。",
+      "kind": "full",
+      "subject": "伊费头像（大英博物馆 Af1939,34.1）",
+      "credit": { "author": "sailko", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG", "date": "2011-02-15", "changes": "由 Commons 的缩小版本缩到 734 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "display",
+      "src": "/img/ife-head-bm-display.jpg",
+      "alt": "同一尊头像在大英博物馆非洲展厅的展柜里，红色的展台和展墙，灯光从上方照下，脸部大半在阴影中，冠上的珠串反着光。",
+      "caption": "在大英博物馆第 25 展厅（非洲）的展柜中。",
+      "kind": "detail",
+      "subject": "伊费头像（大英博物馆展厅）",
+      "credit": { "author": "Vassil", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Museum_Room_25_Head_of_a_king_Ife_17022019_5147.jpg", "date": "2019", "changes": "由 Commons 的缩小版本缩到 908 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/ife-head-bm-side.jpg",
+      "alt": "同一尊头像的四分之三侧面：可以看到冠后面垂下的护颈，冠下的耳朵，脸上的竖线一直延伸到下颌，下颌侧面有一个破洞。",
+      "caption": "四分之三侧面：冠后的护颈和下颌的破洞。",
+      "kind": "detail",
+      "subject": "伊费头像（侧面）",
+      "credit": { "author": "Ukabia", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ife_Kings_Head.jpg", "date": "2008-03-19", "changes": "原图 470 × 815 像素，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "terracotta",
+      "src": "/img/ife-head-kimbell.jpg",
+      "alt": "一尊橙红色的陶塑头像，立在展架上：头戴一顶方形、由交错的珠串网格构成的高冠，脸部饱满平静，眼睑微垂，脸上同样布满细细的竖线。脖子在下方断开。",
+      "caption": "陶塑头像（“可能是一位国王”），伊费，12–14 世纪，高 26.7 厘米，金贝尔艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "伊费陶塑头像（金贝尔艺术博物馆 AP 1994.04）",
+      "credit": { "author": "FA2010", "licence": "公有领域（摄影者释出）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Africa_Ife_Head_1_Kimbell.jpg", "date": "2009-10", "changes": "由 Commons 的缩小版本缩到 1013 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "terracotta-side",
+      "src": "/img/ife-head-kimbell-side.jpg",
+      "alt": "同一尊陶塑头像的侧面：高冠向后上方伸出，像一个层层叠起的方锥；侧脸轮廓清晰，耳朵小而贴近头部。",
+      "caption": "侧面：高冠的形状在别的伊费作品里没有见过。",
+      "kind": "detail",
+      "subject": "伊费陶塑头像（侧面）",
+      "credit": { "author": "FA2010", "licence": "公有领域（摄影者释出）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Africa_Ife_Head_2_Kimbell.jpg", "date": "2009-10", "changes": "由 Commons 的缩小版本缩到 1070 × 1600 像素并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "头像属公有领域；照片分别为 CC BY-SA 3.0、CC0 与摄影者释出的公有领域",
+    "basis": "各图授权依据 Wikimedia Commons 文件页的标注；每张图在图注旁注明摄影者与许可。大英博物馆自己的影像以 CC BY-NC-SA 授权，本课未使用。",
+    "verifiedOn": "2026-10-28",
+    "note": "照片都是参观者在展厅里拍摄的，颜色受展柜灯光与红色背景影响，不代表金属本来的颜色。金贝尔的陶塑头像只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "雕塑 · 头像",
+    "maker": "伊费",
+    "period": "14–15 世纪初",
+    "facets": [
+      { "label": "地域", "value": "尼日利亚" },
+      { "label": "材质", "value": "黄铜 · 失蜡法" },
+      { "label": "高", "value": "35 cm" },
+      { "label": "出土", "value": "1938 年，翁莫尼耶院落" }
+    ],
+    "blurb": "一张平静而精确的脸，戴着珠冠。它是谁、用来做什么，至今没有人能确定。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

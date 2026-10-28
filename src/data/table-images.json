@@ -1,4 +1,16 @@
 {
+  "/img/alhambra-myrtles.jpg": {
+    "large": {
+      "src": "/img/table/alhambra-myrtles.jpg",
+      "width": 784,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-alhambra-myrtles.jpg",
+      "width": 185,
+      "height": 260
+    }
+  },
   "/img/altamira-bison.jpg": {
     "large": {
       "src": "/img/table/altamira-bison.jpg",
@@ -9,6 +21,18 @@
       "src": "/img/table/s-altamira-bison.jpg",
       "width": 260,
       "height": 174
+    }
+  },
+  "/img/angkor-wat-aerial.jpg": {
+    "large": {
+      "src": "/img/table/angkor-wat-aerial.jpg",
+      "width": 1100,
+      "height": 562
+    },
+    "small": {
+      "src": "/img/table/s-angkor-wat-aerial.jpg",
+      "width": 260,
+      "height": 133
     }
   },
   "/img/borobudur-gallery.jpg": {
@@ -143,6 +167,18 @@
       "height": 244
     }
   },
+  "/img/goryeo-crane-vase.jpg": {
+    "large": {
+      "src": "/img/table/goryeo-crane-vase.jpg",
+      "width": 826,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-goryeo-crane-vase.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
   "/img/gubbio-studiolo-cabinet.jpg": {
     "large": {
       "src": "/img/table/gubbio-studiolo-cabinet.jpg",
@@ -191,6 +227,18 @@
       "height": 260
     }
   },
+  "/img/heiji-rokuhara-scroll.jpg": {
+    "large": {
+      "src": "/img/table/heiji-rokuhara-scroll.jpg",
+      "width": 1100,
+      "height": 47
+    },
+    "small": {
+      "src": "/img/table/s-heiji-rokuhara-scroll.jpg",
+      "width": 260,
+      "height": 11
+    }
+  },
   "/img/hippo-william.jpg": {
     "large": {
       "src": "/img/table/hippo-william.jpg",
@@ -212,6 +260,18 @@
     "small": {
       "src": "/img/table/s-hodegetria-icon.jpg",
       "width": 193,
+      "height": 260
+    }
+  },
+  "/img/ife-head-bm.jpg": {
+    "large": {
+      "src": "/img/table/ife-head-bm.jpg",
+      "width": 505,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-ife-head-bm.jpg",
+      "width": 119,
       "height": 260
     }
   },
@@ -356,6 +416,18 @@
     "small": {
       "src": "/img/table/s-mireuksa-plate-detail.jpg",
       "width": 184,
+      "height": 260
+    }
+  },
+  "/img/nataraja-cleveland.jpg": {
+    "large": {
+      "src": "/img/table/nataraja-cleveland.jpg",
+      "width": 880,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-nataraja-cleveland.jpg",
+      "width": 208,
       "height": 260
     }
   },

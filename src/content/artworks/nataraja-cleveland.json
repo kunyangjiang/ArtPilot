@@ -1,0 +1,144 @@
+{
+  "id": "art-nataraja-cleveland-001",
+  "kind": "object",
+  "titleZh": "舞王湿婆（那吒罗阇）",
+  "titleEn": "Nataraja, Shiva as the Lord of Dance",
+  "attributionNote": "南印度泰米尔纳德地区朱罗时期的工匠铸造，没有留名。克利夫兰艺术博物馆定为 11 世纪。",
+  "dateApprox": "11 世纪（朱罗时期）",
+  "objectType": "印度教神像：湿婆的舞王相，铜合金铸像",
+  "medium": "铜合金（馆方著录为青铜），失蜡法铸造",
+  "dimensions": "通高 113 厘米，宽 102 厘米，厚 30 厘米；底座 35 × 24 厘米（据克利夫兰艺术博物馆）",
+  "collection": "克利夫兰艺术博物馆（美国），1930.331",
+  "originalStatus": "原件。火焰环、四臂与底座俱全；底座前方有两个孔。它原来属于哪一座寺庙、在寺中如何使用，馆方没有记录。",
+  "provenance": "纽约古董商卢芹斋（C. T. Loo，1880–1957）售予克利夫兰艺术博物馆，1930 年入藏（据馆方来源记录）。此前的流传，包括它何时、怎样离开南印度，记录中是空白。",
+  "infoSources": [
+    { "label": "克利夫兰艺术博物馆藏品页：Nataraja, Shiva as the Lord of Dance，1930.331（年代、尺寸、图像含义、来源）", "url": "https://www.clevelandart.org/art/1930.331" },
+    { "label": "克利夫兰艺术博物馆藏品页：Shiva as Lord of Music，1971.117（图像与底座照片）", "url": "https://www.clevelandart.org/art/1971.117" },
+    { "label": "克利夫兰艺术博物馆藏品页：Shiva and Parvati，1961.94（底座两侧立柱原来承托光环）", "url": "https://www.clevelandart.org/art/1961.94" },
+    { "label": "沃尔特斯艺术博物馆藏品页：Krishna，54.2850（节庆像、底座圆环与游行、失蜡法、来源）", "url": "https://art.thewalters.org/object/54.2850/" },
+    { "label": "联合国教科文组织世界遗产名录：Great Living Chola Temples（No. 250）", "url": "https://whc.unesco.org/en/list/250/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/nataraja-cleveland.jpg",
+      "width": 1280,
+      "height": 1600,
+      "alt": "一尊深灰绿色的铜像：一个四臂的男神单腿站立，另一条腿向一侧高高抬起，身体在一个大圆环中扭转起舞；圆环外缘排着一圈火焰状的尖。他脚下踩着一个趴伏的小人。底座是椭圆形的，前面有两个小圆孔。",
+      "caption": "舞王湿婆，南印度泰米尔纳德，朱罗时期，11 世纪，铜合金，高 113 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "full",
+      "subject": "舞王湿婆（克利夫兰艺术博物馆 1930.331）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1930.331", "changes": "馆方开放资料影像（1930.331，2720 × 3400 像素），缩小到 1280 × 1600 并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/nataraja-cleveland-side.jpg",
+      "alt": "同一尊铜像的侧面：从这个角度，圆环变成一条细细的竖线，神像的身体和抬起的腿在圆环前面向外伸出，显出很深的立体感。",
+      "caption": "侧面：火焰环其实很薄，人物在它前面扭转。",
+      "kind": "detail",
+      "subject": "舞王湿婆（侧面）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1930.331", "changes": "馆方开放资料影像（1930.331_alt0），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "back",
+      "src": "/img/nataraja-cleveland-back.jpg",
+      "alt": "同一尊铜像的背面：背部、腰带和发辫同样细致地铸出，圆环背面也有花纹。",
+      "caption": "背面：背后同样完整地做出来了。",
+      "kind": "detail",
+      "subject": "舞王湿婆（背面）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1930.331", "changes": "馆方开放资料影像（1930.331_alt1），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "krishna",
+      "src": "/img/krishna-walters.jpg",
+      "alt": "一尊较小的深褐色铜像：一个年轻的男神单腿站在莲花座上，另一条腿抬起，一条手臂向旁边伸展。莲座下是方形的台座，台座两侧各竖着一根细长的立柱，台座底部的两角各有一个圆环。",
+      "caption": "舞蹈的克里希那，南印度，朱罗时期，10 世纪晚期，铜合金，高 36.5 厘米，沃尔特斯艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "舞蹈的克里希那（沃尔特斯艺术博物馆 54.2850）",
+      "credit": { "author": "沃尔特斯艺术博物馆（The Walters Art Museum）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://art.thewalters.org/object/54.2850/", "changes": "馆方开放影像（PS1_54.2850_Fnt），缩小到 1206 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "base",
+      "src": "/img/vinadhara-base.jpg",
+      "alt": "从正下方看一尊铜像的圆形底座：底座是中空的，内壁布满绿色铜锈，边缘有一个小孔；一侧露出神像伸出的手。",
+      "caption": "另一尊朱罗铜像（克利夫兰 1971.117）的底座，从下往上看：边缘的孔可以穿杆或固定。",
+      "kind": "detail",
+      "subject": "音乐之主湿婆（克利夫兰艺术博物馆 1971.117）底部",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1971.117", "changes": "馆方开放资料影像（1971.117_alt6），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "vimana",
+      "src": "/img/brihadishvara-vimana.jpg",
+      "alt": "晴朗的蓝天下，一座巨大的石砌塔殿：方形的基座上，一层层向上收分，最后顶着一个圆顶；塔身每一层都布满小龛和雕像。塔前的石板地上站着几个很小的人。",
+      "caption": "坦贾武尔布里哈迪斯瓦拉神庙的塔殿，罗阇罗阇一世约 1003–1010 年建成，高 59.82 米。",
+      "kind": "detail",
+      "subject": "坦贾武尔·布里哈迪斯瓦拉神庙",
+      "credit": { "author": "Vengolis", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brihadeeswarar_Temple_3522.jpg", "date": "2016-08-15", "changes": "由 Commons 的缩小版本缩到 1067 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "plan",
+      "src": "/img/brihadishvara-plan.jpg",
+      "alt": "一张黑白平面图：中央是一个方形小室，里面画着一个圆；它外面是一圈厚墙，再外面是一条环绕的走道，然后又是一圈厚墙。图的一侧有台阶和入口。",
+      "caption": "布里哈迪斯瓦拉神庙主殿平面图：中央的圣室与围绕它的走道。",
+      "kind": "detail",
+      "subject": "布里哈迪斯瓦拉神庙主殿平面图",
+      "credit": { "author": "Ms Sarah Welch", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brihadesvara_Hindu_temple,_UNESCO_heritage_site,_Thanjavur,_Tamil_Nadu.jpg", "date": "2021-05-22", "changes": "由 Commons 的缩小版本缩到 1035 × 1600 像素并重新压缩；未裁切" }
+    },
+    {
+      "key": "gopura",
+      "src": "/img/brihadishvara-gopura.jpg",
+      "alt": "一座石砌门楼，门洞两侧各立着一尊巨大的守门神浮雕；穿过门洞，可以远远看到后面庭院里的塔殿。门前有一群参观的人。",
+      "caption": "布里哈迪斯瓦拉神庙的内门楼（罗阇罗阇门），门后是围绕塔殿的大庭院。",
+      "kind": "detail",
+      "subject": "坦贾武尔·布里哈迪斯瓦拉神庙门楼",
+      "credit": { "author": "N. Vivekananthamoorthy", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rajarajan_Enterance_Big_Temple_Thanjavur_TamilNadu_India.jpg", "date": "2023-08-20", "changes": "由 Commons 的缩小版本缩到 1600 × 1328 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "procession",
+      "src": "/img/madurai-procession.jpg",
+      "alt": "夜晚的寺庙廊道里，一尊披满花环和彩布的神像坐在一头银色的公牛坐骑上，被放在抬架上；周围挤满了人，灯光明亮。",
+      "caption": "马杜赖米纳克希神庙的夜间游行，2017 年。神像坐在银色的坐骑上被抬出。",
+      "kind": "detail",
+      "subject": "马杜赖米纳克希神庙的游行",
+      "credit": { "author": "Richard Mortel", "licence": "CC BY 2.0", "licenceUrl": "https://creativecommons.org/licenses/by/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Procession_of_images_of_deities,_Meenakshi_Temple,_Madurai_(6)_(37479334256).jpg", "date": "2017-09-05", "changes": "由 Commons 的缩小版本缩到 1600 × 1165 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "adorned",
+      "src": "/img/tiruvannamalai-procession.jpg",
+      "alt": "一尊神像几乎被层层花环、金色饰物和彩布完全包住，只露出脸；背后是一个镶满彩灯的半圆形光屏。神像前坐着几位赤裸上身的男子。",
+      "caption": "蒂鲁万纳马莱神庙一年一度的灯节游行，2019 年。",
+      "kind": "detail",
+      "subject": "蒂鲁万纳马莱神庙的灯节游行",
+      "credit": { "author": "Prajnaana", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiruvannamalai_Temple_Procession.jpg", "date": "2019-12-11", "changes": "由 Commons 的缩小版本缩到 1200 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "chariot",
+      "src": "/img/kapaleeshwarar-chariot.jpg",
+      "alt": "一辆巨大的木制神车，车身层层收高，像一座会移动的塔，上面挂满彩色的布幔和装饰，顶端是一把红色的伞；车轮旁挤着人群。",
+      "caption": "金奈卡帕利斯瓦拉神庙年度节庆的神车，2025 年。",
+      "kind": "detail",
+      "subject": "金奈卡帕利斯瓦拉神庙的神车",
+      "credit": { "author": "VasuVR", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:TNC25-4_Chariot_festival_Kapaleeshwarar_temple_Chennai.jpg", "date": "2025-04-09", "changes": "由 Commons 的缩小版本缩到 1200 × 1600 像素并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "铜像属公有领域；馆方影像为 CC0；寺庙与游行照片分别为 CC BY 2.0/4.0、CC BY-SA 4.0、CC0",
+    "basis": "克利夫兰艺术博物馆与沃尔特斯艺术博物馆的开放影像均标注 CC0；其余照片的授权依据 Wikimedia Commons 文件页的标注，每张图在图注旁注明摄影者与许可。",
+    "verifiedOn": "2026-10-28",
+    "note": "博物馆照片只缩小、重新压缩，保留色彩配置文件，没有调色；铜像表面的颜色取决于后来的清理和保存状况，与当初在庙中的样子不同。游行照片拍摄于 21 世纪，展示的是今天仍在延续的做法，不能直接当作 11 世纪的记录。克里希那与其他对照作品没有单独的卡片。"
+  },
+  "card": {
+    "type": "铜像",
+    "maker": "朱罗王朝",
+    "period": "11 世纪",
+    "facets": [
+      { "label": "地域", "value": "泰米尔纳德" },
+      { "label": "材质", "value": "铜合金 · 失蜡法" },
+      { "label": "高", "value": "113 cm" },
+      { "label": "藏地", "value": "克利夫兰" }
+    ],
+    "blurb": "在博物馆里它独自起舞；在庙里，它会披上花环，被抬上街去见信众。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "art-goryeo-crane-maebyeong-001",
+  "kind": "object",
+  "titleZh": "青瓷象嵌云鹤纹梅瓶",
+  "titleEn": "Prunus Vase (Maebyeong) with Inlaid Clouds and Flying Cranes Design",
+  "attributionNote": "高丽时代的窑工制作，没有留名。克利夫兰艺术博物馆定为 14 世纪。",
+  "dateApprox": "14 世纪（高丽时代后期）",
+  "objectType": "梅瓶（盛酒或其他液体的有盖瓶，盖已失）",
+  "medium": "青瓷，白、黑化妆土象嵌装饰",
+  "dimensions": "高 37 厘米，最大外径 20.4 厘米（据克利夫兰艺术博物馆）",
+  "collection": "克利夫兰艺术博物馆（美国），1921.634",
+  "originalStatus": "原件，盖已失。瓶身一侧有大片偏褐的颜色，与另一侧的灰绿不同；表面可见细小的裂痕与污渍。底部露出未上釉的胎。",
+  "provenance": "曾在美国医生阿尔弗雷德·拉德洛（Alfred Irving Ludlow，1875–1961）手中，1921 年入藏克利夫兰艺术博物馆（据馆方来源记录）。它出自哪座窑、何时离开朝鲜半岛，记录中没有说明。",
+  "infoSources": [
+    { "label": "克利夫兰艺术博物馆藏品页：Prunus Vase with Inlaid Clouds and Flying Cranes Design，1921.634（年代、尺寸、技法、用途、来源）", "url": "https://www.clevelandart.org/art/1921.634" },
+    { "label": "克利夫兰艺术博物馆藏品页：Water Ewer for Rituals (Kundika) with Incised Parrot Design，1921.631（青瓷净瓶、约 260 座窑）", "url": "https://www.clevelandart.org/art/1921.631" },
+    { "label": "克利夫兰艺术博物馆藏品页：Water Ewer for Rituals (Kundika)，1991.58（铜净瓶的用途）", "url": "https://www.clevelandart.org/art/1991.58" },
+    { "label": "克利夫兰艺术博物馆藏品页：Melon-shaped Wine Ewer，1928.173（金缮修补）", "url": "https://www.clevelandart.org/art/1928.173" },
+    { "label": "克利夫兰艺术博物馆藏品页：Floral-shaped Cup and Saucer with Inlaid Chrysanthemum Design，1928.171（茶与酒、菊花酒）", "url": "https://www.clevelandart.org/art/1928.171" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Goryeo Celadon（Soyoung Lee，2003）", "url": "https://www.metmuseum.org/essays/goryeo-celadon" },
+    { "label": "徐兢《宣和奉使高丽图经》卷三十二“器皿三”（维基文库）", "url": "https://zh.wikisource.org/wiki/宣和奉使高麗圖經/卷三十二" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/goryeo-crane-vase.jpg",
+      "width": 1201,
+      "height": 1600,
+      "alt": "深灰色背景前的一只梅瓶：小口，宽肩，瓶身向下收窄，底部又微微外撇。瓶身是柔和的灰绿色，满布细小的白色云纹，肩部和下部各有一圈图案带；仔细看，云纹间有几只很小的飞鹤。",
+      "caption": "青瓷象嵌云鹤纹梅瓶，高丽，14 世纪，高 37 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "full",
+      "subject": "青瓷象嵌云鹤纹梅瓶（克利夫兰艺术博物馆 1921.634）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.634", "changes": "馆方开放资料影像（1921.634，2552 × 3400 像素），缩小到 1201 × 1600 并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "inlay",
+      "src": "/img/goryeo-crane-inlay.jpg",
+      "width": 1021,
+      "height": 680,
+      "alt": "瓶身局部的近距离特写：灰绿色的釉面下，排满一朵朵白色的小云；左边一只白鹤斜向下飞，翅膀上的羽毛是几道黑色的细线，嘴也是黑色的。釉面上有细小的裂纹和一道褐色的痕迹。",
+      "caption": "局部：白色的云与鹤身，黑色的羽毛与鹤嘴，都嵌在釉面之下。",
+      "kind": "detail",
+      "subject": "青瓷象嵌云鹤纹梅瓶（局部）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.634", "changes": "从馆方开放资料影像（1921.634，2552 × 3400 像素）裁出瓶身中部，未缩放，重新压缩，保留色彩配置文件；未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/goryeo-crane-vase-side.jpg",
+      "alt": "同一只梅瓶换一个角度：瓶身上部到中部有一大片偏褐黄的颜色，和下部及另一侧的灰绿色明显不同，白色的云纹在褐色区域里依然清楚。",
+      "caption": "同一只瓶的另一面：一大片偏褐的颜色。",
+      "kind": "detail",
+      "subject": "青瓷象嵌云鹤纹梅瓶（另一面）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.634", "changes": "馆方开放资料影像（1921.634_alt1），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "top",
+      "src": "/img/goryeo-crane-vase-top.jpg",
+      "alt": "从正上方俯视梅瓶：中间是小小的瓶口，周围的肩部嵌着一圈白色轮廓的大莲瓣，花瓣之间是细小的云纹。",
+      "caption": "俯视：肩部一圈莲瓣纹。",
+      "kind": "detail",
+      "subject": "青瓷象嵌云鹤纹梅瓶（俯视）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.634", "changes": "馆方开放资料影像（1921.634_alt3），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "base",
+      "src": "/img/goryeo-crane-vase-base.jpg",
+      "alt": "把梅瓶放倒，看它的底部：圈足里面是粗糙、红褐色的胎土，粘着一些砂粒和污渍；圈足外面才是灰绿色的釉。",
+      "caption": "底部：没有上釉的地方露出胎土的颜色。",
+      "kind": "detail",
+      "subject": "青瓷象嵌云鹤纹梅瓶（底部）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.634", "changes": "馆方开放资料影像（1921.634_alt4），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "kundika-a",
+      "src": "/img/goryeo-kundika-a.jpg",
+      "alt": "深色背景前的一只青瓷净瓶：瓶身圆鼓，上接细长的颈，颈上有一圈圆盘和一根尖细的管口；肩部一侧伸出一个带盖的小注口；瓶身上隐约刻着一只长尾的飞鸟。浅灰的背景下，釉色灰绿，几乎没有反光。",
+      "caption": "青瓷净瓶，高丽，12 世纪，高 35.3 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "青瓷刻花净瓶（克利夫兰艺术博物馆 1921.631）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.631", "changes": "馆方开放资料影像（1921.631_alt0），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "kundika-b",
+      "src": "/img/goryeo-kundika-b.jpg",
+      "alt": "同一只青瓷净瓶的另一张照片：深色的渐变背景下，瓶身显得更浅、偏淡蓝，釉面有明显的反光。",
+      "caption": "同一只净瓶，馆方的另一张照片。",
+      "kind": "detail",
+      "subject": "青瓷刻花净瓶（克利夫兰艺术博物馆 1921.631）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1921.631", "changes": "馆方开放资料影像（1921.631_alt6），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "kundika-bronze",
+      "src": "/img/goryeo-kundika-bronze.jpg",
+      "alt": "一只铜制净瓶，表面布满蓝绿色的铜锈：圆鼓的瓶身，细长的颈和尖管口，肩部一侧伸出一个小注口，形状和青瓷净瓶几乎一样。",
+      "caption": "铜净瓶，高丽，12 世纪，高 39.5 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "铜净瓶（克利夫兰艺术博物馆 1991.58）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1991.58", "changes": "馆方开放资料影像（1991.58），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "melon",
+      "src": "/img/goryeo-melon-ewer.jpg",
+      "alt": "一只小小的青瓷执壶，壶身像一个分成多瓣的瓜，有柄和短嘴；盖、柄和壶嘴上有明显的金色修补痕迹。",
+      "caption": "瓜形小执壶，高丽，12–13 世纪，高 9 厘米（连盖），克利夫兰艺术博物馆藏。盖、柄和嘴用金漆修补过。",
+      "kind": "detail",
+      "subject": "青瓷瓜形执壶（克利夫兰艺术博物馆 1928.173）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1928.173", "changes": "馆方开放资料影像（1928.173），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "cup",
+      "src": "/img/goryeo-cup-saucer.jpg",
+      "alt": "一只花瓣形的高脚杯，放在一个宽沿、中间凸起的托上；杯身和托沿上都嵌着小小的黑白菊花纹。",
+      "caption": "青瓷象嵌菊花纹杯与托，高丽，12–13 世纪，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "青瓷象嵌菊花纹杯与托（克利夫兰艺术博物馆 1928.171）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1928.171", "changes": "馆方开放资料影像（1928.171），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "克利夫兰艺术博物馆开放资料：本课使用的几件器物的记录与影像均标注为 CC0。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小、裁切与重新压缩，保留原图嵌入的色彩配置文件，没有调色或锐化。青瓷的颜色对光线极其敏感：同一件器物在不同的拍摄中会显得偏绿、偏蓝或偏灰，本课不据照片判断哪一种是“真正的翡色”。其余对照器物没有单独的卡片。"
+  },
+  "card": {
+    "type": "陶瓷 · 梅瓶",
+    "maker": "高丽",
+    "period": "14 世纪",
+    "facets": [
+      { "label": "材质", "value": "青瓷 · 象嵌" },
+      { "label": "高", "value": "37 cm" },
+      { "label": "纹样", "value": "云与飞鹤" },
+      { "label": "藏地", "value": "克利夫兰" }
+    ],
+    "blurb": "先刻纹，再填进黑白两色的土，最后罩上青釉：云和鹤就嵌在釉下。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "art-angkor-wat-001",
+  "kind": "building",
+  "titleZh": "吴哥窟",
+  "titleEn": "Angkor Wat, Angkor, Cambodia",
+  "attributionNote": "由高棉国王苏利耶跋摩二世（1113–约 1150 年在位）兴建，工期据信约三十年；设计者与工匠没有留名（据《大英百科全书》）。",
+  "dateApprox": "12 世纪上半叶",
+  "location": "柬埔寨，暹粒，吴哥",
+  "facts": [
+    { "label": "献给", "value": "毗湿奴；也被认为是国王的葬庙" },
+    { "label": "通道", "value": "长约 188 米的堤道，跨过护城河" },
+    { "label": "吴哥遗址", "value": "约 400 平方公里，1992 年列入世界遗产" }
+  ],
+  "buildingType": "印度教国家神庙（庙山），后改为佛教寺院，至今仍有僧侣与信众",
+  "materials": "砂岩与红土石（latérite）砌筑；回廊墙面布满浅浮雕。",
+  "notes": [
+    "1177 年占婆攻破吴哥后，阇耶跋摩七世在附近另建新都吴哥通，以佛教为国教；此后吴哥窟成为佛教圣地，许多印度教神像被佛教造像取代（据《大英百科全书》）。",
+    "15 世纪初吴哥不再是王都，但上座部佛教僧侣一直守护着吴哥窟，它始终是重要的朝圣地（据《大英百科全书》）。",
+    "1907 至 1992 年间，法国远东学院、印度考古调查局、波兰文物保护机构 PKZ 与世界建筑文物保护基金会先后在吴哥进行保护修复（据联合国教科文组织）。",
+    "1992 年吴哥列入世界遗产名录并同时列入濒危名录，2004 年移出濒危名录（据《大英百科全书》）。"
+  ],
+  "infoSources": [
+    { "label": "联合国教科文组织世界遗产名录：Angkor（No. 668）", "url": "https://whc.unesco.org/en/list/668/" },
+    { "label": "《大英百科全书》：Angkor Wat", "url": "https://www.britannica.com/topic/Angkor-Wat" },
+    { "label": "联合国教科文组织世界遗产名录：Bagan（No. 1588）", "url": "https://whc.unesco.org/en/list/1588/" },
+    { "label": "周达观《真腊风土记》（维基文库）", "url": "https://zh.wikisource.org/wiki/真臘風土記" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/angkor-wat-aerial.jpg",
+      "width": 1600,
+      "height": 818,
+      "alt": "从空中俯瞰：一片茂密的热带森林里，一圈宽阔的长方形护城河围出一大块平地；平地中央是层层叠起的灰色石砌建筑群，顶上有几座塔；一条长长的堤道从左边跨过护城河，通向建筑群。",
+      "caption": "吴哥窟鸟瞰：宽阔的护城河、跨河的堤道和中央层层升起的庙山。",
+      "kind": "full",
+      "subject": "吴哥窟（鸟瞰）",
+      "credit": { "author": "Steve Jurvetson", "licence": "CC BY 2.0", "licenceUrl": "https://creativecommons.org/licenses/by/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat_aerial_view.jpg", "date": "2007-12-25", "changes": "由 Commons 的缩小版本缩到 1600 × 818 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "king",
+      "src": "/img/angkor-wat-suryavarman.jpg",
+      "alt": "一面砂岩浮雕：中央一位戴尖顶冠的男子侧身坐在宽大的座榻上，一手抬起；他头顶上方横着几顶伞盖，身旁竖着好几把带长柄的大扇和拂尘。浮雕左上方残留着一些红色。",
+      "caption": "吴哥窟南回廊西段的浮雕：苏利耶跋摩二世坐在座榻上，四周是伞盖、大扇和拂尘。",
+      "kind": "detail",
+      "subject": "吴哥窟南回廊浮雕·苏利耶跋摩二世",
+      "credit": { "author": "Michael Gunther", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suryavarman_II_Angkor_Wat_0869.jpg", "date": "2014-08-13", "changes": "由 Commons 的缩小版本缩到 1600 × 1200 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "soldiers",
+      "src": "/img/angkor-wat-soldiers.jpg",
+      "alt": "同一组浮雕的另一段：一排排手持盾牌和长矛的步兵向前行进，中间几位将领骑在马上，戴着兽头形的头盔，高举长柄武器；上方也有伞盖。",
+      "caption": "同一组浮雕：步兵与骑马的将领。",
+      "kind": "detail",
+      "subject": "吴哥窟南回廊浮雕·行进的军队",
+      "credit": { "author": "Michael Gunther", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Procession_of_Suryavarman_II_Angkor_Wat_0873.jpg", "date": "2014-08-13", "changes": "由 Commons 的缩小版本缩到 1600 × 1200 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "gallery",
+      "src": "/img/angkor-wat-gallery.jpg",
+      "alt": "一条长长的石砌回廊，左边是一排方柱，右边整面墙都刻满了浅浮雕，密密麻麻的人物一直延伸到远处；墙前拉着一道低矮的护栏。",
+      "caption": "吴哥窟的浮雕回廊：墙面刻满了人物和故事，长达几十米。",
+      "kind": "detail",
+      "subject": "吴哥窟回廊浮雕",
+      "credit": { "author": "Jorge Láscar", "licence": "CC BY 2.0", "licenceUrl": "https://creativecommons.org/licenses/by/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bas_relief_-_Angkor_Wat_(6207856545).jpg", "date": "2011-01-11", "changes": "由 Commons 的缩小版本缩到 1600 × 1063 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "bagan",
+      "src": "/img/bagan-plain.jpg",
+      "alt": "从一座砖塔的高处向外看：近处是一座红砖砌的小塔和残墙，远处一片绿色的平原上，四处散落着大大小小的砖砌佛塔和寺庙，一直延伸到地平线。",
+      "caption": "蒲甘平原：大大小小的佛塔和寺庙散布在伊洛瓦底江边的平原上。",
+      "kind": "detail",
+      "subject": "缅甸·蒲甘平原",
+      "credit": { "author": "Vyacheslav Argenberg", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Bagan,_Myanmar,_Countless_pagodas_and_temples_in_Bagan_plains.jpg", "date": "2008-11-21", "changes": "由 Commons 的缩小版本缩到 1600 × 899 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ananda",
+      "src": "/img/bagan-ananda.jpg",
+      "alt": "一座白色的大型佛寺：方形的主体层层收分，四面有带尖顶的门廊，正中升起一座金色的尖塔；寺前是宽阔的石板广场。",
+      "caption": "蒲甘的阿难陀寺，至今仍是重要的礼佛场所。",
+      "kind": "detail",
+      "subject": "缅甸·蒲甘阿难陀寺",
+      "credit": { "author": "Jakub Hałun", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:20160801_Ananda_Temple_Bagan_Myanmar_6682.jpg", "date": "2016-08-01", "changes": "由 Commons 的缩小版本缩到 1600 × 1019 像素并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "建筑与浮雕属公有领域；照片为 CC BY 2.0/4.0、CC BY-SA 4.0 授权",
+    "basis": "各图授权依据 Wikimedia Commons 文件页的标注；每张图在图注旁注明摄影者与许可。CC BY-SA 图片的缩小版按相同许可提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "照片拍摄于 21 世纪。浮雕的位置（南回廊西段）依据摄影者在 Commons 上的说明，与通行的介绍一致。蒲甘两处只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "神庙",
+    "maker": "吴哥",
+    "period": "12 世纪",
+    "facets": [
+      { "label": "地域", "value": "柬埔寨" },
+      { "label": "建造者", "value": "苏利耶跋摩二世" },
+      { "label": "材料", "value": "砂岩 · 红土石" },
+      { "label": "布局", "value": "庙山与护城河" }
+    ],
+    "blurb": "一座石头的须弥山，四周是一圈人造的海；它属于神，也属于建造它的国王。",
+    "image": "full",
+    "focus": "55% 50%"
+  }
+}

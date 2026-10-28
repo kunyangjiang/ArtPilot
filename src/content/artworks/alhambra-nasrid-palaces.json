@@ -1,0 +1,151 @@
+{
+  "id": "art-alhambra-nasrid-palaces-001",
+  "kind": "building",
+  "titleZh": "阿尔罕布拉宫·纳斯尔王朝宫殿群",
+  "titleEn": "The Nasrid Palaces of the Alhambra, Granada",
+  "attributionNote": "历代纳斯尔王朝苏丹相继修建，没有留下建筑师的名字。现存宫殿主要出自两位苏丹：科马雷斯宫主要属于优素福一世（1333–1354 年在位），狮子宫由穆罕默德五世在第二次在位期间（1362–1391）建造；更早的梅克瓦尔厅可能属于伊斯玛仪一世（1314–1325 年在位）的宫殿，后经多次改动（据阿尔罕布拉与赫内拉利费理事会）。",
+  "dateApprox": "14 世纪为主（约 1314–1391），此后屡经改动",
+  "location": "西班牙，格拉纳达，阿尔罕布拉山丘",
+  "facts": [
+    { "label": "科马雷斯塔", "value": "高约 45 米，内有宫中最大的厅堂" },
+    { "label": "王朝", "value": "纳斯尔王朝，1232–1492" },
+    { "label": "世界遗产", "value": "1984 年列入（1994 年扩展）" }
+  ],
+  "buildingType": "宫城中的王宫：庭院、厅堂、浴室与花园组成的住所与朝堂",
+  "materials": "主体为夯土、砖与石的墙体；室内大量使用灰泥雕刻（yesería）、木作天花与彩釉瓷砖拼嵌（alicatado），原来多有彩绘。",
+  "notes": [
+    "1492 年 1 月 2 日，最后一位纳斯尔统治者穆罕默德十二世离开格拉纳达，阿尔罕布拉归卡斯蒂利亚与阿拉贡的天主教双王（据大都会艺术博物馆）。",
+    "16 世纪，梅克瓦尔厅加建上层并改为礼拜堂；又为查理五世修建了一组居室（“皇帝寝宫”），与纳斯尔宫殿相连。",
+    "1526 年，查理五世决定在纳斯尔宫殿旁新建一座文艺复兴式宫殿，改变了整个宫城的内部结构与对外通道；工程 1637 年中止，屋顶未完，直到 1923 年起才被修复利用。",
+    "1590 年火药库爆炸毁坏了梅克瓦尔的祈祷室，1917 年修复。",
+    "狮子院四个方块原来是铺石地面，还是种着低于步道的植物，学界至今仍有争论。"
+  ],
+  "infoSources": [
+    { "label": "联合国教科文组织世界遗产名录：Alhambra, Generalife and Albayzín, Granada（No. 314）", "url": "https://whc.unesco.org/en/list/314/" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：The facade of Comares", "url": "https://www.alhambra-patronato.es/en/edificios-lugares/the-facade-of-comares" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：The court of the myrtles", "url": "https://www.alhambra-patronato.es/en/edificios-lugares/the-court-of-the-myrtles" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：Salón de los Embajadores", "url": "https://www.alhambra-patronato.es/edificios-lugares/salon-de-los-embajadores" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：The court of the lions", "url": "https://www.alhambra-patronato.es/en/edificios-lugares/the-court-of-the-lions" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：Sala de dos hermanas", "url": "https://www.alhambra-patronato.es/edificios-lugares/sala-de-dos-hermanas" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：Mexuar – Oratorio", "url": "https://www.alhambra-patronato.es/edificios-lugares/mexuar" },
+    { "label": "阿尔罕布拉与赫内拉利费理事会：Palace of Charles V", "url": "https://www.alhambra-patronato.es/en/edificios-lugares/palace-of-charles-v" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：The Art of the Nasrid Period (1232–1492)", "url": "https://www.metmuseum.org/essays/the-art-of-the-nasrid-period-1232-1492" },
+    { "label": "联合国教科文组织世界遗产名录：Quseir Amra（No. 327）", "url": "https://whc.unesco.org/en/list/327/" },
+    { "label": "世界建筑文物保护基金会（World Monuments Fund）：Qusayr 'Amra", "url": "https://www.wmf.org/projects/qusayr-amra" },
+    { "label": "联合国教科文组织世界遗产名录：Meidan Emam, Esfahan（No. 115）", "url": "https://whc.unesco.org/en/list/115/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/alhambra-myrtles.jpg",
+      "width": 1140,
+      "height": 1600,
+      "alt": "一个长方形庭院：中间是一条长长的水池，两侧种着修剪整齐的绿篱；水池尽头是一排纤细的拱廊，拱廊后面升起一座方形的高塔。水面平静，把拱廊和高塔完整地倒映出来。",
+      "caption": "桃金娘院（Patio de los Arrayanes）与科马雷斯塔，阿尔罕布拉，14 世纪。塔内是宫中最大的厅堂：使节厅。",
+      "kind": "full",
+      "subject": "阿尔罕布拉·桃金娘院",
+      "credit": { "author": "Tuxyso", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patio_de_los_Arrayanes_Alhambra_2014.jpg", "date": "2014-03-10", "changes": "由 Commons 的缩小版本缩到 1140 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "plan",
+      "src": "/img/alhambra-plan.jpg",
+      "alt": "一张黑白建筑平面图，被涂成几块颜色：下方黄色一小块，中间红色一大片（包括一个长方形水池和左侧一间突出的方形厅），右上方绿色一片（中央是一个四周有柱廊、正中有圆形喷泉的庭院），左上方蓝色一片。图上标着许多数字。",
+      "caption": "纳斯尔宫殿群平面图。康斯坦丁·乌德（Constantin Uhde）1892 年测绘，后人加色：黄色为梅克瓦尔，红色为科马雷斯宫，绿色为狮子宫，蓝色为 16 世纪的“皇帝寝宫”。",
+      "kind": "detail",
+      "subject": "纳斯尔宫殿群平面图（1892）",
+      "credit": { "author": "Constantin Uhde（1892）；扫描 Hubertl，裁切与加色 Anual", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alhambra_2015_004.jpg", "changes": "由 Commons 的缩小版本缩到 1253 × 1600 像素并重新压缩；未另作改动" }
+    },
+    {
+      "key": "comares",
+      "src": "/img/alhambra-comares-facade.jpg",
+      "alt": "一面两层高的墙，表面布满细密的灰泥浮雕；上层有几组小拱窗，顶上伸出一道很深的木雕屋檐。下层左右各有一扇门：左边的门开着，里面一片漆黑；右边的门关着。两扇门之间的墙脚贴着彩色瓷砖，墙前是几级台阶，游客站在台阶上。",
+      "caption": "科马雷斯立面，1370 年穆罕默德五世下令建造。左右两扇门通往宫中不同的部分。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·科马雷斯立面",
+      "credit": { "author": "Palickap", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Granada,_Alhambra,_Patio_del_Mexuar,_Fachada_de_Palacio_de_Comares_(1).jpg", "date": "2018-10-26", "changes": "由 Commons 的缩小版本缩到 1200 × 1600 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ceiling",
+      "src": "/img/alhambra-ceiling.jpg",
+      "alt": "从下往上看的一片方形木天花：深褐色的木条拼出成千上万个小星形与多边形，层层环绕中央一个小小的圆形凸起，四周边缘向下倾斜。",
+      "caption": "使节厅的木天花，14 世纪中叶，纳斯尔宫殿中最重要的木作。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·使节厅天花",
+      "credit": { "author": "José Luis Filpo Cabana", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Techo_del_Sal%C3%B3n_de_Embajadores_(la_Alhambra),_Granada.jpg", "date": "2014-12", "changes": "由 Commons 的缩小版本缩到 1600 × 1200 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tiles",
+      "src": "/img/alhambra-tiles.jpg",
+      "alt": "墙脚的一片瓷砖：黑、绿、黄、白四种颜色的小块瓷砖拼成一个个像骨头一样的形状，彼此咬合，铺满整面墙；转角处换成另一种细小的几何图案。",
+      "caption": "使节厅一个壁龛的墙脚：釉面瓷砖切块拼嵌（alicatado），图形俗称“纳斯尔骨形”。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·使节厅的瓷砖墙脚",
+      "credit": { "author": "José Luis Filpo Cabana（Jl FilpoC）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panel_de_azulejos_en_el_Sal%C3%B3n_de_Embajadores,_la_Alhambra.jpg", "date": "2008-09-24", "changes": "由 Commons 的缩小版本缩到 1600 × 996 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "lions",
+      "src": "/img/alhambra-lions.jpg",
+      "alt": "透过一排细长的大理石柱子看过去：柱子两两或成组排列，上面是雕满花纹的拱；柱廊之外是一片阳光照亮的庭院，远处还有一座带拱的亭子和几棵深色的柏树。",
+      "caption": "狮子院的柱廊，穆罕默德五世时期（1362–1391）。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·狮子院",
+      "credit": { "author": "Benjamin Smith", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Granada_-_Alhambra_-_Palacios_nazar%C3%ADes_-_Patio_de_los_Leones_-_1.jpg", "date": "2024-04-13", "changes": "由 Commons 的缩小版本缩到 1600 × 1068 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "dome",
+      "src": "/img/alhambra-dome.jpg",
+      "alt": "从下往上看的一个穹顶：成千上万个小小的凹龛层层叠叠，像蜂巢或钟乳石一样从四周向中心收拢；穹顶下方一圈小窗透进光来。",
+      "caption": "两姐妹厅的钟乳石穹顶（mocárabes），灰泥制成，从中心的一颗星层层展开。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·两姐妹厅穹顶",
+      "credit": { "author": "Sharon Mollerus", "licence": "CC BY 2.0", "licenceUrl": "https://creativecommons.org/licenses/by/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muqarnas_Dome,_Alhambra,_Granada_6_30_11_-architecture_-islamic_-palace_(25092731377).jpg", "date": "2011-06-30", "changes": "由 Commons 的缩小版本缩到 1600 × 1067 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "charles",
+      "src": "/img/alhambra-charles-v.jpg",
+      "alt": "一个巨大的圆形庭院，四周是两层环形柱廊：下层是粗壮的古典式圆柱，上层是较细的柱子；地面铺着石板，中央站着一个很小的人。",
+      "caption": "查理五世宫的圆形庭院，1526 年起建造，紧贴纳斯尔宫殿。",
+      "kind": "detail",
+      "subject": "阿尔罕布拉·查理五世宫庭院",
+      "credit": { "author": "José Luis Filpo Cabana", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patio_del_Palacio_de_Carlos_V_(Granada).jpg", "date": "2017-02", "changes": "由 Commons 的缩小版本缩到 1600 × 900 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "amra",
+      "src": "/img/amra-six-kings.jpg",
+      "alt": "一面斑驳的壁画：浅色灰泥上残留着蓝、褐等颜色，可以辨认出几个并排站立的人物轮廓，穿着长袍，有的抬起手；画面多处剥落。",
+      "caption": "库塞尔阿姆拉（约旦）浴室接待厅的“六王图”壁画，8 世纪上半叶。",
+      "kind": "detail",
+      "subject": "库塞尔阿姆拉·“六王图”壁画",
+      "credit": { "author": "R Prazeres", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Qusayr_Amra_six_kings_DSCF4936.jpg", "changes": "由 Commons 的缩小版本缩到 1600 × 1268 像素并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "naqsh",
+      "src": "/img/isfahan-naqsh-e-jahan.jpg",
+      "alt": "从一座门楼的拱洞里向外看：拱顶内部是层层叠叠的彩绘钟乳石装饰；拱洞框住一个极其宽阔的长方形广场，中间是草坪和一条长水池，四周是两层的拱廊，远处尽头是一座有蓝色穹顶的清真寺。",
+      "caption": "从凯萨里耶门楼俯瞰伊斯法罕的伊玛目广场（纳格什·贾汉广场），17 世纪初阿拔斯一世建造。",
+      "kind": "detail",
+      "subject": "伊斯法罕·伊玛目广场",
+      "credit": { "author": "Amir Pashaei", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naqsh-e_Jahan_Square_from_the_gheisariye_Vault.jpg", "date": "2019-09-30", "changes": "由 Commons 的缩小版本缩到 1600 × 974 像素并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "建筑与壁画属公有领域；照片分别为 CC BY-SA 3.0/4.0、CC BY 2.0/4.0 授权，平面图为公有领域",
+    "basis": "各图授权依据 Wikimedia Commons 文件页的标注；每张图在图注旁注明摄影者与许可。CC BY-SA 图片的缩小版按相同许可提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "照片中的颜色取决于拍摄时的光线与相机，阿尔罕布拉的灰泥原来大多有彩绘，今天看到的米色是褪色后的样子。库塞尔阿姆拉与伊斯法罕两处只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "王宫",
+    "maker": "格拉纳达",
+    "period": "14 世纪",
+    "facets": [
+      { "label": "地域", "value": "西班牙" },
+      { "label": "王朝", "value": "纳斯尔王朝" },
+      { "label": "材料", "value": "灰泥 · 木 · 瓷砖" },
+      { "label": "布局", "value": "以庭院串联" }
+    ],
+    "blurb": "从外面看只是城墙和塔楼；走进去，才是一座座水与光的庭院。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "art-heiji-rokuhara-scroll-001",
+  "kind": "painting",
+  "titleZh": "平治物语绘卷·六波罗行幸卷",
+  "titleEn": "Illustrated Tale of the Heiji Civil War: Scroll of the Imperial Visit to Rokuhara",
+  "artist": "不详（13 世纪宫廷画师）",
+  "attributionNote": "画师姓名不详。东京国立博物馆认为它出自当时最高水平的画师群体；词书中带有颤动笔势的字迹，被认为是弘誓院教家（1194–1255）晚年的手笔，据此推定绘卷约作于 13 世纪中叶。《平治物语绘卷》今存三卷（波士顿美术馆的三条殿夜讨卷、静嘉堂文库美术馆的信西卷与本卷）及十余片断简。",
+  "dateApprox": "13 世纪中叶（镰仓时代）",
+  "medium": "手卷，纸本设色",
+  "dimensionsCm": { "height": 42.2, "width": 952.9 },
+  "collection": "东京国立博物馆，A-9976（日本国宝；松平直亮捐赠）",
+  "infoSources": [
+    { "label": "ColBase（日本国立文化财机构所藏品综合检索）：平治物語絵巻 六波羅行幸巻（东京国立博物馆 A-9976；时代、尺寸、全四段、内容、画风、词书笔迹与年代、存世诸卷）", "url": "https://colbase.nich.go.jp/collection_items/tnm/A-9976?locale=ja" },
+    { "label": "Wikimedia Commons 文件页：Illustrated Tale of the Heiji Civil War: Scroll of the Imperial Visit to Rokuhara（Google Art Project 全卷影像）", "url": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/heiji-rokuhara-scroll.jpg",
+      "width": 12093,
+      "height": 520,
+      "alt": "一卷极长的彩色手卷。最右端是金色的锦缎包首，接着是一段竖写的文字；往左是宫殿的廊屋，武士在廊上抓人；然后是一座红柱的宫门，一辆黑色带金色花纹的牛车从门口出发，四周簇拥着武士；牛车在画中又出现了几次，被骑马的武士和戴高帽的贵族护送；中间又有几段文字；左边是聚满了牛车和武士的宅邸，最左端是宅邸内部，贵族们坐在屋里。",
+      "caption": "《平治物语绘卷》六波罗行幸卷，13 世纪中叶，纸本设色，42.2 × 952.9 厘米，东京国立博物馆藏。右端是卷首。",
+      "kind": "full",
+      "subject": "《平治物语绘卷》六波罗行幸卷",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "取自 Commons 的全卷影像（20000 × 934 像素），裁去上下黑边，缩到 12093 × 520 像素并重新压缩；未调色" }
+    },
+    {
+      "key": "text1",
+      "src": "/img/heiji-text1.jpg",
+      "alt": "米黄色纸上竖写的十几行草书假名与汉字，从右往左读，有些字的笔画带着细小的抖动；右边接着金色锦缎的卷首。",
+      "caption": "局部：卷首之后的第一段词书。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 89%–96% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "palace",
+      "src": "/img/heiji-palace.jpg",
+      "alt": "从斜上方俯看宫殿的廊屋，屋顶被省去，看得见屋里：一个穿红色铠甲的武士用弓指着前方；另一个武士扭住一位穿白衣、戴高帽的官员；廊上放着一只红色的箱子；台阶下，两个人正提着衣襟拼命跑开。",
+      "caption": "局部：第一段，宫中的骚乱。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 81%–89% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "gate",
+      "src": "/img/heiji-gate.jpg",
+      "alt": "一辆黑色车厢、车身点缀金色花纹的牛车，正从右边红柱的宫门前出发；拉车的是一头黑白相间的牛；车厢四周挤满了穿红色和蓝色铠甲的武士，有人举着弓，有人扬起手。门边跪坐着一位穿浅绿衣服的官员。",
+      "caption": "局部：牛车从宫门出发。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 66.5%–73.5% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "escort",
+      "src": "/img/heiji-escort.jpg",
+      "alt": "同一辆黑色牛车再次出现，车后的帘子垂下；一头黑牛拉着它向左走去，后面跟着骑马的武士和戴高帽的贵族，马匹拥挤，有人持弓。左上方另有一队武士坐在地上，斜斜地排成一列。",
+      "caption": "局部：第一段的后半，牛车在武士的护送下前进。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 53%–60% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "nobles",
+      "src": "/img/heiji-nobles.jpg",
+      "alt": "又一次出现的黑色牛车，由一头灰牛拉着向左走；车后跟着一大群骑马和步行的贵族，戴着黑色高帽，穿白、绿、褐色的袍子，脸色白净；最右边几个人在快步追赶。",
+      "caption": "局部：第二段，贵族们骑马、步行，随车前进。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 36%–47% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "rokuhara",
+      "src": "/img/heiji-rokuhara.jpg",
+      "alt": "一座宅邸的门前，停满了一排黑色的牛车，车辕斜斜地搭在架子上；车旁和地上坐满了穿铠甲的武士，密密麻麻；右边有人牵着马，几个穿白衣的贵族坐在车旁。",
+      "caption": "局部：第三段，一座宅邸门前聚满了牛车与武士；按故事的进程，这是天皇一行到达的六波罗。",
+      "kind": "detail",
+      "subject": "《平治物语绘卷》六波罗行幸卷局部",
+      "credit": { "author": "东京国立博物馆藏品，影像经 Google Arts & Culture", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg", "changes": "从全卷影像裁出约 20%–33% 一段，去掉上下黑边，缩小并重新压缩；未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域",
+    "basis": "Wikimedia Commons 文件页标注 {{PD-Japan}} 与 {{PD-Art}}：13 世纪的平面作品的忠实复制，作者逝世已逾数百年。影像来自 Google Arts & Culture 与东京国立博物馆的合作。",
+    "verifiedOn": "2026-10-28",
+    "note": "权利状态依据 Commons 的标注；东京国立博物馆在 ColBase 上另有自己的影像与利用规约，本课未使用那批影像。全卷影像是拼接而成的数字图像，颜色和纸色取决于拍摄与处理，以实物为准。"
+  },
+  "card": {
+    "type": "绘卷",
+    "maker": "镰仓时代 · 宫廷画师",
+    "period": "13 世纪中叶",
+    "facets": [
+      { "label": "地域", "value": "日本" },
+      { "label": "媒材", "value": "纸本设色" },
+      { "label": "形制", "value": "手卷 · 全四段" },
+      { "label": "尺幅", "value": "42 × 953 cm" }
+    ],
+    "blurb": "一辆牛车在画中出现了好几次：每展开一段，故事就往前走一步。",
+    "image": "full",
+    "focus": "70% 50%"
+  }
+}

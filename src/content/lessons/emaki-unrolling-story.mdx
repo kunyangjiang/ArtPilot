@@ -1,0 +1,234 @@
+---
+title: 日本绘卷如何让故事沿画面展开？
+kicker: 细读 · 日本 · 镰仓时代
+summary: 1159 年冬天，被软禁在宫中的二条天皇换上宫女的衣服，坐上一辆牛车，逃到平清盛在六波罗的宅邸。大约一百年后，一卷近十米长的绘卷把这一夜画了下来。这一课亲手把它从右往左展开：一段文字，一段画；同一辆牛车在画中一再出现，向着我们展开的方向一路前进。故事的速度，握在看画的人手里。
+course: 34
+workLabel: 《平治物语绘卷》六波罗行幸卷
+artwork: art-heiji-rokuhara-scroll-001
+glossary:
+  - gl-emaki
+  - gl-kotobagaki
+  - gl-fukinuki-yatai
+  - gl-yamato-e
+  - gl-handscroll
+---
+
+import Band from '../../components/Band.astro';
+import Split from '../../components/Split.astro';
+import Callout from '../../components/Callout.astro';
+import Term from '../../components/Term.astro';
+import ArtworkFigure from '../../components/ArtworkFigure.astro';
+import ScrollUnroll from '../../components/ScrollUnroll.astro';
+import FindOnImage from '../../components/FindOnImage.astro';
+import FeatureCompare from '../../components/FeatureCompare.astro';
+import InferenceChain from '../../components/InferenceChain.astro';
+import ObservationQuiz from '../../components/ObservationQuiz.astro';
+import LessonComplete from '../../components/LessonComplete.astro';
+
+<Band kind="prelude">
+
+第 29 课展开过一卷中国的山水<Term id="gl-handscroll">手卷</Term>：黄公望的《富春山居图》。那卷画里没有故事，只有一路起伏的山水，让人慢慢游览。
+
+日本的<Term id="gl-emaki">绘卷</Term>用的是同样的形式，做的却是另一件事：讲故事。它要让读者一段一段地往下看，像翻一本书，又像看一场连续的演出。
+
+这一课要回答的问题是：一卷画，怎样安排时间？
+
+</Band>
+
+## 一夜之间的逃亡
+
+1159 年（平治元年），京都的朝廷里，两位公卿争夺实权，争斗演变成武士平清盛和源义朝之间的武力冲突，史称平治之乱。源氏一方把年轻的二条天皇软禁在宫中。东京国立博物馆的说明讲述了这卷画的内容：二条天皇换上宫女的装束，悄悄逃出皇宫，被迎到平清盛在六波罗的宅邸。
+
+大约一百年后，有人把这场动乱画成了一组绘卷，即《平治物语绘卷》。今天存世的有三卷：波士顿美术馆的“三条殿夜讨卷”、静嘉堂文库美术馆的“信西卷”，和东京国立博物馆的这一卷“六波罗行幸卷”，另有十几片零散的断简。
+
+## 把它展开
+
+这卷画高 42.2 厘米，长 952.9 厘米。看的时候，从最右端开始。
+
+<ScrollUnroll
+  artwork="art-heiji-rokuhara-scroll-001"
+  image="full"
+  prompt="从卷首开始，向左慢慢展开。留意那辆黑色的牛车。"
+  arm={1.8}
+  stops={[
+    { at: 97, label: '卷首' },
+    { at: 85, label: '宫中' },
+    { at: 70, label: '宫门' },
+    { at: 56, label: '护送' },
+    { at: 41, label: '贵族随行' },
+    { at: 25, label: '宅邸门前' },
+    { at: 7, label: '宅邸之内' },
+  ]}
+/>
+
+先试一试“一次只看一臂宽”：当时的读者把绘卷放在膝上或桌上，左手展开新的一段，右手卷起看过的一段，眼前永远只有一臂宽的画面。下一段画着什么，要展开了才知道。
+
+这就是绘卷和一幅挂在墙上的画最根本的不同：**看的人决定故事的速度**。可以在一个场面前停很久，也可以飞快地卷过去；可以卷回去再看一遍，也可以停在一个悬念上，不往下展开。
+
+## 先读字，再看画
+
+<Split reverse>
+<ArtworkFigure artwork="art-heiji-rokuhara-scroll-001" image="text1" />
+
+展开卷首的锦缎，最先出现的不是画，而是字。这一段文字叫<Term id="gl-kotobagaki">词书</Term>，叙述接下来要画的事。读完字，再往左展开，画面才开始。
+
+东京国立博物馆的说明指出，这一卷分为四段：每一段都是先有一段词书、后有一段画。如果你在上面的展卷里留意，会在画面之间看到另外几段竖写的文字，那就是后面几段的开头。
+
+博物馆还注意到词书里的一个细节：有些字的笔画像波浪一样微微颤动。这种“颤笔”被认为是书法家弘誓院教家（1194–1255）晚年的笔迹，绘卷的年代也因此推定在 13 世纪中叶。
+</Split>
+
+<Callout kind="fact">
+词书由书法家书写，画由画师描绘，是分工完成的。这卷画的画师没有留下名字；博物馆认为，从技艺来看，它出自当时最高水平的画师群体。
+</Callout>
+
+## 同一辆车，出现了好几次
+
+再展开一次，这回只看那辆黑色、车身点缀金色花纹的牛车。
+
+<Band kind="plates">
+<ArtworkFigure artwork="art-heiji-rokuhara-scroll-001" image="gate" />
+<ArtworkFigure artwork="art-heiji-rokuhara-scroll-001" image="escort" />
+<ArtworkFigure artwork="art-heiji-rokuhara-scroll-001" image="nobles" />
+</Band>
+
+它在宫门前出发，被武士们团团围住；接着在骑马的武士护送下前进；后来又出现在一群贵族中间。这不是好几辆车，而是同一辆车在不同的时刻。画家没有用分格把场面隔开，背景是连续的，人物和车却在画面上一再出现：每展开一段，时间就往前走一步。
+
+还有一个细节值得注意：拉车的牛，每一次都朝着左边走。左边，正是我们展开的方向。车子前进的方向，和读者的手展开画卷的方向一致；故事被“推”着往前走，读者的手也在推它。
+
+<Callout kind="interpretation">
+“车的方向与展开的方向一致，让读者感到自己在推动故事”，是对绘卷构图常见、也很有说服力的读法，但画师并没有留下文字说明他的意图。东京国立博物馆的说明强调的是群像的组织：大大小小的人群，排成菱形等各种形状，在画面上运动。
+</Callout>
+
+## 屋顶被拿掉了
+
+回到第一段的宫中。天皇出逃之前，宫里是什么样子？
+
+<FindOnImage
+  artwork="art-heiji-rokuhara-scroll-001"
+  image="palace"
+  prompt="这是宫中的一角。找出四样东西：一个持弓的武士，一个被抓住的官员，一只红色的箱子，和两个逃跑的人。"
+  targets={[
+    { x: 42, y: 47, w: 11, h: 27, label: '持弓的武士', note: '穿红色铠甲的武士手握长弓，指向前方。' },
+    { x: 60, y: 46, w: 16, h: 25, label: '被抓住的官员', note: '一个武士从背后扭住一位穿白衣、戴高帽的官员。' },
+    { x: 52, y: 45, w: 9, h: 16, label: '红色的箱子', note: '廊上放着一只红色的箱子。' },
+    { x: 68, y: 63, w: 31, h: 31, label: '逃跑的人', note: '台阶下，两个人提着衣襟拼命跑开。' },
+  ]}
+/>
+
+<Split>
+<ArtworkFigure artwork="art-heiji-rokuhara-scroll-001" image="palace" />
+
+这个场面里，我们能同时看到廊上、屋里和台阶下的人，因为画家把屋顶“拿掉”了：建筑从斜上方俯视，屋檐只画了一截，室内一览无余。这种画法叫<Term id="gl-fukinuki-yatai">吹拔屋台</Term>，是日本绘卷画室内场面的惯用手法。
+
+注意建筑的线条：它们是一组组平行的斜线，并不汇聚到一个消失点。它要的不是一个固定视点看到的“真实空间”，而是让读者看清每一个人在做什么，同时沿着斜线把视线引向左边，引向下一段。
+</Split>
+
+## 谁画了贵族，谁画了武士？
+
+这卷画里有两种人：戴高帽、穿宽袍的贵族，和披甲带弓的武士。东京国立博物馆在说明中提出了一个有意思的观察。选一处，比较两组人：
+
+<FeatureCompare
+  prompt="一边是随车的贵族，一边是护送的武士。他们被画得一样吗？"
+  left={{ artwork: 'art-heiji-rokuhara-scroll-001', image: 'nobles', label: '第二段：随行的贵族' }}
+  right={{ artwork: 'art-heiji-rokuhara-scroll-001', image: 'escort', label: '第一段：护送的武士' }}
+  features={[
+    {
+      id: 'face', label: '面孔',
+      left: { x: 61, y: 42, r: 12, note: '贵族们的脸画得白净、端正，表情平静。' },
+      right: { x: 12, y: 30, r: 12, note: '武士们的脸色较深，眼睛圆圆的，鼻子像鹰钩；有的张着嘴，有的皱着眉。' },
+      limit: '东京国立博物馆的说明指出：贵族被画得白净端正，武士却是“橡子眼、鹰钩鼻”的粗鄙样子。这是看得见的差别；它说明了什么，见下文。'
+    },
+    {
+      id: 'cart', label: '牛车',
+      left: { x: 30, y: 57, r: 16, note: '同一辆黑色牛车，由一头灰牛拉着向左走，车夫在前面引路。' },
+      right: { x: 38, y: 52, r: 18, note: '同一辆牛车，由一头黑牛拉着向左走。' },
+      limit: '两处的车厢花纹一样，是同一辆车；拉车的牛颜色不同，也许是换了牛，也许只是画家没有在意。连续画面里的细节并不总是一致的。'
+    },
+    {
+      id: 'group', label: '人群',
+      left: { x: 78, y: 55, r: 18, note: '贵族们挤成一团向前赶，有骑马的，有步行的，有人回头。' },
+      right: { x: 12, y: 30, r: 13, note: '左上角的一队武士整齐地坐在地上，斜斜地排成一列，恭敬地等候。' },
+      limit: '博物馆称赞这卷画以菱形等各种形状组织大大小小的群像。武士们恭恭敬敬、秩序井然的样子，被博物馆当作推测赞助人身份的线索之一。'
+    },
+  ]}
+/>
+
+<InferenceChain
+  prompt="博物馆的一个推测：“让人画这卷画的，是公家（贵族）一方。”证据能支持到哪一步？"
+  labels={{ record: '博物馆的说明' }}
+  claims={[
+    {
+      claim: '这卷绘卷是贵族一方让人画的，画中流露出他们对武士的态度。',
+      steps: [
+        { kind: 'see', text: '贵族被画得白净端正，武士被画得粗犷甚至有些滑稽；画中的武士大多恭敬、守秩序。' },
+        { kind: 'record', text: '东京国立博物馆指出，合战绘卷诞生于以后白河法皇为中心的贵族社会；词书出自贵族书法家之手；绘卷约作于 13 世纪中叶，比事件晚了近百年。' },
+        { kind: 'gap', text: '没有任何文献记载这卷画是谁订制的、为谁而画。' },
+      ],
+      verdict: 'plausible',
+      note: '博物馆自己的说法也是推测：它写道，一个正在退出政治舞台的贵族阶层，也许想至少在画中让武士保持这样的秩序。这是一个有依据、很有意思的读法，但无法证实。',
+    },
+  ]}
+/>
+
+<Callout kind="interpretation">
+平治之乱是日本政治从公家走向武家的转折点。这卷画在事件过去近百年后制作，那时武家早已掌握实权。所以，这不是一份现场报道，而是一段被回忆、被重新讲述的历史；讲故事的人是谁，决定了故事怎样被画出来。
+</Callout>
+
+## 一种日本自己的画
+
+这卷画属于<Term id="gl-yamato-e">大和绘</Term>的传统：用明丽的颜色和流畅的线条，画日本自己的人物、建筑和故事。和第 29 课那卷中国山水手卷相比，它们的形式一样，都是从右往左展开、一次看一臂宽；用法却不同：
+
+- 黄公望的手卷让人在山水间漫游，没有开头和结尾的情节，看到哪里都可以停下来。
+- 这卷绘卷有开头、有经过、有结局：字告诉你发生了什么，画让你看到它怎样发生，同一辆车一再出现，推着时间往前走。
+
+<Band kind="reflection">
+
+回到开头的问题：日本绘卷如何让故事沿画面展开？
+
+从这卷《平治物语绘卷》可以看到几种办法：
+
+- **一段字，一段画**。词书先叙述，画面再展开，四段交替，把一卷分成清楚的章节。
+- **连续的画面，重复的人物**。没有分格，同一辆牛车在不同的时刻一再出现，时间随着画面向左流动。
+- **方向与动作一致**。车和人朝着展开的方向前进，读者的手和故事一起往前推。
+- **看得清每一个人**。吹拔屋台的俯视和平行的斜线，让人同时看到廊上、屋里和台阶下发生的事。
+- **读者掌握节奏**。一次只看一臂宽，停、快、回头，都由看画的人决定。
+
+还有一些问题，留给你：
+
+- 今天的漫画、动画分镜和手机上的竖向长图，和绘卷有哪些相似、哪些不同？
+- 如果绘卷不能卷起来，而是一下子整幅挂在墙上，故事的效果会有什么变化？
+- 一段历史被事后近百年的人画出来，我们应该怎样看待画中的人物形象？
+
+</Band>
+
+这道题是可选的：答或不答、答对与否，都不影响学完本课。
+
+<ObservationQuiz
+  question={{
+    prompt: '在这卷绘卷里，黑色的牛车为什么会出现好几次？',
+    options: [
+      { text: '它是同一辆车在故事的不同时刻：画面连续，时间随着展开向前推进。', explanation: '对。绘卷不用分格，而是让同一个人物或物件在连续的画面里一再出现。' },
+      { text: '当时宫中有好几辆一模一样的车，用来迷惑追兵。', explanation: '画上和博物馆的说明都没有这样说。车身的花纹相同，是同一辆车被反复画出。' },
+      { text: '画家画错了，后来没有改。', explanation: '重复出现是绘卷讲故事的方法，不是错误。' },
+      { text: '这是几卷不同的绘卷拼在一起的结果。', explanation: '这是完整的一卷“六波罗行幸卷”，分为四段，一段文字接一段画。' },
+    ],
+    answer: 0,
+  }}
+/>
+
+<LessonComplete artwork="art-heiji-rokuhara-scroll-001" />
+
+<Band kind="sources">
+
+### 出处
+
+1. ColBase（日本国立文化财机构所藏品综合检索）：平治物語絵巻 六波羅行幸巻，东京国立博物馆 A-9976（国宝；镰仓时代 13 世纪；纸本着色；42.2 × 952.9 厘米；平治之乱的经过；二条天皇着女房装束出逃、迎至六波罗；全四段；存世三卷与断简；群像的构成；贵族与武士的描绘方式及对赞助人的推测；词书的“颤笔”与弘誓院教家；制作约在 13 世纪中叶）。[链接](https://colbase.nich.go.jp/collection_items/tnm/A-9976?locale=ja)
+2. Wikimedia Commons：Illustrated Tale of the Heiji Civil War: Scroll of the Imperial Visit to Rokuhara（Google Art Project 全卷影像，公有领域）。[链接](https://commons.wikimedia.org/wiki/File:Illustrated_Tale_of_the_Heiji_Civil_War_%EF%BC%9A_Scroll_of_the_Imperial_Visit_to_Rokuhara_-_Google_Art_Project.jpg)
+
+### 延伸阅读（本课未直接查阅）
+
+1. Hideo Okudaira, *Narrative Picture Scrolls*（Weatherhill/Shibundo, 1973）。
+2. Penelope E. Mason, *History of Japanese Art*（2nd ed., Pearson, 2005），关于绘卷与大和绘的章节。
+3. 波士顿美术馆藏《平治物语绘卷·三条殿夜讨卷》的馆方资料。
+
+</Band>
