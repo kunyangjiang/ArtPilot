@@ -1,0 +1,135 @@
+{
+  "id": "art-hinemihi-001",
+  "kind": "building",
+  "titleZh": "希内米希会堂",
+  "titleEn": "Hinemihi (Māori meeting house)",
+  "attributionNote": "1881 年酋长阿波罗·特瓦雷卡尼瓦请雕刻大师韦罗·塔罗伊和特内·怀特雷，用托塔拉木为希内米希部落建造（据第 23 课所引英国国民信托与毛利合作伙伴共同讲述的历史）。",
+  "dateApprox": "1881 年建造；1892 年雕刻被运往英国",
+  "location": "英国萨里郡克兰登庄园（原在新西兰北岛罗托鲁瓦附近、塔拉威拉湖畔的特怀罗阿村）",
+  "facts": [
+    {
+      "label": "类型",
+      "value": "毛利会堂（wharenui）"
+    },
+    {
+      "label": "木材",
+      "value": "托塔拉木"
+    },
+    {
+      "label": "1886 年",
+      "value": "火山喷发时约 50 人在此避难幸存"
+    }
+  ],
+  "buildingType": "毛利祖先会堂：建筑体现以之命名的祖先",
+  "materials": "雕刻的木构件；1897 年在英国装上用英国建筑方法新造的框架。",
+  "notes": [
+    "1886 年塔拉威拉火山喷发，会堂受损但没有倒塌。",
+    "1892 年 1 月，卸任的新西兰总督昂斯洛伯爵买下 23 件雕刻，运到克兰登庄园。",
+    "2016 年起，雕刻被取下，在恒温恒湿的库房中“沉睡”。"
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/hinemihi-clandon.jpg",
+      "alt": "英国花园里的一座小会堂：茅草屋顶，屋脊前端立着一个小雕像，下面是一张雕刻的脸；山墙两边是红白相间、刻满螺旋纹的檐板，末端向外翘出；门廊两侧各有一根刻着人像的立柱；门在左，窗在右。门廊里站着一位参观者。",
+      "caption": "2013 年在英国萨里郡克兰登庄园的希内米希会堂。",
+      "kind": "full",
+      "credit": {
+        "author": "Len Williams（geograph.org.uk，维基共享资源）",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi,_Clandon_Park_-_geograph.org.uk_-_3660071.jpg",
+        "date": "2013-09-15",
+        "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 2.0 提供"
+      }
+    },
+    {
+      "key": "tewairoa",
+      "src": "/img/hinemihi-te-wairoa.jpg",
+      "alt": "黑白老照片：一座有山墙的木构房屋，屋脊正前方立着一个雕刻的人像，山墙两边的檐板和门廊两侧的立柱都刻着花纹。房前站着、坐着十几个穿传统和西式衣服的男女，其中一人高举一根短棍。",
+      "caption": "1880 年代的希内米希会堂，在罗托鲁瓦附近、塔拉威拉湖畔的特怀罗阿村。照片中高举短棍的人，据维基共享资源上的说明是委托建造这座会堂的酋长阿波罗·特瓦雷卡尼瓦。",
+      "kind": "detail",
+      "subject": "希内米希会堂，特怀罗阿",
+      "credit": {
+        "author": "伯顿兄弟（Burton Bros），达尼丁",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi_Meeting_House_Burton_Bros.jpg",
+        "date": "1881–1886",
+        "changes": "原图未缩放；重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "eruption",
+      "src": "/img/hinemihi-1886.jpg",
+      "alt": "黑白老照片：一片被火山灰覆盖的灰白色平地上，孤零零立着一座木构会堂，周围的树木和房屋都不见了，远处的山坡也蒙着一层灰。",
+      "caption": "1886 年塔拉威拉火山喷发之后的希内米希会堂。",
+      "kind": "detail",
+      "subject": "火山喷发后的希内米希会堂",
+      "credit": {
+        "author": "埃德蒙·惠勒父子（Edmund Wheeler and Son）",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi_Meeting_House_after_Tarawera_eruption_1886.jpg",
+        "date": "1886",
+        "changes": "原图未缩放；重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "sleeping",
+      "src": "/img/hinemihi-clandon-2021.jpg",
+      "alt": "同一座会堂，屋顶罩着一大块绿色防水布，正面只剩素净的木板墙、一扇门和一扇窗，没有了雕刻的檐板和立柱。前面立着一块说明牌。",
+      "caption": "2021 年的希内米希会堂：2016 年起，雕刻已被取下，在恒温恒湿的库房中“沉睡”。",
+      "kind": "detail",
+      "subject": "希内米希会堂，克兰登庄园（2021）",
+      "credit": {
+        "author": "Colin Smith（geograph.org.uk，维基共享资源）",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clandon_Park_-_Hinemihi_-_geograph.org.uk_-_6883481.jpg",
+        "date": "2021-05-02",
+        "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 2.0 提供"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "英国国民信托：The history of Hinemihi（与 Ngāti Hinemihi 等合作伙伴共同讲述）",
+      "url": "https://www.nationaltrust.org.uk/visit/surrey/clandon-park/history-of-hinemihi"
+    },
+    {
+      "label": "英国国民信托：Māori wharenui: a cultural and spiritual hub",
+      "url": "https://www.nationaltrust.org.uk/visit/surrey/clandon-park/maori-wharenui-meeting-house"
+    }
+  ],
+  "rights": {
+    "status": "混合：CC BY-SA 2.0（2013、2021 年照片）与公有领域（19 世纪照片）",
+    "basis": "维基共享资源文件页的许可信息，已在第 23 课核对。",
+    "verifiedOn": "2026-10-28",
+    "note": "只使用已公开展示和发表的外观照片，不含会堂内部或仪式影像。会堂今天仍在英国，它与家乡部落的关系由国民信托与毛利合作伙伴共同讲述。"
+  },
+  "card": {
+    "type": "建筑 · 毛利会堂",
+    "maker": "希内米希部落",
+    "period": "1881 年",
+    "facets": [
+      {
+        "label": "雕刻",
+        "value": "韦罗·塔罗伊 等"
+      },
+      {
+        "label": "原址",
+        "value": "新西兰特怀罗阿"
+      },
+      {
+        "label": "今址",
+        "value": "英国克兰登庄园"
+      },
+      {
+        "label": "身份",
+        "value": "祖先的身体"
+      }
+    ],
+    "blurb": "走进会堂，就是走进祖先的身体：她救过人，也被带到了半个地球以外。",
+    "focus": "50% 45%",
+    "image": "full"
+  }
+}

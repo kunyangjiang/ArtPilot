@@ -935,6 +935,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 }
 .card-unlock .kicker { margin: 0 0 .4rem; color: var(--gallery-ink-2); }
 .card-unlock-title { margin: 0 0 1.1rem !important; font: 500 1.125rem/1.6 var(--serif); letter-spacing: .04em; text-align: left !important; }
+.card-unlock-count { margin: -.6rem 0 1.1rem !important; font-size: .875rem; line-height: 1.7; color: var(--gallery-ink-2); text-align: left !important; }
 .card-unlock .btn-secondary { color: var(--gallery-ink); border-color: var(--gallery-rule); }
 .card-unlock .btn-secondary:hover { border-color: var(--gallery-ink-2); }
 .card-unlock .btn:focus-visible { outline-color: var(--gallery-ink); }

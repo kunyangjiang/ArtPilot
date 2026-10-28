@@ -21,9 +21,14 @@ for (const f of readdirSync(join(root, 'src/content/lessons')).filter((x) => x.e
   if (!art) continue;
   const key = fm.match(/^featured:\s*\n\s+image:\s*(\S+)/m)?.[1] ?? 'full';
   for (const k of new Set([key, 'full'])) { const img = art.images.find((i) => i.key === k) ?? art.images[0]; wanted.add(img.src); }
+  // The course's further cards (`cards: [id, …]`), whose fronts appear in the homepage card box too.
+  for (const id of fm.match(/^cards:\s*\[(.*)\]/m)?.[1].split(',').map((x) => x.trim()).filter(Boolean) ?? []) {
+    const extra = artworks[id];
+    if (extra) wanted.add((extra.images.find((i) => i.key === 'full') ?? extra.images[0]).src);
+  }
 }
 // Artist-series cards (their fronts appear in the homepage card box).
-for (const id of Object.keys(ARTIST_CARDS)) {
+for (const id of ARTIST_CARDS) {
   const art = artworks[id];
   if (art) wanted.add((art.images.find((i) => i.key === 'full') ?? art.images[0]).src);
 }

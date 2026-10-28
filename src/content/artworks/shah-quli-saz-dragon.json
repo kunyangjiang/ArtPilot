@@ -1,0 +1,74 @@
+{
+  "id": "art-shah-quli-saz-dragon-001",
+  "kind": "object",
+  "titleZh": "萨兹风格的龙与叶",
+  "titleEn": "'Saz'-Style Drawing of a Dragon Amid Foliage",
+  "attributionNote": "大都会艺术博物馆归于沙·库里（Shah Quli）：他从伊朗移居伊斯坦布尔，在苏莱曼一世治下主持皇家画坊。",
+  "dateApprox": "约 1540–1550 年",
+  "objectType": "素描（画册页）",
+  "medium": "纸本墨、不透明水彩与金",
+  "dimensions": "画心高 17.3 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），57.51.26",
+  "originalStatus": "原件，装裱在洒金纸上。",
+  "provenance": "据大都会艺术博物馆：科拉·蒂姆肯·伯内特遗赠（1956 年），1957 年登记入藏；更早的递藏本站未逐项核对。1956、1957 是遗赠与入藏的年份，不是制作年代。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/shah-quli-saz-dragon.jpg",
+      "width": 1600,
+      "height": 1124,
+      "alt": "一张装裱在洒金纸上的墨线画：一条身上布满斑点的长龙，扭成波浪形，龙头在左，张口吐着卷曲的火焰；龙身下方缠绕着几片又长又弯、边缘像锯齿和羽毛一样的大叶子。画面左上方有一小块写着波斯文的题签。",
+      "caption": "传沙·库里《萨兹风格的龙与叶》，伊斯坦布尔，约 1540–1550 年，纸本墨、不透明水彩与金，画心高 17.3 厘米，大都会艺术博物馆藏（57.51.26）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/451405",
+        "changes": "馆方开放获取影像（DP231358）缩小到 1600 × 1124 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Shah Quli，'Saz'-Style Drawing of a Dragon Amid Foliage，57.51.26",
+      "url": "https://www.metmuseum.org/art/collection/search/451405"
+    },
+    {
+      "label": "大都会艺术博物馆教育资源：Art of the Islamic World，“Ottoman Art”（宫廷画坊与设计的传播）",
+      "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-five/chapter-two/ottoman-art"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（57.51.26）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 52 课已核对的图像。“归于沙·库里”是馆方的归属，不是画上的签名。"
+  },
+  "card": {
+    "type": "素描 · 宫廷设计",
+    "maker": "传沙·库里",
+    "period": "约 1540–1550 年",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "纸本墨 · 金"
+      },
+      {
+        "label": "画心高",
+        "value": "17.3 cm"
+      },
+      {
+        "label": "画坊",
+        "value": "奥斯曼宫廷"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一片锯齿状的长叶，从这张纸出发，长到了瓷砖、丝绸和清真寺的墙上。",
+    "focus": "55% 55%",
+    "image": "full"
+  }
+}

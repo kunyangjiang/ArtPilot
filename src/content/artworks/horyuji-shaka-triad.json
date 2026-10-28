@@ -1,0 +1,72 @@
+{
+  "id": "art-horyuji-shaka-triad-001",
+  "kind": "object",
+  "titleZh": "法隆寺金堂释迦三尊像",
+  "titleEn": "Shaka Triad, Golden Hall, Hōryū-ji",
+  "attributionNote": "鞍作止利（止利佛师）所作。据背光背面的铭文，623 年为圣德太子及其母后、妃子的冥福而造（据第 25 课所引《世界大百科事典》与铭文）。",
+  "dateApprox": "623 年",
+  "objectType": "佛教造像 · 一光三尊像（三尊共用一个舟形背光）",
+  "medium": "鎏金铜",
+  "dimensions": "本站所读资料没有给出尺寸，暂不著录",
+  "collection": "法隆寺金堂（奈良县斑鸠町），日本国宝",
+  "originalStatus": "原件，至今供奉在原寺的金堂中。",
+  "provenance": "自 7 世纪起一直在法隆寺；“法隆寺地域的佛教建筑物”为联合国教科文组织世界遗产。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/horyuji-shaka-triad.jpg",
+      "alt": "一张老照片：一尊坐佛居中，两侧各立一尊菩萨，三尊共用一个巨大的、刻满火焰纹的舟形背光；坐佛的衣裙从台座上垂下，形成对称的层层褶纹。",
+      "caption": "法隆寺金堂的释迦三尊像，623 年，鎏金铜。小川一真 1888–1889 年拍摄。",
+      "kind": "full",
+      "credit": {
+        "author": "小川一真（Ogawa Kazumasa）",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyuji_Shaka_Triad.jpg",
+        "date": "1888–1889",
+        "changes": "原图未缩放；重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "佐藤昭夫，“鞍作止利”，平凡社《改订新版 世界大百科事典》（Kotobank）",
+      "url": "https://kotobank.jp/word/%E9%9E%8D%E4%BD%9C%E6%AD%A2%E5%88%A9-56394"
+    },
+    {
+      "label": "联合国教科文组织世界遗产名录：Buddhist Monuments in the Horyu-ji Area",
+      "url": "https://whc.unesco.org/en/list/660/"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（19 世纪照片）",
+    "basis": "小川一真 1888–1889 年拍摄，维基共享资源以 PD-old-70 标注（原件藏美国国家美术馆图书馆图像部）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 25 课已核对的照片。这是一张 19 世纪的黑白照片，不是今天的样子。"
+  },
+  "card": {
+    "type": "雕塑 · 佛像",
+    "maker": "止利佛师",
+    "period": "623 年",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "鎏金铜"
+      },
+      {
+        "label": "形式",
+        "value": "一光三尊"
+      },
+      {
+        "label": "所在",
+        "value": "法隆寺金堂"
+      },
+      {
+        "label": "身份",
+        "value": "日本国宝"
+      }
+    ],
+    "blurb": "一个巨大的火焰背光，护着三尊佛：日本最早可以确定作者的佛像之一。",
+    "focus": "50% 45%",
+    "image": "full"
+  }
+}

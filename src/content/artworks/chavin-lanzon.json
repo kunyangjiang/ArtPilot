@@ -1,0 +1,73 @@
+{
+  "id": "art-chavin-lanzon-001",
+  "kind": "object",
+  "titleZh": "兰松石柱",
+  "titleEn": "El Lanzón, Chavín de Huántar",
+  "attributionNote": "查文文化的雕刻者所作，没有留名。它通常被认为是查文德万塔尔最主要的神灵形象，但它是谁、代表什么，没有文字可以说明（据第 14 课）。",
+  "dateApprox": "查文德万塔尔旧神庙时期（公元前 1 千纪）",
+  "objectType": "神庙内的神像石柱（浅浮雕）",
+  "medium": "花岗岩",
+  "dimensions": "高约 4.5 米（秘鲁国家旅游局记为 14.86 英尺）",
+  "collection": "原址：秘鲁安卡什大区查文德万塔尔旧神庙内部走廊（未移动）",
+  "originalStatus": "原件，仍在原来的位置：底部插在地面里，顶端伸进走廊顶部。",
+  "provenance": "自建成以来一直在原址；查文德万塔尔为联合国教科文组织世界遗产（No. 330）。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/chavin-lanzon.jpg",
+      "alt": "狭窄昏暗的石砌通道尽头，一根高大的石柱从地面直通到顶，表面刻着浅浮雕；两侧的石墙几乎贴着它，只有一条窄缝可以看过去。",
+      "caption": "查文德万塔尔神庙内部走廊中的“兰松”石柱，花岗岩，高约 4.5 米（2006 年从东侧的小开口摄）。",
+      "kind": "full",
+      "credit": {
+        "author": "Reto Luescher",
+        "licence": "CC BY 2.5",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.5/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:El-lanzon.JPG",
+        "date": "2006-07-09",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "秘鲁国家旅游局（PromPerú）：The enigmatic Chavín culture of Peru（兰松高 14.86 英尺、旧神庙与新神庙的年代、照明用的石钉、仅一颗榫头像留在原位）",
+      "url": "https://peru.info/en-us/tourism/news/3/17/the-enigmatic-chavin-culture-of-peru"
+    },
+    {
+      "label": "UNESCO 世界遗产名录：Chavin (Archaeological Site)（No. 330）",
+      "url": "https://whc.unesco.org/en/list/330/"
+    }
+  ],
+  "rights": {
+    "status": "CC BY 2.5（照片）",
+    "basis": "照片由 Reto Luescher 拍摄，在维基共享资源以 CC BY 2.5 发布；石柱本身属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 14 课已核对的照片，须署名。旧神庙的确切年代各家说法不一，卡片只写“公元前 1 千纪”。"
+  },
+  "card": {
+    "type": "雕刻 · 神庙石柱",
+    "maker": "查文德万塔尔",
+    "period": "公元前 1 千纪",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "花岗岩"
+      },
+      {
+        "label": "高",
+        "value": "约 4.5 m"
+      },
+      {
+        "label": "位置",
+        "value": "旧神庙走廊深处"
+      },
+      {
+        "label": "现状",
+        "value": "仍在原址"
+      }
+    ],
+    "blurb": "藏在黑暗走廊的尽头：人只能贴着它，从下往上一点点看。",
+    "focus": "50% 45%",
+    "image": "full"
+  }
+}

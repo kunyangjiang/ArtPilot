@@ -1,0 +1,84 @@
+{
+  "id": "art-yungang-cave20-001",
+  "kind": "building",
+  "titleZh": "云冈石窟第 20 窟大佛",
+  "titleEn": "Great Buddha, Cave 20, Yungang Grottoes",
+  "attributionNote": "北魏皇室主持开凿：云冈最早的五个大窟由僧人昙曜奉皇帝之命主持（据第 17 课所引联合国教科文组织说明）。工匠没有留名。",
+  "dateApprox": "北魏，5 世纪后半叶",
+  "location": "中国山西省大同市云冈石窟",
+  "facts": [
+    {
+      "label": "类型",
+      "value": "石窟寺（摩崖造像）"
+    },
+    {
+      "label": "现状",
+      "value": "窟前壁崩塌，佛像露天"
+    },
+    {
+      "label": "世界遗产",
+      "value": "云冈石窟，2001 年列入"
+    }
+  ],
+  "buildingType": "佛教石窟寺",
+  "materials": "砂岩山体中直接开凿的造像。",
+  "notes": [
+    "开凿于 5 世纪中叶以后，属云冈最早的“昙曜五窟”。",
+    "窟前的岩壁后来崩塌，佛像今天露天坐在崖下。"
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/yungang-cave20.jpg",
+      "alt": "露天的巨大石雕佛坐像，前方的窟壁早已崩塌：佛脸方圆，两耳很长，嘴角上翘，双肩宽厚，身上的袈裟只露出一边肩膀，衣纹一道道凸起；右侧站着一尊较小的立佛。",
+      "caption": "大同云冈石窟第 20 窟的大佛，北魏，5 世纪后半叶。窟前壁崩塌，佛像今天露天可见。",
+      "kind": "full",
+      "credit": {
+        "author": "Mario Biondi",
+        "licence": "CC BY-SA 2.5",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great.Buddha.Datong.jpg",
+        "date": "2006-07-04",
+        "changes": "缩小、重新压缩；未裁切、未调色。修改后的文件按 CC BY-SA 2.5 提供"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "联合国教科文组织世界遗产中心：Yungang Grottoes",
+      "url": "https://whc.unesco.org/en/list/1039/"
+    }
+  ],
+  "rights": {
+    "status": "CC BY-SA 2.5（照片）",
+    "basis": "照片由 Mario Biondi 拍摄，在维基共享资源以 CC BY-SA 2.5 发布。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 17 课已核对的照片；改动版本按同一许可提供。“2001 年列入”据联合国教科文组织名录。"
+  },
+  "card": {
+    "type": "石窟造像",
+    "maker": "大同",
+    "period": "5 世纪后半叶",
+    "facets": [
+      {
+        "label": "朝代",
+        "value": "北魏"
+      },
+      {
+        "label": "形式",
+        "value": "摩崖大佛"
+      },
+      {
+        "label": "主持",
+        "value": "僧人昙曜"
+      },
+      {
+        "label": "现状",
+        "value": "露天"
+      }
+    ],
+    "blurb": "一座皇帝下令开凿的石窟：窟壁塌了，大佛今天坐在天光下。",
+    "focus": "45% 35%",
+    "image": "full"
+  }
+}

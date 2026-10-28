@@ -1,0 +1,72 @@
+{
+  "id": "art-blue-quran-folio-001",
+  "kind": "object",
+  "titleZh": "“蓝色《古兰经》”散页",
+  "titleEn": "Folio from the \"Blue Qur'an\"",
+  "attributionNote": "书写者没有留名；大都会艺术博物馆定为 9 世纪下半叶至 10 世纪中叶，可能作于突尼斯凯鲁万。",
+  "dateApprox": "9 世纪下半叶至 10 世纪中叶",
+  "objectType": "《古兰经》抄本散页",
+  "medium": "靛蓝染羊皮纸上的金银字",
+  "dimensions": "30.4 × 40.2 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），2004.88",
+  "originalStatus": "原件，单页；四边有破损，银色的圆形标记已氧化发黑。",
+  "provenance": "原属一部已被拆散的抄本，散页今分藏各地；本站未逐项核对这一页的递藏。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/blue-quran.jpg",
+      "alt": "一张横长的羊皮纸，染成深靛蓝色，上面用金色写着十五行方折的阿拉伯字母。字母大多是横平竖直的块状，有的横笔被拉得很长；字母上下没有任何点号。右下有一个银色的圆形标记，已经氧化发黑。纸的四边有破损。",
+      "caption": "“蓝色《古兰经》”的一页，9 世纪下半叶至 10 世纪中叶，可能作于突尼斯凯鲁万，靛蓝染羊皮纸上的金银字，30.4 × 40.2 厘米，大都会艺术博物馆藏（2004.88）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/454662",
+        "changes": "由原图（DP167100）缩小并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Folio from the \"Blue Qur'an\"，2004.88",
+      "url": "https://www.metmuseum.org/art/collection/search/454662"
+    },
+    {
+      "label": "Maryam Ekhtiar、Julia Cohen，“Early Qur'ans (8th–Early 13th Century)”，大都会《艺术史年表》（2014）",
+      "url": "https://www.metmuseum.org/essays/early-qurans-8thearly-13th-centuries"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（2004.88）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 21 课已核对的图像。"
+  },
+  "card": {
+    "type": "书法 · 抄本散页",
+    "maker": "可能作于凯鲁万",
+    "period": "9–10 世纪",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "靛蓝羊皮纸 · 金银"
+      },
+      {
+        "label": "尺寸",
+        "value": "30.4 × 40.2 cm"
+      },
+      {
+        "label": "字体",
+        "value": "库法体"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "深蓝的羊皮纸上，金色的字横平竖直：写给已经会背的人看。",
+    "focus": "50% 50%",
+    "image": "full"
+  }
+}

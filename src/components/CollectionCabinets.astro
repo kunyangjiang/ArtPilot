@@ -4,31 +4,30 @@
 // compact wall of cards, and one card in focus with its own front and back. Views are hash locations (#cabinets,
 // #cabinet-04, #card-<artwork id>), so links, Back/Forward and the keyboard behave natively; no modal, no framework.
 // Only cards this browser has claimed are shown (claims live in localStorage under the artwork id); every published
-// card is in the page once, hidden, and thumbnails are copies of its front. A course card is numbered by the course
-// of the lesson that awards it and sits in its stage's cabinet; an artist-series card (No.084 onward, awarded at the end of
-// an artist story) sits in the artists' cabinet. A card with neither stops the build in ArtworkCard.
+// card is in the page once, hidden, and thumbnails are copies of its front. A course card (a course may award several)
+// sits in its stage's cabinet; an artist-series card (numbered after the whole core block, awarded at the end of an
+// artist story) sits in the artists' cabinet. Numbers come from cardIndex (src/lib/publication.js); a card that no
+// lesson or story awards stops the build.
 import '../styles/fonts.css';
 import { getCollection } from 'astro:content';
 import ArtworkCard from './ArtworkCard.astro';
 import { stages } from '../data/curriculum';
-import { cardNumber, artistCardNumber, ARTIST_SERIES } from '../lib/publication.js';
+import { publishedCards } from '../lib/cards';
 
-const courseOf = new Map((await getCollection('lessons')).map((l) => [l.data.artwork.id, l.data.course]));
+const awarded = await publishedCards();
 const stageOf = (n: number) => stages.find((s) => n >= s.first && n <= s.last)!.no;
 const cards = (await getCollection('artworks')).filter((a) => a.data.card)
   .map((a) => {
-    const course = courseOf.get(a.id);
+    const entry = awarded.get(a.id);
+    if (!entry) throw new Error(`Card ${a.id} has no lesson or story to award it`);
     // A course card sits in its stage's cabinet; an artist-series card in the artists' cabinet.
-    if (course) return { id: a.id, no: cardNumber(course), title: a.data.titleZh, cabinet: stageOf(course) };
-    const no = artistCardNumber(a.id);
-    if (!no) throw new Error(`Card ${a.id} has no lesson and no artist-series number`);
-    return { id: a.id, no, title: a.data.titleZh, cabinet: 'artists' };
+    return { id: a.id, no: entry.no, title: a.data.titleZh, cabinet: entry.course ? stageOf(entry.course) : 'artists' };
   })
   .sort((a, b) => a.no.localeCompare(b.no));
-const pad = (n: number) => String(n).padStart(3, '0');
+const artistFirst = [...awarded.values()].find((c) => c.series === 'artist')?.no;
 const cabinets = [
   ...stages.map((s) => ({ id: s.no, no: s.no, title: s.title, range: `第 ${s.first}–${s.last} 课` })),
-  { id: 'artists', no: 'A', title: '艺术家故事', range: `No.${pad(ARTIST_SERIES.first)} 起` },
+  { id: 'artists', no: 'A', title: '艺术家故事', range: artistFirst ? `No.${artistFirst} 起` : '' },
 ];
 ---
 <div class="cc" data-cc>

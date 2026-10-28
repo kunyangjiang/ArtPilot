@@ -1,0 +1,70 @@
+{
+  "id": "art-taino-zemi-001",
+  "kind": "object",
+  "titleZh": "泰诺泽米像",
+  "titleEn": "Zemí figure",
+  "attributionNote": "泰诺雕刻者所作，没有留名（据大都会艺术博物馆）。",
+  "dateApprox": "1200–1500 年",
+  "objectType": "仪式托台（泽米像）",
+  "medium": "石（生物碎屑灰岩）",
+  "dimensions": "61 × 18.4 × 22.5 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），1979.206.1209",
+  "originalStatus": "原件。大都会认为它很可能是在科霍巴仪式中用作托台：致幻剂放在头顶的平台上。",
+  "provenance": "大都会著录的产地为多米尼加（加问号）；1979 年随纳尔逊·A·洛克菲勒遗赠入藏。更早的经过与出土情况馆方说明没有给出。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/taino-zemi.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一件浅黄色砂岩雕成的立像：瘦削的身体、凸出的肋骨，头部像骷髅一样有深陷的大眼窝，头顶托着一个平台。",
+      "caption": "泽米像，泰诺，1200–1500 年，石，高 61 厘米，大都会艺术博物馆藏（1979.206.1209）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/313384",
+        "changes": "馆方开放获取影像（DP-17800-001）缩小到 1200 × 1600 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Zemí figure，1979.206.1209",
+      "url": "https://www.metmuseum.org/art/collection/search/313384"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（1979.206.1209）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 54 课已核对的图像。用途的说法依据西班牙人的记述与馆方解释。"
+  },
+  "card": {
+    "type": "雕刻 · 仪式托台",
+    "maker": "泰诺",
+    "period": "1200–1500 年",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "石"
+      },
+      {
+        "label": "高",
+        "value": "61 cm"
+      },
+      {
+        "label": "仪式",
+        "value": "科霍巴"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "瘦削的身体、睁大的眼睛，头顶托着一个平台：它在仪式里“托住”神力。",
+    "focus": "50% 30%",
+    "image": "full"
+  }
+}

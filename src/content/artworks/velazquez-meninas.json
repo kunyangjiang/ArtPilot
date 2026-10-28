@@ -1,0 +1,81 @@
+{
+  "id": "art-velazquez-meninas-001",
+  "kind": "painting",
+  "titleZh": "宫娥",
+  "titleEn": "Las Meninas",
+  "artist": "迭戈·委拉斯凯兹（Diego Velázquez）",
+  "attributionNote": "西班牙宫廷画家委拉斯凯兹所作。年代据《不列颠百科全书》记为 1656 年，维基共享资源记为 1656–1657 年（据第 46 课）。",
+  "dateApprox": "1656 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 318,
+    "width": 276
+  },
+  "collection": "普拉多博物馆（马德里）",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/velazquez-meninas.jpg",
+      "alt": "一幅很高的布面油画：一间高大昏暗的屋子里，正中站着一个穿白色宽裙的金发小女孩；两位侍女一左一右，一个跪着递上一只红色的小杯，一个弯腰行礼。左边一块巨大的画布背对观者，画家本人站在画布后面，手拿画笔和调色板，看向画外。右前方是两个身材矮小的人，一个用脚踩着一只趴着的大狗。后墙上挂着几幅暗色的画和一面小镜子，镜中隐约映出一男一女；后墙的门口，一个男人站在明亮的台阶上回头看。",
+      "caption": "迭戈·委拉斯凯兹《宫娥》，1656 年，布面油画，318 × 276 厘米，马德里普拉多博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg",
+        "changes": "由 Commons 的原图缩小到 1390 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "mirror",
+      "src": "/img/velazquez-meninas-mirror.jpg",
+      "alt": "局部：后墙上的小镜子，镜中是一男一女两个模糊的半身像，上方垂着一片红色的帘子；左边是手拿画笔和调色板的画家，右边的门口站着一个男人。",
+      "caption": "局部：后墙的镜子、画家与门口的人。",
+      "kind": "detail",
+      "subject": "委拉斯凯兹《宫娥》局部",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg",
+        "changes": "由 Commons 的原图裁出局部，缩小并重新压缩；未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "《不列颠百科全书》：Ann Kay, “Las Meninas”",
+      "url": "https://www.britannica.com/topic/Las-Meninas"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "维基共享资源上来自普拉多博物馆在线画廊的复制照片，按 PD-Art 标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "核对时普拉多官网弹出机器人验证，没有绕过；年代与尺寸用《不列颠百科全书》和维基共享资源的记录。"
+  },
+  "card": {
+    "type": "宫廷人物画",
+    "period": "1656 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "委拉斯凯兹"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "318 × 276 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "马德里"
+      }
+    ],
+    "blurb": "画家在画里看着你，镜子里映出国王和王后：谁在看，谁被看？",
+    "focus": "45% 50%",
+    "image": "full"
+  }
+}

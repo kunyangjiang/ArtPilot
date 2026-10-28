@@ -1,0 +1,74 @@
+{
+  "id": "art-fragonard-stolen-kiss-001",
+  "kind": "painting",
+  "titleZh": "偷吻",
+  "titleEn": "The Stolen Kiss",
+  "artist": "让-奥诺雷·弗拉戈纳尔（Jean Honoré Fragonard）",
+  "attributionNote": "弗拉戈纳尔第一次意大利之行时所作，是他最早的私人委托之一，委托人很可能是马耳他骑士团驻教廷的大使（据大都会艺术博物馆）。",
+  "dateApprox": "约 1760 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 48.3,
+    "width": 63.5
+  },
+  "collection": "大都会艺术博物馆（纽约），56.100.1",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/fragonard-stolen-kiss.jpg",
+      "width": 1600,
+      "height": 1217,
+      "alt": "一幅暗底的小画：画面中央，一个年轻男子凑近一个仰着头的年轻女子去吻她，女子的手被他按着；右边另一位女子侧脸看着，手搭在一张铺着白布的桌上。人物穿着发亮的丝绸衣裙，黄、粉、白的衣褶在暗处闪光。",
+      "caption": "让-奥诺雷·弗拉戈纳尔《偷吻》，约 1760 年，布面油画，48.3 × 63.5 厘米，大都会艺术博物馆藏（56.100.1）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436325",
+        "changes": "馆方开放获取影像（DP-1009-001）缩小到 1600 × 1217 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Jean Honoré Fragonard, The Stolen Kiss, 56.100.1",
+      "url": "https://www.metmuseum.org/art/collection/search/436325"
+    },
+    {
+      "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：“Jean Honoré Fragonard (1732–1806)”",
+      "url": "https://www.metmuseum.org/essays/jean-honore-fragonard"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（56.100.1）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 48 课已核对的图像。大都会的说明把画中的吻称为“被强行追求”的；第 48 课对此有批判性的讨论。"
+  },
+  "card": {
+    "type": "风俗画 · 洛可可",
+    "period": "约 1760 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "弗拉戈纳尔"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "48.3 × 63.5 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "丝绸在暗处闪光，故事却让人不安：洛可可的优雅，不等于无害。",
+    "focus": "40% 50%",
+    "image": "full"
+  }
+}

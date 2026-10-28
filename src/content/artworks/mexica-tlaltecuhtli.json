@@ -1,0 +1,70 @@
+{
+  "id": "art-mexica-tlaltecuhtli-001",
+  "kind": "object",
+  "titleZh": "大地之神特拉尔特库特利",
+  "titleEn": "Tlaltecuhtli (earth deity)",
+  "attributionNote": "墨西加（阿兹特克）的雕刻者所作，没有留名（据大都会艺术博物馆）。",
+  "dateApprox": "1450–1521 年",
+  "objectType": "神像浮雕",
+  "medium": "石",
+  "dimensions": "50.8 × 41.9 × 12.7 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），00.5.36",
+  "originalStatus": "原件。大都会说明这位神的形象常被刻在重要雕刻的底面。",
+  "provenance": "大都会 1900 年购入；馆方记录没有它的出土地点和发掘记录，原来属于哪座建筑、和什么放在一起无从得知。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mexica-tlaltecuhtli.jpg",
+      "width": 1382,
+      "height": 1600,
+      "alt": "一块灰色火山岩浮雕：一个四肢张开、蹲伏的神像，巨大的头向后上方仰起，圆鼓的眼睛，张开的大嘴里叼着一把刀；手足带爪，胸前刻着一个圆形下垂的符号。",
+      "caption": "大地之神特拉尔特库特利，墨西加（阿兹特克），1450–1521 年，石，50.8 × 41.9 厘米，大都会艺术博物馆藏（00.5.36）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/307636",
+        "changes": "馆方开放获取影像（DP-28118-001）缩小到 1382 × 1600 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Tlaltecuhtli (earth deity)，00.5.36",
+      "url": "https://www.metmuseum.org/art/collection/search/307636"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（00.5.36）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 54 课已核对的图像。"
+  },
+  "card": {
+    "type": "雕刻 · 神像浮雕",
+    "maker": "墨西加（阿兹特克）",
+    "period": "1450–1521 年",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "石"
+      },
+      {
+        "label": "尺寸",
+        "value": "50.8 × 41.9 cm"
+      },
+      {
+        "label": "来历",
+        "value": "1900 年购入"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "大地之神仰着头，牙间叼着献祭的刀：它吞下献祭者，也吞下落日。",
+    "focus": "50% 35%",
+    "image": "full"
+  }
+}

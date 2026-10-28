@@ -1,0 +1,72 @@
+{
+  "id": "art-mathura-buddha-001",
+  "kind": "object",
+  "titleZh": "秣菟罗佛坐像",
+  "titleEn": "Seated Shakyamuni Buddha (Mathura)",
+  "attributionNote": "贵霜时期秣菟罗的雕刻者所作，没有留名（据克利夫兰艺术博物馆）。",
+  "dateApprox": "约公元 120 年",
+  "objectType": "佛教造像 · 佛坐像",
+  "medium": "红色斑点砂岩",
+  "dimensions": "高 51.4 厘米（据克利夫兰艺术博物馆）",
+  "collection": "克利夫兰艺术博物馆，1970.63",
+  "originalStatus": "原件，左侧残存一个小侍者像。",
+  "provenance": "据克利夫兰艺术博物馆的来源记录：1970 年由洛杉矶的斯滕达尔画廊（Stendahl Art Gallery）售予该馆；画廊何时得到它，记录没有写明。1970 是入藏年份，不是制作年代。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mathura-buddha.jpg",
+      "alt": "一尊带红色斑点的砂岩佛坐像：佛双腿交叠坐在台座上，右手举起，掌心向外；身上的衣服很薄，几乎看不出衣褶，身体的轮廓清楚可见；头顶有螺旋形的发髻，左侧残存一个小小的侍者像。",
+      "caption": "秣菟罗的佛坐像，约 120 年，红色斑点砂岩，高 51.4 厘米，克利夫兰艺术博物馆藏（1970.63）。",
+      "kind": "full",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/1970.63",
+        "changes": "由原图缩小并重新压缩，未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Seated Shakyamuni Buddha，1970.63",
+      "url": "https://www.clevelandart.org/art/1970.63"
+    },
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Seated Buddha，1941.94（博物馆对秣菟罗衣纹的说明）",
+      "url": "https://www.clevelandart.org/art/1941.94"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "克利夫兰艺术博物馆开放获取接口标注 CC0。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 16 课已核对的图像。"
+  },
+  "card": {
+    "type": "雕塑 · 佛像",
+    "maker": "秣菟罗",
+    "period": "约 120 年",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "红色斑点砂岩"
+      },
+      {
+        "label": "高",
+        "value": "51.4 cm"
+      },
+      {
+        "label": "衣纹",
+        "value": "薄衣贴体"
+      },
+      {
+        "label": "藏地",
+        "value": "克利夫兰"
+      }
+    ],
+    "blurb": "另一条路上的佛像：衣服薄得几乎看不见，身体轮廓清清楚楚。",
+    "focus": "50% 40%",
+    "image": "full"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "art-jeong-seon-inwang-001",
+  "kind": "painting",
+  "titleZh": "仁王霁色图",
+  "titleEn": "Clearing After Rain on Mount Inwang",
+  "artist": "郑敾（号谦斋，Jeong Seon）",
+  "attributionNote": "朝鲜王朝后期画家郑敾（1676–1759）所作，题“仁王霁色”与“辛未闰月下浣”（1751 年）。韩国国家遗产厅称它是郑敾传世四百多件作品中最大的一件（据第 51 课）。",
+  "dateApprox": "1751 年",
+  "medium": "纸本水墨",
+  "dimensionsCm": {
+    "height": 79.2,
+    "width": 138.2
+  },
+  "collection": "国立中央博物馆（首尔），韩国国宝",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/jeong-seon-inwang.jpg",
+      "width": 1600,
+      "height": 929,
+      "alt": "一幅横长的水墨画：上半部是一大块漆黑的岩壁，像被雨淋透一样，用粗大的墨笔一道道从上往下刷；周围的山脊上点满短短的墨点。中间一大片白色的云雾横过山腰，下方是松树林和几间屋顶。右上角有一行竖写的题字。",
+      "caption": "郑敾《仁王霁色图》，1751 年，纸本水墨，79.2 × 138.2 厘米，国立中央博物馆藏，韩国国宝。",
+      "kind": "full",
+      "credit": {
+        "author": "郑敾（Jeong Seon）；维基共享资源扫描",
+        "licence": "公有领域（PD-Art）",
+        "licenceUrl": "https://commons.wikimedia.org/wiki/Commons:Reuse_of_PD-Art_photographs",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inwangjesaekdo.jpg",
+        "changes": "维基共享资源原图（4449 × 2583）缩小到 1600 × 929 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "韩国国家遗产厅文化遗产信息：정선 필 인왕제색도，国宝，国立中央博物馆",
+      "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=11&ccbaAsno=02160000&ccbaCtcd=11"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "郑敾 1759 年去世；维基共享资源的平面复制件按 PD-Art 视为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 51 课已核对的扫描；原始拍摄者不详。国家遗产厅也有官方照片，但分辨率较低。"
+  },
+  "card": {
+    "type": "山水画 · 真景山水",
+    "period": "1751 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "郑敾"
+      },
+      {
+        "label": "媒材",
+        "value": "纸本水墨"
+      },
+      {
+        "label": "尺幅",
+        "value": "79.2 × 138.2 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "首尔"
+      }
+    ],
+    "blurb": "雨后的仁王山：画家用大笔一次次往下刷，把岩壁画得又黑又重。",
+    "focus": "40% 30%",
+    "image": "full"
+  }
+}

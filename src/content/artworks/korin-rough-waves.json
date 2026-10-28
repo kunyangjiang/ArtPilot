@@ -1,0 +1,74 @@
+{
+  "id": "art-korin-rough-waves-001",
+  "kind": "painting",
+  "titleZh": "波涛图屏风",
+  "titleEn": "Rough Waves",
+  "artist": "尾形光琳（Ogata Kōrin）",
+  "attributionNote": "尾形光琳（1658–1716）所作。屏上有“道崇”印，是光琳 1704 年开始用的号（据大都会艺术博物馆）。",
+  "dateApprox": "约 1704–1709 年",
+  "medium": "二曲一只屏风，纸本金地水墨设色",
+  "dimensionsCm": {
+    "height": 146.5,
+    "width": 165.4
+  },
+  "collection": "大都会艺术博物馆（纽约），26.117",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/korin-rough-waves.jpg",
+      "width": 1600,
+      "height": 1427,
+      "alt": "一件两扇的折屏，金色的底已经暗淡，布满细小的裂纹。画面上是汹涌的海浪：深墨绿色的浪身一层层卷起，浪头的白沫像一只只弯曲的爪子；中间一道竖线是两扇屏风的接缝。右上角有一行竖写的题款和一方圆印。",
+      "caption": "尾形光琳《波涛图屏风》，约 1704–1709 年，二曲一只，纸本金地水墨设色，146.5 × 165.4 厘米，大都会艺术博物馆藏（26.117）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/44918",
+        "changes": "馆方开放获取影像（DT1615）缩小到 1600 × 1427 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Ogata Kōrin, Rough Waves，26.117",
+      "url": "https://www.metmuseum.org/art/collection/search/44918"
+    },
+    {
+      "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Anna Willmann，“The Japanese Tea Ceremony”（2011）",
+      "url": "https://www.metmuseum.org/essays/the-japanese-tea-ceremony"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（26.117）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 49 课已核对的图像。金地已经暗淡、开裂，照片如实呈现。"
+  },
+  "card": {
+    "type": "屏风画",
+    "period": "约 1704–1709 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "尾形光琳"
+      },
+      {
+        "label": "媒材",
+        "value": "纸本金地设色"
+      },
+      {
+        "label": "尺幅",
+        "value": "146.5 × 165.4 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "浪头像一只只弯曲的爪子：可以折起、搬走、重新摆开的一片海。",
+    "focus": "55% 45%",
+    "image": "full"
+  }
+}

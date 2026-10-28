@@ -1,0 +1,68 @@
+{
+  "id": "art-admonitions-scroll-001",
+  "kind": "painting",
+  "titleZh": "女史箴图",
+  "titleEn": "The Admonitions Scroll",
+  "artist": "传顾恺之（大英博物馆著录为“After: Gu Kaizhi”）",
+  "attributionNote": "大英博物馆著录为“After: Gu Kaizhi”（追仿顾恺之），定为 5–7 世纪；卷末“顾恺之画”的款是后加的（据第 18 课所引馆方记录）。前三段画面与第四段的文字已经缺失。",
+  "dateApprox": "5–7 世纪",
+  "medium": "绢本设色，手卷（后装裱于板上）",
+  "dimensionsCm": {
+    "height": 24.37,
+    "width": 343.75
+  },
+  "collection": "大英博物馆（伦敦），1903,0408,0.1",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/admonitions-lady-ban.jpg",
+      "alt": "一段绢本手卷画：左边一群轿夫弯着身子，抬着一顶有黑色顶篷和红色边框的大轿向左走，轿中坐着一个男子；右边一位女子独自跟在轿后，衣带细长，向后飘起；最右边是一列题字和一方大印。人物都用极细、均匀的线勾出，绢面发黄，有许多裂纹和剥落。",
+      "caption": "《女史箴图》中班婕妤辞辇一段，大英博物馆藏。博物馆定为 5–7 世纪，著录为“After: Gu Kaizhi”（追仿顾恺之）。",
+      "kind": "full",
+      "credit": {
+        "author": "大英博物馆藏品（维基共享资源图像）",
+        "licence": "公有领域（平面艺术品的忠实复制）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Admonitions_Scroll_Scene_5.jpg",
+        "changes": "缩小、重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大英博物馆藏品页：女史箴图，1903,0408,0.1（“After: Gu Kaizhi”，5–7 世纪；卷末“顾恺之画”为后加）",
+      "url": "https://www.britishmuseum.org/collection/object/A_1903-0408-0-1"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（平面艺术品的忠实复制）",
+    "basis": "维基共享资源以 {{PD-Art}} 标注；大英博物馆网站上的图像以 CC BY-NC-SA 4.0 提供，本站使用的不是那一份。",
+    "verifiedOn": "2026-10-28",
+    "note": "馆方记录：1900 年八国联军占领北京期间，英属印度军队的约翰逊上尉（Capt. C. Johnson）在北京得到此卷，1903 年由大英博物馆从他手中购得。尺寸与来历据大英博物馆藏品页（2026-10-28 核对）。"
+  },
+  "card": {
+    "type": "人物画 · 手卷",
+    "maker": "传顾恺之",
+    "period": "5–7 世纪",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "绢本设色"
+      },
+      {
+        "label": "尺幅",
+        "value": "24.37 × 343.75 cm"
+      },
+      {
+        "label": "身份",
+        "value": "追仿之作"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "极细、均匀的线：一卷讲给宫中女子听的道理，留下了最早的人物画之一。",
+    "focus": "45% 50%",
+    "image": "full"
+  }
+}

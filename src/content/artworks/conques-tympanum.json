@@ -1,0 +1,122 @@
+{
+  "id": "art-conques-tympanum-001",
+  "kind": "building",
+  "titleZh": "孔克圣福瓦修道院教堂“最后的审判”门楣",
+  "titleEn": "Last Judgment tympanum, Abbey Church of Sainte-Foy, Conques",
+  "attributionNote": "罗马式时期的雕刻者所作，没有留名（据第 20 课所引孔克旅游局说明）。",
+  "dateApprox": "12 世纪上半叶",
+  "location": "法国奥克西塔尼大区孔克，圣福瓦修道院教堂西门",
+  "facts": [
+    {
+      "label": "尺寸",
+      "value": "宽约 6.7 米、高约 3.6 米"
+    },
+    {
+      "label": "题材",
+      "value": "最后的审判"
+    },
+    {
+      "label": "位置",
+      "value": "教堂西门上方"
+    }
+  ],
+  "buildingType": "罗马式教堂大门的半圆形门楣浮雕",
+  "materials": "石雕，残留淡蓝、淡红的颜色。",
+  "notes": [
+    "门楣宽约 6.7 米、高约 3.6 米，雕有至少 124 个人物；人物之间的石带上刻有拉丁文铭文（据孔克旅游局）。",
+    "原来上过鲜艳的颜色，今天石头上还留着淡淡的蓝和红。"
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/conques-tympanum.jpg",
+      "width": 1600,
+      "height": 739,
+      "alt": "一座罗马式教堂大门上方的半圆形石雕，分成上中下几层，雕满上百个人物。正中一个大的光环里，基督坐着，右手上举，左手下垂；他左边（画面左侧）的人物排成整齐的行列，右边（画面右侧）的人物挣扎扭打。最下层左边是一排拱廊，右边是一张怪兽的大嘴和一群受折磨的人。最底下一条长石带刻满拉丁字母。石头上残留着淡蓝、淡红的颜色。",
+      "caption": "孔克圣福瓦修道院教堂西门的“最后的审判”门楣浮雕，12 世纪上半叶，宽约 6.7 米。",
+      "kind": "full",
+      "credit": {
+        "author": "Renhour48（维基共享资源）",
+        "licence": "CC0 1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_21.jpg",
+        "date": "2025-06-14",
+        "changes": "裁去上方山墙与下方门扇，只留门楣浮雕；缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "judgement",
+      "src": "/img/conques-judgement.jpg",
+      "width": 1600,
+      "height": 894,
+      "alt": "门楣浮雕中央下部的近景：上方一位天使和一个长着怪脸的魔鬼隔着一杆秤，魔鬼伸手压着秤盘；下层左边，一位天使在一扇门旁拉着一个人的手；中间一根柱子隔开，右边几个魔鬼把赤裸的人推进一张张开的巨大兽口。最底下一行刻字。",
+      "caption": "门楣中央下部：秤量灵魂（上）；天堂之门与地狱的兽口（下）。",
+      "kind": "detail",
+      "subject": "孔克门楣：秤量灵魂与地狱之口",
+      "credit": {
+        "author": "Renhour48（维基共享资源）",
+        "licence": "CC0 1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_-_D%C3%A9tail_B.jpg",
+        "date": "2025-06-14",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "procession",
+      "src": "/img/conques-procession.jpg",
+      "width": 1600,
+      "height": 866,
+      "alt": "门楣左半部的近景：中层一列人物向右走，领头的是一位手持牧杖的院长，他牵着一位戴王冠、留胡子的人，后面跟着几位修士；右边几位圣徒手持钥匙和手杖。下面一条刻字石带。左下角的拱门里挂着几副镣铐；最下层，一个小小的人伏在地上，一只大手从旁边伸向她。",
+      "caption": "门楣左半部：中层的行列，左下的镣铐，下层伏地的小人和伸向她的手。",
+      "kind": "detail",
+      "subject": "孔克门楣：左半部的行列",
+      "credit": {
+        "author": "Renhour48（维基共享资源）",
+        "licence": "CC0 1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_-_D%C3%A9tail_C.jpg",
+        "date": "2025-06-14",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "孔克旅游局：The tympanum of the Last Judgment（年代、尺寸、人物数、原有颜色、铭文）",
+      "url": "https://tourisme-conques.fr/en/en-conques/the-tympanum"
+    }
+  ],
+  "rights": {
+    "status": "CC0（照片）",
+    "basis": "三张照片由 Renhour48 在维基共享资源以 CC0 发布；浮雕本身属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 20 课已核对的照片。全图裁去了上方山墙与下方门扇，只留门楣。"
+  },
+  "card": {
+    "type": "浮雕 · 罗马式门楣",
+    "maker": "孔克",
+    "period": "12 世纪上半叶",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "石 · 残彩"
+      },
+      {
+        "label": "宽",
+        "value": "约 6.7 m"
+      },
+      {
+        "label": "题材",
+        "value": "最后的审判"
+      },
+      {
+        "label": "位置",
+        "value": "教堂西门"
+      }
+    ],
+    "blurb": "一杆秤、一只伸过来的手、一张地狱的大嘴：进门之前先读完审判。",
+    "focus": "50% 45%",
+    "image": "full"
+  }
+}

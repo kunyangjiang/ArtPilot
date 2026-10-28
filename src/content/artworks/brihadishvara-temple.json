@@ -1,0 +1,115 @@
+{
+  "id": "art-brihadishvara-temple-001",
+  "kind": "building",
+  "titleZh": "坦贾武尔·布里哈迪斯瓦拉神庙",
+  "titleEn": "Brihadishvara Temple, Thanjavur",
+  "attributionNote": "朱罗王朝国王罗阇罗阇一世下令建造（据第 33 课所引联合国教科文组织说明）。建筑师与工匠没有留名。",
+  "dateApprox": "约 1003–1010 年",
+  "location": "印度泰米尔纳德邦坦贾武尔",
+  "facts": [
+    {
+      "label": "塔殿高",
+      "value": "59.82 米"
+    },
+    {
+      "label": "供奉",
+      "value": "湿婆"
+    },
+    {
+      "label": "世界遗产",
+      "value": "“伟大的朱罗神庙”（No. 250）"
+    }
+  ],
+  "buildingType": "印度教神庙：塔殿、圣室、环绕走道与门楼",
+  "materials": "石砌塔殿，层层收分，顶上是圆顶。",
+  "notes": [
+    "中央的圣室外围绕一条走道，主殿前有多重门楼。"
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/brihadishvara-vimana.jpg",
+      "alt": "晴朗的蓝天下，一座巨大的石砌塔殿：方形的基座上，一层层向上收分，最后顶着一个圆顶；塔身每一层都布满小龛和雕像。塔前的石板地上站着几个很小的人。",
+      "caption": "坦贾武尔布里哈迪斯瓦拉神庙的塔殿，罗阇罗阇一世约 1003–1010 年建成，高 59.82 米。",
+      "kind": "full",
+      "credit": {
+        "author": "Vengolis",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brihadeeswarar_Temple_3522.jpg",
+        "date": "2016-08-15",
+        "changes": "由 Commons 的缩小版本缩到 1067 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "plan",
+      "src": "/img/brihadishvara-plan.jpg",
+      "alt": "一张黑白平面图：中央是一个方形小室，里面画着一个圆；它外面是一圈厚墙，再外面是一条环绕的走道，然后又是一圈厚墙。图的一侧有台阶和入口。",
+      "caption": "布里哈迪斯瓦拉神庙主殿平面图：中央的圣室与围绕它的走道。",
+      "kind": "detail",
+      "subject": "布里哈迪斯瓦拉神庙主殿平面图",
+      "credit": {
+        "author": "Ms Sarah Welch",
+        "licence": "CC0 1.0（公有领域贡献）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brihadesvara_Hindu_temple,_UNESCO_heritage_site,_Thanjavur,_Tamil_Nadu.jpg",
+        "date": "2021-05-22",
+        "changes": "由 Commons 的缩小版本缩到 1035 × 1600 像素并重新压缩；未裁切"
+      }
+    },
+    {
+      "key": "gopura",
+      "src": "/img/brihadishvara-gopura.jpg",
+      "alt": "一座石砌门楼，门洞两侧各立着一尊巨大的守门神浮雕；穿过门洞，可以远远看到后面庭院里的塔殿。门前有一群参观的人。",
+      "caption": "布里哈迪斯瓦拉神庙的内门楼（罗阇罗阇门），门后是围绕塔殿的大庭院。",
+      "kind": "detail",
+      "subject": "坦贾武尔·布里哈迪斯瓦拉神庙门楼",
+      "credit": {
+        "author": "N. Vivekananthamoorthy",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rajarajan_Enterance_Big_Temple_Thanjavur_TamilNadu_India.jpg",
+        "date": "2023-08-20",
+        "changes": "由 Commons 的缩小版本缩到 1600 × 1328 像素并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "联合国教科文组织世界遗产名录：Great Living Chola Temples（No. 250）",
+      "url": "https://whc.unesco.org/en/list/250/"
+    }
+  ],
+  "rights": {
+    "status": "混合：CC BY-SA 4.0 与 CC0（照片与平面图）",
+    "basis": "维基共享资源文件页的许可信息，已在第 33 课核对。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 33 课已核对的图像；CC BY-SA 图像的改动版本按同一许可提供。"
+  },
+  "card": {
+    "type": "建筑 · 神庙",
+    "maker": "坦贾武尔",
+    "period": "约 1003–1010 年",
+    "facets": [
+      {
+        "label": "王朝",
+        "value": "朱罗"
+      },
+      {
+        "label": "塔殿高",
+        "value": "59.82 m"
+      },
+      {
+        "label": "材料",
+        "value": "石"
+      },
+      {
+        "label": "供奉",
+        "value": "湿婆"
+      }
+    ],
+    "blurb": "一座石头的山：神住在最深的小室里，人绕着它一圈圈走近。",
+    "focus": "50% 35%",
+    "image": "full"
+  }
+}

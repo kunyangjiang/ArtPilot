@@ -1,0 +1,73 @@
+{
+  "id": "art-naram-sin-stele-001",
+  "kind": "object",
+  "titleZh": "纳拉姆辛胜利石碑",
+  "titleEn": "Victory Stele of Naram-Sin",
+  "attributionNote": "阿卡德王朝的雕刻者所作，没有留名；碑上残存的铭文提到阿卡德国王纳拉姆辛的称号和他战胜卢卢比人的事（据第 9 课所引卢浮宫记录）。",
+  "dateApprox": "约公元前 2254–前 2218 年",
+  "objectType": "胜利纪念石碑（浮雕）",
+  "medium": "石",
+  "dimensions": "残高约 2 米（据第 9 课）",
+  "collection": "卢浮宫（巴黎），Sb 4",
+  "originalStatus": "原件，顶部与边缘残缺。",
+  "provenance": "据卢浮宫记录，大概原立于西帕尔城；公元前 12 世纪被埃兰国王舒特鲁克-纳洪特作为战利品运到苏萨，1898 年 4 月 6 日由法国考古队在苏萨卫城发现；今藏卢浮宫。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/naram-sin-stele.jpg",
+      "alt": "一块顶部尖、边缘残破的红褐色石碑，表面布满浮雕人物：一群士兵沿斜坡向上，坡顶附近有一个比别人都大的人，再往上是一座尖山和几个星形符号。",
+      "caption": "纳拉姆辛胜利石碑，阿卡德，约公元前 2254–2218 年，残高约 2 米。卢浮宫藏（Sb 4）。",
+      "kind": "full",
+      "credit": {
+        "author": "Rama",
+        "licence": "CC BY-SA 3.0 FR",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victory_stele_of_Naram_Sin_9068.jpg",
+        "date": "2007-10-20",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "卢浮宫藏品记录：Stèle de Naram-Sin，Sb 4（年代、西帕尔、苏萨、舒特鲁克-纳洪特、1898 年发现、铭文内容）",
+      "url": "https://collections.louvre.fr/ark:/53355/cl010123450"
+    },
+    {
+      "label": "大都会艺术博物馆《艺术史年表》：Early Dynastic Sculpture, 2900–2350 B.C.（2004）",
+      "url": "https://www.metmuseum.org/essays/early-dynastic-sculpture-2900-2350-b-c"
+    }
+  ],
+  "rights": {
+    "status": "CC BY-SA 3.0 FR（照片）",
+    "basis": "照片由 Rama 拍摄，在维基共享资源以 CC BY-SA 3.0 FR 发布；石碑本身属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 9 课已核对的照片；改动版本按同一许可提供。照片由参观者拍摄，与卢浮宫的图像授权无关。"
+  },
+  "card": {
+    "type": "浮雕 · 石碑",
+    "maker": "阿卡德",
+    "period": "约前 2254–前 2218 年",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "石"
+      },
+      {
+        "label": "残高",
+        "value": "约 2 m"
+      },
+      {
+        "label": "主角",
+        "value": "国王纳拉姆辛"
+      },
+      {
+        "label": "藏地",
+        "value": "巴黎"
+      }
+    ],
+    "blurb": "国王走在最前、站得最高，头戴神的角冠：一块写给所有人看的胜利。",
+    "focus": "50% 40%",
+    "image": "full"
+  }
+}

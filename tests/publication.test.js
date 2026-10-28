@@ -47,20 +47,19 @@ test('the homepage card box shows only this browser\'s claims: empty places unti
   assert.doesNotMatch(table, /No\.0\d\d/);
 });
 
-// Artist-series cards: from No.084 up with no fixed end, each number given once by hand, above every course number.
-test('artist-series cards are numbered from 084, uniquely, and never collide with a course card', async () => {
-  const { ARTIST_SERIES, ARTIST_CARDS, artistCardNumber, cardNumber } = await import('../src/lib/publication.js');
-  assert.equal(ARTIST_SERIES.first, TOTAL_COURSES + 1);
-  assert.equal(ARTIST_SERIES.last, undefined, 'the series has no fixed end');
-  const numbers = Object.values(ARTIST_CARDS);
-  assert.equal(new Set(numbers).size, numbers.length, 'no two artist cards share a number');
-  for (const n of numbers) assert.ok(Number.isInteger(n) && n >= ARTIST_SERIES.first);
-  assert.equal(artistCardNumber('art-osman-hamdi-tortoise-trainer-001'), '084');
-  assert.equal(artistCardNumber('art-fan-kuan-travelers-001'), undefined, 'a course card has no artist number');
-  assert.throws(() => artistCardNumber('x', { x: 83 }), /below/);
-  assert.equal(artistCardNumber('x', { x: 120 }), '120', 'a long series may run past 099');
-  assert.throws(() => artistCardNumber('x', { x: 90, y: 90 }), /twice/);
-  assert.throws(() => cardNumber(84), 'course numbers stop at 083');
+// Artist-series cards: listed once each, in series order, numbered after the whole core block (never a fixed No.084).
+test('artist-series cards follow every course slot and extra card, and never collide with a course card', async () => {
+  const { ARTIST_CARDS } = await import('../src/lib/publication.js');
+  const { publishedCards } = await import('./published-cards.js');
+  assert.ok(Array.isArray(ARTIST_CARDS));
+  assert.equal(new Set(ARTIST_CARDS).size, ARTIST_CARDS.length, 'each artist card is listed once');
+  const cards = publishedCards();
+  const core = [...cards.values()].filter((c) => c.series === 'core');
+  const artist = [...cards.values()].filter((c) => c.series === 'artist');
+  assert.ok(artist.length >= 1);
+  for (const a of artist) for (const c of core) assert.ok(Number(a.no) > Number(c.no), `artist No.${a.no} after course No.${c.no}`);
+  assert.ok(Number(artist[0].no) > TOTAL_COURSES, 'after every course slot, published or not');
+  assert.equal(cards.get('art-osman-hamdi-tortoise-trainer-001').no, '105', '83 course slots + 21 extra cards, then the artist series');
 });
 
 test('every essay names a real kind, and an artist story that awards a card awards an artist-series card', async () => {
@@ -74,6 +73,6 @@ test('every essay names a real kind, and an artist story that awards a card awar
     assert.ok(kind === 'artist-story' || kind === 'case', `${f}: kind`);
     const card = fm.match(/^card:\s*(\S+)/m)?.[1];
     if (kind === 'case') assert.equal(card, undefined, `${f}: a case awards no card`);
-    if (card) assert.ok(ARTIST_CARDS[card], `${f}: its card ${card} has an artist-series number`);
+    if (card) assert.ok(ARTIST_CARDS.includes(card), `${f}: its card ${card} is listed in the artist series`);
   }
 });

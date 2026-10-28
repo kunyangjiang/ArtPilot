@@ -1,0 +1,70 @@
+{
+  "id": "art-feather-mosaic-triptych-001",
+  "kind": "object",
+  "titleZh": "羽毛镶嵌三联画：最后的晚餐中设立圣餐礼",
+  "titleEn": "The Institution of the Eucharist at the Last Supper with St. Peter and St. Paul",
+  "attributionNote": "16 世纪墨西哥的原住民羽毛工匠所作，没有留名（据大都会艺术博物馆）。",
+  "dateApprox": "16 世纪中期",
+  "objectType": "祭坛卡（三联画）",
+  "medium": "羽毛与彩纸贴于木板，镀金木框",
+  "dimensions": "中幅 48.3 × 31.8 厘米，两翼各 48.3 × 15.9 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），88.3.1",
+  "originalStatus": "原件，大都会称它是仅存的三件同类三联画之一。",
+  "provenance": "可追溯到佛罗伦萨的一处收藏；1888 年由曼哈顿的一家律师事务所作为“奇特的图画艺术品”捐赠给大都会（据馆方说明）。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/feather-mosaic-eucharist.jpg",
+      "width": 1600,
+      "height": 1376,
+      "alt": "一件镀金木框的三联小祭坛：中间一块上方是一排围坐在桌边的人，下方是几行拉丁文；左右两扇各画着一位手持物件、站立的圣徒。画面的颜色由细小的羽毛拼成，泛着暗淡的金、绿、褐色光泽。",
+      "caption": "《最后的晚餐中设立圣餐礼，与圣彼得、圣保罗》，羽毛镶嵌三联画，墨西哥，16 世纪中期，羽毛与彩纸贴于木板，镀金木框，中幅 48.3 × 31.8 厘米，大都会艺术博物馆藏（88.3.1）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆（The Metropolitan Museum of Art）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/209279",
+        "changes": "馆方开放获取影像（DP211990）缩小到 1600 × 1376 并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：The Institution of the Eucharist at the Last Supper with St. Peter and St. Paul，88.3.1",
+      "url": "https://www.metmuseum.org/art/collection/search/209279"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（88.3.1）。",
+    "verifiedOn": "2026-10-28",
+    "note": "沿用第 55 课已核对的图像。羽毛的光泽在照片里只能显出大致的样子。"
+  },
+  "card": {
+    "type": "羽毛镶嵌 · 祭坛卡",
+    "maker": "墨西哥原住民工匠",
+    "period": "16 世纪中期",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "羽毛 · 彩纸 · 木"
+      },
+      {
+        "label": "中幅",
+        "value": "48.3 × 31.8 cm"
+      },
+      {
+        "label": "传世",
+        "value": "仅存三件之一"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "前西班牙时期的羽毛手艺，拼出了一场基督教的圣餐。",
+    "focus": "50% 40%",
+    "image": "full"
+  }
+}

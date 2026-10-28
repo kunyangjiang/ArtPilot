@@ -1,18 +1,32 @@
 ---
+import { getEntry } from 'astro:content';
 import ArtworkCard from './ArtworkCard.astro';
-// COL-01: finishing a core lesson earns its representative card. The reader says so explicitly, with one button
-// at the end of the lesson; no quiz answer is needed, and opening the page claims nothing. The card is stored once,
-// under its artwork id, so claiming again changes nothing; a reader who already has it sees it here on return.
+import { publishedCards } from '../lib/cards';
+// COL-01: finishing a core lesson earns its cards. The reader says so explicitly, with one button at the end of the
+// lesson; no quiz answer is needed, and opening the page claims nothing. Most lessons award one card, their
+// representative work; a lesson that lists further cards (`cards`, Art Collection A+) awards them all in the same
+// click. Cards are stored under their artwork ids, so claiming again changes nothing, and a reader who holds only
+// some of a lesson's cards (claimed before the lesson awarded more) gets the missing ones and keeps the rest.
 // An artist story ends the same way with its artist-series card (`kind="story"`); only the words differ.
 interface Props { artwork: string; kind?: 'lesson' | 'story' }
 const { artwork, kind = 'lesson' } = Astro.props;
+const entry = (await publishedCards()).get(artwork);
+if (!entry || entry.group[0] !== artwork) throw new Error(`${artwork} is not the first card a lesson or story awards`);
+const group: string[] = entry.group;
+const n = group.length;
+const titles = await Promise.all(group.map(async (id) => (await getEntry('artworks', id))!.data.titleZh));
+const what = n === 1 ? '这件作品的藏品卡' : `这 ${n} 件作品的藏品卡`;
 const words = kind === 'story'
-  ? { kicker: '故事读完', text: '这个故事读完了。领取这件作品的藏品卡，收入你的图鉴。', button: '读完故事 · 领取藏品卡',
-      fresh: '故事已读完，这件作品的卡片已收入你的图鉴。', again: '故事已读完，这张卡片已在你的图鉴中。' }
-  : { kicker: '课程完成', text: '读到这里，这一课就学完了。领取这件作品的藏品卡，收入你的图鉴。', button: '完成本课 · 领取藏品卡',
-      fresh: '本课已完成，这件作品的卡片已收入你的图鉴。', again: '本课已完成，这张卡片已在你的图鉴中。' };
+  ? { kicker: '故事读完', text: `这个故事读完了。领取${what}，收入你的图鉴。`, button: n === 1 ? '读完故事 · 领取藏品卡' : `读完故事 · 领取 ${n} 张藏品卡`,
+      fresh: n === 1 ? '故事已读完，这件作品的卡片已收入你的图鉴。' : `故事已读完，这 ${n} 张卡片都已收入你的图鉴。`,
+      again: n === 1 ? '故事已读完，这张卡片已在你的图鉴中。' : `故事已读完，这 ${n} 张卡片都已在你的图鉴中。` }
+  : { kicker: '课程完成', text: `读到这里，这一课就学完了。领取${what}，收入你的图鉴。`, button: n === 1 ? '完成本课 · 领取藏品卡' : `完成本课 · 领取 ${n} 张藏品卡`,
+      fresh: n === 1 ? '本课已完成，这件作品的卡片已收入你的图鉴。' : `本课已完成，这 ${n} 张卡片都已收入你的图鉴。`,
+      again: n === 1 ? '本课已完成，这张卡片已在你的图鉴中。' : `本课已完成，这 ${n} 张卡片都已在你的图鉴中。` };
+// The button when some of the cards are already here: it names how many are still to come.
+const rest = kind === 'story' ? '读完故事 · 领取其余 {n} 张藏品卡' : '完成本课 · 领取其余 {n} 张藏品卡';
 ---
-<section class="lesson-complete" data-complete={artwork} data-fresh-text={words.fresh} data-again-text={words.again} aria-labelledby={`complete-${artwork}`}>
+<section class="lesson-complete" data-complete={artwork} data-group={group.join(' ')} data-rest-text={rest} data-fresh-text={words.fresh} data-again-text={words.again} aria-labelledby={`complete-${artwork}`}>
   <p class="kicker" id={`complete-${artwork}`}>{words.kicker}</p>
   <div data-claim-step>
     <p class="lesson-complete-text">{words.text}</p>
@@ -23,6 +37,7 @@ const words = kind === 'story'
     <div class="card-unlock-text">
       <p class="kicker" data-unlock-kicker>获得藏品卡</p>
       <p class="card-unlock-title" data-unlock-title></p>
+      {n > 1 && <p class="card-unlock-count">共 {n} 张：{titles.map((t) => `《${t}》`).join('')}</p>}
       <a class="btn btn-secondary" href="/collection/">打开图鉴</a>
     </div>
   </div>
@@ -32,7 +47,7 @@ const words = kind === 'story'
   import { collect, readCollection, deviceStorage } from '../lib/collection.js';
 
   document.querySelectorAll<HTMLElement>('[data-complete]').forEach((root) => {
-    const id = root.dataset.complete!;
+    const group = root.dataset.group!.split(' ');
     const step = root.querySelector<HTMLElement>('[data-claim-step]')!;
     const panel = root.querySelector<HTMLElement>('[data-unlock]')!;
     const show = (fresh: boolean) => {
@@ -42,10 +57,16 @@ const words = kind === 'story'
       step.hidden = true;
       panel.hidden = false;
     };
-    // Returning reader: the card is already on this device.
-    if (readCollection(deviceStorage())[id]) show(false);
-    root.querySelector<HTMLButtonElement>('[data-claim]')!.addEventListener('click', () => {
-      const { added } = collect(deviceStorage(), id);
+    const button = root.querySelector<HTMLButtonElement>('[data-claim]')!;
+    // Returning reader: every card is already on this device. Holding only some, the button names how many are left.
+    const held = readCollection(deviceStorage());
+    const missing = group.filter((id) => !held[id]).length;
+    if (missing === 0) show(false);
+    else if (missing < group.length) button.textContent = root.dataset.restText!.replace('{n}', String(missing));
+    button.addEventListener('click', () => {
+      // One click claims the whole group; a card already held stays as it was.
+      let added = false;
+      for (const id of group) if (collect(deviceStorage(), id).added) added = true;
       show(added);
       panel.focus({ preventScroll: true }); // the button is gone; keep keyboard focus on the result
       dispatchEvent(new Event('artpilot:collected'));

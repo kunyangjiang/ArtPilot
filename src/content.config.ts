@@ -69,7 +69,7 @@ const artworks = defineCollection({
         note: z.string(),
       }),
       // Collectible card face: short values sized for the card. Optional: only artworks with a card appear in the archive.
-      // Its number is not stored here: a card is numbered by the course of the lesson that awards it (course 30 → No.030).
+      // Its number is not stored here: it comes from the lesson or story that awards it (cardIndex in src/lib/publication.js).
       // Works for any art form: facets are chosen per work (a building lists 材料/规模, a painting 媒材/尺幅),
       // and the image is optional — without one the card is a purely typographic cover. The cover photograph is shown in muted colour by the card style; no colour fields here.
       card: z
@@ -121,6 +121,9 @@ const lessons = defineCollection({
     // workLabel and the lesson title; alt text, credit and rights come from the artwork record.
     featured: z.object({ image: z.string() }).optional(),
     artwork: reference('artworks'),
+    // Further cards the course awards with its own one (Art Collection A+): works the lesson studies closely, listed in
+    // the order they are numbered. One click at the end of the lesson claims them all (src/lib/publication.js cardIndex).
+    cards: z.array(reference('artworks')).optional(),
     glossary: z.array(reference('glossary')).min(3),
   }),
 });
@@ -138,6 +141,7 @@ const essays = defineCollection({
     summary: z.string(),
     hero: z.object({ artwork: reference('artworks'), image: z.string() }), // the opening image
     card: reference('artworks').optional(), // the card the end of a story awards
+    cards: z.array(reference('artworks')).optional(), // further cards it awards with that one, claimed in the same click
   }),
 });
 

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { stages, courseTitles, v1ToV2, TOTAL_COURSES } from '../src/data/curriculum.ts';
-import { cardNumber, artistCardNumber, ARTIST_SERIES } from '../src/lib/publication.js';
+import { publishedCards } from './published-cards.js';
 import { COLLECTION_KEY, readCollection, collect } from '../src/lib/collection.js';
 import { READING_KEY, PLACES_KEY, readReading, readPlaces, startingPlace, resolveEntry } from '../src/lib/reading.js';
 
@@ -170,12 +170,12 @@ test('every lesson published at the migration sits on its v1.0 topic, only the u
   }
   assert.equal(lessons.filter((l) => l.course <= 31).length, 31, 'courses 1–31 are all published and unmoved');
   assert.equal(lessons.find((l) => l.id === 'ukiyo-e-city-prints').course, 50);
-  assert.equal(cardNumber(50), '050', 'its card, still claimed by artwork id, is now numbered No.050 (was No.048)');
+  assert.equal(publishedCards().get('art-sharaku-oniji-001').course, 50, 'its card, still claimed by artwork id, is awarded by course 50 (No.048 on the 73-course site)');
 });
 
 // A browser that saved its state on the 73-course site: claims under artwork ids, the continue-reading entry and the
 // per-article places under article slugs. Nothing in it is a course or card number, so it reads back whole.
-test('browser state saved on the 73-course site is recovered unchanged; the artist card is now No.084', () => {
+test('browser state saved on the 73-course site is recovered unchanged under the A+ numbering', () => {
   const data = {
     [COLLECTION_KEY]: JSON.stringify({
       'art-fan-kuan-travelers-001': { at: '2026-10-26T10:00:00.000Z' },
@@ -192,12 +192,13 @@ test('browser state saved on the 73-course site is recovered unchanged; the arti
 
   assert.deepEqual(Object.keys(readCollection(storage)).sort(),
     ['art-chartres-cathedral-001', 'art-fan-kuan-travelers-001', 'art-osman-hamdi-tortoise-trainer-001']);
-  // The same claims under the new numbering: course cards unchanged, the artist card moved above every course.
-  assert.equal(cardNumber(1), '001');
-  assert.equal(cardNumber(30), '030');
-  assert.equal(artistCardNumber('art-osman-hamdi-tortoise-trainer-001'), '084');
-  assert.ok(ARTIST_SERIES.first > TOTAL_COURSES, 'artist numbers start after the last course');
-  assert.throws(() => cardNumber(84), 'No.084 can never be a course card');
+  // The same claims under the A+ numbering (numbers are display only): No.001 stays, Chartres moves from No.030 to
+  // No.042 after twelve extra cards in courses 4–25, and the artist card from No.074 (later No.084) to No.105.
+  const cards = publishedCards();
+  assert.equal(cards.get('art-fan-kuan-travelers-001').no, '001');
+  assert.equal(cards.get('art-chartres-cathedral-001').no, '042');
+  assert.equal(cards.get('art-osman-hamdi-tortoise-trainer-001').no, '105');
+  assert.ok(Number(cards.get('art-osman-hamdi-tortoise-trainer-001').no) > TOTAL_COURSES, 'artist numbers start after every course slot');
   // Claiming a card already held adds no second copy and keeps the original date.
   assert.equal(collect(storage, 'art-osman-hamdi-tortoise-trainer-001', '2026-10-28T00:00:00.000Z').added, false);
   assert.equal(readCollection(storage)['art-osman-hamdi-tortoise-trainer-001'].at, '2026-10-27T09:00:00.000Z');

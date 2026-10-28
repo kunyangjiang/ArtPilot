@@ -1,4 +1,16 @@
 {
+  "/img/admonitions-lady-ban.jpg": {
+    "large": {
+      "src": "/img/table/admonitions-lady-ban.jpg",
+      "width": 1100,
+      "height": 498
+    },
+    "small": {
+      "src": "/img/table/s-admonitions-lady-ban.jpg",
+      "width": 260,
+      "height": 118
+    }
+  },
   "/img/alhambra-myrtles.jpg": {
     "large": {
       "src": "/img/table/alhambra-myrtles.jpg",
@@ -59,6 +71,18 @@
       "height": 260
     }
   },
+  "/img/blue-quran.jpg": {
+    "large": {
+      "src": "/img/table/blue-quran.jpg",
+      "width": 1100,
+      "height": 838
+    },
+    "small": {
+      "src": "/img/table/s-blue-quran.jpg",
+      "width": 260,
+      "height": 198
+    }
+  },
   "/img/borobudur-gallery.jpg": {
     "large": {
       "src": "/img/table/borobudur-gallery.jpg",
@@ -81,6 +105,18 @@
       "src": "/img/table/s-borobudur.jpg",
       "width": 260,
       "height": 173
+    }
+  },
+  "/img/brihadishvara-vimana.jpg": {
+    "large": {
+      "src": "/img/table/brihadishvara-vimana.jpg",
+      "width": 734,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-brihadishvara-vimana.jpg",
+      "width": 173,
+      "height": 260
     }
   },
   "/img/caravaggio-calling.jpg": {
@@ -131,6 +167,18 @@
       "height": 260
     }
   },
+  "/img/chavin-lanzon.jpg": {
+    "large": {
+      "src": "/img/table/chavin-lanzon.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-chavin-lanzon.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
   "/img/christus-goldsmith.jpg": {
     "large": {
       "src": "/img/table/christus-goldsmith.jpg",
@@ -140,6 +188,18 @@
     "small": {
       "src": "/img/table/s-christus-goldsmith.jpg",
       "width": 224,
+      "height": 260
+    }
+  },
+  "/img/ciwara-headdress.jpg": {
+    "large": {
+      "src": "/img/table/ciwara-headdress.jpg",
+      "width": 720,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-ciwara-headdress.jpg",
+      "width": 170,
       "height": 260
     }
   },
@@ -153,6 +213,18 @@
       "src": "/img/table/s-colonial-miniature-tabard.jpg",
       "width": 205,
       "height": 260
+    }
+  },
+  "/img/conques-tympanum.jpg": {
+    "large": {
+      "src": "/img/table/conques-tympanum.jpg",
+      "width": 1100,
+      "height": 508
+    },
+    "small": {
+      "src": "/img/table/s-conques-tympanum.jpg",
+      "width": 260,
+      "height": 120
     }
   },
   "/img/david-death-of-socrates.jpg": {
@@ -189,6 +261,30 @@
       "src": "/img/table/s-fan-kuan-full.jpg",
       "width": 130,
       "height": 260
+    }
+  },
+  "/img/feather-mosaic-eucharist.jpg": {
+    "large": {
+      "src": "/img/table/feather-mosaic-eucharist.jpg",
+      "width": 1100,
+      "height": 946
+    },
+    "small": {
+      "src": "/img/table/s-feather-mosaic-eucharist.jpg",
+      "width": 260,
+      "height": 224
+    }
+  },
+  "/img/fragonard-stolen-kiss.jpg": {
+    "large": {
+      "src": "/img/table/fragonard-stolen-kiss.jpg",
+      "width": 1100,
+      "height": 837
+    },
+    "small": {
+      "src": "/img/table/s-fragonard-stolen-kiss.jpg",
+      "width": 260,
+      "height": 198
     }
   },
   "/img/fuchun-peak.jpg": {
@@ -311,6 +407,18 @@
       "height": 11
     }
   },
+  "/img/hinemihi-clandon.jpg": {
+    "large": {
+      "src": "/img/table/hinemihi-clandon.jpg",
+      "width": 1100,
+      "height": 824
+    },
+    "small": {
+      "src": "/img/table/s-hinemihi-clandon.jpg",
+      "width": 260,
+      "height": 194
+    }
+  },
   "/img/hippo-william.jpg": {
     "large": {
       "src": "/img/table/hippo-william.jpg",
@@ -333,6 +441,18 @@
       "src": "/img/table/s-hodegetria-icon.jpg",
       "width": 193,
       "height": 260
+    }
+  },
+  "/img/horyuji-shaka-triad.jpg": {
+    "large": {
+      "src": "/img/table/horyuji-shaka-triad.jpg",
+      "width": 1100,
+      "height": 854
+    },
+    "small": {
+      "src": "/img/table/s-horyuji-shaka-triad.jpg",
+      "width": 260,
+      "height": 202
     }
   },
   "/img/ideal-city.jpg": {
@@ -419,6 +539,18 @@
       "height": 177
     }
   },
+  "/img/jeong-seon-inwang.jpg": {
+    "large": {
+      "src": "/img/table/jeong-seon-inwang.jpg",
+      "width": 1100,
+      "height": 639
+    },
+    "small": {
+      "src": "/img/table/s-jeong-seon-inwang.jpg",
+      "width": 260,
+      "height": 151
+    }
+  },
   "/img/jian-bowl.jpg": {
     "large": {
       "src": "/img/table/jian-bowl.jpg",
@@ -453,6 +585,30 @@
       "src": "/img/table/s-kangxi-tour-jinan.jpg",
       "width": 260,
       "height": 195
+    }
+  },
+  "/img/korin-rough-waves.jpg": {
+    "large": {
+      "src": "/img/table/korin-rough-waves.jpg",
+      "width": 1100,
+      "height": 981
+    },
+    "small": {
+      "src": "/img/table/s-korin-rough-waves.jpg",
+      "width": 260,
+      "height": 231
+    }
+  },
+  "/img/kouros-full.jpg": {
+    "large": {
+      "src": "/img/table/kouros-full.jpg",
+      "width": 738,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-kouros-full.jpg",
+      "width": 174,
+      "height": 260
     }
   },
   "/img/liangzhu-cong.jpg": {
@@ -491,6 +647,18 @@
       "height": 260
     }
   },
+  "/img/mathura-buddha.jpg": {
+    "large": {
+      "src": "/img/table/mathura-buddha.jpg",
+      "width": 880,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-mathura-buddha.jpg",
+      "width": 208,
+      "height": 260
+    }
+  },
   "/img/mawangdui-banner.jpg": {
     "large": {
       "src": "/img/table/mawangdui-banner.jpg",
@@ -512,6 +680,18 @@
     "small": {
       "src": "/img/table/s-maya-lintel-full.jpg",
       "width": 258,
+      "height": 260
+    }
+  },
+  "/img/mexica-tlaltecuhtli.jpg": {
+    "large": {
+      "src": "/img/table/mexica-tlaltecuhtli.jpg",
+      "width": 950,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-mexica-tlaltecuhtli.jpg",
+      "width": 224,
       "height": 260
     }
   },
@@ -559,6 +739,18 @@
     },
     "small": {
       "src": "/img/table/s-mughal-shah-jahan-terrace.jpg",
+      "width": 174,
+      "height": 260
+    }
+  },
+  "/img/naram-sin-stele.jpg": {
+    "large": {
+      "src": "/img/table/naram-sin-stele.jpg",
+      "width": 736,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-naram-sin-stele.jpg",
       "width": 174,
       "height": 260
     }
@@ -611,6 +803,18 @@
       "height": 164
     }
   },
+  "/img/pensive-bodhisattva-korea.jpg": {
+    "large": {
+      "src": "/img/table/pensive-bodhisattva-korea.jpg",
+      "width": 811,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-pensive-bodhisattva-korea.jpg",
+      "width": 192,
+      "height": 260
+    }
+  },
   "/img/raphael-alba-madonna.jpg": {
     "large": {
       "src": "/img/table/raphael-alba-madonna.jpg",
@@ -621,6 +825,18 @@
       "src": "/img/table/s-raphael-alba-madonna.jpg",
       "width": 260,
       "height": 260
+    }
+  },
+  "/img/shah-quli-saz-dragon.jpg": {
+    "large": {
+      "src": "/img/table/shah-quli-saz-dragon.jpg",
+      "width": 1100,
+      "height": 773
+    },
+    "small": {
+      "src": "/img/table/s-shah-quli-saz-dragon.jpg",
+      "width": 260,
+      "height": 183
     }
   },
   "/img/shahnama-feast-of-sada.jpg": {
@@ -707,6 +923,18 @@
       "height": 260
     }
   },
+  "/img/taino-zemi.jpg": {
+    "large": {
+      "src": "/img/table/taino-zemi.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-taino-zemi.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
   "/img/tell-asmar-worshiper.jpg": {
     "large": {
       "src": "/img/table/tell-asmar-worshiper.jpg",
@@ -716,6 +944,18 @@
     "small": {
       "src": "/img/table/s-tell-asmar-worshiper.jpg",
       "width": 195,
+      "height": 260
+    }
+  },
+  "/img/velazquez-meninas.jpg": {
+    "large": {
+      "src": "/img/table/velazquez-meninas.jpg",
+      "width": 956,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-velazquez-meninas.jpg",
+      "width": 226,
       "height": 260
     }
   },
@@ -753,6 +993,18 @@
       "src": "/img/table/s-witte-leeuw-plate.jpg",
       "width": 260,
       "height": 260
+    }
+  },
+  "/img/yungang-cave20.jpg": {
+    "large": {
+      "src": "/img/table/yungang-cave20.jpg",
+      "width": 1100,
+      "height": 1082
+    },
+    "small": {
+      "src": "/img/table/s-yungang-cave20.jpg",
+      "width": 260,
+      "height": 255
     }
   },
   "/img/zun-full.jpg": {

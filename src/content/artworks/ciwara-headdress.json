@@ -1,0 +1,83 @@
+{
+  "id": "art-ciwara-headdress-001",
+  "kind": "object",
+  "titleZh": "契瓦拉头饰",
+  "titleEn": "Ci wara headdress",
+  "attributionNote": "马里中南部班巴拉人的一位铁匠（numu）所作，姓名不详（据大都会艺术博物馆）。",
+  "dateApprox": "19 世纪",
+  "objectType": "舞蹈头饰（戴在表演者头顶）",
+  "medium": "木、金属",
+  "dimensions": "高 76.2 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），2016.574",
+  "originalStatus": "原件。它原本固定在表演者头顶、在舞蹈中被看见；今天在展柜里静止陈列。",
+  "provenance": "递藏记录从 20 世纪中叶巴黎的古董商开始；它何时、怎样离开马里，著录没有说明（据第 4 课所引大都会记录）。",
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/ciwara-headdress.jpg",
+      "alt": "一件深褐色的木雕，竖立在灰色背景前的小底座上：上面是两只又长又细、微微弯曲的角，下面是一个由折线和镂空组成的动物身体，表面刻满细密的斜纹。",
+      "caption": "契瓦拉头饰，马里中南部，班巴拉人，19 世纪，木、金属，高 76.2 厘米。作者是一位班巴拉铁匠（numu），姓名不详。大都会艺术博物馆藏（2016.574）。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/711020",
+        "changes": "缩小尺寸、重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "front",
+      "src": "/img/ciwara-headdress-front.jpg",
+      "alt": "同一件头饰的正面：两只长角并排向上，几乎平行，身体在正面看只剩一道窄窄的竖线。",
+      "caption": "同一件头饰的正面：从这个角度看，它几乎只剩下两道线。",
+      "kind": "detail",
+      "subject": "契瓦拉头饰",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/711020",
+        "changes": "博物馆提供的另一角度照片；缩小并重新压缩，未调色"
+      }
+    }
+  ],
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Ci wara headdress，2016.574（对照作品）",
+      "url": "https://www.metmuseum.org/art/collection/search/711020"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供（2016.574）。",
+    "verifiedOn": "2026-10-28",
+    "note": "图像沿用第 4 课已核对的文件；只缩小与重新压缩，没有调色。"
+  },
+  "card": {
+    "type": "雕刻 · 舞蹈头饰",
+    "maker": "班巴拉人",
+    "period": "19 世纪",
+    "facets": [
+      {
+        "label": "材质",
+        "value": "木 · 金属"
+      },
+      {
+        "label": "高",
+        "value": "76.2 cm"
+      },
+      {
+        "label": "用途",
+        "value": "舞蹈中佩戴"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "它是为了在舞蹈中被看见而做的：从侧面是羚羊，从正面只剩两道线。",
+    "focus": "50% 40%",
+    "image": "full"
+  }
+}
