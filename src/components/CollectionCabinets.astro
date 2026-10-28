@@ -158,6 +158,8 @@ const cabinets = [
   const fullCard = (id: string) => root.querySelector<HTMLElement>(`[data-pool="${id}"] .art-card-full, [data-stage] [data-card="${id}"]`)!;
   let mine: Card[] = [];
   const inCabinet = (id: string) => mine.filter((c) => c.cabinet === id);
+  // How many published cards a cabinet holds in all, claimed or not (A+ extra cards included; reserved numbers are not cards).
+  const available = (id: string) => cards.filter((c) => c.cabinet === id).length;
 
   // A thumbnail: a copy of the card's front, scaled to its box (no back, no flip, not focusable).
   const thumbnail = (c: Card, label: boolean) => {
@@ -177,7 +179,7 @@ const cabinets = [
     const claimed = readCollection(deviceStorage());
     mine = cards.filter((c) => claimed[c.id]);
     const filled = cabinets.filter((k) => inCabinet(k.id).length);
-    root.querySelector<HTMLElement>('[data-total]')!.innerHTML = mine.length ? `已收藏<b>${mine.length}</b>件 · 陈列在 ${filled.length} 个展柜` : '还没有收藏';
+    root.querySelector<HTMLElement>('[data-total]')!.innerHTML = mine.length ? `已收藏<b>${mine.length}</b>/ ${cards.length} 件 · 陈列在 ${filled.length} 个展柜` : '还没有收藏';
     root.querySelector<HTMLElement>('[data-empty-intro]')!.hidden = mine.length > 0;
     const list = root.querySelector<HTMLElement>('[data-cabinet-list]')!;
     list.replaceChildren();
@@ -185,12 +187,13 @@ const cabinets = [
       const own = inCabinet(k.id);
       const li = document.createElement('li');
       const a = document.createElement('a'); a.className = 'cc-cab'; a.href = `#cabinet-${k.id}`;
-      a.setAttribute('aria-label', `第 ${k.no} 展柜：${k.title}，${own.length} 件`);
-      a.innerHTML = '<span class="cc-cab-no" lang="en"></span><span class="cc-cab-name"><span class="cc-cab-title"></span><span class="cc-cab-range"></span></span><span class="cc-cab-count"><b></b>件</span><ul class="cc-strip"></ul>';
+      a.setAttribute('aria-label', `第 ${k.no} 展柜：${k.title}，已收藏 ${own.length} 件，共 ${available(k.id)} 件`);
+      a.innerHTML = '<span class="cc-cab-no" lang="en"></span><span class="cc-cab-name"><span class="cc-cab-title"></span><span class="cc-cab-range"></span></span><span class="cc-cab-count">已收藏 <b></b>/ <span class="cc-cab-of"></span> 件</span><ul class="cc-strip"></ul>';
       a.querySelector('.cc-cab-no')!.textContent = k.no;
       a.querySelector('.cc-cab-title')!.textContent = k.title;
       a.querySelector('.cc-cab-range')!.textContent = k.range;
       a.querySelector('.cc-cab-count b')!.textContent = String(own.length);
+      a.querySelector('.cc-cab-of')!.textContent = String(available(k.id));
       const strip = a.querySelector('.cc-strip')!;
       own.slice(0, 4).forEach((c) => { const s = document.createElement('li'); s.append(thumbnail(c, false)); strip.append(s); });
       if (own.length > 4) { const m = document.createElement('li'); m.className = 'cc-strip-more'; m.textContent = `+${own.length - 4}`; strip.append(m); }
@@ -222,7 +225,7 @@ const cabinets = [
       const own = inCabinet(cab.id);
       root.querySelector('[data-cabinet-no]')!.textContent = cab.no;
       root.querySelector('[data-cabinet-title]')!.textContent = cab.title;
-      root.querySelector('[data-cabinet-meta]')!.textContent = `${cab.range} · 已收藏 ${own.length} 件`;
+      root.querySelector('[data-cabinet-meta]')!.textContent = `${cab.range} · 已收藏 ${own.length} / ${available(cab.id)} 件`;
       const wall = root.querySelector<HTMLElement>('[data-wall]')!; wall.replaceChildren();
       for (const c of own) {
         const li = document.createElement('li');
