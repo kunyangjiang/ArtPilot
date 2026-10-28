@@ -20,14 +20,21 @@ const K = 2;
 
 export const HOME_WORKS = '[data-slot] [data-print], .st-folder, .st-board';
 
+// How the light is drawn. LIVE is the site's; a background study may pass a quieter one: no wash over the room, less
+// saturated tones, a shorter and weaker glow (for an ordinary work and for a large one, the folder or the board), and
+// the glow dropped by a few pixels, as if lit from above.
+export type LightStyle = { wash: boolean; sat: [number, number]; reach: [number, number]; spread: number; strength: [number, number]; drop: [number, number] };
+export const LIVE: LightStyle = { wash: true, sat: [0.3, 0.75], reach: [60, 155], spread: 0.24, strength: [0.44, 0.72], drop: [0, 0] };
+
 // The image's characteristic colour: the average of its pixels weighted towards the saturated ones (so a bronze reads
-// as its verdigris, not as grey), then set to one brightness so every work glows about as strongly. Kept per image
-// address, since the collection shows the same card in several places.
+// as its verdigris, not as grey), then set to one brightness so every work glows about as strongly. The raw average is
+// kept per image address, since the collection shows the same card in several places.
 const tones = new Map<string, RGB | null>();
-function toneOf(img: HTMLImageElement): RGB | null {
+export function toneOf(img: HTMLImageElement, sat = LIVE.sat): RGB | null {
   const key = img.currentSrc || img.src;
   if (!tones.has(key)) tones.set(key, readTone(img));
-  return tones.get(key)!;
+  const raw = tones.get(key)!;
+  return raw && settle(raw, sat);
 }
 function readTone(img: HTMLImageElement): RGB | null {
   const c = document.createElement('canvas');
@@ -43,21 +50,21 @@ function readTone(img: HTMLImageElement): RGB | null {
       const k = s * s * mid + 0.01;
       r += d[i] * k; g += d[i + 1] * k; b += d[i + 2] * k; w += k;
     }
-    return settle([r / w, g / w, b / w]);
+    return [r / w, g / w, b / w];
   } catch { return null; }
 }
-function settle([r, g, b]: RGB): RGB {
+function settle([r, g, b]: RGB, [smin, smax]: [number, number]): RGB {
   r /= 255; g /= 255; b /= 255;
   const hi = Math.max(r, g, b), lo = Math.min(r, g, b), l = (hi + lo) / 2;
   let h = 0, s = hi === lo ? 0 : (hi - lo) / (1 - Math.abs(2 * l - 1));
   if (hi !== lo) h = hi === r ? ((g - b) / (hi - lo)) % 6 : hi === g ? (b - r) / (hi - lo) + 2 : (r - g) / (hi - lo) + 4;
-  s = Math.min(0.75, Math.max(0.3, s * 1.25));
+  s = Math.min(smax, Math.max(smin, s * 1.25));
   const L = 0.56, C = (1 - Math.abs(2 * L - 1)) * s, X = C * (1 - Math.abs((h % 2) - 1)), m = L - C / 2;
   const [a, b2, c] = h < 1 ? [C, X, 0] : h < 2 ? [X, C, 0] : h < 3 ? [0, C, X] : h < 4 ? [0, X, C] : h < 5 ? [X, 0, C] : [C, 0, X];
   return [(a + m) * 255, (b2 + m) * 255, (c + m) * 255].map(Math.round) as RGB;
 }
 
-export function startWorksLight(canvas: HTMLCanvasElement, works = HOME_WORKS) {
+export function startWorksLight(canvas: HTMLCanvasElement, works = HOME_WORKS, style: LightStyle = LIVE) {
   const ctx = canvas.getContext('2d')!;
   const still = matchMedia('(prefers-reduced-motion: reduce)');
   let sources: Source[] = [];
@@ -68,7 +75,7 @@ export function startWorksLight(canvas: HTMLCanvasElement, works = HOME_WORKS) {
   const read = (s: Source) => {
     const imgs = [...s.el.querySelectorAll('img')];
     const take = () => {
-      const got = imgs.filter((i) => i.complete && i.naturalWidth).map(toneOf).filter(Boolean) as RGB[];
+      const got = imgs.filter((i) => i.complete && i.naturalWidth).map((i) => toneOf(i, style.sat)).filter(Boolean) as RGB[];
       if (got.length) { s.rgb = [0, 1, 2].map((c) => got.reduce((a, t) => a + t[c], 0) / got.length) as RGB; s.lit = true; kick(); }
     };
     imgs.forEach((i) => { if (!(i.complete && i.naturalWidth)) i.addEventListener('load', take, { once: true }); });
@@ -120,9 +127,11 @@ export function startWorksLight(canvas: HTMLCanvasElement, works = HOME_WORKS) {
     ctx.clearRect(0, 0, W, H);
     ctx.globalCompositeOperation = 'lighter';
     const rgba = (c: RGB, a: number) => `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${a.toFixed(3)})`;
-    const room = ctx.createRadialGradient(W * 0.5, H * 0.45, 0, W * 0.5, H * 0.45, Math.hypot(W, H) * 0.62);
-    room.addColorStop(0, rgba(wash, 0.095)); room.addColorStop(1, rgba(wash, 0.027));
-    ctx.fillStyle = room; ctx.fillRect(0, 0, W, H);
+    if (style.wash) {
+      const room = ctx.createRadialGradient(W * 0.5, H * 0.45, 0, W * 0.5, H * 0.45, Math.hypot(W, H) * 0.62);
+      room.addColorStop(0, rgba(wash, 0.095)); room.addColorStop(1, rgba(wash, 0.027));
+      ctx.fillStyle = room; ctx.fillRect(0, 0, W, H);
+    }
     // A glow is the shadow of the box drawn far off-canvas and shifted back, so only the soft halo lands on the desk.
     const off = 4 * Math.max(W, H);
     sources.forEach((s, i) => {
@@ -130,12 +139,13 @@ export function startWorksLight(canvas: HTMLCanvasElement, works = HOME_WORKS) {
       if (!s.lit || !box.width || !box.height) return;
       // The folder and board cast deep shadows of their own, so their light reaches further and stronger to show past them.
       const big = box.width * box.height > 200000;
-      const blur = (big ? 155 : 60) + Math.min(box.width, box.height) * 0.24 + 32 * s.lift;
+      const blur = style.reach[big ? 1 : 0] + Math.min(box.width, box.height) * style.spread + 32 * s.lift;
       if (box.bottom < -blur * 2 || box.top > H + blur * 2) return;
       // A work near the edge of the window is dimmed and settling back (src/lib/scrollFade.ts); its light fades with it.
-      ctx.shadowColor = rgba(s.rgb, ((big ? 0.72 : 0.44) + 0.3 * s.lift) * presence(box, H));
+      ctx.shadowColor = rgba(s.rgb, (style.strength[big ? 1 : 0] + 0.3 * s.lift) * presence(box, H));
       ctx.shadowBlur = blur / K;
-      ctx.shadowOffsetX = off / K;
+      ctx.shadowOffsetX = (off + style.drop[0]) / K;
+      ctx.shadowOffsetY = style.drop[1] / K;
       ctx.fillStyle = '#000';
       ctx.fillRect(box.left - off, box.top, box.width, box.height);
     });

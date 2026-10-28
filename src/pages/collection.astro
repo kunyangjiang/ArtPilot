@@ -1,6 +1,6 @@
 ---
 // The collection (藏品图鉴): this browser's collected cards, kept in cabinets by stage (src/components/CollectionCabinets.astro),
-// over the halls' quiet network of lines (src/lib/lineField.ts, sparse).
+// in the halls' room, the homepage's room seen from a corridor (src/lib/desk/hall.ts).
 import Base from '../layouts/Base.astro';
 import CollectionCabinets from '../components/CollectionCabinets.astro';
 import BackToTop from '../components/BackToTop.astro';
@@ -30,11 +30,12 @@ import BackToTop from '../components/BackToTop.astro';
 
 <script>
   import { clearCollection, deviceStorage } from '../lib/collection.js';
-  import { startLineField } from '../lib/lineField';
+  import { startGround } from '../lib/desk/ground';
+  import { drawHallBodies } from '../lib/desk/hall';
   import { startScrollFade } from '../lib/scrollFade';
 
-  // The lines spread out from behind the page title; blocks dim as they leave the window (cabinets drawn later too).
-  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2], { sparse: true });
+  // The halls' room behind the page; blocks dim as they leave the window (cabinets drawn later too).
+  startGround(document.querySelector<HTMLCanvasElement>('[data-web]')!, drawHallBodies);
   startScrollFade('.cc-head, .cc-intro, .cc-cab, .cc-more, .cc-cabinet-head, .cc-thumb');
 
   document.querySelector('[data-archive-clear]')!.addEventListener('click', () => {

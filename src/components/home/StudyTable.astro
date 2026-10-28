@@ -3,7 +3,8 @@
 // shown whole (scaled to fit its place, never cropped), dealt onto the table as the page opens; the one you point at
 // lifts and its label shows on the note card. The rest of the courses are tucked into one stack per stage on the right:
 // a stack opens in place into a spread of all its courses. The card box holds this browser's collected cards; a slip
-// under the title resumes the last article read. Behind it all, each work's own light on the desk (src/lib/worksLight.ts).
+// under the title resumes the last article read. Behind it all, the desk is a dark exhibition room with a few floating
+// constructivist bodies in it and an opening of evening light in its back wall (src/lib/desk/turrell.ts).
 // Only what exists is on the table: stages without a course are left out. The halls still being built appear only in
 // the site bar, as on every other page.
 import '../../styles/fonts.css';
@@ -675,7 +676,7 @@ window.__stHero=hero})();`;
     .st-sto-label h2 { font-size: 22px; }
     .st-folder { height: auto; margin-top: 54px; padding: 22px 18px 24px; transform: none; }
     .st-clip { position: relative; left: auto; top: auto; width: auto; margin-top: 30px; }
-    .st-clip img { max-height: none; }
+    .st-clip img { max-height: none; width: 66.667%; margin: 0 auto; }
     .st-life-area { display: none; }
     .st-thread { display: none; }
     .st-life-area::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: rgb(236 235 231 / .45); }
@@ -700,7 +701,8 @@ window.__stHero=hero})();`;
   import { readReading, resolveEntry } from '../../lib/reading.js';
   import { readCollection } from '../../lib/collection.js';
   import { deviceStorage } from '../../lib/storage.js';
-  import { startWorksLight } from '../../lib/worksLight';
+  import { startGround } from '../../lib/desk/ground';
+  import { drawTurrell } from '../../lib/desk/turrell';
   import { startDeck } from '../../lib/deckSpring';
   import { startScrollFade } from '../../lib/scrollFade';
 
@@ -886,6 +888,6 @@ window.__stHero=hero})();`;
   spread.querySelectorAll('[data-close]').forEach((x) => x.addEventListener('click', close));
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !spread.hidden) close(); });
 
-  // The desk's light (src/lib/worksLight.ts).
-  startWorksLight(document.querySelector<HTMLCanvasElement>('[data-web]')!);
+  // The desk's ground: Scarpa's room with Proun's bodies in it and Turrell's opening (src/lib/desk/).
+  startGround(document.querySelector<HTMLCanvasElement>('[data-web]')!, drawTurrell);
 </script>
