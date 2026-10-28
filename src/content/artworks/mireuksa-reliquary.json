@@ -1,0 +1,104 @@
+{
+  "id": "art-mireuksa-reliquary-001",
+  "kind": "object",
+  "titleZh": "益山弥勒寺址西塔出土舍利庄严具",
+  "titleEn": "The Sarira Reliquaries of the West Pagoda at the Mireuksa Temple Site, Iksan",
+  "attributionNote": "制作的工匠没有留名。按照其中金制舍利奉迎记的铭文，是百济王后（佐平沙宅积德之女）施舍财物创建寺院，于己亥年（639）奉安舍利；一件青铜盒上刻有施主“达率目近”的名字。",
+  "dateApprox": "639 年（百济武王四十年）前后",
+  "objectType": "佛教舍利庄严具（一套 9 件），本课以其中的金制舍利奉迎记为主要细读对象",
+  "medium": "金、金铜、青铜（铜锡合金）",
+  "dimensions": "共 9 件：金制舍利奉迎记 1 件（金板两面各刻 11 行，共 193 字）、金铜舍利外壶 1 件、金制舍利内壶 1 件、青铜盒 6 件（据韩国国家遗产厅记录）。各件的尺寸本站尚未从官方记录核实，暂不给出。",
+  "collection": "国立益山博物馆（韩国全罗北道益山）；国宝，2022 年 12 月 27 日指定，国有",
+  "originalStatus": "原件。据国家遗产厅的说明，这套器物在石塔的舍利孔中“以奉安当时的样子完整出土”。",
+  "provenance": "2009 年，益山弥勒寺址西塔在拆解维修中，从塔心柱石（心柱石）的舍利孔中出土；国有，由国立益山博物馆管理（据韩国国家遗产厅国宝记录）。这是一次有记录的考古出土，没有经过古董市场。",
+  "infoSources": [
+    { "label": "韩国国家遗产厅，国家遗产门户：国宝“益山弥勒寺址西塔出土舍利庄严具”（构成、出土经过、年代、铭文内容摘要、价值说明、管理机构）", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaAsno=0003400000000&ccbaCpno=1113503400000&pageNo=1_1_1_1&sngl=N" },
+    { "label": "韩国公共许可（KOGL）第一类条款", "url": "https://www.kogl.or.kr/info/licenseType1.do" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mireuksa-plate-a.jpg",
+      "width": 1294,
+      "height": 879,
+      "alt": "一块横长的薄金板，表面有褐色斑点。板上从右往左竖刻着十几行汉字，笔画里填着红色；字体端正而略带圆转。右起第七、八行可以读出“百濟王后”“佐平”“積德女”等字。",
+      "caption": "金制舍利奉迎记的一面，639 年，金，两面共 193 字，国立益山博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106914&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "原图 1294 × 879 像素，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "plate-b",
+      "src": "/img/mireuksa-plate-b.jpg",
+      "alt": "同一块金板的另一面：竖行的汉字只在右边几行填着红色，其余是金色的刻痕。最右一行可以读出“年正月廿九日奉迎舍利”。",
+      "caption": "金制舍利奉迎记的另一面。",
+      "kind": "detail",
+      "subject": "金制舍利奉迎记（另一面）",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106915&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "原图 1364 × 932 像素，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "plate-detail",
+      "src": "/img/mireuksa-plate-detail.jpg",
+      "width": 622,
+      "height": 879,
+      "alt": "金板中段的竖行汉字，红色填在刻痕里；中间一行从上往下可以读出“我百濟王后佐平”。",
+      "caption": "金制舍利奉迎记的局部。",
+      "kind": "detail",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106914&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "从原图裁出中间 48% 宽的一段（左右各裁去约四分之一），未缩放；重新压缩，未调色" }
+    },
+    {
+      "key": "insitu",
+      "src": "/img/mireuksa-in-situ.jpg",
+      "alt": "从正上方俯拍的一块方形大石，表面斑驳；石块正中凿出一个方孔，孔里放着一只带盖的金色小罐，罐前斜靠着一块刻字的金板，四周散着珠子和其他器物。",
+      "caption": "2009 年发现时的样子：塔心柱石中央的舍利孔，金色的舍利外壶和刻字的金板仍在原位。",
+      "kind": "detail",
+      "subject": "弥勒寺址西塔的舍利孔（出土时）",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106910&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "由原图（3586 × 3893 像素）缩小到 1152 × 1250 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "excavation",
+      "src": "/img/mireuksa-excavation.jpg",
+      "alt": "石孔内部的近景：两只戴白手套的手正把一只带盖的金色罐子从孔里捧起，罐下压着一块金板，四周是绿色的珠子、残片和泥土。",
+      "caption": "发掘中：舍利外壶从石孔中取出，下面压着金制舍利奉迎记。",
+      "kind": "detail",
+      "subject": "弥勒寺址西塔舍利孔的发掘",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106913&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "原图 1247 × 831 像素，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "jars",
+      "src": "/img/mireuksa-jars.jpg",
+      "alt": "深色背景前，一大一小两只带盖的金色细颈罐，大罐腹部刻着卷草和花瓣纹；旁边散放着几颗红色和深色的小珠子。",
+      "caption": "金铜舍利外壶（左）与金制舍利内壶（右），腰部可以旋开。",
+      "kind": "detail",
+      "subject": "金铜舍利外壶与金制舍利内壶",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106916&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "由原图（2006 × 1235 像素）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "bowls",
+      "src": "/img/mireuksa-bowls.jpg",
+      "alt": "浅色背景上六只大小不一的圆形带盖铜盒，表面有的呈铜色，有的覆盖着绿色铜锈。",
+      "caption": "六件青铜盒，原来盛着珠子等供养品；其中一件刻有施主“达率目近”的名字。",
+      "kind": "detail",
+      "subject": "青铜盒六件",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=7106917&ccbaKdcd=11&ccbaAsno=0003400000000&ccbaCtcd=35", "changes": "由原图（2010 × 1338 像素）缩小并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "七张照片均来自韩国国家遗产厅国家遗产门户，每一张在官方图像查看页上单独标注为韩国公共许可第一类（KOGL Type 1）：允许商业使用和改作，须注明出处。",
+    "basis": "逐张核对了图像查看页（imgHeritage.do，图像编号 7106910、7106913–7106917）的“공공누리 유형”栏，均链接到 KOGL 第一类条款；不属于该文物的图像编号在同一页面上该栏为空，说明许可类型是按图像记录的，不是页面模板。出处署名：국가유산청（韩国国家遗产厅）。",
+    "verifiedOn": "2026-10-28",
+    "note": "国立益山博物馆网站在核对时正在维护，未能直接查阅其藏品页；文物信息据国家遗产厅的国宝指定记录。铭文 193 字的完整释文本站尚未取得权威版本，课中只引用国家遗产厅的内容摘要，以及照片上清楚可读的几个字。"
+  },
+  "card": {
+    "type": "舍利庄严具 · 金板铭文",
+    "maker": "百济",
+    "period": "639 年",
+    "facets": [
+      { "label": "出土", "value": "2009 年 · 弥勒寺址西塔" },
+      { "label": "铭文", "value": "金板两面，共 193 字" },
+      { "label": "施主", "value": "百济王后" },
+      { "label": "现藏", "value": "国立益山博物馆" }
+    ],
+    "blurb": "封在塔心石里的一块金板，写下了百济王后建寺、奉安舍利的那一年：639 年。",
+    "focus": "45% 45%"
+  }
+}

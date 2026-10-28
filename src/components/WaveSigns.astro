@@ -1,0 +1,72 @@
+---
+// What a navigator feels around an atoll, drawn flat: the dominant swell arrives from the east, part of it is thrown back
+// off the island (curved waves on the windward side) and the rest wraps round it and crosses in the lee. A schematic
+// redrawn after Genz et al. 2009 (Oceanography 22:2, fig. 4), which diagrams the concepts Marshallese navigators
+// explained to the researchers; distances are the ones the paper reports, not drawn to scale. Static: the legend under
+// the drawing names each pattern, says what its Marshallese name refers to, and whether it rests on the navigators'
+// account or on the paper's own measurements.
+type Tag = 'told' | 'measured';
+interface Sign { id: 'east' | 'curve' | 'lee'; name: string; text: string; tag: Tag }
+interface Props { signs: Sign[]; caption: string }
+const { signs, caption } = Astro.props;
+const tags: Record<Tag, string> = { told: '航海者的讲解', measured: '研究者的测量' };
+const W = 360, H = 240, cx = 170, cy = 120;
+// Incoming east swell: parallel crests approaching from the right.
+const crests = [300, 322, 344];
+---
+<figure class="ws">
+  <svg class="ws-figure" viewBox={`0 0 ${W} ${H}`} role="img"
+    aria-label="示意：一座环礁，东来的涌浪在它东侧被反射成弧形的浪，绕过环礁后在西侧交叉成乱浪">
+    <defs>
+      <marker id="ws-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0 L8 4 L0 8 z" class="ws-head" />
+      </marker>
+    </defs>
+    {crests.map((x) => <line class="ws-crest" x1={x} y1="30" x2={x} y2="210" />)}
+    <line class="ws-flow" x1="350" y1="18" x2="300" y2="18" marker-end="url(#ws-arrow)" />
+    <text class="ws-label" x="352" y="12" text-anchor="end">东来的涌浪</text>
+    {/* reflected, curved waves on the windward side */}
+    {[34, 52, 70].map((r) => <path class="ws-reflect" d={`M${cx + r * 0.2} ${cy - r} A ${r} ${r} 0 0 1 ${cx + r * 0.2} ${cy + r}`} />)}
+    {/* the swell wrapping round the island and crossing in its lee */}
+    <path class="ws-wrap" d={`M${cx + 10} ${cy - 22} Q ${cx - 30} ${cy - 30} ${cx - 110} ${cy + 30}`} />
+    <path class="ws-wrap" d={`M${cx + 10} ${cy + 22} Q ${cx - 30} ${cy + 30} ${cx - 110} ${cy - 30}`} />
+    <circle class="ws-island" cx={cx} cy={cy} r="14" />
+    <circle class="ws-lagoon" cx={cx} cy={cy} r="8" />
+    <text class="ws-mark" x={cx + 82} y={cy + 4}>1</text>
+    <text class="ws-mark" x={cx + 60} y={cy - 62}>2</text>
+    <text class="ws-mark" x={cx + 60} y={cy + 72}>2</text>
+    <text class="ws-mark" x={cx - 82} y={cy + 4}>3</text>
+    <text class="ws-note" x="8" y={H - 8}>北在上 · 示意，不按比例</text>
+  </svg>
+  <figcaption>
+    <ol class="ws-legend">
+      {signs.map((s) => (
+        <li><strong>{s.name}</strong><span class={`ws-tag is-${s.tag}`}>{tags[s.tag]}</span><span class="ws-text">{s.text}</span></li>
+      ))}
+    </ol>
+    <span class="ws-cap">{caption}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .ws { grid-column: wide; margin: 2.5rem 0; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 1.75rem; align-items: start; }
+  .ws-figure { display: block; width: 100%; height: auto; background: var(--mist); }
+  .ws-crest { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 6 4; }
+  .ws-flow { stroke: var(--ink-2); stroke-width: 1.2; }
+  .ws-head { fill: var(--ink-2); }
+  .ws-reflect { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+  .ws-wrap { fill: none; stroke: var(--ink-2); stroke-width: 1.2; }
+  .ws-island { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+  .ws-lagoon { fill: var(--mist); stroke: none; }
+  .ws-label, .ws-note { font: 400 9px var(--sans); fill: var(--ink-3); }
+  .ws-mark { font: 600 12px var(--latin); fill: var(--ink); }
+  .ws figcaption { font: 400 .875rem/1.75 var(--sans); color: var(--ink-2); }
+  .ws-legend { margin: 0; padding-left: 1.3rem; }
+  .ws-legend li + li { margin-top: .8rem; }
+  .ws-legend strong { color: var(--ink); margin-right: .5rem; }
+  .ws-tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--rule); font-size: .6875rem; letter-spacing: .08em; color: var(--ink-3); }
+  .ws-tag.is-measured { border-color: var(--ink-3); color: var(--ink-2); }
+  .ws-text { display: block; margin-top: .2rem; }
+  .ws-cap { display: block; margin-top: 1rem; font-size: .8125rem; color: var(--ink-3); }
+  @media (max-width: 720px) { .ws { grid-template-columns: 1fr; } }
+</style>

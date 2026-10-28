@@ -1,0 +1,134 @@
+{
+  "id": "art-imami-mihrab-001",
+  "kind": "object",
+  "titleZh": "伊斯法罕伊玛米经学院的米哈拉布（礼拜龛）",
+  "titleEn": "Mihrab (Prayer Niche), from the Madrasa Imami, Isfahan",
+  "attributionNote": "工匠不详。大都会艺术博物馆说明它原是伊斯法罕一所经学院（今称伊玛米经学院）礼拜方向墙上的礼拜龛；经学院庭院里的一处铭文记年为伊斯兰历 754 年（公元 1354–1355 年），这件礼拜龛本身记年为伊斯兰历 755 年。",
+  "dateApprox": "伊斯兰历 755 年（公元 1354–1355 年）",
+  "objectType": "建筑构件 · 米哈拉布（指示礼拜方向的壁龛）",
+  "medium": "釉面砖切割镶嵌（石英熔块胎的多色釉面砖切成小块拼合，嵌入灰浆）",
+  "dimensions": "高 343.1 厘米，宽 288.7 厘米，重约 2041 千克（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 39.20",
+  "originalStatus": "原件，但经过大面积修复。据大都会的目录：1920 年代中期在原址拍的照片显示，中央铭文下方的龛底以及主铭文的开头和结尾已经缺失，由伊斯法罕的陶工补全，修得几乎看不出来；1931 年发表的照片显示，它在运输后部分坍塌，龛顶和上部大块缺失，1931 至 1939 年间再次大修，可能用回了掉落的原有碎片。",
+  "provenance": "据大都会艺术博物馆的来源记录：伊朗伊斯法罕伊玛米经学院（1354 年至 1920 年代后期）；1920 年代后期被拆下，运往美国费城，存放于宾夕法尼亚大学博物馆；1931 年在伦敦伯灵顿宫的波斯艺术展上展出；巴黎商人 A. Rabenou（不晚于 1931–1939 年）；1939 年由阿瑟·U. 波普经手卖给大都会艺术博物馆。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Mihrab (Prayer Niche)，39.20（概述、目录条目、铭文转写与英译、来源）", "url": "https://www.metmuseum.org/art/collection/search/449537" },
+    { "label": "大都会艺术博物馆藏品页：Folio from the \"Blue Qur'an\"，2004.88", "url": "https://www.metmuseum.org/art/collection/search/454662" },
+    { "label": "大都会艺术博物馆藏品页：Bowl with Arabic Inscription，65.106.2", "url": "https://www.metmuseum.org/art/collection/search/451802" },
+    { "label": "大都会艺术博物馆藏品页：Bowl with Bahram Gur and Azada，57.36.2", "url": "https://www.metmuseum.org/art/collection/search/451377" },
+    { "label": "Maryam Ekhtiar、Julia Cohen，“Early Qur'ans (8th–Early 13th Century)”，大都会《艺术史年表》（2014）", "url": "https://www.metmuseum.org/essays/early-qurans-8thearly-13th-centuries" },
+    { "label": "大都会伊斯兰艺术部，“Figural Representation in Islamic Art”，《艺术史年表》（2001）", "url": "https://www.metmuseum.org/essays/figural-representation-in-islamic-art" },
+    { "label": "联合国教科文组织世界遗产名录：Kairouan（凯鲁万大清真寺）", "url": "https://whc.unesco.org/en/list/499/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/imami-mihrab.jpg",
+      "width": 1080,
+      "height": 1600,
+      "alt": "一座高大的壁龛，正面全由小块釉面砖拼成，以深蓝、宝蓝、白色和松石绿为主，点缀着赭黄和深绿。中间是一个尖拱形的凹龛，龛顶和龛壁铺满几何图案。凹龛四周、拱的上方和整个外框，都排着不同样式的阿拉伯文字和花叶纹样。",
+      "caption": "米哈拉布（礼拜龛），伊斯法罕，伊斯兰历 755 年（公元 1354–1355 年），釉面砖切割镶嵌，高 343.1 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/449537", "changes": "由原图（DP235035）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "gallery",
+      "src": "/img/imami-mihrab-gallery.jpg",
+      "alt": "黑白照片：博物馆展厅的白墙上嵌着这座礼拜龛，龛前地上铺着一小块地毯；一个男人站在左边看它，只到龛高的一半左右。墙上两侧挂着几块小瓷砖。",
+      "caption": "礼拜龛在大都会艺术博物馆展厅中。",
+      "kind": "detail",
+      "subject": "礼拜龛在大都会的展厅",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/449537", "changes": "由原图（DT237108）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "band",
+      "src": "/img/imami-mihrab-band.jpg",
+      "alt": "礼拜龛外框顶部的长条：深蓝底上，白色的阿拉伯文字上下两层叠在一起，字母的竖笔高高挑起，从右往左排开。",
+      "caption": "外框顶部：白色穆哈卡克体的《古兰经》经文。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/449537", "changes": "由原图（DP235035）裁出外框顶部，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "arch",
+      "src": "/img/imami-mihrab-arch.jpg",
+      "alt": "尖拱左半边的近景：一条白底长带沿着拱边弯上去，带上是蓝色的方折字母，一根根竖笔像栅栏一样整齐地排列；带子外侧是蓝白相间的花叶网格，内侧是龛顶的几何星形。",
+      "caption": "尖拱的边框：白底蓝字的库法体圣训。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/449537", "changes": "由原图（DP235035）裁出尖拱左半，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "cartouche",
+      "src": "/img/imami-mihrab-cartouche.jpg",
+      "alt": "龛壁正中一块长方形的框：深蓝底上两行文字，上面一行小而方折，下面一行是粗大圆转的白色字母；框外四周是蓝、白、绿、黄的小砖拼成的几何纹。",
+      "caption": "龛内正中的长方形框：“清真寺是每个敬畏者的家。”",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/449537", "changes": "由原图（DP235035）裁出中央框，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "kairouan",
+      "src": "/img/kairouan-prayer-hall.jpg",
+      "alt": "一座清真寺的礼拜大殿：两排大理石柱子之间是一条长长的通道，地上铺满地毯，头顶挂着几层大吊灯；通道尽头的墙正中是一个拱形的壁龛，右边是一座高高的木制讲坛。两个人在壁龛前，一个站着，一个坐着。",
+      "caption": "突尼斯凯鲁万大清真寺的礼拜大殿：尽头墙上的米哈拉布和它右边的讲坛（敏拜尔）。",
+      "kind": "detail",
+      "subject": "凯鲁万大清真寺礼拜大殿",
+      "credit": { "author": "damian entwistle（维基共享资源）", "licence": "CC BY 2.0", "licenceUrl": "https://creativecommons.org/licenses/by/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Kairouan_prayer_hall_with_mihrab_and_minbar.jpg", "date": "2010-01-16", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "madrasa",
+      "src": "/img/imami-madrasa.jpg",
+      "alt": "一座砖砌建筑的方形庭院：四面是两层的拱廊，正面中间一座高大的拱门，拱顶里是层层叠叠的钟乳状装饰，墙面镶着蓝色瓷砖。庭院中间有一丛绿色灌木。",
+      "caption": "今天的伊玛米经学院庭院，伊斯法罕。",
+      "kind": "detail",
+      "subject": "伊玛米经学院，伊斯法罕",
+      "credit": { "author": "Abbas Poostindooz / 迈赫尔通讯社（维基共享资源）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Imami_School,_Isfahan.jpg", "changes": "原图仅 570 × 350 像素，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "bluequran",
+      "src": "/img/blue-quran.jpg",
+      "alt": "一张横长的羊皮纸，染成深靛蓝色，上面用金色写着十五行方折的阿拉伯字母。字母大多是横平竖直的块状，有的横笔被拉得很长；字母上下没有任何点号。右下有一个银色的圆形标记，已经氧化发黑。纸的四边有破损。",
+      "caption": "“蓝色《古兰经》”的一页，9 世纪下半叶至 10 世纪中叶，可能作于突尼斯凯鲁万，靛蓝染羊皮纸上的金银字，30.4 × 40.2 厘米，大都会艺术博物馆藏（2004.88）。",
+      "kind": "detail",
+      "subject": "“蓝色《古兰经》”散页",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/454662", "changes": "由原图（DP167100）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "nishapur",
+      "src": "/img/nishapur-bowl.jpg",
+      "width": 1600,
+      "height": 1600,
+      "alt": "从正上方看的一只大碗：白色的碗里，沿着碗壁写着一圈黑色的阿拉伯字母，字的竖笔一根根指向碗心，横笔很短，其余全是空白。",
+      "caption": "带阿拉伯文铭文的碗，10 世纪，伊朗内沙布尔，白色化妆土上施黑色化妆土、透明釉，直径 45.7 厘米，大都会艺术博物馆藏（65.106.2）。",
+      "kind": "detail",
+      "subject": "内沙布尔铭文碗",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451802", "changes": "由原图（DP120823）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "bahram",
+      "src": "/img/bahram-gur-bowl.jpg",
+      "alt": "从正上方看的一只彩绘小碗：碗心画着一位戴王冠的骑手和一位女子同骑在一匹红色骆驼上，男子拉弓，女子抱着竖琴；骆驼脚下有几只奔跑的羚羊。碗底下方还有一个小场景。",
+      "caption": "绘有巴赫拉姆·古尔与阿扎黛的碗，12 世纪末至 13 世纪初，可能作于伊朗卡尚，大都会艺术博物馆藏（57.36.2）。",
+      "kind": "detail",
+      "subject": "巴赫拉姆·古尔与阿扎黛碗",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451377", "changes": "由原图（DP235036）缩小并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "四件大都会藏品的照片来自开放获取计划（CC0）；凯鲁万大清真寺照片为 CC BY 2.0，伊玛米经学院照片为 CC BY 4.0，均已署名并注明许可。",
+    "basis": "大都会藏品页标注“Public Domain”。维基共享资源文件页的许可信息经 API 核对（2026-10-27）；伊玛米经学院照片出自迈赫尔通讯社，该社以 CC BY 4.0 发布图片。",
+    "verifiedOn": "2026-10-27",
+    "note": "铭文的转写和英译由大都会提供，本课的中文据其英译转译；《古兰经》9:18 的中文采用 QuranEnc 网站所载 Muhammad Makeen 的中文译本。"
+  },
+  "card": {
+    "type": "建筑构件 · 礼拜龛",
+    "maker": "伊斯法罕",
+    "period": "公元 1354–1355 年",
+    "facets": [
+      { "label": "工艺", "value": "釉面砖切割镶嵌" },
+      { "label": "尺寸", "value": "高 343 cm" },
+      { "label": "铭文", "value": "经文、圣训，三种书体" },
+      { "label": "原址", "value": "伊玛米经学院" }
+    ],
+    "blurb": "一面朝向麦加的墙。它最尊贵的装饰不是人像，而是一层层的文字。",
+    "focus": "50% 55%"
+  }
+}

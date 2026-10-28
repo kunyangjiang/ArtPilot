@@ -11,6 +11,30 @@
       "height": 174
     }
   },
+  "/img/borobudur-gallery.jpg": {
+    "large": {
+      "src": "/img/table/borobudur-gallery.jpg",
+      "width": 825,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-borobudur-gallery.jpg",
+      "width": 195,
+      "height": 260
+    }
+  },
+  "/img/borobudur.jpg": {
+    "large": {
+      "src": "/img/table/borobudur.jpg",
+      "width": 1100,
+      "height": 732
+    },
+    "small": {
+      "src": "/img/table/s-borobudur.jpg",
+      "width": 260,
+      "height": 173
+    }
+  },
   "/img/caravaggio-denial.jpg": {
     "large": {
       "src": "/img/table/caravaggio-denial.jpg",
@@ -143,6 +167,18 @@
       "height": 260
     }
   },
+  "/img/imami-mihrab.jpg": {
+    "large": {
+      "src": "/img/table/imami-mihrab.jpg",
+      "width": 743,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-imami-mihrab.jpg",
+      "width": 175,
+      "height": 260
+    }
+  },
   "/img/indus-unicorn-seal.jpg": {
     "large": {
       "src": "/img/table/indus-unicorn-seal.jpg",
@@ -153,6 +189,30 @@
       "src": "/img/table/s-indus-unicorn-seal.jpg",
       "width": 260,
       "height": 259
+    }
+  },
+  "/img/jeanne-hours-016r.jpg": {
+    "large": {
+      "src": "/img/table/jeanne-hours-016r.jpg",
+      "width": 659,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-jeanne-hours-016r.jpg",
+      "width": 155,
+      "height": 260
+    }
+  },
+  "/img/jeanne-hours.jpg": {
+    "large": {
+      "src": "/img/table/jeanne-hours.jpg",
+      "width": 1100,
+      "height": 748
+    },
+    "small": {
+      "src": "/img/table/s-jeanne-hours.jpg",
+      "width": 260,
+      "height": 177
     }
   },
   "/img/liangzhu-cong.jpg": {
@@ -200,6 +260,30 @@
     "small": {
       "src": "/img/table/s-maya-lintel-full.jpg",
       "width": 258,
+      "height": 260
+    }
+  },
+  "/img/mireuksa-plate-a.jpg": {
+    "large": {
+      "src": "/img/table/mireuksa-plate-a.jpg",
+      "width": 1100,
+      "height": 747
+    },
+    "small": {
+      "src": "/img/table/s-mireuksa-plate-a.jpg",
+      "width": 260,
+      "height": 176
+    }
+  },
+  "/img/mireuksa-plate-detail.jpg": {
+    "large": {
+      "src": "/img/table/mireuksa-plate-detail.jpg",
+      "width": 622,
+      "height": 879
+    },
+    "small": {
+      "src": "/img/table/s-mireuksa-plate-detail.jpg",
+      "width": 184,
       "height": 260
     }
   },
@@ -273,6 +357,18 @@
       "src": "/img/table/s-shiqitie-page.jpg",
       "width": 140,
       "height": 260
+    }
+  },
+  "/img/stick-chart-rebbelib.jpg": {
+    "large": {
+      "src": "/img/table/stick-chart-rebbelib.jpg",
+      "width": 1100,
+      "height": 1021
+    },
+    "small": {
+      "src": "/img/table/s-stick-chart-rebbelib.jpg",
+      "width": 260,
+      "height": 241
     }
   },
   "/img/taharqo-shabti.jpg": {

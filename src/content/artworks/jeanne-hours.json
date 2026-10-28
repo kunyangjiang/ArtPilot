@@ -1,0 +1,178 @@
+{
+  "id": "art-jeanne-hours-001",
+  "kind": "object",
+  "titleZh": "法国王后让娜·德埃夫勒的时祷书",
+  "titleEn": "The Hours of Jeanne d'Evreux, Queen of France",
+  "attributionNote": "大都会艺术博物馆把绘画归于巴黎画家让·普塞勒（活跃于 1319–1334 年），依据之一是让娜的遗嘱提到一本“普塞勒彩绘”的祈祷书。也有研究者怀疑遗嘱里那本书是否就是这一本，以及书中哪些部分出自普塞勒本人之手。",
+  "dateApprox": "约 1324–1328 年",
+  "objectType": "时祷书（供平信徒按时辰祈祷的私人祈祷书）",
+  "medium": "犊皮纸；灰色单色画（grisaille）、蛋彩与墨",
+  "dimensions": "单叶 9.2 × 6.2 厘米；连装帧 9.9 × 7.2 × 3.8 厘米；共 209 叶，25 幅整页画，页边小画近 700 幅（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆修道院分馆（纽约），藏品编号 54.1.2",
+  "originalStatus": "原件，完整成册；在巴黎制作。书中没有让娜的纹章，也有几叶没有完成装饰。",
+  "provenance": "据大都会艺术博物馆的来源记录：法国王后让娜·德埃夫勒（1328 年以前起，至 1371 年去世）；遗赠法国国王查理五世，再传查理六世；贝里公爵让（1401 年起见于其财产清单，至 1416 年去世）；17 世纪在法国巴尔的私人收藏；19 世纪末为日内瓦的阿道夫·卡尔·罗斯柴尔德所有，后传其妻、再传莫里斯·德·罗斯柴尔德男爵；1941 年 1 月被纳粹官员劫掠，存放于新天鹅堡；1945 年被找回，1948 年归还原主；1954 年经纽约画商入藏大都会修道院分馆。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：The Hours of Jeanne d'Evreux, Queen of France，54.1.2（含说明、来源与逐页图像标题）", "url": "https://www.metmuseum.org/art/collection/search/470309" },
+    { "label": "Wendy A. Stein，“The Book of Hours: A Medieval Bestseller”，大都会艺术博物馆《艺术史年表》（2017）", "url": "https://www.metmuseum.org/essays/the-book-of-hours-in-medieval-christianity" },
+    { "label": "维基百科：Hours of Jeanne d'Evreux（成书背景、八组对页、页边游戏；作为二手概述使用）", "url": "https://en.wikipedia.org/wiki/Hours_of_Jeanne_d%27Evreux" },
+    { "label": "孔克旅游局：The tympanum of the Last Judgment（年代、尺寸、铭文、圣福瓦与查理曼的形象）", "url": "https://tourisme-conques.fr/en/en-conques/the-tympanum" },
+    { "label": "孔克旅游局：The Treasure（圣福瓦圣髑像的年代、材料与游行）", "url": "https://tourisme-conques.fr/en/en-conques/the-treasure" },
+    { "label": "大格里高利致马赛主教塞雷努斯书（600），J. Barmby 英译，《尼西亚与后尼西亚教父》第二辑第 13 卷（1898），New Advent 网站", "url": "https://www.newadvent.org/fathers/360211013.htm" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/jeanne-hours.jpg",
+      "width": 1600,
+      "height": 1088,
+      "alt": "一本摊开的小书。左页用灰黑色细笔画着一大群人挤在一起，中间一人拥抱另一人，周围举着火把和兵器；下面两行红色手写拉丁文，再往下的页脚有骑在羊背上的小人。右页上方是一座蓝顶小建筑，里面一位带翅膀的天使跪着，向站立的女子展开一条字带；下面的大写字母 D 里画着一位跪着捧书的女子，页脚有几个人在玩游戏。",
+      "caption": "时祷书第 15 叶背面与第 16 叶正面：左页“基督被出卖”，右页“天使报喜”，圣母时辰经从这里开始。约 1324–1328 年，单叶 9.2 × 6.2 厘米。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233162）裁去书四周的灰色背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "page",
+      "src": "/img/jeanne-hours-016r.jpg",
+      "width": 959,
+      "height": 1600,
+      "alt": "时祷书的一页：上方一座蓝色屋顶的小建筑里，带翅膀的天使跪着，举起一条字带，对面站着披斗篷的圣母，手里拿着一本红色的书。下面的大写字母 D 里，一位戴王冠的女子跪着读一本摊开的书；字母旁是两行褐色文字。页脚几个人在玩游戏，一个人蒙着头坐在地上。页边还有奏乐的天使和小动物。",
+      "caption": "第 16 叶正面：“天使报喜”，圣母时辰经的开头。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233162）裁出右页，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "lauds",
+      "src": "/img/jeanne-hours-034.jpg",
+      "width": 1600,
+      "height": 1088,
+      "alt": "摊开的时祷书：左页画框里，基督被带到一个坐着的人面前；右页画框里，两位女子相拥。右页下方红字写着 Ad laudes，页脚有几个手舞足蹈的小人。",
+      "caption": "第 34 叶背面与第 35 叶正面：“基督在彼拉多面前”与“圣母往见”。右页红字 Ad laudes（赞美经）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233203）裁去四周背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "prime",
+      "src": "/img/jeanne-hours-053.jpg",
+      "width": 1600,
+      "height": 1072,
+      "alt": "摊开的时祷书：左页红色背景前，基督被绑在柱子上，两侧的人举手抽打；右页画框里，圣母躺在床上，旁边是马槽里的婴儿。右页红字写着 Ad primam。",
+      "caption": "第 53 叶背面与第 54 叶正面：“鞭打基督”与“基督降生”。右页红字 Ad primam（第一时辰）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233360）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "terce",
+      "src": "/img/jeanne-hours-061.jpg",
+      "width": 1600,
+      "height": 1088,
+      "alt": "摊开的时祷书：左页蓝色背景前，基督背着十字架向前走；右页画框里，牧羊人在山坡上仰望。右页红字写着 Ad iii，页脚有一个人牵着小狗。",
+      "caption": "第 61 叶背面与第 62 叶正面：“背负十字架”与“天使向牧羊人报信”。右页红字 Ad iii（第三时辰）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233430）裁去四周背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "sext",
+      "src": "/img/jeanne-hours-068.jpg",
+      "width": 1600,
+      "height": 1054,
+      "alt": "摊开的时祷书：左页没有画框，整页画着基督被钉在十字架上，两旁各有一个被钉的人，下面人群拥挤；右页画框里，三位国王向坐着的圣母和婴儿献礼。右页红字写着 Ad sextam。",
+      "caption": "第 68 叶背面与第 69 叶正面：“基督受难”与“三王来朝”。右页红字 Ad sextam（第六时辰）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233441）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "none",
+      "src": "/img/jeanne-hours-075.jpg",
+      "width": 1600,
+      "height": 1088,
+      "alt": "摊开的时祷书：左页蓝色背景前，几个人把基督的身体从十字架上放下来；右页画框里，圣母把婴儿递向祭台另一边的老人。右页红字写着 Ad nonam。",
+      "caption": "第 75 叶背面与第 76 叶正面：“卸下圣体”与“圣殿献婴”。右页红字 Ad nonam（第九时辰）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233468）裁去四周背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "vespers",
+      "src": "/img/jeanne-hours-082.jpg",
+      "width": 1600,
+      "height": 1047,
+      "alt": "摊开的时祷书：左页画框里，众人把基督的身体放进石棺；右页画框里，圣母抱着婴儿骑在驴上，约瑟在旁边走。右页红字写着 Ad vs（晚祷的缩写），页脚有一排人物。",
+      "caption": "第 82 叶背面与第 83 叶正面：“安葬基督”与“逃往埃及”。右页红字 Ad v[e]s[peras]（晚祷）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233586）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "louis",
+      "src": "/img/jeanne-hours-louis.jpg",
+      "width": 1600,
+      "height": 1088,
+      "alt": "摊开的时祷书：左页一座淡黄色的小礼拜堂里，左边门口站着一位戴王冠的女子，里面几个病弱的人坐在一座墓前，一位圣徒站在上方；右页红色背景前，一位修士在一位跪着的国王背上执鞭。",
+      "caption": "第 102 叶背面与第 103 叶正面：大都会的标题为“让娜·德埃夫勒在圣路易墓前”与“圣路易的自我鞭笞”，圣路易日课由此开始。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/470309", "changes": "由原图（DP233668）裁去四周背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "conques",
+      "src": "/img/conques-tympanum.jpg",
+      "width": 1600,
+      "height": 739,
+      "alt": "一座罗马式教堂大门上方的半圆形石雕，分成上中下几层，雕满上百个人物。正中一个大的光环里，基督坐着，右手上举，左手下垂；他左边（画面左侧）的人物排成整齐的行列，右边（画面右侧）的人物挣扎扭打。最下层左边是一排拱廊，右边是一张怪兽的大嘴和一群受折磨的人。最底下一条长石带刻满拉丁字母。石头上残留着淡蓝、淡红的颜色。",
+      "caption": "孔克圣福瓦修道院教堂西门的“最后的审判”门楣浮雕，12 世纪上半叶，宽约 6.7 米。",
+      "kind": "detail",
+      "subject": "孔克圣福瓦修道院教堂门楣",
+      "credit": { "author": "Renhour48（维基共享资源）", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_21.jpg", "date": "2025-06-14", "changes": "裁去上方山墙与下方门扇，只留门楣浮雕；缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "judgement",
+      "src": "/img/conques-judgement.jpg",
+      "width": 1600,
+      "height": 894,
+      "alt": "门楣浮雕中央下部的近景：上方一位天使和一个长着怪脸的魔鬼隔着一杆秤，魔鬼伸手压着秤盘；下层左边，一位天使在一扇门旁拉着一个人的手；中间一根柱子隔开，右边几个魔鬼把赤裸的人推进一张张开的巨大兽口。最底下一行刻字。",
+      "caption": "门楣中央下部：秤量灵魂（上）；天堂之门与地狱的兽口（下）。",
+      "kind": "detail",
+      "subject": "孔克门楣：秤量灵魂与地狱之口",
+      "credit": { "author": "Renhour48（维基共享资源）", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_-_D%C3%A9tail_B.jpg", "date": "2025-06-14", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "procession",
+      "src": "/img/conques-procession.jpg",
+      "width": 1600,
+      "height": 866,
+      "alt": "门楣左半部的近景：中层一列人物向右走，领头的是一位手持牧杖的院长，他牵着一位戴王冠、留胡子的人，后面跟着几位修士；右边几位圣徒手持钥匙和手杖。下面一条刻字石带。左下角的拱门里挂着几副镣铐；最下层，一个小小的人伏在地上，一只大手从旁边伸向她。",
+      "caption": "门楣左半部：中层的行列，左下的镣铐，下层伏地的小人和伸向她的手。",
+      "kind": "detail",
+      "subject": "孔克门楣：左半部的行列",
+      "credit": { "author": "Renhour48（维基共享资源）", "licence": "CC0 1.0", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbatiale_Sainte-Foy_de_Conques_-_Tympan_-_D%C3%A9tail_C.jpg", "date": "2025-06-14", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "majesty",
+      "src": "/img/conques-sainte-foy.jpg",
+      "width": 1186,
+      "height": 1600,
+      "alt": "罗马式教堂的圆柱之间，祭台前的高台上放着一座玻璃罩，里面是一尊坐着的金色小像，全身镶满宝石，头戴王冠；高台铺着红布，前面围着绳子。",
+      "caption": "圣福瓦圣髑像在她的节日（2010 年 10 月 10 日）被请出宝库，放在教堂里。像为 9–10 世纪，手臂为 16 世纪改作。",
+      "kind": "detail",
+      "subject": "圣福瓦圣髑像（孔克修道院宝库）",
+      "credit": { "author": "Concaténation（维基共享资源）", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue-reliquaire_de_Sainte-Foy_expos%C3%A9e_dans_l%27abbatiale_le_jour_de_la_sainte_Foy_10-10-2010.jpg", "date": "2010-10-10", "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 3.0 提供" }
+    }
+  ],
+  "rights": {
+    "status": "时祷书的照片来自大都会艺术博物馆开放获取计划（CC0）；孔克门楣的三张照片由摄影者以 CC0 放弃权利；圣福瓦圣髑像的照片为 CC BY-SA 3.0，已署名并注明许可。",
+    "basis": "大都会藏品页标注“Public Domain”，可无条件使用。维基共享资源文件页的许可信息经 API 核对（2026-10-27）。现场照片是对立体作品的新拍摄，按摄影者的许可使用。",
+    "verifiedOn": "2026-10-27",
+    "note": "大都会的开页照片为整本书放在灰色背景上拍摄，本课为其中五张裁去了背景；第 53、68、82 叶的原图本身就拍得较近，未裁切。页上的红字由本课从照片读出。"
+  },
+  "card": {
+    "type": "时祷书",
+    "maker": "让·普塞勒",
+    "period": "约 1324–1328 年",
+    "facets": [
+      { "label": "材质", "value": "犊皮纸灰色单色画" },
+      { "label": "单叶", "value": "9.2 × 6.2 cm" },
+      { "label": "篇幅", "value": "209 叶" },
+      { "label": "主人", "value": "法国王后让娜" }
+    ],
+    "blurb": "每翻到一个时辰，同一个人的童年和受难就并排出现在眼前。",
+    "focus": "50% 35%",
+    "image": "page"
+  }
+}

@@ -1,0 +1,149 @@
+---
+// Climbing a terraced monument one level at a time, to see how what is carved changes with height. A schematic profile
+// of the monument (a stepped half-section drawn to suggest the order of the levels, not a measured section) and a small
+// plan with the four stairways and the direction of the walk; choosing a level outlines it and opens what is there,
+// each row tagged by the kind of ground it stands on: what anyone can see on site, the documentary record (the
+// conservation office, the excavators' publications), or an interpretation. Moved with 往上一层 / 往下一层 or by
+// choosing a level. Nothing is scored or stored. Without script every level's panel is in the page.
+type Tag = 'see' | 'record' | 'interp';
+interface Row { k: string; v: string; tag: Tag }
+interface Level { id: string; label: string; rows: Row[] }
+interface Props { prompt: string; levels: Level[]; caption: string }
+const { prompt, levels, caption } = Astro.props;
+const tags: Record<Tag, string> = { see: '看得见', record: '记录', interp: '解读' };
+// The profile, bottom to top: the hidden foot (inside the later encasement), the first walled gallery, galleries two
+// to four (drawn as one band of three steps), three circular terraces with their small stupas, and the summit stupa.
+// A symmetrical section about the axis; the proportions only suggest the order and narrowing of the levels.
+const W = 340, H = 220, ground = 200, cx = 170;
+const band = (half: number, y: number, h: number) => ({ x: cx - half, y, width: half * 2, height: h });
+const rings = [{ half: 78, y: 102 }, { half: 64, y: 92 }, { half: 50, y: 82 }];
+---
+<section class="module tr" data-tr>
+  <p class="module-label">互动 · 一层一层往上走</p>
+  <h3>{prompt}</h3>
+  <div class="tr-body">
+    <div class="tr-figure">
+      <svg class="tr-section" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="示意剖面：从被包住的基座、四层回廊、三层圆台到顶上的大塔">
+        <line class="tr-ground" x1="0" y1={ground} x2={W} y2={ground} />
+        <line class="tr-axis" x1={cx} y1="14" x2={cx} y2={ground} />
+        {/* the later encasement wrapped round the hidden foot */}
+        <path class="tr-encase" d={`M${cx - 160} ${ground} L${cx - 155} 176 L${cx + 155} 176 L${cx + 160} ${ground} Z`} />
+        <rect class="tr-step" data-l={levels[0]?.id} {...band(150, 184, 16)} />
+        <rect class="tr-step" data-l={levels[1]?.id} {...band(136, 160, 24)} />
+        <g class="tr-group" data-l={levels[2]?.id}>
+          <rect class="tr-step" {...band(122, 144, 16)} />
+          <rect class="tr-step" {...band(108, 128, 16)} />
+          <rect class="tr-step" {...band(94, 112, 16)} />
+        </g>
+        <g class="tr-group" data-l={levels[3]?.id}>
+          {rings.map((r) => <rect class="tr-step" {...band(r.half, r.y, 10)} />)}
+          {rings.map((r) => [-1, 1].map((side) => <path class="tr-small" d={`M${cx + side * (r.half - 6) - 6} ${r.y} q6 -12 12 0 z`} />))}
+        </g>
+        <path class="tr-step tr-dome" data-l={levels[4]?.id}
+          d={`M${cx - 26} 82 Q${cx - 26} 50 ${cx - 8} 42 L${cx - 3} 24 L${cx} 14 L${cx + 3} 24 L${cx + 8} 42 Q${cx + 26} 50 ${cx + 26} 82 Z`} />
+        <text class="tr-note" x={cx + 160} y="214" text-anchor="end">后加的基座包层</text>
+      </svg>
+      <svg class="tr-plan" viewBox="0 0 134 120" role="img" aria-label="示意平面：四面各有一道楼梯；从东面楼梯上来，向南走，沿顺时针方向绕行，建筑始终在右手边">
+        <rect x="20" y="20" width="80" height="80" class="tr-plan-sq" />
+        <rect x="34" y="34" width="52" height="52" class="tr-plan-in" />
+        <circle cx="60" cy="60" r="10" class="tr-plan-in" />
+        <line x1="60" y1="6" x2="60" y2="20" class="tr-plan-stair" />
+        <line x1="60" y1="100" x2="60" y2="114" class="tr-plan-stair" />
+        <line x1="6" y1="60" x2="20" y2="60" class="tr-plan-stair" />
+        <line x1="100" y1="60" x2="114" y2="60" class="tr-plan-stair is-east" />
+        <path d="M121 40 L121 84" class="tr-plan-arrow" />
+        <path d="M117 78 L121 86 L125 78" class="tr-plan-arrow" />
+        <text x="132" y="104" class="tr-plan-label" text-anchor="end">东</text>
+        <text x="60" y="4" class="tr-plan-label" text-anchor="middle">北</text>
+      </svg>
+      <p class="tr-plan-cap">平面示意（北在上）：从东面楼梯上来，向左转、往南走，让建筑始终在右手边，绕行一周，再上一层。</p>
+      <ol class="tr-list" aria-label="选择一层">
+        {levels.map((l, i) => (
+          <li><button type="button" data-go={i} aria-pressed={i === 0 ? 'true' : 'false'}><span class="tr-n">{i + 1}</span>{l.label}</button></li>
+        ))}
+      </ol>
+    </div>
+    <div class="tr-panels">
+      {levels.map((l, i) => (
+        <div class="tr-panel" data-panel={i} data-id={l.id} aria-live="polite">
+          <p class="tr-where">第 {i + 1} 层 / 共 {levels.length} 层 · {l.label}</p>
+          <dl class="tr-rows">
+            {l.rows.map((r) => (
+              <div class="tr-row"><dt>{r.k}<span class={`tr-tag is-${r.tag}`}>{tags[r.tag]}</span></dt><dd>{r.v}</dd></div>
+            ))}
+          </dl>
+        </div>
+      ))}
+      <div class="actions tr-actions">
+        <button type="button" class="btn btn-secondary" data-down>往下一层</button>
+        <button type="button" class="btn btn-primary" data-up>往上一层</button>
+      </div>
+    </div>
+  </div>
+  <p class="tr-caption">{caption}</p>
+</section>
+
+<style>
+  .tr-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.75rem; align-items: start; }
+  .tr-section { display: block; width: 100%; height: auto; background: var(--mist); }
+  .tr-ground { stroke: var(--ink-3); stroke-width: 1; }
+  .tr-axis { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 3 3; }
+  .tr-encase { fill: var(--rule); opacity: .55; }
+  .tr-step { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; transition: fill var(--t) var(--ease), stroke var(--t) var(--ease); }
+  .tr-small { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; }
+  .tr-note { font: 400 9px var(--sans); fill: var(--ink-3); }
+  .tr-step.is-on, .tr-group.is-on .tr-step, .tr-group.is-on .tr-small { fill: var(--silver); stroke: var(--ink); stroke-width: 2; }
+  .tr-plan { display: block; width: 8.25rem; height: auto; margin: 1rem 0 0; }
+  .tr-plan-sq { fill: var(--paper); stroke: var(--ink-3); stroke-width: 1; }
+  .tr-plan-in { fill: none; stroke: var(--ink-3); stroke-width: 1; }
+  .tr-plan-stair { stroke: var(--ink-3); stroke-width: 3; }
+  .tr-plan-stair.is-east { stroke: var(--ink); }
+  .tr-plan-arrow { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+  .tr-plan-label { font: 400 9px var(--sans); fill: var(--ink-2); }
+  .tr-plan-cap { margin: .35rem 0 0; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); }
+  .tr-list { list-style: none; margin: .9rem 0 0; padding: 0; display: grid; gap: .35rem; }
+  .tr-list button { display: flex; gap: .6rem; align-items: baseline; width: 100%; padding: .45rem .6rem; border: 1px solid var(--rule);
+    background: var(--paper); color: var(--ink-2); text-align: left; font: 400 .875rem/1.5 var(--sans); cursor: pointer; }
+  .tr-list button[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .tr-n { font: 500 .75rem/1.5 var(--latin); color: var(--ink-3); min-width: 1em; }
+  .tr-where { margin: 0 0 .8rem; font: 500 .8125rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .tr-rows { margin: 0; }
+  .tr-row + .tr-row { margin-top: .9rem; padding-top: .9rem; border-top: 1px dashed var(--rule); }
+  .tr-row dt { display: flex; gap: .6rem; align-items: baseline; font: 600 .875rem/1.5 var(--sans); letter-spacing: .06em; color: var(--ink); }
+  .tr-row dd { margin: .3rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .tr-tag { padding: .05rem .4rem; border: 1px solid var(--rule); font: 400 .6875rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink-3); }
+  .tr-tag.is-record { border-color: var(--ink-3); color: var(--ink-2); }
+  .tr-tag.is-interp { border-style: dashed; }
+  .tr-caption { margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  .tr-actions { display: none; }
+  .tr-panel + .tr-panel { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  /* With script: one level at a time. */
+  :global(.tr.is-ready) .tr-panel:not(.is-shown) { display: none; }
+  :global(.tr.is-ready) .tr-panel + .tr-panel { margin-top: 0; padding-top: 0; border-top: 0; }
+  :global(.tr.is-ready) .tr-actions { display: flex; }
+  @media (max-width: 720px) { .tr-body { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tr]').forEach((root) => {
+    root.classList.add('is-ready');
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const shapes = [...root.querySelectorAll<SVGElement>('[data-l]')];
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const up = root.querySelector<HTMLButtonElement>('[data-up]')!;
+    const down = root.querySelector<HTMLButtonElement>('[data-down]')!;
+    let at = 0;
+    const show = () => {
+      panels.forEach((p, i) => p.classList.toggle('is-shown', i === at));
+      const id = panels[at]?.dataset.id;
+      shapes.forEach((s) => s.classList.toggle('is-on', s.dataset.l === id));
+      picks.forEach((b, i) => b.setAttribute('aria-pressed', String(i === at)));
+      up.disabled = at === panels.length - 1;
+      down.disabled = at === 0;
+    };
+    up.addEventListener('click', () => { at = Math.min(at + 1, panels.length - 1); show(); });
+    down.addEventListener('click', () => { at = Math.max(at - 1, 0); show(); });
+    picks.forEach((b, i) => b.addEventListener('click', () => { at = i; show(); }));
+    show();
+  });
+</script>

@@ -1,0 +1,116 @@
+{
+  "id": "art-marshall-stick-chart-001",
+  "kind": "object",
+  "titleZh": "马绍尔群岛的“棍子海图”（瑞贝里卜型）",
+  "titleEn": "Marshall Islands stick chart, Rebbelib type",
+  "attributionNote": "制作者不详。美国国会图书馆的目录把它著录为马绍尔群岛制作的模型，年代与标题都是编目员补拟的（20 世纪 20 年代？马朱罗）；谁做的、为谁做的、怎样来到图书馆，目录里都没有记载。",
+  "dateApprox": "约 20 世纪 20 年代（编目员补拟）",
+  "objectType": "航海教具模型（西方文献称“棍子海图”，马绍尔语称瑞贝里卜 rebbelib）",
+  "medium": "木条、贝壳，以纤维绑扎",
+  "dimensions": "67 × 72 厘米（据美国国会图书馆目录）",
+  "collection": "美国国会图书馆地理与地图部（华盛顿），索书号 G9461.P5 1920 .M24",
+  "originalStatus": "目录著录为“模型”，装在一个布面、透明盖的盒子里。它是否在海上或教学中实际使用过，不知道。",
+  "provenance": "据美国国会图书馆目录：“[马绍尔群岛马朱罗，192-?]”，出版者不详；入藏经过未见记载。",
+  "infoSources": [
+    { "label": "美国国会图书馆目录：[Marshall Islands stick chart, Rebbelib type]，2010586182（尺寸、材料、目录说明）", "url": "https://www.loc.gov/item/2010586182/" },
+    { "label": "美国国会图书馆目录：[Marshall Islands stick chart, Mattang type]，2010586180（盒上标签的说明）", "url": "https://www.loc.gov/item/2010586180/" },
+    { "label": "美国国会图书馆目录：[Marshall Islands stick chart, Meddo type]，2010586181（盒上标签的说明）", "url": "https://www.loc.gov/item/2010586181/" },
+    { "label": "J. Genz、J. Aucan、M. Merrifield、B. Finney、K. Joel、A. Kelen，“Wave Navigation in the Marshall Islands”，Oceanography 22(2), 2009, 234–245", "url": "https://tos.org/oceanography/assets/docs/22-2_genz.pdf" },
+    { "label": "英国国民信托：The history of Hinemihi（与 Ngāti Hinemihi 等合作伙伴共同讲述）", "url": "https://www.nationaltrust.org.uk/visit/surrey/clandon-park/history-of-hinemihi" },
+    { "label": "英国国民信托：Māori wharenui: a cultural and spiritual hub", "url": "https://www.nationaltrust.org.uk/visit/surrey/clandon-park/maori-wharenui-meeting-house" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/stick-chart-rebbelib.jpg",
+      "width": 1600,
+      "height": 1485,
+      "alt": "深蓝色衬布上，几十根细木条交错绑成一张近似方形的网：有的横平，有的斜穿，有几根是弯的；木条的许多交点上绑着白色的小贝壳。",
+      "caption": "马绍尔群岛的“棍子海图”，瑞贝里卜型，约 20 世纪 20 年代，木条与贝壳，67 × 72 厘米，美国国会图书馆藏。",
+      "kind": "full",
+      "credit": { "author": "美国国会图书馆地理与地图部", "licence": "可自由使用（国会图书馆：无权利限制说明）", "sourceUrl": "https://www.loc.gov/item/2010586182/", "changes": "据维基共享资源上的国会图书馆原图缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "mattang",
+      "src": "/img/stick-chart-mattang.jpg",
+      "alt": "深蓝衬布上，一个左右对称的木条框：四边略向内弯，中间几根直条横竖交叉，几根长长的斜条和弧形的条从角上穿过，交点上有几枚小贝壳。",
+      "caption": "马唐型（mattang），约 20 世纪 20 年代，74 × 91 厘米，美国国会图书馆藏。盒上标签称它是教学用具，不代表某一片具体海域。",
+      "kind": "detail",
+      "subject": "马唐型棍子海图（美国国会图书馆）",
+      "credit": { "author": "美国国会图书馆地理与地图部", "licence": "可自由使用（国会图书馆：无权利限制说明）", "sourceUrl": "https://www.loc.gov/item/2010586180/", "changes": "据维基共享资源上的国会图书馆原图缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "meddo",
+      "src": "/img/stick-chart-meddo.jpg",
+      "alt": "深蓝衬布上，一个横长的木条框：许多竖直的细条，几根长长的斜条从左到右穿过；靠下方有一组像鱼骨一样排列的短条；一些交点上绑着贝壳，中间有一枚较大的。",
+      "caption": "梅多型（meddo），约 20 世纪 20 年代，67 × 108 厘米，美国国会图书馆藏。盒上标签称它表现西边的拉利克群岛，中间的大贝壳代表夸贾林环礁。",
+      "kind": "detail",
+      "subject": "梅多型棍子海图（美国国会图书馆）",
+      "credit": { "author": "美国国会图书馆地理与地图部", "licence": "可自由使用（国会图书馆：无权利限制说明）", "sourceUrl": "https://www.loc.gov/item/2010586181/", "changes": "据维基共享资源上的国会图书馆原图缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "canoe",
+      "src": "/img/jaluit-canoe-1900.jpg",
+      "alt": "黑白老照片：一艘带舷外浮架的帆船在环礁潟湖里航行，三角形的大帆鼓满了风，船上站着几个人，远处是一条低平的海岸线。",
+      "caption": "马绍尔群岛贾卢伊特环礁潟湖中的帆船，1899–1900 年美国渔业委员会“信天翁号”考察时所摄。",
+      "kind": "detail",
+      "subject": "贾卢伊特潟湖中的舷外浮架帆船",
+      "credit": { "author": "美国国家海洋和大气管理局（NOAA）图片库", "licence": "公有领域（美国政府作品）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sailing_Canoe_on_port_tack,_Jaliut_Lagoon,_Marshall_Islands_(1899-1900).jpg", "date": "1899–1900", "changes": "原图未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "tewairoa",
+      "src": "/img/hinemihi-te-wairoa.jpg",
+      "alt": "黑白老照片：一座有山墙的木构房屋，屋脊正前方立着一个雕刻的人像，山墙两边的檐板和门廊两侧的立柱都刻着花纹。房前站着、坐着十几个穿传统和西式衣服的男女，其中一人高举一根短棍。",
+      "caption": "1880 年代的希内米希会堂，在罗托鲁瓦附近、塔拉威拉湖畔的特怀罗阿村。照片中高举短棍的人，据维基共享资源上的说明是委托建造这座会堂的酋长阿波罗·特瓦雷卡尼瓦。",
+      "kind": "detail",
+      "subject": "希内米希会堂，特怀罗阿",
+      "credit": { "author": "伯顿兄弟（Burton Bros），达尼丁", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi_Meeting_House_Burton_Bros.jpg", "date": "1881–1886", "changes": "原图未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "eruption",
+      "src": "/img/hinemihi-1886.jpg",
+      "alt": "黑白老照片：一片被火山灰覆盖的灰白色平地上，孤零零立着一座木构会堂，周围的树木和房屋都不见了，远处的山坡也蒙着一层灰。",
+      "caption": "1886 年塔拉威拉火山喷发之后的希内米希会堂。",
+      "kind": "detail",
+      "subject": "火山喷发后的希内米希会堂",
+      "credit": { "author": "埃德蒙·惠勒父子（Edmund Wheeler and Son）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi_Meeting_House_after_Tarawera_eruption_1886.jpg", "date": "1886", "changes": "原图未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "clandon",
+      "src": "/img/hinemihi-clandon.jpg",
+      "alt": "英国花园里的一座小会堂：茅草屋顶，屋脊前端立着一个小雕像，下面是一张雕刻的脸；山墙两边是红白相间、刻满螺旋纹的檐板，末端向外翘出；门廊两侧各有一根刻着人像的立柱；门在左，窗在右。门廊里站着一位参观者。",
+      "caption": "2013 年在英国萨里郡克兰登庄园的希内米希会堂。",
+      "kind": "detail",
+      "subject": "希内米希会堂，克兰登庄园（2013）",
+      "credit": { "author": "Len Williams（geograph.org.uk，维基共享资源）", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinemihi,_Clandon_Park_-_geograph.org.uk_-_3660071.jpg", "date": "2013-09-15", "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 2.0 提供" }
+    },
+    {
+      "key": "sleeping",
+      "src": "/img/hinemihi-clandon-2021.jpg",
+      "alt": "同一座会堂，屋顶罩着一大块绿色防水布，正面只剩素净的木板墙、一扇门和一扇窗，没有了雕刻的檐板和立柱。前面立着一块说明牌。",
+      "caption": "2021 年的希内米希会堂：2016 年起，雕刻已被取下，在恒温恒湿的库房中“沉睡”。",
+      "kind": "detail",
+      "subject": "希内米希会堂，克兰登庄园（2021）",
+      "credit": { "author": "Colin Smith（geograph.org.uk，维基共享资源）", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clandon_Park_-_Hinemihi_-_geograph.org.uk_-_6883481.jpg", "date": "2021-05-02", "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 2.0 提供" }
+    }
+  ],
+  "rights": {
+    "status": "三件棍子海图的照片来自美国国会图书馆，可自由使用；两张 19 世纪的照片和 1900 年的帆船照片为公有领域；克兰登庄园的两张照片为 CC BY-SA 2.0，已署名并注明许可。",
+    "basis": "国会图书馆目录页注明：地理与地图部的数字化藏品，除非另有权利说明，均可自由使用和再使用（这三件无权利说明）。维基共享资源文件页的许可信息经 API 核对（2026-10-27）。",
+    "verifiedOn": "2026-10-27",
+    "note": "本课只使用已公开展示和发表的图像：会堂的外观和老照片，没有使用会堂内部或任何仪式的影像。马绍尔航海知识只引用研究者在获得酋长许可后公开发表的内容。"
+  },
+  "card": {
+    "type": "航海教具",
+    "maker": "马绍尔群岛",
+    "period": "约 20 世纪 20 年代",
+    "facets": [
+      { "label": "材料", "value": "木条、贝壳" },
+      { "label": "尺寸", "value": "67 × 72 cm" },
+      { "label": "类型", "value": "瑞贝里卜（rebbelib）" },
+      { "label": "教的是", "value": "浪，而不是地图" }
+    ],
+    "blurb": "它不是带上船看的地图，而是在岸上教人认识大海怎样被岛屿改变。",
+    "focus": "50% 45%"
+  }
+}

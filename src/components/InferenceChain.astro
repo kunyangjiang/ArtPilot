@@ -4,14 +4,15 @@
 // gap that no evidence crosses. The reader may first guess how far the claim reaches (an optional choice, not checked
 // against anything), then walks the chain with "下一步"; at the end the claim's standing opens: justified, plausible,
 // or not knowable with present evidence. One claim at a time. Nothing is scored or stored; without script every step
-// and verdict shows.
+// and verdict shows. `labels` renames a kind where the default does not fit the evidence (e.g. a catalogue or fieldwork
+// notes rather than an excavation record).
 type Kind = 'see' | 'record' | 'analogy' | 'gap';
 type Verdict = 'justified' | 'plausible' | 'unknowable';
 interface Step { kind: Kind; text: string }
 interface Claim { claim: string; steps: Step[]; verdict: Verdict; note: string }
-interface Props { prompt: string; claims: Claim[] }
-const { prompt, claims } = Astro.props;
-const kinds: Record<Kind, string> = { see: '看得见', record: '发掘记录', analogy: '别处的类比', gap: '断处' };
+interface Props { prompt: string; claims: Claim[]; labels?: Partial<Record<Kind, string>> }
+const { prompt, claims, labels = {} } = Astro.props;
+const kinds: Record<Kind, string> = { see: '看得见', record: '发掘记录', analogy: '别处的类比', gap: '断处', ...labels };
 const verdicts: Record<Verdict, string> = { justified: '证据足以支持', plausible: '合理，但无法证实', unknowable: '以现有证据无法知道' };
 ---
 <section class="module ic" data-ic>

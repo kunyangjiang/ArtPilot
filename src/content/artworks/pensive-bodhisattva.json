@@ -1,0 +1,84 @@
+{
+  "id": "art-pensive-bodhisattva-001",
+  "kind": "object",
+  "titleZh": "半跏思惟菩萨像",
+  "titleEn": "Pensive bodhisattva",
+  "attributionNote": "作者不详。大都会艺术博物馆把它定为朝鲜半岛三国时代、7 世纪中叶的作品，没有指明出自哪一个王国；博物馆说明，这种像在 6、7 世纪的百济和新罗尤其重要。",
+  "dateApprox": "7 世纪中叶",
+  "objectType": "佛教造像 · 半跏思惟像（一腿横放在另一腿膝上、手指轻触面颊的菩萨像）",
+  "medium": "鎏金铜",
+  "dimensions": "高 22.5 厘米，宽 10.2 厘米，深 10.8 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），藏品编号 2003.222",
+  "originalStatus": "原件，保存完好，大都会称它是保存最好的同类作品之一；鎏金大部分尚存，冠与肩部有铜绿。",
+  "provenance": "据大都会艺术博物馆的来源记录：东京新田栋一（彭楷栋），不晚于 1987 年至 2003 年；2003 年 3 月 24 日纽约佳士得“日本与韩国艺术”拍卖，第 308 号，当时题为“坐姿弥勒”，由大都会购得。出土地点不详。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Pensive bodhisattva，2003.222（说明、尺寸、来源）", "url": "https://www.metmuseum.org/art/collection/search/65397" },
+    { "label": "克利夫兰艺术博物馆藏品页：Buddha of the Future (Miroku Bosatsu)，1950.86（说明、尺寸、来源）", "url": "https://www.clevelandart.org/art/1950.86" },
+    { "label": "《日本书纪》，W. G. Aston 英译（1896），第二卷（钦明十三年、崇峻元年、推古三年与十三年条）", "url": "https://archive.org/details/nihongi2asto" },
+    { "label": "佐藤昭夫，“鞍作止利”，平凡社《改订新版 世界大百科事典》（Kotobank）", "url": "https://kotobank.jp/word/%E9%9E%8D%E4%BD%9C%E6%AD%A2%E5%88%A9-56394" },
+    { "label": "联合国教科文组织世界遗产名录：Seokguram Grotto and Bulguksa Temple", "url": "https://whc.unesco.org/en/list/736/" },
+    { "label": "联合国教科文组织世界遗产名录：Buddhist Monuments in the Horyu-ji Area", "url": "https://whc.unesco.org/en/list/660/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/pensive-bodhisattva-korea.jpg",
+      "width": 1180,
+      "height": 1600,
+      "alt": "一尊金色的小坐像，坐在一个被衣裙覆盖的圆座上。右腿横放在左膝上，右手肘支在右膝，手指轻轻触着右颊；左手搭在右脚踝上；左脚垂下，踩在一朵小莲花上。头戴高冠，冠两侧向上翘起，正中是一朵花饰；面带微笑，双目低垂。冠和肩上有绿色铜锈。",
+      "caption": "半跏思惟菩萨像，朝鲜半岛三国时代，7 世纪中叶，鎏金铜，高 22.5 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/65397", "changes": "由原图（DT11140）裁去左右两侧少许灰色背景，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "side",
+      "src": "/img/pensive-bodhisattva-korea-2.jpg",
+      "alt": "同一尊金色坐像的侧面：身体微微前倾，头低下，手指触颊；可以看到横放的右腿和垂下的左腿，衣裙的下摆一层层叠在座上。",
+      "caption": "同一尊像的侧面。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/65397", "changes": "由原图（DT5255）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "miroku",
+      "src": "/img/miroku-cleveland.jpg",
+      "alt": "一尊深色的铜坐像，背后是一个镂空的桃形火焰纹头光。它也是右腿横放在左膝上，右手指轻触下巴，左手搭在右脚上；胸前垂着璎珞，衣裙在座前形成深深的弧形褶子，左脚垂到底部。",
+      "caption": "弥勒菩萨像，日本飞鸟时代，7 世纪后期，铸铜、阴刻、残存鎏金，像高 39.4 厘米（连头光 45.8 厘米），克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "弥勒菩萨像（克利夫兰艺术博物馆）",
+      "credit": { "author": "克利夫兰艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1950.86", "changes": "由原图缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "asuka",
+      "src": "/img/asuka-daibutsu.jpg",
+      "alt": "一座寺庙佛堂里，一尊高大的铜坐佛，右手举起掌心向外，面部有明显的修补痕迹，身体颜色斑驳；佛前供着莲花、灯和小塔。",
+      "caption": "飞鸟寺的铜造释迦如来坐像（“飞鸟大佛”），奈良县明日香村。传统认为即 605–606 年止利所造的丈六佛，但后世修补很多。",
+      "kind": "detail",
+      "subject": "飞鸟大佛，飞鸟寺",
+      "credit": { "author": "Saigen Jiro（维基共享资源）", "licence": "公有领域（作者放弃权利）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%A3%9B%E9%B3%A5%E5%AF%BA_%E9%8A%85%E9%80%A0%E9%87%88%E8%BF%A6%E5%A6%82%E6%9D%A5%E5%9D%90%E5%83%8F.JPG", "date": "2018-08-26", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "horyuji",
+      "src": "/img/horyuji-shaka-triad.jpg",
+      "alt": "一张老照片：一尊坐佛居中，两侧各立一尊菩萨，三尊共用一个巨大的、刻满火焰纹的舟形背光；坐佛的衣裙从台座上垂下，形成对称的层层褶纹。",
+      "caption": "法隆寺金堂的释迦三尊像，623 年，鎏金铜。小川一真 1888–1889 年拍摄。",
+      "kind": "detail",
+      "subject": "法隆寺金堂释迦三尊像",
+      "credit": { "author": "小川一真（Ogawa Kazumasa）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyuji_Shaka_Triad.jpg", "date": "1888–1889", "changes": "原图未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "seokguram",
+      "src": "/img/seokguram-buddha.jpg",
+      "alt": "一个圆形的石室里，一尊白色花岗岩大佛结跏趺坐在莲座上，左手放在腿上，右手垂下指向地面；身后的弧形石壁上，一格一格浮雕着站立的人物。",
+      "caption": "石窟庵的主尊释迦如来坐像，统一新罗时代，8 世纪，庆州吐含山。",
+      "kind": "detail",
+      "subject": "石窟庵主尊",
+      "credit": { "author": "韩国文化财厅（维基共享资源）", "licence": "韩国公共许可第一类（KOGL Type 1，署名即可使用）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Front_view_of_Buddha_at_Seokguram.jpg", "changes": "缩小并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "大都会与克利夫兰的照片来自两馆的开放获取计划（CC0）；飞鸟大佛照片由摄影者放弃权利；小川一真 19 世纪的照片为公有领域；石窟庵照片由韩国文化财厅以 KOGL 第一类许可发布，已署名。",
+    "basis": "两馆藏品页与开放获取接口标注 CC0 / Public Domain。维基共享资源文件页的许可信息经 API 核对（2026-10-27）。",
+    "verifiedOn": "2026-10-27",
+    "note": "石窟庵内部今天禁止拍照，这张照片由韩国文化财厅提供。《日本书纪》的引文据 Aston 1896 年英译转译。"
+  }
+}

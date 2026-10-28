@@ -1,0 +1,127 @@
+{
+  "id": "art-borobudur-001",
+  "kind": "building",
+  "titleZh": "婆罗浮屠",
+  "titleEn": "Borobudur",
+  "attributionNote": "建造者的名字没有留下来。联合国教科文组织的说明是：它建于 8 至 9 世纪，夏连特拉王朝统治时期；《不列颠百科全书》给出的年代约为 778–850 年。",
+  "dateApprox": "约 8 世纪末至 9 世纪中叶",
+  "location": "印度尼西亚，中爪哇，马格朗附近的克杜盆地",
+  "buildingType": "佛教纪念建筑：围着一座小山建成的阶梯式窣堵波，没有内部殿堂",
+  "materials": "灰色火山岩石块砌成，包住一座天然小丘；墙面和栏墙上刻满浅浮雕，四面各有一道楼梯直通顶部",
+  "facts": [
+    { "label": "结构", "value": "四层方形回廊，三层圆台，顶上一座大塔" },
+    { "label": "浮雕", "value": "叙事浮雕 1460 块，装饰浮雕 1212 块" },
+    { "label": "小塔", "value": "72 座镂空小塔，每座内有一尊佛像" },
+    { "label": "高度", "value": "中心距基座约 35 米" }
+  ],
+  "notes": [
+    "建造过程中，原来的最底一层被一圈加厚的石砌基座包住，把一整圈浮雕盖在里面；一般认为是为了防止建筑下沉或外胀。",
+    "据联合国教科文组织，它从建成到 10 至 15 世纪之间的某个时候一直作为佛寺使用，之后被废弃。",
+    "1885 年，荷兰工程师伊泽尔曼（J. W. IJzerman）发现了被包住的基座上的浮雕；1890–1891 年拆开拍照（摄影师卡西安·塞法斯），之后又重新盖上，只在东南角留出几块。",
+    "1907–1911 年荷兰人进行第一次修复；1973–1983 年在联合国教科文组织协助下第二次大修，基本使用原有石料。",
+    "1991 年列入世界遗产名录；2010 年默拉皮火山喷发的酸性火山灰曾落满建筑。"
+  ],
+  "infoSources": [
+    { "label": "联合国教科文组织世界遗产名录：Borobudur Temple Compounds（年代、结构、浮雕面积、72 座小塔、使用与废弃、修复、威胁）", "url": "https://whc.unesco.org/en/list/592/" },
+    { "label": "《不列颠百科全书》：Borobudur（年代、高度、东面楼梯与顺时针绕行）", "url": "https://www.britannica.com/topic/Borobudur" },
+    { "label": "《不列颠百科全书》：Southeast Asian arts — Borobudur（回廊的高墙、右绕与浮雕的阅读方向、后加的基座、各层浮雕内容的变化）", "url": "https://www.britannica.com/art/Southeast-Asian-arts/Borobudur" },
+    { "label": "阿姆斯特丹世界博物馆（原热带博物馆）藏塞法斯底片 TM-10015894 的说明（被包住的基座、160 块《业报差别经》浮雕、发现与辨认的经过）", "url": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Reli%C3%ABf_O_158_op_de_verborgen_voet_van_de_Borobudur_TMnr_10015894.jpg" },
+    { "label": "Kompas.com（2022）转述婆罗浮屠保护局：浮雕数量与《普曜经》浮雕的位置", "url": "https://travel.kompas.com/read/2022/11/29/210200527/memahami-makna-relief-candi-borobudur?page=all" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/borobudur.jpg",
+      "width": 1600,
+      "height": 1064,
+      "alt": "从空中斜看婆罗浮屠：一座方形的灰黑色石砌阶梯建筑，坐落在绿色的树林和田野之间。下面几层是方形的台，边缘曲折，层层收进；上面几层是圆形的台，排满一圈圈钟形的小塔，正中是一座大塔。远处薄雾中是一座火山。",
+      "caption": "婆罗浮屠，中爪哇，约 8 世纪末至 9 世纪中叶。",
+      "kind": "full",
+      "credit": { "author": "Zaenulihsan91（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borobudur_Magelang.jpg", "date": "2020-10-14", "changes": "缩小并重新压缩；未裁切、未调色。本图依 CC BY-SA 4.0 提供" }
+    },
+    {
+      "key": "gallery",
+      "src": "/img/borobudur-gallery.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一条石砌的回廊，地面是石板；左边是一道矮一些的栏墙，墙头立着小塔形的装饰；右边是高高的主墙，墙面刻满一格一格的浮雕。头顶只有天空，远处露出一座山的轮廓。",
+      "caption": "回廊：一边是主墙，一边是栏墙，抬头只看得见天空。",
+      "kind": "detail",
+      "subject": "婆罗浮屠的一条回廊",
+      "credit": { "author": "Arabsalam（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borobudur_Java167.jpg", "date": "2011-11-13", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "departure",
+      "src": "/img/borobudur-departure.jpg",
+      "alt": "一段石墙上下两排浮雕，中间隔着一条装饰带。上排挤满人物：左上方露出一匹马的头，下方几个人身体横着，像在空中飞；许多戴高冠的人物坐着、跪着。下排是另一个场景：一把大伞，几个器物，右边一个拱形的屋里坐着三个人物。",
+      "caption": "第一层回廊主墙的一段：上排是《普曜经》的一幕“出家”，下排是另一个系列的故事。",
+      "kind": "detail",
+      "subject": "第一层回廊主墙（上排 I.a65）",
+      "credit": { "author": "Michael Gunther（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borobudur_Relief_Panel_I.a65_(full),_1022.jpg", "date": "2014", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "maya",
+      "src": "/img/borobudur-maya.jpg",
+      "alt": "一块横长的浮雕：一辆有大轮子的车，车上坐着一位女子，周围许多侍从，有的举着伞盖；车前有牲口拉着，人群向一边行进。",
+      "caption": "《普曜经》浮雕中的一幕：摩耶王后乘车前往蓝毗尼园。",
+      "kind": "detail",
+      "subject": "第一层回廊的《普曜经》浮雕",
+      "credit": { "author": "Gunawan Kartapranata（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_Maya,_Borobudur.jpg", "date": "2007-02", "changes": "重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "karma1890",
+      "src": "/img/borobudur-karma-1890.jpg",
+      "alt": "黑白老照片：一块浮雕，左边几位僧人站着、坐着，中间一座高脚的、有尖屋顶的建筑，下面几个很小的人跪着，一个人沿梯子往上爬；右边几个人物。浮雕上方是一层层石块。",
+      "caption": "被包住的基座上的浮雕 O 158，卡西安·塞法斯摄于 1890–1891 年拆开之时，之后又被重新盖上。",
+      "kind": "detail",
+      "subject": "被包住的基座：浮雕 O 158",
+      "credit": { "author": "卡西安·塞法斯（Kassian Céphas），阿姆斯特丹世界博物馆藏底片", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Reli%C3%ABf_O_158_op_de_verborgen_voet_van_de_Borobudur_TMnr_10015894.jpg", "date": "1890–1891", "changes": "原图 700 像素宽，未缩放；重新压缩，未裁切、未调色" }
+    },
+    {
+      "key": "karma",
+      "src": "/img/borobudur-karma.jpg",
+      "alt": "一块横长的浮雕，边框残缺：左半边一群人或坐或卧，姿态松散，有人在弹奏或舞蹈；右边有一棵树和几个坐着的人。",
+      "caption": "今天东南角露出的四块基座浮雕之一：宴饮、歌舞和放纵的场面。",
+      "kind": "detail",
+      "subject": "东南角露出的基座浮雕",
+      "credit": { "author": "Michael Gunther（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Law_of_Karma,_Panel_0.20_(full),_Borobudur_0964.jpg", "date": "2008", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "stupas",
+      "src": "/img/borobudur-stupas.jpg",
+      "alt": "顶部的圆台上，几座钟形的石塔，塔身是菱形镂空的石格，透过空隙隐约看见里面的东西；远处是层叠的群山和晨雾。",
+      "caption": "圆台上的镂空小塔，远处是克杜盆地四周的山。",
+      "kind": "detail",
+      "subject": "婆罗浮屠圆台上的小塔",
+      "credit": { "author": "CEphoto, Uwe Aranas（维基共享资源）", "licence": "CC BY-SA 3.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borobudur-Temple-Park_Indonesia_Stupas-of-Borobudur-01.jpg", "date": "2015-02-06", "changes": "缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "pradaksina",
+      "src": "/img/borobudur-pradaksina.jpg",
+      "alt": "晴天下，一队穿橙黄色袈裟的僧人和穿白衣的人沿着婆罗浮屠下方的石板路排成一列行走，背后是层层叠叠的灰色石砌建筑。",
+      "caption": "2022 年，僧人和信众在婆罗浮屠绕行。",
+      "kind": "detail",
+      "subject": "今天在婆罗浮屠的绕行",
+      "credit": { "author": "Heri nugroho（维基共享资源）", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pradaksina.jpg", "date": "2022-06-27", "changes": "缩小并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "现场照片均来自维基共享资源，许可为 CC BY-SA 4.0 或 3.0，已逐张署名；塞法斯 1890–1891 年的底片为公有领域。",
+    "basis": "维基共享资源文件页的许可信息经 API 核对（2026-10-27）。现场照片是对建筑和浮雕的新拍摄，按摄影者的许可使用；本站缩小后的副本依同一许可提供。",
+    "verifiedOn": "2026-10-27",
+    "note": "浮雕的编号（如 I.a65、O 158）沿用克罗姆和范·埃尔普 1920–1931 年的标准著作。各层浮雕的数量在不同资料中略有出入，本课只给出保护局公布的总数和基座的 160 块。"
+  },
+  "card": {
+    "type": "佛教建筑 · 窣堵波",
+    "maker": "中爪哇",
+    "period": "约 778–850 年",
+    "facets": [
+      { "label": "结构", "value": "回廊 + 圆台 + 大塔" },
+      { "label": "叙事浮雕", "value": "1460 块" },
+      { "label": "小塔", "value": "72 座" },
+      { "label": "材料", "value": "火山岩" }
+    ],
+    "blurb": "从东面楼梯上来，让建筑在右手边，故事就沿着墙一圈一圈往上展开。",
+    "focus": "52% 50%"
+  }
+}

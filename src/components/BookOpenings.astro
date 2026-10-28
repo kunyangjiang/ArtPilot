@@ -1,0 +1,126 @@
+---
+import { getEntry } from 'astro:content';
+// Turning a book of hours from one hour to the next: where each pictured opening falls in the book, and how two stories
+// advance side by side. A bar stands for the whole book drawn to scale (one unit per leaf), with a mark at each opening's
+// folio; below it, the photograph of the current opening and two short lists — the scene on the left page of every
+// opening, and the scene on the right — with the current pair marked, so the reader sees both cycles move forward
+// together. Folio numbers, scene titles and the red hour headings are read from the book (the holding museum's captions
+// and the photographs); nothing here reconstructs how the owner actually prayed. Moved with 上一个 / 下一个 or by
+// choosing a mark. Nothing is scored or stored. Without script every opening's photograph is in the page.
+interface Opening { image: string; folio: number; leaves: string; hour: string; rubric: string; left: string; right: string }
+interface Props { artwork: string; prompt: string; leaves: number; openings: Opening[]; leftLabel: string; rightLabel: string; caption: string }
+const { artwork, prompt, leaves, openings, leftLabel, rightLabel, caption } = Astro.props;
+const record = await getEntry('artworks', artwork);
+if (!record) throw new Error(`Unknown artwork: ${artwork}`);
+const imageOf = (key: string) => {
+  const img = record.data.images.find((i) => i.key === key);
+  if (!img) throw new Error(`Unknown image ${key} on ${artwork}`);
+  return img;
+};
+const at = (folio: number) => ((folio - 1) / (leaves - 1)) * 100;
+---
+<section class="module bo" data-bo>
+  <p class="module-label">互动 · 一个时辰一个时辰往后翻</p>
+  <h3>{prompt}</h3>
+  <div class="bo-book" role="group" aria-label={`整本书共 ${leaves} 叶，标出有整页画的开页`}>
+    <div class="bo-bar" aria-hidden="true"></div>
+    {openings.map((o, i) => (
+      <button type="button" class="bo-mark" style={`left:${at(o.folio)}%`} data-go={i} aria-pressed={i === 0 ? 'true' : 'false'}
+        aria-label={`${o.hour}，第 ${o.leaves} 叶`}><span>{o.hour}</span></button>
+    ))}
+    <span class="bo-end is-first" aria-hidden="true">第 1 叶</span>
+    <span class="bo-end is-last" aria-hidden="true">第 {leaves} 叶</span>
+  </div>
+  <div class="bo-panels">
+    {openings.map((o, i) => {
+      const img = imageOf(o.image);
+      return (
+        <div class="bo-panel" data-panel={i} aria-live="polite">
+          <p class="bo-where">{o.hour} · 第 {o.leaves} 叶 · 红字：<i lang="la">{o.rubric}</i></p>
+          <figure class="bo-photo">
+            <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width={img.width} height={img.height} />
+          </figure>
+          <p class="bo-pair"><span>左页 · {o.left}</span><span>右页 · {o.right}</span></p>
+        </div>
+      );
+    })}
+  </div>
+  <div class="bo-tracks">
+    <div class="bo-track">
+      <p class="bo-track-label">{leftLabel}</p>
+      <ol>{openings.map((o, i) => <li data-step={i}>{o.left}</li>)}</ol>
+    </div>
+    <div class="bo-track">
+      <p class="bo-track-label">{rightLabel}</p>
+      <ol>{openings.map((o, i) => <li data-step={i}>{o.right}</li>)}</ol>
+    </div>
+  </div>
+  <div class="actions bo-actions">
+    <button type="button" class="btn btn-secondary" data-prev>上一个时辰</button>
+    <button type="button" class="btn btn-primary" data-next>下一个时辰</button>
+  </div>
+  <p class="bo-caption">{caption}</p>
+</section>
+
+<style>
+  .bo-book { position: relative; height: 3.25rem; margin: 1.25rem 0 1.25rem; }
+  .bo-bar { position: absolute; left: 0; right: 0; top: 1.1rem; height: .5rem; background: var(--mist); border: 1px solid var(--rule); }
+  .bo-mark { position: absolute; top: .4rem; transform: translateX(-50%); width: 1.1rem; height: 1.9rem; padding: 0; border: 0;
+    background: none; cursor: pointer; }
+  .bo-mark::before { content: ''; position: absolute; left: 50%; top: .2rem; width: 2px; height: 1.5rem; margin-left: -1px; background: var(--ink-3); }
+  .bo-mark span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bo-mark[aria-pressed="true"]::before { width: 4px; margin-left: -2px; background: var(--ink); }
+  .bo-mark:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .bo-end { position: absolute; top: 2.6rem; font: 400 .6875rem/1.4 var(--sans); color: var(--ink-3); }
+  .bo-end.is-first { left: 0; }
+  .bo-end.is-last { right: 0; }
+  .bo-where { margin: 0 0 .7rem; font: 500 .8125rem/1.6 var(--sans); letter-spacing: .06em; color: var(--ink-3); }
+  .bo-where i { font-family: var(--latin); color: var(--ink-2); }
+  .bo-photo { margin: 0; }
+  .bo-photo img { display: block; width: 100%; height: auto; background: var(--mist); }
+  .bo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .6rem 0 0; font: 400 .875rem/1.6 var(--sans); color: var(--ink-2); }
+  .bo-pair span:last-child { text-align: right; }
+  .bo-panel + .bo-panel { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .bo-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  .bo-track-label { margin: 0 0 .5rem; font: 600 .8125rem/1.5 var(--sans); letter-spacing: .1em; color: var(--ink); }
+  .bo-track ol { margin: 0; padding-left: 1.4rem; font: 400 .875rem/1.8 var(--sans); color: var(--ink-3); }
+  .bo-track li.is-past { color: var(--ink-2); }
+  .bo-track li.is-now { color: var(--ink); font-weight: 600; }
+  .bo-caption { margin: 1.25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); letter-spacing: .03em; }
+  .bo-actions { display: none; }
+  .bo-mark { pointer-events: none; }
+  /* With script: one opening at a time, chosen with the marks or the buttons. */
+  :global(.bo.is-ready) .bo-panel:not(.is-shown) { display: none; }
+  :global(.bo.is-ready) .bo-panel + .bo-panel { margin-top: 0; padding-top: 0; border-top: 0; }
+  :global(.bo.is-ready) .bo-actions { display: flex; }
+  :global(.bo.is-ready) .bo-mark { pointer-events: auto; }
+  /* The marks sit too close for names under them: the current hour is named above the photograph instead. */
+  @media (max-width: 720px) { .bo-tracks { grid-template-columns: 1fr; gap: 1rem; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-bo]').forEach((root) => {
+    root.classList.add('is-ready');
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const marks = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const steps = [...root.querySelectorAll<HTMLElement>('[data-step]')];
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
+    let at = 0;
+    const show = () => {
+      panels.forEach((p, i) => p.classList.toggle('is-shown', i === at));
+      marks.forEach((m, i) => m.setAttribute('aria-pressed', String(i === at)));
+      steps.forEach((s) => {
+        const i = Number(s.dataset.step);
+        s.classList.toggle('is-now', i === at);
+        s.classList.toggle('is-past', i < at);
+      });
+      next.disabled = at === panels.length - 1;
+      prev.disabled = at === 0;
+    };
+    next.addEventListener('click', () => { at = Math.min(at + 1, panels.length - 1); show(); });
+    prev.addEventListener('click', () => { at = Math.max(at - 1, 0); show(); });
+    marks.forEach((m, i) => m.addEventListener('click', () => { at = i; show(); }));
+    show();
+  });
+</script>
