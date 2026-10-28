@@ -95,6 +95,30 @@
       "height": 260
     }
   },
+  "/img/fuchun-peak.jpg": {
+    "large": {
+      "src": "/img/table/fuchun-peak.jpg",
+      "width": 803,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-fuchun-peak.jpg",
+      "width": 190,
+      "height": 260
+    }
+  },
+  "/img/fuchun-scroll.jpg": {
+    "large": {
+      "src": "/img/table/fuchun-scroll.jpg",
+      "width": 1100,
+      "height": 58
+    },
+    "small": {
+      "src": "/img/table/s-fuchun-scroll.jpg",
+      "width": 260,
+      "height": 14
+    }
+  },
   "/img/gandhara-buddha.jpg": {
     "large": {
       "src": "/img/table/gandhara-buddha.jpg",
@@ -105,6 +129,18 @@
       "src": "/img/table/s-gandhara-buddha.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/giotto-lamentation.jpg": {
+    "large": {
+      "src": "/img/table/giotto-lamentation.jpg",
+      "width": 1100,
+      "height": 1035
+    },
+    "small": {
+      "src": "/img/table/s-giotto-lamentation.jpg",
+      "width": 260,
+      "height": 244
     }
   },
   "/img/gubbio-studiolo-cabinet.jpg": {
@@ -129,6 +165,18 @@
       "src": "/img/table/s-gubbio-studiolo.jpg",
       "width": 260,
       "height": 208
+    }
+  },
+  "/img/guo-xi-early-spring.jpg": {
+    "large": {
+      "src": "/img/table/guo-xi-early-spring.jpg",
+      "width": 752,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-guo-xi-early-spring.jpg",
+      "width": 177,
+      "height": 260
     }
   },
   "/img/hatshepsut-seated.jpg": {
@@ -215,6 +263,18 @@
       "height": 177
     }
   },
+  "/img/jian-bowl.jpg": {
+    "large": {
+      "src": "/img/table/jian-bowl.jpg",
+      "width": 1100,
+      "height": 755
+    },
+    "small": {
+      "src": "/img/table/s-jian-bowl.jpg",
+      "width": 260,
+      "height": 178
+    }
+  },
   "/img/liangzhu-cong.jpg": {
     "large": {
       "src": "/img/table/liangzhu-cong.jpg",
@@ -225,6 +285,18 @@
       "src": "/img/table/s-liangzhu-cong.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/ma-yuan-spring-path.jpg": {
+    "large": {
+      "src": "/img/table/ma-yuan-spring-path.jpg",
+      "width": 1100,
+      "height": 703
+    },
+    "small": {
+      "src": "/img/table/s-ma-yuan-spring-path.jpg",
+      "width": 260,
+      "height": 166
     }
   },
   "/img/maitreya-486.jpg": {

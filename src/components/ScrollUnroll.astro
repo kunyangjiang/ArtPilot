@@ -1,0 +1,78 @@
+---
+import { getEntry } from 'astro:content';
+// A handscroll unrolled in a strip that scrolls sideways, at a fixed height. It opens at the right end, where a Chinese
+// handscroll begins, so the reader moves leftwards as the viewer would have unrolled it. `stops` are a few named places
+// along the scroll (percent of the image width from the left); each button brings that place to the middle. Nothing is
+// scored or stored. Without script the strip still scrolls; it just opens at the left end.
+// `arm` adds a switch that narrows the window to about one arm's width (the given multiple of the scroll's height), the
+// stretch a reader actually sees between the two rolled ends.
+interface Stop { at: number; label: string }
+interface Props { artwork: string; image: string; prompt: string; stops?: Stop[]; arm?: number }
+const { artwork, image, prompt, stops = [], arm } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+const credit = img.credit ? `${img.subject ?? record.data.titleZh} · 摄影 ${img.credit.author} · ${img.credit.licence}` : '';
+---
+<section class="module unroll" data-unroll style={arm ? `--arm:${arm}` : undefined}>
+  <p class="module-label">互动 · 展卷</p>
+  <h3>{prompt}</h3>
+  <div class="unroll-strip" tabindex="0" role="region" aria-label={`${img.subject ?? record.data.titleZh}，可左右滚动`}>
+    <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+  </div>
+  {arm && <button type="button" class="unroll-arm" aria-pressed="false" data-arm>一次只看一臂宽</button>}
+  {stops.length > 0 && (
+    <div class="unroll-stops">
+      {stops.map((s) => <button type="button" data-at={s.at}>{s.label}</button>)}
+    </div>
+  )}
+  <p class="unroll-hint">从右往左拖动或滚动，就像把手卷一段段展开。</p>
+  <p class="unroll-cap">{img.caption}<span>{credit}</span></p>
+</section>
+
+<style>
+  /* A band of mount colour above and below, so the paper's own top and bottom edges read as edges, not as a crop. */
+  .unroll-strip { overflow-x: auto; overflow-y: hidden; padding-block: .6rem; background: #cfc4a8; border: 1px solid var(--rule); overscroll-behavior-x: contain; }
+  /* The strip is wider than the text column (up to 60rem), so that the arm-width window is clearly narrower than it. */
+  .unroll { --h: clamp(11rem, 32vw, 17rem); --wide: min(calc(100vw - 4rem), 60rem); --w: max(100%, var(--wide)); }
+  .unroll-strip img { display: block; height: var(--h); width: auto; max-width: none; }
+  .unroll-strip { position: relative; width: var(--w); margin-inline: calc((100% - var(--w)) / 2); }
+  :global(.unroll.is-arm) { --w: min(100%, calc(var(--h) * var(--arm, 1.8))); }
+  :global(.unroll.is-arm) .unroll-strip { box-shadow: -1.25rem 0 0 -.5rem #6b5a3e, 1.25rem 0 0 -.5rem #6b5a3e; }
+  .unroll-arm { margin: 0 0 .75rem; padding: .35rem .75rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); font: 400 .8125rem/1.5 var(--sans); cursor: pointer; }
+  .unroll-arm[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .unroll-strip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .unroll-stops { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+  .unroll-stops button { padding: .35rem .75rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    font: 400 .8125rem/1.5 var(--sans); cursor: pointer; }
+  .unroll-stops button:hover, .unroll-stops button:focus-visible { border-color: var(--ink); color: var(--ink); }
+  .unroll-hint { margin: .6rem 0 0; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); }
+  .unroll-cap { margin: .35rem 0 0; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); }
+  .unroll-cap span { display: block; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-unroll]').forEach((root) => {
+    const strip = root.querySelector<HTMLElement>('.unroll-strip');
+    const img = strip?.querySelector('img');
+    if (!strip || !img) return;
+    const toEnd = () => { strip.scrollLeft = strip.scrollWidth; };
+    // The image is lazy: wait for its width before opening at the right end.
+    if (img.complete) toEnd(); else img.addEventListener('load', toEnd, { once: true });
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const armBtn = root.querySelector<HTMLButtonElement>('[data-arm]');
+    armBtn?.addEventListener('click', () => {
+      // Keep the middle of what is in view in the middle when the window narrows or widens.
+      const mid = (strip.scrollLeft + strip.clientWidth / 2) / strip.scrollWidth;
+      const on = root.classList.toggle('is-arm');
+      armBtn.setAttribute('aria-pressed', String(on));
+      strip.scrollLeft = mid * strip.scrollWidth - strip.clientWidth / 2;
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-at]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const x = (Number(b.dataset.at) / 100) * strip.scrollWidth - strip.clientWidth / 2;
+        strip.scrollTo({ left: Math.max(0, x), behavior: reduced ? 'auto' : 'smooth' });
+      });
+    });
+  });
+</script>

@@ -1,0 +1,86 @@
+{
+  "id": "art-giotto-lamentation-001",
+  "kind": "painting",
+  "titleZh": "哀悼基督",
+  "titleEn": "Lamentation (The Mourning of Christ)",
+  "artist": "乔托（Giotto di Bondone）",
+  "attributionNote": "斯克罗维尼礼拜堂的整套壁画，向来被认为是乔托和他的工作坊所作，画上没有签名。乔托的作者身份来自 14 世纪的文献记载与风格判断；各个场面中哪些部分出自他本人之手，研究者的看法并不完全一致。",
+  "dateApprox": "约 1303–1305 年",
+  "medium": "湿壁画（壁面原址）",
+  "dimensionsCm": { "height": 200, "width": 185 },
+  "collection": "斯克罗维尼礼拜堂（意大利帕多瓦），原址壁画，北墙叙事组画之一；2021 年作为“帕多瓦 14 世纪壁画群”列入联合国教科文组织世界遗产名录",
+  "infoSources": [
+    { "label": "联合国教科文组织世界遗产名录：Padua’s fourteenth-century fresco cycles（1302–1397 年的壁画群、乔托斯克罗维尼礼拜堂组画的地位、空间表现与“透视”的表述）", "url": "https://whc.unesco.org/en/list/1623/" },
+    { "label": "Wikimedia Commons 文件页：Giotto - Scrovegni - -36- - Lamentation（Web Gallery of Art 数据：年代、湿壁画、尺寸 200 × 185 厘米）", "url": "https://commons.wikimedia.org/wiki/File:Giotto_-_Scrovegni_-_-36-_-_Lamentation_(The_Mourning_of_Christ)_adj.jpg" },
+    { "label": "Wikimedia Commons 文件页：Compianto sul Cristo morto.jpg（高分辨率翻拍，公有领域）", "url": "https://commons.wikimedia.org/wiki/File:Compianto_sul_Cristo_morto.jpg" },
+    { "label": "Dante Alighieri, *Purgatorio* XI（“Credette Cimabue ne la pittura / tener lo campo, e ora ha Giotto il grido”）", "url": "https://it.wikisource.org/wiki/Divina_Commedia/Purgatorio/Canto_XI" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/giotto-lamentation.jpg",
+      "width": 1600,
+      "height": 1505,
+      "alt": "一幅近乎正方形的壁画，四周是绘制的边框。蓝色的天空中飞着十只左右哀哭的小天使。地面上，一群人围着躺在地上的基督：左下有人捧着他的头，右边有人捧着他的脚。最前面有两个人背对着我们坐在地上，看不见脸。一道浅色的石坡从画面中部斜着升向右上角，坡顶长着一棵枯树。右边站着两个年长的男人，中间一个年轻人弯着腰、张开双臂。",
+      "caption": "乔托《哀悼基督》，约 1303–1305 年，湿壁画，帕多瓦斯克罗维尼礼拜堂。",
+      "kind": "full",
+      "subject": "乔托《哀悼基督》",
+      "credit": { "author": "Gennadii Saus i Segura（翻拍）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Compianto_sul_Cristo_morto.jpg", "changes": "由 Commons 提供的 2400 像素宽版本（原文件 10240 × 9632 像素）缩小到 1600 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "anne",
+      "src": "/img/giotto-anne.jpg",
+      "alt": "一座画出来的小房子，正面的墙被拿掉了，可以看见屋里：一个戴光环的女人跪在床前祈祷，一位天使从窗口探身进来。房子左边伸出一段带栏杆的外廊，廊下坐着一个女人在纺线。房子的屋顶、檐口和侧墙都画出了厚度，后面是一片平涂的深蓝色天空。",
+      "caption": "乔托《天使向安娜报喜》，同一礼拜堂南墙最上层。房子像一个拿掉了一面墙的盒子。",
+      "kind": "detail",
+      "subject": "乔托《天使向安娜报喜》（斯克罗维尼礼拜堂）",
+      "credit": { "author": "gallerix（翻拍，经 Wikimedia Commons）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giotto_-.03._Annunciation_to_St_Anne_-_Cappella_degli_Scrovegni_(Padua).jpg", "changes": "由 Commons 的 2400 像素宽版本裁去左侧的装饰带与上下边框，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "interior",
+      "src": "/img/scrovegni-interior.jpg",
+      "alt": "一座狭长礼拜堂的内部，朝祭坛方向看。左右两侧的墙上从上到下排满了一格格彩色的方形壁画，拱顶是满天星的深蓝色。尽头是一道画满壁画的拱门，拱门下方左右两侧各画着一个小小的哥特式拱顶空间，看起来像两间嵌在墙里的小礼拜室。地面上站着一群参观者。",
+      "caption": "斯克罗维尼礼拜堂内部，朝祭坛方向。拱门下方两侧那两个“小礼拜室”，其实是画在平墙上的。",
+      "kind": "detail",
+      "subject": "斯克罗维尼礼拜堂内部",
+      "credit": { "author": "Zairon", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Padova_Cappella_degli_Scrovegni_Innen_Langhaus_Ost_1.jpg", "date": "2017-09-30", "changes": "由 Commons 的 2400 像素宽版本缩小到 1600 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "cimabue",
+      "src": "/img/cimabue-maesta.jpg",
+      "alt": "一幅尖顶的高大木板画，金色背景。圣母抱着孩子坐在一座层层叠起、雕满花纹的高大宝座上，宝座两侧上下排列着八位天使，一个叠一个。宝座下方的三个拱洞里，各有一位或两位手持书卷的先知。圣母的衣服上满是金色细线勾出的衣褶。",
+      "caption": "契马布埃《圣三一教堂的圣母子》，约 1280–1290 年，木板蛋彩，佛罗伦萨乌菲兹美术馆藏。",
+      "kind": "detail",
+      "subject": "契马布埃《圣三一教堂的圣母子》",
+      "credit": { "author": "Google Art Project（乌菲兹美术馆藏品翻拍）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cimabue_-_Maest%C3%A0_di_Santa_Trinita_-_Google_Art_Project.jpg", "changes": "由 Commons 的版本（原文件 2008 × 3596 像素）缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ognissanti",
+      "src": "/img/giotto-ognissanti.jpg",
+      "alt": "一幅尖顶的高大木板画，金色背景。圣母抱着孩子坐在一座哥特式的宝座里，宝座两侧有镂空的侧板，透过侧板能看见后面圣徒的脸。宝座前，左右各跪着一位天使，手捧花瓶；两侧站着几排天使和圣徒，前排挡住后排。圣母的身体在深色衣袍下显出膝盖和胸部的起伏。",
+      "caption": "乔托《万圣教堂的圣母子》，约 1300–1305 年，木板蛋彩，佛罗伦萨乌菲兹美术馆藏。",
+      "kind": "detail",
+      "subject": "乔托《万圣教堂的圣母子》",
+      "credit": { "author": "Campocorvino（翻拍，经 Wikimedia Commons）", "licence": "公有领域", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Madonna_di_Ognissanti_by_Giotto.jpg", "changes": "由 Commons 的 2400 像素宽版本（原文件 2719 × 4181 像素）缩小并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "原作属公有领域；四张翻拍图在 Commons 标为公有领域，礼拜堂内景照片为 CC BY-SA 4.0",
+    "basis": "乔托（约 1267–1337）、契马布埃（约 1240–约 1302）的作品早已进入公有领域。四张平面作品的翻拍图，Commons 文件页的授权均标为公有领域（平面艺术品的忠实复制不产生新的著作权）。礼拜堂内景由摄影者 Zairon 以 CC BY-SA 4.0 授权，须署名并以相同方式共享。",
+    "verifiedOn": "2026-10-27",
+    "note": "权利状态依据 Commons 文件页的标注，未另向收藏机构确认。翻拍图的色彩取决于各自的拍摄与处理，壁画与木板画的颜色以实物为准；本站没有调色。《哀悼基督》的高分辨率翻拍来自一位上传者 2022 年的复制，非馆方影像。契马布埃与乌菲兹的两幅圣母子只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "湿壁画",
+    "period": "约 1303–1305",
+    "facets": [
+      { "label": "地域", "value": "意大利" },
+      { "label": "媒材", "value": "湿壁画" },
+      { "label": "位置", "value": "原址墙面" },
+      { "label": "尺幅", "value": "约 200 × 185 cm" }
+    ],
+    "blurb": "前排两个人背对着我们坐着：观者仿佛也挤在这群哀悼者的身后。",
+    "image": "full",
+    "focus": "40% 70%"
+  }
+}

@@ -1,0 +1,77 @@
+---
+import { getEntry } from 'astro:content';
+// Placing an inscription: the real one is covered with a patch of the ground's colour, and the reader tries the same
+// lines at a few other places (boxes in percent of the image) to see what each does to the picture. The lines are set
+// in type, vertically, right to left, so they read as a stand-in, not the original hand. "看原作" lifts the patch.
+// Nothing is scored or stored. Without script the original is shown and the notes are listed.
+type Spot = { id: string; label: string; x: number; y: number; w: number; h: number; note: string; real?: boolean };
+interface Props { artwork: string; image: string; prompt: string; lines: string[]; cover: { x: number; y: number; w: number; h: number }; tone: string; spots: Spot[] }
+const { artwork, image, prompt, lines, cover, tone, spots } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+const box = (b: { x: number; y: number; w: number; h: number }) => `left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%`;
+---
+<section class="module poem" data-poem>
+  <p class="module-label">互动 · 题在哪里</p>
+  <h3>{prompt}</h3>
+  <div class="poem-stage">
+    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" draggable="false" />
+    <span class="poem-cover" style={`${box(cover)};background:${tone}`} data-cover aria-hidden="true"></span>
+    <span class="poem-lines" data-lines aria-hidden="true" hidden>{lines.map((l) => <span>{l}</span>)}</span>
+  </div>
+  <div class="poem-choices" role="group" aria-label="把诗句放在哪里">
+    {spots.map((s) => (
+      <button type="button" aria-pressed="false" data-spot={s.id} data-box={box(s)} data-text={s.note} data-real={s.real ? '1' : ''}>{s.label}</button>
+    ))}
+    <button type="button" class="poem-original" data-original>看原作</button>
+  </div>
+  <p class="poem-note" data-status role="status" aria-live="polite">诗句原来的位置被遮住了。选一个位置，把这两句诗“题”上去。</p>
+  <ul class="poem-fallback">{spots.map((s) => <li><strong>{s.label}</strong>{s.note}</li>)}</ul>
+</section>
+
+<style>
+  .poem-stage { position: relative; width: 100%; container-type: inline-size; }
+  .poem-stage img { display: block; width: 100%; height: auto; }
+  .poem-cover { position: absolute; display: none; }
+  .poem-cover[hidden], .poem-lines[hidden] { display: none !important; }
+  .poem-lines { position: absolute; display: flex; flex-direction: row-reverse; justify-content: center; gap: .9cqw;
+    font: 500 3cqw/1.05 var(--serif); letter-spacing: .1cqw; color: #1d1a16; pointer-events: none; }
+  .poem-lines span { writing-mode: vertical-rl; white-space: nowrap; }
+  .poem-choices { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .poem-choices button { padding: .45rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    font: 400 .875rem/1.5 var(--sans); cursor: pointer; }
+  .poem-choices button[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .poem-choices .poem-original { margin-left: auto; }
+  .poem-note { max-width: var(--measure); min-height: 3.6rem; margin: 1rem 0 0; font: 400 1rem/1.85 var(--sans); color: var(--ink-2); }
+  .poem-fallback { max-width: var(--measure); margin: 1rem 0 0; padding-left: 1.25rem; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .poem-fallback strong { margin-right: .5rem; color: var(--ink); }
+  :global(.poem.is-ready) .poem-cover { display: block; }
+  :global(.poem.is-ready) .poem-fallback { display: none; }
+  @media (max-width: 560px) { .poem-choices .poem-original { margin-left: 0; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-poem]').forEach((root) => {
+    root.classList.add('is-ready');
+    const cover = root.querySelector<HTMLElement>('[data-cover]')!;
+    const lines = root.querySelector<HTMLElement>('[data-lines]')!;
+    const note = root.querySelector<HTMLElement>('[data-status]')!;
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-spot]')];
+    const original = root.querySelector<HTMLButtonElement>('[data-original]')!;
+    const press = (b: HTMLButtonElement | null) => [...buttons, original].forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      press(b);
+      cover.hidden = false;
+      lines.hidden = false;
+      lines.style.cssText = b.dataset.box!;
+      note.textContent = b.dataset.text!;
+    }));
+    original.addEventListener('click', () => {
+      press(original);
+      cover.hidden = true;
+      lines.hidden = true;
+      note.textContent = '这是原作：两行字写在右上角，白袍人抬头望去的方向。和你试过的位置比一比。';
+    });
+  });
+</script>

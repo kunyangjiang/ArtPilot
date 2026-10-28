@@ -1,0 +1,82 @@
+---
+import { getEntry } from 'astro:content';
+// Choosing a place in a picture before being told anything: "where would you build your house?" The reader clicks or
+// taps one spot (with the keyboard: arrow keys move a crosshair, Enter chooses). The spot falls in one of a few zones
+// (boxes in percent of the image, first match wins) and that zone's note opens; "看看画家的选择" rings the zone the
+// painter himself used. Any spot may be chosen again. There is no right answer, nothing is scored or stored.
+type Zone = { x: number; y: number; w: number; h: number; label: string; note: string };
+interface Props { artwork: string; image: string; prompt: string; zones: Zone[]; other: string; answer: number; answerNote: string }
+const { artwork, image, prompt, zones, other, answer, answerNote } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module pick" data-pick={JSON.stringify({ zones, other, answer })}>
+  <p class="module-label">互动 · 选一处</p>
+  <h3>{prompt}</h3>
+  <div class="find-stage" tabindex="0" role="application" aria-label={`${img.alt} 用方向键移动十字准星，按回车选定这个位置。`}>
+    <img src={img.src} alt="" loading="lazy" decoding="async" draggable="false" />
+    <span class="find-cross" aria-hidden="true" hidden></span>
+    <span class="pick-pin" aria-hidden="true" hidden></span>
+  </div>
+  <div class="pick-result" data-result role="status" aria-live="polite">
+    <p class="pick-wait">点一下画面，选一个你想住下来的地方。</p>
+  </div>
+  <div class="find-bar">
+    <button type="button" class="btn btn-secondary" data-answer>看看画家的选择</button>
+  </div>
+  <p class="pick-answer" data-answer-note hidden>{answerNote}</p>
+</section>
+
+<style>
+  .pick-pin { position: absolute; width: 1.1rem; height: 1.1rem; margin: -.55rem 0 0 -.55rem; border-radius: 50%; background: var(--paper);
+    border: 3px solid var(--ink); box-shadow: 0 2px 8px rgb(0 0 0 / .45); pointer-events: none; }
+  .pick-result { max-width: var(--measure); min-height: 3.5rem; margin-top: 1rem; font: 400 1rem/1.85 var(--sans); color: var(--ink-2); }
+  .pick-result p { margin: 0; }
+  .pick-result strong { display: block; margin-bottom: .2rem; color: var(--ink); font-weight: 600; }
+  .pick-wait { color: var(--ink-3); }
+  .pick-answer { max-width: var(--measure); margin: 1rem 0 0; padding: .8rem 1rem; background: var(--mist); font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pick]').forEach((root) => {
+    const { zones, other, answer } = JSON.parse(root.dataset.pick!) as { zones: { x: number; y: number; w: number; h: number; label: string; note: string }[]; other: string; answer: number };
+    const stage = root.querySelector<HTMLElement>('.find-stage')!;
+    const cross = root.querySelector<HTMLElement>('.find-cross')!;
+    const pin = root.querySelector<HTMLElement>('.pick-pin')!;
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    let cx = 50, cy = 50;
+    const choose = (px: number, py: number) => {
+      pin.hidden = false; pin.style.left = `${px}%`; pin.style.top = `${py}%`;
+      const z = zones.find((t) => px >= t.x && px <= t.x + t.w && py >= t.y && py <= t.y + t.h);
+      const p = document.createElement('p');
+      const b = document.createElement('strong'); b.textContent = z ? z.label : '这里';
+      p.append(b, z ? z.note : other);
+      result.replaceChildren(p);
+    };
+    stage.addEventListener('click', (e) => {
+      const r = stage.getBoundingClientRect();
+      choose(((e.clientX - r.left) / r.width) * 100, ((e.clientY - r.top) / r.height) * 100);
+    });
+    const place = () => { cross.hidden = false; cross.style.left = `${cx}%`; cross.style.top = `${cy}%`; };
+    stage.addEventListener('focus', () => { if (stage.matches(':focus-visible')) place(); });
+    stage.addEventListener('blur', () => { cross.hidden = true; });
+    stage.addEventListener('keydown', (e) => {
+      const step = e.shiftKey ? 8 : 2;
+      const moves: Record<string, [number, number]> = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (e.key in moves) { e.preventDefault(); cx = Math.min(100, Math.max(0, cx + moves[e.key][0])); cy = Math.min(100, Math.max(0, cy + moves[e.key][1])); place(); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(); choose(cx, cy); }
+    });
+    const ansBtn = root.querySelector<HTMLButtonElement>('[data-answer]')!;
+    ansBtn.addEventListener('click', () => {
+      root.querySelector<HTMLElement>('[data-answer-note]')!.hidden = false;
+      if (stage.querySelector('.find-ring')) return;
+      const t = zones[answer];
+      const ring = document.createElement('span');
+      ring.className = 'find-ring is-revealed';
+      ring.style.cssText = `left:${t.x}%;top:${t.y}%;width:${t.w}%;height:${t.h}%`;
+      ring.dataset.n = '画';
+      stage.append(ring);
+    });
+  });
+</script>

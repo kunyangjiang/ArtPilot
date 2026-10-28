@@ -1,0 +1,81 @@
+---
+import { getEntry } from 'astro:content';
+// Ordering a picture by depth: the reader clicks a few things from nearest to farthest (keyboard: arrow keys move a
+// crosshair, Enter chooses). Targets are boxes in percent of the image, listed nearest first. A right click numbers the
+// thing and shows why it sits there (usually: what it covers, or what covers it); a click on a later one shows that
+// target's hint. Nothing is scored or stored. "显示顺序" numbers the rest.
+type Target = { x: number; y: number; w: number; h: number; label: string; note: string; hint: string };
+interface Props { artwork: string; image: string; prompt: string; targets: Target[] }
+const { artwork, image, prompt, targets } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module depth" data-depth={JSON.stringify(targets)}>
+  <p class="module-label">互动 · 由近到远</p>
+  <h3>{prompt}</h3>
+  <div class="find-stage" tabindex="0" role="application" aria-label={`${img.alt} 用方向键移动十字准星，按回车选定。`}>
+    <img src={img.src} alt="" loading="lazy" decoding="async" draggable="false" />
+    <span class="find-cross" aria-hidden="true" hidden></span>
+  </div>
+  <div class="find-bar">
+    <p class="find-count" data-count aria-live="polite">第 1 个：离我们最近的是谁？</p>
+    <button type="button" class="btn btn-secondary" data-reveal>显示顺序</button>
+  </div>
+  <ol class="find-list" data-list></ol>
+  <p class="find-miss" data-miss role="status" aria-live="polite"></p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-depth]').forEach((root) => {
+    const targets = JSON.parse(root.dataset.depth!) as { x: number; y: number; w: number; h: number; label: string; note: string; hint: string }[];
+    const stage = root.querySelector<HTMLElement>('.find-stage')!;
+    const cross = root.querySelector<HTMLElement>('.find-cross')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const list = root.querySelector<HTMLElement>('[data-list]')!;
+    const missBox = root.querySelector<HTMLElement>('[data-miss]')!;
+    let next = 0, cx = 50, cy = 50;
+    const number = (i: number, revealed = false) => {
+      const t = targets[i];
+      const ring = document.createElement('span');
+      ring.className = 'find-ring' + (revealed ? ' is-revealed' : '');
+      ring.style.cssText = `left:${t.x}%;top:${t.y}%;width:${t.w}%;height:${t.h}%`;
+      ring.dataset.n = String(i + 1);
+      stage.append(ring);
+      const li = document.createElement('li');
+      const b = document.createElement('strong'); b.textContent = t.label;
+      li.append(b, t.note);
+      list.append(li);
+    };
+    const advance = () => {
+      number(next); next++;
+      missBox.textContent = '';
+      count.textContent = next < targets.length ? `第 ${next + 1} 个：再往里一层是谁？` : '排好了：从最近到最远。';
+    };
+    const test = (px: number, py: number) => {
+      if (next >= targets.length) return;
+      const i = targets.findIndex((t) => px >= t.x && px <= t.x + t.w && py >= t.y && py <= t.y + t.h);
+      if (i === next) return advance();
+      if (i >= 0 && i < next) { missBox.textContent = '这一个已经排好了。'; return; }
+      if (i > next) { missBox.textContent = targets[i].hint; return; }
+      missBox.textContent = '点在画中的一个人或一样东西上。';
+    };
+    stage.addEventListener('click', (e) => {
+      const r = stage.getBoundingClientRect();
+      test(((e.clientX - r.left) / r.width) * 100, ((e.clientY - r.top) / r.height) * 100);
+    });
+    const place = () => { cross.hidden = false; cross.style.left = `${cx}%`; cross.style.top = `${cy}%`; };
+    stage.addEventListener('focus', () => { if (stage.matches(':focus-visible')) place(); });
+    stage.addEventListener('blur', () => { cross.hidden = true; });
+    stage.addEventListener('keydown', (e) => {
+      const step = e.shiftKey ? 8 : 2;
+      const moves: Record<string, [number, number]> = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      if (e.key in moves) { e.preventDefault(); cx = Math.min(100, Math.max(0, cx + moves[e.key][0])); cy = Math.min(100, Math.max(0, cy + moves[e.key][1])); place(); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(); test(cx, cy); }
+    });
+    root.querySelector('[data-reveal]')!.addEventListener('click', () => {
+      while (next < targets.length) { number(next, true); next++; }
+      count.textContent = '排好了：从最近到最远。'; missBox.textContent = '';
+    });
+  });
+</script>

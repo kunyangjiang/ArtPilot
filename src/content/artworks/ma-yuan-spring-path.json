@@ -1,0 +1,94 @@
+{
+  "id": "art-ma-yuan-spring-path-001",
+  "kind": "painting",
+  "titleZh": "山径春行",
+  "titleEn": "Walking on a Mountain Path in Spring",
+  "artist": "马远（Ma Yuan）",
+  "attributionNote": "画幅左下角边缘署“馬遠”二字。右上角的两句诗“觸袖野花多自舞，避人幽鳥不成啼”，台北故宫博物院的说明定为南宋宁宗（1195–1224 在位）所题。马远是光宗、宁宗两朝的画院待诏。画上有明末清初张孝思、清初梁清标的收藏印；右侧另纸题签“馬遠山徑春行”是后人所加。",
+  "dateApprox": "约 1190–1224 年（南宋光宗、宁宗朝）",
+  "medium": "册页，绢本，水墨淡设色",
+  "dimensionsCm": { "height": 27.4, "width": 43.1 },
+  "collection": "国立故宫博物院（台北），故画 001289-13（《名绘集珍》册第十三开）",
+  "infoSources": [
+    { "label": "国立故宫博物院开放资料：名绘集珍 册 宋马远山径春行（尺寸、款识、题诗、收藏印、作品说明）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14633?dep=P" },
+    { "label": "国立故宫博物院开放资料：宋马麟静听松风图 轴（尺寸、理宗题字与“丙午”玺、作品说明）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/37?dep=P" },
+    { "label": "国立故宫博物院开放资料：宋夏珪溪山清远 卷（尺寸、作者、题跋）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/30?dep=P" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/ma-yuan-spring-path.jpg",
+      "width": 1600,
+      "height": 1022,
+      "alt": "一幅横长的小画，绢色暗黄。左边一棵老柳树斜伸出来，细长的柳条垂下；树下一个穿白袍、戴高冠的人站在路边，一手捻着胡须，抬头望向右上方；他身后的树根旁，一个小童抱着一样长长的东西。路边开着小花。画面右边大半是空着的绢，只在最右侧有一点岸坡；右上角竖写着两行字。",
+      "caption": "马远《山径春行》，南宋，册页，绢本，27.4 × 43.1 厘米，台北故宫博物院藏。",
+      "kind": "full",
+      "subject": "马远《山径春行》",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14633?dep=P", "changes": "取自馆方 IIIF 影像（K2A001289N000000013PAC，3365 × 2080 像素），裁去右侧后加的题签和下缘，缩小到 1600 像素宽并重新压缩；未调色" }
+    },
+    {
+      "key": "leaf",
+      "src": "/img/ma-yuan-album-leaf.jpg",
+      "alt": "一页浅米色的册页衬纸，中间裱着一幅暗黄色的小画；画的右边贴着一条窄窄的题签纸。衬纸占去了画面的一大半，可以看出画本身很小。",
+      "caption": "这一开册页的样子：画裱在册页的衬纸上，右边是后人所加的题签。",
+      "kind": "detail",
+      "subject": "马远《山径春行》（连同册页衬纸）",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14633?dep=P", "changes": "取自馆方 IIIF 影像（K2A001289N000000013PAB），裁去下方的色卡，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "scholar",
+      "src": "/img/ma-yuan-scholar.jpg",
+      "alt": "画面左下的近景：白袍高冠的人侧身站着，右手捻着胡须，衣纹的线条起笔重、收笔尖；他左边是缀满小花的灌木，再往左是老柳树粗糙的树干，树干后一个小童抱着用布包着的长条形琴，正往前走。",
+      "caption": "局部：捻须的高士与抱琴的小童。",
+      "kind": "detail",
+      "subject": "马远《山径春行》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14633?dep=P", "changes": "馆方 IIIF 细部影像（K2A001289N000000013PAE，3048 × 2297 像素），缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "couplet",
+      "src": "/img/ma-yuan-couplet.jpg",
+      "alt": "绢面上竖写的两行行书，墨色浓黑：右行“觸袖野花多自舞”，左行“避人幽鳥不成啼”。左上方一只小鸟张开翅膀，正在飞。",
+      "caption": "局部：右上角的两句题诗，和诗旁飞起的鸟。",
+      "kind": "detail",
+      "subject": "马远《山径春行》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14633?dep=P", "changes": "馆方 IIIF 细部影像（K2A001289N000000013PAD，3053 × 2293 像素），缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ma-lin",
+      "src": "/img/ma-lin-pine-wind.jpg",
+      "alt": "一幅很高的立轴：两株古松的枝干从左右两边弯过来，松针被风吹向一侧；松树下，一个穿白衣的人坐在弯曲的树干上，侧过头去；画面左下角站着一个小童。右上角写着四个大字“靜聽松風”。",
+      "caption": "马麟《静听松风图》，1246 年或更早，立轴，绢本，226.6 × 110.3 厘米，台北故宫博物院藏。右上角“靜聽松風”四字为南宋理宗所题。",
+      "kind": "detail",
+      "subject": "马麟《静听松风图》",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/37?dep=P", "changes": "取自馆方 IIIF 影像（K2A000119N000000000PAA，1846 × 3791 像素），裁去装裱与两侧色卡，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "xia-gui",
+      "src": "/img/xia-gui-cliffs.jpg",
+      "alt": "纸本水墨长卷中的一段：几座陡峭的山崖拔地而起，崖面用宽阔的方笔刷出棱角，崖脚是成片的树林；山崖之间雾气弥漫，远处还有更淡的峰头。",
+      "caption": "夏珪《溪山清远》中的一段。全卷纸本水墨，高 46.5 厘米，长 889.1 厘米，台北故宫博物院藏。",
+      "kind": "detail",
+      "subject": "夏珪《溪山清远》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/30?dep=P", "changes": "取自馆方 IIIF 分段影像（C2A000009N000000000PAN，3076 × 2276 像素），裁去下方色卡，缩小并重新压缩；未调色" }
+    }
+  ],
+  "rights": {
+    "status": "原作属公有领域；本站使用的数字影像由国立故宫博物院以开放资料方式提供，须标示出处",
+    "basis": "国立故宫博物院开放资料页面说明：中阶图像与文字以 CC BY 4.0 开放，“无须申请、不限用途、不用付费即可公开使用”，须在适当位置标示品名与馆名；馆方 IIIF 清单的授权字段指向《政府资料开放授权条款》（https://data.gov.tw/license，与 CC BY 4.0 兼容）。馆方建议的标示格式为：名繪集珍　冊　宋馬遠山徑春行。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（马麟、夏珪两图同理）。",
+    "verifiedOn": "2026-10-27",
+    "note": "影像经馆方公开的 IIIF 影像服务取得，未使用需验证码的下载通道。每张图片在图注旁标示“国立故宫博物院（台北）· CC BY 4.0”，裁切与缩放写在各图的“修改”说明中。马麟、夏珪两件作品只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "山水画 · 册页",
+    "period": "南宋",
+    "facets": [
+      { "label": "地域", "value": "中国" },
+      { "label": "媒材", "value": "绢本" },
+      { "label": "形制", "value": "册页" },
+      { "label": "尺幅", "value": "27 × 43 cm" }
+    ],
+    "blurb": "画家只画一角柳岸，皇帝在空处写下两句诗。空白里，是诗、春风和惊飞的鸟。",
+    "image": "full",
+    "focus": "30% 50%"
+  }
+}

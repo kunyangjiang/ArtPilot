@@ -1,0 +1,113 @@
+---
+// A schematic tea contest after Cai Xiang's 茶錄: whisk white froth in a bowl, then watch the froth slowly draw back from
+// the wall. The moment a ring of tea shows between froth and glaze is the 水痕 that lost a Song contest. The reader
+// presses a button as soon as they can see it, once for each bowl, and the times are listed side by side: on a dark
+// glaze the ring shows at once, on a pale one it hides. Colours are flat stand-ins, not the museum objects. Nothing is
+// stored. Without script the bowls and notes are shown, static.
+type Bowl = { id: string; label: string; glaze: string; streak?: string; note: string };
+interface Props { prompt: string; bowls: Bowl[] }
+const { prompt, bowls } = Astro.props;
+const rays = Array.from({ length: 72 }, (_, i) => (i * Math.PI * 2) / 72);
+---
+<section class="module tea" data-tea={JSON.stringify(bowls.map(({ id, label, note }) => ({ id, label, note })))}>
+  <p class="module-label">互动 · 斗茶</p>
+  <h3>{prompt}</h3>
+  <div class="tea-tabs" role="group" aria-label="选一只盏">
+    {bowls.map((b, i) => <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-bowl={b.id}>{b.label}</button>)}
+  </div>
+  <div class="tea-stage">
+    {bowls.map((b, i) => (
+      <svg viewBox="-110 -110 220 220" class="tea-bowl" data-svg={b.id} hidden={i !== 0} role="img" aria-label={`${b.label}的示意图：从上往下看的一只茶盏`}>
+        <circle r="104" fill="#d8d2c4" />
+        <circle r="98" fill={b.glaze} />
+        {b.streak && rays.map((a) => <line x1={Math.cos(a) * 40} y1={Math.sin(a) * 40} x2={Math.cos(a) * 96} y2={Math.sin(a) * 96} stroke={b.streak} stroke-width="1.1" opacity=".55" />)}
+        <circle r="90" class="tea-liquid" />
+        <circle r="0" class="tea-froth" data-froth />
+      </svg>
+    ))}
+  </div>
+  <div class="tea-controls">
+    <button type="button" class="btn btn-primary" data-whisk>击拂，开始斗茶</button>
+    <button type="button" class="btn btn-secondary" data-mark disabled>看见水痕了！</button>
+  </div>
+  <p class="tea-status" data-status role="status" aria-live="polite">选一只盏，点“击拂”。茶沫打起来以后会慢慢退开；一看到沫和盏壁之间露出一圈茶汤，就按“看见水痕了”。</p>
+  <ol class="tea-log" data-log></ol>
+  <ul class="tea-fallback">{bowls.map((b) => <li><strong>{b.label}</strong>{b.note}</li>)}</ul>
+</section>
+
+<style>
+  .tea-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+  .tea-tabs button { padding: .45rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); font: 400 .875rem/1.5 var(--sans); cursor: pointer; }
+  .tea-tabs button[aria-pressed="true"] { border-color: var(--ink); background: var(--mist); color: var(--ink); }
+  .tea-stage { width: min(100%, 22rem); aspect-ratio: 1; }
+  .tea-bowl { display: block; width: 100%; height: 100%; }
+  .tea-bowl[hidden] { display: none; }
+  .tea-liquid { fill: rgb(218 208 168 / .4); }
+  .tea-froth { fill: #f7f4ec; }
+  .tea-controls { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+  .tea-status { max-width: var(--measure); min-height: 3.6rem; margin: 1rem 0 0; font: 400 1rem/1.85 var(--sans); color: var(--ink-2); }
+  .tea-log { max-width: var(--measure); margin: .5rem 0 0; padding-left: 1.25rem; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .tea-log strong, .tea-fallback strong { margin-right: .5rem; color: var(--ink); }
+  .tea-fallback { max-width: var(--measure); margin: 1rem 0 0; padding-left: 1.25rem; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  :global(.tea.is-ready) .tea-fallback { display: none; }
+  :global(.tea:not(.is-ready)) .tea-controls, :global(.tea:not(.is-ready)) .tea-tabs { display: none; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tea]').forEach((root) => {
+    root.classList.add('is-ready');
+    const bowls = JSON.parse(root.dataset.tea!) as { id: string; label: string; note: string }[];
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-bowl]')];
+    const svgs = [...root.querySelectorAll<SVGElement>('[data-svg]')];
+    const whisk = root.querySelector<HTMLButtonElement>('[data-whisk]')!;
+    const mark = root.querySelector<HTMLButtonElement>('[data-mark]')!;
+    const status = root.querySelector<HTMLElement>('[data-status]')!;
+    const log = root.querySelector<HTMLElement>('[data-log]')!;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0, raf = 0, start = 0, running = false;
+    const froth = () => svgs[current].querySelector<SVGCircleElement>('[data-froth]')!;
+    const stop = () => { cancelAnimationFrame(raf); running = false; mark.disabled = true; whisk.disabled = false; };
+    const select = (i: number) => {
+      stop(); current = i;
+      tabs.forEach((t, k) => t.setAttribute('aria-pressed', String(k === i)));
+      svgs.forEach((s, k) => s.toggleAttribute('hidden', k !== i));
+      froth().setAttribute('r', '0');
+      status.textContent = `${bowls[i].label}：点“击拂”开始。`;
+    };
+    tabs.forEach((t, i) => t.addEventListener('click', () => select(i)));
+    whisk.addEventListener('click', () => {
+      stop();
+      const f = froth();
+      whisk.disabled = true;
+      status.textContent = '击拂中……茶沫浮起来了。盯住沫的边缘。';
+      const t0 = performance.now();
+      const grow = (now: number) => {
+        const k = reduced ? 1 : Math.min(1, (now - t0) / 1200);
+        f.setAttribute('r', String(90 * k));
+        if (k < 1) { raf = requestAnimationFrame(grow); return; }
+        // Froth now covers the tea. A short random pause, then it draws back from the wall, slowly.
+        const wait = 800 + Math.random() * 1800;
+        start = now + wait; running = true; mark.disabled = false;
+        const shrink = (n: number) => {
+          if (!running) return;
+          const s = Math.max(0, (n - start) / 1000);
+          f.setAttribute('r', String(Math.max(55, 90 - s * 2.4)));
+          if (s > 14) { stop(); status.textContent = '茶沫已经退得很远了。如果你一直没看见水痕，那正是这只盏的问题。'; return; }
+          raf = requestAnimationFrame(shrink);
+        };
+        raf = requestAnimationFrame(shrink);
+      };
+      raf = requestAnimationFrame(grow);
+    });
+    mark.addEventListener('click', () => {
+      const s = (performance.now() - start) / 1000;
+      stop();
+      const li = document.createElement('li');
+      const b = document.createElement('strong'); b.textContent = bowls[current].label;
+      li.append(b, s < 0 ? '水痕还没出现，你就按下了。' : `沫开始退后 ${s.toFixed(1)} 秒，你看见了水痕。`);
+      log.append(li);
+      status.textContent = bowls[current].note;
+    });
+    select(0);
+  });
+</script>

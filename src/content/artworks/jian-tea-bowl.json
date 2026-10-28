@@ -1,0 +1,135 @@
+{
+  "id": "art-jian-tea-bowl-001",
+  "kind": "object",
+  "titleZh": "建窑兔毫盏",
+  "titleEn": "Tea Bowl (Jian ware, “hare’s fur” glaze)",
+  "attributionNote": "福建建窑一带的窑工所作，没有留名。克利夫兰艺术博物馆定为南宋（12–13 世纪）福建所产的建窑器。",
+  "dateApprox": "12–13 世纪（南宋）",
+  "objectType": "茶盏（饮茶用的碗）",
+  "medium": "炻器，施黑色“兔毫”釉，口沿包镶金属",
+  "dimensions": "口径 17.8 厘米，高 8.7 厘米（据克利夫兰艺术博物馆）。馆方说明，这样大的建盏相当少见。",
+  "collection": "克利夫兰艺术博物馆（美国），1948.206",
+  "originalStatus": "原件。口沿的金属包边是烧成后另外镶上的，是宋代原有还是更晚所加，馆方没有说明；圈足露出深色的胎，没有上釉。",
+  "provenance": "纽约古董商 Dikran G. Kelekian（1867–1951）售予克利夫兰艺术博物馆，1948 年入藏（据馆方来源记录）。出土地点和更早的流传经过不明。",
+  "infoSources": [
+    { "label": "克利夫兰艺术博物馆藏品页：Tea Bowl，1948.206（年代、产地、尺寸、技法、说明、来源）", "url": "https://www.clevelandart.org/art/1948.206" },
+    { "label": "克利夫兰艺术博物馆开放资料 API 记录（CC0 状态、影像清单）", "url": "https://openaccess-api.clevelandart.org/api/artworks/1948.206" },
+    { "label": "克利夫兰艺术博物馆藏品页：Brush Washer，1957.40（汝窑）", "url": "https://www.clevelandart.org/art/1957.40" },
+    { "label": "克利夫兰艺术博物馆藏品页：Bowl with Ducks among Waves and Reeds，1929.995（定窑）", "url": "https://www.clevelandart.org/art/1929.995" },
+    { "label": "克利夫兰艺术博物馆藏品页：Jar with Lion-Head Handles，1962.154（元青花）", "url": "https://www.clevelandart.org/art/1962.154" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/jian-bowl.jpg",
+      "width": 1600,
+      "height": 1098,
+      "alt": "灰色背景前，一只侧面拍摄的斗笠形茶碗：口大底小，碗壁斜直向下收到一个小圈足。外壁是深黑带蓝的釉，从口沿往下布满细密的褐色竖纹；釉在接近底部的地方停住，下面露出灰褐色的胎和圈足。口沿包着一圈金色的金属边。",
+      "caption": "建窑兔毫盏，南宋，口径 17.8 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "full",
+      "subject": "建窑兔毫盏",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1948.206", "changes": "馆方开放资料影像（1948.206_alt5，3400 × 2333 像素），缩小到 1600 像素宽并重新压缩，保留原图的色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "inside",
+      "src": "/img/jian-bowl-inside.jpg",
+      "alt": "从斜上方看进碗里：黑色的釉面上，无数细细的金褐色短线从口沿向碗心放射，越靠近碗心越密、越暗；碗心是一小块深黑发亮的积釉。",
+      "caption": "碗内：从口沿向碗心放射的“兔毫”。",
+      "kind": "detail",
+      "subject": "建窑兔毫盏（碗内）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1948.206", "changes": "馆方开放资料影像（1948.206_alt3，3400 × 3028 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "fur",
+      "src": "/img/jian-bowl-fur.jpg",
+      "alt": "碗内壁的近距离特写：黑色的釉底上，密密麻麻的金褐色细纹顺着碗壁向下流，像动物的毛；靠近口沿处纹路发黄发亮，口沿外是一圈金属包边。",
+      "caption": "近看兔毫：细纹顺着碗壁的方向排列。",
+      "kind": "detail",
+      "subject": "建窑兔毫盏（特写）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1948.206", "changes": "馆方开放资料影像（1948.206_alt6，3400 × 2550 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "foot",
+      "src": "/img/jian-bowl-foot.jpg",
+      "alt": "把碗倒过来，从底下看：中间是一个没有上釉的灰褐色圈足，上面用红字写着馆藏编号；圈足外是黑色带兔毫的釉，一处釉向下流淌、垂成波浪形的边。",
+      "caption": "碗底：圈足没有上釉，露出深色的胎；釉在外壁下部流淌、垂挂。",
+      "kind": "detail",
+      "subject": "建窑兔毫盏（底部）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1948.206", "changes": "馆方开放资料影像（1948.206_alt4，3400 × 3172 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "ru",
+      "src": "/img/ru-washer.jpg",
+      "alt": "黑色背景前，从正上方拍摄的一只浅圆盘：釉色是柔和的灰蓝绿，表面布满细细的不规则裂纹；盘内靠上有一个小黑点。",
+      "caption": "汝窑笔洗，北宋晚期（11 世纪末–1127），河南宝丰清凉寺窑，口径 12.8 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "汝窑笔洗（克利夫兰艺术博物馆 1957.40）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1957.40", "changes": "馆方开放资料影像（1957.40_alt0，3400 × 3143 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "ru-base",
+      "src": "/img/ru-washer-base.jpg",
+      "alt": "同一只汝窑笔洗的底部：整个底面连同圈足都上了灰蓝绿色的釉，圈足内有几个米粒大小的浅色小疤点，旁边用红字写着馆藏编号。",
+      "caption": "汝窑笔洗的底部：连底足都满釉，只留下几个细小的支钉痕。",
+      "kind": "detail",
+      "subject": "汝窑笔洗（底部）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1957.40", "changes": "馆方开放资料影像（1957.40_alt6，3313 × 3323 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "ru-crackle",
+      "src": "/img/ru-washer-crackle.jpg",
+      "alt": "汝窑釉面的特写：浅灰蓝绿的釉层下，交错着大大小小不规则的细裂纹，像冰面上的裂痕；右下有一个深色的小斑点。",
+      "caption": "汝窑釉面特写：细密的开片和一个小黑点。",
+      "kind": "detail",
+      "subject": "汝窑笔洗（釉面特写）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1957.40", "changes": "馆方开放资料影像（1957.40_alt5，3400 × 2267 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "ding",
+      "src": "/img/ding-bowl.jpg",
+      "alt": "深灰背景前，一只侧面拍摄的大口浅碗：碗壁斜直，底下是很小的圈足；通体是象牙白的釉，碗内隐约可见刻划的线条；口沿是一圈薄薄的边。",
+      "caption": "定窑刻花水禽纹碗，北宋，12 世纪，河北曲阳，口径 20.3 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "定窑刻花碗（克利夫兰艺术博物馆 1929.995）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1929.995", "changes": "馆方开放资料影像（1929.995，3400 × 2023 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "ding-inside",
+      "src": "/img/ding-bowl-inside.jpg",
+      "alt": "从正上方看同一只定窑碗的内部：象牙白的釉面上，用流畅的刻线划出水波、芦苇和游动的鸭子，线条深的地方积釉略显暗；碗心是一个小圆。",
+      "caption": "定窑碗内：刻划的水波、芦苇与鸭子。",
+      "kind": "detail",
+      "subject": "定窑刻花碗（碗内）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1929.995", "changes": "馆方开放资料影像（1929.995_alt0，3400 × 3059 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    },
+    {
+      "key": "yuan",
+      "src": "/img/yuan-jar.jpg",
+      "alt": "灰色背景前，一只圆肩大罐：白地上用浓蓝色画满纹样，肩部一圈如意云头形的开光里画着凤凰和花，腹部是大朵的牡丹和缠枝叶，下部一圈莲瓣；肩两侧各有一个狮头形的耳。",
+      "caption": "青花狮耳罐，元代，14 世纪，江西景德镇，高 39.4 厘米，克利夫兰艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "元青花狮耳罐（克利夫兰艺术博物馆 1962.154）",
+      "credit": { "author": "克利夫兰艺术博物馆（The Cleveland Museum of Art）", "licence": "CC0 1.0（公有领域贡献）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.clevelandart.org/art/1962.154", "changes": "馆方开放资料影像（1962.154，3400 × 3251 像素），缩小并重新压缩，保留色彩配置文件；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "克利夫兰艺术博物馆开放资料：这几件器物的记录与影像均标注为 CC0（share_license_status: CC0），馆方声明开放资料可不受限制地使用。",
+    "verifiedOn": "2026-10-27",
+    "note": "影像全部来自馆方开放资料，只缩小尺寸、重新压缩，保留原图嵌入的色彩配置文件，没有调色或锐化；屏幕上的颜色仍会因设备而异，釉色以实物为准。汝窑、定窑、元青花三件只作对照，没有单独的卡片。"
+  },
+  "card": {
+    "type": "陶瓷 · 茶盏",
+    "maker": "福建建窑",
+    "period": "南宋",
+    "facets": [
+      { "label": "材质", "value": "炻器，黑釉" },
+      { "label": "口径", "value": "17.8 cm" },
+      { "label": "用途", "value": "点茶、斗茶" },
+      { "label": "藏地", "value": "克利夫兰" }
+    ],
+    "blurb": "白色的茶沫要配黑色的盏。釉里的铁在窑火中化成细纹，宋人叫它兔毫。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}

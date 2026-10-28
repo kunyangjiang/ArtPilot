@@ -1,0 +1,133 @@
+{
+  "id": "art-huang-gongwang-fuchun-001",
+  "kind": "painting",
+  "titleZh": "富春山居图（无用师卷）",
+  "titleEn": "Dwelling in the Fuchun Mountains (Master Wuyong Scroll)",
+  "artist": "黄公望（Huang Gongwang）",
+  "attributionNote": "卷后有黄公望自题：至正七年（1347）与无用师同归富春山居，开始作此卷，“閱三四載，未得完備”，至正十年（1350）题记，说明是为无用师所作。卷前一段在明末遭火厄后被裁下，今称《剩山图》，藏浙江省博物馆。台北故宫另藏一卷构图相近、款题“至元戊寅（1338）”赠“子明隱君”的《富春山居图》（子明卷）；乾隆曾以子明卷为真、无用师卷为伪，现代学者研究后确认子明卷为仿本（据台北故宫博物院开放资料）。",
+  "dateApprox": "1347–1350 年（元至正七年至十年）",
+  "medium": "手卷，纸本，水墨",
+  "dimensionsCm": { "height": 33, "width": 636.9 },
+  "collection": "国立故宫博物院（台北），故画 001016",
+  "infoSources": [
+    { "label": "国立故宫博物院开放资料：元黄公望富春山居图 卷（无用师卷）（尺寸、黄公望自题、沈周、文彭、董其昌、邹之麟等题跋及乾隆御识全文、作品说明）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P" },
+    { "label": "国立故宫博物院开放资料：元黄公望富春山居图 卷（子明卷）（款题、乾隆诸题、作品说明中对真伪的结论）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1193?dep=P" },
+    { "label": "国立故宫博物院开放资料：元赵孟頫鹊华秋色 卷（尺寸、赵孟頫自题、董其昌跋、乾隆题）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/909?dep=P" },
+    { "label": "国立故宫博物院开放资料：元倪瓒容膝斋图 轴（尺寸、倪瓒 1372 年款与 1374 年题诗、邵宝诗塘题字）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/610?dep=P" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/fuchun-scroll.jpg",
+      "width": 8560,
+      "height": 448,
+      "alt": "一条极长的水墨山水横幅，从右往左看：开头是平坡、小树和远山，接着是连绵起伏的山峦、成排的树、水边的亭子和小船，中段有一大片开阔的江面，最后是一座高耸的主山；主山左边接着一张写满竖行小字的纸。画面上多处钤着红色印章，有几块方形区域写着小楷题字。",
+      "caption": "黄公望《富春山居图》（无用师卷），1347–1350 年，纸本水墨，33 × 636.9 厘米，台北故宫博物院藏。左端是黄公望的自题。山峦几乎顶到纸的上下边缘，这是原画的构图，图片上下没有裁切。",
+      "kind": "full",
+      "subject": "黄公望《富春山居图》（无用师卷）",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P", "changes": "取自馆方 IIIF 全卷拼接影像（K2A001016N000000000SDAAA，13428 × 448 像素），只保留画心与黄公望自题，裁去其余题跋；未缩放，重新压缩，未调色" }
+    },
+    {
+      "key": "peak",
+      "src": "/img/fuchun-peak.jpg",
+      "width": 1168,
+      "height": 1600,
+      "alt": "一座山峰的近景：山体用许多长长的、略微弯曲的淡墨线条一层层画出，像一束束麻的纤维；山顶堆着浓黑的苔点；山脚是成丛的树，右边一条溪水通向远处的山谷和更淡的远山。",
+      "caption": "局部：卷中一座山峰。山体由一层层长而松的线条叠出，山顶点着浓墨的苔点。",
+      "kind": "detail",
+      "subject": "黄公望《富春山居图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P", "changes": "从馆方 IIIF 细部影像（K2A001016N000000000PCD，2291 × 3055 像素）裁切，去掉上下的色卡与台面，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "brush",
+      "src": "/img/fuchun-brush.jpg",
+      "alt": "另一段山峦的近景：一座大山斜向右上方隆起，山坡上满是平行的长线，淡墨打底、浓墨压在上面；山脚一排排树木，有的树叶是横点，有的是竖点，有的只画了枝干。",
+      "caption": "局部：同一段山坡上，长线、横点、竖点和枯枝层层相叠。",
+      "kind": "detail",
+      "subject": "黄公望《富春山居图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P", "changes": "从馆方 IIIF 细部影像（K2A001016N000000000PBO，2291 × 3055 像素）裁切，去掉上下的色卡与台面，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "inscription",
+      "src": "/img/fuchun-inscription.jpg",
+      "alt": "黄色的纸上竖写着十行行书，从右往左读，第一行开头是“至正七年 僕歸富春山居”；纸的左右边上和右上角钤着几方红印。",
+      "caption": "黄公望的自题，1350 年。",
+      "kind": "detail",
+      "subject": "黄公望《富春山居图》自题",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P", "changes": "从馆方 IIIF 细部影像（K2A001016N000000000PCJ，2291 × 3055 像素）裁切，去掉上下的色卡与台面，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "verdict",
+      "src": "/img/fuchun-verdict.jpg",
+      "alt": "画面上方一块用小楷写的题字，竖行整齐，从右往左读；中间一行可以读出“而此卷筆力苶弱其為贋”，下一行是“鼎無疑惟畫格秀潤可喜亦”；左边落款是“乾隆御識”和“臣梁詩正奉勅敬書”。",
+      "caption": "局部：写在这卷画上的乾隆题识，由梁诗正奉命代书。其中说“此卷筆力苶弱，其為贗鼎無疑”。",
+      "kind": "detail",
+      "subject": "《富春山居图》（无用师卷）上的乾隆题识",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1194?dep=P", "changes": "从馆方 IIIF 细部影像（K2A001016N000000000PBL，2291 × 3055 像素）裁出上半的题字部分，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "ziming",
+      "src": "/img/fuchun-ziming.jpg",
+      "alt": "一段横长的水墨山水：连绵的山峦和树丛，几乎每一块空白处都写满了竖行的小字题诗，旁边钤着许多红印，山水几乎被字包围。",
+      "caption": "《富春山居图》（子明卷）中的一段：画面的空处写满了乾隆的题字。台北故宫博物院藏，现确认为后人仿本。",
+      "kind": "detail",
+      "subject": "《富春山居图》（子明卷）局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/1193?dep=P", "changes": "取自馆方 IIIF 全卷拼接影像（12075 × 498 像素），裁出中间约四分之一；未缩放，重新压缩，未调色" }
+    },
+    {
+      "key": "zhao",
+      "src": "/img/zhao-qiao-hua.jpg",
+      "alt": "一幅设色的横卷局部：平坦的水边沙洲上，一排排细高的树，树干是淡赭色，叶子用青绿和深墨点成；右边一座尖尖的青色山峰拔地而起；画面上方的空处有几段题字和许多红印。",
+      "caption": "赵孟頫《鹊华秋色》局部，1295 年，纸本设色，28.4 × 93.2 厘米，台北故宫博物院藏。右边的尖峰是华不注山。",
+      "kind": "detail",
+      "subject": "赵孟頫《鹊华秋色》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/909?dep=P", "changes": "馆方 IIIF 细部影像（K2A001011N000000000PAE，3058 × 2289 像素），裁去下方色卡，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "ni-zan",
+      "src": "/img/ni-zan-rongxi.jpg",
+      "alt": "一幅窄长的水墨立轴：近处一片坡石上立着几棵细瘦的树，树旁一座空无一人的小亭；中间是一大片空白的水面；远处是低平的山坡；最上方有一大段竖写的题诗，题诗上压着一方大印。",
+      "caption": "倪瓒《容膝斋图》，1372 年画，1374 年再题，纸本水墨，74.7 × 35.5 厘米，台北故宫博物院藏。",
+      "kind": "detail",
+      "subject": "倪瓒《容膝斋图》",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/610?dep=P", "changes": "馆方 IIIF 影像（K2A000299N000000000PAA，1836 × 3812 像素），缩小并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "ni-zan-poem",
+      "src": "/img/ni-zan-inscription.jpg",
+      "alt": "《容膝斋图》上方的题字：最右边一行较小，写着“壬子歲七月五日雲林生寫”；左边十几行是题诗和一段说明，末尾署“雲林子識”。上方中间压着一方很大的红色方印。",
+      "caption": "局部：右边一行是 1372 年的原款，左边是 1374 年补写的诗与题记。",
+      "kind": "detail",
+      "subject": "倪瓒《容膝斋图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/610?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000299N000000000PAC，3059 × 2288 像素）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "shao-bao",
+      "src": "/img/ni-zan-shao-bao.jpg",
+      "alt": "一条横长的纸，上面用粗重的行书竖写着十几行大字，从右往左第一行是“此非容膝齋”。",
+      "caption": "明代邵宝写在画上方诗塘里的题字：“此非容膝齋圖也，圖而寄諸容膝齋者也。”",
+      "kind": "detail",
+      "subject": "《容膝斋图》诗塘上的邵宝题字",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/610?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000299N000000000PAF，3059 × 2288 像素）裁切，缩小并重新压缩；未调色" }
+    }
+  ],
+  "rights": {
+    "status": "原作属公有领域；本站使用的数字影像由国立故宫博物院以开放资料方式提供，须标示出处",
+    "basis": "国立故宫博物院开放资料页面说明：中阶图像与文字以 CC BY 4.0 开放，“無須申請、不限用途、不用付費即可公開使用，請於適當位置呈現姓名標示”；馆方 IIIF 清单的授权字段指向《政府资料开放授权条款》（https://data.gov.tw/license，与 CC BY 4.0 兼容）。馆方建议的标示格式为：元黃公望富春山居圖　卷。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（其余三件同理）。",
+    "verifiedOn": "2026-10-27",
+    "note": "影像经馆方公开的 IIIF 影像服务取得，未使用需验证码的下载通道。每张图片在图注旁标示“国立故宫博物院（台北）· CC BY 4.0”。子明卷、《鹊华秋色》《容膝斋图》只作对照，没有单独的卡片。浙江省博物馆所藏《剩山图》本课没有使用图片。"
+  },
+  "card": {
+    "type": "山水画 · 手卷",
+    "period": "元 · 1347–1350",
+    "facets": [
+      { "label": "地域", "value": "中国" },
+      { "label": "媒材", "value": "纸本水墨" },
+      { "label": "形制", "value": "手卷" },
+      { "label": "尺幅", "value": "33 × 637 cm" }
+    ],
+    "blurb": "一位老画家为道友画了三四年。山是一笔笔叠出来的；乾隆却把这卷真迹判成了假画。",
+    "image": "peak",
+    "focus": "40% 40%"
+  }
+}

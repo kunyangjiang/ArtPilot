@@ -1,0 +1,112 @@
+{
+  "id": "art-guo-xi-early-spring-001",
+  "kind": "painting",
+  "titleZh": "早春图",
+  "titleEn": "Early Spring",
+  "artist": "郭熙（Guo Xi）",
+  "attributionNote": "画幅左侧中段有画家自题“早春。壬子年郭熙畫”，下钤“郭熙筆”印；壬子年即北宋熙宁五年（1072）。这是郭熙少数有纪年款的作品之一。画上另有乾隆皇帝 1759 年的题诗，以及金章宗“明昌御覽”、明代王世贞、清代耿昭忠、索额图等人的收藏印（据台北故宫博物院开放资料著录）。",
+  "dateApprox": "1072 年（北宋熙宁五年）",
+  "medium": "立轴，绢本，水墨淡设色",
+  "dimensionsCm": { "height": 158.3, "width": 108.1 },
+  "collection": "国立故宫博物院（台北），故画 000053",
+  "infoSources": [
+    { "label": "国立故宫博物院开放资料：宋郭熙早春图 轴（尺寸、款识、钤印、题跋、作品说明）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P" },
+    { "label": "国立故宫博物院开放资料 IIIF 清单（全图与 11 张细部影像，授权字段）", "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJson?cid=47&dept=P" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/guo-xi-early-spring.jpg",
+      "width": 1094,
+      "height": 1600,
+      "alt": "一幅竖长的绢本水墨山水，绢色暗黄。一座主山从画面中下部向上盘旋升起，山体弯曲、起伏，像云团一样层层堆叠；山间缠绕着雾气，树木多是枝杈弯曲、尚未长叶的枯枝。左右两侧各有通向远处的山谷。右上角有几行题诗，四周散布着红色印章。",
+      "caption": "郭熙《早春图》，1072 年，绢本水墨淡设色，158.3 × 108.1 厘米，台北故宫博物院藏。",
+      "kind": "full",
+      "subject": "郭熙《早春图》",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "取自馆方 IIIF 全图（2212 × 3164 像素），裁去四周的黑色背景与装裱边，缩小到 1094 × 1600 并重新压缩；未调色" }
+    },
+    {
+      "key": "signature",
+      "src": "/img/guo-xi-signature.jpg",
+      "width": 459,
+      "height": 618,
+      "alt": "绢面上竖写的两行小字：上面是“早春”两个字，下面一行是“壬子年郭熙畫”，字下压着一方颜色很淡的红色方印。左边有几枝下垂的枯枝。",
+      "caption": "局部：画幅左侧中段的自题“早春。壬子年郭熙畫”与“郭熙筆”印。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAH，3058 × 2289 像素）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "valley",
+      "src": "/img/guo-xi-valley.jpg",
+      "alt": "画面左侧的山谷：近处一棵松树，往里是一层层平缓的坡岸和小树，越远越淡，最后融进一片雾里；远处隐约有一道低矮的山影。",
+      "caption": "局部：画面左侧中段，向远处退去的山谷。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAH）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "halls",
+      "src": "/img/guo-xi-halls.jpg",
+      "alt": "山腰的树丛后面，露出几座两三层的殿阁，屋檐翘起，栏杆细密；右边一棵歪斜的松树旁，还有一座圆顶的亭子和一段矮栏杆。",
+      "caption": "局部：画面右侧中段，树后的殿阁与亭子。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAG，3058 × 2289 像素）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "traveller",
+      "src": "/img/guo-xi-traveller.jpg",
+      "alt": "溪岸上，一个戴帽的人一手拄杖、一手向前，弯着腰往前走；他前面不远处，岸边坐着或蹲着另一个人。左边是一棵枝杈弯曲的大树，右边绢上有两方红色印章。",
+      "caption": "局部：画面右下，溪岸上赶路的人。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAC，3058 × 2289 像素）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "boat",
+      "src": "/img/guo-xi-boat.jpg",
+      "alt": "水边停着一条细长的小船，船尾支着一小片篷。岸上有两个人：左边的人肩上挑着担子，右边的人抱着一个孩子，正往岸上走。",
+      "caption": "局部：画面左下，刚从船上下来的一家人。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAD，3058 × 2289 像素）裁切，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "rock",
+      "src": "/img/guo-xi-rock.jpg",
+      "alt": "画面底部的大石：轮廓弯曲，像翻卷的云团；石面上的墨是一层层晕染、弯曲的笔触，浓处深黑，淡处透出绢色，没有一根根竖直的短线。",
+      "caption": "局部：画面底部的石块。",
+      "kind": "detail",
+      "subject": "郭熙《早春图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/47?dep=P", "changes": "从馆方 IIIF 细部影像（K2A000053N000000000PAD）裁切，缩小并重新压缩；未调色" }
+    }
+  ],
+  "contents": [
+    { "key": "signature", "where": "左侧中段", "what": "画家自题“早春。壬子年郭熙畫”", "span": "40–48%" },
+    { "key": "halls", "where": "右侧中段", "what": "树后的殿阁与亭子", "span": "49–57%" },
+    { "key": "valley", "where": "左侧中段", "what": "向远处退去的山谷", "span": "47–60%" },
+    { "key": "traveller", "where": "右下", "what": "溪岸上赶路的人", "span": "82–87%" },
+    { "key": "boat", "where": "左下", "what": "下船的一家人", "span": "85–89%" },
+    { "key": "rock", "where": "底部", "what": "卷云一样的石块", "span": "88–99%" }
+  ],
+  "rights": {
+    "status": "原作属公有领域；本站使用的数字影像由国立故宫博物院以开放资料方式提供，须标示出处",
+    "basis": "国立故宫博物院开放资料页面说明：中阶图像与文字以 CC BY 4.0 开放，“无须申请、不限用途、不用付费即可公开使用，请于适当位置呈现姓名标示”；馆方 IIIF 清单的授权字段指向《政府资料开放授权条款》（https://data.gov.tw/license，与 CC BY 4.0 兼容）。馆方建议的标示格式为：宋郭熙早春图 轴。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw。",
+    "verifiedOn": "2026-10-27",
+    "note": "影像经馆方公开的 IIIF 影像服务取得，未使用需验证码的下载通道。每张图片均在图注旁标示“国立故宫博物院（台北）· CC BY 4.0”，裁切与缩放写在各图的“修改”说明中。"
+  },
+  "card": {
+    "type": "山水画",
+    "period": "北宋 · 1072",
+    "facets": [
+      { "label": "地域", "value": "中国" },
+      { "label": "媒材", "value": "绢本水墨淡设色" },
+      { "label": "形制", "value": "立轴" },
+      { "label": "尺幅", "value": "158 × 108 cm" }
+    ],
+    "blurb": "画家写下“早春”和年份。山里有路、有船、有楼阁：这座山是给人走进去、住下来的。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}
