@@ -795,10 +795,12 @@ window.__stHero=hero})();`;
     fo.observe(folder);
   }
 
-  // The folder's thread and the board's ties run from the edge of one card to the edge of the next, along the line
-  // between their centres, so each one shows whole in the gap instead of passing under the cards. They are measured
-  // from the cards themselves, again whenever the cards settle, move or the window changes size (phones hide them).
-  const connect = (svg: SVGSVGElement | null, pairs: [Element, Element][]) => {
+  // The folder's thread and the board's ties run from one card to the next along the line between their centres, each
+  // end tucked a little under its card so the line reads as attached, never as a loose dash in the gap. A piece of
+  // evidence is tied by its picture, not its caption. They are measured from the cards at rest: on load, once the cards
+  // have arrived, and when the window changes size, not while a card is lifted by the pointer (phones hide them).
+  // Each line draws itself just after the second of its two cards has landed (its delay follows the cards' animations).
+  const connect = (svg: SVGSVGElement | null, pairs: [Element, Element][], delay: (i: number) => number) => {
     const o = svg?.getBoundingClientRect();
     if (!svg || !o?.width) return;
     svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`);
@@ -809,21 +811,26 @@ window.__stHero=hero})();`;
       const dx = rb.left + rb.width / 2 - o.left - ax, dy = rb.top + rb.height / 2 - o.top - ay, len = Math.hypot(dx, dy);
       // Where the centre line leaves a box, as a fraction of the way from one centre to the other.
       const out = (r: DOMRect) => Math.min(dx ? r.width / 2 / Math.abs(dx) : Infinity, dy ? r.height / 2 / Math.abs(dy) : Infinity);
-      const gap = len ? 6 / len : 0, t0 = out(ra) + gap, t1 = 1 - out(rb) - gap;
-      // A tie shorter than 14px would read as a speck, not a line; cards that close need none.
-      paths[i]?.setAttribute('d', (t1 - t0) * len > 14 ?`M${ax + dx * t0} ${ay + dy * t0} L${ax + dx * t1} ${ay + dy * t1}` : '');
+      const tuck = len ? 8 / len : 0, t0 = out(ra) - tuck, t1 = 1 - out(rb) + tuck;
+      // A line with less than 14px showing between the cards would read as a speck; cards that close need none.
+      const p = paths[i];
+      if (!p) return;
+      p.setAttribute('d', (t1 - t0) * len - 16 > 14 ? `M${ax + dx * t0} ${ay + dy * t0} L${ax + dx * t1} ${ay + dy * t1}` : '');
+      p.style.transition = `stroke-dashoffset 520ms cubic-bezier(.4, 0, .2, 1) ${delay(i)}ms`;
     });
   };
   const tie = () => {
     const cards = [...document.querySelectorAll('.st-life li')];
-    connect(document.querySelector('.st-thread'), cards.slice(1).map((c, i) => [cards[i], c]));
+    // Card k is pinned at 300 + k × 300 ms and takes 560 ms; the line to it follows as it lands.
+    connect(document.querySelector('.st-thread'), cards.slice(1).map((c, i) => [cards[i], c]), (i) => 300 + (i + 1) * 300 + 420);
     const question = document.querySelector('.st-question');
-    if (question) connect(document.querySelector('.st-ties'), [...document.querySelectorAll('.st-evidence')].map((e) => [e, question]));
+    // Evidence k settles at 200 + k × 220 ms and takes 600 ms.
+    if (question) connect(document.querySelector('.st-ties'), [...document.querySelectorAll('.st-evidence')].map((e) => [e.querySelector('img') ?? e, question]), (i) => 200 + i * 220 + 460);
   };
   tie();
   addEventListener('resize', tie);
   addEventListener('load', tie);
-  document.querySelectorAll('.st-life-area, .st-board-area').forEach((a) => ['animationend', 'transitionend'].forEach((ev) => a.addEventListener(ev, tie)));
+  document.querySelectorAll('.st-life-area, .st-board-area').forEach((a) => a.addEventListener('animationend', tie));
 
   // The case board: comes in when a third in view.
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {

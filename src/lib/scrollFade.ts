@@ -1,12 +1,15 @@
-// Content leaving the window settles back into the desk: as a block nears the top or bottom edge it dims and shrinks a
-// little, and comes back as it returns. It is tied to the scroll position, not to a timer, so it follows the finger and
-// reverses exactly. `presence` is the shared measure (1 well inside the window, 0 at the edge); the background light
-// uses it too, so a work's glow fades with the work. With reduced motion only the dimming remains.
-// The zone at the foot is shallower than at the top, so the first screen arrives whole and only content leaving
-// upwards fades over a longer stretch.
+// Content leaving the window settles back into the desk: as a block passes out over the top or bottom edge it dims and
+// shrinks a little, and comes back as it returns. It is tied to the scroll position, not to a timer, so it follows the
+// finger and reverses exactly. `presence` is the shared measure; the background light uses it too, so a work's glow
+// fades with the work. With reduced motion only the dimming remains.
+//
+// A block is wholly present while it is wholly on screen, and fades only as the edge cuts it: by how much of it is still
+// showing, out of its own height or, for a tall block (the story folder, the case board), out of a fixed stretch, so a
+// tall panel stays clear until most of it has gone and never turns grey all over while its body is still in view.
 export function presence(r: { top: number; bottom: number; height: number }, H = innerHeight) {
-  const top = Math.min(220, H * 0.28), foot = Math.min(140, H * 0.16);
-  const u = Math.min(1, Math.max(0, r.bottom / top), Math.max(0, (H - r.top) / foot));
+  if (!r.height) return 1;
+  const showing = Math.max(0, Math.min(r.bottom, H) - Math.max(r.top, 0));
+  const u = Math.min(1, showing / Math.min(r.height, Math.min(260, H * 0.3)));
   return u * u * (3 - 2 * u);
 }
 
@@ -21,8 +24,8 @@ export function startScrollFade(blocks: string) {
       const r = el.getBoundingClientRect();
       if (!r.height) continue;
       const p = presence(r, H);
-      el.style.opacity = p > 0.999 ? '' : (0.2 + 0.8 * p).toFixed(3);
-      el.style.scale = p > 0.999 || still.matches ? '' : (0.95 + 0.05 * p).toFixed(4);
+      el.style.opacity = p > 0.999 ? '' : (0.4 + 0.6 * p).toFixed(3);
+      el.style.scale = p > 0.999 || still.matches ? '' : (0.97 + 0.03 * p).toFixed(4);
     }
   };
   const kick = () => { if (!raf) raf = requestAnimationFrame(frame); };
