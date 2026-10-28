@@ -13,7 +13,7 @@ const SKY: RGB[] = [[52, 74, 128], [84, 60, 128], [128, 62, 72], [150, 78, 52]];
 export const mix = (a: RGB, b: RGB, u: number): RGB => [0, 1, 2].map((i) => a[i] + (b[i] - a[i]) * u) as RGB;
 
 export function evening(H: number, sy: number): RGB {
-  const span = Math.max(1, document.documentElement.scrollHeight - H), p = Math.min(1, sy / span) * (SKY.length - 1);
+  const span = Math.max(1, document.documentElement.scrollHeight - H), p = Math.max(0, Math.min(1, sy / span)) * (SKY.length - 1);
   const i = Math.min(SKY.length - 2, Math.floor(p));
   return mix(SKY[i], SKY[i + 1], p - i);
 }
