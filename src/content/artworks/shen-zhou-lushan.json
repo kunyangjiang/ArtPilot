@@ -1,0 +1,129 @@
+{
+  "id": "art-shen-zhou-lushan-001",
+  "kind": "painting",
+  "titleZh": "庐山高",
+  "titleEn": "Lofty Mount Lu",
+  "artist": "沈周（Shen Zhou）",
+  "attributionNote": "沈周（1427–1509），长洲（今江苏苏州）人。画上有沈周自题长诗，署“成化丁亥端阳日。门生长洲沈周诗画。敬为醒庵有道尊先生寿”，国立故宫博物院的典藏记录作沈周 1467 年作。",
+  "dateApprox": "1467 年（明成化三年，丁亥）",
+  "medium": "纸本，水墨略施淡彩",
+  "dimensionsCm": { "height": 193.8, "width": 98.1 },
+  "collection": "国立故宫博物院（台北），故画 000884",
+  "infoSources": [
+    { "label": "国立故宫博物院开放资料：明沈周画庐山高 轴（年代、尺寸、质地、沈周自题全文、乾隆御题、收传印记与鉴藏宝玺、著录与参考书目）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3593?dep=P" },
+    { "label": "国立故宫博物院开放资料：元王蒙东山草堂图 轴（1343 年；王蒙自题；沈周、文徵明、吴宽等收传印记）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/678?dep=P" },
+    { "label": "国立故宫博物院开放资料：明文嘉仿沈周庐山诗画 轴（1577 年；文嘉自题全文）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5874?dep=P" },
+    { "label": "数位典藏与学习联合目录：明文嘉仿沈周庐山诗画 轴（国立故宫博物院说明：沈周笔墨全法王蒙；文嘉只取其意）", "url": "https://catalog.digitalarchives.tw/item/00/10/8d/c9.html" },
+    { "label": "数位典藏与学习联合目录：元王蒙东山草堂图 轴（国立故宫博物院说明：后人如沈周得力于此者甚多）", "url": "https://catalog.digitalarchives.tw/item/00/03/fa/dd.html" },
+    { "label": "董其昌《画禅室随笔》（四库全书本，中文维基文库）", "url": "https://zh.wikisource.org/wiki/%E7%95%AB%E7%A6%AA%E5%AE%A4%E9%9A%A8%E7%AD%86_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%85%A8%E8%A6%BD" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/shen-zhou-lushan.jpg",
+      "width": 814,
+      "height": 1600,
+      "alt": "一幅很高的立轴山水：画面几乎被一座重重叠叠的大山填满，山石用无数细密弯曲的线条一层层皴擦；左侧一道细长的瀑布从高处直落，在山脚汇成水潭；右下方几棵虬曲的松树，枝叶浓密，夹着几簇淡红色的树叶。水潭边站着一个极小的人。右上角是一大段行书题诗，最上方写着篆书“庐山高”三字，画面四周盖着许多红色印章。",
+      "caption": "沈周《庐山高》，1467 年，立轴，纸本，193.8 × 98.1 厘米，台北国立故宫博物院藏（故画 000884）。",
+      "kind": "full",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3593?dep=P", "changes": "取自馆方 IIIF 开放影像（K2A000884N000000000PAA），缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "top",
+      "src": "/img/shen-zhou-lushan-top.jpg",
+      "alt": "画面上半部的近景：几座尖峭的山峰从云雾中升起，右上方是成片的行书题诗，开头篆书“庐山高”，题诗周围和画边盖着多方红色印章。",
+      "caption": "《庐山高》上半部：山峰与沈周的自题长诗。",
+      "kind": "detail",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3593?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像（K2A000884N000000000PAC），缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "cliffs",
+      "src": "/img/shen-zhou-lushan-cliffs.jpg",
+      "alt": "山崖的近景：岩壁被一组组细长、弯曲、彼此平行的墨线覆盖，线条之间留出淡淡的空白，表现岩石的纹理和起伏；左侧一道白色的瀑布垂直落下。",
+      "caption": "《庐山高》局部：层层叠叠的皴笔与瀑布。",
+      "kind": "detail",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3593?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像（K2A000884N000000000PAE），缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "figure",
+      "src": "/img/shen-zhou-lushan-figure.jpg",
+      "alt": "画面底部的近景：瀑布落进一个水潭，潭边浓黑的岩石和虬曲的松树之间，站着一个很小的穿长袍的人，仰头望着瀑布。",
+      "caption": "《庐山高》局部：水潭边仰望的小人。",
+      "kind": "detail",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3593?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像（K2A000884N000000000PAH），缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "wang-meng",
+      "src": "/img/wang-meng-dongshan.jpg",
+      "alt": "一幅立轴山水：重叠的山崖占据画面上半部，岩石用细密的线条和墨点层层皴擦，左侧一道细瀑布；山脚水边有一组茅草屋舍，前景是几棵高树和一片坡石。右上方有篆书“东山草堂”和行书款识，左上是一首行书题诗，四周有多方印章。",
+      "caption": "王蒙《东山草堂图》，1343 年，立轴，纸本，111.4 × 61 厘米，台北国立故宫博物院藏（故画 000287）。",
+      "kind": "detail",
+      "subject": "王蒙《东山草堂图》（台北国立故宫博物院）",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/678?dep=P", "changes": "取自馆方 IIIF 开放影像，缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "wang-meng-cliffs",
+      "src": "/img/wang-meng-dongshan-cliffs.jpg",
+      "alt": "山崖与屋舍的近景：方折的岩块上布满短而密的线条和小墨点，树干缠着细细的藤，崖下是几间草屋。",
+      "caption": "《东山草堂图》局部：方折的山石与密集的皴点。",
+      "kind": "detail",
+      "subject": "王蒙《东山草堂图》局部",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/678?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "wang-meng-inscription",
+      "src": "/img/wang-meng-dongshan-inscription.jpg",
+      "alt": "画面右上角的近景：篆书“东山草堂”四字，下面是两行行楷：“至正三年四月望日为东山良友画。黄鹤山樵王蒙”，旁边和下方有几方红色印章。",
+      "caption": "《东山草堂图》上王蒙的题款：“至正三年四月望日，为东山良友画。黄鹤山樵王蒙。”",
+      "kind": "detail",
+      "subject": "王蒙《东山草堂图》题款",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/678?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "wen-jia",
+      "src": "/img/wen-jia-lushan.jpg",
+      "alt": "一幅细长的立轴山水：山峦层层向上，山石用干枯、带棱角的细线勾出轮廓，涂着淡淡的青绿和赭色；山间有瀑布、栈道和小桥，底部有几个行走的小人。画面上方抄着一大段行书长诗。",
+      "caption": "文嘉《仿沈周庐山诗画》，1577 年，立轴，纸本，161.3 × 55.5 厘米，台北国立故宫博物院藏（故画 002201）。",
+      "kind": "detail",
+      "subject": "文嘉《仿沈周庐山诗画》（台北国立故宫博物院）",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5874?dep=P", "changes": "取自馆方 IIIF 开放影像，缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "wen-jia-inscription",
+      "src": "/img/wen-jia-lushan-inscription.jpg",
+      "alt": "文嘉画上题诗的近景：密密的行书长诗，末尾几行写着这幅画的来历，左下角有红色印章。",
+      "caption": "文嘉在画上抄录沈周的诗，并写下“此图旧在吴中。余屡见之……殊愧不类也”。",
+      "kind": "detail",
+      "subject": "文嘉《仿沈周庐山诗画》题识",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5874?dep=P", "changes": "馆方 IIIF 开放影像中的局部影像，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "spring-brocade",
+      "src": "/img/shen-zhou-spring-brocade.jpg",
+      "alt": "一幅很高的立轴：春天的山林里，柳树、桃花和楼阁之间，两位文士骑马过桥，一个童仆挑着担子跟在后面；山顶有浓密的墨点。右上角有一首七言诗，署名“沈周”。",
+      "caption": "《春华昼锦》，立轴，纸本，278.6 × 95.7 厘米，台北国立故宫博物院藏（故画 000885）。画上署名沈周，馆方说明认为疑为后人伪托。",
+      "kind": "detail",
+      "subject": "传沈周《春华昼锦》（台北国立故宫博物院）",
+      "credit": { "author": "国立故宫博物院（台北）", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3594?dep=P", "changes": "取自馆方 IIIF 开放影像，缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "原作属公有领域；本站使用的影像由国立故宫博物院以开放资料方式提供，标示后可自由使用",
+    "basis": "国立故宫博物院开放资料页面说明：中阶图像与文字以 CC BY 4.0 授权，“无须申请、不限用途、不用付费即可公开使用，惟需于适当位置呈现姓名标示”，中文标示形式为“○○○○○ 国立故宫博物院，臺北，CC BY 4.0 @ www.npm.gov.tw”。本站影像经馆方 IIIF 服务取得。",
+    "verifiedOn": "2026-10-28",
+    "note": "每张图的图注下方都标示“国立故宫博物院（台北）· CC BY 4.0”。挂轴的颜色与纸色以馆方照片为准，屏幕显示会有偏差；“略施淡彩”是就照片所见的描述，不是颜料分析的结论。"
+  },
+  "card": {
+    "type": "山水画",
+    "period": "1467 年",
+    "facets": [
+      { "label": "画家", "value": "沈周" },
+      { "label": "媒材", "value": "纸本立轴" },
+      { "label": "尺幅", "value": "193.8 × 98.1 cm" },
+      { "label": "藏地", "value": "台北故宫博物院" }
+    ],
+    "blurb": "学生为老师祝寿，借元人王蒙的笔法，画出一座比庐山还高的山。",
+    "image": "full",
+    "focus": "40% 45%"
+  }
+}

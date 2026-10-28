@@ -131,6 +131,18 @@
       "height": 260
     }
   },
+  "/img/david-death-of-socrates.jpg": {
+    "large": {
+      "src": "/img/table/david-death-of-socrates.jpg",
+      "width": 1100,
+      "height": 732
+    },
+    "small": {
+      "src": "/img/table/s-david-death-of-socrates.jpg",
+      "width": 260,
+      "height": 173
+    }
+  },
   "/img/diadoumenos-full.jpg": {
     "large": {
       "src": "/img/table/diadoumenos-full.jpg",
@@ -383,6 +395,30 @@
       "height": 178
     }
   },
+  "/img/joan-teahouse.jpg": {
+    "large": {
+      "src": "/img/table/joan-teahouse.jpg",
+      "width": 1100,
+      "height": 825
+    },
+    "small": {
+      "src": "/img/table/s-joan-teahouse.jpg",
+      "width": 260,
+      "height": 195
+    }
+  },
+  "/img/kangxi-tour-jinan.jpg": {
+    "large": {
+      "src": "/img/table/kangxi-tour-jinan.jpg",
+      "width": 1100,
+      "height": 825
+    },
+    "small": {
+      "src": "/img/table/s-kangxi-tour-jinan.jpg",
+      "width": 260,
+      "height": 195
+    }
+  },
   "/img/liangzhu-cong.jpg": {
     "large": {
       "src": "/img/table/liangzhu-cong.jpg",
@@ -539,6 +575,18 @@
       "height": 260
     }
   },
+  "/img/shen-zhou-lushan.jpg": {
+    "large": {
+      "src": "/img/table/shen-zhou-lushan.jpg",
+      "width": 560,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-shen-zhou-lushan.jpg",
+      "width": 132,
+      "height": 260
+    }
+  },
   "/img/shiqitie-leaf.jpg": {
     "large": {
       "src": "/img/table/shiqitie-leaf.jpg",
@@ -608,6 +656,30 @@
     "small": {
       "src": "/img/table/s-velazquez-pareja.jpg",
       "width": 224,
+      "height": 260
+    }
+  },
+  "/img/vermeer-milkmaid.jpg": {
+    "large": {
+      "src": "/img/table/vermeer-milkmaid.jpg",
+      "width": 988,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-vermeer-milkmaid.jpg",
+      "width": 233,
+      "height": 260
+    }
+  },
+  "/img/witte-leeuw-plate.jpg": {
+    "large": {
+      "src": "/img/table/witte-leeuw-plate.jpg",
+      "width": 1100,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-witte-leeuw-plate.jpg",
+      "width": 260,
       "height": 260
     }
   },

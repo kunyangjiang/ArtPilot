@@ -1,0 +1,107 @@
+{
+  "id": "art-vermeer-milkmaid-001",
+  "kind": "painting",
+  "titleZh": "倒牛奶的女仆",
+  "titleEn": "The Milkmaid",
+  "artist": "约翰内斯·维米尔（Johannes Vermeer）",
+  "attributionNote": "代尔夫特画家维米尔（1632–1675）约 1660 年所作。据大都会艺术博物馆的研究文章，他一生大概只画了约四十五幅画，今天确知的有三十六幅；多达一半被代尔夫特的收藏家皮特·范·勒伊芬买走。",
+  "dateApprox": "约 1660 年",
+  "medium": "布面油画",
+  "dimensionsCm": { "height": 45.5, "width": 41 },
+  "collection": "荷兰国立博物馆（阿姆斯特丹），SK-A-2344",
+  "infoSources": [
+    { "label": "荷兰国立博物馆藏品记录：Johannes Vermeer, The Milkmaid, SK-A-2344（说明、尺寸与来源记录）", "url": "https://id.rijksmuseum.nl/200108369" },
+    { "label": "荷兰国立博物馆藏品记录：Jan Steen, The Merry Family, SK-C-229（题字、说明）", "url": "https://id.rijksmuseum.nl/200108012" },
+    { "label": "荷兰国立博物馆藏品记录：Pieter de Hooch, Interior with Women beside a Linen Cupboard, SK-C-1191", "url": "https://id.rijksmuseum.nl/2003051" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Jennifer Meagher，“Genre Painting in Northern Europe”（2008）", "url": "https://www.metmuseum.org/essays/genre-painting-in-northern-europe" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Walter Liedtke，“Johannes Vermeer (1632–1675)”（2003）", "url": "https://www.metmuseum.org/essays/johannes-vermeer-1632-1675" },
+    { "label": "大都会艺术博物馆：In Praise of Painting 导览（Primer）", "url": "https://www.metmuseum.org/primer/in-praise-of-painting" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/vermeer-milkmaid.jpg",
+      "width": 1437,
+      "height": 1600,
+      "alt": "一间光线从左侧窗户照进来的厨房角落。一个戴白头巾、穿黄色上衣和蓝色围裙的女人站在桌后，低头把陶罐里的牛奶慢慢倒进一只陶碗，一道细细的白色奶流。桌上铺着蓝布，摆着一篮面包、一只蓝色的陶壶和一些面包块。墙上挂着一只篮子和一个铜桶，右下角的墙脚有一排小瓷砖，地上放着一个木头脚炉。",
+      "caption": "约翰内斯·维米尔《倒牛奶的女仆》，约 1660 年，布面油画，45.5 × 41 厘米，荷兰国立博物馆藏（SK-A-2344）。",
+      "kind": "full",
+      "subject": "维米尔《倒牛奶的女仆》全图",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/200108369", "changes": "馆方 IIIF 影像（iiif.micr.io/QkOGy）以 3000 像素宽取得，缩小到 1437 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "pour",
+      "src": "/img/vermeer-milkmaid-pour.jpg",
+      "width": 780,
+      "height": 868,
+      "alt": "局部特写：女人的双手托着一只红褐色的陶罐，罐口流出一道细细的白色奶流，落进下面的陶碗。旁边的面包表面布满一颗颗发亮的小光点。",
+      "caption": "局部：倒牛奶的手与面包上的光点。",
+      "kind": "detail",
+      "subject": "维米尔《倒牛奶的女仆》局部：奶流",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/200108369", "changes": "由 3000 像素宽的馆方影像裁切（横 24–50%，纵 44–70%）并重新压缩；未调色" }
+    },
+    {
+      "key": "floor",
+      "src": "/img/vermeer-milkmaid-floor.jpg",
+      "width": 960,
+      "height": 802,
+      "alt": "局部特写：画面右下角，墙脚贴着一排白底蓝花的小瓷砖，瓷砖上画着小小的人物；地上放着一个方形的木头脚炉，盖子上有一排小孔，里面放着一个盛炭的陶盆。",
+      "caption": "局部：墙脚的瓷砖与地上的脚炉。",
+      "kind": "detail",
+      "subject": "维米尔《倒牛奶的女仆》局部：瓷砖与脚炉",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/200108369", "changes": "由 3000 像素宽的馆方影像裁切（横 68–100%，纵 74–98%）并重新压缩；未调色" }
+    },
+    {
+      "key": "steen",
+      "src": "/img/steen-merry-family.jpg",
+      "width": 1600,
+      "height": 1258,
+      "alt": "一个热闹的家庭聚会：一个老人举着玻璃杯放声唱歌，旁边的人吹风笛、看着纸片唱歌；年轻的母亲抱着孩子笑，几个少年吹笛子、抽长烟斗。桌前一个小女孩从大壶里给更小的孩子倒酒，一只狗在桌下转悠，地上散落着盘子、锅和酒瓶。右上角壁炉上方贴着一张写满字的纸。",
+      "caption": "扬·斯滕《欢乐的一家》，1668 年，布面油画，110.5 × 141 厘米，荷兰国立博物馆藏（SK-C-229，阿姆斯特丹市出借，范德胡普遗赠）。",
+      "kind": "detail",
+      "subject": "扬·斯滕《欢乐的一家》（荷兰国立博物馆 SK-C-229）",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/200108012", "changes": "馆方 IIIF 影像（iiif.micr.io/SbsFC）以 3000 像素宽取得，缩小到 1600 × 1258 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "steen-note",
+      "src": "/img/steen-merry-family-note.jpg",
+      "width": 540,
+      "height": 566,
+      "alt": "局部特写：壁炉上方钉着一张卷边的白纸，上面用大写字母写着几行荷兰文：Soo de oude songen, soo pypen de jonge。",
+      "caption": "局部：壁炉上方的纸条。",
+      "kind": "detail",
+      "subject": "扬·斯滕《欢乐的一家》局部：纸条",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/200108012", "changes": "由 3000 像素宽的馆方影像裁切（横 74–92%，纵 2–26%）并重新压缩；未调色" }
+    },
+    {
+      "key": "de-hooch",
+      "src": "/img/de-hooch-linen-cupboard.jpg",
+      "width": 1600,
+      "height": 1462,
+      "alt": "一间整洁的荷兰住宅内景：左边是一个高大的雕花木柜，柜门敞开，两个女人站在柜前，一个捧着一叠叠好的白布递给另一个。地面铺着红白相间的方砖。右边的门开着，一个小女孩拿着球杆在门口玩，门外是阳光照亮的街道和对面的红砖房子。",
+      "caption": "彼得·德·霍赫《亚麻柜旁的妇女》，1663 年，布面油画，70 × 75.5 厘米，荷兰国立博物馆藏（SK-C-1191，阿姆斯特丹市出借）。",
+      "kind": "detail",
+      "subject": "彼得·德·霍赫《亚麻柜旁的妇女》（荷兰国立博物馆 SK-C-1191）",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://id.rijksmuseum.nl/2003051", "changes": "馆方 IIIF 影像（iiif.micr.io/NYvCK）以 3000 像素宽取得，缩小到 1600 × 1462 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（荷兰国立博物馆 Public Domain Mark 1.0）",
+    "basis": "荷兰国立博物馆开放数据（data.rijksmuseum.nl）为三幅画的影像标注 Public Domain Mark 1.0；三幅画均作于 17 世纪，作者去世已三百多年。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小、裁切与重新压缩，没有调色或锐化。斯滕与德·霍赫的画属于阿姆斯特丹市，长期出借给荷兰国立博物馆。两幅对照画没有单独的卡片。"
+  },
+  "card": {
+    "type": "风俗画",
+    "period": "约 1660 年",
+    "facets": [
+      { "label": "画家", "value": "维米尔" },
+      { "label": "媒材", "value": "布面油画" },
+      { "label": "尺幅", "value": "45.5 × 41 cm" },
+      { "label": "藏地", "value": "阿姆斯特丹" }
+    ],
+    "blurb": "一个女仆倒牛奶：除了那道白色的奶流，画里什么都没有动。",
+    "image": "full",
+    "focus": "55% 40%"
+  }
+}

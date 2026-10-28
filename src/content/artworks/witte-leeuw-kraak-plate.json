@@ -1,0 +1,133 @@
+{
+  "id": "art-witte-leeuw-kraak-plate-001",
+  "kind": "object",
+  "titleZh": "“白狮号”沉船出水的克拉克瓷盘",
+  "titleEn": "Kraak porcelain plate from the V.O.C.-ship the 'Witte Leeuw'",
+  "attributionNote": "景德镇窑工制作，没有留名。荷兰国立博物馆定为 1613 年以前，即沉船之前。",
+  "dateApprox": "1613 年以前（明代万历年间前后）",
+  "objectType": "盘（克拉克瓷）",
+  "medium": "瓷，釉下青花",
+  "dimensions": "高 3.1 厘米，直径 21.9 厘米（据荷兰国立博物馆；约 95% 完整）",
+  "collection": "荷兰国立博物馆（阿姆斯特丹），NG-1978-127-4010-W",
+  "originalStatus": "沉船出水的原件，边沿缺了一块，约 95% 完整。在海底埋藏了三百多年，釉面局部有沉积物的斑点。",
+  "provenance": "1613 年随荷兰东印度公司的“白狮号”（Witte Leeuw）沉没于大西洋圣赫勒拿岛附近；1976 年由比利时潜水员罗贝尔·斯特尼（Robert Sténuit）的团队打捞出水（另一份荷兰海事遗产记录写作 1977 年）。斯特尼将这件瓷盘赠予荷兰国立博物馆（据馆方记录）。部分出水器物曾在伦敦拍卖。",
+  "infoSources": [
+    { "label": "荷兰国立博物馆藏品记录：Kraak porcelain plate from the V.O.C.-ship the 'Witte Leeuw'，NG-1978-127-4010-W（尺寸、景德镇、纹样、斯特尼捐赠）", "url": "https://www.rijksmuseum.nl/en/collection/object/Kraak-porcelain-plate-from-the-VOC-ship-the-Witte-Leeuw--266338fec3ca4289ff88a35d87c7d2b6" },
+    { "label": "荷兰国立博物馆藏品记录：Porcelain and pepper from the VOC trading ship the Witte Leeuw，NG-1977-118-W（1613 年沉没、1976 年打捞、胡椒与瓷器、与铁件黏结的酒杯）", "url": "https://www.rijksmuseum.nl/en/collection/object/Porcelain-and-pepper-from-the-VOC-trading-ship-the-Witte-Leeuw--abfaa3acbad118eca0f5403109b72608" },
+    { "label": "荷兰国立博物馆藏品记录：Kendi from the Wreck of the Witte Leeuw，NG-1977-172-W（象形军持）", "url": "https://www.rijksmuseum.nl/en/collection/object/Kendi-from-the-Wreck-of-the-Witte-Leeuw--cf74192baf46914a43be12c36deb07cb" },
+    { "label": "荷兰文化遗产署海事遗址数据库（MaSS）：Witte Leeuw（1613 年 6 月 13 日在圣赫勒拿附近与葡萄牙商船交战后焚毁；水深约 36 米；出水物的去向）", "url": "https://mass.cultureelerfgoed.nl/witte-leeuw" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Jeffrey Munger 与 Alice Cooney Frelinghuysen，“East and West: Chinese Export Porcelain”（2003）", "url": "https://www.metmuseum.org/essays/east-and-west-chinese-export-porcelain" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Anna Willmann，“Edo-Period Japanese Porcelain”（2011）", "url": "https://www.metmuseum.org/essays/edo-period-japanese-porcelain" },
+    { "label": "大都会艺术博物馆教育资源：Art of the Islamic World，Image 44，Elephant-shaped drinking vessel (kendi)，68.180", "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-seven/chapter-one/featured-works-of-art/image-44" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/witte-leeuw-plate.jpg",
+      "width": 1600,
+      "height": 1600,
+      "alt": "浅灰色背景上的一只青花瓷盘，从正上方拍摄：盘心是一团浓蓝的花叶纹样，外面围着一圈星形的图案带；宽宽的盘边被分成一格一格，大格里画着花枝、桃子和吉祥物，小格里是一串串圆点。盘边右下方缺了一大块，露出不规则的断口。",
+      "caption": "“白狮号”沉船出水的克拉克瓷盘，景德镇，1613 年以前，直径 21.9 厘米，荷兰国立博物馆藏（NG-1978-127-4010-W）。",
+      "kind": "full",
+      "subject": "克拉克瓷盘（荷兰国立博物馆 NG-1978-127-4010-W）",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://www.rijksmuseum.nl/en/collection/object/Kraak-porcelain-plate-from-the-VOC-ship-the-Witte-Leeuw--266338fec3ca4289ff88a35d87c7d2b6", "changes": "馆方 IIIF 影像（iiif.micr.io/qLwBf）以 1600 像素宽取得并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "cup-iron",
+      "src": "/img/witte-leeuw-cup-iron.jpg",
+      "width": 1600,
+      "height": 1011,
+      "alt": "一根灰褐色、粗糙多孔的长条形团块，像一截长满贝壳和砂粒的树枝，一端露出锈红色的铁；团块下方嵌着一只小小的白瓷酒杯，杯口朝外，旁边还黏着几片贝壳。",
+      "caption": "与铁件、贝壳和海底沉积物黏结在一起的白瓷酒杯，“白狮号”出水，荷兰国立博物馆藏（NG-1977-118-W）。",
+      "kind": "detail",
+      "subject": "黏结在铁件上的酒杯（荷兰国立博物馆 NG-1977-118-W）",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://www.rijksmuseum.nl/en/collection/object/Porcelain-and-pepper-from-the-VOC-trading-ship-the-Witte-Leeuw--abfaa3acbad118eca0f5403109b72608", "changes": "馆方 IIIF 影像（iiif.micr.io/lzXeM）以 1600 像素宽取得并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "kendi",
+      "src": "/img/witte-leeuw-kendi.jpg",
+      "width": 1600,
+      "height": 1461,
+      "alt": "深色背景前的一件白瓷青花器物，做成一头蹲着的大象：象头高高抬起，鼻子卷成短短的流口，背上原有一个竖起的瓶颈，现在只剩下一截残口；象身披着一块画满花卉和细密几何纹的毯子，颈部挂着一串铃铛。",
+      "caption": "“白狮号”出水的象形军持，景德镇，1613 年以前，高 17 厘米，荷兰国立博物馆藏（NG-1977-172-W）。",
+      "kind": "detail",
+      "subject": "象形军持（荷兰国立博物馆 NG-1977-172-W）",
+      "credit": { "author": "荷兰国立博物馆（Rijksmuseum）", "licence": "公有领域（Public Domain Mark 1.0）", "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/", "sourceUrl": "https://www.rijksmuseum.nl/en/collection/object/Kendi-from-the-Wreck-of-the-Witte-Leeuw--cf74192baf46914a43be12c36deb07cb", "changes": "馆方 IIIF 影像（iiif.micr.io/IfTBU）以 1600 像素宽取得并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "persian-kendi",
+      "src": "/img/persian-elephant-kendi.jpg",
+      "width": 1198,
+      "height": 1600,
+      "alt": "灰色背景前的一件蓝白色器物，同样做成一头蹲坐的大象，背上竖着一根细长的圆筒；象身的毯子分成几块，画着几何格纹和莲花。器身的白色偏暖、略带米黄，表面有几处剥落。",
+      "caption": "象形军持，伊朗（可能是克尔曼），17 世纪第二季，熔块胎（stonepaste）釉下青花，高 23.2 厘米，大都会艺术博物馆藏（68.180）。",
+      "kind": "detail",
+      "subject": "伊朗象形军持（大都会艺术博物馆 68.180）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451993", "changes": "馆方开放获取影像（DP216060）缩小到 1198 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "jug",
+      "src": "/img/jug-portuguese-arms.jpg",
+      "width": 1378,
+      "height": 1600,
+      "alt": "灰色背景前的一只白瓷青花执壶：细长的颈，八角形的口，圆鼓的腹部，壶身一侧有一截断掉的短流，另一侧颈上有把手断掉留下的痕迹。腹部正中画着一个圆形徽章，里面是一面盾牌，盾牌里排着五个小盾形，周围有月桂枝。",
+      "caption": "带葡萄牙王室纹章的执壶，景德镇，约 1520–1540 年，高 18.7 厘米，大都会艺术博物馆藏（61.196）。",
+      "kind": "detail",
+      "subject": "带葡萄牙纹章的执壶（大都会艺术博物馆 61.196）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/202581", "changes": "馆方开放获取影像（DP-35812-001）缩小到 1378 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "mounted-cup",
+      "src": "/img/kinrande-cup-mounts.jpg",
+      "width": 1293,
+      "height": 1600,
+      "alt": "灰色背景前的一只有盖高足杯：杯身是一只暗红色的瓷碗，碗沿、底足和盖子都是银色的金属，碗下接着一根带节的金属高柄和圆形底座，盖顶有一个圆环。",
+      "caption": "红地金彩瓷杯，中国，明代，约 1507–1566 年；英国伦敦银鎏金镶座约 1570 年，镶座作者阿法贝尔·帕特里奇（Affabel Partridge）。高 18.7 厘米，大都会艺术博物馆藏（68.141.125a, b）。",
+      "kind": "detail",
+      "subject": "镶银的明代瓷杯（大都会艺术博物馆 68.141.125a, b）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/204931", "changes": "馆方开放获取影像（DP266967）缩小到 1293 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "iznik",
+      "src": "/img/iznik-footed-dish.jpg",
+      "width": 1198,
+      "height": 1600,
+      "alt": "灰色背景前的一只白地蓝花大盘，从斜上方拍摄：盘沿做成连续的花瓣形，盘心和内壁布满缠绕的花卉卷草，蓝色偏深偏绿；盘下有一圈抬高的圈足。",
+      "caption": "仿中国瓷器的花口高足盘，奥斯曼帝国伊兹尼克，约 1570–1580 年，熔块胎釉下彩，直径 36.2 厘米，大都会艺术博物馆藏（66.4.2）。",
+      "kind": "detail",
+      "subject": "伊兹尼克高足盘（大都会艺术博物馆 66.4.2）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451833", "changes": "馆方开放获取影像（DP216059）缩小到 1198 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "voc-plate",
+      "src": "/img/arita-voc-plate.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "深灰色背景前的一只青花瓷盘：宽边分成一格格，画着花草；盘心的花丛中间，是由 V、O、C 三个字母交织而成的标志。",
+      "caption": "带荷兰东印度公司（VOC）标志的瓷盘，日本有田，约 1660 年，直径 31.4 厘米，大都会艺术博物馆藏（2002.447.40）。",
+      "kind": "detail",
+      "subject": "带 VOC 标志的有田瓷盘（大都会艺术博物馆 2002.447.40）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49294", "changes": "馆方开放获取影像（DP244342）缩小到 1600 × 1200 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（荷兰国立博物馆 Public Domain Mark 1.0；大都会艺术博物馆 CC0）",
+    "basis": "荷兰国立博物馆的开放数据（data.rijksmuseum.nl）为三件“白狮号”出水器物的影像标注 Public Domain Mark 1.0；大都会艺术博物馆开放获取 API 为四件对照器物标注 isPublicDomain，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小与重新压缩，没有裁切、调色或锐化。青花的蓝色在不同的拍摄光线下会偏紫或偏绿，本课不据照片比较两件器物钴料的成分。其余对照器物没有单独的卡片。"
+  },
+  "card": {
+    "type": "陶瓷 · 外销瓷",
+    "maker": "景德镇",
+    "period": "1613 年以前",
+    "facets": [
+      { "label": "材质", "value": "瓷 · 青花" },
+      { "label": "直径", "value": "21.9 cm" },
+      { "label": "出处", "value": "“白狮号”沉船" },
+      { "label": "藏地", "value": "阿姆斯特丹" }
+    ],
+    "blurb": "景德镇烧成，装上荷兰商船，沉在大西洋的海底三百六十多年。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}

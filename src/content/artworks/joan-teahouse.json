@@ -1,0 +1,150 @@
+{
+  "id": "art-joan-teahouse-001",
+  "kind": "building",
+  "titleZh": "如庵（织田有乐斋的茶室）",
+  "titleEn": "Jo-an Teahouse, Urakuen, Inuyama",
+  "attributionNote": "织田信长的弟弟、茶人织田有乐斋（Oda Urakusai）在京都建仁寺创建（据名古屋铁道有乐苑介绍）。修造的工匠没有留名。",
+  "dateApprox": "17 世纪初（有乐斋晚年；与它相邻的有乐斋隐居所“旧正传院书院”建于元和四年，即 1618 年）",
+  "location": "日本，爱知县犬山市，有乐苑（原在京都建仁寺）",
+  "facts": [
+    { "label": "茶室", "value": "二叠半台目（两张半榻榻米，加一张约四分之三长的点茶席）" },
+    { "label": "国宝", "value": "1936 年指定" },
+    { "label": "迁建", "value": "1972 年迁到犬山城东" }
+  ],
+  "buildingType": "茶室（草庵式茶席），附水屋与廊下之间",
+  "materials": "木构，土墙，柿葺（薄木片铺成的屋顶）；室内有竹子密排的“有乐窗”、用旧历书纸糊的“历张”墙裙（据有乐苑介绍）。",
+  "notes": [
+    "织田有乐斋在京都建仁寺创建，与他的隐居所（旧正传院书院，元和四年建）相邻。",
+    "1936 年被指定为国宝。",
+    "1972 年由名古屋铁道迁到犬山城以东，并整备为“日本庭园 有乐苑”；庭园是“尽可能再现”如庵在京都时代的庭园，而不是原封不动搬来的（据有乐苑介绍）。"
+  ],
+  "infoSources": [
+    { "label": "名古屋铁道：国宝茶室 如庵·有乐苑 介绍（如庵的创建者、二叠半台目、筋违之围、历张、有乐窗、躏口、1936 年国宝、1972 年迁建与庭园再现、水琴窟）", "url": "https://www.meitetsu.co.jp/urakuen/guide/index.html" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Anna Willmann，“The Japanese Tea Ceremony”（2011）", "url": "https://www.metmuseum.org/essays/the-japanese-tea-ceremony" },
+    { "label": "大都会艺术博物馆：Black Raku Tea Bowl, Named “Kaedegure”，2024.553.19", "url": "https://www.metmuseum.org/art/collection/search/827671" },
+    { "label": "大都会艺术博物馆：Black Raku Tea Bowl，17.118.74（乐烧与长次郎的说明）", "url": "https://www.metmuseum.org/art/collection/search/62898" },
+    { "label": "大都会艺术博物馆：Water Jar (Mizusashi) with Pine Trees，attributed to Ogata Kenzan，29.100.614a, b", "url": "https://www.metmuseum.org/art/collection/search/52514" },
+    { "label": "大都会艺术博物馆：Ogata Kōrin, Rough Waves，26.117", "url": "https://www.metmuseum.org/art/collection/search/44918" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/joan-teahouse.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "绿树之间的一座小木屋，从侧前方看：浅黄色的土墙，深色的木柱，屋顶是灰褐色的薄板铺成的，坡度平缓。墙上开着几扇不同形状的窗：一扇圆窗，几扇竖条格子窗；屋檐下有一块挂着的小木牌。屋前的地面铺着几块不规则的踏石。",
+      "caption": "如庵，原由织田有乐斋建于京都建仁寺，现存爱知县犬山市有乐苑。国宝。2018 年摄。",
+      "kind": "full",
+      "subject": "如庵外观（有乐苑）",
+      "credit": { "author": "Suikotei", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:J%C5%8D-an_(Urakuen).jpg", "changes": "维基共享资源原图（4320 × 3240）缩小到 1600 × 1200 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "front",
+      "src": "/img/joan-front.jpg",
+      "width": 1500,
+      "height": 1000,
+      "alt": "如庵的正面：山墙下挂着一块写着庵名的木匾。左边是一个凹进去的门廊，侧墙上有一扇圆窗，门廊里是纸拉门；右边的墙上开着一扇竖条格子窗和一扇小方格窗，墙脚有一个小小的方形通风口。屋前铺着白色的石板和大小不一的踏石。",
+      "caption": "如庵正面，2023 年摄。",
+      "kind": "detail",
+      "subject": "如庵正面（有乐苑）",
+      "credit": { "author": "Tomio344456", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joan_in_Urakuen,_Gomonsaki_Inuyama_Inuyama_City_2023.jpg", "changes": "维基共享资源原图（1500 × 1000），重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "plan",
+      "src": "/img/joan-plan.jpg",
+      "width": 1544,
+      "height": 1600,
+      "alt": "如庵的平面图，用浅绿色表示榻榻米和地板，粗黑线表示墙。下方最大的一块标着 Chashitsu（茶室），左上角一个小方块标着 Toko（床，即壁龛），右侧一个小方框标着 Ro（炉）。床的右边有一道斜线，表示一面斜墙。茶室左边的墙上标着 Nijiri guchi（躏口），右边墙上标着 Uraku mado（有乐窗）。上方较大的一块是 Mizuya（水屋），左边是 Rōka no ma（廊下之间）。",
+      "caption": "如庵平面图（Phoenix7777 绘制）。英文标注：Chashitsu 茶室、Toko 床、Ro 炉、Nijiri guchi 躏口、Uraku mado 有乐窗、Mizuya 水屋、Rōka no ma 廊下之间等。",
+      "kind": "detail",
+      "subject": "如庵平面图",
+      "credit": { "author": "Phoenix7777", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jo-an.svg", "changes": "将 SVG 渲染为 PNG，透明背景改为白色，缩小到 1544 × 1600 并存为 JPEG；未改动图形与文字" }
+    },
+    {
+      "key": "path",
+      "src": "/img/urakuen-path.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一条穿过浓密树林的小路，由一块块扁平的圆石铺成，石头之间长着青苔，路向远处的树丛里弯去。",
+      "caption": "有乐苑庭园中的踏石小路，2025 年摄。",
+      "kind": "detail",
+      "subject": "有乐苑的踏石小路",
+      "credit": { "author": "Hyppolyte de Saint-Rambert", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Urakuen_(Inuyama_Aichi)_VLux5_hdsr_09.jpg", "changes": "维基共享资源原图（3648 × 4864）缩小到 1200 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tsukubai",
+      "src": "/img/urakuen-tsukubai.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "青苔和大叶植物之间，一块低矮的褐色大石，中间凿出一个盛水的浅坑，上面横放着一把竹柄的长勺；旁边有一根竹管引水。石前铺着一片黑色的卵石，周围摆着几块圆石。",
+      "caption": "有乐苑中的蹲踞（低矮的洗手石钵），2025 年摄。",
+      "kind": "detail",
+      "subject": "有乐苑的蹲踞",
+      "credit": { "author": "Hyppolyte de Saint-Rambert", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Urakuen_(Inuyama_Aichi)_VLux5_hdsr_38.jpg", "changes": "维基共享资源原图（4864 × 3648）缩小到 1600 × 1200 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "suikinkutsu",
+      "src": "/img/urakuen-suikinkutsu.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "庭园一角立着一块带小屋顶的木牌，上面用日文和英文写着“水琴窟”的说明；木牌后面是一盏石灯笼，下方是一个石钵和竹管，四周长满大叶植物。",
+      "caption": "有乐苑中“水琴窟”的说明牌，2025 年摄。",
+      "kind": "detail",
+      "subject": "有乐苑的水琴窟说明牌",
+      "credit": { "author": "Hyppolyte de Saint-Rambert", "licence": "CC BY 4.0", "licenceUrl": "https://creativecommons.org/licenses/by/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Urakuen_(Inuyama_Aichi)_VLux5_hdsr_30.jpg", "changes": "维基共享资源原图（3588 × 4783）缩小到 1200 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tea-bowl",
+      "src": "/img/raku-kaedegure.jpg",
+      "width": 1600,
+      "height": 1199,
+      "alt": "灰色背景前的一只黑色茶碗，侧面拍摄：碗身矮而厚，口沿微微向内收，碗壁有手捏留下的起伏；黑釉不太均匀，有的地方泛着褐色的光，有的地方暗哑。",
+      "caption": "长次郎样式黑乐茶碗，铭“枫暮”（Kaedegure），17 世纪，高 9 厘米，大都会艺术博物馆藏（2024.553.19）。",
+      "kind": "detail",
+      "subject": "黑乐茶碗“枫暮”（大都会艺术博物馆 2024.553.19）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/827671", "changes": "馆方开放获取影像（DP-41041-001）缩小到 1600 × 1199 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "water-jar",
+      "src": "/img/kenzan-pine-jar.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "灰色背景前的一只圆鼓鼓的陶罐，配一个黑漆盖子：罐身是米白色的底，上面用深褐色和灰蓝色画着几棵松树，树干几笔就写成，树冠像一团团的云。",
+      "caption": "传尾形乾山《松纹水指》，约 1720 年，炻器，高 12.7 厘米，大都会艺术博物馆藏（29.100.614a, b）。",
+      "kind": "detail",
+      "subject": "传尾形乾山松纹水指（大都会艺术博物馆 29.100.614a, b）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/52514", "changes": "馆方开放获取影像（DP247424）缩小到 1600 × 1200 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "screen",
+      "src": "/img/korin-rough-waves.jpg",
+      "width": 1600,
+      "height": 1427,
+      "alt": "一件两扇的折屏，金色的底已经暗淡，布满细小的裂纹。画面上是汹涌的海浪：深墨绿色的浪身一层层卷起，浪头的白沫像一只只弯曲的爪子；中间一道竖线是两扇屏风的接缝。右上角有一行竖写的题款和一方圆印。",
+      "caption": "尾形光琳《波涛图屏风》，约 1704–1709 年，二曲一只，纸本金地水墨设色，146.5 × 165.4 厘米，大都会艺术博物馆藏（26.117）。",
+      "kind": "detail",
+      "subject": "尾形光琳《波涛图屏风》（大都会艺术博物馆 26.117）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/44918", "changes": "馆方开放获取影像（DT1615）缩小到 1600 × 1427 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "混合：建筑与庭园照片为知识共享许可（CC BY-SA 4.0、CC BY 4.0），器物与屏风为公有领域（CC0）",
+    "basis": "如庵外观、正面与平面图来自维基共享资源，作者以 CC BY-SA 4.0 发布；有乐苑庭园照片以 CC BY 4.0 发布；茶碗、水指与屏风来自大都会艺术博物馆开放获取（CC0）。建筑本身建于 17 世纪初，不受版权限制。",
+    "verifiedOn": "2026-10-28",
+    "note": "CC BY-SA 4.0 的三张图在本站只缩小、重新压缩（平面图把透明背景改为白色），改动后的版本按同一许可提供。照片都是 21 世纪拍摄的现状：如庵在 1972 年迁建，庭园是再现的，不能当作 17 世纪的原貌。其余对照器物没有单独的卡片。"
+  },
+  "card": {
+    "type": "茶室",
+    "maker": "织田有乐斋",
+    "period": "17 世纪初",
+    "facets": [
+      { "label": "地域", "value": "日本 · 犬山" },
+      { "label": "茶室", "value": "二叠半台目" },
+      { "label": "身份", "value": "国宝" },
+      { "label": "迁建", "value": "1972 年" }
+    ],
+    "blurb": "两张半榻榻米大的屋子，一面斜墙、一扇竹窗，一位武将茶人自己的规矩。",
+    "image": "full",
+    "focus": "45% 50%"
+  }
+}

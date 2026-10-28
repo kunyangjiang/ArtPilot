@@ -1,0 +1,129 @@
+{
+  "id": "art-kangxi-southern-tour-3-001",
+  "kind": "painting",
+  "titleZh": "康熙南巡图·第三卷：济南至泰山",
+  "titleEn": "The Kangxi Emperor's Southern Inspection Tour, Scroll Three: Ji'nan to Mount Tai",
+  "artist": "王翚（Wang Hui）与助手",
+  "attributionNote": "王翚（1632–1717）主持设计，与一批画家分工完成。大都会艺术博物馆的研究说，王翚先画全尺寸的纸本草图，再由助手分别负责山水、建筑和三万多个人物，画在绢上；全套十二卷 1698 年完成。卷首是一段颂圣的文字。",
+  "dateApprox": "约 1691–1698 年（全套 1698 年完成）",
+  "medium": "手卷，绢本设色",
+  "dimensionsCm": { "height": 67.9, "width": 1393.8 },
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1979.5",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：The Kangxi Emperor's Southern Inspection Tour, Scroll Three, 1979.5（说明、尺寸、语音导览）", "url": "https://www.metmuseum.org/art/collection/search/49156" },
+    { "label": "大都会艺术博物馆：Maxwell Hearn, “Wang Hui (1632–1717)”，Heilbrunn Timeline of Art History（2008）", "url": "https://www.metmuseum.org/essays/wang-hui-1632-1717" },
+    { "label": "大都会艺术博物馆：Maxwell K. Hearn, “The Qing Dynasty (1644–1911): Painting”，Heilbrunn Timeline of Art History（2003）", "url": "https://www.metmuseum.org/essays/the-qing-dynasty-1644-1911-painting" },
+    { "label": "《清史稿》卷五百四《艺术传三》（王时敏、王鉴、王原祁、王翚、道济、朱耷等传），中文维基文库", "url": "https://zh.wikisource.org/wiki/%E6%B8%85%E5%8F%B2%E7%A8%BF/%E5%8D%B7504" },
+    { "label": "石涛《苦瓜和尚画语录》，中文维基文库", "url": "https://zh.wikisource.org/wiki/%E8%8B%A6%E7%93%9C%E5%92%8C%E5%B0%9A%E7%95%AB%E8%AA%9E%E9%8C%84" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/kangxi-tour-jinan.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "长卷的一段：一座灰色城墙从左向右延伸，城楼上方一顶黄色的伞盖下坐着一个穿蓝袍的人，身后站着一排穿黄衣、举着旗杆的侍从。城门外的石桥上，骑马的人排成长队进城，路边挤满了围观的百姓。前景是一座用青绿色画的山崖，上面长着高大的松树，远处是平原、村落和杨柳。",
+      "caption": "王翚等《康熙南巡图》第三卷局部：济南城。约 1691–1698 年，手卷，绢本设色，全卷 67.9 × 1393.8 厘米，大都会艺术博物馆藏（1979.5）。",
+      "kind": "full",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "馆方开放获取影像（DP-18552-019）缩小到 1600 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "scroll",
+      "src": "/img/kangxi-tour-scroll.jpg",
+      "width": 4000,
+      "height": 203,
+      "alt": "整卷的缩略图：一条极长的横幅，从右到左是连绵的青绿山水、城镇和河流，最右端是一段文字，最左端是一片高山。",
+      "caption": "第三卷全卷缩略图（右起卷首，左至泰山）。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "馆方开放获取影像（DP-18552-001），重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "text",
+      "src": "/img/kangxi-tour-text.jpg",
+      "alt": "卷首的一段楷书文字，写在米色的绢上，开头是“第三卷敬图”，接着几行颂扬皇帝的句子，其中“皇上”“天颜”等字抬头另起一行。",
+      "caption": "卷首的文字：“第三卷敬图：皇上莅止济南，登城巡阅，万姓咸举手加额，喜觐天颜……”",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "从馆方开放获取影像（DP-18552-002）中裁出文字部分，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "emperor",
+      "src": "/img/kangxi-tour-emperor.jpg",
+      "alt": "城墙上的近景：一顶黄色的圆伞盖下，坐着一个比旁人稍大的穿蓝袍、戴红帽的人；他两旁和身后站着许多穿黄衣、戴红帽的侍从，右边一排人举着带红缨的长杆。",
+      "caption": "济南城墙上的近景：黄伞盖下的人物。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "从馆方开放获取影像（DP-18552-019）中裁出局部，重新压缩；未调色" }
+    },
+    {
+      "key": "taishan",
+      "src": "/img/kangxi-tour-taishan.jpg",
+      "alt": "长卷的最后一段：青绿色的群山层层叠起，山顶有红墙的庙宇，一条山路从山脚的牌坊一路盘上去。山脚的平地上，一张铺着红布的供桌前聚集着许多人，有的穿道袍，有的拿着扫帚扫地，骑马的随从从右边赶来。",
+      "caption": "第三卷的终点：泰山脚下。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "从馆方开放获取影像（DP-18552-020）中裁去上下的黑边与色卡，缩小并重新压缩；未调色" }
+    },
+    {
+      "key": "altar",
+      "src": "/img/kangxi-tour-altar.jpg",
+      "alt": "泰山脚下的近景：一座白色石牌坊下，一张铺红布的供桌，几位穿道袍、僧袍的人站在桌旁；前面有人拿着竹扫帚扫地，左边有人扛着一捆东西，右下方几个随从牵着马。",
+      "caption": "泰山脚下的供桌：僧道等候，仆役还在扫地。",
+      "kind": "detail",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49156", "changes": "从馆方开放获取影像（DP-18552-020）中裁出局部，重新压缩；未调色" }
+    },
+    {
+      "key": "wang-hui-album",
+      "src": "/img/wang-hui-after-masters.jpg",
+      "alt": "一开小册页，裱在米色的衬纸上：一片水墨为主的山水，圆浑的山头堆叠起来，山上点满浓淡不一的墨点，山脚有树林和水边小路；右上角有几行小字题识，四周盖着多方红印。",
+      "caption": "王翚《仿古山水图》册中的一开（e 开），1674 年，册页，纸本设色，每开 22 × 33.8 厘米，大都会艺术博物馆藏（1989.141.4）。",
+      "kind": "detail",
+      "subject": "王翚《仿古山水图》册（大都会艺术博物馆）",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/41481", "changes": "馆方开放获取影像（DP154156）缩小到 1600 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "wang-yuanqi",
+      "src": "/img/wang-yuanqi-1705.jpg",
+      "alt": "一幅装裱好的水墨立轴：画面下半部是层层叠叠的山坡、树丛和水边的小屋，用淡墨和干笔皴擦，结构像一块块堆起的积木；上半部是大片空白和几段题字。",
+      "caption": "王原祁《仿黄公望高克恭山水图》，1705 年，立轴，纸本水墨，画心 114.6 × 54 厘米，大都会艺术博物馆藏（1972.278.6）。",
+      "kind": "detail",
+      "subject": "王原祁《仿黄公望高克恭山水图》（大都会艺术博物馆）",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/41487", "changes": "馆方开放获取影像缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "shitao",
+      "src": "/img/shitao-drunk-autumn.jpg",
+      "alt": "一幅装裱好的立轴：秋天的山林里，红、褐、墨色的树叶一团团交错，几座山头在雾中若隐若现，树下有几个小小的人和一座小桥；画面上方有三段密密的题字，字体大小、墨色各不相同。",
+      "caption": "石涛《秋林人醉图》，约 1702 年，立轴，纸本设色，画心 161 × 70.5 厘米，大都会艺术博物馆藏（1987.202）。",
+      "kind": "detail",
+      "subject": "石涛《秋林人醉图》（大都会艺术博物馆）",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/49178", "changes": "馆方开放获取影像缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "bada",
+      "src": "/img/bada-fish-rocks.jpg",
+      "alt": "一幅装裱好的水墨立轴：大片空白的纸上，上方一块倒垂的尖石，下方一块头重脚轻、像要倾倒的怪石，两石之间散着几条很小的鱼；右上角有一行大字署名，左侧有一行小字题识。",
+      "caption": "八大山人《鱼石图》，1699 年，立轴，纸本水墨，画心 135.3 × 61 厘米，大都会艺术博物馆藏（1989.363.137）。",
+      "kind": "detail",
+      "subject": "八大山人《鱼石图》（大都会艺术博物馆）",
+      "credit": { "author": "大都会艺术博物馆", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/41491", "changes": "馆方开放获取影像缩小到 1600 像素高并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "原作属公有领域；本课所有照片由大都会艺术博物馆以 CC0 开放获取方式发布",
+    "basis": "大都会艺术博物馆各藏品页均标注“Public Domain”，开放获取 API 返回 isPublicDomain: true；馆方声明开放获取的公有领域影像可不经许可、免费用于任何用途。",
+    "verifiedOn": "2026-10-28",
+    "note": "全卷缩略图来自馆方提供的长卷全景照，分辨率较低（4000 × 203 像素），只用来显示整卷的长度与结构；细节都取自馆方分段拍摄的高分辨率照片。卷首文字的转录是本课根据照片辨读的，与原件逐字核对之前，可能有个别字的出入。"
+  },
+  "card": {
+    "type": "宫廷长卷",
+    "maker": "王翚等",
+    "period": "约 1691–1698 年",
+    "facets": [
+      { "label": "主持", "value": "王翚" },
+      { "label": "媒材", "value": "绢本设色手卷" },
+      { "label": "长度", "value": "约 14 米（全套十二卷）" },
+      { "label": "藏地", "value": "大都会艺术博物馆" }
+    ],
+    "blurb": "文人画的正宗笔法，被用来为一位满族皇帝描画南巡之路。",
+    "image": "taishan",
+    "focus": "45% 60%"
+  }
+}
