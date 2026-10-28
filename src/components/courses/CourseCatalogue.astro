@@ -7,7 +7,8 @@
 // the faint 筹备中 on a course not yet written, and an empty plate for a stage with none, both of which go by themselves.
 // Prints are held like a collection card: with a mouse they come to the front and tilt toward the pointer; on a touch
 // screen the first tap picks one up and a tap on the top print opens its lesson, and each pile opens a little once as
-// it reaches the middle of the screen. The line network follows a finger too (startLineField's touch option).
+// it reaches the middle of the screen. Behind it the halls' quiet line network (startLineField's sparse option), which
+// follows a finger too (its touch option); blocks dim as they leave the window (src/lib/scrollFade.ts).
 // It reads the syllabus (src/data/curriculum.ts), the published lessons and the table's image copies; nothing is
 // stored. Replaces the physical book (Phase 4.10).
 import '../../styles/fonts.css';
@@ -255,7 +256,9 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
 
 <script>
   import { startLineField } from '../../lib/lineField';
-  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, undefined, { touch: true });
+  import { startScrollFade } from '../../lib/scrollFade';
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, undefined, { touch: true, sparse: true });
+  startScrollFade('.ec-entry, .ec-head, .ec-print, .ec-leaf');
   // The stage index stays just under the site bar, whose height differs on a phone.
   const bar = document.querySelector<HTMLElement>('.ec .site-nav');
   const setBar = () => document.documentElement.style.setProperty('--ec-bar', `${bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight : 0}px`);

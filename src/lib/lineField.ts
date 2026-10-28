@@ -1,9 +1,12 @@
-// The line network drawn behind the homepage (src/components/home/StudyTable.astro) and the collection. One canvas, fixed
-// to the window; call startLineField(canvas) once. Reads only the pointer, the scroll position and the motion setting.
+// The line network drawn behind the halls (the course catalogue, the collection, the stories and cases halls). One
+// canvas, fixed to the window; call startLineField(canvas) once. Reads only the pointer, the scroll position and the
+// motion setting.
 // Opt-in `touch`: on a phone the magnet also follows a finger while it scrolls (pointer events stop as soon as a touch
 // becomes a scroll; touch events keep coming), springs back when the finger lifts, and the field is a little sparser.
-// The homepage and the collection do not pass it, so they behave exactly as before.
-export function startLineField(web: HTMLCanvasElement, origin: [number, number] = [0.86, 0.12], opts: { touch?: boolean } = {}) {
+// Opt-in `sparse`: the quieter field the halls use, so the background stays behind the works and the reading: wider
+// spacing and two lines per point (about 40% fewer lines), hardly any filled facets, and a shorter, gentler pull towards
+// the pointer (gentler still for a finger). The drift, the scroll parallax and the entrance are the same.
+export function startLineField(web: HTMLCanvasElement, origin: [number, number] = [0.86, 0.12], opts: { touch?: boolean; sparse?: boolean } = {}) {
   // The desk's network. Points are scattered loosely over the whole screen, each joined to its nearest neighbours,
   // with a few faint facets filled in. Every point has a depth: nearer
   // ones are brighter and drift further; scrolling carries them up, and the points near the pointer follow it (below).
@@ -21,7 +24,7 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
     W = innerWidth; H = innerHeight;
     web.width = W * dpr; web.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     seed = 7;
-    const phone = W < 901, cell = phone ? (opts.touch ? 124 : 108) : 152;
+    const phone = W < 901, cell = opts.sparse ? (phone ? 132 : 176) : phone ? (opts.touch ? 124 : 108) : 152;
     M = cell; HF = H + 2 * M; LMAX = cell * 2.4;
     pts = [];
     // A jittered grid with gaps, plus the odd close neighbour: loose overall, with a few tighter knots.
@@ -29,18 +32,21 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
       if (rnd() < 0.15) continue;
       const p: Pt = { x: (gx + rnd()) * cell, y: (gy + rnd()) * cell, z: 0.25 + rnd() * 0.75, ph: rnd() * Math.PI * 2, nb: [], ox: 0, oy: 0, vx: 0, vy: 0, at: 0 };
       pts.push(p);
-      if (rnd() < 0.22) pts.push({ x: p.x + (rnd() - 0.5) * cell * 0.7, y: p.y + (rnd() - 0.5) * cell * 0.7, z: 0.25 + rnd() * 0.75, ph: rnd() * Math.PI * 2, nb: [], ox: 0, oy: 0, vx: 0, vy: 0, at: 0 });
+      if (rnd() < (opts.sparse ? 0.08 : 0.22)) pts.push({ x: p.x + (rnd() - 0.5) * cell * 0.7, y: p.y + (rnd() - 0.5) * cell * 0.7, z: 0.25 + rnd() * 0.75, ph: rnd() * Math.PI * 2, nb: [], ox: 0, oy: 0, vx: 0, vy: 0, at: 0 });
     }
     pts.forEach((p, i) => {
       p.nb = pts.map((q, j) => [j, (q.x - p.x) ** 2 + (q.y - p.y) ** 2] as [number, number]).filter(([j]) => j !== i)
-        .sort((a, b) => a[1] - b[1]).slice(0, 2 + Math.floor(rnd() * 2)).map(([j]) => j);
+        .sort((a, b) => a[1] - b[1]).slice(0, opts.sparse ? 2 : 2 + Math.floor(rnd() * 2)).map(([j]) => j);
     });
     // The entrance: each point's moment to appear, by its distance from the origin (a fraction of the window: on the
     // homepage, where the stacks are that the prints are dealt from), so the network spreads out across the screen.
     const [ox0, oy0] = [origin[0] * W, origin[1] * H], far = Math.hypot(Math.max(ox0, W - ox0), Math.max(oy0, H - oy0) + M);
     pts.forEach((p) => { p.at = 150 + (Math.hypot(p.x - ox0, p.y - M - oy0) / far) * 1700 + rnd() * 260; });
     tris = [];
-    pts.forEach((p, i) => { if (rnd() < (phone ? 0.2 : 0.22) && p.nb.length > 1) tris.push([i, p.nb[0], p.nb[1], 0.04 + rnd() * 0.09]); });
+    pts.forEach((p, i) => {
+      const odds = opts.sparse ? 0.05 : phone ? 0.2 : 0.22, o = opts.sparse ? 0.02 + rnd() * 0.03 : 0.04 + rnd() * 0.09;
+      if (rnd() < odds && p.nb.length > 1) tris.push([i, p.nb[0], p.nb[1], o]);
+    });
   };
   // The pointer is a magnet with a reach: points within it are drawn towards the pointer and follow it; once it moves
   // on, they ease back to rest and the points in its new reach take over. Nothing else moves
@@ -56,7 +62,11 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
     addEventListener('touchend', (e) => { if (!e.touches.length) px = py = -9999; }, { passive: true });
     addEventListener('touchcancel', () => { px = py = -9999; }, { passive: true });
   }
-  const REACH = 190, PULL = 72;
+  const REACH = opts.sparse ? 150 : 190, PULL = opts.sparse ? 40 : 72;
+  // A finger pulls less than a mouse (it is over the content it is scrolling).
+  let touching = false;
+  addEventListener('pointerdown', (e) => { touching = e.pointerType === 'touch'; }, { passive: true });
+  addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') touching = false; }, { passive: true });
   const pos = (p: Pt, t: number) => {
     const drift = still.matches ? 0 : 1;
     const x = p.x + Math.sin(t * 0.00021 + p.ph) * 18 * drift * p.z;
@@ -66,7 +76,11 @@ export function startLineField(web: HTMLCanvasElement, origin: [number, number] 
     // The magnet: a target offset towards the pointer when it is within reach, none otherwise; a spring gets there.
     let gx = 0, gy = 0;
     const dx = px - x, dy = py - y, d = Math.hypot(dx, dy);
-    if (!still.matches && d < REACH) { const u = 1 - d / REACH, k = u * u * (3 - 2 * u) * (0.75 + 0.25 * p.z); gx = dx * 0.6 * k; gy = dy * 0.6 * k; const g = Math.hypot(gx, gy); if (g > PULL) { gx *= PULL / g; gy *= PULL / g; } }
+    if (!still.matches && d < REACH) {
+      const u = 1 - d / REACH, k = u * u * (3 - 2 * u) * (0.75 + 0.25 * p.z), pull = opts.sparse && touching ? PULL * 0.5 : PULL;
+      gx = dx * 0.6 * k; gy = dy * 0.6 * k;
+      const g = Math.hypot(gx, gy); if (g > pull) { gx *= pull / g; gy *= pull / g; }
+    }
     // Firm, not springy: heavily damped, so a point settles without bouncing past its place.
     p.vx = (p.vx + (gx - p.ox) * 0.16) * 0.5; p.vy = (p.vy + (gy - p.oy) * 0.16) * 0.5;
     p.ox += p.vx; p.oy += p.vy;

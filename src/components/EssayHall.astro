@@ -18,7 +18,7 @@ const items = await Promise.all(entries.map(async (e, i) => {
 }));
 ---
 <section class="eh" aria-labelledby="eh-title">
-  <!-- The same network of lines as the homepage and the collection, behind the hall. -->
+  <!-- The halls' quiet network of lines, as behind the collection and the catalogue. -->
   <canvas class="eh-web" data-web aria-hidden="true"></canvas>
   <header class="eh-head">
     <p class="eh-kicker">{d.label === 'Cases' ? d.sub : d.label} · <span lang="en">{d.label === 'Cases' ? d.label : d.sub}</span></p>
@@ -76,7 +76,9 @@ const items = await Promise.all(entries.map(async (e, i) => {
 
 <script>
   import { startLineField } from '../lib/lineField';
+  import { startScrollFade } from '../lib/scrollFade';
 
-  // The lines spread out from behind the hall's title.
-  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2]);
+  // The lines spread out from behind the hall's title; blocks dim as they leave the window.
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2], { sparse: true });
+  startScrollFade('.eh-head, .eh-item');
 </script>

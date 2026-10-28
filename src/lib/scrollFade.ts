@@ -10,13 +10,14 @@ export function presence(r: { top: number; bottom: number; height: number }, H =
   return u * u * (3 - 2 * u);
 }
 
-export function startScrollFade(els: HTMLElement[]) {
+// `blocks` is a selector, read again on every frame, so blocks a page draws later (the collection's cabinets) fade too.
+export function startScrollFade(blocks: string) {
   const still = matchMedia('(prefers-reduced-motion: reduce)');
   let raf = 0;
   const frame = () => {
     raf = 0;
     const H = innerHeight;
-    for (const el of els) {
+    for (const el of document.querySelectorAll<HTMLElement>(blocks)) {
       const r = el.getBoundingClientRect();
       if (!r.height) continue;
       const p = presence(r, H);

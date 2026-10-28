@@ -1,6 +1,6 @@
 ---
 // The collection (藏品图鉴): this browser's collected cards, kept in cabinets by stage (src/components/CollectionCabinets.astro),
-// over the same network of lines as the homepage (src/lib/lineField.ts).
+// over the halls' quiet network of lines (src/lib/lineField.ts, sparse).
 import Base from '../layouts/Base.astro';
 import CollectionCabinets from '../components/CollectionCabinets.astro';
 import BackToTop from '../components/BackToTop.astro';
@@ -31,9 +31,11 @@ import BackToTop from '../components/BackToTop.astro';
 <script>
   import { clearCollection, deviceStorage } from '../lib/collection.js';
   import { startLineField } from '../lib/lineField';
+  import { startScrollFade } from '../lib/scrollFade';
 
-  // The lines spread out from behind the page title.
-  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2]);
+  // The lines spread out from behind the page title; blocks dim as they leave the window (cabinets drawn later too).
+  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!, [0.3, 0.2], { sparse: true });
+  startScrollFade('.cc-head, .cc-intro, .cc-cab, .cc-more, .cc-cabinet-head, .cc-thumb');
 
   document.querySelector('[data-archive-clear]')!.addEventListener('click', () => {
     if (!confirm('清除这台设备上的全部收集记录？此操作无法撤销。')) return;

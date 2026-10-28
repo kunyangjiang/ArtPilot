@@ -742,7 +742,7 @@ window.__stHero=hero})();`;
   });
 
   // Everything on the desk dims and settles back as it nears the edge of the window (src/lib/scrollFade.ts).
-  startScrollFade([...document.querySelectorAll<HTMLElement>('.st-title, .st-slip, .st-print, .st-note, .st-tray, .st-shelves, .st-sto-label, .st-folder, .st-board, .st-case-label')]);
+  startScrollFade('.st-title, .st-slip, .st-print, .st-note, .st-tray, .st-shelves, .st-sto-label, .st-folder, .st-board, .st-case-label');
 
   // The card box: this browser's cards, lowest numbers first, at most three and then how many more.
   const showCards = () => {
