@@ -1,0 +1,121 @@
+{
+  "id": "art-inca-checkerboard-tunic-001",
+  "kind": "object",
+  "titleZh": "印加黑白格束腰衣",
+  "titleEn": "Tunic (Inca checkerboard tunic)",
+  "attributionNote": "印加织工所作，没有留名。大都会艺术博物馆定为 1400–1535 年。",
+  "dateApprox": "1400–1535 年",
+  "objectType": "男子束腰衣（温库），挂毯织",
+  "medium": "驼科动物纤维，挂毯织，边缘双面刺绣",
+  "dimensions": "高 87 厘米，宽 76.5 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），2017.674",
+  "originalStatus": "原件，保存完整：黑白格与红色 V 形领口在前后、内外完全相同，接缝和布边都用细密的双面刺绣包覆。",
+  "provenance": "大都会 2017 年入藏。本课读到的馆方说明没有给出它的出土地点或更早的流传经过。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Tunic，Inca，2017.674（说明：1532 年赫雷斯的记述、国家对织造与穿着的控制、织造与刺绣工艺、锯齿纹与瓜曼·波马的图像）", "url": "https://www.metmuseum.org/art/collection/search/751901" },
+    { "label": "大都会艺术博物馆藏品页：Tunic，Chuquibamba，33.149.100", "url": "https://www.metmuseum.org/art/collection/search/308120" },
+    { "label": "大都会艺术博物馆藏品页：Tlaltecuhtli (earth deity)，00.5.36", "url": "https://www.metmuseum.org/art/collection/search/307636" },
+    { "label": "大都会艺术博物馆藏品页：Coiled serpent，00.5.32", "url": "https://www.metmuseum.org/art/collection/search/307635" },
+    { "label": "大都会艺术博物馆藏品页：Zemí figure，1979.206.1209", "url": "https://www.metmuseum.org/art/collection/search/313384" },
+    { "label": "大都会艺术博物馆藏品页：Ceremonial collar or belt，2022.467", "url": "https://www.metmuseum.org/art/collection/search/893282" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/inca-checkerboard-tunic.jpg",
+      "width": 1411,
+      "height": 1600,
+      "alt": "一件挂在支架上的方形织物上衣：上半部是一大块红色，呈阶梯状的 V 形，中间开着一道领口；下半部和两侧是整齐的黑白方格，像棋盘一样；下摆有一道细细的彩色锯齿纹。",
+      "caption": "印加黑白格束腰衣，1400–1535 年，驼科动物纤维挂毯织，87 × 76.5 厘米，大都会艺术博物馆藏（2017.674）。",
+      "kind": "full",
+      "subject": "印加黑白格束腰衣（大都会艺术博物馆 2017.674）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/751901", "changes": "馆方开放获取影像（DP-14281-001）缩小到 1411 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "hem",
+      "src": "/img/inca-checkerboard-tunic-hem.jpg",
+      "width": 1600,
+      "height": 433,
+      "alt": "束腰衣下摆的近景：黑白方格的最下一排，下面是一道用红、黄、绿等色线织出的细小锯齿纹，再下面是包住布边的彩色刺绣。",
+      "caption": "局部：下摆的锯齿纹与包边刺绣。",
+      "kind": "detail",
+      "subject": "印加黑白格束腰衣局部",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/751901", "changes": "由馆方影像裁切（横 8–92%，纵 72–92%），缩小到 1600 × 433 并重新压缩；未调色" }
+    },
+    {
+      "key": "chuquibamba",
+      "src": "/img/chuquibamba-tunic.jpg",
+      "width": 1381,
+      "height": 1600,
+      "alt": "另一件方形束腰衣：满布红、黄、绿色的小方格，每格里有一颗八角星，星的中心又是一个异色的小方块；中间开着领口。",
+      "caption": "丘基班巴束腰衣，1460–1540 年，大都会艺术博物馆藏（33.149.100）。",
+      "kind": "detail",
+      "subject": "丘基班巴束腰衣（大都会艺术博物馆 33.149.100）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/308120", "changes": "馆方开放获取影像（DP-26536-001）缩小到 1381 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tlaltecuhtli",
+      "src": "/img/mexica-tlaltecuhtli.jpg",
+      "width": 1382,
+      "height": 1600,
+      "alt": "一块灰色火山岩浮雕：一个四肢张开、蹲伏的神像，巨大的头向后上方仰起，圆鼓的眼睛，张开的大嘴里叼着一把刀；手足带爪，胸前刻着一个圆形下垂的符号。",
+      "caption": "大地之神特拉尔特库特利，墨西加（阿兹特克），1450–1521 年，石，50.8 × 41.9 厘米，大都会艺术博物馆藏（00.5.36）。",
+      "kind": "detail",
+      "subject": "特拉尔特库特利浮雕（大都会艺术博物馆 00.5.36）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/307636", "changes": "馆方开放获取影像（DP-28118-001）缩小到 1382 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "serpent",
+      "src": "/img/mexica-coiled-serpent.jpg",
+      "width": 1471,
+      "height": 1600,
+      "alt": "一块粉褐色多孔石头雕成的蛇：蛇身紧紧盘成一个结，扁平的蛇头从顶上探出，闭着嘴，眼睛凹陷。",
+      "caption": "盘蛇，墨西加（阿兹特克），1325–1521 年，石，高 28.6 厘米，大都会艺术博物馆藏（00.5.32）。",
+      "kind": "detail",
+      "subject": "盘蛇石雕（大都会艺术博物馆 00.5.32）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/307635", "changes": "馆方开放获取影像（DP-23819-001）缩小到 1471 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "zemi",
+      "src": "/img/taino-zemi.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "一件浅黄色砂岩雕成的立像：瘦削的身体、凸出的肋骨，头部像骷髅一样有深陷的大眼窝，头顶托着一个平台。",
+      "caption": "泽米像，泰诺，1200–1500 年，石，高 61 厘米，大都会艺术博物馆藏（1979.206.1209）。",
+      "kind": "detail",
+      "subject": "泰诺泽米像（大都会艺术博物馆 1979.206.1209）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/313384", "changes": "馆方开放获取影像（DP-17800-001）缩小到 1200 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "collar",
+      "src": "/img/taino-stone-collar.jpg",
+      "width": 1600,
+      "height": 1133,
+      "alt": "一个深灰绿色的石环，细长而光滑，一端加宽成两块呈 V 形的面板，一块上有一个圆形的凹坑，另一块刻着人字纹。",
+      "caption": "仪式用石环（项圈或腰带），泰诺，1000–1495 年，石，长 43.2 厘米，大都会艺术博物馆藏（2022.467）。",
+      "kind": "detail",
+      "subject": "泰诺石环（大都会艺术博物馆 2022.467）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/893282", "changes": "馆方开放获取影像（DP-32950-001）缩小到 1600 × 1133 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取 API 为本课六件作品标注 isPublicDomain，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小、裁切与重新压缩，没有调色或锐化。织物的颜色在照片里会受光线影响，本课不据照片判断染料。其余对照作品没有单独的卡片。"
+  },
+  "card": {
+    "type": "织物 · 束腰衣",
+    "maker": "印加织工",
+    "period": "1400–1535 年",
+    "facets": [
+      { "label": "材质", "value": "驼科纤维 · 挂毯织" },
+      { "label": "穿着者", "value": "受国家赐予的人" },
+      { "label": "文献", "value": "1532 年赫雷斯的记述" },
+      { "label": "藏地", "value": "纽约" }
+    ],
+    "blurb": "前后内外完全相同的黑白格：印加国家控制着谁能织它、谁能穿它。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "art-benin-plaque-warrior-001",
+  "kind": "object",
+  "titleZh": "武士首领与随从铜板",
+  "titleEn": "Plaque with Warrior and Attendants",
+  "attributionNote": "贝宁宫廷铸铜行会（Ìgùn Ẹ́rọ̀nwwọ̀n）的艺术家所作，没有留下个人的名字。",
+  "dateApprox": "约 1540–1570 年",
+  "objectType": "宫殿装饰铜板（浮雕）",
+  "medium": "黄铜，铸造",
+  "dimensions": "高 47.6 厘米，宽 38.1 厘米，厚 10.8 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），1990.332，克劳斯·G·佩尔斯夫妇 1990 年捐赠",
+  "originalStatus": "原件。正面浮雕完整，上下边缘有用来固定的钉孔；背面是空心的铸件，露出与正面人物相对应的凹槽。",
+  "provenance": "16 世纪在贝宁宫廷铸造，用于装饰王宫；据大都会，这些铜板在某个时候已从宫殿立面上取下，英国人 1897 年到达时它们已不在原处。1897 年英国军队攻占贝宁城，王宫被劫掠，大量铜器流入英国和国际艺术市场。这件铜板 1990 年由佩尔斯夫妇捐赠给大都会；本课读到的馆方资料没有列出它在 1897 年至 1990 年之间的具体经手人。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Plaque with Warrior and Attendants，1990.332（说明，以及“贝宁宫廷艺术的遗产”一文）", "url": "https://www.metmuseum.org/art/collection/search/316393" },
+    { "label": "大都会艺术博物馆藏品页：Plaque with equestrian ọ́bà (king) and attendants，1978.412.309", "url": "https://www.metmuseum.org/art/collection/search/310752" },
+    { "label": "大都会艺术博物馆藏品页：Plaque with Portuguese Traders and Manillas，1991.17.13", "url": "https://www.metmuseum.org/art/collection/search/316486" },
+    { "label": "大都会艺术博物馆藏品页：Ùhúnmwèlaò (head of an ọ́bà)，1979.206.86", "url": "https://www.metmuseum.org/art/collection/search/312290" },
+    { "label": "大都会艺术博物馆藏品页：Ùhúnmwèlaò (commemorative portrait)，1991.17.7", "url": "https://www.metmuseum.org/art/collection/search/316480" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/benin-plaque-warrior.jpg",
+      "width": 1280,
+      "height": 1600,
+      "alt": "一块深褐色的长方形铜板，上面以高浮雕铸出五六个人物。正中的武士最大，头戴缀满小珠的高盔，脖子上围着一圈圈项圈，一手举着一把宽刃弯刀，另一边立着一根长矛；他两侧各站着一个持盾的士兵，身材小一些；几个更小的人物挤在他身边和上方的空隙里，其中一个把一件长长的东西举到嘴边。铜板的底子上刻着细密的花纹，上缘有三个小孔，下缘也有几个孔。",
+      "caption": "武士首领与随从铜板，贝宁王国，约 1540–1570 年，黄铜，高 47.6 厘米，大都会艺术博物馆藏（1990.332）。",
+      "kind": "full",
+      "subject": "武士首领与随从铜板（大都会艺术博物馆 1990.332）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/316393", "changes": "馆方开放获取影像（DT1231）缩小到 1280 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "detail",
+      "src": "/img/benin-plaque-warrior-detail.jpg",
+      "width": 1141,
+      "height": 1600,
+      "alt": "铜板中央武士的近景：高盔上排满一颗颗小珠，盔沿两侧垂下珠串；脸部下方被一圈圈厚厚的项圈遮住，胸前斜挎一条珠带；他一手握着宽刃弯刀。",
+      "caption": "局部：武士首领的头盔、项圈与弯刀。",
+      "kind": "detail",
+      "subject": "武士首领与随从铜板局部",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/316393", "changes": "馆方开放获取影像（DP-42542-003）以 1200 像素宽取得，缩小到 1141 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "back",
+      "src": "/img/benin-plaque-warrior-back.jpg",
+      "width": 1200,
+      "height": 1358,
+      "alt": "同一块铜板的背面：红褐色、表面粗糙，中央和两侧凹进去几个人形的长槽，正好对着正面的武士和士兵；四角和上下边缘有钉孔。",
+      "caption": "同一块铜板的背面：空心的铸件，凹槽与正面的人物相对应。",
+      "kind": "detail",
+      "subject": "武士首领与随从铜板背面",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/316393", "changes": "馆方开放获取影像（DP-42542-002），原尺寸 1200 像素宽，重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "oba",
+      "src": "/img/benin-plaque-oba.jpg",
+      "width": 1291,
+      "height": 1600,
+      "alt": "另一块铜板：正中的奥巴侧坐在马上，头戴高冠，脖子上围着高高的项圈；两侧两个高大的随从各举起一只手臂，替他撑着弯弯的盾牌，像一个拱顶；奥巴的手搭在两个更小的随从肩上，最上方的角落里还有两个更小的人物。铜板边缘残缺，表面泛着红褐色。",
+      "caption": "骑马的奥巴与随从铜板，贝宁王国，约 1540–1570 年，黄铜，大都会艺术博物馆藏（1978.412.309）。",
+      "kind": "detail",
+      "subject": "骑马的奥巴与随从铜板（大都会艺术博物馆 1978.412.309）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/310752", "changes": "馆方开放获取影像（DP295360）缩小到 1291 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "portuguese",
+      "src": "/img/benin-plaque-portuguese.jpg",
+      "width": 1279,
+      "height": 1600,
+      "alt": "一块窄长的铜板：上方并排两个戴宽边帽、留长发的男子半身像，下方两列整齐地排着一串串马蹄形的环状物。",
+      "caption": "葡萄牙商人与马尼拉铜环铜板，贝宁王国，约 1540–1570 年，黄铜，45.7 × 19.7 厘米，大都会艺术博物馆藏（1991.17.13）。",
+      "kind": "detail",
+      "subject": "葡萄牙商人与马尼拉铜环铜板（大都会艺术博物馆 1991.17.13）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/316486", "changes": "馆方开放获取影像（DT6559）缩小到 1279 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "head",
+      "src": "/img/benin-oba-head.jpg",
+      "width": 1358,
+      "height": 1600,
+      "alt": "一个深色的铜铸人头像：头戴编织纹的珠帽，两侧垂下一串串珠子，额前有一颗珠子正对鼻梁；脸型圆润、年轻，眼睛杏仁形，嘴唇饱满；脖子下有一圈低低的卷边领。",
+      "caption": "奥巴纪念头像（Ùhúnmwèlaò），贝宁王国，15 世纪初至 16 世纪中期，黄铜、铁，高 23.5 厘米，大都会艺术博物馆藏（1979.206.86）。",
+      "kind": "detail",
+      "subject": "奥巴纪念头像（大都会艺术博物馆 1979.206.86）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/312290", "changes": "馆方开放获取影像（DP231468）缩小到 1358 × 1600 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取 API 为本课四件贝宁作品标注 isPublicDomain，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像的版权状态与这些作品的来源和所有权问题是两回事：照片可以自由使用，并不意味着关于它们归属的讨论已经结束。贝宁铜器的归还问题不在本课展开，本站将另立案例讨论。影像只缩小与重新压缩，没有裁切、调色或锐化。其余对照器物没有单独的卡片。"
+  },
+  "card": {
+    "type": "宫殿铜板",
+    "maker": "贝宁铸铜行会",
+    "period": "约 1540–1570 年",
+    "facets": [
+      { "label": "材质", "value": "黄铜 · 铸造" },
+      { "label": "高", "value": "47.6 cm" },
+      { "label": "原处", "value": "贝宁王宫的木柱" },
+      { "label": "藏地", "value": "纽约" }
+    ],
+    "blurb": "谁最大，谁最重要：一块钉在王宫柱子上的铜板，把宫廷的等级铸成了浮雕。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

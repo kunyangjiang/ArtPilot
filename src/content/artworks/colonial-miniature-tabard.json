@@ -1,0 +1,86 @@
+{
+  "id": "art-colonial-miniature-tabard-001",
+  "kind": "object",
+  "titleZh": "殖民时期的小型罩衣",
+  "titleEn": "Miniature tabard",
+  "attributionNote": "大都会艺术博物馆著录为“印加与西班牙”（Inca and Spanish），1600–1700 年；织工没有留名，馆方认为很可能是印加织造专家的后代。",
+  "dateApprox": "1600–1700 年（秘鲁总督辖区时期）",
+  "objectType": "小型罩衣（很可能用于给供奉的雕像穿着）",
+  "medium": "棉、驼科动物纤维、丝、金属线",
+  "dimensions": "高 36.8 厘米，宽 27.9 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），2007.470",
+  "originalStatus": "原件。两侧没有缝合，像罩衣一样敞开，这与征服以前束腰衣两侧缝合的做法不同。",
+  "provenance": "17 世纪在秘鲁总督辖区制作；大都会 2007 年入藏。本课读到的馆方说明没有给出更早的流传经过。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Miniature tabard，2007.470（Christine Giuntini 2017 年撰写的说明）", "url": "https://www.metmuseum.org/art/collection/search/320054" },
+    { "label": "大都会艺术博物馆藏品页：Votive checkerboard tunic，2018.5", "url": "https://www.metmuseum.org/art/collection/search/751900" },
+    { "label": "大都会艺术博物馆藏品页：Hanging (?) Fragment，Peruvian，2011.324", "url": "https://www.metmuseum.org/art/collection/search/320804" },
+    { "label": "大都会艺术博物馆藏品页：The Institution of the Eucharist at the Last Supper with St. Peter and St. Paul，88.3.1", "url": "https://www.metmuseum.org/art/collection/search/209279" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/colonial-miniature-tabard.jpg",
+      "width": 1266,
+      "height": 1600,
+      "alt": "一件小小的方形织物上衣，深紫色的底：肩部是一圈阶梯状排列的彩色方格，每格中间有一个椭圆形的小装饰；中段是一条宽宽的红色腰带，里面排着两行各种几何图案的小方块；下半部散布着两行小花，花有粉红、黄、蓝等颜色。",
+      "caption": "殖民时期的小型罩衣，秘鲁，1600–1700 年，棉、驼科动物纤维、丝与金属线，36.8 × 27.9 厘米，大都会艺术博物馆藏（2007.470）。",
+      "kind": "full",
+      "subject": "殖民时期的小型罩衣（大都会艺术博物馆 2007.470）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/320054", "changes": "馆方开放获取影像（DP107700）缩小到 1266 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "votive",
+      "src": "/img/inca-votive-tunic.jpg",
+      "width": 1345,
+      "height": 1600,
+      "alt": "一件小型的方形束腰衣：上半部是红色的阶梯状 V 形领口，中间开着领口缝；下半部是整齐的深褐与白色方格；下摆有一道彩色锯齿纹。",
+      "caption": "供奉用黑白格束腰衣，印加，1460–1626 年，驼科动物纤维，52.4 × 41.9 厘米，大都会艺术博物馆藏（2018.5）。",
+      "kind": "detail",
+      "subject": "供奉用黑白格束腰衣（大都会艺术博物馆 2018.5）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/751900", "changes": "馆方开放获取影像（DP-14285-001）缩小到 1345 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "fragment",
+      "src": "/img/andean-tapestry-fragment.jpg",
+      "width": 831,
+      "height": 1600,
+      "alt": "一块竖长的挂毯残片，以红色为主：最外侧是一排白色的扇贝形花边，花边之间点缀着小花和小动物；往里是一条白底的窄边，排着蓝、黄、红色的四瓣花形和反向的 S 形；再往里是红底上相连的花瓶、卷曲的藤蔓、鸟和两只带翅膀、吐着蓝舌头的怪兽。",
+      "caption": "挂毯残片（可能是壁挂或桌毯），秘鲁，16 世纪末至 17 世纪，驼科动物纤维与棉，121.9 × 58.4 厘米，大都会艺术博物馆藏（2011.324）。",
+      "kind": "detail",
+      "subject": "秘鲁挂毯残片（大都会艺术博物馆 2011.324）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/320804", "changes": "馆方开放获取影像（TR.489.2010_a）缩小到 831 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "feather",
+      "src": "/img/feather-mosaic-eucharist.jpg",
+      "width": 1600,
+      "height": 1376,
+      "alt": "一件镀金木框的三联小祭坛：中间一块上方是一排围坐在桌边的人，下方是几行拉丁文；左右两扇各画着一位手持物件、站立的圣徒。画面的颜色由细小的羽毛拼成，泛着暗淡的金、绿、褐色光泽。",
+      "caption": "《最后的晚餐中设立圣餐礼，与圣彼得、圣保罗》，羽毛镶嵌三联画，墨西哥，16 世纪中期，羽毛与彩纸贴于木板，镀金木框，中幅 48.3 × 31.8 厘米，大都会艺术博物馆藏（88.3.1）。",
+      "kind": "detail",
+      "subject": "羽毛镶嵌三联画（大都会艺术博物馆 88.3.1）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/209279", "changes": "馆方开放获取影像（DP211990）缩小到 1600 × 1376 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取 API 为本课四件作品标注 isPublicDomain，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小与重新压缩，没有裁切、调色或锐化。照片看不出哪些线是丝、哪些是金属线，本课不据照片指认材料的位置。其余对照作品没有单独的卡片。"
+  },
+  "card": {
+    "type": "织物 · 罩衣",
+    "maker": "秘鲁织工",
+    "period": "1600–1700 年",
+    "facets": [
+      { "label": "材质", "value": "棉 · 驼科纤维 · 丝 · 金属线" },
+      { "label": "尺寸", "value": "36.8 × 27.9 cm" },
+      { "label": "用途", "value": "很可能为供奉的雕像而作" },
+      { "label": "藏地", "value": "纽约" }
+    ],
+    "blurb": "印加的织法、欧洲的丝和金属线、圣花与方格：一件小衣服里的殖民时代。",
+    "image": "full",
+    "focus": "50% 40%"
+  }
+}

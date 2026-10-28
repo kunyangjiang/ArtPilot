@@ -1,0 +1,124 @@
+{
+  "id": "art-moon-jar-palace-001",
+  "kind": "object",
+  "titleZh": "白瓷“月亮罐”（国宝）",
+  "titleEn": "White Porcelain Moon Jar (National Treasure)",
+  "attributionNote": "朝鲜王朝官窑（司饔院分院，京畿道广州）的陶工制作，没有留名。韩国国家遗产厅推定这类大罐主要出自分院的金沙里窑。",
+  "dateApprox": "17 世纪后期至 18 世纪前期",
+  "objectType": "大罐（白瓷大壶，今通称“月亮罐”）",
+  "medium": "白瓷",
+  "dimensions": "高 43.8 厘米，腹径 44 厘米（据韩国国家遗产厅）",
+  "collection": "国立古宫博物馆（首尔）；韩国国宝，2007 年指定，2011 年改称“白瓷月亮罐”",
+  "originalStatus": "原件，器形完整。上下两半分别拉坯后接合，接合处的变形使器身左右并不完全对称。",
+  "provenance": "17 世纪后期至 18 世纪前期在朝鲜王朝的官窑烧造。韩国国家遗产厅的指定记录没有说明它早期的使用者与流传经过；今由国立古宫博物馆管理。",
+  "infoSources": [
+    { "label": "韩国国家遗产厅文化遗产信息：백자 달항아리(2007-2)，国宝（尺寸、年代、分院与金沙里窑、上下接合、略有歪斜）", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=11&ccbaAsno=03100000&ccbaCtcd=11" },
+    { "label": "韩国国家遗产厅文化遗产信息：백자 달항아리(2005-1)，宝物，国立中央博物馆", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=12&ccbaAsno=14370000&ccbaCtcd=11" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：“In Pursuit of White: Porcelain in the Joseon Dynasty, 1392–1910”", "url": "https://www.metmuseum.org/essays/in-pursuit-of-white-porcelain-in-the-joseon-dynasty-1392-1910" },
+    { "label": "大都会艺术博物馆：Moon jar，1979.413.1", "url": "https://www.metmuseum.org/art/collection/search/45432" },
+    { "label": "Moon So-young，“The branding behind Korea's ultimate form of beauty”，Korea JoongAng Daily，2021 年 3 月 9 日", "url": "https://www.koreajoongangdaily.com/lifestyle/the-branding-behind-koreas-ultimate-form-of-beauty/11206069" },
+    { "label": "韩国国家遗产厅文化遗产信息：정선 필 풍악도첩，宝物，国立中央博物馆", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=12&ccbaAsno=18750000&ccbaCtcd=11" },
+    { "label": "韩国国家遗产厅文化遗产信息：정선 필 금강전도，国宝", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=11&ccbaAsno=02170000&ccbaCtcd=11" },
+    { "label": "韩国国家遗产厅文化遗产信息：정선 필 인왕제색도，国宝，国立中央博物馆", "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=11&ccbaAsno=02160000&ccbaCtcd=11" },
+    { "label": "韩国公共许可（KOGL）第一类条款", "url": "https://www.kogl.or.kr/info/licenseType1.do" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/moon-jar-national-treasure.jpg",
+      "width": 1600,
+      "height": 1000,
+      "alt": "白色背景前的一只乳白色大罐：短而直的口，底下一圈较小的圈足，中间是饱满的球形罐身。仔细看，罐身并不是正圆：左边的轮廓在上半部鼓得更高，右边在中部稍下处鼓出，整个罐子好像微微歪向一边。釉面光润，带着一点点灰青，散布着几个小黑点。",
+      "caption": "白瓷月亮罐，朝鲜王朝，17 世纪后期至 18 世纪前期，高 43.8 厘米，国立古宫博物馆藏，韩国国宝。",
+      "kind": "full",
+      "subject": "白瓷月亮罐（国宝，国立古宫博物馆）",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=11&ccbaAsno=03100000&ccbaCtcd=11", "changes": "国家遗产厅原图（1920 × 1200）缩小到 1600 × 1000 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "met",
+      "src": "/img/moon-jar-met.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "灰色背景前的另一只白瓷大罐，从侧面拍摄：罐身中部有一圈隐约可见的横向接缝，接缝上下各有一片淡淡的桃粉色晕斑，像被烟熏过一样；底足露出微红的胎。",
+      "caption": "白瓷月亮罐，朝鲜王朝，18 世纪下半叶，高 38.7 厘米，大都会艺术博物馆藏（1979.413.1）。",
+      "kind": "detail",
+      "subject": "白瓷月亮罐（大都会艺术博物馆 1979.413.1）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/45432", "changes": "馆方开放获取影像（DP231897）缩小到 1200 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "met-side",
+      "src": "/img/moon-jar-met-side.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": "同一只罐子转到另一面：罐身中部的接缝更清楚，接缝下方一圈微微内收，上下两半的弧度并不完全一样。",
+      "caption": "同一只罐子的另一面，可见上下两半接合的痕迹。",
+      "kind": "detail",
+      "subject": "白瓷月亮罐另一面（大都会艺术博物馆 1979.413.1）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/45432", "changes": "馆方开放获取影像（DP231901）缩小到 1200 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "geumgang-1711",
+      "src": "/img/jeong-seon-geumgang-1711.jpg",
+      "width": 616,
+      "height": 586,
+      "alt": "一开淡设色的册页：左边是几座长满墨点小树的圆润土山，右边和远处挤满了一根根尖削的白色石峰，像竹笋一样密密排列；峰间有一条土黄色的山路蜿蜒穿过，峰旁写着很小的地名。右上角题“金刚内山总图”。",
+      "caption": "郑敾《风岳图帖》中的《金刚内山总图》，1711 年，绢本淡彩，国立中央博物馆藏，韩国宝物。",
+      "kind": "detail",
+      "subject": "郑敾《风岳图帖》之《金刚内山总图》（1711）",
+      "credit": { "author": "韩国国家遗产厅（Korea Heritage Service）", "licence": "韩国公共许可第一类（KOGL Type 1，须注明出处）", "licenceUrl": "https://www.kogl.or.kr/info/licenseType1.do", "sourceUrl": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaKdcd=12&ccbaAsno=18750000&ccbaCtcd=11", "changes": "国家遗产厅原图（616 × 586 PNG）转存为 JPEG；未缩放、未裁切、未调色" }
+    },
+    {
+      "key": "geumgang-1734",
+      "src": "/img/jeong-seon-geumgang-1734.jpg",
+      "width": 1148,
+      "height": 1600,
+      "alt": "一幅竖长的立轴，画满了金刚山：上方和中间是成百上千根白色的尖削石峰，用一道道垂直的细线画出；左下方是一片长着浓密墨点树林的圆润土山；中间一道山谷从上到下穿过。左上角题“金刚全图”，右上方有几行题诗。",
+      "caption": "郑敾《金刚全图》，1734 年，纸本淡彩，130.8 × 94.5 厘米，三星文化财团（Leeum 美术馆）藏，韩国国宝。",
+      "kind": "detail",
+      "subject": "郑敾《金刚全图》（1734）",
+      "credit": { "author": "郑敾（Jeong Seon）；维基共享资源扫描", "licence": "公有领域（PD-Art）", "licenceUrl": "https://commons.wikimedia.org/wiki/Commons:Reuse_of_PD-Art_photographs", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jeong_Seon-Geumgangjeondo.jpg", "changes": "维基共享资源原图（1630 × 2272）缩小到 1148 × 1600 并重新压缩；画面边缘原有裁切，未调色" }
+    },
+    {
+      "key": "inwang",
+      "src": "/img/jeong-seon-inwang.jpg",
+      "width": 1600,
+      "height": 929,
+      "alt": "一幅横长的水墨画：上半部是一大块漆黑的岩壁，像被雨淋透一样，用粗大的墨笔一道道从上往下刷；周围的山脊上点满短短的墨点。中间一大片白色的云雾横过山腰，下方是松树林和几间屋顶。右上角有一行竖写的题字。",
+      "caption": "郑敾《仁王霁色图》，1751 年，纸本水墨，79.2 × 138.2 厘米，国立中央博物馆藏，韩国国宝。",
+      "kind": "detail",
+      "subject": "郑敾《仁王霁色图》（1751）",
+      "credit": { "author": "郑敾（Jeong Seon）；维基共享资源扫描", "licence": "公有领域（PD-Art）", "licenceUrl": "https://commons.wikimedia.org/wiki/Commons:Reuse_of_PD-Art_photographs", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inwangjesaekdo.jpg", "changes": "维基共享资源原图（4449 × 2583）缩小到 1600 × 929 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "inwang-photo",
+      "src": "/img/inwangsan-photo.jpg",
+      "width": 1600,
+      "height": 639,
+      "alt": "今天的仁王山，从首尔西大门一带望去：一座不算高的山，山顶露出灰白的花岗岩，山坡长满绿树；山脚下是一排排高层公寓和红砖建筑。",
+      "caption": "今天的仁王山，从西大门独立公园一带拍摄，2023 年。",
+      "kind": "detail",
+      "subject": "仁王山现状照片",
+      "credit": { "author": "MonasteryInwang", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Inwang.jpg", "changes": "维基共享资源原图（14785 × 8423）缩小，裁去上方约 30% 的天空，存为 1600 × 639；未调色" }
+    }
+  ],
+  "rights": {
+    "status": "混合：韩国公共许可第一类、公有领域（CC0 与 PD-Art）、CC BY-SA 4.0",
+    "basis": "月亮罐与 1711 年册页的照片来自韩国国家遗产厅的文化遗产信息，按韩国公共许可第一类使用，须注明出处；大都会的月亮罐照片为 CC0；两幅郑敾的画作者 1759 年去世，平面复制件按 PD-Art 视为公有领域；仁王山照片作者以 CC BY-SA 4.0 发布，本站的裁切版按同一许可提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小、裁切与重新压缩，没有调色或锐化。白瓷的白在不同的拍摄中会偏青、偏黄或偏灰，本课不据照片比较釉色。两幅郑敾画作的扫描来自维基共享资源，原始拍摄者不详；国家遗产厅也有官方照片，但分辨率较低。"
+  },
+  "card": {
+    "type": "陶瓷 · 白瓷大罐",
+    "maker": "朝鲜官窑",
+    "period": "17–18 世纪",
+    "facets": [
+      { "label": "材质", "value": "白瓷" },
+      { "label": "高", "value": "43.8 cm" },
+      { "label": "做法", "value": "上下两半接合" },
+      { "label": "藏地", "value": "首尔" }
+    ],
+    "blurb": "两只半球接成一只罐，接得不完全正：这一点歪，后来被当成了它的美。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "art-shahnama-sada-001",
+  "kind": "painting",
+  "titleZh": "《列王纪》（太美斯普本）之《萨德节的盛宴》",
+  "titleEn": "\"The Feast of Sada\", Folio 22v from the Shahnama (Book of Kings) of Shah Tahmasp",
+  "artist": "传苏丹·穆罕默德（Sultan Muhammad）",
+  "attributionNote": "萨法维王朝大不里士宫廷画坊所作，大都会艺术博物馆归于画家苏丹·穆罕默德（活跃于 16 世纪上半叶）。整部抄本由两代画家完成，苏丹·穆罕默德、米尔·穆萨维尔与阿卡·米拉克先后主持；文本是菲尔多西约 1010 年完成的史诗。",
+  "dateApprox": "约 1525 年",
+  "medium": "纸本不透明水彩、墨、银与金",
+  "dimensionsCm": { "height": 47, "width": 31.8 },
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1970.301.2（亚瑟·A·霍顿捐赠）",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：\"The Feast of Sada\", Folio 22v from the Shahnama of Shah Tahmasp，1970.301.2", "url": "https://www.metmuseum.org/art/collection/search/452111" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Francesca Leoni，“The Shahnama of Shah Tahmasp”（2008）", "url": "https://www.metmuseum.org/essays/the-shahnama-of-shah-tahmasp" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：“The Art of the Ottomans before 1600”", "url": "https://www.metmuseum.org/essays/the-art-of-the-ottomans-before-1600" },
+    { "label": "大都会艺术博物馆教育资源：Art of the Islamic World，“Ottoman Art”（宫廷画坊与设计的传播）", "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-five/chapter-two/ottoman-art" },
+    { "label": "大都会艺术博物馆：Shah Quli，'Saz'-Style Drawing of a Dragon Amid Foliage，57.51.26", "url": "https://www.metmuseum.org/art/collection/search/451405" },
+    { "label": "大都会艺术博物馆：Tile with Saz Leave, Tulips, and Hyacinth Flowers，64.27.17", "url": "https://www.metmuseum.org/art/collection/search/451739" },
+    { "label": "大都会艺术博物馆：Loom Width with Serrated Leaf Design，52.20.17", "url": "https://www.metmuseum.org/art/collection/search/451097" },
+    { "label": "牛津大学阿什莫林博物馆伊斯兰陶瓷教学资源：Iznik，“Peak (1560–1600)”（Tiles）", "url": "https://islamicceramics.ashmolean.org/Iznik/peak.htm" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/shahnama-feast-of-sada.jpg",
+      "width": 1121,
+      "height": 1600,
+      "alt": "一整页抄本：米黄色的纸边洒满金点。上半页是一幅色彩鲜艳的画：粉紫、青蓝、橘红的山岩从画框里涌出，一直长到页边；中央一位戴冠的国王坐在金色的地毯上，周围坐着几位穿红、绿、蓝袍的人，中间燃着一堆火；岩石间躲着鹿、山羊和其他动物。画下方是几栏用细长的波斯文书写的诗句，栏间有彩色的装饰。",
+      "caption": "传苏丹·穆罕默德《萨德节的盛宴》，太美斯普本《列王纪》第 22 页背面，大不里士，约 1525 年，纸本不透明水彩、墨、银与金，整页 47 × 31.8 厘米，大都会艺术博物馆藏（1970.301.2）。",
+      "kind": "full",
+      "subject": "《萨德节的盛宴》（大都会艺术博物馆 1970.301.2）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/452111", "changes": "馆方开放获取影像（DP107689）缩小到 1121 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "shah-quli",
+      "src": "/img/shah-quli-saz-dragon.jpg",
+      "width": 1600,
+      "height": 1124,
+      "alt": "一张装裱在洒金纸上的墨线画：一条身上布满斑点的长龙，扭成波浪形，龙头在左，张口吐着卷曲的火焰；龙身下方缠绕着几片又长又弯、边缘像锯齿和羽毛一样的大叶子。画面左上方有一小块写着波斯文的题签。",
+      "caption": "传沙·库里《萨兹风格的龙与叶》，伊斯坦布尔，约 1540–1550 年，纸本墨、不透明水彩与金，画心高 17.3 厘米，大都会艺术博物馆藏（57.51.26）。",
+      "kind": "detail",
+      "subject": "沙·库里萨兹风格素描（大都会艺术博物馆 57.51.26）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451405", "changes": "馆方开放获取影像（DP231358）缩小到 1600 × 1124 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "tile",
+      "src": "/img/iznik-saz-tile.jpg",
+      "width": 1484,
+      "height": 1488,
+      "alt": "一块方形的白地彩绘瓷砖：一片很长的松石蓝色锯齿状叶子斜穿画面，叶子上压着一朵红白相间的郁金香；周围散布着钴蓝色的小梅花，四角露出砖红色和蓝色的大花饰的一部分。",
+      "caption": "伊兹尼克瓷砖：萨兹叶、郁金香与风信子，16 世纪第三季，熔块胎釉下彩，高 24.1 厘米，大都会艺术博物馆藏（64.27.17）。",
+      "kind": "detail",
+      "subject": "伊兹尼克萨兹叶瓷砖（大都会艺术博物馆 64.27.17）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451739", "changes": "馆方开放获取影像（ISL138），原尺寸，重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "silk",
+      "src": "/img/ottoman-saz-silk.jpg",
+      "width": 681,
+      "height": 1600,
+      "alt": "一幅竖长的丝织品：深红色的底上，一片片巨大的锯齿状叶子从下往上弯曲排列，叶子是米金色，边缘用另一种颜色勾出；叶子之间点缀着小小的星形花。",
+      "caption": "锯齿叶纹样的整幅丝织（kemha，金线交织锦），奥斯曼，约 1600–1625 年，高 161.3 厘米，大都会艺术博物馆藏（52.20.17）。",
+      "kind": "detail",
+      "subject": "奥斯曼萨兹叶丝织（大都会艺术博物馆 52.20.17）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451097", "changes": "馆方开放获取影像（DP248826）缩小到 681 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "mosque",
+      "src": "/img/rustem-pasha-interior.jpg",
+      "width": 1600,
+      "height": 1018,
+      "alt": "一座清真寺的室内：墙面、柱子和拱门从地面到高处都贴满了蓝白色的彩绘瓷砖，图案密密麻麻；地上铺着红色地毯，上方垂着一圈吊灯，高处有彩色玻璃窗。",
+      "caption": "伊斯坦布尔吕斯泰姆帕夏清真寺的室内，建筑师锡南设计，约 1560 年前后，2018 年摄。",
+      "kind": "detail",
+      "subject": "吕斯泰姆帕夏清真寺室内",
+      "credit": { "author": "Dosseman", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Istanbul_Rustem_Pasha_229.jpg", "changes": "维基共享资源原图（6064 × 3855）缩小到 1600 × 1018 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "mosque-tiles",
+      "src": "/img/rustem-pasha-saz-tiles.jpg",
+      "width": 1600,
+      "height": 1067,
+      "alt": "清真寺墙上的几块瓷砖特写：白地上，几片又长又弯的钴蓝色锯齿状叶子交叉缠绕，叶脉用浅蓝、松石绿和红色点出，叶尖卷曲；瓷砖之间有细细的接缝。",
+      "caption": "吕斯泰姆帕夏清真寺墙上的萨兹叶瓷砖，2024 年摄。",
+      "kind": "detail",
+      "subject": "吕斯泰姆帕夏清真寺的萨兹叶瓷砖",
+      "credit": { "author": "Dosseman", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:R%C3%BCstem_Pasha_Mosque_Interior_tiles_in_2024_6399.jpg", "changes": "维基共享资源原图（8256 × 5504）缩小到 1600 × 1067 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "混合：公有领域（CC0）与 CC BY-SA 4.0",
+    "basis": "抄本页、素描、瓷砖与丝织来自大都会艺术博物馆开放获取（CC0）；清真寺的两张照片由 Dosseman 以 CC BY-SA 4.0 发布。",
+    "verifiedOn": "2026-10-28",
+    "note": "影像只缩小与重新压缩，没有裁切、调色或锐化。抄本的金、银颜料在照片里只能显出大致的光泽。其余对照作品没有单独的卡片。"
+  },
+  "card": {
+    "type": "抄本插画",
+    "period": "约 1525 年",
+    "facets": [
+      { "label": "画家", "value": "传苏丹·穆罕默德" },
+      { "label": "媒材", "value": "纸本彩绘 · 金银" },
+      { "label": "页面", "value": "47 × 31.8 cm" },
+      { "label": "藏地", "value": "纽约" }
+    ],
+    "blurb": "一位国王发现了火：萨法维宫廷为一部史诗画了二百五十多幅这样的画。",
+    "image": "full",
+    "focus": "50% 35%"
+  }
+}

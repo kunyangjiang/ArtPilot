@@ -47,6 +47,18 @@
       "height": 238
     }
   },
+  "/img/benin-plaque-warrior.jpg": {
+    "large": {
+      "src": "/img/table/benin-plaque-warrior.jpg",
+      "width": 880,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-benin-plaque-warrior.jpg",
+      "width": 208,
+      "height": 260
+    }
+  },
   "/img/borobudur-gallery.jpg": {
     "large": {
       "src": "/img/table/borobudur-gallery.jpg",
@@ -128,6 +140,18 @@
     "small": {
       "src": "/img/table/s-christus-goldsmith.jpg",
       "width": 224,
+      "height": 260
+    }
+  },
+  "/img/colonial-miniature-tabard.jpg": {
+    "large": {
+      "src": "/img/table/colonial-miniature-tabard.jpg",
+      "width": 870,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-colonial-miniature-tabard.jpg",
+      "width": 205,
       "height": 260
     }
   },
@@ -347,6 +371,18 @@
       "height": 260
     }
   },
+  "/img/inca-checkerboard-tunic.jpg": {
+    "large": {
+      "src": "/img/table/inca-checkerboard-tunic.jpg",
+      "width": 970,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-inca-checkerboard-tunic.jpg",
+      "width": 229,
+      "height": 260
+    }
+  },
   "/img/indus-unicorn-seal.jpg": {
     "large": {
       "src": "/img/table/indus-unicorn-seal.jpg",
@@ -503,6 +539,30 @@
       "height": 260
     }
   },
+  "/img/moon-jar-national-treasure.jpg": {
+    "large": {
+      "src": "/img/table/moon-jar-national-treasure.jpg",
+      "width": 1100,
+      "height": 688
+    },
+    "small": {
+      "src": "/img/table/s-moon-jar-national-treasure.jpg",
+      "width": 260,
+      "height": 162
+    }
+  },
+  "/img/mughal-shah-jahan-terrace.jpg": {
+    "large": {
+      "src": "/img/table/mughal-shah-jahan-terrace.jpg",
+      "width": 735,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-mughal-shah-jahan-terrace.jpg",
+      "width": 174,
+      "height": 260
+    }
+  },
   "/img/nataraja-cleveland.jpg": {
     "large": {
       "src": "/img/table/nataraja-cleveland.jpg",
@@ -560,6 +620,18 @@
     "small": {
       "src": "/img/table/s-raphael-alba-madonna.jpg",
       "width": 260,
+      "height": 260
+    }
+  },
+  "/img/shahnama-feast-of-sada.jpg": {
+    "large": {
+      "src": "/img/table/shahnama-feast-of-sada.jpg",
+      "width": 771,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-shahnama-feast-of-sada.jpg",
+      "width": 182,
       "height": 260
     }
   },

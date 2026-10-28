@@ -1,0 +1,98 @@
+{
+  "id": "art-mughal-shah-jahan-terrace-001",
+  "kind": "painting",
+  "titleZh": "沙贾汗立于露台，手持镶有本人肖像的垂饰",
+  "titleEn": "\"Shah Jahan on a Terrace, Holding a Pendant Set With His Portrait\", Folio from the Shah Jahan Album",
+  "artist": "奇塔尔曼（Chitarman）",
+  "attributionNote": "莫卧儿宫廷画家奇塔尔曼（活跃于约 1627–1670 年）所作。画中平台上有波斯文题款“奇塔尔曼之作，神圣纪元第一年”；大都会艺术博物馆说这是他最早的有纪年作品，画于沙贾汗即位后不久。册页背面是约 1530–1550 年的波斯书法。",
+  "dateApprox": "画面 1627–1628 年；背面书法约 1530–1550 年",
+  "medium": "纸本墨、不透明水彩与金",
+  "dimensionsCm": { "height": 38.9, "width": 25.7 },
+  "collection": "大都会艺术博物馆（纽约），藏品编号 55.121.10.24（《沙贾汗画册》）",
+  "infoSources": [
+    { "label": "大都会艺术博物馆藏品页：Chitarman，\"Shah Jahan on a Terrace, Holding a Pendant Set With His Portrait\"，55.121.10.24（说明、题款）", "url": "https://www.metmuseum.org/art/collection/search/451270" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Rashmi Viswanathan，“The Shah Jahan Album”（2010）", "url": "https://www.metmuseum.org/essays/the-shah-jahan-album" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：“The Art of the Mughals after 1600”", "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-after-1600" },
+    { "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：“The Art of the Mughals before 1600”", "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600" },
+    { "label": "大都会艺术博物馆：Bichitr，\"Portrait of Raja Bikramajit (Sundar Das)\"，55.121.10.1", "url": "https://www.metmuseum.org/art/collection/search/451257" },
+    { "label": "大都会艺术博物馆：Manohar，\"Jahangir and His Vizier, I'timad al-Daula\"，55.121.10.23", "url": "https://www.metmuseum.org/art/collection/search/451269" },
+    { "label": "大都会艺术博物馆：Abu'l Hasan，\"Spotted Forktail\"，55.121.10.15", "url": "https://www.metmuseum.org/art/collection/search/454623" },
+    { "label": "史密森尼国立亚洲艺术博物馆：Bichitr，Jahangir Preferring a Sufi Shaikh to Kings，F1942.15a（年代、来源记录、影像使用限制）", "url": "https://asia.si.edu/object/F1942.15a/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mughal-shah-jahan-terrace.jpg",
+      "width": 1069,
+      "height": 1600,
+      "alt": "一整页画册：外圈是洒满金色花草的浅褐色纸边，里面一圈青蓝色的花边和一圈写满波斯文的金色边框，中央是一幅竖长的画。画中，一位留着胡子、戴头巾的皇帝侧身站在一个白色的小平台上，穿粉红色长袍，腰间挂着匕首，右手举着一个小小的金色垂饰。他的头后有一圈金光，身后是一个巨大的彩虹色光环，光环顶上的云里飞着几个小天使。脚下是白色的格子屏栏和铺着地毯的平台，远处是绿树和河。",
+      "caption": "奇塔尔曼《沙贾汗立于露台，手持镶有本人肖像的垂饰》，《沙贾汗画册》的一页，画面 1627–1628 年，纸本墨、不透明水彩与金，整页 38.9 × 25.7 厘米，大都会艺术博物馆藏（55.121.10.24）。",
+      "kind": "full",
+      "subject": "奇塔尔曼《沙贾汗立于露台》（大都会艺术博物馆 55.121.10.24）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451270", "changes": "馆方开放获取影像（DP246547）缩小到 1069 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "back",
+      "src": "/img/mughal-shah-jahan-terrace-back.jpg",
+      "width": 1077,
+      "height": 1600,
+      "alt": "同一页的背面：中央是一块写着几行斜向排列的波斯文书法的纸，字间填满金色的小花和彩色的装饰，四角有三角形的蓝色装饰块；外面同样围着几圈花边和洒金的纸边。",
+      "caption": "同一页的背面：约 1530–1550 年的波斯书法，装裱在 17 世纪的莫卧儿边框里。",
+      "kind": "detail",
+      "subject": "《沙贾汗画册》55.121.10.24 背面",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451270", "changes": "馆方开放获取影像（DP246553）以 1200 像素宽取得，缩小到 1077 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "vizier",
+      "src": "/img/manohar-jahangir-vizier.jpg",
+      "width": 1073,
+      "height": 1600,
+      "alt": "一页画册：中央的画里，一位戴头巾、头后有金色光环的皇帝坐在一张金色的椅子上，靠着红色的大靠垫；他对面站着一位穿白袍、戴橙色头巾的大臣，双手捧着一张纸。两人头上是一顶黄色的华盖，脚下是蓝色的地毯。画外的纸边上画满了郁金香、鸢尾等彩色花草。",
+      "caption": "马诺哈尔《贾汉吉尔与宰相伊蒂玛德·道拉》，《沙贾汗画册》的一页，画面约 1615 年，大都会艺术博物馆藏（55.121.10.23）。",
+      "kind": "detail",
+      "subject": "马诺哈尔《贾汉吉尔与宰相》（大都会艺术博物馆 55.121.10.23）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451269", "changes": "馆方开放获取影像（DP234021）缩小到 1073 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "bichitr",
+      "src": "/img/bichitr-raja-bikramajit.jpg",
+      "width": 1084,
+      "height": 1600,
+      "alt": "一页画册：中央的画里，一位穿白色长袍、戴红色小头巾的男子侧身站在深绿色的背景前，腰间系着带花纹的腰带，右手微微抬起，左手扶着剑柄；脚下长着几朵小花。画外的纸边画满了各色花草。",
+      "caption": "比奇特《拉贾·比克拉马吉特（孙达尔·达斯）像》，《沙贾汗画册》的一页，画面约 1620 年，大都会艺术博物馆藏（55.121.10.1）。",
+      "kind": "detail",
+      "subject": "比奇特《拉贾·比克拉马吉特像》（大都会艺术博物馆 55.121.10.1）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/451257", "changes": "馆方开放获取影像（DP256231）缩小到 1084 × 1600 并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "forktail",
+      "src": "/img/abul-hasan-forktail.jpg",
+      "width": 1600,
+      "height": 1101,
+      "alt": "一页横幅画册：中央是一只黑白相间的小鸟，站在一块长着草的土坡上，尾巴又细又长、向后分叉；它的背上布满白色的斑点，眼睛闪着亮光。四周是一圈洒金的花草纹边框。",
+      "caption": "阿布勒·哈桑《斑背燕尾》，《沙贾汗画册》的一页，画面约 1610–1615 年，绢本，大都会艺术博物馆藏（55.121.10.15）。",
+      "kind": "detail",
+      "subject": "阿布勒·哈桑《斑背燕尾》（大都会艺术博物馆 55.121.10.15）",
+      "credit": { "author": "大都会艺术博物馆（The Metropolitan Museum of Art）", "licence": "CC0 1.0（开放获取）", "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sourceUrl": "https://www.metmuseum.org/art/collection/search/454623", "changes": "馆方开放获取影像（DP246534）缩小到 1600 × 1101 并重新压缩；未裁切、未调色" }
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取 API 为本课四件画册页标注 isPublicDomain，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "开发计划原本建议以史密森尼国立亚洲艺术博物馆藏比奇特《贾汉吉尔宁取苏非长老而舍诸王》为核心作品；该馆的影像标注“使用条件适用”，对再利用有限制，本课因此不复制它的图像，只在文中依据馆方记录提及，改以大都会的 CC0 画册页承担同样的教学论证。影像只缩小与重新压缩，没有裁切、调色或锐化。其余对照作品没有单独的卡片。"
+  },
+  "card": {
+    "type": "宫廷画册页",
+    "period": "1627–1628 年",
+    "facets": [
+      { "label": "画家", "value": "奇塔尔曼" },
+      { "label": "媒材", "value": "纸本彩绘 · 金" },
+      { "label": "整页", "value": "38.9 × 25.7 cm" },
+      { "label": "藏地", "value": "纽约" }
+    ],
+    "blurb": "新皇帝头顶彩虹光环，欧洲的小天使在云里飞：一幅画就是一份登基宣言。",
+    "image": "full",
+    "focus": "55% 40%"
+  }
+}
