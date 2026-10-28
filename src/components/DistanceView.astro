@@ -1,0 +1,48 @@
+---
+// Stepping back from a painting: one large photograph, seen through a fixed window. At the "near" end of the slider the
+// window shows the photograph at about one image pixel per screen pixel around a chosen point, so single brushstrokes
+// show; sliding to "far" zooms out smoothly until the whole picture fits. Short notes change with the distance. It
+// imitates walking towards and away from a picture; it does not model the eye, and the photograph's resolution limits
+// how close one can get.
+import { getEntry } from 'astro:content';
+interface Note { at: number; text: string }
+interface Props { artwork: string; image: string; prompt: string; focus: { x: number; y: number }; notes: Note[] }
+const { artwork, image, prompt, focus, notes } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module dist" data-dist data-notes={JSON.stringify(notes)} style={`--fx:${focus.x}%;--fy:${focus.y}%`}>
+  <p class="module-label">互动 · 走近，再退后</p>
+  <h3>{prompt}</h3>
+  <div class="dist-stage">
+    <img src={img.src} alt={img.alt} loading="lazy" decoding="async" draggable="false" />
+  </div>
+  <div class="dist-controls">
+    <span>贴近</span>
+    <input type="range" min="0" max="100" step="1" value="0" aria-label="离画面的远近" data-range />
+    <span>退远</span>
+  </div>
+  <p class="dist-note" aria-live="polite" data-note></p>
+  <p class="dist-small">照片模拟：放大到照片本身的清晰度为止，不代表肉眼在展厅里看到的样子。</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-dist]').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('.dist-stage')!, img = stage.querySelector('img')!;
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!, note = root.querySelector<HTMLElement>('[data-note]')!;
+    const notes: { at: number; text: string }[] = JSON.parse(root.dataset.notes || '[]');
+    const draw = () => {
+      const t = Number(range.value) / 100;
+      // At t = 0, one image pixel per screen pixel (or at least 3× the fitted size); at t = 1, the whole picture.
+      const fit = stage.clientWidth || 1, zMax = Math.max(3, (img.naturalWidth || fit * 3) / fit);
+      const z = Math.exp(Math.log(zMax) * (1 - t));
+      img.style.transform = `scale(${z.toFixed(4)})`;
+      const n = notes.reduce<{ at: number; text: string } | null>((a, s) => (!a || Math.abs(s.at - t * 100) < Math.abs(a.at - t * 100) ? s : a), null);
+      note.textContent = n ? n.text : '';
+    };
+    range.addEventListener('input', draw);
+    addEventListener('resize', draw);
+    if (img.complete) draw(); else img.addEventListener('load', draw, { once: true });
+    draw();
+  });
+</script>

@@ -1,0 +1,138 @@
+{
+  "id": "art-ideal-city-walters-001",
+  "kind": "painting",
+  "titleZh": "理想城市",
+  "titleEn": "The Ideal City",
+  "artist": "佛罗伦萨画家，据朱利亚诺·达·桑加洛的设计",
+  "attributionNote": "作者不能确定。沃尔特斯艺术博物馆的藏品记录写作“佛罗伦萨画家，据朱利亚诺·达·桑加洛（约 1443–1516）的设计”；同一页面的标题却仍写作弗拉·卡尔内瓦莱，过去也有人把它归于别的画家（19 世纪的目录曾称之为平图里基奥）。本课沿用藏品记录的写法，并把这种不确定当作事实交代。",
+  "dateApprox": "约 1480–1484 年",
+  "medium": "板上油画与蛋彩",
+  "dimensionsCm": {
+    "height": 77.4,
+    "width": 220
+  },
+  "collection": "沃尔特斯艺术博物馆（美国巴尔的摩），藏品编号 37.677",
+  "infoSources": [
+    {
+      "label": "沃尔特斯艺术博物馆藏品页：The Ideal City, 37.677（作者、年代、媒材、尺寸、说明文字、来源）",
+      "url": "https://art.thewalters.org/object/37.677/"
+    },
+    {
+      "label": "Leon Battista Alberti，《论绘画》意大利文本，第一卷第 19 节（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Della_pittura_(Alberti)/Libro_primo"
+    },
+    {
+      "label": "《不列颠百科全书》：Masaccio（《三位一体》的单点透视、年代与说明）",
+      "url": "https://www.britannica.com/biography/Masaccio"
+    },
+    {
+      "label": "英国国家美术馆：Paolo Uccello, The Battle of San Romano（年代、媒材、尺寸、透视与缩短、银箔变色）",
+      "url": "https://www.nationalgallery.org.uk/paintings/paolo-uccello-the-battle-of-san-romano"
+    },
+    {
+      "label": "Antonio Manetti, Vita di Filippo di ser Brunellesco（15 世纪后期），据 G. Milanesi 编《Operette istoriche edite ed inedite di Antonio Manetti》（佛罗伦萨，1887）",
+      "url": "https://archive.org/details/operetteistorich00maneuoft"
+    },
+    {
+      "label": "Giorgio Vasari, Le vite（1568），保罗·乌切洛传与布鲁内莱斯基传（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Le_vite_de%27_pi%C3%B9_eccellenti_pittori,_scultori_e_architettori_(1568)/Paulo_Uccello"
+    },
+    {
+      "label": "英国国家美术馆：Carlo Crivelli, The Annunciation, with Saint Emidius",
+      "url": "https://www.nationalgallery.org.uk/paintings/carlo-crivelli-the-annunciation-with-saint-emidius"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/ideal-city.jpg",
+      "width": 1600,
+      "height": 590,
+      "alt": "一幅很宽的横幅木板画：一座空旷的石铺广场，两侧各有一座三层的古典宫殿，中间远处是一座圆形的竞技场、一座三开间的凯旋门和一座八角形的楼房，凯旋门的门洞里露出更远处的一座红色城门。广场前方立着四根柱子，柱顶各有一尊雕像；正中是一个小喷泉，几个很小的人在广场上走动。",
+      "caption": "《理想城市》，约 1480–1484 年，板上油画与蛋彩，77.4 × 220 厘米，沃尔特斯艺术博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "沃尔特斯艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://art.thewalters.org/object/37.677/",
+        "changes": "由博物馆提供的下载图（1800 像素宽）缩小到 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "trinity",
+      "src": "/img/masaccio-trinity.jpg",
+      "alt": "教堂侧墙上的一幅高大壁画：一个画出来的拱顶小礼拜堂，筒形拱顶上排满方格，深处是十字架上的基督，后面站着天父；十字架两侧是圣母和圣约翰，拱门外的台阶上跪着两位穿红衣和深色衣服的出资人。",
+      "caption": "马萨乔《三位一体》（上半部），约 1425–1428 年，湿壁画，佛罗伦萨新圣母大殿。",
+      "kind": "detail",
+      "subject": "马萨乔《三位一体》（佛罗伦萨新圣母大殿）",
+      "credit": {
+        "author": "Rufus46",
+        "licence": "公有领域（摄影者释出）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Masaccio_Dreifaltigkeit_1425-28_Santa_Maria_Novella_Florenz-1.jpg",
+        "date": "2014-08-25",
+        "changes": "由 Commons 的缩小版本缩到 1067 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "uccello",
+      "src": "/img/uccello-san-romano.jpg",
+      "alt": "一幅横幅战争画：一群骑士骑着高大的马冲向右边，中间一位骑白马、戴着巨大红金色帽子的指挥官举着指挥棒；前景的地上散落着折断的长矛，交叉成格子，左下角躺着一个倒地的骑士；背景是一面小山坡，坡上有很小的人和狗。",
+      "caption": "保罗·乌切洛《圣罗马诺之战》（英国国家美术馆藏的一幅），约 1438–1440 年，木板蛋彩加少量油，182 × 320 厘米。",
+      "kind": "detail",
+      "subject": "乌切洛《圣罗马诺之战》（伦敦英国国家美术馆）",
+      "credit": {
+        "author": "英国国家美术馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:San_Romano_Battle_(Paolo_Uccello,_London)_01.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "crivelli",
+      "src": "/img/crivelli-annunciation.jpg",
+      "alt": "一幅竖长的祭坛画：左边是一条向远处延伸的城市街道，两旁是带阳台和拱门的楼房，街上有人走动，一道金色的光线从左上方的天空斜射下来，穿过墙上的小洞，照向右边房间里跪着读书的圣母。前景街上跪着天使加百列，身边一位戴主教冠的圣徒手捧一座城市的模型。右上方的阳台上挂着地毯，停着一只孔雀。画面最前方的石沿上放着一根黄瓜和一只苹果，底部写着 LIBERTAS ECCLESIASTICA。",
+      "caption": "卡洛·克里韦利《天使报喜，与圣埃米迪乌斯》，1486 年，画布蛋彩兼用少量油彩，207 × 146.7 厘米，伦敦英国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "克里韦利《天使报喜，与圣埃米迪乌斯》（英国国家美术馆）",
+      "credit": {
+        "author": "The Yorck Project（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carlo_Crivelli_069.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "四件作品均属公有领域；沃尔特斯的照片以 CC0 发布，另两张为 Wikimedia Commons 上标为公有领域的复制照片；克里韦利的《天使报喜》为 Yorck Project 的公有领域复制照片",
+    "basis": "沃尔特斯藏品页的每张下载图都链接 CC0 1.0 授权。马萨乔与乌切洛两张图的授权依据各自的 Commons 文件页；《三位一体》照片由摄影者以公有领域释出，乌切洛一张是平面作品的忠实复制，按 Commons 的 PD-Art 规则标为公有领域。《天使报喜》的 Commons 文件页注明来源为 The Yorck Project 的光盘，按 PD-Art 标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "意大利对其境内文化遗产的图像另有使用规定（《文化遗产法典》），《三位一体》为原址壁画，本站作为非商业教育用途使用，并在此注明。"
+  },
+  "card": {
+    "type": "理想城市图",
+    "maker": "佛罗伦萨画家",
+    "period": "约 1480–1484 年",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "板上油画与蛋彩"
+      },
+      {
+        "label": "尺幅",
+        "value": "77.4 × 220 cm"
+      },
+      {
+        "label": "设计",
+        "value": "据桑加洛的设计"
+      },
+      {
+        "label": "藏地",
+        "value": "沃尔特斯艺术博物馆"
+      }
+    ],
+    "blurb": "一座没人住的城市：所有的线都通向城门，也通向站在画前的你。",
+    "image": "full",
+    "focus": "50% 55%"
+  }
+}

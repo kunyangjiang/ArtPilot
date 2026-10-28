@@ -1,0 +1,190 @@
+{
+  "id": "art-velazquez-pareja-001",
+  "kind": "painting",
+  "titleZh": "胡安·德·帕雷哈像",
+  "titleEn": "Juan de Pareja",
+  "artist": "迭戈·委拉斯凯兹（Diego Velázquez）",
+  "attributionNote": "西班牙国王腓力四世的宫廷画家委拉斯凯兹（1599–1660）1650 年在罗马所作。画中人胡安·德·帕雷哈约 1608 年生于西班牙的安特克拉，当时是委拉斯凯兹画室里被奴役的助手；据大都会艺术博物馆，委拉斯凯兹 1650 年签署了解放他的文书，四年后生效。",
+  "dateApprox": "1650 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 81.3,
+    "width": 69.9
+  },
+  "collection": "大都会艺术博物馆（纽约），藏品编号 1971.86",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Diego Velázquez, Juan de Pareja, 1971.86（说明、目录条目与语音导览）",
+      "url": "https://www.metmuseum.org/art/collection/search/437869"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Diego Velázquez, The Supper at Emmaus, 14.40.631",
+      "url": "https://www.metmuseum.org/art/collection/search/437871"
+    },
+    {
+      "label": "《不列颠百科全书》：Ann Kay, “Las Meninas”",
+      "url": "https://www.britannica.com/topic/Las-Meninas"
+    },
+    {
+      "label": "《不列颠百科全书》：“Francisco de Zurbarán”",
+      "url": "https://www.britannica.com/biography/Francisco-de-Zurbaran"
+    },
+    {
+      "label": "Antonio Palomino, Las vidas de los pintores y estatuarios eminentes españoles（伦敦，1742 年版；原载 1724 年《绘画博物馆》第三卷），委拉斯凯兹传与胡安·德·帕雷哈传（Internet Archive 所藏扫描本）",
+      "url": "https://archive.org/details/lasvidasdelospin00palo"
+    },
+    {
+      "label": "大都会艺术博物馆：“Plant Ash in Ground Preparations”（2023）",
+      "url": "https://www.metmuseum.org/essays/plant-ash-in-ground-preparations"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/velazquez-pareja.jpg",
+      "width": 1382,
+      "height": 1600,
+      "alt": "一幅半身肖像：一个深肤色、黑色卷发、留胡须的男子，身体侧向左边，头转过来，目光直直地看着观者。他穿灰褐色的外衣，肩上一大片白色的花边领，右手搭在腰间，左肩披着斗篷。背景是一片灰绿色。",
+      "caption": "迭戈·委拉斯凯兹《胡安·德·帕雷哈像》，1650 年，布面油画，81.3 × 69.9 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437869",
+        "changes": "由原图缩小到 1382 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "face",
+      "src": "/img/velazquez-pareja-face.jpg",
+      "alt": "局部：帕雷哈的脸和白领。眼睛里各有一点细小的高光，额头和鼻梁上的亮面画得很实；白色的花边领却是几下又快又厚的笔触，凑近看几乎看不出花纹，只能看到一块块颜料和底下的布纹。",
+      "caption": "局部：脸与花边领的笔触。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437869",
+        "changes": "由原图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "large",
+      "src": "/img/velazquez-pareja-large.jpg",
+      "alt": "一幅半身肖像：一个深肤色、黑色卷发、留胡须的男子，身体侧向左边，头转过来，目光直直地看着观者。他穿灰褐色的外衣，肩上一大片白色的花边领，右手搭在腰间，左肩披着斗篷。背景是一片灰绿色。",
+      "caption": "迭戈·委拉斯凯兹《胡安·德·帕雷哈像》，1650 年，布面油画，81.3 × 69.9 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "委拉斯凯兹《胡安·德·帕雷哈像》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437869",
+        "changes": "由原图缩小到 2600 像素宽并重新压缩，供放大观看；未裁切、未调色"
+      }
+    },
+    {
+      "key": "pareja-calling",
+      "src": "/img/pareja-calling-matthew.jpg",
+      "alt": "一幅横长的布面油画：一间富丽的房间里，左边一张铺着花纹桌毯的桌子旁坐着几个人，有人在记账，桌上堆着金币和珠串；一个戴眼镜的老人握着笔，一个戴头巾、留胡子的男人一手按在胸前，转向右边。右边，穿红袍、披蓝斗篷的耶稣伸手指向他，身后跟着几个门徒。最左边站着一个穿深色衣服、手拿一张纸的男子，看向画外。",
+      "caption": "胡安·德·帕雷哈《圣马太蒙召》，1661 年，布面油画，225 × 325 厘米，马德里普拉多博物馆藏。",
+      "kind": "detail",
+      "subject": "胡安·德·帕雷哈《圣马太蒙召》（普拉多博物馆）",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pareja-vocacion_mateo.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "meninas",
+      "src": "/img/velazquez-meninas.jpg",
+      "alt": "一幅很高的布面油画：一间高大昏暗的屋子里，正中站着一个穿白色宽裙的金发小女孩；两位侍女一左一右，一个跪着递上一只红色的小杯，一个弯腰行礼。左边一块巨大的画布背对观者，画家本人站在画布后面，手拿画笔和调色板，看向画外。右前方是两个身材矮小的人，一个用脚踩着一只趴着的大狗。后墙上挂着几幅暗色的画和一面小镜子，镜中隐约映出一男一女；后墙的门口，一个男人站在明亮的台阶上回头看。",
+      "caption": "迭戈·委拉斯凯兹《宫娥》，1656 年，布面油画，318 × 276 厘米，马德里普拉多博物馆藏。",
+      "kind": "detail",
+      "subject": "委拉斯凯兹《宫娥》（马德里普拉多博物馆）",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg",
+        "changes": "由 Commons 的原图缩小到 1390 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "meninas-mirror",
+      "src": "/img/velazquez-meninas-mirror.jpg",
+      "alt": "局部：后墙上的小镜子，镜中是一男一女两个模糊的半身像，上方垂着一片红色的帘子；左边是手拿画笔和调色板的画家，右边的门口站着一个男人。",
+      "caption": "局部：后墙的镜子、画家与门口的人。",
+      "kind": "detail",
+      "subject": "委拉斯凯兹《宫娥》局部",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg",
+        "changes": "由 Commons 的原图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "zurbaran",
+      "src": "/img/zurbaran-agnus-dei.jpg",
+      "alt": "一幅横长的布面油画：深黑的背景前，一只长着弯角的白色羔羊侧卧在一块灰色的石台上，闭着眼，四条腿被一根细绳捆在一起。羊毛一卷一卷画得很密，几乎可以摸到。",
+      "caption": "弗朗西斯科·德·苏巴朗《神的羔羊》，约 1635–1640 年，布面油画，38 × 62 厘米，马德里普拉多博物馆藏。",
+      "kind": "detail",
+      "subject": "苏巴朗《神的羔羊》（马德里普拉多博物馆）",
+      "credit": {
+        "author": "普拉多博物馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Francisco_de_Zurbar%C3%A1n_006.jpg",
+        "changes": "由 2952 × 1750 像素的原图缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "emmaus",
+      "src": "/img/velazquez-emmaus.jpg",
+      "alt": "一幅近乎方形的布面油画：三个人围坐在铺着白桌布的桌边。左边的耶稣穿玫瑰色衣服，头上一圈极淡的光环，抬眼望着上方；右边一个背对观者的年轻人张开手，后面一个满脸皱纹的老人也伸手比画，两人像是突然认出了他。桌上只有一只白碗、一把刀和一只青色的果子。",
+      "caption": "迭戈·委拉斯凯兹《以马忤斯的晚餐》，1622–1623 年，布面油画，123.2 × 132.7 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "委拉斯凯兹《以马忤斯的晚餐》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437871",
+        "changes": "由原图缩小并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；大都会的照片以 CC0 发布，《宫娥》与《神的羔羊》为 Commons 上来自普拉多博物馆网站的公有领域复制照片；帕雷哈《圣马太蒙召》为普拉多博物馆图片经 Commons 发布的公有领域复制照片",
+    "basis": "大都会藏品页标注“Public Domain”，API 返回 isPublicDomain: true；两张普拉多藏品的 Commons 文件页注明来源为普拉多博物馆在线画廊，按 PD-Art 规则标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "普拉多博物馆的网站在核对时弹出了机器人验证，没有绕过，所以《宫娥》《神的羔羊》的年代与尺寸用的是《不列颠百科全书》和 Commons 文件页的记录，没有在普拉多官网上直接核对。《宫娥》的年代，Commons 记作 1656–1657 年，《不列颠百科全书》记作 1656 年，本课用后者。"
+  },
+  "card": {
+    "type": "肖像油画",
+    "period": "1650 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "委拉斯凯兹"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "81.3 × 69.9 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "大都会艺术博物馆"
+      }
+    ],
+    "blurb": "在罗马展出时，人们说别的都像画，只有它像真的。",
+    "image": "full",
+    "focus": "45% 40%"
+  }
+}

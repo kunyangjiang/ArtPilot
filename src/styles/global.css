@@ -1039,7 +1039,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 }
 
 /* ---------- Hands-on modules (FindOnImage, SortGame, TorchView, RegistrationGame) ---------- */
-.lesson > .find, .lesson > .torch, .lesson > .reg { grid-column: wide; }
+.lesson > .find, .lesson > .torch, .lesson > .reg, .lesson > .lmask { grid-column: wide; }
 .quiz-inline { margin-block: 2.25rem 2.75rem; border-top-color: var(--rule); }
 .quiz-inline legend { font-size: 1.1875rem; }
 
@@ -1107,6 +1107,115 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .torch-hint, .torch-note, .reg-note { max-width: var(--measure); margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
 .torch-note, .reg-note { font-size: .8125rem; color: var(--ink-3); }
 
+/* Alberti's floor: the drawing on the left, the steps, sliders and the explanation on the right. */
+.lesson > .persp { grid-column: wide; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); }
+.persp > .module-label, .persp > h3 { grid-column: 1 / -1; }
+.persp svg { grid-column: 1; display: block; width: 100%; height: auto; background: var(--mist); }
+.persp-side { grid-column: 2; }
+.persp-steps { margin: 0; padding: 0; list-style: none; counter-reset: pstep; }
+.persp-steps li { counter-increment: pstep; }
+.persp-steps button { display: flex; gap: .6rem; width: 100%; padding: .45rem 0; border: 0; border-bottom: 1px solid var(--rule); background: none; font: 400 .9375rem/1.5 var(--sans); color: var(--ink-3); text-align: left; cursor: pointer; }
+.persp-steps button::before { content: counter(pstep); min-width: 1.2rem; font-variant-numeric: tabular-nums; }
+.persp-steps button:hover { color: var(--ink); }
+.persp-steps button[aria-current="true"] { color: var(--ink); font-weight: 600; }
+.persp-out { min-height: 9rem; margin: 1rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+.persp-out strong { color: var(--ink); font-weight: 600; }
+.persp-warn { display: block; margin-top: .6rem; color: var(--err); }
+.persp-controls { display: grid; gap: .75rem; margin-top: 1rem; }
+.persp-controls label { display: grid; gap: .25rem; font: 400 .8125rem/1.5 var(--sans); color: var(--ink-3); }
+.persp-controls output { color: var(--ink); font-variant-numeric: tabular-nums; }
+.persp-controls input[type="range"] { width: 100%; accent-color: var(--ink); }
+.persp-controls .btn { justify-self: start; }
+.persp .schematic-label { margin: 1rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); }
+.p-window { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.p-tick { stroke: var(--ink); stroke-width: 1.5; }
+.p-horizon { stroke: var(--ink-3, #6b6c70); stroke-width: 1; stroke-dasharray: 5 4; }
+.p-point { fill: var(--err); }
+.p-ortho { stroke: var(--ink); stroke-width: .8; }
+.p-trans { stroke: var(--ink); stroke-width: .8; }
+.p-diag { fill: none; stroke: var(--err); stroke-width: 2.5; stroke-linejoin: round; }
+.p-ruler { stroke: var(--ok); stroke-width: 1; stroke-dasharray: 3 3; }
+.p-man { fill: var(--silver); }
+
+/* A panel built up layer by layer: the cross-section on the left, the steps and the glaze demonstration on the right. */
+.lesson > .layers { grid-column: wide; }
+.layers-body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); }
+.layers svg { display: block; width: 100%; height: auto; background: var(--mist); }
+.layers svg text { font: 400 13px var(--sans); fill: var(--ink-2); }
+.layers .ly { opacity: 0; transition: opacity var(--t-slow) var(--ease); }
+.layers .ly.is-on { opacity: .55; }
+.layers .ly.is-now { opacity: 1; }
+.layers .ly-strike { opacity: 0; transition: opacity var(--t-slow) var(--ease); }
+.layers .ly-later.is-now .ly-strike { opacity: 1; }
+.layers-steps { margin: 0; padding: 0; list-style: none; counter-reset: lstep; }
+.layers-steps li { counter-increment: lstep; }
+.layers-steps button { display: flex; gap: .6rem; width: 100%; padding: .4rem 0; border: 0; border-bottom: 1px solid var(--rule); background: none; font: 400 .9375rem/1.5 var(--sans); color: var(--ink-3); text-align: left; cursor: pointer; }
+.layers-steps button::before { content: counter(lstep); min-width: 1.2rem; font-variant-numeric: tabular-nums; }
+.layers-steps button:hover { color: var(--ink); }
+.layers-steps button[aria-current="true"] { color: var(--ink); font-weight: 600; }
+.layers-out { min-height: 8rem; margin: 1rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+.layers-out strong { color: var(--ink); font-weight: 600; }
+.glaze { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.glaze-label { margin: 0 0 .5rem; font: 500 .875rem/1.6 var(--sans); }
+.glaze input[type="range"] { width: 100%; accent-color: var(--ink); }
+.glaze-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .75rem; }
+.glaze-row figure { margin: 0; }
+.glaze-row span { display: block; height: 4.5rem; border: 1px solid var(--rule); transition: background var(--t) var(--ease); }
+.glaze-row figcaption { margin-top: .4rem; font: 400 .8125rem/1.5 var(--sans); color: var(--ink-3); }
+.glaze-note { margin: .75rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); }
+
+/* A two-sided panel turned over: the board on the left, the button and the note for the side that is up. */
+.lesson > .flip { grid-column: wide; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: clamp(1.75rem, 4vw, 4.5rem); }
+.flip > .module-label, .flip > h3 { grid-column: 1 / -1; }
+.flip-stage { perspective: 1400px; max-width: 30rem; }
+.flip-card { position: relative; display: grid; transform-style: preserve-3d; transition: transform .8s var(--ease); }
+.flip[data-side="back"] .flip-card { transform: rotateY(180deg); }
+.flip-face { grid-area: 1 / 1; margin: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 18px 30px -18px rgb(0 0 0 / .45); }
+.flip-face img { display: block; width: 100%; height: auto; }
+.flip-back { transform: rotateY(180deg); }
+.flip-side { align-self: center; }
+.flip-label { margin: 1.25rem 0 0; font: 600 .9375rem/1.6 var(--sans); }
+.flip-note { margin: .5rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .flip-card { transition: none; } }
+
+/* Stepping back from a painting: a fixed window onto one large photograph, zoomed about a chosen point. */
+.lesson > .dist { grid-column: wide; }
+.dist-stage { position: relative; max-width: 40rem; aspect-ratio: 4 / 5; overflow: hidden; background: #0b0a09; }
+.dist-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform-origin: var(--fx) var(--fy); }
+.dist-controls { display: flex; align-items: center; gap: .75rem; max-width: 40rem; margin-top: 1rem; font: 400 .8125rem/1.5 var(--sans); color: var(--ink-3); }
+.dist-controls input[type="range"] { flex: 1; accent-color: var(--ink); }
+.dist-note { max-width: var(--measure); min-height: 3.6em; margin: .75rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+.dist-small { max-width: var(--measure); margin: .25rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); }
+
+/* Brunelleschi's panel: a static side view. */
+.lesson > .peep { grid-column: wide; margin-inline: 0; }
+.peep svg { display: block; width: 100%; max-width: 46rem; height: auto; background: var(--mist); }
+.peep .schematic-label { max-width: var(--measure); margin: .75rem 0 0; font: 400 .8125rem/1.75 var(--sans); color: var(--ink-3); }
+.pp-eye { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; }
+.pp-pupil { fill: var(--ink); }
+.pp-panel { fill: #b89a6e; stroke: var(--ink); stroke-width: 1; }
+.pp-hole { fill: var(--mist); }
+.pp-paint { fill: var(--err); }
+.pp-silver { fill: var(--silver); }
+.pp-mirror { fill: #9fb3c2; stroke: var(--ink); stroke-width: 1; }
+.pp-ray { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.pp-back, .pp-sky { stroke-dasharray: 5 4; }
+.peep marker path { fill: var(--ink); }
+.pp-cloud { fill: var(--paper); stroke: var(--ink-3, #6b6c70); stroke-width: 1; }
+.pp-label { font: 400 14px var(--sans); fill: var(--ink-2); }
+
+/* Where the light falls: the photograph, and over it a canvas that keeps only its brightest part. */
+.lmask-stage { position: relative; max-width: 46rem; background: #0b0a09; }
+.lmask-stage img { display: block; width: 100%; height: auto; }
+.lmask-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .3s var(--ease); }
+.lmask.is-masked .lmask-stage canvas { opacity: 1; }
+.lmask-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; max-width: 46rem; margin-top: 1.25rem; }
+.lmask-label { font: 500 .9375rem/1.6 var(--sans); }
+.lmask-label output { font-variant-numeric: tabular-nums; }
+.lmask-controls input[type="range"] { flex: 1 1 14rem; accent-color: var(--ink); }
+.lmask-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+.lmask-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+
 /* Registration: the sheet on the left, the steps and controls beside it. */
 .reg-body { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
 .reg-sheet { width: 100%; height: auto; box-shadow: 0 1px 2px rgb(0 0 0 / .2), 0 10px 24px -10px rgb(0 0 0 / .35); }
@@ -1142,3 +1251,14 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .cover-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.1rem; }
 .cover-note { max-width: var(--measure); min-height: 3.5rem; margin: 1rem 0 0; font: 400 1rem/1.8 var(--sans); color: var(--ink-2); }
 @media (prefers-reduced-motion: reduce) { .first-look-dot { animation: none; } }
+
+/* Phones: the perspective and panel-layer modules stack (after their base rules, so these win). */
+@media (max-width: 860px) {
+  .lesson > .persp { grid-template-columns: 1fr; }
+  .persp svg, .persp-side { grid-column: 1; }
+  .persp-side { margin-top: 1.25rem; }
+  .layers-body { grid-template-columns: 1fr; }
+  .layers-side { margin-top: 1.25rem; }
+  .lesson > .flip { grid-template-columns: 1fr; }
+  .flip-side { margin-top: 1rem; }
+}

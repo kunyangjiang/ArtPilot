@@ -1,0 +1,247 @@
+{
+  "id": "art-christus-goldsmith-001",
+  "kind": "painting",
+  "titleZh": "金匠在他的店铺里",
+  "titleEn": "A Goldsmith in His Shop",
+  "artist": "彼得吕斯·克里斯蒂斯（Petrus Christus）",
+  "attributionNote": "画面下缘有画家的签名和年份：“petr' xpi me fecit a° 1449”（彼得吕斯·克里斯蒂斯于 1449 年作我）。他活跃于 1444 年至 1475/76 年的布鲁日，大都会艺术博物馆称他是扬·范·艾克之后那一代布鲁日画家中最优秀的一位。",
+  "dateApprox": "1449 年",
+  "medium": "橡木板油画",
+  "dimensionsCm": {
+    "height": 98,
+    "width": 85.2
+  },
+  "collection": "大都会艺术博物馆（纽约），罗伯特·雷曼收藏，藏品编号 1975.1.110",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：A Goldsmith in his Shop, 1975.1.110（签名与年份、尺寸、说明文字、语音导览中关于后加光环与几种读法的讲解）",
+      "url": "https://www.metmuseum.org/art/collection/search/459052"
+    },
+    {
+      "label": "大都会艺术博物馆 Heilbrunn 艺术史年表：Susan Jones, Painting in Oil in the Low Countries and Its Spread to Southern Europe（2002）",
+      "url": "https://www.metmuseum.org/essays/painting-in-oil-in-the-low-countries-and-its-spread-to-southern-europe"
+    },
+    {
+      "label": "英国国家美术馆：Jan van Eyck, The Arnolfini Portrait（年代、媒材、尺寸、墙上题字、镜子、狗与橙子、婚礼读法的变化）",
+      "url": "https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Rogier van der Weyden, Portrait of a Lady, 1937.1.44",
+      "url": "https://www.nga.gov/artworks/51-portrait-lady"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Albrecht Dürer, Melencolia I, 43.106.1",
+      "url": "https://www.metmuseum.org/art/collection/search/336228"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Petrus Christus, Portrait of a Carthusian, 49.7.19（含技术说明，Sophie Scully 2018）",
+      "url": "https://www.metmuseum.org/art/collection/search/435896"
+    },
+    {
+      "label": "Maryan Ainsworth, “Intentional Alterations of Early Netherlandish Painting”，大都会艺术博物馆 Heilbrunn 艺术史年表（2008）",
+      "url": "https://www.metmuseum.org/essays/intentional-alterations-of-early-netherlandish-painting"
+    },
+    {
+      "label": "英国国家美术馆：Jan van Eyck, Portrait of a Man (Self Portrait?)",
+      "url": "https://www.nationalgallery.org.uk/paintings/jan-van-eyck-portrait-of-a-man-self-portrait"
+    },
+    {
+      "label": "Giorgio Vasari, Le vite（1568），安托内洛·达·梅西纳传（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Le_vite_de%27_pi%C3%B9_eccellenti_pittori,_scultori_e_architettori_(1568)/Antonello_da_Messina"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/christus-goldsmith.jpg",
+      "width": 1376,
+      "height": 1600,
+      "alt": "一幅竖长的木板油画：一间店铺的柜台后面，坐着一个穿红袍、戴红帽的男人，左手提着一杆小天平。他身后站着一对衣着华贵的男女：女子穿金绿色织锦长袍，头戴高高的白色头巾；男子戴黑色大帽。右边的架子上陈列着金属酒壶、珊瑚枝、珠串、宝石和戒指；右下角柜台上立着一面圆形凸面镜，映出窗外的街道和两个男人。柜台上有钱币、砝码，左边摊着一条红色的腰带。",
+      "caption": "彼得吕斯·克里斯蒂斯《金匠在他的店铺里》，1449 年，橡木板油画，98 × 85.2 厘米，大都会艺术博物馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/459052",
+        "changes": "由原图裁去照片四周的黑边，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "carthusian",
+      "src": "/img/christus-carthusian.jpg",
+      "alt": "一幅小小的木板肖像，连着外面一圈旧木框：一个留着长胡子、穿白色兜帽长袍的男人，四分之三侧面，眼睛斜看向观者；背景是一个红墙的房间角落。画面底部是一道画出来的红色石头边框，上面刻着字，一只苍蝇停在边框上。",
+      "caption": "彼得吕斯·克里斯蒂斯《一位加尔都西会修士的肖像》，1446 年，橡木板油画，画面 29.2 × 18.7 厘米，大都会艺术博物馆藏。照片连同外框一起拍摄。",
+      "kind": "detail",
+      "subject": "克里斯蒂斯《一位加尔都西会修士的肖像》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435896",
+        "changes": "由原图缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "carthusian-fly",
+      "src": "/img/christus-carthusian-fly.jpg",
+      "alt": "近景：白色长袍的下摆垂在一道暗红色的石头边框上，边框上刻着拉丁字母 PETRVS XPI ME FECIT；一只灰色的苍蝇停在边框上，长袍的褶皱在它身后投下阴影。",
+      "caption": "同一幅画的局部：画出来的石头边框、刻出来似的签名，和停在上面的苍蝇。",
+      "kind": "detail",
+      "subject": "克里斯蒂斯《一位加尔都西会修士的肖像》局部",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435896",
+        "changes": "从原图裁出画面底部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "turban",
+      "src": "/img/van-eyck-turban.jpg",
+      "alt": "一幅小小的男子胸像，连着原来的木框：他戴着一顶红色的大头巾，布料缠绕出层层褶皱，脸转向观者，目光锐利。木框上方写着一行希腊字母，下方是一行拉丁文，都画得像刻在木框里一样。",
+      "caption": "扬·范·艾克《男子肖像（自画像？）》，1433 年，木板油画，26 × 19 厘米，伦敦英国国家美术馆藏。框上方是他的格言 ALS ICH CAN，下方写着“扬·范·艾克作我，1433 年 10 月 21 日”。",
+      "kind": "detail",
+      "subject": "扬·范·艾克《男子肖像（自画像？）》（英国国家美术馆）",
+      "credit": {
+        "author": "The Yorck Project（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_in_a_Turban_(Jan_van_Eyck)_with_frame.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "mirror",
+      "src": "/img/christus-goldsmith-mirror.jpg",
+      "alt": "凸面镜的局部：镜中是一条街道，几座带山墙的房子；镜子下方站着两个男人，一个穿红衣、戴黑帽，另一个穿深色衣服，手上停着一只鸟。镜面四周是一圈金属框。",
+      "caption": "局部：柜台上的凸面镜，映出店外的街道和两个路人。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/459052",
+        "changes": "由原图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "signature",
+      "src": "/img/christus-goldsmith-signature.jpg",
+      "alt": "画面下缘的一行白色哥特字体签名：petr' xpi me fecit a° 1449，末尾有一个小小的心形标记。",
+      "caption": "局部：画面下缘的签名与年份。",
+      "kind": "detail",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/459052",
+        "changes": "由原图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "arnolfini",
+      "src": "/img/van-eyck-arnolfini.jpg",
+      "alt": "一幅竖长的木板油画：一间卧室里，一个穿深色长袍、戴黑色大帽的男人举起右手，左手牵着身旁穿绿色长裙、戴白色头巾的女子。后墙正中挂着一面圆形凸面镜，镜子上方有一行花体字；天花板上吊着铜烛台，窗台上放着橙子，两人脚边有一只小狗。",
+      "caption": "扬·范·艾克《阿尔诺芬尼像》，1434 年，木板油画，82.2 × 60 厘米，伦敦英国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "扬·范·艾克《阿尔诺芬尼像》（伦敦英国国家美术馆）",
+      "credit": {
+        "author": "英国国家美术馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1169 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "arnolfini-mirror",
+      "src": "/img/van-eyck-arnolfini-mirror.jpg",
+      "alt": "凸面镜的局部：镜框上一圈十个小圆盘，每个里面画着一个很小的场景；镜中映出整个房间的背面，门口站着两个小小的人影。镜子上方墙上写着一行花体拉丁文。",
+      "caption": "局部：后墙的凸面镜和镜上的题字“Johannes de eyck fuit hic 1434”。",
+      "kind": "detail",
+      "subject": "扬·范·艾克《阿尔诺芬尼像》局部",
+      "credit": {
+        "author": "英国国家美术馆（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg",
+        "changes": "由 Commons 上 4386 × 6000 像素的原图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "rogier",
+      "src": "/img/rogier-lady.jpg",
+      "alt": "一幅半身肖像：一位年轻女子微微低头、垂着眼睛，头戴一大片透明的白纱，纱从头顶向两侧展开，一直垂到肩下；她穿深色长裙，领口是黑色的毛皮，腰间一条红色腰带，金色的带扣上有细小的镂空花纹，双手交握在腰前。背景是深蓝色。",
+      "caption": "罗吉尔·范·德·韦登《女子肖像》，约 1460 年，木板油画，画面 34 × 25.5 厘米，美国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "罗吉尔·范·德·韦登《女子肖像》（华盛顿美国国家美术馆）",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/51-portrait-lady",
+        "changes": "由开放获取图缩小到 1169 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "rogier-buckle",
+      "src": "/img/rogier-lady-buckle.jpg",
+      "alt": "局部：交握的双手和红色腰带，腰带上一枚金色带扣，扣环和带尖上刻着细密的镂空花纹，每一处都看得清楚；周围的黑衣画得很平、几乎没有细节。",
+      "caption": "局部：金色带扣与交握的双手。",
+      "kind": "detail",
+      "subject": "罗吉尔·范·德·韦登《女子肖像》局部",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/51-portrait-lady",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "melencolia",
+      "src": "/img/durer-melencolia.jpg",
+      "alt": "一幅黑白铜版画：一个长着翅膀的人坐在台阶上，手托着脸，另一只手拿着圆规；身边散落着锯子、刨子、钉子、一个多面体石块、一个球、一只瘦狗，墙上挂着沙漏、天平、铃和一个数字方阵；远处海上有彗星和彩虹，一只蝙蝠一样的动物展开写着“MELENCOLIA I”的条幅。",
+      "caption": "阿尔布雷希特·丢勒《忧郁 I》，1514 年，铜版画，24.1 × 19.1 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "丢勒《忧郁 I》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/336228",
+        "changes": "由原图缩小并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；大都会与美国国家美术馆的照片以 CC0 发布，《阿尔诺芬尼像》为 Commons 上的公有领域复制照片；加尔都西会修士肖像的两张照片由大都会以 CC0 发布，范·艾克的男子肖像为 Yorck Project 的公有领域复制照片",
+    "basis": "大都会藏品页标注“Public Domain”，API 返回 isPublicDomain: true；美国国家美术馆藏品页写明“This object's media is free and in the public domain”；《阿尔诺芬尼像》的 Commons 文件页注明来源为英国国家美术馆网站，按 PD-Art 规则标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "局部图只做了裁切与缩小，没有提亮或调色。照片与原作的颜色、光泽都会有差别；“凸面镜里的鸟是一只鹰”这样的细节，在照片上只能看出轮廓。"
+  },
+  "card": {
+    "type": "油画",
+    "period": "1449 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "彼得吕斯·克里斯蒂斯"
+      },
+      {
+        "label": "媒材",
+        "value": "橡木板油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "98 × 85.2 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "大都会艺术博物馆"
+      }
+    ],
+    "blurb": "一间布鲁日的金铺：每件货物都画得能数清，可它们是什么意思？",
+    "image": "full",
+    "focus": "60% 45%"
+  }
+}

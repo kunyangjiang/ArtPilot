@@ -3,10 +3,11 @@ import { getEntry } from 'astro:content';
 // Choosing a place in a picture before being told anything: "where would you build your house?" The reader clicks or
 // taps one spot (with the keyboard: arrow keys move a crosshair, Enter chooses). The spot falls in one of a few zones
 // (boxes in percent of the image, first match wins) and that zone's note opens; "看看画家的选择" rings the zone the
-// painter himself used. Any spot may be chosen again. There is no right answer, nothing is scored or stored.
+// painter himself used. Any spot may be chosen again. There is no right answer, nothing is scored or stored. Lessons that
+// ask a different question pass their own waiting line (`wait`) and answer button (`reveal`).
 type Zone = { x: number; y: number; w: number; h: number; label: string; note: string };
-interface Props { artwork: string; image: string; prompt: string; zones: Zone[]; other: string; answer: number; answerNote: string }
-const { artwork, image, prompt, zones, other, answer, answerNote } = Astro.props;
+interface Props { artwork: string; image: string; prompt: string; zones: Zone[]; other: string; answer: number; answerNote: string; wait?: string; reveal?: string }
+const { artwork, image, prompt, zones, other, answer, answerNote, wait = '点一下画面，选一个你想住下来的地方。', reveal = '看看画家的选择' } = Astro.props;
 const record = await getEntry('artworks', artwork);
 const img = record?.data.images.find((i) => i.key === image);
 if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
@@ -20,10 +21,10 @@ if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}
     <span class="pick-pin" aria-hidden="true" hidden></span>
   </div>
   <div class="pick-result" data-result role="status" aria-live="polite">
-    <p class="pick-wait">点一下画面，选一个你想住下来的地方。</p>
+    <p class="pick-wait">{wait}</p>
   </div>
   <div class="find-bar">
-    <button type="button" class="btn btn-secondary" data-answer>看看画家的选择</button>
+    <button type="button" class="btn btn-secondary" data-answer>{reveal}</button>
   </div>
   <p class="pick-answer" data-answer-note hidden>{answerNote}</p>
 </section>

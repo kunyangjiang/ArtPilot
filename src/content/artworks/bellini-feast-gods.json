@@ -1,0 +1,194 @@
+{
+  "id": "art-bellini-feast-gods-001",
+  "kind": "painting",
+  "titleZh": "众神的宴会",
+  "titleEn": "The Feast of the Gods",
+  "artist": "乔瓦尼·贝利尼（Giovanni Bellini）与提香（Titian）",
+  "attributionNote": "美国国家美术馆把它记在贝利尼与提香两人名下，年代写作“1514/1529”。据美术馆的来源记录，1514 年费拉拉公爵阿方索·德·埃斯特向贝利尼付清了画款；贝利尼 1516 年去世后，多索·多西和提香先后对画面做了重要的改动，左上方那片大岩山就是后来加上的。",
+  "dateApprox": "1514 年完成，1529 年前后再经改画",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 170.2,
+    "width": 188
+  },
+  "collection": "美国国家美术馆（华盛顿），怀德纳收藏，藏品编号 1942.9.1",
+  "infoSources": [
+    {
+      "label": "美国国家美术馆藏品页：The Feast of the Gods, 1942.9.1（年代、媒材、尺寸、说明、来源）",
+      "url": "https://www.nga.gov/artworks/1138-feast-gods"
+    },
+    {
+      "label": "美国国家美术馆文章：Alex Dean, “Layers of Power”（2025 年 3 月 17 日；器物、织物与后来的改画）",
+      "url": "https://www.nga.gov/stories/articles/layers-power-feast-gods"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Titian, Venus with a Mirror, 1937.1.34",
+      "url": "https://www.nga.gov/artworks/41-venus-mirror"
+    },
+    {
+      "label": "意大利文化部：Gallerie dell'Accademia di Venezia, l'opera del giorno: La Tempesta di Giorgione",
+      "url": "https://cultura.gov.it/comunicato/gallerie-dellaccademia-di-venezia-lopera-de-giorno-la-tempesta-di-giorgione-sala-viii"
+    },
+    {
+      "label": "Giorgio Vasari，《名人传》1568 年版，提香传（意大利语维基文库）",
+      "url": "https://it.wikisource.org/wiki/Le_vite_de%27_pi%C3%B9_eccellenti_pittori,_scultori_e_architettori_(1568)/Tiziano_da_Cador"
+    },
+    {
+      "label": "英国国家美术馆：Titian, Bacchus and Ariadne（年代、尺寸、雪花石膏小室、原先委托拉斐尔、群青比任何其他颜料贵一百倍）",
+      "url": "https://www.nationalgallery.org.uk/paintings/titian-bacchus-and-ariadne"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/bellini-feast-gods.jpg",
+      "width": 1600,
+      "height": 1466,
+      "alt": "一幅近乎方形的布面油画：一群神祇和仙女坐在林间草地上饮宴，衣袍是鲜亮的红、蓝、粉、橙与白。几个人手里捧着或头顶着蓝白花纹的大碗，一人举着透明的杯子喝酒；左边一头灰驴伸着脖子，一个羊腿的林神扛着酒壶；右下角一位仙女枕着手臂睡着，身边的男子正掀起她的衣裙。后面左半是一座褐色的大岩山和茂密的树林，右半是一排细长的树干，树上停着一只长尾的雉鸡。",
+      "caption": "乔瓦尼·贝利尼与提香《众神的宴会》，1514/1529 年，布面油画，170.2 × 188 厘米，美国国家美术馆藏。",
+      "kind": "full",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/1138-feast-gods",
+        "changes": "由开放获取图缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "vessels",
+      "src": "/img/bellini-feast-vessels.jpg",
+      "alt": "局部：画面中部。一位仙女双手捧着一只蓝白花纹的大碗，左边一个赤身的男子把同样的碗顶在头上；她们下方，一位戴月桂冠的神举着一只透明的玻璃杯在喝酒。人物的衣袍是鲜红、天蓝、淡粉和金黄。",
+      "caption": "局部：青花碗、玻璃杯与鲜亮的衣袍。",
+      "kind": "detail",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/1138-feast-gods",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "landscape",
+      "src": "/img/bellini-feast-landscape.jpg",
+      "alt": "局部：画面左上方。一座褐色的大岩山耸立在树林后面，山顶有一座小小的城堡；树叶用松散的、一笔一笔的褐绿色画成；天空是浓蓝色，飘着大团的白云。",
+      "caption": "局部：左上方的岩山与树林，是贝利尼去世后才加上去的。",
+      "kind": "detail",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/1138-feast-gods",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "bacchus",
+      "src": "/img/titian-bacchus-ariadne.jpg",
+      "alt": "一幅近乎方形的布面油画：左边海岸上，穿蓝衣、披红巾的阿里阿德涅转身后退，抬手望向远处海上的船；右边，酒神巴克斯从两头猎豹拉着的车上纵身跃下，红袍飞扬；他身后跟着一群喧闹的随从，有人舞着蛇，有个小羊人拖着一只鹿头。天空是一大片浓烈的蓝色，左上角有一圈星星。",
+      "caption": "提香《巴克斯与阿里阿德涅》，1520–1523 年，布面油画，176.5 × 191 厘米，伦敦英国国家美术馆藏。原为阿方索·德·埃斯特的“雪花石膏小室”而作。",
+      "kind": "detail",
+      "subject": "提香《巴克斯与阿里阿德涅》（英国国家美术馆）",
+      "credit": {
+        "author": "Google Art Project（经 Wikimedia Commons）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "venus",
+      "src": "/img/titian-venus-mirror.jpg",
+      "alt": "一幅竖长的布面油画：金发的维纳斯坐着，侧身望向右边，一只手按在胸前，下身裹着深红色的天鹅绒，绒边镶着金银线绣的花边和一圈褐色的毛皮；右边一个长着翅膀的小爱神背对观者，双手举着一面镜子，镜中映出她的半张脸；另一个小爱神在后面举起一个花环。",
+      "caption": "提香《照镜子的维纳斯》，约 1555 年，布面油画，124.5 × 105.5 厘米，美国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "提香《照镜子的维纳斯》（华盛顿美国国家美术馆）",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/41-venus-mirror",
+        "changes": "由开放获取图缩小到 1351 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "venus-velvet",
+      "src": "/img/titian-venus-velvet.jpg",
+      "alt": "局部：维纳斯腰下深红色的天鹅绒，褶皱处有的发亮、有的发暗；绒边是一条金银线绣成的宽花边，用短促的亮色笔触点出；她的手腕上戴着镶宝石的金镯子，手指上一枚戒指，手边是一团褐色的毛皮。画面表面布满细小的裂纹。",
+      "caption": "局部：天鹅绒、金线花边与毛皮。",
+      "kind": "detail",
+      "subject": "提香《照镜子的维纳斯》局部",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/41-venus-mirror",
+        "changes": "由开放获取图裁出局部，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "venus-large",
+      "src": "/img/titian-venus-mirror-large.jpg",
+      "alt": "一幅竖长的布面油画：金发的维纳斯坐着，侧身望向右边，一只手按在胸前，下身裹着深红色的天鹅绒，绒边镶着金银线绣的花边和一圈褐色的毛皮；右边一个长着翅膀的小爱神背对观者，双手举着一面镜子，镜中映出她的半张脸；另一个小爱神在后面举起一个花环。",
+      "caption": "提香《照镜子的维纳斯》，约 1555 年，布面油画，124.5 × 105.5 厘米，美国国家美术馆藏。",
+      "kind": "detail",
+      "subject": "提香《照镜子的维纳斯》（华盛顿美国国家美术馆）",
+      "credit": {
+        "author": "美国国家美术馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/artworks/41-venus-mirror",
+        "changes": "由开放获取图缩小到 2800 像素宽并重新压缩，供放大观看；未裁切、未调色"
+      }
+    },
+    {
+      "key": "tempest",
+      "src": "/img/giorgione-tempest.jpg",
+      "alt": "一幅竖长的布面油画：左边一个拄着长杆的年轻男子站着，望向右边；右边一位几乎赤裸的女子坐在草丛中，给怀里的婴儿喂奶，抬眼看着观者。两人之间隔着一条小河，河上有一座木桥，远处是白色的城镇，天空乌云翻滚，一道闪电划过。前景有两截断柱立在一座矮墙上。",
+      "caption": "乔尔乔内《暴风雨》，约 1503–1509 年之间，布面油画，82 × 73 厘米，威尼斯学院美术馆藏。",
+      "kind": "detail",
+      "subject": "乔尔乔内《暴风雨》（威尼斯学院美术馆）",
+      "credit": {
+        "author": "Didier Descouens",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Accademia_-_La_tempesta_-_Giorgione.jpg",
+        "date": "2016-11-04",
+        "changes": "由 4031 × 4471 像素的原图缩小到 1443 × 1600 像素并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；美国国家美术馆的照片以 CC0 发布，《暴风雨》的照片由摄影者以 CC BY-SA 4.0 发布；《巴克斯与阿里阿德涅》为 Google Art Project 经 Commons 发布的公有领域复制照片",
+    "basis": "美国国家美术馆藏品页写明“This object's media is free and in the public domain”；《暴风雨》的照片由 Didier Descouens 于 2016 年 11 月 4 日在威尼斯学院美术馆拍摄并亲自上传到 Commons（文件页标为“own work”），画作按 PD-Art 属公有领域，照片本身以 CC BY-SA 4.0 许可发布，使用时署名，缩小后的版本沿用同一许可。",
+    "verifiedOn": "2026-10-28",
+    "note": "《暴风雨》是展厅里拍的照片，颜色受现场光线影响，课里只用它看构图和人物，不用它讨论具体的色调。所有局部都只做了裁切与缩小，没有提亮或调色；照片上看到的颜色，和原作在展厅灯光下的颜色会有差别。"
+  },
+  "card": {
+    "type": "神话油画",
+    "maker": "贝利尼、提香",
+    "period": "1514/1529 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "贝利尼与提香"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "170.2 × 188 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "美国国家美术馆"
+      }
+    ],
+    "blurb": "一场众神的野宴，由两代威尼斯画家先后画成。",
+    "image": "full",
+    "focus": "50% 62%"
+  }
+}

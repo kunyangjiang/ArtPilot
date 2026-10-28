@@ -1,0 +1,39 @@
+---
+// Static figure: Brunelleschi's lost demonstration panel, as Antonio Manetti describes it in his Life of Brunelleschi
+// (written in the 1480s): seen from the side, the eye at the back of the panel, a hole bored at the point the eye
+// faces, a flat mirror held opposite at arm's length that shows the painted Baptistery, and a sky of burnished silver
+// that reflects the real sky. The proportions are schematic; the panel itself is lost and no drawing of it survives.
+---
+<figure class="module peep">
+  <p class="module-label">示意 · 布鲁内莱斯基的小木板</p>
+  <svg viewBox="0 0 600 260" role="img" aria-labelledby="peep-title">
+    <title id="peep-title">侧面示意图：左边是一只眼睛，紧贴着一块木板的背面，木板中间有一个小孔；右边一手远的地方，另一只手拿着一面平面镜，正对木板画着画的一面。视线穿过小孔，射到镜子上，镜子里映出木板上画的洗礼堂。木板上方的天空部分贴着磨亮的银，映出真实的天空和云。</title>
+    <defs>
+      <marker id="peep-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" /></marker>
+    </defs>
+    <!-- the eye -->
+    <path class="pp-eye" d="M40 130 Q70 104 100 130 Q70 156 40 130 Z" />
+    <circle class="pp-pupil" cx="82" cy="130" r="7" />
+    <!-- the panel: painted face towards the mirror, a cone-shaped hole -->
+    <rect class="pp-panel" x="128" y="60" width="14" height="140" />
+    <path class="pp-hole" d="M128 121 L142 128.5 L142 131.5 L128 139 Z" />
+    <rect class="pp-paint" x="142" y="96" width="4" height="104" />
+    <rect class="pp-silver" x="142" y="60" width="4" height="36" />
+    <!-- the mirror -->
+    <rect class="pp-mirror" x="470" y="70" width="8" height="120" />
+    <!-- lines of sight -->
+    <path class="pp-ray" d="M100 130 H466" marker-end="url(#peep-head)" />
+    <path class="pp-ray pp-back" d="M466 150 Q300 175 150 172" marker-end="url(#peep-head)" />
+    <!-- the real sky above, reflected in the silver -->
+    <path class="pp-cloud" d="M210 38 q10 -14 26 -6 q12 -12 26 2 q14 0 12 12 h-62 q-10 -2 -2 -8 Z" />
+    <path class="pp-ray pp-sky" d="M236 48 L150 76" marker-end="url(#peep-head)" />
+    <text class="pp-label" x="70" y="180" text-anchor="middle">眼睛贴在背面</text>
+    <text class="pp-label" x="135" y="222" text-anchor="middle">木板（约半臂见方）</text>
+    <text class="pp-label" x="155" y="88" text-anchor="start">磨亮的银</text>
+    <text class="pp-label" x="300" y="120" text-anchor="middle">穿过小孔的视线</text>
+    <text class="pp-label" x="300" y="196" text-anchor="middle">镜中映出画上的洗礼堂</text>
+    <text class="pp-label" x="474" y="212" text-anchor="middle">平面镜</text>
+    <text class="pp-label" x="300" y="34" text-anchor="start">真实的天空和云</text>
+  </svg>
+  <figcaption class="schematic-label">示意，比例不准：原物已经失传，也没有图样留下，这里只按马内蒂的文字画出各部分的位置。</figcaption>
+</figure>

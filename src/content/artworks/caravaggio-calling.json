@@ -1,0 +1,212 @@
+{
+  "id": "art-caravaggio-calling-001",
+  "kind": "painting",
+  "titleZh": "圣马太蒙召",
+  "titleEn": "The Calling of Saint Matthew",
+  "artist": "卡拉瓦乔（Caravaggio）",
+  "attributionNote": "米开朗基罗·梅里西，人称卡拉瓦乔（1571–1610）。据《不列颠百科全书》，1599 年 7 月 23 日，他签约为罗马法国人教堂圣路易吉教堂里的康塔雷利礼拜堂画两侧墙上的两幅大画，这是他第一件重要的公共委托。画中哪一个人是马太，学者至今仍有争论。",
+  "dateApprox": "1599–1600 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 322,
+    "width": 340
+  },
+  "collection": "罗马圣路易吉教堂（San Luigi dei Francesi），康塔雷利礼拜堂，原址陈列",
+  "infoSources": [
+    {
+      "label": "《不列颠百科全书》：Andrew Graham-Dixon, “Caravaggio”，“The Contarelli Chapel and other church commissions”一节",
+      "url": "https://www.britannica.com/biography/Caravaggio/The-Contarelli-Chapel-and-other-church-commissions"
+    },
+    {
+      "label": "Giovanni Baglione, Le vite de’ pittori, scultori et architetti（罗马，1642），卡拉瓦乔传与科贝特传（Internet Archive 所藏原刊本）",
+      "url": "https://archive.org/details/gri_vitedepittor00bagl"
+    },
+    {
+      "label": "Giovan Pietro Bellori, Le vite de’ pittori, scultori et architetti moderni（罗马，1672），卡拉瓦乔传（Internet Archive 所藏原刊本）",
+      "url": "https://archive.org/details/levitedepittoris00bell"
+    },
+    {
+      "label": "大都会艺术博物馆：Keith Christiansen, “Caravaggio (Michelangelo Merisi) (1571–1610) and His Followers”，Heilbrunn Timeline of Art History（2003）",
+      "url": "https://www.metmuseum.org/essays/caravaggio-michelangelo-merisi-1571-1610-and-his-followers"
+    },
+    {
+      "label": "柏林国家博物馆藏品记录：Caravaggio, Der Evangelist Matthäus, Gemäldegalerie 365（已毁）",
+      "url": "https://id.smb.museum/object/870411/der-evangelist-matthaus"
+    },
+    {
+      "label": "罗马美第奇别墅（法兰西学院）：“Saint Matthieu et la chapelle Contarelli. Histoire et théorie”研讨会手册（2025），Chiara Franceschini 摘要",
+      "url": "https://admin.villamedici.it/wp-content/uploads/2025/04/VM-Depliant-Caravaggio-Saint-Matthieu-WEB-Doppie.pdf"
+    },
+    {
+      "label": "Jarosław Jarzewicz, “„Powołanie św. Mateusza” Caravaggia, czyli kto jest kim w obrazie i skąd to wiadomo?”, Biuletyn Historii Sztuki 82/3（2020）: 337–365（只读了摘要）",
+      "url": "https://doi.org/10.36744/bhs.646"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Caravaggio, The Musicians, 52.81",
+      "url": "https://www.metmuseum.org/art/collection/search/435844"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Peter Paul Rubens, Venus and Adonis, 37.162",
+      "url": "https://www.metmuseum.org/art/collection/search/437535"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Georges de La Tour, The Penitent Magdalen, 1978.517",
+      "url": "https://www.metmuseum.org/art/collection/search/436839"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/caravaggio-calling.jpg",
+      "width": 1600,
+      "height": 1511,
+      "alt": "一幅近乎方形的布面油画，画面大半是深褐近黑的阴影。左边几个人围坐在一张桌子旁，穿着当时的衣服、戴羽毛帽，桌上散着钱币；一个长胡子的男人伸出手指，指着自己或身边的人；桌子尽头一个年轻人低着头。右边两个赤脚、穿长袍的人刚走进来，其中一人伸出手臂指向桌边的人。一道斜斜的光从右上方照进来，掠过墙面，照亮了桌边的几张脸。墙上有一扇关着的窗。",
+      "caption": "卡拉瓦乔《圣马太蒙召》，1599–1600 年，布面油画，约 3 米见方，罗马圣路易吉教堂康塔雷利礼拜堂。",
+      "kind": "full",
+      "credit": {
+        "author": "Gleb Simonov",
+        "licence": "CC0 1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caravaggio_%E2%80%94_The_Calling_of_Saint_Matthew.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "chapel",
+      "src": "/img/contarelli-chapel.jpg",
+      "alt": "一间小礼拜堂的内部照片：正面是祭坛，两根绿色大理石柱之间挂着一幅竖长的画，一位穿橙红袍子的老人在桌边写字，头顶一位天使从空中飞下；祭坛上方是一扇装着铁花格的半圆形窗，透进白光。左墙上斜着看到另一幅大画的一部分，几个人围坐在桌边，墙上有一扇窗；右墙上是第三幅画的一部分，昏暗中有赤裸的人体。",
+      "caption": "罗马圣路易吉教堂的康塔雷利礼拜堂：正面祭坛上是《圣马太与天使》，左墙《圣马太蒙召》，右墙《圣马太殉难》。2008 年拍摄。",
+      "kind": "detail",
+      "subject": "康塔雷利礼拜堂（罗马圣路易吉教堂）",
+      "credit": {
+        "author": "Sp!ros",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CappellaContarelli.jpg",
+        "date": "2008-01-26",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "martyrdom",
+      "src": "/img/caravaggio-martyrdom.jpg",
+      "alt": "一幅近乎方形的布面油画，背景昏暗。画面中央一个几乎全裸的年轻人握着剑，俯身抓住倒在地上的老人的手腕；老人穿着白色的祭衣，仰面倒在台阶上。右上方一位天使从云中探身，递下一根棕榈枝。四周的人惊恐地向两边逃开：右边一个穿白衣的男孩张着嘴尖叫，左边几个穿着当时衣服、戴羽毛帽的人往后退，其中一个留胡子的男人回头望向这一幕。前景两侧各有一个半裸的人坐在地上。",
+      "caption": "卡拉瓦乔《圣马太殉难》，1599–1600 年，布面油画，约 3 米见方，罗马圣路易吉教堂康塔雷利礼拜堂右墙。",
+      "kind": "detail",
+      "subject": "卡拉瓦乔《圣马太殉难》（康塔雷利礼拜堂）",
+      "credit": {
+        "author": "Gleb Simonov",
+        "licence": "公有领域（PD-Art；摄影者本人上传）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caravaggio_%E2%80%94_The_Martyrdom_of_Saint_Matthew.jpg",
+        "changes": "由 Commons 的缩小版本缩到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "angel-lost",
+      "src": "/img/caravaggio-matthew-angel-lost.jpg",
+      "alt": "一张旧的黑白照片，拍的是一幅竖长的油画：一个秃顶、满脸皱纹的老人坐在一把 X 形的折叠椅上，跷着二郎腿，膝上摊着一本大书，粗壮的手握着笔，眉头紧皱地盯着书页。一个长着大翅膀、卷发的少年天使贴在他身边，一只手扶着老人的手，像在带着他写字。老人赤着脚，一只脏脚板朝外，伸到画面最前方。",
+      "caption": "卡拉瓦乔《圣马太与天使》（第一版），约 1602 年，布面油画，223 × 183 厘米，原藏柏林；1945 年 5 月很可能毁于柏林弗里德里希斯海因防空塔，今只存黑白照片。",
+      "kind": "detail",
+      "subject": "卡拉瓦乔《圣马太与天使》第一版（已毁，柏林旧藏）",
+      "credit": {
+        "author": "柏林国家博物馆画廊 / Gustav Schwarz（摄影）",
+        "licence": "公共领域标志 1.0",
+        "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "sourceUrl": "https://id.smb.museum/object/870411/der-evangelist-matthaus",
+        "changes": "经 Wikimedia Commons 取得，缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "angel",
+      "src": "/img/caravaggio-matthew-angel.jpg",
+      "alt": "一幅竖长的布面油画，深色背景。一位穿橙红袍子、白胡子的老人一条腿跪在凳子上，俯身在桌边写字，回头仰望；他上方，一位裹着白布的天使从空中斜飞下来，用手指数着另一只手的手指，好像在一条一条地告诉他。老人头上有一圈细细的光环。",
+      "caption": "卡拉瓦乔《圣马太与天使》（第二版），约 1602 年，布面油画，罗马圣路易吉教堂康塔雷利礼拜堂祭坛。",
+      "kind": "detail",
+      "subject": "卡拉瓦乔《圣马太与天使》第二版（康塔雷利礼拜堂祭坛）",
+      "credit": {
+        "author": "Matthieu.lett.ube",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caravage,_Saint_Matthieu_et_l%E2%80%99Ange,_1602._Huile_sur_toile,_232_%C3%97_183_cm._Rome,_%C3%A9glise_San_Luigi_dei_Francesi,_chapelle_Contarelli.jpg",
+        "date": "2025-11-21",
+        "changes": "从祭坛照片中裁出画布部分（去掉大理石画框、立柱和窗），缩小到 1600 像素高并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "musicians",
+      "src": "/img/caravaggio-musicians.jpg",
+      "alt": "一幅横长的布面油画：四个年轻人挤在一起，几乎占满画面。中间一个穿白衬衣、披红袍的少年抱着鲁特琴，望向观者；右边一个背对我们的少年拿着乐谱；他身后一个深色头发的少年回头看向画外；最左边是一个长着翅膀的男孩，低头摘葡萄。前方散放着一把小提琴和乐谱。",
+      "caption": "卡拉瓦乔《乐师》，1597 年，布面油画，92.1 × 118.4 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "卡拉瓦乔《乐师》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435844",
+        "changes": "由原图缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "rubens",
+      "src": "/img/rubens-venus-adonis.jpg",
+      "alt": "一幅横长的布面油画：年轻的猎人阿多尼斯一手握着长矛，迈步要走，红色的衣袍随动作飞起；裸身的维纳斯从右边扑上来，双臂环住他，仰脸望着他；小爱神抱住他的腿；左边两条猎犬不耐烦地等着。背景是暮色中的原野和一棵粗大的树。",
+      "caption": "彼得·保罗·鲁本斯《维纳斯与阿多尼斯》，大约 1630 年代中期，布面油画（四周有加接的布条），197.5 × 242.9 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "鲁本斯《维纳斯与阿多尼斯》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437535",
+        "changes": "由原图缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "latour",
+      "src": "/img/latour-magdalen.jpg",
+      "alt": "一幅竖长的布面油画：昏暗的房间里，一位长发的女子侧身坐着，双手交叠，搭在膝上的一个骷髅上，静静望向桌上的一面镜子。镜子有华丽的金框，镜前一支蜡烛，镜中映出另一个火焰；桌上散着一串珍珠。画面里唯一的光就是这支蜡烛，照亮了她的白衬衣、红裙和脸的侧面。",
+      "caption": "乔治·德·拉图尔《忏悔的抹大拉的马利亚》，约 1640 年，布面油画，133.4 × 102.2 厘米，大都会艺术博物馆藏。",
+      "kind": "detail",
+      "subject": "拉图尔《忏悔的抹大拉的马利亚》（大都会艺术博物馆）",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436839",
+        "changes": "由原图裁去照片四周的边，缩小并重新压缩；未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课所有作品均属公有领域；照片分别以 CC0、CC BY 4.0、CC BY-SA 3.0、公共领域标志或 PD-Art 发布",
+    "basis": "《圣马太蒙召》照片由摄影者 Gleb Simonov 以 CC0 发布；《圣马太殉难》照片由同一摄影者拍摄并上传，按 PD-Art 标为公有领域；祭坛上的《圣马太与天使》照片由 Matthieu.lett.ube 以 CC BY 4.0 发布；礼拜堂全景由 Sp!ros 以 CC BY-SA 3.0 发布；已毁的第一版只存黑白照片，柏林国家博物馆的藏品记录注明摄影者 Gustav Schwarz、公共领域标志 1.0；大都会的三张照片以 CC0 发布。",
+    "verifiedOn": "2026-10-28",
+    "note": "三幅礼拜堂油画都还在教堂里，照片是现场拍摄的，颜色受现场灯光影响；课里的“亮部”互动按照片计算，只说明这张照片里光的分布。礼拜堂全景摄于 2008 年，透视有变形。尺寸按《不列颠百科全书》“将近 3 米见方”的说法给出；第一版的尺寸据柏林国家博物馆的记录。"
+  },
+  "card": {
+    "type": "教堂油画",
+    "period": "1599–1600 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "卡拉瓦乔"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "约 3 米见方"
+      },
+      {
+        "label": "所在",
+        "value": "罗马圣路易吉教堂"
+      }
+    ],
+    "blurb": "一道斜光照进税吏的账房：被召唤的究竟是哪一个？",
+    "image": "full",
+    "focus": "45% 55%"
+  }
+}
