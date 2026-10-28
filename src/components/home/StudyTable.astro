@@ -3,7 +3,7 @@
 // shown whole (scaled to fit its place, never cropped), dealt onto the table as the page opens; the one you point at
 // lifts and its label shows on the note card. The rest of the courses are tucked into one stack per stage on the right:
 // a stack opens in place into a spread of all its courses. The card box holds this browser's collected cards; a slip
-// under the title resumes the last article read. Behind it all, a network of lines (src/lib/lineField.ts).
+// under the title resumes the last article read. Behind it all, each work's own light on the desk (src/lib/worksLight.ts).
 // Only what exists is on the table: stages without a course are left out. The halls still being built appear only in
 // the site bar, as on every other page.
 import '../../styles/fonts.css';
@@ -123,7 +123,7 @@ var ids=hang.map(function(p){return p.getAttribute('data-print')});[].slice.call
 window.__stHero=hero})();`;
 ---
 <div class="st" data-st>
-  <!-- The desk's grain: a loose network of lines and faint facets that drifts with the pointer (and with scrolling). -->
+  <!-- The desk's light: each work glows in its own colour, and the room takes on the colour of the works in view. -->
   <canvas class="st-web" data-web aria-hidden="true"></canvas>
   <SiteBar tone="gallery" />
 
@@ -223,7 +223,7 @@ window.__stHero=hero})();`;
       </figure>
       <div class="st-life-area">
         <svg class="st-thread" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <path pathLength="1" d={`M${life.map((c) => `${c.x} ${c.y}`).join(' L')}`} />
+          {life.slice(1).map(() => <path pathLength="1" d="" />)}
         </svg>
         <ol class="st-life">
           {life.map((c, i) => (
@@ -248,7 +248,7 @@ window.__stHero=hero})();`;
       </header>
       <div class="st-board-area">
         <svg class="st-ties" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          {evidence.map((e) => <path pathLength="1" d={`M${e.x + 13} ${e.y + 18} L50 30`} />)}
+          {evidence.map(() => <path pathLength="1" d="" />)}
         </svg>
         <p class="st-question"><span>问题</span>给八百年前的彩窗加一层保护玻璃：它保护了什么，又改变了什么？</p>
         {evidence.map((e, i) => (
@@ -611,6 +611,9 @@ window.__stHero=hero})();`;
   @media (max-width: 900px) {
     .st-board .st-question { transform: none; }
     .st-board-h h3 { font-size: 24px; }
+    /* Phones: one piece of evidence under the question keeps the board short; the letters only matter beside the
+       desktop's ties, which phones don't show. */
+    .st-board .st-evidence ~ .st-evidence, .st-board .st-ev-tag { display: none; }
   }
 
   .st-credits { position: relative; max-width: 1328px; margin: 0 auto; padding: 22px 56px 48px; border-top: 1px solid var(--rule); font: 400 12px/1.8 var(--sans); color: var(--ink-2); }
@@ -630,11 +633,12 @@ window.__stHero=hero})();`;
     .st .st-title { position: relative; left: auto; top: auto; width: auto; margin: 0 20px; padding: 22px 22px 24px; transform: rotate(-1deg); }
     .st-title h1 { font-size: 25px; }
     .st .st-slip { position: relative; left: auto; top: auto; width: auto; margin: -6px 34px 0; transform: rotate(1deg); }
-    .st-deck { display: flex; order: 3; gap: 0; margin-top: 26px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 18px 0 12px; }
-    .st-deck::-webkit-scrollbar { display: none; }
+    /* The pile moves under the finger (src/lib/deckSpring.ts); the page keeps vertical swipes. */
+    .st-deck { display: flex; order: 3; gap: 0; margin-top: 26px; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; padding: 18px 0 12px; }
+    .st-deck img { -webkit-user-drag: none; }
     /* Neighbouring prints show at the edges, so the pile reads as something to swipe through. */
     /* One size for every place (the inline boxes are the desk's); each print still keeps its own shape. */
-    .st-slot { --fx: 50px; --fy: 30px; position: relative; left: auto; top: auto; flex: 0 0 74vw; width: auto; height: min(54vh, 430px); scroll-snap-align: center; }
+    .st-slot { --fx: 50px; --fy: 30px; position: relative; left: auto; top: auto; flex: 0 0 74vw; width: auto; height: min(54vh, 430px); }
     .st-print img { max-width: calc(68vw - 18px); max-height: calc(min(54vh, 430px) - 39px); }
     .st-slot:first-child { margin-left: 13vw; } .st-slot:last-child { margin-right: 13vw; }
     .st-dots { display: flex; justify-content: center; gap: 6px; margin: 4px 0 14px; }
@@ -696,7 +700,9 @@ window.__stHero=hero})();`;
   import { readReading, resolveEntry } from '../../lib/reading.js';
   import { readCollection } from '../../lib/collection.js';
   import { deviceStorage } from '../../lib/storage.js';
-  import { startLineField } from '../../lib/lineField';
+  import { startWorksLight } from '../../lib/worksLight';
+  import { startDeck } from '../../lib/deckSpring';
+  import { startScrollFade } from '../../lib/scrollFade';
 
   const canvas = document.querySelector<HTMLElement>('[data-canvas]')!;
   const st = document.querySelector<HTMLElement>('[data-st]')!;
@@ -728,16 +734,15 @@ window.__stHero=hero})();`;
     s.addEventListener('focusin', (e) => setNote((e.target as Element).closest('[data-print]')));
   });
   document.querySelector('[data-deck]')!.addEventListener('mouseleave', () => { if (wide.matches) setNote(hero()); });
-  // Phones: the note follows the print in the middle of the pile.
+  // Phones: the pile is a sprung carousel (src/lib/deckSpring.ts); the note and the dots follow the print in the middle.
   const dots = [...document.querySelectorAll('[data-dots] i')];
-  const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (wide.matches || !e.isIntersecting) return;
-    setNote(e.target.querySelector('[data-print]'));
-    const k = Number((e.target as HTMLElement).dataset.slot);
+  startDeck(document.querySelector<HTMLElement>('[data-deck]')!, matchMedia('(max-width: 900px)'), (k) => {
+    setNote(document.querySelector(`[data-slot="${k}"] [data-print]`));
     dots.forEach((d, i) => d.classList.toggle('is-on', i === k));
-  }),
-    { root: document.querySelector('[data-deck]'), threshold: 0.6 });
-  canvas.querySelectorAll('[data-slot]').forEach((s) => io.observe(s));
+  });
+
+  // Everything on the desk dims and settles back as it nears the edge of the window (src/lib/scrollFade.ts).
+  startScrollFade([...document.querySelectorAll<HTMLElement>('.st-title, .st-slip, .st-print, .st-note, .st-tray, .st-shelves, .st-sto-label, .st-folder, .st-board, .st-case-label')]);
 
   // The card box: this browser's cards, lowest numbers first, at most three and then how many more.
   const showCards = () => {
@@ -789,6 +794,36 @@ window.__stHero=hero})();`;
     const fo = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { folder.classList.add('is-in'); fo.disconnect(); } }), { threshold: 0.3 });
     fo.observe(folder);
   }
+
+  // The folder's thread and the board's ties run from the edge of one card to the edge of the next, along the line
+  // between their centres, so each one shows whole in the gap instead of passing under the cards. They are measured
+  // from the cards themselves, again whenever the cards settle, move or the window changes size (phones hide them).
+  const connect = (svg: SVGSVGElement | null, pairs: [Element, Element][]) => {
+    const o = svg?.getBoundingClientRect();
+    if (!svg || !o?.width) return;
+    svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`);
+    const paths = svg.querySelectorAll('path');
+    pairs.forEach(([a, b], i) => {
+      const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+      const ax = ra.left + ra.width / 2 - o.left, ay = ra.top + ra.height / 2 - o.top;
+      const dx = rb.left + rb.width / 2 - o.left - ax, dy = rb.top + rb.height / 2 - o.top - ay, len = Math.hypot(dx, dy);
+      // Where the centre line leaves a box, as a fraction of the way from one centre to the other.
+      const out = (r: DOMRect) => Math.min(dx ? r.width / 2 / Math.abs(dx) : Infinity, dy ? r.height / 2 / Math.abs(dy) : Infinity);
+      const gap = len ? 6 / len : 0, t0 = out(ra) + gap, t1 = 1 - out(rb) - gap;
+      // A tie shorter than 14px would read as a speck, not a line; cards that close need none.
+      paths[i]?.setAttribute('d', (t1 - t0) * len > 14 ?`M${ax + dx * t0} ${ay + dy * t0} L${ax + dx * t1} ${ay + dy * t1}` : '');
+    });
+  };
+  const tie = () => {
+    const cards = [...document.querySelectorAll('.st-life li')];
+    connect(document.querySelector('.st-thread'), cards.slice(1).map((c, i) => [cards[i], c]));
+    const question = document.querySelector('.st-question');
+    if (question) connect(document.querySelector('.st-ties'), [...document.querySelectorAll('.st-evidence')].map((e) => [e, question]));
+  };
+  tie();
+  addEventListener('resize', tie);
+  addEventListener('load', tie);
+  document.querySelectorAll('.st-life-area, .st-board-area').forEach((a) => ['animationend', 'transitionend'].forEach((ev) => a.addEventListener(ev, tie)));
 
   // The case board: comes in when a third in view.
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
@@ -844,6 +879,6 @@ window.__stHero=hero})();`;
   spread.querySelectorAll('[data-close]').forEach((x) => x.addEventListener('click', close));
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !spread.hidden) close(); });
 
-  // The desk's network (shared with the collection page).
-  startLineField(document.querySelector<HTMLCanvasElement>('[data-web]')!);
+  // The desk's light (src/lib/worksLight.ts).
+  startWorksLight(document.querySelector<HTMLCanvasElement>('[data-web]')!);
 </script>
