@@ -1,0 +1,103 @@
+{
+  "id": "art-pollock-autumn-rhythm-001",
+  "kind": "painting",
+  "titleZh": "秋韵（第 30 号）",
+  "titleEn": "Autumn Rhythm: Number 30, 1950",
+  "artist": "杰克逊·波洛克",
+  "attributionNote": "杰克逊·波洛克（1912–1956）1950 年在纽约州长岛斯普林斯的谷仓画室里画成。大都会艺术博物馆说，这是他滴画作品中最大的一件，博物馆在他去世的第二年（1957 年）从李·克拉斯纳手中购得。",
+  "dateApprox": "1950 年",
+  "medium": "布面醇酸树脂磁漆（大都会艺术博物馆著录为 oil-modified alkyd resin on canvas）",
+  "dimensionsCm": {
+    "height": 269.9,
+    "width": 528.3
+  },
+  "collection": "大都会艺术博物馆（纽约），57.92",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/488978"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Jackson Pollock, Autumn Rhythm: Number 30, 1950，57.92",
+      "url": "https://www.metmuseum.org/art/collection/search/488978"
+    },
+    {
+      "label": "大都会艺术博物馆：Mark Rothko, No. 13 (White, Red on Yellow)，1958，1985.63.5",
+      "url": "https://www.metmuseum.org/art/collection/search/484362"
+    },
+    {
+      "label": "芝加哥艺术博物馆：Claude Monet, Water Lily Pond，1917–19，1982.825",
+      "url": "https://www.artic.edu/artworks/97933"
+    },
+    {
+      "label": "美国艺术档案馆（史密森尼学会）藏：Open Letter to Roland L. Redmond，1950 年 5 月 20 日（赫达·斯特恩文件），经维基共享资源取得",
+      "url": "https://commons.wikimedia.org/wiki/File:Open_Letter_to_Roland_Redmond.jpg"
+    }
+  ],
+  "images": [
+    {
+      "key": "monet",
+      "src": "/img/monet-water-lily-pond-aic.jpg",
+      "kind": "detail",
+      "subject": "莫奈《睡莲池》（芝加哥艺术博物馆）",
+      "width": 1686,
+      "height": 1087,
+      "alt": "一幅横向的油画：画面几乎全是水面，绿色、紫色、褐色的笔触交织，水面上漂着一簇簇睡莲叶和粉红、红色的小花，倒映着看不见的树影。画面里没有岸，也没有天空。",
+      "caption": "莫奈《睡莲池》，1917–1919 年，布面油画，130.2 × 201.9 厘米，芝加哥艺术博物馆藏（1982.825）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/97933",
+        "changes": "取博物馆 IIIF 服务提供的 1686 像素宽图像，重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "letter",
+      "src": "/img/irascibles-open-letter-1950.jpg",
+      "kind": "detail",
+      "subject": "《致罗兰·L. 雷德蒙的公开信》（1950 年）",
+      "width": 400,
+      "height": 514,
+      "alt": "一页打字机打出的信：标题是“OPEN LETTER TO ROLAND L. REDMOND, President of the Metropolitan Museum of Art”，日期 1950 年 5 月 20 日。正文下面分两栏列着画家和雕塑家的名字，其中有 Jackson Pollock、Mark Rothko、Willem de Kooning、Barnett Newman。",
+      "caption": "《致罗兰·L. 雷德蒙的公开信》，1950 年 5 月 20 日，打字稿，美国艺术档案馆藏（赫达·斯特恩文件）。",
+      "credit": {
+        "author": "署名的画家与雕塑家；美国艺术档案馆藏本，经维基共享资源取得",
+        "licence": "公有领域（1950 年在美国公开散发，未附版权声明）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Open_Letter_to_Roland_Redmond.jpg",
+        "changes": "未缩放，只重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供作品页面的链接，不复制它的图像",
+    "basis": "《秋韵》在美国和中国都仍受版权保护（波洛克 1956 年去世），大都会艺术博物馆的页面也注明图像因版权限制不能放大或下载。本课的两张插图是其他作品和文献：莫奈的《睡莲池》属公有领域，由芝加哥艺术博物馆以 CC0 开放；1950 年的公开信在美国公开散发时没有版权声明，属公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "本课的尺寸示意图是本站绘制的几何图形，只表示大小关系，不描绘作品。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "抽象表现主义 · 滴画",
+    "maker": "杰克逊·波洛克",
+    "period": "1950 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "杰克逊·波洛克"
+      },
+      {
+        "label": "媒材",
+        "value": "磁漆，生画布"
+      },
+      {
+        "label": "尺幅",
+        "value": "2.7 × 5.3 m"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "五米多宽、没有中心的画布：画面记录的是一场动作，也是一连串决定。",
+    "image": null
+  }
+}

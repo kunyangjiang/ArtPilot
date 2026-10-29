@@ -18,12 +18,12 @@ test('a course with a lesson is published; every other course is only listed', (
   assert.equal(added[12].id, 'newcomer', 'a new lesson becomes a published course with no other edit');
 });
 
-test('the approved syllabus v2.0: 83 titles in eight stages with no gaps', () => {
-  assert.equal(TOTAL_COURSES, 83);
-  assert.equal(Object.keys(courseTitles).length, 83);
+test('the approved syllabus v2.1: 90 titles in eight stages with no gaps', () => {
+  assert.equal(TOTAL_COURSES, 90);
+  assert.equal(Object.keys(courseTitles).length, 90);
   assert.equal(stages.length, 8);
   assert.equal(stages[0].first, 1);
-  assert.equal(stages[7].last, 83);
+  assert.equal(stages[7].last, 90);
   stages.forEach((s, i) => { if (i) assert.equal(s.first, stages[i - 1].last + 1); });
   assert.equal(courseTitles[1], '一座山，为什么让人感到如此渺小？');
   assert.equal(courseTitles[74], '战后艺术为什么突破既有绘画观念？');
@@ -59,7 +59,7 @@ test('artist-series cards follow every course slot and extra card, and never col
   assert.ok(artist.length >= 1);
   for (const a of artist) for (const c of core) assert.ok(Number(a.no) > Number(c.no), `artist No.${a.no} after course No.${c.no}`);
   assert.ok(Number(artist[0].no) > TOTAL_COURSES, 'after every course slot, published or not');
-  // Never a fixed number: 83 course slots, then one more slot for every extra card a published course awards.
+  // Never a fixed number: 90 course slots, then one more slot for every extra card a published course awards.
   const extras = [...cards].filter(([id, c]) => c.series === 'core' && c.group[0] !== id).length;
   assert.equal(Number(cards.get('art-osman-hamdi-tortoise-trainer-001').no), TOTAL_COURSES + extras + 1, 'course slots and extra cards, then the artist series');
 });

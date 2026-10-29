@@ -1,0 +1,91 @@
+{
+  "id": "art-kosuth-one-and-three-chairs-001",
+  "kind": "object",
+  "titleZh": "一把和三把椅子",
+  "titleEn": "One and Three Chairs",
+  "artist": "约瑟夫·科苏斯",
+  "attributionNote": "约瑟夫·科苏斯（1945 年生）1965 年作。MoMA 说：椅子不是他做的，照片不是他拍的，释义也不是他写的；他选择并组合了这三样东西。",
+  "dateApprox": "1965 年",
+  "objectType": "观念艺术 · 由三件东西组成的装置",
+  "medium": "木折叠椅、裱在板上的椅子照片、词典中“椅子”词条的照相放大",
+  "dimensions": "椅子 82 × 37.8 × 53 厘米；照片 91.5 × 61.1 厘米；文字 61 × 76.2 厘米（据 MoMA）",
+  "collection": "纽约现代艺术博物馆，393.1970.a-c",
+  "originalStatus": "MoMA 收藏的这一组，1970 年入藏。",
+  "provenance": "1970 年以拉里·奥尔德里奇基金会基金为纽约现代艺术博物馆购藏（据 MoMA）。",
+  "officialPage": {
+    "label": "纽约现代艺术博物馆的作品页面",
+    "url": "https://www.moma.org/collection/works/81435"
+  },
+  "infoSources": [
+    {
+      "label": "纽约现代艺术博物馆：Joseph Kosuth, One and Three Chairs，1965，393.1970.a-c",
+      "url": "https://www.moma.org/collection/works/81435"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Allan Kaprow's 18 Happenings in 6 Parts, Reuben Gallery, New York, October 1959（相关文献照片）",
+      "url": "https://www.moma.org/collection/works/associatedworks/173008"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Yoko Ono: One Woman Show, 1960–1971（2015 年展览）",
+      "url": "https://www.moma.org/calendar/exhibitions/1494"
+    },
+    {
+      "label": "迪亚艺术基金会：Robert Smithson, Spiral Jetty，1970",
+      "url": "https://www.diaart.org/collection/collection/smithson-robert-spiral-jetty-1970-1999-014"
+    },
+    {
+      "label": "大都会艺术博物馆：Folding Armchair，约 1877–97，1975.157",
+      "url": "https://www.metmuseum.org/art/collection/search/229"
+    }
+  ],
+  "images": [
+    {
+      "key": "chair",
+      "src": "/img/met-folding-armchair.jpg",
+      "kind": "detail",
+      "subject": "折叠扶手椅（大都会艺术博物馆，本课练习用）",
+      "width": 1739,
+      "height": 1400,
+      "alt": "一把侧面拍摄的老式折叠扶手椅：黑色的金属和木头框架，铺着橙色的绒面坐垫和靠垫，前面拉出一段搁脚的部分，椅腿下有小轮子。背景是灰色的。",
+      "caption": "马克斯可调折叠椅公司制造的折叠扶手椅，约 1877–1897 年，胡桃木、金属，大都会艺术博物馆藏（1975.157）。本课用它做练习，它不是科苏斯作品中的那把椅子。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/229",
+        "changes": "缩小到 1400 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供作品页面的链接，不复制它的图像",
+    "basis": "科苏斯的作品仍受版权保护；MoMA 的页面注明版权属约瑟夫·科苏斯及艺术家权利协会。本课的插图是大都会艺术博物馆以 CC0 开放的一把 19 世纪折叠扶手椅，只用于本课的练习。",
+    "verifiedOn": "2026-10-29",
+    "note": "练习中引用的词典释义出自 1913 年版《韦氏大词典》，属公有领域，也不是科苏斯作品中所用的那一条。卡普罗、小野洋子、史密森的作品与文献照片也仍受版权保护，本课只提供链接。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "观念艺术",
+    "maker": "约瑟夫·科苏斯",
+    "period": "1965 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "约瑟夫·科苏斯"
+      },
+      {
+        "label": "组成",
+        "value": "椅子、照片、释义"
+      },
+      {
+        "label": "形式",
+        "value": "装置"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一把真椅子、一张椅子的照片、一段“椅子”的释义：作品到底是哪一个？",
+    "image": null
+  }
+}

@@ -68,3 +68,28 @@ For reference, the 79-course draft → final step was: 1–61 unchanged; 62→64
 
   Saved claims and reading places from the 73-course site are read back unchanged and shown with the new numbers. The
   legacy-state test feeds such a saved state through the real readers.
+
+## v2.1 (Phase 4.19, 2026-10-29): 83 → 90 courses
+
+The Product Owner added seven planned courses to Stage 08, which now runs 74–90 (17 courses). Courses 1–83 keep their
+numbers and titles; nothing was renumbered.
+
+| Course | Title |
+|---|---|
+| 84 | 沉浸式艺术为什么让人走进作品里？ |
+| 85 | 影像、动画与声音怎样创造一个艺术世界？ |
+| 86 | 当图像可以不断变化，艺术家究竟创造了什么？ |
+| 87 | 艺术为什么可以由玩家来完成？ |
+| 88 | 衣服什么时候能够成为一件艺术品？ |
+| 89 | 当艺术出现在网页和手机里，我们该怎样欣赏？ |
+| 90 | 进入21世纪，绘画为什么仍然能让人惊喜？ |
+
+Changed:
+- `src/data/curriculum.ts`: Stage 08 now ends at 90, and titles 84–90 were added.
+- `src/lib/publication.js`: `TOTAL_COURSES` is now 90.
+- `src/content.config.ts`: a lesson's `course` may now be 1–90.
+- Tests: `publication`, `syllabus-migration` (a new v2.1 check), `featured` and `collection`.
+
+Effect on saved data: none. Claims are kept by artwork ID and reading places by article slug. The only number that moves
+is the display number of the artist-series card (*The Tortoise Trainer*), which goes from No.120 to No.127 because the
+core block grew by seven reserved slots. Course card numbers are unchanged.

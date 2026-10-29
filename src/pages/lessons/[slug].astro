@@ -3,6 +3,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import GlossaryTags from '../../components/GlossaryTags.astro';
 import ArtworkFigure from '../../components/ArtworkFigure.astro';
+import WorkPlate from '../../components/WorkPlate.astro';
 import BackToTop from '../../components/BackToTop.astro';
 import ArtworkRights from '../../components/ArtworkRights.astro';
 import ReadingTracker from '../../components/ReadingTracker.astro';
@@ -31,7 +32,7 @@ const titleLines = entry.data.title.split(/(?<=，)/);
   links: [{ href: '#glossary', label: '术语' }, { href: '#rights', label: '来源与版权' }],
 }}>
   <header class="opening">
-    <div class="opening-art"><ArtworkFigure artwork={artworkId} image="full" hero /></div>
+    <div class="opening-art">{art.officialPage ? <WorkPlate artwork={artworkId} illustration={entry.data.illustration} /> : <ArtworkFigure artwork={artworkId} image="full" hero />}</div>
     <div class="opening-label">
       <p class="stage-line">
         <span>第 {stage.no} 阶段 · {stage.title}</span>

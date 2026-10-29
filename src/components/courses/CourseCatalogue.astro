@@ -22,11 +22,25 @@ type Sized = { src: string; width: number; height: number };
 const copies = tableImages as Record<string, { large: Sized; small: Sized }>;
 const lessons = inCourseOrder(await Promise.all((await getCollection('lessons')).map(async (l) => {
   const art = (await getEntry('artworks', l.data.artwork.id))!.data;
-  const img = art.images.find((i) => i.key === (l.data.featured?.image ?? 'full')) ?? art.images[0];
-  const copy = copies[img.src];
+  // A work that cannot be reproduced here (an officialPage, no full image) is shown by its lesson's illustration: a
+  // lawful image of another work, source or document, always printed with its role and subject so it is never taken
+  // for the work. Without an illustration it gets a typeset print.
+  const illus = art.officialPage ? l.data.illustration : undefined;
+  const img = illus
+    ? art.images.find((i) => i.key === illus.image)
+    : art.images.find((i) => i.key === (l.data.featured?.image ?? 'full')) ?? (art.officialPage ? undefined : art.images[0]);
+  if (illus && !img) throw new Error(`Lesson ${l.id}: illustration "${illus.image}" not found`);
+  const copy = img ? copies[img.src] : undefined;
   return { id: l.id, course: l.data.course, title: l.data.title, workLabel: l.data.workLabel,
-    large: copy?.large ?? { src: img.src, width: 0, height: 0 }, small: copy?.small.src ?? img.src, alt: img.alt };
+    large: img ? copy?.large ?? { src: img.src, width: img.width ?? 0, height: img.height ?? 0 } : undefined, small: img ? copy?.small.src ?? img.src : undefined, alt: img?.alt ?? '',
+    role: illus?.role, subject: illus ? img!.subject ?? '' : undefined, cover: illus?.cover ?? false,
+    credit: illus && img!.credit ? { subject: img!.subject ?? '', author: img!.credit.author, licence: img!.credit.licence, licenceUrl: img!.credit.licenceUrl, sourceUrl: img!.credit.sourceUrl } : undefined };
 })));
+// Illustrations shown in the book (other works and documents standing in the place of works that cannot be reproduced):
+// credited in the colophon, as their licences ask.
+const illustrationCredits = lessons.filter((l) => l.credit);
+// A short form of the role for the contents thumbnail's tag (the first clause: 对照作品, 图像来源, 1945 年的历史照片 …).
+const shortRole = (role?: string) => role ? role.split(/[，,]/)[0].replace(/^\d+ 年的/, '') : '';
 // The number of stages in words, for the lines that name it (七个阶段, 八个阶段 ...).
 const stageCount = '一二三四五六七八九十'[stages.length - 1] ?? String(stages.length);
 const sections = stages.map((st) => {
@@ -62,7 +76,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
         <li>
           <a class:list={['ec-plate', { 'is-empty': !s.opened }]} href={`#stage-${s.no}`}>
             <span class="ec-plate-img">
-              {s.works[0] ? <img src={s.works[0].small} alt="" decoding="async" /> : <span class="ec-plate-blank" aria-hidden="true"></span>}
+              {(s.works.find((w) => w.cover) ?? s.works.find((w) => w.small)) ? <img src={(s.works.find((w) => w.cover) ?? s.works.find((w) => w.small))!.small} alt="" decoding="async" /> : <span class="ec-plate-blank" aria-hidden="true"></span>}
             </span>
             <span class="ec-plate-no">{s.no}</span>
             <span class="ec-plate-title">{s.title}</span>
@@ -92,8 +106,10 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
           <div class:list={['ec-pile', `n-${Math.min(s.works.length, 3)}`]}>
             {pileOf(s.works).map(({ w, k }) => (
               <a class="ec-print" href={`/lessons/${w.id}/`} data-pos={k}>
-                <img src={w.large.src} width={w.large.width || undefined} height={w.large.height || undefined} alt={w.alt} decoding="async" />
-                <span class="ec-print-cap">No.{three(w.course)}</span>
+                {w.large
+                  ? <img src={w.large.src} width={w.large.width || undefined} height={w.large.height || undefined} alt={w.alt} decoding="async" />
+                  : <span class="ec-print-type">{w.workLabel}</span>}
+                <span class="ec-print-cap">No.{three(w.course)}{w.role && <span class="ec-print-role">{w.role}：{w.subject}</span>}</span>
                 <span class="ec-print-light" aria-hidden="true"></span>
               </a>
             ))}
@@ -109,7 +125,11 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
                 <a href={`/lessons/${c.lesson.id}/`}>
                   <span class="ec-n">{two(c.n)}</span>
                   <span class="ec-t">{c.title}<em>{c.lesson.workLabel}</em></span>
-                  <img class="ec-thumb" src={c.lesson.small} alt="" decoding="async" />
+                  {c.lesson.small
+                    ? (c.lesson.role
+                      ? <span class="ec-thumb-wrap"><img class="ec-thumb" src={c.lesson.small} alt="" decoding="async" /><span class="ec-thumb-tag">{shortRole(c.lesson.role)}</span></span>
+                      : <img class="ec-thumb" src={c.lesson.small} alt="" decoding="async" />)
+                    : <span class="ec-thumb ec-thumb-type" aria-hidden="true"></span>}
                 </a>
               ) : (
                 <span class="ec-row">
@@ -127,6 +147,12 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
   <footer class="ec-colophon">
     <p class="ec-kicker">版权页</p>
     <p>核心课程大纲第 2 版 · {stageCount}个推荐阶段，{TOTAL_COURSES} 门核心课程。</p>
+    {illustrationCredits.length > 0 && (
+      <p class="ec-credits">
+        仍受版权保护的作品不在本书复制，它们的位置印着标明用途的其他图像：
+        {illustrationCredits.map((l, k) => <>{k > 0 && '；'}第 {l.course} 课，{l.credit!.subject}，{l.credit!.author}，{l.credit!.licenceUrl ? <a href={l.credit!.licenceUrl}>{l.credit!.licence}</a> : l.credit!.licence}，<a href={l.credit!.sourceUrl}>来源</a></>)}。
+      </p>
+    )}
   </footer>
 </div>
 
@@ -221,10 +247,20 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
   .ec-list li:not(.is-open) .ec-t em { color: #b0afa9; }
   .ec-list .is-open .ec-n { color: var(--paper-ink); }
   .ec-thumb { width: 40px; height: 50px; object-fit: cover; background: #dcdbd5; }
+  .ec-thumb-type { display: block; background: transparent; border: 1px solid #c9c8c1; box-sizing: border-box; }
+  /* A work whose image is not reproduced here: a typeset print with its label, the size of a print. */
+  .ec-print-type { display: flex; align-items: center; justify-content: center; width: 180px; height: 250px; padding: 18px;
+    box-sizing: border-box; border: 1px solid #c9c8c1; font: 500 15px/1.6 var(--serif); color: var(--paper-ink); text-align: center; }
   .ec-list a:hover .ec-t { text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; }
 
   .ec-colophon { max-width: 1320px; margin: clamp(64px, 8vw, 120px) auto 0; padding: 28px var(--gut) 64px; border-top: 1px solid var(--rule); }
   .ec-colophon p:last-child { margin: 10px 0 0; font: 400 14px/1.8 var(--sans); color: var(--ink-2); }
+  .ec-colophon .ec-credits { margin: 10px 0 0; font: 400 12px/1.8 var(--sans); color: var(--ink-2); }
+  /* An illustration printed where a work cannot be reproduced: its role and subject under the number. */
+  .ec-print-role { display: block; margin-top: 2px; font: 400 11px/1.4 var(--sans); color: var(--paper-ink-2); max-width: 240px; }
+  .ec-thumb-wrap { position: relative; display: inline-block; line-height: 0; }
+  .ec-thumb-tag { position: absolute; left: 0; right: 0; bottom: 0; padding: 1px 0; background: rgb(28 29 32 / .72); color: #f5f4f0;
+    font: 500 8px/1.3 var(--sans); letter-spacing: .04em; text-align: center; }
 
   /* Narrower: the same page, rearranged. */
   @media (max-width: 1080px) {
@@ -252,6 +288,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
     .ec-t { font-size: 15px; }
     .ec-n { font-size: 21px; }
     .ec-thumb { width: 36px; height: 46px; }
+    .ec-print-type { width: 120px; height: 170px; padding: 12px; font-size: 13px; }
   }
   @media (prefers-reduced-motion: reduce) { :global(html:has(.ec)) { scroll-behavior: auto; } .ec-print { transition: none; } }
 </style>

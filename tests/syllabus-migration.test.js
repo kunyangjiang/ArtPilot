@@ -102,15 +102,30 @@ const STAGES = [
   ['01', '学会欣赏艺术', 1, 5], ['02', '图像、仪式与早期文明', 6, 14], ['03', '信仰、图像与文化传播', 15, 25],
   ['04', '成熟艺术传统与新的视觉语言', 26, 37], ['05', '传统、宫廷、市场与全球交流', 38, 56],
   ['06', '19世纪：现实、光色与现代生活', 57, 63], ['07', '20世纪上半叶：现代主义与全球艺术转型', 64, 73],
-  ['08', '战后艺术与全球当代世界', 74, 83],
+  ['08', '战后艺术与全球当代世界', 74, 90],
 ];
+// The seven courses v2.1 added to Stage 08 (Product Owner, Phase 4.19): planned, numbered after every v2.0 course.
+const ADDED_V21 = {
+  84: '沉浸式艺术为什么让人走进作品里？', 85: '影像、动画与声音怎样创造一个艺术世界？',
+  86: '当图像可以不断变化，艺术家究竟创造了什么？', 87: '艺术为什么可以由玩家来完成？',
+  88: '衣服什么时候能够成为一件艺术品？', 89: '当艺术出现在网页和手机里，我们该怎样欣赏？',
+  90: '进入21世纪，绘画为什么仍然能让人惊喜？',
+};
 const v2Of = (n) => v1ToV2[n] ?? n;
 
-test('v2.0 numbers 1–83 once each, in eight contiguous stages of 5, 9, 11, 12, 19, 7, 10 and 10', () => {
-  assert.equal(TOTAL_COURSES, 83);
-  assert.deepEqual(Object.keys(courseTitles).map(Number).sort((a, b) => a - b), Array.from({ length: 83 }, (_, i) => i + 1));
+test('v2.1 numbers 1–90 once each, in eight contiguous stages of 5, 9, 11, 12, 19, 7, 10 and 17', () => {
+  assert.equal(TOTAL_COURSES, 90);
+  assert.deepEqual(Object.keys(courseTitles).map(Number).sort((a, b) => a - b), Array.from({ length: 90 }, (_, i) => i + 1));
   assert.deepEqual(stages.map((s) => [s.no, s.title, s.first, s.last]), STAGES);
-  assert.deepEqual(stages.map((s) => s.last - s.first + 1), [5, 9, 11, 12, 19, 7, 10, 10]);
+  assert.deepEqual(stages.map((s) => s.last - s.first + 1), [5, 9, 11, 12, 19, 7, 10, 17]);
+});
+
+test('v2.1 adds courses 84–90 to Stage 08 with their approved titles, as new topics after every v2.0 course', () => {
+  for (const [n, title] of Object.entries(ADDED_V21)) {
+    assert.equal(courseTitles[n], title, `course ${n}`);
+    assert.equal(Object.values(courseTitles).filter((t) => t === title).length, 1, `${title} appears once`);
+  }
+  assert.equal(courseTitles[83], '美洲艺术如何重新讲述身份与历史？', 'the last v2.0 course keeps its number');
 });
 
 test('every v1.0 topic survives exactly once, at the approved number', () => {

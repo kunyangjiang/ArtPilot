@@ -13,6 +13,7 @@ const credited = art.images.filter((i) => i.credit);
 <footer id="rights" class="rights">
   <h2 class="kicker">来源与版权</h2>
   <dl class="meta">
+    {art.officialPage && <><dt>作品页面</dt><dd><a href={art.officialPage.url}>{art.officialPage.label}</a>（作品仍受版权保护，本站不复制它的图像）</dd></>}
     {art.imageSource && <><dt>图片来源</dt><dd><a href={art.imageSource.url}>{art.imageSource.label}</a></dd></>}
     {credited.length > 0 && (
       <>

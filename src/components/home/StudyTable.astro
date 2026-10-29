@@ -29,12 +29,15 @@ const awarded = await publishedCards();
 const lessons = inCourseOrder(await Promise.all((await getCollection('lessons')).map(async (l) => {
   const art = (await getEntry('artworks', l.data.artwork.id))!.data;
   const key = l.data.featured?.image ?? 'full';
-  const img = art.images.find((i) => i.key === key) ?? art.images[0];
+  // A work that cannot be reproduced here (an officialPage, no full image) has no print, unless its lesson features one.
+  const img = art.images.find((i) => i.key === key) ?? (art.officialPage ? undefined : art.images[0]);
   return {
     id: l.id, title: l.data.title, course: l.data.course, workLabel: l.data.workLabel, artwork: l.data.artwork.id, no: awarded.get(l.data.artwork.id)!.no,
-    image: { ...sized(img.src).large, alt: img.alt, small: sized(img.src).small.src }, credit: imageCredit(img, art),
+    image: img ? { ...sized(img.src).large, alt: img.alt, small: sized(img.src).small.src } : undefined, credit: img ? imageCredit(img, art) : undefined,
   };
 })));
+// The table deals prints, so only the lessons that have one; every published lesson still sits on its stage's shelf.
+const printed = lessons.filter((l) => l.image);
 const stageOf = (n: number) => stages.find((st) => n >= st.first && n <= st.last)!;
 // All the stages, in order. A stage with courses is a stack that opens into its spread; a stage without any yet is
 // an empty place on the shelf, with its lesson range.
@@ -51,14 +54,15 @@ const places = [
   { x: 978, y: 470, w: 160, h: 200, r: 7 },
   { x: 980, y: 265, w: 160, h: 170, r: -4 },
 ];
-const shown = lessons.slice(0, places.length);
-const reserve = lessons.slice(places.length);
+const shown = printed.slice(0, places.length);
+const reserve = printed.slice(places.length);
 // Every card a visitor can hold: the course cards (a course may award several) and the artist-series cards, in number order.
 const cards = (await getCollection('artworks')).filter((a) => a.data.card && awarded.has(a.id))
   .map((a) => {
     const course = awarded.get(a.id)!.course;
     return { id: a.id, no: awarded.get(a.id)!.no, title: a.data.titleZh, cabinet: course ? stageOf(course).no : 'artists',
-      src: sized((a.data.images.find((i: any) => i.key === 'full') ?? a.data.images[0]).src).small.src };
+      // A text-only card (its work cannot be reproduced here) has no cover image to copy.
+      src: a.data.officialPage ? '' : sized((a.data.images.find((i: any) => i.key === 'full') ?? a.data.images[0]).src).small.src };
   })
   .sort((a, b) => a.no.localeCompare(b.no));
 // Artist stories and cases (Phase 4.7A): one of each, laid on the desk below the table as the agreed folder and board.
@@ -190,7 +194,9 @@ window.__stHero=hero})();`;
           <button class="st-stack" type="button" data-open={st.no} aria-haspopup="dialog">
             <span class="st-deckpile" aria-hidden="true">
               {st.lessons.length > 2 && <i></i>}{st.lessons.length > 1 && <i></i>}
-              <i class="st-top"><img src={st.lessons[0].image.small} alt="" loading="lazy" /></i>
+              <i class="st-top">{st.lessons.find((l) => l.image)
+                ? <img src={st.lessons.find((l) => l.image)!.image!.small} alt="" loading="lazy" />
+                : <span class="st-top-type">{st.lessons[0].workLabel}</span>}</i>
             </span>
             <span class="st-stack-t"><b lang="en">{st.no}</b><span>{st.title}</span><em>第 {st.first}–{st.last} 课 · {st.lessons.length} 门</em></span>
           </button>
@@ -287,7 +293,9 @@ window.__stHero=hero})();`;
           {st.lessons.map((l, k) => (
             <li style={`--k:${k}`}>
               <a href={`/lessons/${l.id}/`}>
-                <span class="st-sp-print"><img src={l.image.src} alt={l.image.alt} width={l.image.width} height={l.image.height} loading="lazy" /></span>
+                <span class="st-sp-print">{l.image
+                  ? <img src={l.image.src} alt={l.image.alt} width={l.image.width} height={l.image.height} loading="lazy" />
+                  : <span class="st-sp-type">{l.workLabel}</span>}</span>
                 <span class="st-sp-cap"><span lang="en">No.{l.no}</span>{l.workLabel}<em>{l.title}</em></span>
               </a>
             </li>
@@ -300,7 +308,7 @@ window.__stHero=hero})();`;
 
   <footer class="st-credits">
     <p class="st-kicker">图片来源</p>
-    {lessons.map((l) => <p data-credit-for={l.id} hidden={!shown.includes(l)}>{l.workLabel}。{l.credit.by}，{l.credit.licenceUrl ? <a href={l.credit.licenceUrl}>{l.credit.licence}</a> : l.credit.licence}，<a href={l.credit.href}>来源</a>。</p>)}
+    {printed.map((l) => <p data-credit-for={l.id} hidden={!shown.includes(l)}>{l.workLabel}。{l.credit!.by}，{l.credit!.licenceUrl ? <a href={l.credit!.licenceUrl}>{l.credit!.licence}</a> : l.credit!.licence}，<a href={l.credit!.href}>来源</a>。</p>)}
     <p>奥斯曼·哈姆迪·贝伊{story.caption}。图片：{story.credit.by}，{story.credit.licence}，<a href={story.credit.href}>来源</a>。</p>
     {[caseImgs.samaritan, caseImgs.belle, caseImgs.walls].map((im) => (
       <p>沙特尔主教座堂：{im.caption ?? im.alt.split('：')[0]}图片：{im.credit.by}，{im.credit.licenceUrl ? <a href={im.credit.licenceUrl}>{im.credit.licence}</a> : im.credit.licence}，<a href={im.credit.href}>来源</a>。</p>
@@ -457,6 +465,11 @@ window.__stHero=hero})();`;
   .st-spread-list a { display: block; text-decoration: none; }
   .st-sp-print { display: flex; align-items: flex-end; justify-content: center; height: 210px; }
   .st-sp-print img { display: block; max-width: 170px; max-height: 210px; width: auto; height: auto; padding: 7px 7px 7px; background: var(--paper); box-shadow: 0 16px 28px -12px rgb(0 0 0 / .85); transition: transform 260ms var(--ease); }
+  /* A work whose image is not reproduced here: a typeset print with its label (the shelf's top print, a spread's print). */
+  .st-sp-type { display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 150px; height: 200px; padding: 16px;
+    background: var(--paper); color: var(--paper-ink, #1c1d20); font: 500 14px/1.6 var(--serif); text-align: center;
+    box-shadow: 0 16px 28px -12px rgb(0 0 0 / .85); transition: transform 260ms var(--ease); }
+  .st-top-type { display: block; padding: 2px; font: 500 7px/1.35 var(--serif); color: var(--paper-ink, #1c1d20); text-align: center; overflow: hidden; }
   .st-spread-list a:hover img, .st-spread-list a:focus-visible img { transform: translateY(-5px) rotate(-1deg); }
   .st-sp-cap { display: block; margin-top: 12px; font: 400 12px/1.6 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
   .st-sp-cap span { margin-right: 6px; font: 400 12px/1 var(--latin); }

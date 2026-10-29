@@ -1,0 +1,103 @@
+{
+  "id": "art-richter-october-18-1977-001",
+  "kind": "object",
+  "titleZh": "1977 年 10 月 18 日",
+  "titleEn": "October 18, 1977",
+  "artist": "格哈德·里希特",
+  "attributionNote": "格哈德·里希特（1932 年生）1988 年作，由 15 幅画组成。MoMA 说，画面来自报纸和警方的照片，以及电视画面。",
+  "dateApprox": "1988 年",
+  "objectType": "组画 · 15 幅布面油画",
+  "medium": "布面油画",
+  "dimensions": "15 幅，大小不一；陈列方式可变（据 MoMA）",
+  "collection": "纽约现代艺术博物馆，169.1995.a-o",
+  "originalStatus": "原作 15 幅齐全，1995 年入藏 MoMA。",
+  "provenance": "1988 年完成；1995 年入藏纽约现代艺术博物馆（据 MoMA）。",
+  "officialPage": {
+    "label": "纽约现代艺术博物馆的作品页面",
+    "url": "https://www.moma.org/collection/works/79037"
+  },
+  "infoSources": [
+    {
+      "label": "纽约现代艺术博物馆：Gerhard Richter, October 18, 1977，1988，169.1995.a-o",
+      "url": "https://www.moma.org/collection/works/79037"
+    },
+    {
+      "label": "旧金山现代艺术博物馆：Anselm Kiefer, Margarethe，1981，FC.595",
+      "url": "https://www.sfmoma.org/artwork/FC.595/"
+    },
+    {
+      "label": "赫什霍恩博物馆：Sigmar Polke, Bunnies，1966",
+      "url": "https://hirshhorn.si.edu/exhibitions/its-art-if-i-say-so/appropriation/sigmar-polke"
+    },
+    {
+      "label": "德国照片图书馆（Deutsche Fotothek）：Richard Peter sen., Dresden, Blick vom Rathausturm, 1945，df_ps_0000010",
+      "url": "https://commons.wikimedia.org/wiki/File:Fotothek_df_ps_0000010_Blick_vom_Rathausturm.jpg"
+    }
+  ],
+  "images": [
+    {
+      "key": "dresden",
+      "src": "/img/richard-peter-dresden-1945.jpg",
+      "kind": "detail",
+      "subject": "理查德·彼得《从市政厅塔楼俯瞰德累斯顿》（1945 年）",
+      "width": 1600,
+      "height": 1600,
+      "alt": "一张黑白照片：从高处俯瞰一座被炸毁的城市，街区只剩下没有屋顶的墙壁和窗洞，地上是成片的瓦砾。右边近处站着一尊石雕人像，背对镜头，伸出一只手，像在指着下面的废墟。",
+      "caption": "理查德·彼得《从市政厅塔楼向南俯瞰德累斯顿》，1945 年秋，黑白照片，德国照片图书馆藏（df_ps_0000010）。",
+      "credit": {
+        "author": "Richard Peter sen. / SLUB Dresden / Deutsche Fotothek",
+        "licence": "CC BY-SA 3.0 DE",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fotothek_df_ps_0000010_Blick_vom_Rathausturm.jpg",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 3.0 DE）提供"
+      }
+    },
+    {
+      "key": "halftone",
+      "src": "/img/halftone-diagram-artpilot.jpg",
+      "kind": "detail",
+      "subject": "网点印刷示意图（本站绘制）",
+      "width": 1600,
+      "height": 820,
+      "alt": "一张示意图：左边是一片排列整齐的黑点，从左到右越来越大；右边是一条从浅灰到深黑的连续渐变。下面分别写着“近看：大小不同的点”和“远看：连续的灰色”。",
+      "caption": "网点印刷示意图：同一段灰色，左边是近看时的网点，右边是远看时眼睛看到的连续色调。本站绘制。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制的示意图",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Halftone",
+        "changes": "本站按网点印刷的原理绘制，不描绘任何作品"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供作品页面的链接，不复制它的图像",
+    "basis": "里希特的作品仍受版权保护；MoMA 的页面注明“© 2026 Gerhard Richter”。本课的插图一张是理查德·彼得 1945 年拍摄的德累斯顿照片，由德国照片图书馆以 CC BY-SA 3.0 DE 授权；另一张是本站绘制的网点示意图。",
+    "verifiedOn": "2026-10-29",
+    "note": "基弗、波尔克的作品也仍受版权保护，本课只提供博物馆的链接。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "照片绘画 · 组画",
+    "maker": "格哈德·里希特",
+    "period": "1988 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "格哈德·里希特"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "规模",
+        "value": "15 幅"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "十五幅灰色的画，来自报纸和警方的照片：一幅画能证明什么，又会遮住什么？",
+    "image": null
+  }
+}

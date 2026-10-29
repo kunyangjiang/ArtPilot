@@ -59,8 +59,12 @@ const artworks = defineCollection({
             subject: z.string().optional(), // when the image shows another place, e.g. a comparison
             credit: imageCredit.optional(),
           }),
-        )
-        .min(1),
+        ),
+      // A work whose image cannot lawfully be reproduced here (most art made after the Second World War) has no 'full'
+      // image: its lesson and record show a typographic plate and send the reader to the work's own page at the museum
+      // or the artist's catalogue. Any images such a record does carry are other works or documents, each named by its
+      // own `subject`, never the work itself.
+      officialPage: z.object({ label: z.string(), url: z.string().url() }).optional(),
       imageSource: z.object({ label: z.string(), url: z.string().url(), originalFile: z.string() }).optional(),
       rights: z.object({
         status: z.string(),
@@ -95,6 +99,8 @@ const artworks = defineCollection({
         need(art.location, 'a building needs a location');
       }
       need(art.imageSource || art.images.every((i) => i.credit), 'give one imageSource, or a credit on every image');
+      need(art.images.some((i) => i.key === 'full') || art.officialPage, "an artwork needs its 'full' image, or — when it cannot be reproduced — its officialPage");
+      need(!art.officialPage || art.images.every((i) => i.key !== 'full' && i.subject), 'a work shown only by its official page carries no full image, and every other image names its subject');
     }),
 });
 
@@ -113,13 +119,17 @@ const lessons = defineCollection({
     title: z.string(),
     kicker: z.string(), // the line above the title, e.g. 细读 · 北宋 · 山水
     summary: z.string(),
-    // Which of the 83 syllabus courses this lesson is. A lesson with a course number is published: the course book
+    // Which of the 90 syllabus courses this lesson is. A lesson with a course number is published: the course book
     // links it and the homepage lists it.
-    course: z.number().int().min(1).max(83), // TOTAL_COURSES in src/lib/publication.js
+    course: z.number().int().min(1).max(90), // TOTAL_COURSES in src/lib/publication.js
     workLabel: z.string(), // the work as the book and the homepage name it, e.g. 范宽《溪山行旅图》
     // Opt in to the homepage's daily artwork rotation: an image key of the lesson's artwork. Its caption is built from
     // workLabel and the lesson title; alt text, credit and rights come from the artwork record.
     featured: z.object({ image: z.string() }).optional(),
+    // A lesson whose work cannot be reproduced here (its artwork record has an officialPage): the lawful image it opens
+    // with and that stands for it in the course book — always another work, source or document from the record, shown
+    // with its role (对照作品, 图像来源 …) so it is never taken for the work itself. `cover`: the stage's cover in the book.
+    illustration: z.object({ image: z.string(), role: z.string(), cover: z.boolean().optional() }).optional(),
     artwork: reference('artworks'),
     // Further cards the course awards with its own one (Art Collection A+): works the lesson studies closely, listed in
     // the order they are numbered. One click at the end of the lesson claims them all (src/lib/publication.js cardIndex).

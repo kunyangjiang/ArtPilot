@@ -1,0 +1,86 @@
+{
+  "id": "art-warhol-campbells-soup-cans-001",
+  "kind": "object",
+  "titleZh": "金宝汤罐头",
+  "titleEn": "Campbell's Soup Cans",
+  "artist": "安迪·沃霍尔",
+  "attributionNote": "安迪·沃霍尔（1928–1987）1962 年作。32 幅画布，每幅画一种口味的金宝汤罐头。纽约现代艺术博物馆说，画是手绘的，罐底一圈鸢尾花纹是用印章盖上去的。",
+  "dateApprox": "1962 年",
+  "objectType": "绘画 · 32 幅画布组成的一组",
+  "medium": "布面丙烯与金属磁漆",
+  "dimensions": "每幅 50.8 × 40.6 厘米；按 MoMA 的陈列方式（每幅间隔约 7.6 厘米）整体约 246 × 414 厘米",
+  "collection": "纽约现代艺术博物馆，476.1996.1-32",
+  "originalStatus": "原作，32 幅齐全。MoMA 通常把它们排成网格展出；1962 年第一次展出时，它们被放在墙边的架子上。",
+  "provenance": "1962 年 7 月首展于洛杉矶费鲁斯画廊；1996 年入藏纽约现代艺术博物馆，部分为欧文·布卢姆捐赠（据 MoMA）。",
+  "officialPage": {
+    "label": "纽约现代艺术博物馆的作品页面",
+    "url": "https://www.moma.org/collection/works/79809"
+  },
+  "infoSources": [
+    {
+      "label": "纽约现代艺术博物馆：Andy Warhol, Campbell's Soup Cans，1962，476.1996.1-32",
+      "url": "https://www.moma.org/collection/works/79809"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Roy Lichtenstein, Drowning Girl，1963",
+      "url": "https://www.moma.org/collection/works/80249"
+    },
+    {
+      "label": "泰特美术馆：Eduardo Paolozzi, I was a Rich Man's Plaything，1947，T01462",
+      "url": "https://www.tate.org.uk/art/artworks/paolozzi-i-was-a-rich-mans-plaything-t01462"
+    },
+    {
+      "label": "Ladies' Home Journal，1928 年 1 月，金宝汤广告（HathiTrust 藏本扫描，经维基共享资源取得）",
+      "url": "https://commons.wikimedia.org/wiki/File:1928_Campbell_Tomato_Soup_ad.jpg"
+    }
+  ],
+  "images": [
+    {
+      "key": "ad1928",
+      "src": "/img/campbell-tomato-soup-ad-1928.jpg",
+      "kind": "detail",
+      "subject": "金宝汤番茄汤广告（《妇女家庭杂志》，1928 年 1 月）",
+      "width": 1324,
+      "height": 1800,
+      "alt": "一整页彩色杂志广告：顶上一行大字“Why women serve soup every day!”。中间一个深蓝色的圆盘里放着一碗冒热气的番茄汤，上方悬着一罐红白两色的金宝番茄汤，标签上写着“Campbell's CONDENSED TOMATO SOUP”，中间有一枚金色的圆形奖章。周围是红番茄和绿叶，左下角写着“12 cents a can”，右下角有一个抱着罐头的小孩，下面是三栏小字。",
+      "caption": "金宝汤番茄汤广告，刊于《妇女家庭杂志》（Ladies' Home Journal），1928 年 1 月。",
+      "credit": {
+        "author": "金宝汤公司（广告）；HathiTrust 藏本扫描，经维基共享资源取得",
+        "licence": "公有领域（1928 年在美国出版）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:1928_Campbell_Tomato_Soup_ad.jpg",
+        "changes": "缩小到 1800 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供作品页面的链接，不复制它的图像",
+    "basis": "沃霍尔的作品仍受版权保护（沃霍尔 1987 年去世）；MoMA 的页面注明版权属安迪·沃霍尔基金会，金宝汤商标经授权使用。本课的插图是 1928 年的一则金宝汤杂志广告，1931 年以前在美国出版，属公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "金宝汤的名称和标签是金宝汤公司的商标；本课在历史讨论中提及它们，不表示任何关联或认可。利希滕斯坦、帕奥洛齐的作品也仍受版权保护，本课只提供博物馆的链接。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "波普艺术",
+    "maker": "安迪·沃霍尔",
+    "period": "1962 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "安迪·沃霍尔"
+      },
+      {
+        "label": "媒材",
+        "value": "布面丙烯"
+      },
+      {
+        "label": "规模",
+        "value": "32 幅"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "三十二罐汤，每罐只差一行口味：商店货架上的东西，怎样变成了一组画？",
+    "image": null
+  }
+}

@@ -155,6 +155,18 @@
       "height": 260
     }
   },
+  "/img/campbell-tomato-soup-ad-1928.jpg": {
+    "large": {
+      "src": "/img/table/campbell-tomato-soup-ad-1928.jpg",
+      "width": 809,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-campbell-tomato-soup-ad-1928.jpg",
+      "width": 191,
+      "height": 260
+    }
+  },
   "/img/caravaggio-calling.jpg": {
     "large": {
       "src": "/img/table/caravaggio-calling.jpg",
@@ -923,6 +935,18 @@
       "height": 260
     }
   },
+  "/img/met-folding-armchair.jpg": {
+    "large": {
+      "src": "/img/table/met-folding-armchair.jpg",
+      "width": 1100,
+      "height": 886
+    },
+    "small": {
+      "src": "/img/table/s-met-folding-armchair.jpg",
+      "width": 260,
+      "height": 210
+    }
+  },
   "/img/mexica-tlaltecuhtli.jpg": {
     "large": {
       "src": "/img/table/mexica-tlaltecuhtli.jpg",
@@ -993,6 +1017,18 @@
       "src": "/img/table/s-monet-rouen-sunlight.jpg",
       "width": 170,
       "height": 260
+    }
+  },
+  "/img/monet-water-lily-pond-aic.jpg": {
+    "large": {
+      "src": "/img/table/monet-water-lily-pond-aic.jpg",
+      "width": 1100,
+      "height": 709
+    },
+    "small": {
+      "src": "/img/table/s-monet-water-lily-pond-aic.jpg",
+      "width": 260,
+      "height": 167
     }
   },
   "/img/moon-jar-national-treasure.jpg": {
@@ -1136,6 +1172,18 @@
     "small": {
       "src": "/img/table/s-ren-yi-zhong-kui.jpg",
       "width": 153,
+      "height": 260
+    }
+  },
+  "/img/richard-peter-dresden-1945.jpg": {
+    "large": {
+      "src": "/img/table/richard-peter-dresden-1945.jpg",
+      "width": 1100,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-richard-peter-dresden-1945.jpg",
+      "width": 260,
       "height": 260
     }
   },
@@ -1317,6 +1365,18 @@
       "src": "/img/table/s-velasco-valle-mexico.jpg",
       "width": 260,
       "height": 178
+    }
+  },
+  "/img/velazquez-innocent-x.jpg": {
+    "large": {
+      "src": "/img/table/velazquez-innocent-x.jpg",
+      "width": 917,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-velazquez-innocent-x.jpg",
+      "width": 217,
+      "height": 260
     }
   },
   "/img/velazquez-meninas.jpg": {

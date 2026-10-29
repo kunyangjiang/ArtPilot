@@ -1,6 +1,6 @@
 // Which syllabus courses are published: a lesson says which course it is (`course` in its frontmatter), and that is
 // the one place the course book, the homepage and the tests learn it from.
-export const TOTAL_COURSES = 83;
+export const TOTAL_COURSES = 90;
 
 /** { [course number]: lesson } for the given lessons. A missing, out-of-range or repeated number is an error. */
 export function courseIndex(lessons, total = TOTAL_COURSES) {
@@ -28,7 +28,7 @@ export function cardNumber(course, total = TOTAL_COURSES) {
 // its own card (the story's `card`); a story's extra cards (`cards`) follow it. The series has no fixed end, and the case
 // series, when cases award cards, follows the whole artist series. A card is identified everywhere by its artwork id
 // (claims in the browser, #card-… links), never by its number, so a number can move without touching anyone's
-// collection: The Tortoise Trainer was No.074 on the 73-course site, No.084 with the 83-course syllabus, and follows
+// collection: The Tortoise Trainer was No.074 on the 73-course site, No.084 with the 83-course syllabus, and moved again when the syllabus grew to 90; it follows
 // the A+ core block now.
 export const ARTIST_CARDS = [
   'art-osman-hamdi-tortoise-trainer-001',

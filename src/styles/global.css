@@ -314,6 +314,8 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .callout.open { padding: .15rem 0 .15rem 1.35rem; border-left: 1px dashed var(--ink); font-size: 1.0625rem; line-height: 1.85; color: var(--ink-2); }
 /* A teaching simplification: small and documentary, dotted rule. */
 .callout.schematic { padding: .1rem 0 .1rem 1.35rem; border-left: 1px dotted var(--ink-3); font: 400 .9375rem/1.85 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+/* What to look for in a work shown only by its official page: a framed checklist the reader follows with the work open. */
+.callout.look { padding: 1.1rem 1.35rem 1.2rem; border: 1px solid var(--rule); font: 400 .9375rem/1.9 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
 .callout ol { margin: .25rem 0 0; padding-left: 1.4em; }
 .callout li { margin-bottom: .5em; }
 .rights-images { margin: 0; padding-left: 1.4em; }
@@ -838,6 +840,11 @@ dfn.term:hover { text-decoration-color: var(--ink); }
   font: 700 .66em/1 var(--serif); letter-spacing: .3em; color: var(--paper-on);
 }
 .art-card-by span:last-child { font: 400 .82em/1 var(--sans); letter-spacing: .26em; color: var(--paper-on-2); }
+/* A long maker or type line: the name never breaks, and the period and type move under it, right-aligned, instead of
+   wrapping into each other (cards whose line fits are unchanged). */
+.art-card-by { flex-wrap: wrap; row-gap: .45em; column-gap: .8em; }
+.art-card-by span:first-child { white-space: nowrap; }
+.art-card-by span:last-child { margin-left: auto; line-height: 1.35; text-align: right; }
 .art-card-stats { margin: 0; display: grid; gap: .28em; }
 .art-card-stats div { display: flex; gap: .7em; align-items: baseline; }
 .art-card-stats dt { flex: none; font: 500 .44em/1.4 var(--sans); letter-spacing: .32em; color: var(--paper-on-3); }

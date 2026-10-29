@@ -1,0 +1,55 @@
+---
+import { getEntry } from 'astro:content';
+// What stands where a work's image would be when that image cannot lawfully be reproduced here (an artwork record with
+// an officialPage and no 'full' image). With an `illustration` (the lesson opening): a lawful image from the record —
+// another work, a source or a document — shown large under its role, then the work itself named with its official
+// page. Without one (the artwork record page): the work's label and official page alone. Never an empty frame or a
+// stand-in passed off as the work.
+interface Props { artwork: string; tone?: 'gallery' | 'paper'; illustration?: { image: string; role: string } }
+const { artwork, tone = 'gallery', illustration } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const art = record?.data;
+if (!art?.officialPage) throw new Error(`WorkPlate needs an artwork with an officialPage: ${artwork}`);
+const img = illustration ? art.images.find((i) => i.key === illustration.image) : undefined;
+if (illustration && !img) throw new Error(`Illustration "${illustration.image}" not found on ${artwork}`);
+const size = art.dimensionsCm ? `${art.dimensionsCm.height} × ${art.dimensionsCm.width} cm` : art.dimensions;
+const name = art.artist ? `${art.artist.replace(/（.*）/, '')}《${art.titleZh}》` : art.titleZh;
+---
+<div class:list={['plate', `plate-${tone}`]}>
+  {img && (
+    <figure class="plate-illus">
+      <p class="plate-role">{illustration!.role} · 不是本课的主角作品</p>
+      <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="eager" decoding="async" />
+      <figcaption>{img.caption}{img.credit && <span class="plate-credit"> 图片：{img.credit.author} · {img.credit.licence}</span>}</figcaption>
+    </figure>
+  )}
+  <section class="plate-work" aria-label="本课的主角作品">
+    <p class="plate-kicker">本课的主角作品</p>
+    <p class="plate-title">{name}</p>
+    <p class="plate-en" lang="en">{art.titleEn}</p>
+    <p class="plate-meta">{art.dateApprox} · {art.medium} · {size}</p>
+    {art.collection && <p class="plate-meta">{art.collection}</p>}
+    <a class="plate-link" href={art.officialPage.url} rel="noopener">到{art.officialPage.label}看原作 →</a>
+    <p class="plate-note">这件作品仍受版权保护，本站不复制它的图像。请打开收藏机构的页面，对照本课的观看指引来看。</p>
+  </section>
+</div>
+
+<style>
+  .plate { display: grid; gap: 1.25rem; width: min(100%, 40rem); margin: 0; }
+  .plate-illus { margin: 0; }
+  .plate-role { margin: 0 0 .6rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .14em; opacity: .75; }
+  .plate-illus img { display: block; width: auto; max-width: 100%; max-height: calc(100svh - 3.5rem - 18rem); }
+  .plate-illus figcaption { margin-top: .6rem; font: 400 .8rem/1.6 var(--sans); opacity: .7; }
+  .plate-credit { opacity: .85; }
+  .plate-work { padding: 1rem 1.2rem 1.1rem; border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 35%, transparent); }
+  .plate-work p { margin: 0; }
+  .plate-kicker { font: 500 .72rem/1.5 var(--sans); letter-spacing: .16em; opacity: .7; }
+  .plate-title { margin-top: .35rem !important; font: 500 1.15rem/1.5 var(--serif); }
+  .plate-en { font: italic 400 .95rem/1.5 var(--latin); opacity: .8; }
+  .plate-meta { margin-top: .3rem !important; font-size: .85rem; line-height: 1.6; opacity: .8; }
+  .plate-link { display: inline-block; margin-top: .75rem; font: 500 1rem/1.5 var(--sans); color: inherit; text-underline-offset: .25em; }
+  .plate-note { margin-top: .6rem !important; font-size: .8rem; line-height: 1.6; opacity: .65; }
+  .plate-gallery { color: var(--gallery-ink); }
+  .plate-paper { color: var(--ink); }
+  @media (max-width: 760px) { .plate-illus img { max-height: 62svh; } }
+</style>

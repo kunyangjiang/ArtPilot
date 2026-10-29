@@ -20,11 +20,15 @@ for (const f of readdirSync(join(root, 'src/content/lessons')).filter((x) => x.e
   const art = artworks[fm.match(/^artwork:\s*(\S+)/m)?.[1]];
   if (!art) continue;
   const key = fm.match(/^featured:\s*\n\s+image:\s*(\S+)/m)?.[1] ?? 'full';
-  for (const k of new Set([key, 'full'])) { const img = art.images.find((i) => i.key === k) ?? art.images[0]; wanted.add(img.src); }
+  // A work that cannot be reproduced here (officialPage, no full image) has no print or card cover to copy; the course
+  // book shows its lesson's illustration instead (another work or document from the record, labelled as such).
+  for (const k of new Set([key, 'full'])) { const img = art.images.find((i) => i.key === k) ?? (art.officialPage ? undefined : art.images[0]); if (img) wanted.add(img.src); }
+  const illus = art.officialPage ? fm.match(/^illustration:\s*\n\s+image:\s*(\S+)/m)?.[1] : undefined;
+  if (illus) { const img = art.images.find((i) => i.key === illus); if (img) wanted.add(img.src); }
   // The course's further cards (`cards: [id, …]`), whose fronts appear in the homepage card box too.
   for (const id of fm.match(/^cards:\s*\[(.*)\]/m)?.[1].split(',').map((x) => x.trim()).filter(Boolean) ?? []) {
     const extra = artworks[id];
-    if (extra) wanted.add((extra.images.find((i) => i.key === 'full') ?? extra.images[0]).src);
+    if (extra && !extra.officialPage) wanted.add((extra.images.find((i) => i.key === 'full') ?? extra.images[0]).src);
   }
 }
 // Artist-series cards (their fronts appear in the homepage card box).

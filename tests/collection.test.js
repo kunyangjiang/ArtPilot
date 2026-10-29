@@ -105,7 +105,7 @@ test('card numbers: the artist series follows the whole core block, and a card i
   assert.throws(() => cardIndex([{ id: 'one', course: 1, artwork: 'a1', cards: ['a2'] }, { id: 'two', course: 2, artwork: 'a2' }], [], { total: 5, artistOrder: [] }), /awarded by both/);
   assert.throws(() => cardIndex(lessons, stories, { total: 5, artistOrder: [] }), /not in ARTIST_CARDS/);
   assert.throws(() => cardIndex(lessons, [], { total: 5, artistOrder: ['s1'] }), /no story/);
-  // The real site: the artist series starts right after the 83 course slots and every extra card.
+  // The real site: the artist series starts right after the 90 course slots and every extra card.
   const real = publishedCards();
   const extras = [...real].filter(([id, c]) => c.series === 'core' && c.group[0] !== id).length;
   const firstArtist = [...real.values()].find((c) => c.series === 'artist');

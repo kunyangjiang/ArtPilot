@@ -1,0 +1,100 @@
+{
+  "id": "art-bacon-study-innocent-x-001",
+  "kind": "painting",
+  "titleZh": "教皇英诺森十世习作",
+  "titleEn": "Study after Velázquez's Portrait of Pope Innocent X",
+  "artist": "弗朗西斯·培根",
+  "attributionNote": "弗朗西斯·培根（1909–1992）1953 年作，同年 2 月交给伦敦的博-阿茨画廊（据培根作品全集，编号 53-02）。英文题目里的“委拉斯开兹”指他所依据的 1650 年肖像。",
+  "dateApprox": "1953 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 153,
+    "width": 118
+  },
+  "collection": "德梅因艺术中心（美国艾奥瓦州）",
+  "officialPage": {
+    "label": "弗朗西斯·培根遗产的作品全集页面",
+    "url": "https://www.francis-bacon.com/artworks/paintings/study-after-velazquezs-portrait-pope-innocent-x"
+  },
+  "infoSources": [
+    {
+      "label": "The Estate of Francis Bacon：Study after Velázquez's Portrait of Pope Innocent X，1953，CR 53-02",
+      "url": "https://www.francis-bacon.com/artworks/paintings/study-after-velazquezs-portrait-pope-innocent-x"
+    },
+    {
+      "label": "泰特美术馆：Lucian Freud, Girl with a White Dog，1950–1，N06039",
+      "url": "https://www.tate.org.uk/art/artworks/freud-girl-with-a-white-dog-n06039"
+    },
+    {
+      "label": "Wikimedia Commons：委拉斯开兹《英诺森十世像》，罗马，多利亚·潘菲利美术馆（inv. 237）",
+      "url": "https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez,_Portrait_du_pape_Innocent_X,_1650,_huile_sur_toile,_140_%C3%97_120_cm,_Rome,_Galleria_Doria_Pamphilj_(inv._237).jpg"
+    }
+  ],
+  "images": [
+    {
+      "key": "velazquez",
+      "src": "/img/velazquez-innocent-x.jpg",
+      "kind": "detail",
+      "subject": "委拉斯开兹《教皇英诺森十世像》（罗马，多利亚·潘菲利美术馆）",
+      "width": 1501,
+      "height": 1800,
+      "alt": "一幅油画肖像：一位上了年纪的教皇坐在红色的椅子上，戴红色小帽，披红色短披肩，里面是白色的长袍。他微微侧身，目光锐利地看向画外，右手搭在扶手上，左手拿着一张纸。背景是深红色的帷幕。",
+      "caption": "委拉斯开兹《教皇英诺森十世像》，1650 年，布面油画，约 140 × 120 厘米，罗马，多利亚·潘菲利美术馆藏（inv. 237）。",
+      "credit": {
+        "author": "Matthieu.lett.ube（维基共享资源）",
+        "licence": "CC BY 4.0（照片）；画作属公有领域",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez,_Portrait_du_pape_Innocent_X,_1650,_huile_sur_toile,_140_%C3%97_120_cm,_Rome,_Galleria_Doria_Pamphilj_(inv._237).jpg",
+        "date": "2025 年 11 月",
+        "changes": "缩小到 1800 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "muybridge",
+      "src": "/img/muybridge-wrestling-plate-347.jpg",
+      "kind": "detail",
+      "subject": "迈布里奇《动物的运动》图版 347（1887 年）",
+      "width": 1200,
+      "height": 946,
+      "alt": "一张印着两排小照片的图版，共十二格：两个赤裸的男人在格子背景前摔跤，从面对面站着，到抱在一起、一人把另一人摔起，最后两人倒在地上。每一格是同一动作的一个瞬间。",
+      "caption": "迈布里奇《动物的运动》图版 347，《摔跤：希腊罗马式》，1887 年，珂罗版，英国国家科学与媒体博物馆藏。",
+      "credit": {
+        "author": "英国国家媒体博物馆（Flickr Commons）",
+        "licence": "无已知版权限制（1887 年出版，公有领域）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plate_347,_Wrestling;_Graeco-Roman_(4057432111).jpg",
+        "changes": "未缩放，只重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供作品页面的链接，不复制它的图像",
+    "basis": "培根的作品仍受版权保护（培根 1992 年去世）。本课的两张插图是他公认的图像来源：委拉斯开兹 1650 年的肖像和迈布里奇 1887 年的照片图版，都属公有领域；委拉斯开兹画作的照片由拍摄者以 CC BY 4.0 授权。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。弗洛伊德的作品也仍受版权保护，本课只提供泰特美术馆的链接。"
+  },
+  "card": {
+    "type": "战后具象绘画",
+    "maker": "弗朗西斯·培根",
+    "period": "1953 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "弗朗西斯·培根"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "153 × 118 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "德梅因"
+      }
+    ],
+    "blurb": "一位三百年前的教皇，被关进细细的竖线后张嘴呐喊：画家改动了什么？",
+    "image": null
+  }
+}

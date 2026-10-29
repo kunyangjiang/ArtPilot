@@ -1,4 +1,6 @@
-// The approved core syllabus v2.0: 83 courses in eight recommended stages. v1.0 (73 courses, seven stages) was copied
+// The approved core syllabus v2.1: 90 courses in eight recommended stages (v2.0 had 83; the Product Owner's Phase 4.19
+// authorization added courses 84–90 to Stage 08, which now runs 74–90; courses 1–83 keep their numbers and titles).
+// v2.0: 83 courses in eight recommended stages. v1.0 (73 courses, seven stages) was copied
 // verbatim from "ArtPilot — Master Product Baseline", §5 (2026-10-25). The Product Owner's 2026-10-28 revision keeps all
 // 73 topics, adds ten (six European painting courses in Stages 05–06, then abstraction, postwar European figuration, Pop
 // Art and postwar European painting with photography and memory), and splits the old Stage 06 into a nineteenth-century
@@ -19,7 +21,7 @@ export const stages: Stage[] = [
   { no: '05', title: '传统、宫廷、市场与全球交流', first: 38, last: 56 },
   { no: '06', title: '19世纪：现实、光色与现代生活', first: 57, last: 63 },
   { no: '07', title: '20世纪上半叶：现代主义与全球艺术转型', first: 64, last: 73 },
-  { no: '08', title: '战后艺术与全球当代世界', first: 74, last: 83 },
+  { no: '08', title: '战后艺术与全球当代世界', first: 74, last: 90 },
 ];
 
 export { TOTAL_COURSES } from '../lib/publication.js';
@@ -108,6 +110,13 @@ export const courseTitles: Record<number, string> = {
   81: '两件当代作品如何讲述南亚与东南亚的城市和身份？',
   82: '非洲当代艺术怎样重新使用材料与传统？',
   83: '美洲艺术如何重新讲述身份与历史？',
+  84: '沉浸式艺术为什么让人走进作品里？', // added in v2.1
+  85: '影像、动画与声音怎样创造一个艺术世界？', // added in v2.1
+  86: '当图像可以不断变化，艺术家究竟创造了什么？', // added in v2.1
+  87: '艺术为什么可以由玩家来完成？', // added in v2.1
+  88: '衣服什么时候能够成为一件艺术品？', // added in v2.1
+  89: '当艺术出现在网页和手机里，我们该怎样欣赏？', // added in v2.1
+  90: '进入21世纪，绘画为什么仍然能让人惊喜？', // added in v2.1
 };
 
 // Syllabus v1.0 (73 courses) → v2.0 (83): where each v1.0 course went. Courses not listed (1–43, and 63) kept their
