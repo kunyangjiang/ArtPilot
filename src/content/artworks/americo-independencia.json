@@ -1,0 +1,67 @@
+{
+  "id": "art-americo-independencia-001",
+  "kind": "painting",
+  "titleZh": "独立或死亡！",
+  "titleEn": "Independence or Death!",
+  "artist": "佩德罗·阿梅里科（Pedro Américo）",
+  "attributionNote": "巴西画家佩德罗·阿梅里科（1843–1905）1888 年在佛罗伦萨所作，描绘 1822 年 9 月 7 日佩德罗王子在伊皮兰加河畔宣布巴西独立的场面。画家同年在佛罗伦萨出版了说明这幅画的小册子《伊皮兰加的呐喊》。委托经过本站没有读到可靠的原始记录。",
+  "dateApprox": "1888 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 415,
+    "width": 760
+  },
+  "collection": "圣保罗大学保利斯塔博物馆（伊皮兰加博物馆）",
+  "infoSources": [
+    {
+      "label": "Michelli Scapol Monteiro, “Entre reproduções e exposições…”, Revista do Instituto de Estudos Brasileiros, n. 91 (2025)（摘要与参考文献）",
+      "url": "https://revistas.usp.br/rieb/article/view/240417"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/americo-independencia.jpg",
+      "alt": "一幅极宽的历史画：画面中间偏左的红土坡顶上，一群穿制服的骑马者簇拥着一个高举军刀的骑者，纷纷举起帽子和军刀；右边前景，一队骑兵挥刀策马奔来。左下角，一个戴帽子的乡下人赶着牛车停在路边，回头看着这群人。右边远处是一座小房子，前景右下方是一条小溪。",
+      "caption": "佩德罗·阿梅里科《独立或死亡！》，1888 年，布面油画，约 415 × 760 厘米，圣保罗大学保利斯塔博物馆（伊皮兰加博物馆）藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍，保利斯塔博物馆提供）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_Google_Art_Project.jpg",
+        "changes": "由原图缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "阿梅里科 1905 年去世；照片为维基共享资源上的 Google 艺术计划翻拍。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 63 课正文使用的是同一张照片。尺寸为多处著录的约数。"
+  },
+  "card": {
+    "type": "历史画",
+    "period": "1888 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "阿梅里科"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "约 415 × 760 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "圣保罗"
+      }
+    ],
+    "blurb": "一声呐喊被画成了一个国家的开端：这幅画后来比那一天还要有名。",
+    "image": "full",
+    "focus": "60% 50%"
+  }
+}

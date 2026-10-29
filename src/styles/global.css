@@ -941,6 +941,16 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .card-unlock .btn:focus-visible { outline-color: var(--gallery-ink); }
 .card-unlock[data-fresh="true"]:not([hidden]) .art-card { animation: card-arrive 700ms var(--ease) both; }
 @keyframes card-arrive { from { opacity: 0; transform: translateY(14px) rotate(-4deg) scale(.94); } to { opacity: 1; transform: none; } }
+/* Several cards in one claim: a small deck. The other cards sit behind the lesson's own, only their edges showing. */
+.card-stack { position: relative; display: grid; margin: 0 1rem .7rem 0; }
+.card-stack > * { grid-area: 1 / 1; }
+.card-stack > .art-card { position: relative; z-index: 2; }
+.card-stack-back { transform-origin: 50% 100%; filter: drop-shadow(0 4px 8px rgb(0 0 0 / .3)); pointer-events: none; }
+.card-stack-back:nth-child(1) { transform: translate(.35rem, .2rem) rotate(2.5deg); z-index: 1; filter: drop-shadow(0 6px 10px rgb(0 0 0 / .35)) brightness(.8); }
+.card-stack-back:nth-child(2) { transform: translate(.7rem, .4rem) rotate(5deg); z-index: 0; filter: drop-shadow(0 6px 10px rgb(0 0 0 / .35)) brightness(.62); }
+.card-unlock[data-fresh="true"]:not([hidden]) .card-stack-back { animation: card-stack-fan 900ms var(--ease) both; }
+@keyframes card-stack-fan { from { opacity: 0; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .card-unlock .card-stack-back { animation: none; } }
 
 @media (max-width: 860px) {
   .card-unlock { grid-template-columns: 1fr; justify-items: start; }

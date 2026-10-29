@@ -1,0 +1,139 @@
+{
+  "id": "art-friedrich-wanderer-001",
+  "kind": "painting",
+  "titleZh": "雾海上的旅人",
+  "titleEn": "Wanderer above the Sea of Fog",
+  "artist": "卡斯帕·大卫·弗里德里希（Caspar David Friedrich）",
+  "attributionNote": "弗里德里希（1774–1840）所作，画上没有签名和年代。汉堡美术馆定为“约 1817 年”，并说明年代并不确定。1938 年它在柏林的画廊出现时，曾有专家讨论它是弗里德里希还是卡鲁斯所作；1947 年在威斯巴登的一次展览中，它甚至被标为卡鲁斯的作品。今天的归属是弗里德里希。",
+  "dateApprox": "约 1817 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 94.8,
+    "width": 74.8
+  },
+  "collection": "汉堡美术馆（Hamburger Kunsthalle），HK-5161，汉堡艺术收藏基金会长期出借",
+  "infoSources": [
+    {
+      "label": "汉堡美术馆在线藏品：Wanderer über dem Nebelmeer，HK-5161（Johannes Grave 与 Markus Bertsch 的说明；“Provenienz”一栏）",
+      "url": "https://online-sammlung.hamburger-kunsthalle.de/en/objekt/HK-5161"
+    },
+    {
+      "label": "Edmund Burke, A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful（1757），第二部分第一至七节（Project Gutenberg 所收《伯克文集》第一卷）",
+      "url": "https://www.gutenberg.org/ebooks/15043"
+    },
+    {
+      "label": "《不列颠百科全书》：“The Raft of the Medusa”",
+      "url": "https://www.britannica.com/topic/The-Raft-of-the-Medusa"
+    },
+    {
+      "label": "《不列颠百科全书》：Alicja Zelazko, “Liberty Leading the People”",
+      "url": "https://www.britannica.com/topic/Liberty-Leading-the-People"
+    },
+    {
+      "label": "泰特美术馆：Snow Storm - Steam-Boat off a Harbour’s Mouth，N00530（展签与作品信息）",
+      "url": "https://www.tate.org.uk/art/artworks/turner-snow-storm-steam-boat-off-a-harbours-mouth-n00530"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/friedrich-wanderer.jpg",
+      "kind": "full",
+      "alt": "一幅竖长的油画：一个穿深色长外套、手拄手杖的男子背对我们，站在画面正中一块黑色的岩石顶上。他的前方是一片翻涌的白色雾海，雾中露出几座深色的岩峰和树丛；远处左边是一座圆锥形的山，右边是一道平顶的山崖，天边一片淡淡的灰蓝。",
+      "caption": "卡斯帕·大卫·弗里德里希《雾海上的旅人》，约 1817 年，布面油画，94.8 × 74.8 厘米，汉堡美术馆藏。",
+      "credit": {
+        "author": "维基共享资源（Cybershot800i 翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "figure",
+      "src": "/img/friedrich-wanderer-figure.jpg",
+      "kind": "detail",
+      "alt": "《雾海上的旅人》的局部：男子的背影占满画面，他红棕色的头发被风吹乱，左手拄着手杖，右腿踏在更高的一块岩石上。他身后是灰白的雾和远处的山影。",
+      "caption": "《雾海上的旅人》局部：背对观者的人物。",
+      "credit": {
+        "author": "维基共享资源（Cybershot800i 翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+        "changes": "由原图裁出人物部分，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "raft",
+      "src": "/img/gericault-raft.jpg",
+      "alt": "一幅巨大的横幅油画：一只简陋的木筏斜斜地漂在灰绿色的海浪上，上面挤满了赤裸或半裸的人。左下角的人已经死去，身体垂进水里；中间的人一个叠着一个向右上方攀起，最高处一个黑人男子站在木桶上，挥动一块布。左边一张破帆被风鼓起，天空昏暗，远处海平线上几乎看不见什么。",
+      "caption": "泰奥多尔·热里科《梅杜萨之筏》，1818–1819 年，布面油画，约 4.91 × 7.16 米，巴黎卢浮宫藏。",
+      "credit": {
+        "author": "维基共享资源（卢浮宫藏品的翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre%2C_1818-19).jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "热里科《梅杜萨之筏》（卢浮宫）"
+    },
+    {
+      "key": "liberty",
+      "src": "/img/delacroix-liberty.jpg",
+      "kind": "detail",
+      "subject": "德拉克洛瓦《自由引导人民》（卢浮宫）",
+      "alt": "一幅横幅油画：烟雾弥漫的街垒上，一个袒露上身、戴红色弗里吉亚帽的女子一手高举红白蓝三色旗，一手握着带刺刀的步枪，回头招呼身后的人群向前。她左边是一个戴高礼帽、端着猎枪的男子，右边是一个两手各持一支手枪、张口呼喊的少年。前景的石块和尸体中间，一个受伤的人仰头望着她。远处烟雾中隐约露出巴黎圣母院的塔楼。",
+      "caption": "欧仁·德拉克洛瓦《自由引导人民》，1830 年，布面油画，约 2.6 × 3.25 米，巴黎卢浮宫藏。",
+      "credit": {
+        "author": "维基共享资源（卢浮宫藏品的翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "turner",
+      "src": "/img/turner-snow-storm.jpg",
+      "kind": "detail",
+      "subject": "透纳《暴风雪：港口外的汽船》（泰特美术馆）",
+      "alt": "一幅几乎看不清形象的油画：灰白、褐色和黑色的笔触旋转成一个巨大的漩涡，雪、浪和烟搅在一起。画面中央隐约可见一根细细的桅杆和一团深色的船身，一缕黑烟被卷进漩涡里。",
+      "caption": "约瑟夫·马洛德·威廉·透纳《暴风雪：港口外的汽船》，1842 年展出，布面油画，91.4 × 121.9 厘米，伦敦泰特美术馆藏。",
+      "credit": {
+        "author": "维基共享资源（Web Gallery of Art 翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Snow_Storm_-_Steam-Boat_off_a_Harbour's_Mouth_-_WGA23178.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片为公有领域平面作品的忠实翻拍（PD-Art）",
+    "basis": "四幅画的作者分别卒于 1840、1824、1863、1851 年，作品早已进入公有领域；所用照片取自维基共享资源，按 PD-Art 标为公有领域。汉堡美术馆和泰特美术馆网站上的图像另有授权条件，本课没有使用。",
+    "verifiedOn": "2026-10-28",
+    "note": "翻拍照片的颜色与原作会有差异。汉堡美术馆的图像注明“SHK / Hamburger Kunsthalle / ARTOTHEK，摄影 Elke Walford”，本课用的不是那一张。"
+  },
+  "card": {
+    "type": "浪漫主义风景画",
+    "maker": "弗里德里希",
+    "period": "约 1817 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "弗里德里希"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "94.8 × 74.8 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "汉堡"
+      }
+    ],
+    "blurb": "我们站在他身后，却永远看不到他看见的东西。",
+    "image": "full",
+    "focus": "50% 35%"
+  }
+}

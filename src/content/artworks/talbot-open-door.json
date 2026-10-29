@@ -1,0 +1,170 @@
+{
+  "id": "art-talbot-open-door-001",
+  "kind": "object",
+  "titleZh": "敞开的门",
+  "titleEn": "The Open Door",
+  "attributionNote": "威廉·亨利·福克斯·塔尔博特（William Henry Fox Talbot，1800–1877）所作，摄于他的家拉科克修道院。它是他的摄影书《自然的画笔》（1844–1846 年分册出版）的第六幅图版。",
+  "dateApprox": "1844 年 5 月以前",
+  "objectType": "照片 · 由纸质负片晒印的盐纸照片",
+  "medium": "盐纸印相（由纸质负片印出）",
+  "dimensions": "图幅 14.3 × 19.4 厘米（据大都会艺术博物馆）",
+  "collection": "大都会艺术博物馆（纽约），2005.100.498",
+  "originalStatus": "塔尔博特时代印出的原版照片。同一张负片可以印出许多张，这一张是其中之一；大都会还藏有出自《自然的画笔》的另一张。",
+  "provenance": "属大都会的吉尔曼收藏（Gilman Collection），2005 年购藏；更早的经过本站未逐项核对。",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：William Henry Fox Talbot, The Open Door，2005.100.498",
+      "url": "https://www.metmuseum.org/art/collection/search/283068"
+    },
+    {
+      "label": "William Henry Fox Talbot, The Pencil of Nature（伦敦，1844–1846），第二、第六、第二十四图版的说明（Project Gutenberg 本）",
+      "url": "https://www.gutenberg.org/ebooks/33447"
+    },
+    {
+      "label": "大都会艺术博物馆：Malcolm Daniel, “William Henry Fox Talbot (1800–1877) and the Invention of Photography”（2004）",
+      "url": "https://www.metmuseum.org/essays/william-henry-fox-talbot-1800-1877-and-the-invention-of-photography"
+    },
+    {
+      "label": "大都会艺术博物馆：Malcolm Daniel, “Daguerre (1787–1851) and the Invention of Photography”（2004）",
+      "url": "https://www.metmuseum.org/essays/daguerre-1787-1851-and-the-invention-of-photography"
+    },
+    {
+      "label": "大都会艺术博物馆：Malcolm Daniel, “The Daguerreian Age in France: 1839–55”（2004）",
+      "url": "https://www.metmuseum.org/essays/the-daguerreian-age-in-france-1839-1855"
+    },
+    {
+      "label": "塞缪尔·莫尔斯 1839 年 3 月 9 日致《纽约观察家报》编辑的信（同年 4 月 20 日刊出）的录文，“Niépce: correspondance et papiers”网站",
+      "url": "https://niepce-letters-and-documents.com/book/1120/"
+    },
+    {
+      "label": "Charles Baudelaire, “Le public moderne et la photographie”，《1859 年的沙龙》（收入 Curiosités esthétiques，1868；法文维基文库本）",
+      "url": "https://fr.wikisource.org/wiki/Curiosit%C3%A9s_esth%C3%A9tiques/Salon_de_1859"
+    },
+    {
+      "label": "德拉克洛瓦国立博物馆“德拉克洛瓦与摄影”展览（2008–2009）新闻稿，经 Art Blart 转载",
+      "url": "https://artblart.com/2008/11/29/"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/talbot-open-door.jpg",
+      "kind": "full",
+      "alt": "一张褐色调的老照片：一扇木门向里敞开，门框是石砌的，门里一片黑暗。门边斜靠着一把长柄的竹扫帚，上方墙上挂着一盏小提灯，门前的地面和石墙被阳光照亮，扫帚的影子斜斜地投在门上。",
+      "caption": "威廉·亨利·福克斯·塔尔博特《敞开的门》，1844 年 5 月以前，盐纸印相（由纸质负片印出），14.3 × 19.4 厘米，大都会艺术博物馆藏（2005.100.498）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/283068",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "temple",
+      "src": "/img/daguerre-boulevard-temple.jpg",
+      "kind": "detail",
+      "subject": "达盖尔《圣殿大道》（银版照片）",
+      "alt": "一张灰色调的老照片：从高处俯视一条宽阔的林荫大道，两旁是多层的楼房和一排排树，路面空空荡荡，看不到车和行人。左下角的人行道边，隐约有一个站着的人影，一只脚抬起搭在什么东西上。",
+      "caption": "路易·达盖尔《圣殿大道》，1838 年前后，银版照片（达盖尔银版法）。这里是一张出版物的扫描，左右与实景相反。",
+      "credit": {
+        "author": "维基共享资源（据 Phaidon《The Photography Book》1997 年版扫描）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boulevard_du_Temple_by_Daguerre.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "boulevards-a",
+      "src": "/img/talbot-boulevards-a.jpg",
+      "kind": "detail",
+      "subject": "塔尔博特《巴黎的林荫大道》（大都会艺术博物馆，2005.100.609）",
+      "alt": "一张褐色调的老照片：从楼上的窗口俯视巴黎的一条大街，右边是一排带廊柱的楼房，路边停着一排马车，路面上有两道深色的湿痕，远处屋顶上林立着烟囱。",
+      "caption": "塔尔博特《巴黎的林荫大道》，1843 年 5–6 月，盐纸印相（由纸质负片印出），15.1 × 19.9 厘米，大都会艺术博物馆藏（2005.100.609）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/283070",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "boulevards-b",
+      "src": "/img/talbot-boulevards-b.jpg",
+      "kind": "detail",
+      "subject": "塔尔博特《巴黎林荫大道一景》（大都会艺术博物馆，1994.197.1(2)）",
+      "alt": "同一条巴黎街道的另一张老照片：构图与上一张相同，但整张照片淡得多、偏黄，像褪了色，阴影里的细节几乎看不见了，四边的范围也略有不同。",
+      "caption": "塔尔博特《巴黎林荫大道一景》，1843 年 5 月，盐纸印相（由纸质负片印出），出自一部《自然的画笔》，大都会艺术博物馆藏（1994.197.1(2)）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/289172",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "rossini",
+      "src": "/img/nadar-rossini.jpg",
+      "kind": "detail",
+      "subject": "纳达尔《罗西尼》（大都会艺术博物馆）",
+      "alt": "一张褐色调的半身肖像照片：一位年长、发胖的男子穿着宽大的深色外套，右手插在衣襟里，身体微侧，脸朝向镜头，神情从容。背景是素净的浅灰色。",
+      "caption": "纳达尔《焦阿基诺·罗西尼》，1856 年 3 月，盐纸印相（由玻璃负片印出），24.6 × 18.3 厘米，大都会艺术博物馆藏（1993.233）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/266902",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "delacroix",
+      "src": "/img/delacroix-durieu-nudes.jpg",
+      "kind": "detail",
+      "subject": "德拉克洛瓦据迪里厄照片所作的铅笔素描（大都会艺术博物馆）",
+      "alt": "一张铅笔素描：纸上画着两个站立的男子人体，左边一个举起手臂握着一根棍子，右边一个伸手指向前方；线条轻快，只勾出轮廓和少量阴影，有些地方重复描了几遍。",
+      "caption": "欧仁·德拉克洛瓦《坐着和站着的男子人体，据欧仁·迪里厄的照片》，1855 年，铅笔，23 × 27 厘米，大都会艺术博物馆藏（2004.425）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/366184",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片以 CC0 或 PD-Art 发布",
+    "basis": "大都会的五件藏品以 CC0 提供；达盖尔的《圣殿大道》是 1838 年前后的作品，维基共享资源上的图像扫描自出版物，按公有领域标注。",
+    "verifiedOn": "2026-10-28",
+    "note": "《圣殿大道》原版银版照片今天的收藏地与保存状况，本站没有从收藏机构的记录核对，课里不作断言；所用图像是出版物的扫描，不是原物的新照片。"
+  },
+  "card": {
+    "type": "摄影 · 盐纸照片",
+    "maker": "塔尔博特",
+    "period": "1844 年以前",
+    "facets": [
+      {
+        "label": "作者",
+        "value": "塔尔博特"
+      },
+      {
+        "label": "工艺",
+        "value": "纸质负片 · 盐纸印相"
+      },
+      {
+        "label": "图幅",
+        "value": "14.3 × 19.4 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一把扫帚、一扇门：照相机记下了画家也会停下来看的东西。",
+    "image": "full",
+    "focus": "45% 50%"
+  }
+}

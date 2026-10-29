@@ -1,0 +1,68 @@
+{
+  "id": "art-velasco-valle-mexico-001",
+  "kind": "painting",
+  "titleZh": "从圣伊莎贝尔山看墨西哥谷",
+  "titleEn": "The Valley of Mexico from the Santa Isabel Mountain Range",
+  "artist": "何塞·玛丽亚·贝拉斯科（José María Velasco）",
+  "attributionNote": "贝拉斯科（1840–1912）所作。据 Smarthistory，他是墨西哥圣卡洛斯学院的学生，意大利画家欧亨尼奥·兰德西奥是他的老师；1875 至 1892 年间他画了大约十二个版本的墨西哥谷，这一幅也许是其中最著名的。",
+  "dateApprox": "1875 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 137.5,
+    "width": 226
+  },
+  "collection": "墨西哥城国家艺术博物馆（MUNAL）",
+  "infoSources": [
+    {
+      "label": "Smarthistory：Emmanuel Ortega, “José María Velasco, The Valley of Mexico from the Santa Isabel Mountain Range”（2015；LibreTexts 收录本）",
+      "url": "https://human.libretexts.org/Bookshelves/Art/SmartHistory_of_Art_2e/SmartHistory_of_Art_XIc_-_Latin_America_1500_to_1900/04%3A_Latin_America_c._18001900/4.02%3A_Mexico_in_the_19th_century/4.2.05%3A_Jose_Maria_Velasco/4.2.5.01%3A_The_Valley_of_Mexico_from_the_Santa_Isabel_Mountain_Range"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/velasco-valle-mexico.jpg",
+      "alt": "一幅横幅风景油画：从一座红褐色的小山上俯瞰一片辽阔的河谷，谷中是银色的湖泊、平原和远处一座城市的轮廓；地平线上是淡淡的雪山，天空里飘着高高的白云。前景小路上有两个很小的人影。",
+      "caption": "何塞·玛丽亚·贝拉斯科《从圣伊莎贝尔山看墨西哥谷》，1875 年，布面油画，137.5 × 226 厘米，墨西哥城国家艺术博物馆藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍，墨西哥国家艺术博物馆提供）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Velasco_-_The_Valley_of_Mexico_from_the_Santa_Isabel_Mountain_Range_-_Google_Art_Project.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "贝拉斯科 1912 年去世；照片为维基共享资源上的 Google 艺术计划翻拍。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 63 课正文使用的是同一张照片。尺寸据 Google 艺术与文化上的馆方元数据（2260 × 1375 毫米）。"
+  },
+  "card": {
+    "type": "风景画",
+    "maker": "贝拉斯科",
+    "period": "1875 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "贝拉斯科"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "137.5 × 226 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "墨西哥城"
+      }
+    ],
+    "blurb": "湖、城市、火山和两个赶路的人：一个国家怎样看见自己的土地。",
+    "image": "full",
+    "focus": "45% 55%"
+  }
+}

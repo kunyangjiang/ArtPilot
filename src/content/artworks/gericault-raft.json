@@ -1,0 +1,67 @@
+{
+  "id": "art-gericault-raft-001",
+  "kind": "painting",
+  "titleZh": "梅杜萨之筏",
+  "titleEn": "The Raft of the Medusa",
+  "artist": "泰奥多尔·热里科（Théodore Géricault）",
+  "attributionNote": "热里科（1791–1824）所作，取材于 1816 年法国海军护卫舰“梅杜萨号”在塞内加尔外海触礁后的木筏惨剧。1819 年在沙龙展出。",
+  "dateApprox": "1818–1819 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 491,
+    "width": 716
+  },
+  "collection": "巴黎卢浮宫",
+  "infoSources": [
+    {
+      "label": "《不列颠百科全书》：“The Raft of the Medusa”与“Théodore Géricault”",
+      "url": "https://www.britannica.com/topic/The-Raft-of-the-Medusa"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gericault-raft.jpg",
+      "alt": "一幅巨大的横幅油画：一只简陋的木筏斜斜地漂在灰绿色的海浪上，上面挤满了赤裸或半裸的人。左下角的人已经死去，身体垂进水里；中间的人一个叠着一个向右上方攀起，最高处一个黑人男子站在木桶上，挥动一块布。左边一张破帆被风鼓起，天空昏暗，远处海平线上几乎看不见什么。",
+      "caption": "泰奥多尔·热里科《梅杜萨之筏》，1818–1819 年，布面油画，约 4.91 × 7.16 米，巴黎卢浮宫藏。",
+      "credit": {
+        "author": "维基共享资源（卢浮宫藏品的翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre%2C_1818-19).jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "热里科 1824 年去世；照片取自维基共享资源，按 PD-Art 标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 57 课正文使用的是同一张照片。尺寸据《不列颠百科全书》。"
+  },
+  "card": {
+    "type": "历史画",
+    "period": "1818–1819 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "热里科"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "约 4.91 × 7.16 m"
+      },
+      {
+        "label": "藏地",
+        "value": "巴黎"
+      }
+    ],
+    "blurb": "一场刚刚发生的海难，被画成了历史画那么大。",
+    "image": "full",
+    "focus": "55% 45%"
+  }
+}

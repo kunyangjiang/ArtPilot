@@ -59,7 +59,9 @@ test('artist-series cards follow every course slot and extra card, and never col
   assert.ok(artist.length >= 1);
   for (const a of artist) for (const c of core) assert.ok(Number(a.no) > Number(c.no), `artist No.${a.no} after course No.${c.no}`);
   assert.ok(Number(artist[0].no) > TOTAL_COURSES, 'after every course slot, published or not');
-  assert.equal(cards.get('art-osman-hamdi-tortoise-trainer-001').no, '105', '83 course slots + 21 extra cards, then the artist series');
+  // Never a fixed number: 83 course slots, then one more slot for every extra card a published course awards.
+  const extras = [...cards].filter(([id, c]) => c.series === 'core' && c.group[0] !== id).length;
+  assert.equal(Number(cards.get('art-osman-hamdi-tortoise-trainer-001').no), TOTAL_COURSES + extras + 1, 'course slots and extra cards, then the artist series');
 });
 
 test('every essay names a real kind, and an artist story that awards a card awards an artist-series card', async () => {

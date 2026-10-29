@@ -1,0 +1,68 @@
+{
+  "id": "art-cezanne-sainte-victoire-001",
+  "kind": "painting",
+  "titleZh": "圣维克多山与阿尔克河谷高架桥",
+  "titleEn": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+  "artist": "保罗·塞尚（Paul Cézanne）",
+  "attributionNote": "塞尚（1839–1906）在家乡艾克斯附近所作（据大都会艺术博物馆）。",
+  "dateApprox": "1882–1885 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 65.4,
+    "width": 81.6
+  },
+  "collection": "大都会艺术博物馆（纽约），29.100.64",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：James Voorhies, “Paul Cézanne (1839–1906)”（2004）",
+      "url": "https://www.metmuseum.org/essays/paul-cezanne-1839-1906"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/cezanne-sainte-victoire.jpg",
+      "alt": "一幅横幅风景油画：近处左边一棵高高的松树，细长的树干把画面分开，树冠在天空里伸展。树后是一片开阔的河谷，田地、房屋和道路被画成一块块绿、黄、橙色的色面；河谷中间横过一座多孔的高架桥。远处左边是一座淡紫灰色的大山。",
+      "caption": "保罗·塞尚《圣维克多山与阿尔克河谷高架桥》，1882–1885 年，布面油画，65.4 × 81.6 厘米，大都会艺术博物馆藏（29.100.64）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435877",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取，CC0。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 61 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "后印象派风景画",
+    "period": "1882–1885 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "塞尚"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "65.4 × 81.6 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一层一层的色块，把一个河谷搭成了一座有秩序的建筑。",
+    "image": "full",
+    "focus": "45% 45%"
+  }
+}

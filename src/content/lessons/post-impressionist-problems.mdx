@@ -1,0 +1,291 @@
+---
+title: 后印象派画家为什么不再满足于描绘光线？
+kicker: 细读 · 巴黎、艾克斯、圣雷米、塔希提 · 1880–1890 年代
+summary: 1886 年最后一次印象派展览上，挂出了一幅三米宽的大画：一个星期天下午，巴黎人在塞纳河的小岛上散步、休息，人人一动不动，整幅画由无数小色点组成。画家花了两年。这一课从这幅画出发，看四位后来被归为“后印象派”的画家，各自追问的不是同一个问题：修拉要给光一种秩序，塞尚要用颜色搭出结构，凡·高要让笔触带上感受，高更要让颜色不再听从眼睛。他们当年并不是一个团体。
+course: 61
+workLabel: 修拉《大碗岛的星期天下午》
+artwork: art-seurat-grande-jatte-001
+cards: [art-cezanne-sainte-victoire-001, art-van-gogh-wheat-cypresses-001, art-gauguin-ia-orana-maria-001]
+glossary:
+  - gl-post-impressionism
+  - gl-optical-mixture
+  - gl-complementary-color
+  - gl-impasto
+  - gl-impressionism
+---
+
+import Band from '../../components/Band.astro';
+import Split from '../../components/Split.astro';
+import Callout from '../../components/Callout.astro';
+import Term from '../../components/Term.astro';
+import ArtworkFigure from '../../components/ArtworkFigure.astro';
+import FindOnImage from '../../components/FindOnImage.astro';
+import DistanceView from '../../components/DistanceView.astro';
+import CoverCompare from '../../components/CoverCompare.astro';
+import PhotoMarks from '../../components/PhotoMarks.astro';
+import SortGame from '../../components/SortGame.astro';
+import EraLine from '../../components/EraLine.astro';
+import InferenceChain from '../../components/InferenceChain.astro';
+import ObservationQuiz from '../../components/ObservationQuiz.astro';
+import LessonComplete from '../../components/LessonComplete.astro';
+
+<Band kind="prelude">
+
+上一课的<Term id="gl-impressionism">印象派</Term>画家，用分开的笔触和纯色去捕捉光。到了 1880 年代，一些年轻一点的画家，还有一位年纪比莫奈还大的画家，开始觉得只画光是不够的。
+
+他们后来被叫作“后印象派”。可是这个名字，是 1910 年英国批评家罗杰·弗莱在伦敦办展时才提出来的。大都会艺术博物馆的研究文章说，这些画家当时**并不认为自己属于一个集体运动**，他们常常各自工作，追问的问题也各不相同。
+
+所以这一课不按四个人的生平来讲，而是按四个问题来讲。
+
+</Band>
+
+## 问题一：光能不能有秩序？
+
+<ArtworkFigure artwork="art-seurat-grande-jatte-001" image="full" />
+
+这是乔治·修拉的《大碗岛的星期天下午》，宽三米多。大碗岛是巴黎西北塞纳河上的一个小岛，星期天，城里的人来这里散步、钓鱼、划船、在树荫下休息。
+
+先在画里找几样东西：
+
+<FindOnImage
+  artwork="art-seurat-grande-jatte-001"
+  image="full"
+  prompt="找一找：一只被牵着的猴子；一个在吹号的人；一个在钓鱼的人。"
+  targets={[
+    { x: 70, y: 77, w: 10, h: 14, label: '猴子', note: '右下方，那位穿长裙的女子牵着一只小猴子。芝加哥艺术博物馆说，猴子是修拉后来才添上去的人物之一。' },
+    { x: 31, y: 18, w: 7, h: 17, label: '吹号的人', note: '左边中景，一个穿橙色衣服的人把一支号举在嘴边，朝着河面。' },
+    { x: 6, y: 28, w: 8, h: 30, label: '钓鱼的人', note: '左边河岸上，一个穿深红长裙的女子站着，手里握着钓竿。' },
+  ]}
+  miss="这里还没有。看看右下角长裙的边上、左边的中景，以及最左边的河岸。"
+/>
+
+画里的人很多，可是几乎没有一个人在“动”。他们大多是正侧面或正面，像剪影一样轮廓清楚；彼此之间也很少交流。这和上一课德加那间像是随手撞见的练功房，完全是两种感觉。
+
+芝加哥艺术博物馆的说明解释了这种静止从哪里来：
+
+- 修拉为这幅画画了许多小幅的油画习作和素描，还有几幅较大的画布，先把风景和人物的格局定下来；
+- 开画两年之后，他又回到这幅画上，加强了一些人物的轮廓，又添了一些人物，比如那只猴子，以及远处一个几乎看不见、夹着卷起的报纸的男人；
+- 对修拉来说，每一个决定都很要紧，因为他的目标是**画一幅与古希腊浮雕带相当的现代生活之画**。
+
+<Callout kind="fact">
+芝加哥艺术博物馆把这幅画定为“1884–1886 年，边框 1888–1889 年加画”。1886 年，它在第八届、也是最后一届印象派展览上首次展出。批评家费利克斯·费内翁就是在那次展览上，用“新印象派”这个词来称呼修拉、西涅克和毕沙罗父子的画。（据芝加哥艺术博物馆和大都会艺术博物馆）
+</Callout>
+
+### 一个点，一个点
+
+<DistanceView
+  artwork="art-seurat-grande-jatte-001"
+  image="large"
+  prompt="拖动滑块，从近处退到远处。注意那只猴子和它身边的草地。"
+  focus={{ x: 75, y: 84 }}
+  notes={[
+    { at: 0, text: '最近处：猴子和草地都散成了许多小小的彩色点和短笔触，黄、绿、橙、蓝并排放着，很少在调色板上调好再画。' },
+    { at: 50, text: '退后一些：点开始“融”在一起，草地变成一片明亮的绿，阴影变成一片深一点的绿和蓝。' },
+    { at: 100, text: '整幅画：人们静静地站在草地和树荫里，点几乎看不见了。' },
+  ]}
+/>
+
+大都会艺术博物馆的研究者迪塔·阿莫里写道：修拉和他的同道受到当时颜色理论著作的鼓励，相信把一小笔一小笔不同的纯色交织在一起，在观者眼中会比在调色板上预先调好的颜色更有光彩。这叫作<Term id="gl-optical-mixture">视觉混合</Term>。他们读的书，包括法国化学家谢弗勒尔、美国物理学家鲁德和法国学者夏尔·亨利的著作。谢弗勒尔研究过颜色并置时怎样互相影响，例如<Term id="gl-complementary-color">互补色</Term>放在一起，彼此都显得更鲜明。
+
+修拉的同伴西涅克这样概括他们的信念：分开的颜色元素，会重新组成光彩夺目的有色的光。
+
+<Callout kind="open">
+“视觉混合”在多大程度上真的发生，取决于你站多远。上面的滑块里也看得到：太近，看到的是点；够远，点才融成颜色。另外还有一个问题：芝加哥艺术博物馆 2004 年的展览“修拉与《大碗岛》的制作”说明，画中用的锌黄颜料**已经随着年代变成了褐色**；展览用一幅全尺寸的复制品，显示了把锌黄还原成原来颜色后的样子。一位评论者写道，原有的颜色和还原的颜色在放大镜下差别很明显，在原作的观看距离上却只是“略微可见”。（据 Anne Leonard 在 caa.reviews 上的展评）所以，我们今天看到的修拉，已经不完全是 1886 年的修拉了。
+</Callout>
+
+修拉想要的，是让印象派那种转瞬即逝的光，有一个稳定的、可以计算的秩序。毕沙罗曾经称赞这套方法是“印象派合乎逻辑的进程中的一个新阶段”，并且自己也用过一段时间。
+
+## 问题二：颜色能不能搭出结构？
+
+<ArtworkFigure artwork="art-seurat-grande-jatte-001" image="cezanne" />
+
+保罗·塞尚比莫奈还大一岁。他参加过 1874 年的第一次印象派展览，在毕沙罗的鼓励下开始到户外作画，把调色板变亮。可是他想要的东西，和印象派不一样。
+
+据大都会艺术博物馆的研究文章：
+
+- 1870 年代中期以后，塞尚开始用一种后来被称为“建构性笔触”的方法：用一组组细微渐变的颜色并排放置，来造出物体的体积，而不再依靠强烈的明暗对比；
+- 从 1882 年起，他画了很多家乡艾克斯和海边小村莱斯塔克一带的风景，用一层层有组织的水平面来搭建深度，把观者的眼睛引进风景里。这幅《圣维克多山与阿尔克河谷高架桥》就是例子；
+- 在他的静物里，他不太理会古典的透视法，每个物体在画面空间里各自独立，物体与物体之间的关系，比单一的消失点更重要。
+
+<CoverCompare
+  artwork="art-seurat-grande-jatte-001"
+  image="cezanne"
+  prompt="把画面的一部分遮起来，看看这幅风景是靠什么“站”住的。"
+  covers={[
+    { x: 44, y: 22, w: 9, h: 70, label: '遮住松树的树干', note: '那根细长的树干一遮掉，画面就失去了一根竖直的“柱子”。它把前景和远处的河谷、大山连成一体，也把画面分成左右两半。' },
+    { x: 43, y: 45, w: 34, h: 8, label: '遮住高架桥', note: '高架桥是河谷中间唯一一条笔直的横线。遮掉它，河谷里那一层层水平的色块就少了一道“横梁”。' },
+    { x: 16, y: 20, w: 30, h: 18, label: '遮住远山', note: '远山遮掉后，空间并没有塌下来，河谷本身已经由一层层的色面搭出了深度；但画面少了一个最远的“顶”。' },
+  ]}
+/>
+
+<Callout kind="interpretation">
+看这幅画，很难说出光是从哪个方向来的、是一天里的什么时候。塞尚关心的不是某一刻的光，而是一个风景怎样像建筑一样“站”起来：竖的树干、横的高架桥、一块块倾斜的田地和山坡。大都会的文章说，他的分层画法预示了后来立体主义的探索；但这是后人的回看，不是塞尚当时的目标，下一阶段的课程会再谈。
+</Callout>
+
+## 问题三：笔触能不能带上感受？
+
+<ArtworkFigure artwork="art-seurat-grande-jatte-001" image="vangogh" />
+
+文森特·凡·高这幅《有柏树的麦田》，画于 1889 年夏天，那时他住在法国南部圣雷米的一所疗养院里。大都会的语音导览说，这幅画是他在现场对着景色画的：厚厚的颜料表现了强风、树木和麦子在风中摆动，还有下午的热浪。
+
+凡·高留下了大量写给弟弟提奥的信。1889 年 6 月 25 日（这是他的弟媳乔·邦格后来推定的日期），他在信里写道：
+
+<Callout kind="source">
+“柏树一直在我心里，我想把它画成像向日葵那样的画，因为我很奇怪，还没有人照我看到的样子画过它们。它的线条和比例很美，像一座埃及方尖碑。那绿色又是那么高雅。它是阳光照耀的风景里的一块黑色，但它是我能想象的最有意思、也最难画准的黑色之一。你得在这里看它们衬着蓝天，或者更确切地说，在蓝天里。”他还写道：他用铅白颜料把两幅柏树习作的前景厚厚地堆起来，让地面显得坚实。（凡·高书信 783，法文原文据凡·高博物馆与惠更斯研究所的书信版，本课自译。）
+</Callout>
+
+这封信里还提到“一片很黄、很亮的麦田，也许是我画过的最亮的一幅”。信里说的是不是就是大都会这一幅，本课无法确定；但信里谈的每一件事：柏树像方尖碑的形状、深绿和蓝天的关系、用厚涂让地面“坚实”，都可以在这幅画上看到。
+
+<PhotoMarks
+  artwork="art-seurat-grande-jatte-001"
+  image="vangogh"
+  marks={[
+    { x: 78, y: 35, label: '柏树', note: '深绿、几乎发黑的一团，笔触一圈圈向上卷，像火焰。' },
+    { x: 30, y: 85, label: '麦田', note: '一笔一笔的黄色短线，方向不同，像被风吹得东倒西歪。' },
+    { x: 40, y: 20, label: '云', note: '白色和淡蓝的云卷成漩涡，笔触和麦子、柏树一样是弯曲的。' },
+  ]}
+  note="位置为目测约略标出。"
+/>
+
+<Callout kind="interpretation">
+凡·高的<Term id="gl-impasto">厚涂</Term>和修拉的点完全不同：修拉的每一点都很小、很克制，凡·高的每一笔都看得出手的动作和方向。天空、麦子、柏树用的是同一种弯曲的笔触，整幅画好像被同一阵风吹动。他在信里谈的是形状、颜色和画法，而不是“我很痛苦”；把这幅画读成画家内心的表达，是很常见的读法，但它是一种解读。凡·高的生平，本站将另有专门的艺术家故事来讲。
+</Callout>
+
+## 问题四：颜色能不能不听眼睛的？
+
+<ArtworkFigure artwork="art-seurat-grande-jatte-001" image="gauguin" />
+
+保罗·高更 1891 年第一次到太平洋上的塔希提岛，这是他在那里完成的第一幅重要作品。1892 年 3 月 11 日，他在给巴黎的朋友蒙弗雷德的信里描述了它：
+
+<Callout kind="source">
+“一个长着黄色翅膀的天使，向两个塔希提女人指出玛利亚和耶稣，他们也都是塔希提人……背景是很阴沉的山和开花的树。深紫色的小路，翠绿的前景，左边是香蕉。我对它还挺满意。”（据大都会艺术博物馆目录所引的英译转译。）
+</Callout>
+
+左下角写着塔希提语“IA ORANA MARIA”，意思是“向你致敬，玛利亚”。大都会的目录说：这是塔希提至今通用的问候语，也是传教士带到岛上的塔希提语《圣母经》的开头；塔希提在 1880 年成了法国的殖民地。这行字是高更后来才加上去的。
+
+1893 年，这幅画在巴黎杜朗-吕埃尔画廊展出。据大都会的目录，观众被画中淡紫、紫红、靛蓝和金橙色的“第三色”惊住了；它是那次展出的四十一幅画里最受欢迎的一幅，但整个展览评价不一，只卖出了十一幅。
+
+<PhotoMarks
+  artwork="art-seurat-grande-jatte-001"
+  image="gauguin"
+  marks={[
+    { x: 83, y: 40, label: '玛利亚与孩子', note: '穿红底白花长裙的女子，肩上坐着孩子，两人头上有淡淡的光环。' },
+    { x: 37, y: 45, label: '两个女子', note: '两个上身赤裸、围着花布的女子，双手合十，走向玛利亚。' },
+    { x: 9, y: 35, label: '天使', note: '左边树丛里，一个长着黄色翅膀的人物，几乎藏在花里。' },
+    { x: 20, y: 97, label: '题字', note: '“IA ORANA MARIA”：画家后来加上的塔希提语题字。' },
+  ]}
+  note="位置为目测约略标出。"
+/>
+
+那两个双手合十的女子，姿势是从哪里来的？
+
+<InferenceChain
+  prompt="“画中两个女子的姿势，来自爪哇婆罗浮屠的浮雕。”这个说法能走多远？"
+  labels={{ record: '馆方研究' }}
+  claims={[
+    {
+      claim: '画中两个女子的姿势，来自爪哇婆罗浮屠的浮雕。',
+      steps: [
+        { kind: 'see', text: '两人侧身行走，双手合十，身体的姿态像浮雕里的人物，而不像在走动中被看到的人。' },
+        { kind: 'record', text: '大都会：高更在去塔希提之前就收集了婆罗浮屠浮雕的照片，并把它们带到了塔希提，作为他自己的“想象的博物馆”。' },
+        { kind: 'record', text: '大都会：学者多里瓦尔 1951 年最早把这些照片和高更的画联系起来；画中这两个女子的姿势，直接取自一块浮雕上层左边双手合十的女信徒。' },
+      ],
+      verdict: 'justified',
+      note: '这一条成立，因为有证据说明高更手里确实有那些照片，而不只是“看起来像”。只凭形状相似，是不能断定谁学了谁的。第 22 课讲过婆罗浮屠；第 59 课讲过，照片让远方的图像可以被复制、被带走。',
+    },
+  ]}
+/>
+
+<Callout kind="interpretation">
+高更想逃离工业化的欧洲，去寻找一片“未被触碰”的纯朴土地。但大都会的目录也写道：他第一次去塔希提是在法国政府的资助下成行的；他到达时发现，那里并不是他所希望的原始之地。基督教已经由传教士带来，岛屿已经是法国的殖民地。这幅画里的“塔希提”，是一个欧洲画家把基督教题材、爪哇浮雕的姿势、塔希提的人和果实组合起来的形象。今天看这幅画，既要看到它的色彩和构图有多大胆，也要看到它是从一个殖民者的位置画出来的。
+</Callout>
+
+<SortGame
+  prompt="下面三句话，各说的是哪一位画家？"
+  bins={[
+    { id: 'seurat', label: '修拉' },
+    { id: 'cezanne', label: '塞尚' },
+    { id: 'gauguin', label: '高更' },
+  ]}
+  items={[
+    { text: '用一层层水平的色面来搭建风景的深度。', bin: 'cezanne', note: '对。大都会说塞尚用有组织的层次构造出一系列水平面。' },
+    { text: '相信把纯色的小点并排，会在观者眼中混合出更明亮的颜色。', bin: 'seurat', note: '对。这是修拉和新印象派的“视觉混合”。' },
+    { text: '把一个基督教题材，画进了太平洋岛屿的人物和果实里。', bin: 'gauguin', note: '对。《万福玛利亚》是他第一次旅居塔希提时唯一明确的基督教题材的画。' },
+  ]}
+/>
+
+<EraLine
+  from={1870}
+  to={1915}
+  ticks={[1870, 1880, 1890, 1900, 1910]}
+  rows={[
+    { label: '塞尚参加第一次印象派展览', from: 1874, to: 1874, dates: '1874 年' },
+    { label: '塞尚《圣维克多山与高架桥》', from: 1882, to: 1885, dates: '1882–1885 年' },
+    { label: '修拉《大碗岛》', from: 1884, to: 1886, dates: '1884–1886 年', here: true },
+    { label: '最后一次印象派展览', from: 1886, to: 1886, dates: '1886 年' },
+    { label: '修拉加画边框', from: 1888, to: 1889, dates: '1888–1889 年' },
+    { label: '凡·高在圣雷米画柏树', from: 1889, to: 1889, dates: '1889 年夏' },
+    { label: '高更《万福玛利亚》', from: 1891, to: 1891, dates: '1891 年' },
+    { label: '修拉去世', from: 1891, to: 1891, dates: '1891 年' },
+    { label: '塞尚第一次个展（沃拉尔画廊）', from: 1895, to: 1895, dates: '1895 年' },
+    { label: '弗莱提出“后印象派”', from: 1910, to: 1910, dates: '1910 年' },
+  ]}
+  caption="年代据芝加哥艺术博物馆、大都会艺术博物馆的藏品记录和研究文章。“后印象派”是 1910 年才有的名称，图中更早的事件发生时，这个词还不存在。"
+/>
+
+<Band kind="reflection">
+
+回到开头的问题：后印象派画家为什么不再满足于描绘光线？
+
+- **因为每个人都看到了印象派留下的一个问题，而且看到的不一样。** 修拉觉得印象派的光太随意，要给它秩序；塞尚觉得印象派的画太松散，要给它结构；凡·高要让笔触本身带上力量和方向；高更则要让颜色和形状服从画面的意义，而不是服从眼睛。
+- **他们并没有放弃光和颜色。** 修拉研究的正是颜色怎样在眼睛里发光；凡·高的信里满是“黄”“绿”“蓝”。他们只是不再把“如实记录某一刻的光”当作绘画的终点。
+- **“后印象派”是后来的标签。** 弗莱 1910 年才把他们放在同一个名字下。理解他们，最好的办法是分别去问：这一位画家，想解决的是什么问题？
+- **他们的画也带着各自的时代。** 修拉的颜色在变化，凡·高在疗养院里写信谈柏树，高更的塔希提背后是殖民的历史。它们不是通向“下一个风格”的台阶，而是四条各自的道路。
+
+还有一些问题，留给你：
+
+- 四位画家里，你觉得谁的问题最难回答？为什么？
+- 如果修拉的锌黄没有变色，你觉得我们对这幅画的感受会不同吗？
+- 高更的画色彩大胆，也带着殖民者的眼光。这两件事可以同时成立吗？
+
+</Band>
+
+这道题是可选的：答或不答、答对与否，都不影响学完本课。
+
+<ObservationQuiz
+  question={{
+    prompt: '关于“后印象派”，下面哪一种说法最有根据？',
+    options: [
+      { text: '这是罗杰·弗莱 1910 年提出的名称；修拉、塞尚、凡·高、高更当时各自工作，在印象派之后分别追问秩序、结构、笔触与象征等不同的问题。', explanation: '对。这是大都会艺术博物馆的研究文章所支持的。' },
+      { text: '这四位画家在 1880 年代组成了一个叫“后印象派”的团体，发表了共同的宣言。', explanation: '大都会的文章说，他们当时并不认为自己属于一个集体运动，这个名字是 1910 年才有的。' },
+      { text: '修拉《大碗岛》今天的颜色和 1886 年首次展出时完全一样。', explanation: '芝加哥艺术博物馆的研究显示，画中的锌黄已经变成褐色。' },
+      { text: '只要两件作品的人物姿势相似，就足以证明一位画家学了另一件作品。', explanation: '高更与婆罗浮屠的联系之所以成立，是因为有证据说明他手里有那些照片；只凭相似是不够的。' },
+    ],
+    answer: 0,
+  }}
+/>
+
+<LessonComplete artwork="art-seurat-grande-jatte-001" />
+
+<Band kind="sources">
+
+### 出处
+
+1. 芝加哥艺术博物馆藏品页：Georges Seurat, A Sunday on La Grande Jatte — 1884，1926.224（说明：许多习作、两年后添加人物、古希腊浮雕带的目标；年代与边框；来历；展览史）。[链接](https://www.artic.edu/artworks/27992)
+2. 大都会艺术博物馆：Dita Amory, “Georges Seurat (1859–1891) and Neo-Impressionism”，Heilbrunn Timeline of Art History（2004）（谢弗勒尔、鲁德、亨利的颜色理论，视觉混合，西涅克的话，费内翁与“新印象派”，毕沙罗的评语）。[链接](https://www.metmuseum.org/essays/georges-seurat-1859-1891-and-neo-impressionism)
+3. 大都会艺术博物馆：James Voorhies, “Post-Impressionism”（2004）（弗莱 1910 年的展览与命名；画家们并不自认属于一个集体）。[链接](https://www.metmuseum.org/essays/post-impressionism)
+4. 大都会艺术博物馆：James Voorhies, “Paul Cézanne (1839–1906)”（2004）（1874 年参展、毕沙罗的鼓励、建构性笔触、水平面的层次、静物中的透视）。[链接](https://www.metmuseum.org/essays/paul-cezanne-1839-1906)
+5. Anne Leonard，“Seurat and the Making of La Grande Jatte”展评（芝加哥艺术博物馆，2004 年 6 月 19 日至 9 月 19 日；图录作者 Robert L. Herbert），caa.reviews（锌黄变褐与全尺寸还原复制品）。[链接](https://m.caareviews.org/reviews/684)
+6. 凡·高书信 783，致提奥·凡·高，圣雷米，1889 年 6 月 25 日（凡·高博物馆藏原件；日期据乔·凡·高-邦格 1914 年的推定）。[链接](https://vangoghletters.org/vg/letters/let783/letter.html)
+7. 大都会艺术博物馆藏品页：Vincent van Gogh, Wheat Field with Cypresses，1993.132（语音导览）。[链接](https://www.metmuseum.org/art/collection/search/436535)
+8. 大都会艺术博物馆藏品页：Paul Gauguin, Ia Orana Maria (Hail Mary)，51.112.2（目录条目：1892 年 3 月 11 日致蒙弗雷德的信、1893 年杜朗-吕埃尔画廊展出、题字、殖民背景、政府资助的旅程、婆罗浮屠照片与多里瓦尔 1951 年的研究）。[链接](https://www.metmuseum.org/art/collection/search/438821)
+9. 大都会艺术博物馆藏品页：Paul Cézanne, Mont Sainte-Victoire and the Viaduct of the Arc River Valley，29.100.64。[链接](https://www.metmuseum.org/art/collection/search/435877)
+10. 图片授权见文末权利说明。
+
+### 延伸阅读（本课未直接查阅）
+
+1. Robert L. Herbert et al., *Seurat and the Making of La Grande Jatte*（Art Institute of Chicago / University of California Press, 2004）。
+2. Roger Fry, “The Post-Impressionists”，收入 *Manet and the Post-Impressionists*（Grafton Galleries, London, 1910）。
+3. Elizabeth C. Childs, *Vanishing Paradise: Art and Exoticism in Colonial Tahiti*（University of California Press, 2013）。
+
+</Band>

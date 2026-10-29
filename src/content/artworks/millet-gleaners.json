@@ -1,0 +1,72 @@
+{
+  "id": "art-millet-gleaners-001",
+  "kind": "painting",
+  "titleZh": "拾穗者",
+  "titleEn": "The Gleaners",
+  "artist": "让-弗朗索瓦·米勒（Jean-François Millet）",
+  "attributionNote": "米勒（1814–1875）1849 年离开巴黎、定居巴比松后所作。馆方说明称它是他研究拾穗者约十年的结果；1857 年在沙龙展出。",
+  "dateApprox": "1857 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 83.5,
+    "width": 110
+  },
+  "collection": "巴黎奥赛博物馆，RF 592（1890 年波默里夫人捐赠）",
+  "infoSources": [
+    {
+      "label": "奥赛博物馆在 Google 艺术与文化上的作品说明：Gleaners（Des glaneuses）",
+      "url": "https://artsandculture.google.com/asset/gleaners/GgHsT2RumWxbtw"
+    },
+    {
+      "label": "大都会艺术博物馆：Ross Finocchio, “Nineteenth-Century French Realism”（2004）",
+      "url": "https://www.metmuseum.org/essays/nineteenth-century-french-realism"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/millet-gleaners.jpg",
+      "alt": "一幅横幅油画：收割过的麦田上，三个农妇弯着腰拾地上的麦穗。她们穿着粗布衣裙，头上包着红、蓝、黄的头巾，左边两个几乎弯成直角，右边一个正要俯身。远处金黄的阳光下堆着高高的麦垛，一辆满载的车和许多忙碌的人；右边远处一个骑马的人在看着。",
+      "caption": "让-弗朗索瓦·米勒《拾穗者》，1857 年，布面油画，83.5 × 110 厘米，巴黎奥赛博物馆藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "米勒 1875 年去世；照片为维基共享资源上的 Google 艺术计划翻拍。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 58 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "现实主义绘画",
+    "maker": "米勒",
+    "period": "1857 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "米勒"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "83.5 × 110 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "巴黎"
+      }
+    ],
+    "blurb": "三个弯下去的背影，和远处堆得高高的麦垛。",
+    "image": "full",
+    "focus": "40% 60%"
+  }
+}

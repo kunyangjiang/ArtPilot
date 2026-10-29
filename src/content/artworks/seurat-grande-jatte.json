@@ -1,0 +1,151 @@
+{
+  "id": "art-seurat-grande-jatte-001",
+  "kind": "painting",
+  "titleZh": "大碗岛的星期天下午",
+  "titleEn": "A Sunday on La Grande Jatte — 1884",
+  "artist": "乔治·修拉（Georges Seurat）",
+  "attributionNote": "修拉（1859–1891）所作。芝加哥艺术博物馆把它定为“1884–1886 年，边框 1888–1889 年加画”：开画两年后，修拉又回到这幅画上，加强一些人物的轮廓，又添了几个人物；后来又在四周画了一圈点彩的边框。1886 年在第八届、也是最后一届印象派展览上首次展出。",
+  "dateApprox": "1884–1886 年（边框 1888–1889 年）",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 207.5,
+    "width": 308.1
+  },
+  "collection": "芝加哥艺术博物馆，1926.224（海伦·伯奇·巴特利特纪念收藏）",
+  "infoSources": [
+    {
+      "label": "芝加哥艺术博物馆藏品页：A Sunday on La Grande Jatte — 1884，1926.224（说明、来历、展览史）",
+      "url": "https://www.artic.edu/artworks/27992"
+    },
+    {
+      "label": "大都会艺术博物馆：Dita Amory, “Georges Seurat (1859–1891) and Neo-Impressionism”（2004）",
+      "url": "https://www.metmuseum.org/essays/georges-seurat-1859-1891-and-neo-impressionism"
+    },
+    {
+      "label": "大都会艺术博物馆：James Voorhies, “Post-Impressionism”（2004）",
+      "url": "https://www.metmuseum.org/essays/post-impressionism"
+    },
+    {
+      "label": "大都会艺术博物馆：James Voorhies, “Paul Cézanne (1839–1906)”（2004）",
+      "url": "https://www.metmuseum.org/essays/paul-cezanne-1839-1906"
+    },
+    {
+      "label": "Anne Leonard，对“Seurat and the Making of La Grande Jatte”展览（芝加哥艺术博物馆，2004）的评论，caa.reviews",
+      "url": "https://m.caareviews.org/reviews/684"
+    },
+    {
+      "label": "凡·高书信 783，致提奥，圣雷米，1889 年 6 月 25 日（凡·高博物馆与惠更斯研究所的书信版）",
+      "url": "https://vangoghletters.org/vg/letters/let783/letter.html"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Paul Gauguin, Ia Orana Maria (Hail Mary)，51.112.2（目录条目）",
+      "url": "https://www.metmuseum.org/art/collection/search/438821"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/seurat-grande-jatte.jpg",
+      "kind": "full",
+      "alt": "一幅很宽的油画：塞纳河中一个小岛的草地上，许多人在午后的树荫里休息、散步。右边前景站着一对衣着讲究的男女，女子穿着后摆高高隆起的长裙，牵着一只猴子；左边前景一个男子斜躺在草地上，旁边坐着一男一女。远处有撑阳伞的女子、钓鱼的人、奔跑的小女孩，河上有帆船和划船的人。所有人都像雕像一样静止，侧面或正面，轮廓清楚。整幅画由无数细小的彩色点和短笔触组成，四周画着一圈深色的边框。",
+      "caption": "乔治·修拉《大碗岛的星期天下午》，1884–1886 年（边框 1888–1889 年），布面油画，207.5 × 308.1 厘米，芝加哥艺术博物馆藏（1926.224）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/27992",
+        "changes": "取自芝加哥艺术博物馆的 IIIF 图像服务，缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "large",
+      "src": "/img/seurat-grande-jatte-large.jpg",
+      "kind": "detail",
+      "alt": "同一幅《大碗岛的星期天下午》的大尺寸照片，供放大观看一个个颜色点。",
+      "caption": "修拉《大碗岛的星期天下午》（大尺寸图像，供放大观看）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/27992",
+        "changes": "取自芝加哥艺术博物馆的 IIIF 图像服务，缩小到 2600 像素宽并重新压缩，供放大观看；未裁切、未调色"
+      }
+    },
+    {
+      "key": "cezanne",
+      "src": "/img/cezanne-sainte-victoire.jpg",
+      "alt": "一幅横幅风景油画：近处左边一棵高高的松树，细长的树干把画面分开，树冠在天空里伸展。树后是一片开阔的河谷，田地、房屋和道路被画成一块块绿、黄、橙色的色面；河谷中间横过一座多孔的高架桥。远处左边是一座淡紫灰色的大山。",
+      "caption": "保罗·塞尚《圣维克多山与阿尔克河谷高架桥》，1882–1885 年，布面油画，65.4 × 81.6 厘米，大都会艺术博物馆藏（29.100.64）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435877",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "塞尚《圣维克多山与阿尔克河谷高架桥》（大都会艺术博物馆）"
+    },
+    {
+      "key": "vangogh",
+      "src": "/img/van-gogh-wheat-cypresses.jpg",
+      "alt": "一幅横幅风景油画：前景是一片金黄的麦田，麦穗被风吹得起伏；右边一棵深绿色的柏树像火焰一样高高地伸向天空，旁边还有一棵小一些的；中景是灰绿色的橄榄树和蓝色的远山；天空里白色的云卷成一团团漩涡。到处都是厚厚的、弯曲的笔触。",
+      "caption": "文森特·凡·高《有柏树的麦田》，1889 年，布面油画，73.2 × 93.4 厘米，大都会艺术博物馆藏（1993.132）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436535",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "凡·高《有柏树的麦田》（大都会艺术博物馆）"
+    },
+    {
+      "key": "gauguin",
+      "src": "/img/gauguin-ia-orana-maria.jpg",
+      "alt": "一幅竖长的油画：右边一个穿红底白花长裙的女子站着，肩上坐着一个小孩，两人头上都有淡淡的金色光环。中间两个上身赤裸、围着花布的女子双手合十，朝她走来。左边树丛里露出一个长着黄色翅膀的人。前景地上摆着香蕉和面包果，左下角写着“IA ORANA MARIA”。背景是开花的树、紫色的小路和远山。",
+      "caption": "保罗·高更《万福玛利亚》，1891 年，布面油画，113.7 × 87.6 厘米，大都会艺术博物馆藏（51.112.2）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/438821",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "高更《万福玛利亚》（大都会艺术博物馆）"
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片以 CC0 发布",
+    "basis": "芝加哥艺术博物馆与大都会艺术博物馆的开放获取图像，均为 CC0。",
+    "verifiedOn": "2026-10-28",
+    "note": "修拉画中的锌黄颜料已经变褐，今天看到的颜色（包括这张照片）与 1886 年的样子并不相同；课里讨论颜色时注明了这一点。"
+  },
+  "card": {
+    "type": "新印象派油画",
+    "period": "1884–1886 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "修拉"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "207.5 × 308.1 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "芝加哥"
+      }
+    ],
+    "blurb": "一个星期天下午，被一点一点“砌”成了一道古典的浮雕。",
+    "image": "full",
+    "focus": "60% 55%"
+  }
+}

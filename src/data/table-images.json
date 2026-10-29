@@ -35,6 +35,18 @@
       "height": 174
     }
   },
+  "/img/americo-independencia.jpg": {
+    "large": {
+      "src": "/img/table/americo-independencia.jpg",
+      "width": 1100,
+      "height": 589
+    },
+    "small": {
+      "src": "/img/table/s-americo-independencia.jpg",
+      "width": 260,
+      "height": 139
+    }
+  },
   "/img/angkor-wat-aerial.jpg": {
     "large": {
       "src": "/img/table/angkor-wat-aerial.jpg",
@@ -143,6 +155,18 @@
       "height": 193
     }
   },
+  "/img/cezanne-sainte-victoire.jpg": {
+    "large": {
+      "src": "/img/table/cezanne-sainte-victoire.jpg",
+      "width": 1100,
+      "height": 887
+    },
+    "small": {
+      "src": "/img/table/s-cezanne-sainte-victoire.jpg",
+      "width": 260,
+      "height": 209
+    }
+  },
   "/img/chartres-full.jpg": {
     "large": {
       "src": "/img/table/chartres-full.jpg",
@@ -191,6 +215,18 @@
       "height": 260
     }
   },
+  "/img/church-heart-andes.jpg": {
+    "large": {
+      "src": "/img/table/church-heart-andes.jpg",
+      "width": 1100,
+      "height": 606
+    },
+    "small": {
+      "src": "/img/table/s-church-heart-andes.jpg",
+      "width": 260,
+      "height": 143
+    }
+  },
   "/img/ciwara-headdress.jpg": {
     "large": {
       "src": "/img/table/ciwara-headdress.jpg",
@@ -227,6 +263,30 @@
       "height": 120
     }
   },
+  "/img/courbet-burial.jpg": {
+    "large": {
+      "src": "/img/table/courbet-burial.jpg",
+      "width": 1100,
+      "height": 505
+    },
+    "small": {
+      "src": "/img/table/s-courbet-burial.jpg",
+      "width": 260,
+      "height": 119
+    }
+  },
+  "/img/daumier-third-class.jpg": {
+    "large": {
+      "src": "/img/table/daumier-third-class.jpg",
+      "width": 1100,
+      "height": 802
+    },
+    "small": {
+      "src": "/img/table/s-daumier-third-class.jpg",
+      "width": 260,
+      "height": 189
+    }
+  },
   "/img/david-death-of-socrates.jpg": {
     "large": {
       "src": "/img/table/david-death-of-socrates.jpg",
@@ -237,6 +297,18 @@
       "src": "/img/table/s-david-death-of-socrates.jpg",
       "width": 260,
       "height": 173
+    }
+  },
+  "/img/degas-dance-class.jpg": {
+    "large": {
+      "src": "/img/table/degas-dance-class.jpg",
+      "width": 1020,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-degas-dance-class.jpg",
+      "width": 241,
+      "height": 260
     }
   },
   "/img/diadoumenos-full.jpg": {
@@ -287,6 +359,18 @@
       "height": 198
     }
   },
+  "/img/friedrich-wanderer.jpg": {
+    "large": {
+      "src": "/img/table/friedrich-wanderer.jpg",
+      "width": 859,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-friedrich-wanderer.jpg",
+      "width": 203,
+      "height": 260
+    }
+  },
   "/img/fuchun-peak.jpg": {
     "large": {
       "src": "/img/table/fuchun-peak.jpg",
@@ -321,6 +405,30 @@
       "src": "/img/table/s-gandhara-buddha.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/gauguin-ia-orana-maria.jpg": {
+    "large": {
+      "src": "/img/table/gauguin-ia-orana-maria.jpg",
+      "width": 866,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-gauguin-ia-orana-maria.jpg",
+      "width": 204,
+      "height": 260
+    }
+  },
+  "/img/gericault-raft.jpg": {
+    "large": {
+      "src": "/img/table/gericault-raft.jpg",
+      "width": 1100,
+      "height": 751
+    },
+    "small": {
+      "src": "/img/table/s-gericault-raft.jpg",
+      "width": 260,
+      "height": 177
     }
   },
   "/img/giotto-lamentation.jpg": {
@@ -695,6 +803,18 @@
       "height": 260
     }
   },
+  "/img/millet-gleaners.jpg": {
+    "large": {
+      "src": "/img/table/millet-gleaners.jpg",
+      "width": 1100,
+      "height": 824
+    },
+    "small": {
+      "src": "/img/table/s-millet-gleaners.jpg",
+      "width": 260,
+      "height": 194
+    }
+  },
   "/img/mireuksa-plate-a.jpg": {
     "large": {
       "src": "/img/table/mireuksa-plate-a.jpg",
@@ -719,6 +839,18 @@
       "height": 260
     }
   },
+  "/img/monet-rouen-sunlight.jpg": {
+    "large": {
+      "src": "/img/table/monet-rouen-sunlight.jpg",
+      "width": 721,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-monet-rouen-sunlight.jpg",
+      "width": 170,
+      "height": 260
+    }
+  },
   "/img/moon-jar-national-treasure.jpg": {
     "large": {
       "src": "/img/table/moon-jar-national-treasure.jpg",
@@ -729,6 +861,18 @@
       "src": "/img/table/s-moon-jar-national-treasure.jpg",
       "width": 260,
       "height": 162
+    }
+  },
+  "/img/morisot-lorient.jpg": {
+    "large": {
+      "src": "/img/table/morisot-lorient.jpg",
+      "width": 1100,
+      "height": 644
+    },
+    "small": {
+      "src": "/img/table/s-morisot-lorient.jpg",
+      "width": 260,
+      "height": 152
     }
   },
   "/img/mughal-shah-jahan-terrace.jpg": {
@@ -825,6 +969,30 @@
       "src": "/img/table/s-raphael-alba-madonna.jpg",
       "width": 260,
       "height": 260
+    }
+  },
+  "/img/ren-yi-zhong-kui.jpg": {
+    "large": {
+      "src": "/img/table/ren-yi-zhong-kui.jpg",
+      "width": 649,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-ren-yi-zhong-kui.jpg",
+      "width": 153,
+      "height": 260
+    }
+  },
+  "/img/seurat-grande-jatte.jpg": {
+    "large": {
+      "src": "/img/table/seurat-grande-jatte.jpg",
+      "width": 1100,
+      "height": 736
+    },
+    "small": {
+      "src": "/img/table/s-seurat-grande-jatte.jpg",
+      "width": 260,
+      "height": 174
     }
   },
   "/img/shah-quli-saz-dragon.jpg": {
@@ -935,6 +1103,18 @@
       "height": 260
     }
   },
+  "/img/talbot-open-door.jpg": {
+    "large": {
+      "src": "/img/table/talbot-open-door.jpg",
+      "width": 1100,
+      "height": 823
+    },
+    "small": {
+      "src": "/img/table/s-talbot-open-door.jpg",
+      "width": 260,
+      "height": 194
+    }
+  },
   "/img/tell-asmar-worshiper.jpg": {
     "large": {
       "src": "/img/table/tell-asmar-worshiper.jpg",
@@ -945,6 +1125,30 @@
       "src": "/img/table/s-tell-asmar-worshiper.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/van-gogh-wheat-cypresses.jpg": {
+    "large": {
+      "src": "/img/table/van-gogh-wheat-cypresses.jpg",
+      "width": 1100,
+      "height": 876
+    },
+    "small": {
+      "src": "/img/table/s-van-gogh-wheat-cypresses.jpg",
+      "width": 260,
+      "height": 207
+    }
+  },
+  "/img/velasco-valle-mexico.jpg": {
+    "large": {
+      "src": "/img/table/velasco-valle-mexico.jpg",
+      "width": 1100,
+      "height": 756
+    },
+    "small": {
+      "src": "/img/table/s-velasco-valle-mexico.jpg",
+      "width": 260,
+      "height": 178
     }
   },
   "/img/velazquez-meninas.jpg": {

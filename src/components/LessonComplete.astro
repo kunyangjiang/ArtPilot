@@ -33,7 +33,14 @@ const rest = kind === 'story' ? '读完故事 · 领取其余 {n} 张藏品卡' 
     <button type="button" class="btn btn-primary" data-claim>{words.button}</button>
   </div>
   <div class="card-unlock" data-unlock tabindex="-1" role="status" aria-live="polite" hidden>
-    <ArtworkCard artwork={artwork} variant="mini" />
+    {n > 1 ? (
+      <div class="card-stack" data-behind={Math.min(n - 1, 2)}>
+        {/* A deck: the lesson's next cards (at most two, however many there are) peek out behind its own one. They are
+            the real card faces, revealed by the same claim; the panel text lists them all. */}
+        {group.slice(1, 3).map((id) => <div class="card-stack-back" aria-hidden="true" inert><ArtworkCard artwork={id} variant="mini" /></div>)}
+        <ArtworkCard artwork={artwork} variant="mini" />
+      </div>
+    ) : <ArtworkCard artwork={artwork} variant="mini" />}
     <div class="card-unlock-text">
       <p class="kicker" data-unlock-kicker>获得藏品卡</p>
       <p class="card-unlock-title" data-unlock-title></p>

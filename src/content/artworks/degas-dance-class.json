@@ -1,0 +1,68 @@
+{
+  "id": "art-degas-dance-class-001",
+  "kind": "painting",
+  "titleZh": "舞蹈课",
+  "titleEn": "The Dance Class",
+  "artist": "埃德加·德加（Edgar Degas）",
+  "attributionNote": "德加（1834–1917）应男中音歌唱家让-巴蒂斯特·福尔 1873 年的委托所作，1874 年 11 月交画，得五千法郎；1876 年以《舞蹈考试》为题在第二届印象派展览展出（据大都会艺术博物馆）。",
+  "dateApprox": "1874 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 83.5,
+    "width": 77.2
+  },
+  "collection": "大都会艺术博物馆（纽约），1987.47.1",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：The Dance Class，1987.47.1（目录条目与语音导览）",
+      "url": "https://www.metmuseum.org/art/collection/search/438817"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/degas-dance-class.jpg",
+      "alt": "一幅近乎方形的油画：一间绿墙的练功房，地板从左下向右上斜着延伸。许多穿白色纱裙、系彩色腰带的小舞者站着、坐着或靠着墙，有的在整理衣裙。正中一个系粉红腰带的舞者摆着姿势，右边一位白发老人拄着长手杖看着她。左边墙上有一面大镜子，左下角露出一把低音提琴和一个乐谱架。",
+      "caption": "埃德加·德加《舞蹈课》，1874 年，布面油画，83.5 × 77.2 厘米，大都会艺术博物馆藏（1987.47.1）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/438817",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 60 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "印象派油画 · 委托画",
+    "period": "1874 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "德加"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "83.5 × 77.2 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一间像是随手撞见的练功房，其实是在画室里一点点拼出来的。",
+    "image": "full",
+    "focus": "55% 55%"
+  }
+}

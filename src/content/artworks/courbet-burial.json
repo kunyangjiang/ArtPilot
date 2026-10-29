@@ -1,0 +1,156 @@
+{
+  "id": "art-courbet-burial-001",
+  "kind": "painting",
+  "titleZh": "奥尔南的葬礼",
+  "titleEn": "A Burial at Ornans",
+  "artist": "古斯塔夫·库尔贝（Gustave Courbet）",
+  "attributionNote": "库尔贝（1819–1877）1849 年回家乡奥尔南时开始画，原题《画有人物的画，奥尔南一次葬礼的历史记述》。据《不列颠百科全书》，那年夏天他的外祖父刚刚去世，这幅画一般认为受那次葬礼的启发；画中有些人像他的姐妹和蒲鲁东家族的人。画中葬的是谁，画上没有交代。",
+  "dateApprox": "1849–1850 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 315,
+    "width": 668
+  },
+  "collection": "巴黎奥赛博物馆，RF 325",
+  "infoSources": [
+    {
+      "label": "《不列颠百科全书》：Miles Kenny, “A Burial at Ornans”",
+      "url": "https://www.britannica.com/topic/A-Burial-at-Ornans"
+    },
+    {
+      "label": "大都会艺术博物馆：Ross Finocchio, “Nineteenth-Century French Realism”，Heilbrunn Timeline of Art History（2004）",
+      "url": "https://www.metmuseum.org/essays/nineteenth-century-french-realism"
+    },
+    {
+      "label": "大都会艺术博物馆：Kathryn Calley Galitz, “Gustave Courbet (1819–1877)”，Heilbrunn Timeline of Art History（2009）",
+      "url": "https://www.metmuseum.org/essays/gustave-courbet-1819-1877"
+    },
+    {
+      "label": "德累斯顿国家艺术收藏馆在线藏品：Courbet, Die Steinklopfer，Gal.-Nr. 2522（状态：已毁）",
+      "url": "https://skd-online-collection.skd.museum/Details/Index/240756"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Honoré Daumier, The Third-Class Carriage，29.100.129（语音导览与目录条目）",
+      "url": "https://www.metmuseum.org/art/collection/search/436095"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/courbet-burial.jpg",
+      "kind": "full",
+      "alt": "一幅极宽的横幅油画：阴沉的天空和淡色的石灰岩山崖下，几十个真人大小的人排成一长排，挤在一片空地上。左边几个人抬着盖白布的棺材，旁边有人举着十字架；中间一个神父低头念经，前景地上挖开一个墓穴，一个男子单膝跪在旁边。右边是一群穿黑衣、拿手帕掩面的妇女。前景偏右站着一条白色的猎犬。",
+      "caption": "古斯塔夫·库尔贝《奥尔南的葬礼》，1849–1850 年，布面油画，315 × 668 厘米，巴黎奥赛博物馆藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_A_Burial_at_Ornans_-_Google_Art_Project.jpg",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "stone",
+      "src": "/img/courbet-stone-breakers.jpg",
+      "kind": "detail",
+      "subject": "库尔贝《碎石工》（原作已毁）",
+      "alt": "一幅横幅油画的旧复制品：路边山坡下，一个衣衫破旧的少年抱着一筐石头向左走，背对我们；右边一个戴草帽的老人单膝跪地，举起锤子敲碎地上的石块。两人都看不见脸，身边散放着锅、篮子和工具。",
+      "caption": "古斯塔夫·库尔贝《碎石工》，1849 年，布面油画，159 × 259 厘米，原藏德累斯顿，已毁。这里是一张旧日的彩色复制品。",
+      "credit": {
+        "author": "维基共享资源（Web Gallery of Art 的旧复制品）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_The_Stonebreakers_-_WGA05457.jpg",
+        "changes": "未缩小；只重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "gleaners",
+      "src": "/img/millet-gleaners.jpg",
+      "alt": "一幅横幅油画：收割过的麦田上，三个农妇弯着腰拾地上的麦穗。她们穿着粗布衣裙，头上包着红、蓝、黄的头巾，左边两个几乎弯成直角，右边一个正要俯身。远处金黄的阳光下堆着高高的麦垛，一辆满载的车和许多忙碌的人；右边远处一个骑马的人在看着。",
+      "caption": "让-弗朗索瓦·米勒《拾穗者》，1857 年，布面油画，83.5 × 110 厘米，巴黎奥赛博物馆藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "米勒《拾穗者》（奥赛博物馆）"
+    },
+    {
+      "key": "gleaners-etching",
+      "src": "/img/millet-gleaners-etching.jpg",
+      "kind": "detail",
+      "subject": "米勒《拾穗者》蚀刻版画（大都会艺术博物馆）",
+      "alt": "一幅黑白蚀刻版画：三个弯腰拾穗的农妇，人物的位置和姿势与油画大致相同；线条细密，远处的麦垛、马车和人群只用很淡的细线勾出，天空里有一群飞鸟。",
+      "caption": "让-弗朗索瓦·米勒《拾穗者》，约 1855–1856 年，蚀刻版画（第一状态），图幅 19.1 × 25.4 厘米，大都会艺术博物馆藏（29.107.184）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/370558",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "carriage",
+      "src": "/img/daumier-third-class.jpg",
+      "alt": "一幅没有完成的横幅油画：昏暗的三等火车车厢里，前排木椅上坐着一个怀抱婴儿的年轻母亲、一个双手搭在篮子上的老妇人和一个歪头睡着的男孩。他们身后是一排背对或侧对我们的乘客，戴着高帽和便帽，脸都隐在暗处。画面上能看到细细的方格线和许多粗黑的轮廓线。",
+      "caption": "奥诺雷·杜米埃《三等车厢》，约 1862–1864 年，布面油画，65.4 × 90.2 厘米，大都会艺术博物馆藏（29.100.129）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436095",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "杜米埃《三等车厢》（大都会艺术博物馆）"
+    },
+    {
+      "key": "charivari",
+      "src": "/img/daumier-charivari-1856.jpg",
+      "kind": "detail",
+      "subject": "杜米埃《喧闹报》上的石版漫画（大都会艺术博物馆）",
+      "alt": "一幅黑白石版漫画：冬天的三等车厢里，几个乘客裹着围巾大衣挤成一团，缩着脖子，表情苦恼，车厢的窗户敞开，看得出很冷。下方印着一行法文说明。",
+      "caption": "奥诺雷·杜米埃《越来越不喜欢冬天三等车厢的乘客》，刊于《喧闹报》1856 年 12 月 25 日，石版画，大都会艺术博物馆藏（62.650.310）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/646820",
+        "changes": "缩小到 1400 像素以内并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片以 PD-Art 或 CC0 发布",
+    "basis": "库尔贝、米勒、杜米埃分别卒于 1877、1875、1879 年。奥赛博物馆的两幅画用的是维基共享资源上的 Google 艺术计划翻拍（PD-Art）；《碎石工》原作已毁，只能用旧复制品；大都会的三件作品以 CC0 提供。德累斯顿国家艺术收藏馆网站上的《碎石工》图像注明“版权保留”，本课没有使用。",
+    "verifiedOn": "2026-10-28",
+    "note": "奥赛博物馆网站核对时有 Cloudflare 验证，没有绕过；两幅奥赛藏品的信息据《不列颠百科全书》、大都会的研究文章与 Google 艺术与文化上的馆方说明。《碎石工》复制品的颜色不能代表原作。"
+  },
+  "card": {
+    "type": "现实主义绘画",
+    "period": "1849–1850 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "库尔贝"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "315 × 668 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "巴黎"
+      }
+    ],
+    "blurb": "一场乡村葬礼，用了历史画的尺幅：几十个普通人，真人大小。",
+    "image": "full",
+    "focus": "50% 55%"
+  }
+}

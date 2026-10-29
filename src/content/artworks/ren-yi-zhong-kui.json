@@ -1,0 +1,145 @@
+{
+  "id": "art-ren-yi-zhong-kui-001",
+  "kind": "painting",
+  "titleZh": "钟馗像",
+  "titleEn": "Zhong Kui",
+  "artist": "任颐（任伯年，Ren Yi）",
+  "attributionNote": "任颐（字伯年，1840–1896）作，款识纪年 1883 年（据大都会艺术博物馆著录“dated 1883”）。大都会说，任颐是晚清上海画坛的领袖之一，师从任熊（1820–1857），这幅画采用了明末画家陈洪绶（1598–1652）的人物画风格。题款全文本站没有逐字核对。",
+  "dateApprox": "1883 年（款）",
+  "medium": "立轴，纸本设色",
+  "dimensionsCm": {
+    "height": 171.8,
+    "width": 93.3
+  },
+  "collection": "大都会艺术博物馆（纽约），2002.208.2",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Ren Yi (Ren Bonian), Zhong Kui，2002.208.2（说明）",
+      "url": "https://www.metmuseum.org/art/collection/search/37393"
+    },
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Luo Ping, Zhong Kui Supported by Ghosts，1959.185（钟馗像在新年和端午悬挂的习俗）",
+      "url": "https://www.clevelandart.org/art/1959.185"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Ren Yi, Herdboy and Buffalo，1986.267.48",
+      "url": "https://www.metmuseum.org/art/collection/search/49463"
+    },
+    {
+      "label": "MIT Visualizing Cultures：Rebecca Nedostup, “Picture Windows”（Shanghai’s Lens on the New(s): Dianshizhai Pictorial）",
+      "url": "https://visualizingcultures.mit.edu/dianshizhai/dsz_essay01.html"
+    },
+    {
+      "label": "《點石齋畫報》第一册（甲集）扫描本，含光绪十年（1884）尊闻阁主人序与创刊号图画，维基共享资源",
+      "url": "https://commons.wikimedia.org/wiki/File:NCPSSD-70041817_%E9%BB%9E%E7%9F%B3%E9%BD%8B%E7%95%AB%E5%A0%B1_%E7%AC%AC%E4%B8%80%E5%86%8C.pdf"
+    },
+    {
+      "label": "点石斋分局广告，《点石斋画报》1889 年（维基共享资源；原图引自 Roberta Wue, “Selling the Artist”, Art Bulletin 91, 2009）",
+      "url": "https://commons.wikimedia.org/wiki/File:1889_advertisement_Dianshizhai_huabo_Shanghai.png"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/ren-yi-zhong-kui.jpg",
+      "kind": "full",
+      "alt": "一幅竖长的立轴设色人物画：一个满脸络腮胡、浓眉大眼的大汉坐在竹木栏杆前，穿着宽大的粉红色袍子，两手交握在胸前，帽边插着一朵红花。他身旁的案上摊着一本书，摆着两件古铜器，一件插着花枝和竹叶，一件高瓶旁放着一盘果子。左上角有一行竖排题款。",
+      "caption": "任颐（任伯年）《钟馗像》，款 1883 年，立轴，纸本设色，画心 171.8 × 93.3 厘米，大都会艺术博物馆藏（2002.208.2）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/37393",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "fan",
+      "src": "/img/ren-yi-herdboy-fan.jpg",
+      "kind": "detail",
+      "subject": "任颐《牧童与水牛》扇面（大都会艺术博物馆）",
+      "alt": "一幅折扇面上的画：上宽下窄的弧形纸面上，用淡青、淡绿的笔触画出一片水草，一个牧童伏在水牛背上，水牛半浸在水里；右上角有几行题字和一方红印，左下角有几块淡墨的石头。",
+      "caption": "任颐《牧童与水牛》，款 1890 年，折扇面改装成册页，纸本设色，19.1 × 54.3 厘米，大都会艺术博物馆藏（1986.267.48）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49463",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "dsz-first",
+      "src": "/img/dianshizhai-1884-first.jpg",
+      "kind": "detail",
+      "subject": "《点石斋画报》甲集第一号的图画《轻入重地》",
+      "alt": "一本线装书摊开的两页，合成一幅跨页的石印图画：前景是城墙和城楼，城外一队戴军帽、背长枪的士兵和骑马的人向右行进，远处是连绵的山、树林和成排的旗帜。左上角有竖排的标题“轻入重地”和几行说明文字。画面上有两个半透明的图书馆水印。",
+      "caption": "《点石斋画报》甲集第一号（光绪十年，1884 年）中的《轻入重地》，石印。这里是一个带有扫描机构水印的现代扫描本。",
+      "credit": {
+        "author": "维基共享资源（中国国家哲学社会科学文献中心 NCPSSD 扫描本）",
+        "licence": "公有领域（PD-scan：1884 年出版物的扫描）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NCPSSD-70041817_%E9%BB%9E%E7%9F%B3%E9%BD%8B%E7%95%AB%E5%A0%B1_%E7%AC%AC%E4%B8%80%E5%86%8C.pdf",
+        "changes": "由 PDF 第 9 页渲染，未裁切、未调色；图上的半透明标志是扫描机构的水印，非原物所有"
+      }
+    },
+    {
+      "key": "dsz-preface",
+      "src": "/img/dianshizhai-preface.jpg",
+      "kind": "detail",
+      "subject": "《点石斋画报》尊闻阁主人序（1884 年）",
+      "alt": "一本线装书摊开的两页，竖排印着整齐的楷书文字，是画报的序言。左页最后一行落款“光绪十年暮春之月尊闻阁主人识”，下面有两方小印。页面上有半透明的图书馆水印。",
+      "caption": "《点石斋画报》卷首尊闻阁主人（美查）序的末两页，光绪十年（1884 年）暮春。带有扫描机构水印的现代扫描本。",
+      "credit": {
+        "author": "维基共享资源（中国国家哲学社会科学文献中心 NCPSSD 扫描本）",
+        "licence": "公有领域（PD-scan：1884 年出版物的扫描）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NCPSSD-70041817_%E9%BB%9E%E7%9F%B3%E9%BD%8B%E7%95%AB%E5%A0%B1_%E7%AC%AC%E4%B8%80%E5%86%8C.pdf",
+        "changes": "由 PDF 第 7 页渲染，未裁切、未调色；图上的半透明标志是扫描机构的水印"
+      }
+    },
+    {
+      "key": "dsz-ad",
+      "src": "/img/dianshizhai-1889-ad.jpg",
+      "kind": "detail",
+      "subject": "点石斋分局广告（《点石斋画报》，1889 年）",
+      "alt": "一幅黑白石印广告画：一栋三层的西式楼房，楼下是一家书店的门面，门楣上写着“点石斋分局”，店门口站着几个穿长袍的男子在看书、交谈。右上角是大字标题“点石斋分局告白”，左上角有几行小字说明。",
+      "caption": "《点石斋分局告白》，刊于《点石斋画报》，1889 年，石印。图像分辨率较低。",
+      "credit": {
+        "author": "维基共享资源（转引自 Roberta Wue, Art Bulletin 91, 2009 的图版）",
+        "licence": "公有领域（1889 年出版物）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:1889_advertisement_Dianshizhai_huabo_Shanghai.png",
+        "changes": "由 PNG 转为 JPEG 并重新压缩；未缩放、未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片与扫描以 CC0 或公有领域发布",
+    "basis": "大都会的两件任颐作品以 CC0 提供。《点石斋画报》1884–1898 年出版，早已进入公有领域；所用页面来自维基共享资源上的扫描本，按公有领域标注。",
+    "verifiedOn": "2026-10-28",
+    "note": "画报扫描本带有扫描机构的半透明水印，本站没有处理或去除，只在说明中注明。1889 年广告的图像取自一篇学术论文的图版，分辨率低，只用作小图。任颐题款的文字本站没有逐字核对。"
+  },
+  "card": {
+    "type": "人物画 · 立轴",
+    "period": "1883 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "任颐（任伯年）"
+      },
+      {
+        "label": "媒材",
+        "value": "纸本设色"
+      },
+      {
+        "label": "画心",
+        "value": "171.8 × 93.3 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "捉鬼的钟馗收起剑，坐下来读书：一幅给城里人买的门神画。",
+    "image": "full",
+    "focus": "45% 40%"
+  }
+}

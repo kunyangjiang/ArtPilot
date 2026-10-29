@@ -1,0 +1,113 @@
+{
+  "id": "art-church-heart-andes-001",
+  "kind": "painting",
+  "titleZh": "安第斯之心",
+  "titleEn": "Heart of the Andes",
+  "artist": "弗雷德里克·埃德温·丘奇（Frederic Edwin Church）",
+  "attributionNote": "丘奇（1826–1900）根据 1853 年和 1857 年两次南美之行、特别是在厄瓜多尔画的大量铅笔和油画写生，在纽约的画室里完成（据大都会艺术博物馆）。画面不是某一个地点的写实描绘。",
+  "dateApprox": "1859 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 168,
+    "width": 302.9
+  },
+  "collection": "大都会艺术博物馆（纽约），09.95",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Frederic Edwin Church, Heart of the Andes，09.95（说明）",
+      "url": "https://www.metmuseum.org/art/collection/search/10481"
+    },
+    {
+      "label": "大都会艺术博物馆：“Frederic Edwin Church (1826–1900)”，Heilbrunn Timeline of Art History",
+      "url": "https://www.metmuseum.org/essays/frederic-edwin-church-1826-1900"
+    },
+    {
+      "label": "Smarthistory：Emmanuel Ortega, “José María Velasco, The Valley of Mexico from the Santa Isabel Mountain Range”（2015；LibreTexts 收录本）",
+      "url": "https://human.libretexts.org/Bookshelves/Art/SmartHistory_of_Art_2e/SmartHistory_of_Art_XIc_-_Latin_America_1500_to_1900/04%3A_Latin_America_c._18001900/4.02%3A_Mexico_in_the_19th_century/4.2.05%3A_Jose_Maria_Velasco/4.2.5.01%3A_The_Valley_of_Mexico_from_the_Santa_Isabel_Mountain_Range"
+    },
+    {
+      "label": "墨西哥国家美术文学院（INBA）新闻稿第 1012 号：《何塞·玛丽亚·贝拉斯科的风景，民族认同的象征》",
+      "url": "https://inba.gob.mx/multimedia/prensa/galerias/12554/12554-bol.1012_los_paisajes_de_jose_maria_velasco,_simbolo_de_la_identidad_nacional.pdf"
+    },
+    {
+      "label": "Michelli Scapol Monteiro, “Entre reproduções e exposições: a circulação de Independência ou morte!, de Pedro Américo”, Revista do Instituto de Estudos Brasileiros, n. 91 (2025)",
+      "url": "https://revistas.usp.br/rieb/article/view/240417"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/church-heart-andes.jpg",
+      "kind": "full",
+      "alt": "一幅很宽的风景油画：前景是茂密的热带森林，粗大的树干、藤蔓和大片的叶子，中间偏右一道瀑布落进一个水潭。往远看，是开阔的谷地、草地和几座白色的小房子，再远是层层的褐绿色山坡，左上方的天边是一座白雪覆盖的高山。左下方的小路旁立着一个小小的白色十字架，旁边有很小的人影。",
+      "caption": "弗雷德里克·埃德温·丘奇《安第斯之心》，1859 年，布面油画，168 × 302.9 厘米，大都会艺术博物馆藏（09.95）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/10481",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "velasco",
+      "src": "/img/velasco-valle-mexico.jpg",
+      "alt": "一幅横幅风景油画：从一座红褐色的小山上俯瞰一片辽阔的河谷，谷中是银色的湖泊、平原和远处一座城市的轮廓；地平线上是淡淡的雪山，天空里飘着高高的白云。前景小路上有两个很小的人影。",
+      "caption": "何塞·玛丽亚·贝拉斯科《从圣伊莎贝尔山看墨西哥谷》，1875 年，布面油画，137.5 × 226 厘米，墨西哥城国家艺术博物馆藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍，墨西哥国家艺术博物馆提供）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Velasco_-_The_Valley_of_Mexico_from_the_Santa_Isabel_Mountain_Range_-_Google_Art_Project.jpg",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "贝拉斯科《从圣伊莎贝尔山看墨西哥谷》（墨西哥国家艺术博物馆）"
+    },
+    {
+      "key": "americo",
+      "src": "/img/americo-independencia.jpg",
+      "alt": "一幅极宽的历史画：画面中间偏左的红土坡顶上，一群穿制服的骑马者簇拥着一个高举军刀的骑者，纷纷举起帽子和军刀；右边前景，一队骑兵挥刀策马奔来。左下角，一个戴帽子的乡下人赶着牛车停在路边，回头看着这群人。右边远处是一座小房子，前景右下方是一条小溪。",
+      "caption": "佩德罗·阿梅里科《独立或死亡！》，1888 年，布面油画，约 415 × 760 厘米，圣保罗大学保利斯塔博物馆（伊皮兰加博物馆）藏。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍，保利斯塔博物馆提供）",
+        "licence": "公有领域（PD-Art）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_Google_Art_Project.jpg",
+        "changes": "由原图缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "阿梅里科《独立或死亡！》（保利斯塔博物馆）"
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片以 CC0 或 PD-Art 发布",
+    "basis": "《安第斯之心》为大都会开放获取（CC0）。贝拉斯科（卒于 1912 年）与阿梅里科（卒于 1905 年）的作品已进入公有领域，所用照片为维基共享资源上的 Google 艺术计划翻拍（PD-Art）。",
+    "verifiedOn": "2026-10-28",
+    "note": "墨西哥国家艺术博物馆和保利斯塔博物馆网站本身的图像授权条款本站没有逐条核对；所用的是公有领域作品的忠实翻拍。《独立或死亡！》的尺寸各处著录在 415 × 760 厘米左右，本站没有读到馆方的正式著录。"
+  },
+  "card": {
+    "type": "风景画 · 大型展示画",
+    "maker": "丘奇",
+    "period": "1859 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "丘奇"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "168 × 302.9 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一幅要排队、要用望远镜看的风景：从热带丛林一直到雪山。",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

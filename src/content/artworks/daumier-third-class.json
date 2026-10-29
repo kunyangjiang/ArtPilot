@@ -1,0 +1,68 @@
+{
+  "id": "art-daumier-third-class-001",
+  "kind": "painting",
+  "titleZh": "三等车厢",
+  "titleEn": "The Third-Class Carriage",
+  "artist": "奥诺雷·杜米埃（Honoré Daumier）",
+  "attributionNote": "杜米埃（1808–1879）所作，没有完成，画上还留着打格放样的方格线。渥太华加拿大国家美术馆有一幅几乎同时画的完成本。大都会说，杜米埃这两幅画的来历都没有文献记载。",
+  "dateApprox": "约 1862–1864 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 65.4,
+    "width": 90.2
+  },
+  "collection": "大都会艺术博物馆（纽约），29.100.129",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：The Third-Class Carriage，29.100.129（语音导览与目录条目）",
+      "url": "https://www.metmuseum.org/art/collection/search/436095"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/daumier-third-class.jpg",
+      "alt": "一幅没有完成的横幅油画：昏暗的三等火车车厢里，前排木椅上坐着一个怀抱婴儿的年轻母亲、一个双手搭在篮子上的老妇人和一个歪头睡着的男孩。他们身后是一排背对或侧对我们的乘客，戴着高帽和便帽，脸都隐在暗处。画面上能看到细细的方格线和许多粗黑的轮廓线。",
+      "caption": "奥诺雷·杜米埃《三等车厢》，约 1862–1864 年，布面油画，65.4 × 90.2 厘米，大都会艺术博物馆藏（29.100.129）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436095",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "大都会艺术博物馆开放获取：藏品页标注“Public Domain”，影像以 CC0 提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 58 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "风俗画 · 未完成",
+    "period": "约 1862–1864 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "杜米埃"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "65.4 × 90.2 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "对面坐着一家三代：我们好像也坐在这节车厢里。",
+    "image": "full",
+    "focus": "45% 60%"
+  }
+}

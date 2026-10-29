@@ -1,0 +1,158 @@
+{
+  "id": "art-monet-rouen-sunlight-001",
+  "kind": "painting",
+  "titleZh": "鲁昂大教堂西立面，阳光",
+  "titleEn": "Rouen Cathedral, West Façade, Sunlight",
+  "artist": "克劳德·莫奈（Claude Monet）",
+  "attributionNote": "莫奈（1840–1926）所作，右下角署名“Claude Monet ’94”。美国国家美术馆说，莫奈 1892 至 1893 年在鲁昂画了三十多幅大教堂，在不同的画布之间轮换作画，1894 年在吉维尼的画室里完成。",
+  "dateApprox": "1894 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 100.1,
+    "width": 65.8
+  },
+  "collection": "华盛顿美国国家美术馆，1963.10.179（切斯特·戴尔收藏）",
+  "infoSources": [
+    {
+      "label": "美国国家美术馆藏品页：Claude Monet, Rouen Cathedral, West Façade, Sunlight，1963.10.179（说明、来历、展览史、题款）",
+      "url": "https://www.nga.gov/collection/art-object-page.46654.html"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Claude Monet, Rouen Cathedral, West Façade，1963.10.49（来历；1895 年杜朗-吕埃尔画廊展出）",
+      "url": "https://www.nga.gov/collection/art-object-page.46524.html"
+    },
+    {
+      "label": "大都会艺术博物馆：Margaret Samu, “Impressionism: Art and Modernity”，Heilbrunn Timeline of Art History（2004）",
+      "url": "https://www.metmuseum.org/essays/impressionism-art-and-modernity"
+    },
+    {
+      "label": "美国国家美术馆藏品页：Berthe Morisot, The Harbor at Lorient，1970.17.48（来历；1874 年第一届印象派展览展出）",
+      "url": "https://www.nga.gov/collection/art-object-page.52192.html"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Edgar Degas, The Dance Class，1987.47.1（目录条目与语音导览）",
+      "url": "https://www.metmuseum.org/art/collection/search/438817"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/monet-rouen-sunlight.jpg",
+      "kind": "full",
+      "alt": "一幅竖长的油画：一座哥特式大教堂的正面占满画面，尖塔和雕饰被强烈的阳光照得发白、发黄，门洞和凹进去的地方是蓝紫色的阴影，顶上露出一小块蓝天。整面墙是用厚厚的、粗糙的颜料一点一点堆出来的，看不到清楚的线条。左下角有几个很小的人影。",
+      "caption": "克劳德·莫奈《鲁昂大教堂西立面，阳光》，1894 年，布面油画，100.1 × 65.8 厘米，华盛顿美国国家美术馆藏（1963.10.179）。",
+      "credit": {
+        "author": "美国国家美术馆（华盛顿）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/collection/art-object-page.46654.html",
+        "changes": "经维基共享资源取得美国国家美术馆的开放获取图像，缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "large",
+      "src": "/img/monet-rouen-sunlight-large.jpg",
+      "kind": "detail",
+      "alt": "同一幅《鲁昂大教堂西立面，阳光》的大尺寸照片，供放大观看颜料的质地。",
+      "caption": "莫奈《鲁昂大教堂西立面，阳光》（大尺寸图像，供放大观看）。",
+      "credit": {
+        "author": "美国国家美术馆（华盛顿）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/collection/art-object-page.46654.html",
+        "changes": "经维基共享资源取得美国国家美术馆的开放获取图像，缩小到 2600 像素高并重新压缩，供放大观看；未裁切、未调色"
+      }
+    },
+    {
+      "key": "west",
+      "src": "/img/monet-rouen-west.jpg",
+      "kind": "detail",
+      "subject": "莫奈《鲁昂大教堂西立面》（美国国家美术馆，1963.10.49）",
+      "alt": "一幅竖长的油画，画的是同一座大教堂的正面，但整个画面笼罩在淡蓝、淡紫和粉红的色调里，没有强烈的明暗对比，中间的圆形玫瑰窗是一团深蓝，尖塔几乎溶进淡淡的天空。",
+      "caption": "克劳德·莫奈《鲁昂大教堂西立面》，1894 年，布面油画，100.1 × 65.9 厘米，华盛顿美国国家美术馆藏（1963.10.49）。",
+      "credit": {
+        "author": "美国国家美术馆（华盛顿）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/collection/art-object-page.46524.html",
+        "changes": "经维基共享资源取得美国国家美术馆的开放获取图像，缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "morisot",
+      "src": "/img/morisot-lorient.jpg",
+      "alt": "一幅横幅油画：一条平静的港湾斜斜地伸向远方，水面映着淡蓝的天和岸边的白房子、桅杆。右边的石堤上坐着一位穿白衣、撑白色阳伞的年轻女子，侧身向外看。笔触轻快，水面和天空几乎用同样浅淡的颜色画成。",
+      "caption": "贝尔特·莫里索《洛里昂港》，1869 年，布面油画，43.5 × 73 厘米，华盛顿美国国家美术馆藏（1970.17.48）。",
+      "credit": {
+        "author": "美国国家美术馆（华盛顿）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/collection/art-object-page.52192.html",
+        "changes": "经维基共享资源取得美国国家美术馆的开放获取图像，缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "莫里索《洛里昂港》（美国国家美术馆）"
+    },
+    {
+      "key": "degas",
+      "src": "/img/degas-dance-class.jpg",
+      "alt": "一幅近乎方形的油画：一间绿墙的练功房，地板从左下向右上斜着延伸。许多穿白色纱裙、系彩色腰带的小舞者站着、坐着或靠着墙，有的在整理衣裙。正中一个系粉红腰带的舞者摆着姿势，右边一位白发老人拄着长手杖看着她。左边墙上有一面大镜子，左下角露出一把低音提琴和一个乐谱架。",
+      "caption": "埃德加·德加《舞蹈课》，1874 年，布面油画，83.5 × 77.2 厘米，大都会艺术博物馆藏（1987.47.1）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/438817",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "德加《舞蹈课》（大都会艺术博物馆）"
+    },
+    {
+      "key": "pissarro",
+      "src": "/img/pissarro-montmartre.jpg",
+      "kind": "detail",
+      "subject": "毕沙罗《冬日清晨的蒙马特大街》（大都会艺术博物馆）",
+      "alt": "一幅从高处俯视的城市街景：一条笔直宽阔的大街伸向远方，两旁是整齐的六七层楼房和光秃秃的行道树，路上挤满了马车和行人。整个画面是灰白、淡紫和土黄的色调，像冬天早晨的薄雾。",
+      "caption": "卡米耶·毕沙罗《冬日清晨的蒙马特大街》，1897 年，布面油画，64.8 × 81.3 厘米，大都会艺术博物馆藏（60.174）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437310",
+        "changes": "缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；照片以 CC0 发布",
+    "basis": "美国国家美术馆与大都会艺术博物馆的开放获取图像，均为 CC0。国家美术馆的三张图像经维基共享资源取得（文件页注明来源为国家美术馆）。",
+    "verifiedOn": "2026-10-28",
+    "note": "照片的颜色受拍摄和屏幕影响，尤其是这些靠细微色差取胜的画；课里谈颜色时，只谈“这张照片里”看到的关系，不断言原作颜料今天或当年的确切样子。"
+  },
+  "card": {
+    "type": "印象派油画 · 系列画",
+    "period": "1894 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "莫奈"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "100.1 × 65.8 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "华盛顿"
+      }
+    ],
+    "blurb": "同一座教堂，三十多次：画的是石头，还是落在石头上的光？",
+    "image": "full",
+    "focus": "50% 45%"
+  }
+}

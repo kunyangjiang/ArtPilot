@@ -1,0 +1,68 @@
+{
+  "id": "art-morisot-lorient-001",
+  "kind": "painting",
+  "titleZh": "洛里昂港",
+  "titleEn": "The Harbor at Lorient",
+  "artist": "贝尔特·莫里索（Berthe Morisot）",
+  "attributionNote": "莫里索（1841–1895）所作。据美国国家美术馆的来历记录，1869 年画家把它送给了马奈；1874 年以《海景》为题在第一届印象派展览展出（第 105 号）。",
+  "dateApprox": "1869 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 43.5,
+    "width": 73
+  },
+  "collection": "华盛顿美国国家美术馆，1970.17.48（艾尔莎·梅隆·布鲁斯收藏）",
+  "infoSources": [
+    {
+      "label": "美国国家美术馆藏品页：The Harbor at Lorient，1970.17.48（来历与展览史）",
+      "url": "https://www.nga.gov/collection/art-object-page.52192.html"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/morisot-lorient.jpg",
+      "alt": "一幅横幅油画：一条平静的港湾斜斜地伸向远方，水面映着淡蓝的天和岸边的白房子、桅杆。右边的石堤上坐着一位穿白衣、撑白色阳伞的年轻女子，侧身向外看。笔触轻快，水面和天空几乎用同样浅淡的颜色画成。",
+      "caption": "贝尔特·莫里索《洛里昂港》，1869 年，布面油画，43.5 × 73 厘米，华盛顿美国国家美术馆藏（1970.17.48）。",
+      "credit": {
+        "author": "美国国家美术馆（华盛顿）",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.nga.gov/collection/art-object-page.52192.html",
+        "changes": "经维基共享资源取得美国国家美术馆的开放获取图像，缩小到 1600 像素以内并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（CC0）",
+    "basis": "美国国家美术馆开放获取图像，CC0。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 60 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "印象派油画",
+    "period": "1869 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "莫里索"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "43.5 × 73 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "华盛顿"
+      }
+    ],
+    "blurb": "一个撑伞的女子坐在堤上，水和天几乎是同一种颜色。",
+    "image": "full",
+    "focus": "70% 50%"
+  }
+}

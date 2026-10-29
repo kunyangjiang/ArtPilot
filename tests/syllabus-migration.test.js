@@ -193,11 +193,13 @@ test('browser state saved on the 73-course site is recovered unchanged under the
   assert.deepEqual(Object.keys(readCollection(storage)).sort(),
     ['art-chartres-cathedral-001', 'art-fan-kuan-travelers-001', 'art-osman-hamdi-tortoise-trainer-001']);
   // The same claims under the A+ numbering (numbers are display only): No.001 stays, Chartres moves from No.030 to
-  // No.042 after twelve extra cards in courses 4–25, and the artist card from No.074 (later No.084) to No.105.
+  // No.042 after twelve extra cards in courses 4–25, and the artist card (No.074, later No.084, No.105 with the first
+  // A+ cards) follows every course slot and extra card, wherever that ends.
   const cards = publishedCards();
   assert.equal(cards.get('art-fan-kuan-travelers-001').no, '001');
   assert.equal(cards.get('art-chartres-cathedral-001').no, '042');
-  assert.equal(cards.get('art-osman-hamdi-tortoise-trainer-001').no, '105');
+  const extras = [...cards].filter(([id, c]) => c.series === 'core' && c.group[0] !== id).length;
+  assert.equal(Number(cards.get('art-osman-hamdi-tortoise-trainer-001').no), TOTAL_COURSES + extras + 1);
   assert.ok(Number(cards.get('art-osman-hamdi-tortoise-trainer-001').no) > TOTAL_COURSES, 'artist numbers start after every course slot');
   // Claiming a card already held adds no second copy and keeps the original date.
   assert.equal(collect(storage, 'art-osman-hamdi-tortoise-trainer-001', '2026-10-28T00:00:00.000Z').added, false);
