@@ -43,7 +43,7 @@ const description = building
       <figure class="object-image">
         <img src={full.src} alt={full.alt} loading="eager" decoding="async" />
         <figcaption>
-          {photographed ? <>{full.caption} 摄影 {full.credit?.author} · {full.credit?.licence}</> : '全图（缩小版），未经修饰。'}
+          {photographed ? <>{full.caption} {full.credit?.by ?? `摄影 ${full.credit?.author}`} · {full.credit?.licence}</> : '全图（缩小版），未经修饰。'}
         </figcaption>
       </figure>
     ) : (
@@ -83,7 +83,7 @@ const description = building
           <dt>材质</dt>
           <dd>{art.medium}</dd>
           <dt>尺寸</dt>
-          <dd>{art.dimensions}<span class="object-sub">据收藏机构公布的数据</span></dd>
+          <dd>{art.dimensions}<span class="object-sub">{art.dimensionsSource ?? "据收藏机构公布的数据"}</span></dd>
           <dt>原作与现状</dt>
           <dd>{art.originalStatus}</dd>
           <dt>收藏</dt>
@@ -100,7 +100,7 @@ const description = building
           <dt>材质与形制</dt>
           <dd>{art.medium}</dd>
           <dt>尺寸</dt>
-          <dd>{art.dimensionsCm?.height} × {art.dimensionsCm?.width} cm（高 × 宽）<span class="object-sub">{art.officialPage ? "据收藏机构公布的数据。" : "据图像来源所附元数据；未注明是否含装裱。"}</span></dd>
+          <dd>{art.dimensionsCm?.height} × {art.dimensionsCm?.width} cm（高 × 宽）<span class="object-sub">{art.dimensionsSource ?? (art.officialPage ? "据收藏机构公布的数据。" : "据图像来源所附元数据；未注明是否含装裱。")}</span></dd>
           <dt>收藏</dt>
           <dd>{art.collection}</dd>
           <dt>流传经历</dt>
@@ -135,14 +135,14 @@ const description = building
           <ol>
             {photos.map((img) => (
               <li>
-                <button type="button" class="object-thumb" data-view={img.src} data-alt={img.alt} data-caption={`${img.caption} 摄影 ${img.credit?.author} · ${img.credit?.licence}`} aria-label={`查看大图：${img.caption}`}>
+                <button type="button" class="object-thumb" data-view={img.src} data-alt={img.alt} data-caption={`${img.caption} ${img.credit?.by ?? `摄影 ${img.credit?.author}`} · ${img.credit?.licence}`} aria-label={`查看大图：${img.caption}`}>
                   <img src={img.src} alt="" loading="lazy" decoding="async" />
                 </button>
-                <p><span class="object-where">{img.subject ?? art.titleZh} · 摄影 {img.credit?.author} · {img.credit?.licence}</span>{img.caption}</p>
+                <p><span class="object-where">{img.subject ?? art.titleZh} · {img.credit?.by ?? `摄影 ${img.credit?.author}`} · {img.credit?.licence}</span>{img.caption}</p>
               </li>
             ))}
           </ol>
-          <p class="object-note">{building ? '照片均来自 Wikimedia Commons，只做了缩小与压缩，未裁切、未调色；完整署名与许可证链接见“来源与版权”。' : '照片均来自收藏机构的开放获取图像，只做了缩小与压缩，未裁切、未调色；来源与许可见“来源与版权”。'}</p>
+          <p class="object-note">{art.imagesNote ?? (building ? '照片均来自 Wikimedia Commons，只做了缩小与压缩，未裁切、未调色；完整署名与许可证链接见“来源与版权”。' : '照片均来自收藏机构的开放获取图像，只做了缩小与压缩，未裁切、未调色；来源与许可见“来源与版权”。')}</p>
         </section>
       )}
 

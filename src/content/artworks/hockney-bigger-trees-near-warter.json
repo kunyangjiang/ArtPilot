@@ -1,0 +1,135 @@
+{
+  "id": "art-hockney-bigger-trees-near-warter-001",
+  "kind": "painting",
+  "titleZh": "沃特附近更大的树",
+  "titleEn": "Bigger Trees Near Warter Or/Ou Peinture Sur Le Motif Pour Le Nouvel Age Post-Photographique",
+  "artist": "大卫·霍克尼",
+  "attributionNote": "大卫·霍克尼（1937—2026）2007 年在英国约克郡沃特附近的户外，对着实景画成；他用素描和电脑拼合的照片来确定每块画布的位置（据泰特美术馆）。",
+  "dateApprox": "2007 年",
+  "medium": "油彩，50 块画布；另有 100 张纸上数码打印（据泰特美术馆）",
+  "dimensionsCm": {
+    "height": 459,
+    "width": 1225
+  },
+  "dimensionsSource": "按泰特公布的每块画布尺寸（91.8 × 122.5 厘米）和 5 行 10 列计算；泰特新闻稿作 4.6 × 12.2 米。",
+  "collection": "伦敦泰特美术馆，T12887（艺术家 2008 年捐赠）",
+  "officialPage": {
+    "label": "泰特美术馆的作品页面",
+    "url": "https://www.tate.org.uk/art/artworks/hockney-bigger-trees-near-warter-or-ou-peinture-sur-le-motif-pour-le-nouvel-age-post-t12887"
+  },
+  "infoSources": [
+    {
+      "label": "泰特美术馆：David Hockney, Bigger Trees Near Warter…，2007，T12887（材料、每块画布的尺寸、入藏）",
+      "url": "https://www.tate.org.uk/art/artworks/hockney-bigger-trees-near-warter-or-ou-peinture-sur-le-motif-pour-le-nouvel-age-post-t12887"
+    },
+    {
+      "label": "泰特美术馆新闻稿：David Hockney gives his largest ever work to Tate，2008 年 4 月 7 日",
+      "url": "https://www.tate.org.uk/press/press-releases/david-hockney-gives-his-largest-ever-work-tate"
+    },
+    {
+      "label": "美国专利 2,252：J. Rand, Metal Rolls for Paint（金属颜料管），1841 年 9 月 11 日授权",
+      "url": "https://patents.google.com/patent/US2252A/en"
+    },
+    {
+      "label": "大都会艺术博物馆：Pierre Henri de Valenciennes, The Banks of the Rance, Brittany，约 1785，2003.42.54",
+      "url": "https://www.metmuseum.org/art/collection/search/438677"
+    },
+    {
+      "label": "大都会艺术博物馆：John Constable, Stoke-by-Nayland，约 1810—1811，26.128",
+      "url": "https://www.metmuseum.org/art/collection/search/435923"
+    },
+    {
+      "label": "大都会艺术博物馆：Julie Mehretu, Conversion (S.M. del Popolo/after C.)，2019—2020，2021.123",
+      "url": "https://www.metmuseum.org/art/collection/search/848796"
+    },
+    {
+      "label": "大都会艺术博物馆：Cecily Brown, Fair of Face, Full of Woe，2008，2009.533a-c",
+      "url": "https://www.metmuseum.org/art/collection/search/497143"
+    }
+  ],
+  "images": [
+    {
+      "key": "rance",
+      "src": "/img/valenciennes-banks-of-rance.jpg",
+      "kind": "detail",
+      "subject": "瓦朗谢讷《布列塔尼的朗斯河岸》（约 1785 年）",
+      "width": 1959,
+      "height": 855,
+      "alt": "一幅横长的小油画：左边是一片长满树的低矮岬角，岩石伸进灰绿色的水里；右边是开阔的水面，远处是淡淡的海岸线。天空占了画面的一大半，是一片均匀的灰蓝色。",
+      "caption": "皮埃尔-亨利·德·瓦朗谢讷《布列塔尼的朗斯河岸》，可能作于 1785 年，纸上油画，后裱在画布上，21.3 × 49.2 厘米，大都会艺术博物馆藏（2003.42.54）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/438677",
+        "changes": "博物馆原图 1959 像素宽，未缩放，只重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "stoke",
+      "src": "/img/constable-stoke-by-nayland.jpg",
+      "kind": "detail",
+      "subject": "康斯太布尔《斯托克-拜-奈兰》（约 1810—1811 年）",
+      "width": 2000,
+      "height": 1574,
+      "alt": "一幅笔触粗放的小油画：右边一大团深绿色的树几乎占了半个画面，树叶用一块块短而厚的颜料画成；左边远处是一座方形的教堂塔楼和一栋白房子，草地上有几头牛；天空里，灰白的云和蓝色的天交错翻滚。",
+      "caption": "约翰·康斯太布尔《斯托克-拜-奈兰》，约 1810—1811 年，布面油画，28.3 × 36.2 厘米，大都会艺术博物馆藏（26.128）。同一题材的三幅油画速写中最早的一幅。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435923",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "tube",
+      "src": "/img/rand-paint-tube-patent-1841.jpg",
+      "kind": "detail",
+      "subject": "约翰·兰德《金属颜料管》专利图（1841 年）",
+      "width": 1089,
+      "height": 1600,
+      "alt": "一张黑白专利图：左边画着几支细长的金属软管，有的瘪着，有的鼓着，下端折起封口，上端有一个带螺纹的小口；右边是一个长方形的夹具，用来把管子里的颜料挤出来。",
+      "caption": "约翰·兰德的美国专利 2,252《金属颜料管》，1841 年 9 月 11 日授权。图一、图二是锡制软管，图四、图五是带螺口的样式，图三是挤颜料用的夹具。",
+      "credit": {
+        "author": "John Rand（专利申请人）；美国专利商标局，经 Google Patents 取得",
+        "licence": "公有领域（美国专利文件；1841 年出版）",
+        "sourceUrl": "https://patents.google.com/patent/US2252A/en",
+        "changes": "缩小到 1600 像素高并转为 JPEG；未裁切",
+        "by": "专利图 · 约翰·兰德"
+      }
+    }
+  ],
+  "imagesNote": "这些图像都不是本件作品：两幅是大都会艺术博物馆以 CC0 开放的 18、19 世纪油画速写，一张是 1841 年的美国专利图。来源与改动见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供泰特美术馆作品页面的链接，不复制它的图像",
+    "basis": "泰特美术馆的作品页注明“© Estate of David Hockney”。本课的插图：瓦朗谢讷和康斯太布尔的油画速写由大都会艺术博物馆以 CC0 开放；1841 年的美国专利图属于公有领域。梅雷图和布朗的画仍受版权保护，本课只链接大都会艺术博物馆的作品页面。50 块画布的互动里的风景、尺寸对照里的画框，都由本站绘制。",
+    "verifiedOn": "2026-10-29",
+    "note": "霍克尼于 2026 年 6 月 11 日去世，泰特的作品页已写作“1937–2026”。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "油画 · 50 块画布",
+    "maker": "大卫·霍克尼",
+    "period": "2007 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "大卫·霍克尼"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "约 4.6 × 12.2 米"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "五十块画布，在田野里一块一块画成：画家怎样画一幅自己看不全的画？",
+    "image": null
+  }
+}

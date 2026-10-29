@@ -1,0 +1,35 @@
+---
+import { getEntry } from 'astro:content';
+// A short film clip that may lawfully be shown here (a public-domain film, or one whose maker allows it), played in the
+// page. It never plays by itself and has no sound: the reader presses play. Its still (`poster`) is one of the record's
+// images, whose caption and credit cover the clip too (the rights block lists them); `note` says what was cut, e.g.
+// "截取 90 秒". The full work, when it is elsewhere, is linked from the lesson text, not from here.
+interface Source { src: string; type: string }
+interface Props { artwork: string; poster: string; sources: Source[]; prompt: string; note?: string }
+const { artwork, poster, sources, prompt, note } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === poster);
+if (!record || !img || !img.credit) throw new Error(`Unknown or uncredited film still: ${artwork}/${poster}`);
+---
+<section class="module film">
+  <p class="module-label">影像 · 按播放键观看</p>
+  <h3>{prompt}</h3>
+  <figure>
+    <div class="film-stage">
+      <video controls muted playsinline preload="none" poster={img.src} width={img.width} height={img.height} aria-label={img.alt}>
+        {sources.map((s) => <source src={s.src} type={s.type} />)}
+        <p>这个浏览器不能播放视频。可以看下面的静帧和说明。</p>
+      </video>
+    </div>
+    <figcaption>
+      <span class="cap">{img.caption}</span>
+      <span class="credit photo">{img.subject} · {img.credit.by ?? img.credit.author} · {img.credit.licence}{note ? ` · ${note}` : ''}</span>
+    </figcaption>
+  </figure>
+</section>
+
+<style>
+  .film-stage { max-width: 46rem; background: #0b0a09; }
+  .film-stage video { display: block; width: 100%; height: auto; }
+  .film-stage p { margin: 0; padding: 1rem; color: var(--gallery-ink-2); font: 400 .875rem/1.7 var(--sans); }
+</style>

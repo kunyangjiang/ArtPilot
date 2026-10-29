@@ -1,0 +1,114 @@
+---
+// Painting a picture bigger than one can see at once: a landscape drawn by this site (bare trees on a road, not
+// Hockney's picture) is divided into panels, rows × cols. Standing at one panel, the painter sees only that one,
+// close up; the reader clicks a panel to "paint" it and see it as the painter would. The second view is the overview
+// that a photograph or computer mosaic gives: every panel painted so far, put together. Nothing is scored or stored.
+interface Props { prompt: string; rows?: number; cols?: number; panelCm?: [number, number] }
+const { prompt, rows = 5, cols = 10, panelCm = [91.8, 122.5] } = Astro.props;
+const W = 1225, H = 460; // the whole scene, in the panels' proportions (10 × 122.5 cm by 5 × 91.8 cm)
+// Branches of a bare tree, worked out once here so that every reader sees the same drawing.
+let seed = 7;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const branches: string[] = [];
+const grow = (x: number, y: number, a: number, len: number, w: number, d: number) => {
+  const x2 = x + Math.cos(a) * len, y2 = y + Math.sin(a) * len;
+  branches.push(`<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke-width="${w.toFixed(2)}" />`);
+  if (d === 0) return;
+  const n = 2;
+  for (let i = 0; i < n; i++) grow(x2, y2, a + (rnd() - 0.5) * 1.3, len * (0.66 + rnd() * 0.14), w * 0.68, d - 1);
+};
+grow(560, 430, -Math.PI / 2 - 0.05, 150, 30, 8);
+grow(150, 380, -Math.PI / 2 + 0.06, 95, 14, 7);
+grow(330, 372, -Math.PI / 2 - 0.08, 80, 11, 7);
+grow(860, 388, -Math.PI / 2 + 0.1, 110, 16, 7);
+grow(1100, 376, -Math.PI / 2 - 0.04, 90, 12, 7);
+const scene = `
+  <rect width="${W}" height="${H}" fill="#cfd8dc" />
+  <rect y="330" width="${W}" height="${H - 330}" fill="#9aa97a" />
+  <path d="M0 350 Q 300 322 620 340 T ${W} 330 L ${W} 380 L 0 392 Z" fill="#7f8f5c" />
+  <path d="M470 ${H} L 590 392 L 640 392 L 820 ${H} Z" fill="#c2a878" />
+  <g stroke="#3c3226" stroke-linecap="round">${branches.join('')}</g>`;
+---
+<section class="module pgrid" data-pgrid={JSON.stringify({ rows, cols, W, H, panelCm })}>
+  <p class="module-label">互动 · 比人还大的画</p>
+  <h3>{prompt}</h3>
+  <div class="pgrid-views">
+    <figure class="pgrid-near">
+      <svg viewBox={`0 0 ${W / cols} ${H / rows}`} data-near role="img" aria-label="站在一块画布前看到的那一块">
+        <use href="#pgrid-scene" />
+      </svg>
+      <figcaption>站在一块画布前：你看到的只有这一块</figcaption>
+    </figure>
+    <figure class="pgrid-far">
+      <div class="pgrid-board" style={`--cols:${cols};--rows:${rows}`}>
+        <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true"><g id="pgrid-scene" set:html={scene} /></svg>
+        <div class="pgrid-cells" data-cells>
+          {Array.from({ length: rows * cols }, (_, i) => (
+            <button type="button" class="pgrid-cell" data-i={i} aria-label={`第 ${Math.floor(i / cols) + 1} 行第 ${(i % cols) + 1} 块`}></button>
+          ))}
+        </div>
+      </div>
+      <figcaption>照片拼起来的全图：点一块，去画它</figcaption>
+    </figure>
+  </div>
+  <div class="pgrid-bar">
+    <button type="button" class="btn btn-secondary" data-all>一块一块画完</button>
+    <button type="button" class="btn btn-secondary" data-clear>换一组新画布</button>
+  </div>
+  <p class="pgrid-read" aria-live="polite" data-read></p>
+  <p class="pgrid-note">示意：风景是本站画的，不是霍克尼的画。画布尺寸按泰特美术馆公布的数据：每块 {panelCm[0]} × {panelCm[1]} 厘米，{rows} 行 {cols} 列。</p>
+</section>
+
+<style>
+  .pgrid-views { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: 1.25rem; align-items: start; max-width: 60rem; }
+  .pgrid-views figure { margin: 0; }
+  .pgrid-views svg { display: block; width: 100%; height: auto; }
+  .pgrid-near svg { background: #f2efe7; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1); }
+  .pgrid-board { position: relative; }
+  .pgrid-cells { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: repeat(var(--rows), 1fr); }
+  .pgrid-cell { margin: 0; padding: 0; border: 0; border-right: 1px solid rgb(255 255 255 / .9); border-bottom: 1px solid rgb(255 255 255 / .9);
+    background: #f2efe7; cursor: pointer; transition: background var(--t) var(--ease); }
+  .pgrid-cell.is-painted { background: transparent; }
+  .pgrid-cell.is-here { box-shadow: inset 0 0 0 2px var(--ink); }
+  .pgrid-cell:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+  .pgrid-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .pgrid-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .pgrid-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (max-width: 640px) { .pgrid-views { grid-template-columns: 1fr; } .pgrid-near { max-width: 14rem; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pgrid]').forEach((root) => {
+    const { rows, cols, W, H, panelCm } = JSON.parse(root.dataset.pgrid!) as { rows: number; cols: number; W: number; H: number; panelCm: [number, number] };
+    const near = root.querySelector<SVGSVGElement>('[data-near]')!;
+    const cells = [...root.querySelectorAll<HTMLButtonElement>('.pgrid-cell')];
+    const read = root.querySelector('[data-read]')!;
+    const total = rows * cols, w = W / cols, h = H / rows;
+    const areaM2 = (total * panelCm[0] * panelCm[1]) / 10000;
+    let timer = 0;
+    const visit = (i: number) => {
+      cells.forEach((c) => c.classList.remove('is-here'));
+      cells[i].classList.add('is-painted', 'is-here');
+      near.setAttribute('viewBox', `${(i % cols) * w} ${Math.floor(i / cols) * h} ${w} ${h}`);
+      const done = cells.filter((c) => c.classList.contains('is-painted')).length;
+      read.textContent = done === total
+        ? `${total} 块全部画完：拼起来约 ${(rows * panelCm[0] / 100).toFixed(1)} 米高、${(cols * panelCm[1] / 100).toFixed(1)} 米宽，${areaM2.toFixed(0)} 平方米。站在任何一块画布前，你都看不到这整幅画。`
+        : `已经画了 ${done} / ${total} 块。左边是你站在这块画布前看到的样子：一根树枝从哪里来、往哪里去，要靠右边的全图才知道。`;
+    };
+    cells.forEach((c, i) => c.addEventListener('click', () => { clearInterval(timer); visit(i); }));
+    root.querySelector('[data-all]')!.addEventListener('click', () => {
+      clearInterval(timer);
+      const order = cells.map((_, i) => i).filter((i) => !cells[i].classList.contains('is-painted'));
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { order.forEach(visit); return; }
+      timer = window.setInterval(() => { const i = order.shift(); if (i === undefined) clearInterval(timer); else visit(i); }, 70);
+    });
+    root.querySelector('[data-clear]')!.addEventListener('click', () => {
+      clearInterval(timer);
+      cells.forEach((c) => c.classList.remove('is-painted', 'is-here'));
+      near.setAttribute('viewBox', `${4 * w} ${2 * h} ${w} ${h}`);
+      read.textContent = `${total} 块空白的画布。点右边的任何一块，开始画。`;
+    });
+    near.setAttribute('viewBox', `${4 * w} ${2 * h} ${w} ${h}`);
+    read.textContent = `${total} 块空白的画布。点右边的任何一块，开始画。`;
+  });
+</script>

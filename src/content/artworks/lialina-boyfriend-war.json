@@ -1,0 +1,89 @@
+{
+  "id": "art-lialina-boyfriend-war-001",
+  "kind": "object",
+  "titleZh": "我的男朋友从战场回来了",
+  "titleEn": "My Boyfriend Came Back from the War",
+  "artist": "奥莉娅·利亚利娜",
+  "attributionNote": "奥莉娅·利亚利娜（1971 年生于莫斯科）1996 年作，她的第一件网络艺术作品（据 Rhizome《网络艺术选集》）。",
+  "dateApprox": "1996 年",
+  "objectType": "网络艺术 · 用 HTML 框架、超链接和图像写成的网站",
+  "medium": "HTML（框架、超链接）、黑白的静态与动态 GIF 图像",
+  "dimensions": "随浏览器窗口的大小而变；每次点击，窗口就被分成更小的框架",
+  "dimensionsSource": "网页没有固定的尺寸",
+  "collection": "无收藏机构：作品一直放在艺术家自己的网站 teleportacia.org 上；Rhizome《网络艺术选集》收录，并提供 Netscape 3 浏览器的仿真环境",
+  "originalStatus": "原作仍在 1996 年的网址上运行；艺术家也收集、展示了许多别人做的翻拍和改编版本。",
+  "provenance": "1996 年发布在艺术家的网站上；后被 Rhizome《网络艺术选集》第一章（1984—1998）收录（据 Rhizome）。",
+  "officialPage": {
+    "label": "Rhizome《网络艺术选集》的作品页面（从那里可以打开原作）",
+    "url": "https://anthology.rhizome.org/my-boyfriend-came-back-from-the-war"
+  },
+  "infoSources": [
+    {
+      "label": "奥莉娅·利亚利娜：My Boyfriend Came Back from the War（作品原址，1996）",
+      "url": "http://www.teleportacia.org/war/"
+    },
+    {
+      "label": "Rhizome《网络艺术选集》：Olia Lialina, My Boyfriend Came Back from the War, 1996",
+      "url": "https://anthology.rhizome.org/my-boyfriend-came-back-from-the-war"
+    },
+    {
+      "label": "Rhizome：在 Netscape 3.04 仿真浏览器中打开这件作品",
+      "url": "https://sites.rhizome.org/anthology/lialina.html"
+    },
+    {
+      "label": "惠特尼美术馆 artport：Douglas Davis, The World's First Collaborative Sentence（1994 年发起，2013 年修复）",
+      "url": "https://whitney.org/artport/douglas-davis"
+    }
+  ],
+  "images": [
+    {
+      "key": "frameset",
+      "src": "/img/frameset-diagram-artpilot.jpg",
+      "kind": "detail",
+      "subject": "网页框架结构示意图（本站绘制）",
+      "width": 1800,
+      "height": 820,
+      "alt": "三个并排的浏览器窗口示意图：第一个窗口里只有一个页面；第二个被竖着分成左右两格，左窄右宽；第三个的格子里又分出更小的格子，一共七格。每一格都是黑底白字的占位文字。",
+      "caption": "网页框架（frameset）示意：一个窗口可以被分成几格，每一格各自装一个页面。本站绘制，格子里是占位文字。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制的示意图",
+        "sourceUrl": "https://anthology.rhizome.org/my-boyfriend-came-back-from-the-war",
+        "changes": "本站按 HTML 框架的原理绘制，不描绘作品的任何内容",
+        "by": "本站绘制"
+      }
+    }
+  ],
+  "imagesNote": "这张图是本站绘制的框架结构示意，不是作品的内容。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只链接到作品的原始网址，不复制它的文字、图像或页面",
+    "basis": "利亚利娜的作品受版权保护，网上可以自由打开，不等于可以复制或转载。本站只提供作品原址和 Rhizome 选集页面的链接；框架结构的示意图和互动由本站绘制，格子里只有占位文字。",
+    "verifiedOn": "2026-10-29",
+    "note": "作品原址 http://www.teleportacia.org/war/ 只能用 http 打开（核对时 https 连接不上），所以卡片和作品页链接到 Rhizome 选集的 https 页面，课文里另给原址。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "网络艺术",
+    "maker": "奥莉娅·利亚利娜",
+    "period": "1996 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "奥莉娅·利亚利娜"
+      },
+      {
+        "label": "媒材",
+        "value": "HTML 框架、GIF"
+      },
+      {
+        "label": "所在",
+        "value": "她自己的网站"
+      },
+      {
+        "label": "上线",
+        "value": "1996 年至今"
+      }
+    ],
+    "blurb": "每点一下，窗口就裂成更小的格子：一段对话，在网页里怎样讲？",
+    "image": null
+  }
+}

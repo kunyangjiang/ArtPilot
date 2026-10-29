@@ -1,0 +1,114 @@
+{
+  "id": "art-eliasson-weather-project-001",
+  "kind": "object",
+  "titleZh": "天气计划",
+  "titleEn": "The weather project",
+  "artist": "奥拉维尔·埃利亚松",
+  "attributionNote": "奥拉维尔·埃利亚松（1967 年生）为伦敦泰特现代美术馆涡轮大厅创作，是“联合利华系列”的第四件委托作品。",
+  "dateApprox": "2003 年 10 月 16 日—2004 年 3 月 21 日展出",
+  "objectType": "特定场域装置 · 光、雾与镜面",
+  "medium": "单频灯、投影膜、雾气机、镜面膜、铝、脚手架（据艺术家工作室的记录）",
+  "dimensions": "占满涡轮大厅；半圆形发光屏与天花板上的镜面合成一个圆形“太阳”（工作室未公布尺寸）",
+  "dimensionsSource": "艺术家工作室和泰特都未公布作品的尺寸",
+  "collection": "无收藏机构：为泰特现代美术馆涡轮大厅委托的临时作品，展期结束后拆除",
+  "originalStatus": "临时装置，展后拆除；今天只能通过照片、展览图录和文字记录了解。",
+  "provenance": "2003 年泰特现代美术馆“联合利华系列”委托；2003 年 10 月 16 日至 2004 年 3 月 21 日在涡轮大厅展出（据泰特）。",
+  "officialPage": {
+    "label": "艺术家工作室的作品页面",
+    "url": "https://olafureliasson.net/artwork/the-weather-project-2003/"
+  },
+  "infoSources": [
+    {
+      "label": "Studio Olafur Eliasson：The weather project, 2003（材料、结构与展前问卷）",
+      "url": "https://olafureliasson.net/artwork/the-weather-project-2003/"
+    },
+    {
+      "label": "泰特现代美术馆：The Unilever Series: Olafur Eliasson: The Weather Project（展期与委托）",
+      "url": "https://www.tate.org.uk/whats-on/tate-modern/unilever-series/unilever-series-olafur-eliasson-weather-project"
+    },
+    {
+      "label": "《不列颠百科全书》：The Weather Project（观众人数、灯的数目）",
+      "url": "https://www.britannica.com/topic/The-Weather-Project"
+    },
+    {
+      "label": "Robert Mitchell, Plans, and Views in Perspective, of Buildings Erected in England and Scotland, 1801（盖蒂研究所藏本）",
+      "url": "https://archive.org/details/gri_33125008065258"
+    },
+    {
+      "label": "Rijksdienst voor het Cultureel Erfgoed：Panorama Mesdag, Interieur, overzicht panorama, 20343375",
+      "url": "https://commons.wikimedia.org/wiki/File:Interieur,_overzicht_panorama_20343375_RCE.jpg"
+    },
+    {
+      "label": "海牙市：Museum Panorama Mesdag（全景画的尺寸）",
+      "url": "https://denhaag.com/en/museum-panorama-mesdag"
+    }
+  ],
+  "images": [
+    {
+      "key": "rotunda",
+      "src": "/img/barker-rotunda-section-1801.jpg",
+      "kind": "detail",
+      "subject": "罗伯特·米切尔《莱斯特广场圆形大厅剖面图》（1801 年出版）",
+      "width": 2000,
+      "height": 1359,
+      "alt": "一张手工上色的建筑剖面图：一座圆形的大厅被纵向剖开，中间一根立柱，围着立柱有上下两层看台，看台上站着穿 18 世纪末服装的观众。四周的墙上是连成一圈的风景画：下层是海湾和山崖，上层是一座城市和河上的桥。屋顶是玻璃天窗，左边是一段段楼梯。",
+      "caption": "罗伯特·米切尔设计的伦敦莱斯特广场圆形大厅剖面图，1801 年 5 月 15 日出版。大厅为巴克的全景画而建：下层的画直径 85 英尺，上层 50 英尺，光从屋顶的天窗照下来，观众站在中央的看台上。",
+      "credit": {
+        "author": "Robert Mitchell（建筑师）；盖蒂研究所藏本扫描，经互联网档案馆取得",
+        "licence": "公有领域（1801 年出版）",
+        "sourceUrl": "https://archive.org/details/gri_33125008065258",
+        "changes": "截取书页上的图版部分并顺时针旋转 90 度，使图上的文字可以横读；缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "图版 · 罗伯特·米切尔，1801 年"
+      }
+    },
+    {
+      "key": "mesdag",
+      "src": "/img/mesdag-panorama-visitors-rce.jpg",
+      "kind": "detail",
+      "subject": "海牙梅斯达赫全景画馆的观众（2002 年摄）",
+      "width": 1800,
+      "height": 1175,
+      "alt": "一张彩色照片：观众站在一个圆形的木结构看台上，头顶是一圈帆布遮檐。看台外面四周是一幅连成一圈的巨大画面：海、沙滩和远处的房屋。有人仰头，有人伸手指着远处，有人转身往别的方向看。",
+      "caption": "海牙梅斯达赫全景画馆的看台，2002 年 7 月。全景画由梅斯达赫等人在 1881 年画成，周长约 120 米、高约 14 米。看台下沿与画之间铺着真的沙子，挡住了画的下缘。",
+      "credit": {
+        "author": "Gerard Dukker / Rijksdienst voor het Cultureel Erfgoed",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Interieur,_overzicht_panorama_20343375_RCE.jpg",
+        "changes": "缩小到 1800 像素宽并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    }
+  ],
+  "imagesNote": "这些图像都不是本件作品：一张是 1801 年出版的建筑图版（从书页上截取并旋转），一张是 2002 年拍摄的全景画馆照片（CC BY-SA 4.0）。来源、许可与改动见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供艺术家工作室作品页面的链接，不复制它的图像",
+    "basis": "埃利亚松的装置受版权保护，现场照片的权利属于摄影师和艺术家工作室，页面上没有开放许可。本课的插图：米切尔 1801 年出版的剖面图属于公有领域；梅斯达赫全景画馆的照片由荷兰文化遗产署以 CC BY-SA 4.0 授权，画中的全景画（梅斯达赫，1915 年去世）属于公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。光色互动里的色块和计算由本站完成，不描绘作品现场。"
+  },
+  "card": {
+    "type": "沉浸式装置",
+    "maker": "奥拉维尔·埃利亚松",
+    "period": "2003—2004 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "奥拉维尔·埃利亚松"
+      },
+      {
+        "label": "媒材",
+        "value": "单频灯、雾、镜面"
+      },
+      {
+        "label": "现场",
+        "value": "泰特现代美术馆"
+      },
+      {
+        "label": "现状",
+        "value": "展后拆除"
+      }
+    ],
+    "blurb": "一盏人造的太阳挂在涡轮大厅尽头：人们躺在地上，看镜子里的自己。",
+    "image": null
+  }
+}

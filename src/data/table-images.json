@@ -83,6 +83,18 @@
       "height": 133
     }
   },
+  "/img/animation-frames-diagram-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/animation-frames-diagram-artpilot.jpg",
+      "width": 1100,
+      "height": 481
+    },
+    "small": {
+      "src": "/img/table/s-animation-frames-diagram-artpilot.jpg",
+      "width": 260,
+      "height": 114
+    }
+  },
   "/img/bellini-feast-gods.jpg": {
     "large": {
       "src": "/img/table/bellini-feast-gods.jpg",
@@ -299,6 +311,18 @@
       "height": 120
     }
   },
+  "/img/constable-stoke-by-nayland.jpg": {
+    "large": {
+      "src": "/img/table/constable-stoke-by-nayland.jpg",
+      "width": 1100,
+      "height": 866
+    },
+    "small": {
+      "src": "/img/table/s-constable-stoke-by-nayland.jpg",
+      "width": 260,
+      "height": 204
+    }
+  },
   "/img/courbet-burial.jpg": {
     "large": {
       "src": "/img/table/courbet-burial.jpg",
@@ -419,6 +443,18 @@
       "height": 198
     }
   },
+  "/img/frameset-diagram-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/frameset-diagram-artpilot.jpg",
+      "width": 1100,
+      "height": 501
+    },
+    "small": {
+      "src": "/img/table/s-frameset-diagram-artpilot.jpg",
+      "width": 260,
+      "height": 118
+    }
+  },
   "/img/friedrich-wanderer.jpg": {
     "large": {
       "src": "/img/table/friedrich-wanderer.jpg",
@@ -453,6 +489,18 @@
       "src": "/img/table/s-fuchun-scroll.jpg",
       "width": 260,
       "height": 14
+    }
+  },
+  "/img/fuller-garment-patent-1894.jpg": {
+    "large": {
+      "src": "/img/table/fuller-garment-patent-1894.jpg",
+      "width": 749,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-fuller-garment-patent-1894.jpg",
+      "width": 177,
+      "height": 260
     }
   },
   "/img/gandhara-buddha.jpg": {
@@ -707,6 +755,18 @@
       "height": 259
     }
   },
+  "/img/jacquard-woven-portrait-1839.jpg": {
+    "large": {
+      "src": "/img/table/jacquard-woven-portrait-1839.jpg",
+      "width": 936,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-jacquard-woven-portrait-1839.jpg",
+      "width": 221,
+      "height": 260
+    }
+  },
   "/img/jeanne-hours-016r.jpg": {
     "large": {
       "src": "/img/table/jeanne-hours-016r.jpg",
@@ -933,6 +993,18 @@
       "src": "/img/table/s-maya-lintel-full.jpg",
       "width": 258,
       "height": 260
+    }
+  },
+  "/img/mesdag-panorama-visitors-rce.jpg": {
+    "large": {
+      "src": "/img/table/mesdag-panorama-visitors-rce.jpg",
+      "width": 1100,
+      "height": 718
+    },
+    "small": {
+      "src": "/img/table/s-mesdag-panorama-visitors-rce.jpg",
+      "width": 260,
+      "height": 169
     }
   },
   "/img/met-folding-armchair.jpg": {
@@ -1185,6 +1257,18 @@
       "src": "/img/table/s-richard-peter-dresden-1945.jpg",
       "width": 260,
       "height": 260
+    }
+  },
+  "/img/rohrer-passage-screenshot.png": {
+    "large": {
+      "src": "/img/table/rohrer-passage-screenshot.png",
+      "width": 1100,
+      "height": 176
+    },
+    "small": {
+      "src": "/img/table/s-rohrer-passage-screenshot.png",
+      "width": 260,
+      "height": 42
     }
   },
   "/img/rozsda-amour-sacre.jpg": {

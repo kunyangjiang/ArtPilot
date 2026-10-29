@@ -1,0 +1,91 @@
+---
+// How a 1990s web page made of frames divides the browser window: each click on a frame splits it in two (side by side,
+// then one above the other, by turns), the way a FRAMESET with COLS or ROWS does. The reader can switch the window to a
+// phone's width and see how quickly the pieces become too small to read. The frames hold placeholder words, never any
+// artist's text or images. "重来" starts again. Nothing is scored or stored.
+interface Props { prompt: string; first?: number }
+const { prompt, first = 40 } = Astro.props;
+---
+<section class="module fsplit" data-fsplit={JSON.stringify({ first })}>
+  <p class="module-label">互动 · 一个窗口，越分越小</p>
+  <h3>{prompt}</h3>
+  <div class="fsplit-bar" role="group" aria-label="窗口宽度">
+    <button type="button" class="btn btn-secondary" aria-pressed="true" data-w="desk">桌面浏览器</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-w="phone">手机屏幕</button>
+    <button type="button" class="btn btn-secondary" data-reset>重来</button>
+  </div>
+  <div class="fsplit-window" data-window>
+    <div class="fsplit-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="fsplit-view" data-view></div>
+  </div>
+  <p class="fsplit-read" aria-live="polite" data-read></p>
+  <p class="fsplit-note">示意：本站绘制的框架结构，格子里只有占位文字，不是任何作品的内容。</p>
+</section>
+
+<style>
+  .fsplit-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+  .fsplit-bar [aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .fsplit-window { width: 100%; max-width: 46rem; border: 1px solid var(--silver); background: #000; transition: max-width var(--t-slow) var(--ease); }
+  .fsplit-window.is-phone { max-width: 15rem; }
+  .fsplit-chrome { display: flex; gap: .3rem; padding: .35rem .5rem; background: var(--mist); }
+  .fsplit-chrome span { width: .5rem; height: .5rem; border-radius: 50%; background: var(--silver); }
+  .fsplit-view { display: flex; aspect-ratio: 16 / 10; }
+  .fsplit-window.is-phone .fsplit-view { aspect-ratio: 9 / 16; }
+  .fsplit-view :global(.fs-node) { display: flex; min-width: 0; min-height: 0; }
+  .fsplit-view :global(.fs-cols) { flex-direction: row; }
+  .fsplit-view :global(.fs-rows) { flex-direction: column; }
+  .fsplit-view :global(.fs-leaf) { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 0; overflow: hidden;
+    padding: .25rem; border: 1px solid #555; background: #000; color: #fff; font: 400 .8125rem/1.3 var(--sans); text-align: center; cursor: pointer; }
+  .fsplit-view :global(.fs-leaf:hover), .fsplit-view :global(.fs-leaf:focus-visible) { background: #1d1d1d; outline: none; }
+  .fsplit-view :global(.fs-leaf u) { text-underline-offset: .2em; }
+  .fsplit-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .fsplit-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-fsplit]').forEach((root) => {
+    const { first } = JSON.parse(root.dataset.fsplit!) as { first: number };
+    const win = root.querySelector<HTMLElement>('[data-window]')!;
+    const view = root.querySelector<HTMLElement>('[data-view]')!;
+    const read = root.querySelector('[data-read]')!;
+    let pages = 0, depth = 0;
+    const leaf = (n: number, d: number) => {
+      const el = document.createElement('div');
+      el.className = 'fs-leaf'; el.tabIndex = 0; el.setAttribute('role', 'button'); el.dataset.d = String(d);
+      el.innerHTML = `<u>第 ${n} 页</u>`;
+      el.setAttribute('aria-label', `第 ${n} 页，按下把这一格再分成两格`);
+      return el;
+    };
+    const split = (el: HTMLElement) => {
+      const d = Number(el.dataset.d);
+      const box = document.createElement('div');
+      box.className = `fs-node ${d % 2 === 0 ? 'fs-cols' : 'fs-rows'}`;
+      box.style.flex = el.style.flex || '1 1 0';
+      const a = leaf(++pages, d + 1), b = leaf(++pages, d + 1);
+      const share = d === 0 ? first : 50;
+      a.style.flex = `${share} 1 0`; b.style.flex = `${100 - share} 1 0`;
+      box.append(a, b);
+      el.replaceWith(box);
+      depth = Math.max(depth, d + 1);
+      report(a);
+    };
+    const report = (a?: HTMLElement) => {
+      const leaves = view.querySelectorAll<HTMLElement>('.fs-leaf');
+      const small = a ? Math.round(Math.min(...[...leaves].map((l) => l.getBoundingClientRect().width))) : 0;
+      read.textContent = leaves.length === 1
+        ? '一开始，整个窗口只有一页。点它一下。'
+        : `窗口里现在有 ${leaves.length} 个框架，同时显示 ${leaves.length} 个页面；最窄的一格只有约 ${small} 像素宽。` +
+          (win.classList.contains('is-phone') ? ' 在手机的宽度上，文字很快就挤不下了。' : ' 换到“手机屏幕”看看。');
+    };
+    const reset = () => { pages = 0; depth = 0; view.replaceChildren(leaf(++pages, 0)); view.firstElementChild!.setAttribute('style', 'flex:1 1 0'); report(); };
+    view.addEventListener('click', (e) => { const el = (e.target as HTMLElement).closest<HTMLElement>('.fs-leaf'); if (el) split(el); });
+    view.addEventListener('keydown', (e) => { const el = (e.target as HTMLElement).closest<HTMLElement>('.fs-leaf'); if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); split(el); } });
+    root.querySelectorAll<HTMLButtonElement>('[data-w]').forEach((b) => b.addEventListener('click', () => {
+      root.querySelectorAll('[data-w]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      win.classList.toggle('is-phone', b.dataset.w === 'phone');
+      setTimeout(() => report(view.querySelector<HTMLElement>('.fs-leaf') ?? undefined), 280);
+    }));
+    root.querySelector('[data-reset]')!.addEventListener('click', reset);
+    reset();
+  });
+</script>

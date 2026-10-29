@@ -1,0 +1,96 @@
+{
+  "id": "art-kentridge-refusal-of-time-001",
+  "kind": "object",
+  "titleZh": "拒绝时间",
+  "titleEn": "The Refusal of Time",
+  "artist": "威廉·肯特里奇",
+  "attributionNote": "威廉·肯特里奇（1955 年生于约翰内斯堡）作。据委托方与出版物记载，科学史家彼得·加里森、作曲家菲利普·米勒、剪辑师凯瑟琳·梅伯格参与合作。",
+  "dateApprox": "2012 年",
+  "objectType": "五屏影像装置 · 30 分钟",
+  "medium": "五屏数字影像（黑白与彩色，有声），钢制扩音喇叭，一台“呼吸机器”（“大象”）",
+  "dimensions": "可变（据大都会艺术博物馆）",
+  "collection": "纽约大都会艺术博物馆与旧金山现代艺术博物馆共同收藏，2013.250",
+  "originalStatus": "完整的装置，2013 年由两家博物馆共同购藏。",
+  "provenance": "为 2012 年卡塞尔第十三届文献展委托创作；2013 年由大都会艺术博物馆与旧金山现代艺术博物馆共同购藏；2013 年 10 月 22 日至 2014 年 5 月 11 日在大都会艺术博物馆展出，2016 年 12 月至 2017 年 4 月在旧金山现代艺术博物馆展出。",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/499717"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：William Kentridge, The Refusal of Time，2012，2013.250",
+      "url": "https://www.metmuseum.org/art/collection/search/499717"
+    },
+    {
+      "label": "旧金山现代艺术博物馆新闻稿：SFMOMA and Metropolitan Museum Jointly Acquire Major William Kentridge Installation",
+      "url": "https://www.sfmoma.org/press/release/sfmoma-and-metropolitan-museum-jointly-acquire-ma/"
+    },
+    {
+      "label": "泰特美术馆《泰特论文》第 14 期：Cinematic Drawing in a Digital Age（肯特里奇擦改重拍的方法）",
+      "url": "https://www.tate.org.uk/research/tate-papers/14/cinematic-drawing-in-a-digital-age"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Projects 68: William Kentridge，1998（图录）",
+      "url": "https://assets.moma.org/documents/moma_catalogue_188_300294224.pdf"
+    },
+    {
+      "label": "filmportal.de（德国电影资料库）：Lichtspiel Opus 1（1921），影片档案",
+      "url": "https://www.filmportal.de/en/movie/lichtspiel-opus-1_ea43d4a6a3eb5006e03053d50b37753d"
+    },
+    {
+      "label": "Light Cone（巴黎实验电影发行机构）：Walter Ruttmann, Lichtspiel Opus I，1921，发行页面",
+      "url": "https://lightcone.org/en/film-1276-lichtspiel-opus-i"
+    }
+  ],
+  "images": [
+    {
+      "key": "frames",
+      "src": "/img/animation-frames-diagram-artpilot.jpg",
+      "kind": "detail",
+      "subject": "动画原理示意图（本站绘制）",
+      "width": 1600,
+      "height": 700,
+      "alt": "一条黑色的电影胶片示意图，两边是一排排小孔，中间并排七格画面。每一格里都有一个黑色的圆点，位置一格比一格往右移，忽高忽低，像在跳。下面标着第 1 格到第 7 格。",
+      "caption": "动画的原理：每一格都是一张静止的画面，连续放映时，眼睛就看到画面在动。本站绘制，不描绘任何影片的画面。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制的示意图",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/499717",
+        "changes": "本站按动画的原理绘制，不描绘任何作品",
+        "by": "ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "这张图是本站绘制的动画原理示意，不是本件作品，也不是任何影片的画面。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供大都会艺术博物馆作品页面的链接，不复制它的图像和影像",
+    "basis": "大都会艺术博物馆注明“© William Kentridge. All Rights Reserved”，作品页面的图像不能放大或下载。本课提到的鲁特曼 1921 年的抽象动画，影片本身在德国和美国都已进入公有领域；但网上流传的拷贝来自来历不明的现代修复版，本站无法核实其来源和权利，因此不播放、不复制，只提供电影资料库和发行机构的链接。",
+    "verifiedOn": "2026-10-29",
+    "note": "本课的插图是本站绘制的动画原理示意图。卡片为文字卡片。擦改动画的互动也由本站绘制。"
+  },
+  "card": {
+    "type": "五屏影像装置",
+    "maker": "威廉·肯特里奇",
+    "period": "2012 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "威廉·肯特里奇"
+      },
+      {
+        "label": "时长",
+        "value": "30 分钟"
+      },
+      {
+        "label": "构成",
+        "value": "五屏影像、喇叭、机器"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约 · 旧金山"
+      }
+    ],
+    "blurb": "五面墙上的影像、喇叭里的歌和一台喘气的机器：时间能被人管住吗？",
+    "image": null
+  }
+}

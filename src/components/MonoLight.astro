@@ -1,0 +1,73 @@
+---
+// Colours under a single-frequency light: a slider turns ordinary daylight into the light of a lamp that gives out
+// one wavelength only (a low-pressure sodium lamp, about 589 nm). Under such light a surface can send back only that
+// one colour, so every colour becomes a brighter or darker shade of the lamp's yellow, and blues and greens go almost
+// black. The swatches are drawn by this site; the sum is a simplified model (how much of each colour's red and green
+// survives at 589 nm), shown as a demonstration, not a measurement. `stops` are notes for points along the slider.
+interface Swatch { name: string; color: string }
+interface Stop { at: number; text: string }
+interface Props { prompt: string; swatches: Swatch[]; stops?: Stop[] }
+const { prompt, swatches, stops = [] } = Astro.props;
+---
+<section class="module mono" data-mono={JSON.stringify({ swatches, stops })}>
+  <p class="module-label">互动 · 换一种光</p>
+  <h3>{prompt}</h3>
+  <div class="mono-room" data-room>
+    {swatches.map((s) => (
+      <div class="mono-swatch" style={`--c:${s.color}`}>
+        <span class="mono-chip" aria-hidden="true"></span>
+        <span class="mono-name">{s.name}</span>
+      </div>
+    ))}
+  </div>
+  <div class="mono-controls">
+    <span>日光</span>
+    <input type="range" min="0" max="100" value="0" step="1" aria-label="从日光换成单一频率的黄光" data-range />
+    <span>单频黄光</span>
+  </div>
+  <p class="mono-read" aria-live="polite" data-read></p>
+  <p class="mono-note">示意：色块是本站画的，颜色的变化用简化的方法计算，只为说明原理，不是对作品现场的光谱测量。</p>
+</section>
+
+<style>
+  .mono-room { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: .75rem; max-width: 46rem; padding: 1rem;
+    background: var(--room, #f4f1ea); transition: background var(--t) var(--ease); }
+  .mono-swatch { display: grid; gap: .45rem; }
+  .mono-chip { display: block; aspect-ratio: 4 / 3; background: var(--shown, var(--c)); border-radius: 2px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .08); }
+  .mono-name { font: 400 .8125rem/1.4 var(--sans); color: var(--name, var(--ink-2)); }
+  .mono-controls { display: flex; align-items: center; gap: .75rem; max-width: 46rem; margin-top: 1.25rem; font: 500 .875rem/1.5 var(--sans); }
+  .mono-controls input { flex: 1 1 10rem; accent-color: var(--ink); }
+  .mono-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .mono-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-mono]').forEach((root) => {
+    const { swatches, stops } = JSON.parse(root.dataset.mono!) as { swatches: { name: string; color: string }[]; stops: { at: number; text: string }[] };
+    const room = root.querySelector<HTMLElement>('[data-room]')!;
+    const chips = [...root.querySelectorAll<HTMLElement>('.mono-swatch')];
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const read = root.querySelector<HTMLElement>('[data-read]')!;
+    const lin = (v: number) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const gam = (v: number) => Math.round(255 * Math.min(1, v <= 0.0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - 0.055));
+    const hex = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+    // The lamp's colour, and how much each surface sends back at 589 nm: mostly what it reflects of red and green light.
+    const lamp = [1, 0.62, 0.05];
+    const under = (rgb: number[]) => { const [r, g] = rgb.map(lin); const k = Math.min(1, 0.62 * r + 0.42 * g); return lamp.map((c) => c * k); };
+    const mix = (a: number[], b: number[], t: number) => a.map((v, i) => v + (b[i] - v) * t);
+    const draw = () => {
+      const t = Number(range.value) / 100;
+      chips.forEach((el, i) => {
+        const day = hex(swatches[i].color).map(lin);
+        const c = mix(day, under(hex(swatches[i].color)), t).map(gam);
+        el.style.setProperty('--shown', `rgb(${c.join(' ')})`);
+      });
+      const wall = mix([0.9, 0.88, 0.82], under([244, 241, 234]), t).map(gam);
+      room.style.setProperty('--room', `rgb(${wall.join(' ')})`);
+      const near = stops.reduce<{ at: number; text: string } | null>((a, s) => (!a || Math.abs(s.at - t * 100) < Math.abs(a.at - t * 100) ? s : a), null);
+      read.textContent = near?.text ?? '';
+    };
+    range.addEventListener('input', draw);
+    draw();
+  });
+</script>

@@ -1057,7 +1057,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 }
 
 /* ---------- Hands-on modules (FindOnImage, SortGame, TorchView, RegistrationGame) ---------- */
-.lesson > .find, .lesson > .torch, .lesson > .reg, .lesson > .lmask { grid-column: wide; }
+.lesson > .find, .lesson > .torch, .lesson > .reg, .lesson > .lmask, .lesson > .pgrid, .lesson > .film { grid-column: wide; }
 .quiz-inline { margin-block: 2.25rem 2.75rem; border-top-color: var(--rule); }
 .quiz-inline legend { font-size: 1.1875rem; }
 

@@ -1,0 +1,135 @@
+{
+  "id": "art-kawakubo-body-meets-dress-001",
+  "kind": "object",
+  "titleZh": "连衣裙（“身体与衣服相遇”系列）",
+  "titleEn": "Dress, spring/summer 1997",
+  "artist": "川久保玲（Comme des Garçons）",
+  "attributionNote": "川久保玲（1942 年生）为她 1969 年创立的品牌 Comme des Garçons 设计，属于 1997 年春夏女装系列“身体与衣服相遇，衣服与身体相遇”（Body Meets Dress—Dress Meets Body，系列名据大都会艺术博物馆 2017 年展览导览）；格纹弹力面料由织物研究社（Orimono Kenkyu Sha）的松下弘设计（据大都会艺术博物馆藏品页）。",
+  "dateApprox": "1997 年春夏",
+  "objectType": "服装 · 连衣裙（两件）",
+  "medium": "（a）尼龙、聚氨酯；（b）尼龙、聚氨酯、羽绒",
+  "dimensions": "尺寸未公布",
+  "dimensionsSource": "大都会艺术博物馆的藏品页没有给出尺寸",
+  "collection": "纽约大都会艺术博物馆服装研究院，1998.516.1a, b",
+  "originalStatus": "原件，两件套（a、b），1998 年入藏。",
+  "provenance": "1998 年由巴尼斯纽约百货公司捐赠给大都会艺术博物馆（据该馆）。",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/80949"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Comme des Garçons (Rei Kawakubo), Dress, spring/summer 1997，1998.516.1a, b",
+      "url": "https://www.metmuseum.org/art/collection/search/80949"
+    },
+    {
+      "label": "大都会艺术博物馆服装研究院：Rei Kawakubo/Comme des Garçons: Art of the In-Between 展览导览，2017（第 8 单元“物体/主体”）",
+      "url": "https://www.metmuseum.org/exhibitions/listings/2017/rei-kawakubo"
+    },
+    {
+      "label": "默斯·坎宁安基金会：Scenario（1997），舞蹈作品档案",
+      "url": "https://www.mercecunningham.org/the-work/choreography/scenario/"
+    },
+    {
+      "label": "美国专利 518,347：M. L. Fuller, Garment for Dancers，1894 年 4 月 17 日授权",
+      "url": "https://patents.google.com/patent/US518347A/en"
+    },
+    {
+      "label": "大都会艺术博物馆：Henri de Toulouse-Lautrec, Miss Loïe Fuller，1893，1970.534",
+      "url": "https://www.metmuseum.org/art/collection/search/334291"
+    },
+    {
+      "label": "Oskar Schlemmer, László Moholy-Nagy, Farkas Molnár, Die Bühne im Bauhaus（包豪斯丛书第 4 册），慕尼黑，1925",
+      "url": "https://commons.wikimedia.org/wiki/File:Oskar_Schlemmer_Triadisches_Ballett_100.jpg"
+    },
+    {
+      "label": "Oskar Schlemmer：《三元芭蕾》首演节目单，斯图加特，1922 年 9 月 30 日",
+      "url": "https://commons.wikimedia.org/wiki/File:Das_Triadische_Ballett,_Programmzettel_1922.jpg"
+    }
+  ],
+  "images": [
+    {
+      "key": "fuller-patent",
+      "src": "/img/fuller-garment-patent-1894.jpg",
+      "kind": "detail",
+      "subject": "洛伊·富勒《舞者服装》专利图（1894 年）",
+      "width": 1089,
+      "height": 1600,
+      "alt": "一张黑白专利图：上方是一件张开的、三角形的长裙和两根细长的杆子；下方画着一位舞者，双臂举起，宽大的布料在她身体周围卷成一圈圈波浪，像旋转的花瓣。",
+      "caption": "洛伊·富勒（玛丽·路易丝·富勒）的美国专利 518,347《舞者服装》，1894 年 4 月 17 日授权。图一是挂在头箍上的长裙，图二、图三是缝在裙里、让舞者握住的杆子，图四是舞动时的样子。",
+      "credit": {
+        "author": "Marie Louise Fuller（专利申请人）；美国专利商标局，经 Google Patents 取得",
+        "licence": "公有领域（美国专利文件；1894 年出版）",
+        "sourceUrl": "https://patents.google.com/patent/US518347A/en",
+        "changes": "缩小到 1600 像素高并转为 JPEG；未裁切",
+        "by": "专利图 · 洛伊·富勒"
+      }
+    },
+    {
+      "key": "lautrec",
+      "src": "/img/lautrec-loie-fuller-1893.jpg",
+      "kind": "detail",
+      "subject": "亨利·德·图卢兹-劳特累克《洛伊·富勒小姐》（1893 年，石版画）",
+      "width": 1224,
+      "height": 1800,
+      "alt": "一幅竖长的彩色石版画：深色的舞台上，一团翻卷的、黄绿色带金色喷点的布料几乎占满画面，只在顶上露出一个小小的头，底下露出一双腿。",
+      "caption": "图卢兹-劳特累克《洛伊·富勒小姐》，1893 年，五色笔刷与喷点石版画，38 × 25.8 厘米，大都会艺术博物馆藏（1970.534）。据该馆，画家用不同的颜色（包括金色和银色）印了约六十个版本。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/334291",
+        "changes": "缩小到 1800 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "schlemmer",
+      "src": "/img/schlemmer-triadic-figurines-1925.jpg",
+      "kind": "detail",
+      "subject": "奥斯卡·施莱默《三元芭蕾》人物表（1925 年出版）",
+      "width": 2000,
+      "height": 1438,
+      "alt": "一张线描图表，分成三栏，编号 1 到 12：每一格里画着一两个穿怪异服装的人形，有的像陀螺，有的裙子像一圈圈的盘子，有的身体是几个球和圆锥拼起来的。",
+      "caption": "施莱默《三元芭蕾》的人物表，按 12 段舞编号，刊于包豪斯丛书第 4 册《包豪斯的舞台》（慕尼黑，1925 年）。",
+      "credit": {
+        "author": "Oskar Schlemmer；《包豪斯的舞台》（1925）书中图版，经维基共享资源取得",
+        "licence": "公有领域（1925 年出版；施莱默 1943 年去世）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oskar_Schlemmer_Triadisches_Ballett_100.jpg",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色",
+        "by": "书中图版 · 奥斯卡·施莱默，1925 年"
+      }
+    }
+  ],
+  "imagesNote": "这些图像都不是本件作品：一张美国专利图、一幅大都会艺术博物馆以 CC0 开放的石版画、一张 1925 年出版的书中图版。来源与改动见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供大都会艺术博物馆作品页面的链接，不复制它的图像",
+    "basis": "大都会艺术博物馆的作品图像不能放大或下载，设计仍受保护；坎宁安《情景》的演出照片也受版权保护。本课的插图：富勒 1894 年的专利图是美国专利文件；图卢兹-劳特累克 1893 年的石版画由大都会艺术博物馆以 CC0 开放；施莱默的人物表 1925 年在德国出版，施莱默 1943 年去世，在德国和美国都已进入公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "廓形的示意图由本站绘制，不是任何一件衣服的图样。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "服装 · 设计",
+    "maker": "川久保玲",
+    "period": "1997 年春夏",
+    "facets": [
+      {
+        "label": "设计",
+        "value": "川久保玲"
+      },
+      {
+        "label": "品牌",
+        "value": "Comme des Garçons"
+      },
+      {
+        "label": "材料",
+        "value": "尼龙、聚氨酯、羽绒"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "格子裙里鼓起一个个包：衣服不再顺着身体，身体的形状由谁说了算？",
+    "image": null
+  }
+}

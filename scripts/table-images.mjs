@@ -46,7 +46,8 @@ for (const src of [...wanted].sort()) {
   for (const [name, edge] of Object.entries(sizes)) {
     const dest = `/img/table/${name === 'small' ? 's-' : ''}${basename(src)}`;
     const info = await sharp(file).rotate().resize({ width: edge, height: edge, fit: 'inside', withoutEnlargement: true })
-      .jpeg({ quality: name === 'small' ? 78 : 82, mozjpeg: true, progressive: true }).toFile(join(root, 'public', dest));
+      // A PNG source (pixel art, a game screenshot) stays PNG, so the copy's format matches its name.
+      [src.endsWith('.png') ? 'png' : 'jpeg'](src.endsWith('.png') ? { compressionLevel: 9 } : { quality: name === 'small' ? 78 : 82, mozjpeg: true, progressive: true }).toFile(join(root, 'public', dest));
     entry[name] = { src: dest, width: info.width, height: info.height };
   }
   list[src] = entry;

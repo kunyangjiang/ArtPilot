@@ -1,0 +1,119 @@
+---
+// Where does the body end and the dress begin? A standing figure seen from the side, facing right (head, arm and legs
+// drawn by this site), in a close-fitting checked dress. Each switch adds a padded swelling at one place the Met's record
+// names for the 1997 dresses — the bust, the midriff, the rear — and the dress's outline eases into its new shape while
+// the body inside (the dashed line) stays the same. `notes` give one short note per switch. A diagram of the principle,
+// not a drawing of any garment.
+interface Props { prompt: string; notes: { bust: string; mid: string; rear: string } }
+const { prompt, notes } = Astro.props;
+---
+<section class="module body" data-body={JSON.stringify(notes)}>
+  <p class="module-label">示意 · 改变廓形</p>
+  <h3>{prompt}</h3>
+  <div class="body-wrap">
+    <svg viewBox="40 0 170 460" role="img" aria-label="一个侧身站立、面朝右的人形示意：贴身的格子连衣裙从肩膀垂到膝盖，虚线是裙子里的身体。打开开关，裙子在胸前、腹部或臀后鼓起来。" data-svg>
+      <defs>
+        <pattern id="body-gingham" width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="9" height="9" fill="#f1f3f5" />
+          <rect width="4.5" height="9" fill="#8fa6bf" opacity=".32" />
+          <rect width="9" height="4.5" fill="#8fa6bf" opacity=".32" />
+        </pattern>
+      </defs>
+      <g class="body-skin">
+        <!-- the leg behind, then the leg in front -->
+        <path d="M106 296 C105 330 108 370 111 418 L112 432 C120 436 134 437 140 434 C134 430 124 426 121 418 C123 372 126 330 128 296 Z" class="body-far" />
+        <path d="M112 296 C113 332 117 372 120 416 L121 430 C129 435 144 437 151 433 C145 428 134 424 131 416 C132 372 135 332 136 296 Z" />
+        <!-- neck and head, facing right -->
+        <path d="M109 58 L109 84 L129 84 L127 58 Z" />
+        <path d="M118 8 C102 8 96 22 97 36 C98 48 104 58 114 62 C121 65 128 62 131 56 L132 50 L136 48 L133 42 C135 38 136 34 135 30 C134 16 128 8 118 8 Z" />
+      </g>
+      <path class="body-dress" data-dress />
+      <path class="body-line" data-front />
+      <path class="body-line" data-back />
+      <!-- the near arm, hanging in front of the dress -->
+      <path class="body-skin body-arm" d="M112 86 C107 100 106 128 108 160 C110 190 113 214 118 236 C120 244 127 246 129 240 C130 232 127 214 124 192 C121 160 121 128 122 100 C123 92 120 84 112 86 Z" />
+    </svg>
+    <fieldset class="body-switches">
+      <legend>加上填充物</legend>
+      <label><input type="checkbox" data-k="bust" /> 胸前</label>
+      <label><input type="checkbox" data-k="mid" /> 腹部</label>
+      <label><input type="checkbox" data-k="rear" /> 臀后</label>
+    </fieldset>
+  </div>
+  <p class="body-read" aria-live="polite" data-read>现在衣服贴着身体：轮廓就是身体的轮廓。</p>
+  <p class="body-note">示意图由本站绘制，只说明“廓形”这个原理，不是任何一件衣服的图样。</p>
+</section>
+
+<style>
+  .body-wrap { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.25rem 2rem; max-width: 46rem; }
+  .body-wrap svg { flex: 0 1 14rem; width: 14rem; max-width: 100%; height: auto; background: #f4f2ec; }
+  .body-skin path, .body-arm { fill: #eadcca; stroke: #9a8f80; stroke-width: 1.2; stroke-linejoin: round; }
+  .body-skin .body-far { fill: #ddcdb9; }
+  .body-dress { fill: url(#body-gingham); stroke: #1c1d20; stroke-width: 1.8; stroke-linejoin: round; }
+  .body-line { fill: none; stroke: #6f6a61; stroke-width: 1.2; stroke-dasharray: 3 3; }
+  .body-switches { display: grid; gap: .6rem; margin: 0; padding: 0; border: 0; font: 400 .9375rem/1.6 var(--sans); }
+  .body-switches legend { margin-bottom: .4rem; font-weight: 500; }
+  .body-switches label { display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; }
+  .body-switches input { accent-color: var(--ink); width: 1.05rem; height: 1.05rem; }
+  .body-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .body-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-body]').forEach((root) => {
+    const notes = JSON.parse(root.dataset.body!) as Record<'bust' | 'mid' | 'rear', string>;
+    const dress = root.querySelector<SVGPathElement>('[data-dress]')!;
+    const frontLine = root.querySelector<SVGPathElement>('[data-front]')!;
+    const backLine = root.querySelector<SVGPathElement>('[data-back]')!;
+    const boxes = [...root.querySelectorAll<HTMLInputElement>('input[data-k]')];
+    const read = root.querySelector('[data-read]')!;
+    // The torso in side view, facing right, from the shoulders (y 84) to just above the knee (y 300): front and back x.
+    const ys = [84, 100, 116, 132, 150, 170, 190, 210, 230, 250, 275, 300];
+    const front = [130, 140, 146, 145, 138, 134, 136, 139, 140, 139, 138, 136];
+    const back = [105, 98, 97, 99, 103, 105, 102, 95, 93, 96, 100, 102];
+    // A smooth curve through the profile, sampled densely (Catmull–Rom), so swellings added to it stay smooth too.
+    const dense = (xs: number[]) => {
+      const out: [number, number][] = [];
+      for (let i = 0; i < ys.length - 1; i++) {
+        const i0 = Math.max(0, i - 1), i3 = Math.min(ys.length - 1, i + 2);
+        for (let k = 0; k < 6; k++) {
+          const t = k / 6, t2 = t * t, t3 = t2 * t;
+          const cr = (a: number[]) => 0.5 * (2 * a[i] + (-a[i0] + a[i + 1]) * t + (2 * a[i0] - 5 * a[i] + 4 * a[i + 1] - a[i3]) * t2 + (-a[i0] + 3 * a[i] - 3 * a[i + 1] + a[i3]) * t3);
+          out.push([cr(xs), cr(ys)]);
+        }
+      }
+      out.push([xs[xs.length - 1], ys[ys.length - 1]]);
+      return out;
+    };
+    const baseFront = dense(front), baseBack = dense(back);
+    const bump = (y: number, y0: number, w: number) => Math.exp(-(((y - y0) / w) ** 2));
+    const path = (pts: [number, number][]) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+    // amount of each swelling now shown (0–1), eased towards the switches
+    const amt = { bust: 0, mid: 0, rear: 0 };
+    const shape = () => {
+      const f = baseFront.map(([x, y]): [number, number] => [x + 3 + (y - 84) * 0.03 + 15 * amt.bust * bump(y, 114, 17) + 20 * amt.mid * bump(y, 196, 24), y]);
+      const b = baseBack.map(([x, y]): [number, number] => [x - 3 - (y - 84) * 0.03 - 24 * amt.rear * bump(y, 222, 26), y]);
+      dress.setAttribute('d', `${path(f)} ${path(b.reverse()).replace(/^M/, 'L')} Z`);
+    };
+    frontLine.setAttribute('d', path(baseFront));
+    backLine.setAttribute('d', path(baseBack));
+    const still = matchMedia('(prefers-reduced-motion: reduce)');
+    let raf = 0;
+    const draw = () => {
+      const want = Object.fromEntries(boxes.map((b) => [b.dataset.k!, b.checked ? 1 : 0])) as typeof amt;
+      cancelAnimationFrame(raf);
+      const from = { ...amt }, t0 = performance.now(), dur = still.matches ? 0 : 320;
+      const step = (t: number) => {
+        const u = dur ? Math.min(1, (t - t0) / dur) : 1, e = 1 - (1 - u) ** 3;
+        (Object.keys(amt) as (keyof typeof amt)[]).forEach((k) => { amt[k] = from[k] + (want[k] - from[k]) * e; });
+        shape();
+        if (u < 1) raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+      const picked = boxes.filter((b) => b.checked).map((b) => notes[b.dataset.k as 'bust' | 'mid' | 'rear']);
+      read.textContent = picked.length ? picked.join(' ') + ' 身体（虚线）一点也没有变。' : '现在衣服贴着身体：轮廓就是身体的轮廓。';
+    };
+    boxes.forEach((b) => b.addEventListener('change', draw));
+    shape();
+  });
+</script>

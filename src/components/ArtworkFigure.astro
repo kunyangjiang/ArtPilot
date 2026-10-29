@@ -8,7 +8,7 @@ if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}
 // A painting is credited to its painter; a photograph of a building to its photographer and licence
 // (the full attribution is in the rights block at the end of the page).
 const credit = img.credit
-  ? `${img.subject ?? record.data.titleZh} · 摄影 ${img.credit.author} · ${img.credit.licence}`
+  ? `${img.subject ?? record.data.titleZh} · ${img.credit.by ?? `摄影 ${img.credit.author}`} · ${img.credit.licence}`
   : `${record.data.artist}《${record.data.titleZh}》`;
 ---
 <figure>

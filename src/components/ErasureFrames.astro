@@ -1,0 +1,84 @@
+---
+// Animation on one sheet: a small charcoal-like drawing (drawn by this site) is changed step by step, and each state
+// would be photographed as a frame or two. The slider moves through the changes; "保留擦掉的痕迹" shows what a real
+// sheet keeps — every earlier state as a faint grey trace, the fainter the older — and switching it off shows the
+// clean frame a camera would want. The frame count turns the steps into seconds of film. Nothing is scored or stored.
+interface Props { prompt: string; steps?: number; fps?: number; framesPerStep?: number }
+const { prompt, steps = 12, fps = 24, framesPerStep = 2 } = Astro.props;
+// A walking figure seen from the side, crossing the sheet: one pose per step.
+const poses = Array.from({ length: steps }, (_, i) => {
+  const x = 40 + (i * 520) / (steps - 1), swing = i % 2 ? 1 : -1;
+  return { x, swing };
+});
+---
+<section class="module erase" data-erase={JSON.stringify({ steps, fps, framesPerStep })}>
+  <p class="module-label">互动 · 在同一张纸上画动画</p>
+  <h3>{prompt}</h3>
+  <div class="erase-sheet">
+    <svg viewBox="0 0 640 260" role="img" aria-label="一张纸上，一个用炭笔画的小人从左往右走，身后留下一串被擦掉、却没擦干净的灰色影子。">
+      <defs>
+        <filter id="erase-rough"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" /><feDisplacementMap in="SourceGraphic" scale="2.2" /></filter>
+      </defs>
+      <line x1="10" y1="222" x2="630" y2="222" class="erase-ground" />
+      {poses.map((p, i) => (
+        <g class="erase-pose" data-i={i} transform={`translate(${p.x} 0)`} filter="url(#erase-rough)">
+          <circle cx="0" cy="96" r="15" />
+          <line x1="0" y1="111" x2="2" y2="165" />
+          <line x1="2" y1="126" x2={18 * p.swing} y2="150" />
+          <line x1="2" y1="126" x2={-14 * p.swing} y2="148" />
+          <line x1="2" y1="165" x2={20 * p.swing} y2="220" />
+          <line x1="2" y1="165" x2={-16 * p.swing} y2="220" />
+          <path d="M -26 82 Q 0 52 26 82 Z" />
+        </g>
+      ))}
+    </svg>
+  </div>
+  <div class="erase-controls">
+    <label for="erase-step">第 <output data-n>1</output> 次修改</label>
+    <input id="erase-step" type="range" min="1" max={steps} value="1" step="1" data-range />
+    <label class="erase-toggle"><input type="checkbox" checked data-ghost /> 保留擦掉的痕迹</label>
+  </div>
+  <p class="erase-read" aria-live="polite" data-read></p>
+  <p class="erase-note">示意：小人是本站画的，不是肯特里奇的画。每改一次拍 {framesPerStep} 格，按每秒 {fps} 格计算。</p>
+</section>
+
+<style>
+  .erase-sheet { max-width: 46rem; background: #f3efe6; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); }
+  .erase-sheet svg { display: block; width: 100%; height: auto; }
+  .erase-ground { stroke: #8d877b; stroke-width: 1.5; }
+  .erase-pose { fill: none; stroke: #1d1b18; stroke-width: 5; stroke-linecap: round; opacity: 0; transition: opacity var(--t) var(--ease); }
+  .erase-pose path { fill: #1d1b18; stroke-width: 2; }
+  .erase-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; max-width: 46rem; margin-top: 1.25rem; font: 500 .9375rem/1.6 var(--sans); }
+  .erase-controls input[type="range"] { flex: 1 1 12rem; accent-color: var(--ink); }
+  .erase-controls output { font-variant-numeric: tabular-nums; }
+  .erase-toggle { display: inline-flex; align-items: center; gap: .4rem; font-weight: 400; }
+  .erase-toggle input { accent-color: var(--ink); }
+  .erase-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .erase-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-erase]').forEach((root) => {
+    const { steps, fps, framesPerStep } = JSON.parse(root.dataset.erase!) as { steps: number; fps: number; framesPerStep: number };
+    const poses = [...root.querySelectorAll<SVGGElement>('.erase-pose')];
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const ghost = root.querySelector<HTMLInputElement>('[data-ghost]')!;
+    const n = root.querySelector('[data-n]')!;
+    const read = root.querySelector('[data-read]')!;
+    const draw = () => {
+      const k = Number(range.value);
+      n.textContent = String(k);
+      poses.forEach((g, i) => {
+        const age = k - 1 - i; // 0 = the drawing as it is now
+        g.style.opacity = age === 0 ? '1' : age > 0 && ghost.checked ? String(Math.max(0.07, 0.3 - age * 0.025)) : '0';
+      });
+      const frames = k * framesPerStep, secs = frames / fps;
+      read.textContent = `改了 ${k} 次，拍了 ${frames} 格，放映出来约 ${secs.toFixed(1)} 秒。` +
+        (k === steps ? ` 照这个速度，一部 30 分钟的影片要 ${(30 * 60 * fps).toLocaleString('zh-CN')} 格。` : '') +
+        (ghost.checked && k > 1 ? ' 纸上留下的灰影，就是前面每一格的痕迹。' : '');
+    };
+    range.addEventListener('input', draw);
+    ghost.addEventListener('change', draw);
+    draw();
+  });
+</script>

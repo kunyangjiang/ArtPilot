@@ -1,0 +1,65 @@
+---
+// How big is the picture, next to a person? Several works, given by their published sizes (height × width in cm), are
+// hung one at a time on the same wall beside a 170 cm figure, all at one scale. Choosing a work outlines it at its
+// real proportions and opens its note (where a viewer has to stand, what can be seen from there). The outlines are
+// plain frames drawn by this site, not images of the works. Nothing is scored or stored.
+interface Work { id: string; label: string; h: number; w: number; note: string }
+interface Props { prompt: string; works: Work[] }
+const { prompt, works } = Astro.props;
+const W = 1400, FLOOR = 520, H = 560;
+const hang = (w: Work) => (w.h > 300 ? 15 : 90); // the bottom edge's height above the floor, in cm
+---
+<section class="module sizes" data-sizes>
+  <p class="module-label">互动 · 和人比一比</p>
+  <h3>{prompt}</h3>
+  <div class="sizes-tabs" role="tablist" aria-label="选择一件作品">
+    {works.map((w, i) => (
+      <button type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-i={i}>{w.label}</button>
+    ))}
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="同一比例下，一个 170 厘米高的人站在墙边，墙上挂着所选作品大小的画框。">
+    <rect x="0" y="0" width={W} height={FLOOR} class="sizes-wall" />
+    <line x1="0" y1={FLOOR} x2={W} y2={FLOOR} class="sizes-floor" />
+    {works.map((w, i) => (
+      <g class="sizes-work" data-w={i} hidden={i !== 0}>
+        <rect x={(W - w.w) / 2 + 60} y={FLOOR - hang(w) - w.h} width={w.w} height={w.h} />
+        <text x={(W - w.w) / 2 + 60 + w.w / 2} y={FLOOR - hang(w) - w.h - 12} text-anchor="middle">{w.h} × {w.w} 厘米</text>
+      </g>
+    ))}
+    <g class="sizes-person" transform={`translate(70 ${FLOOR})`}>
+      <circle cx="0" cy="-158" r="12" />
+      <path d="M-14 -144 L14 -144 L18 -78 L10 -78 L8 0 L-8 0 L-10 -78 L-18 -78 Z" />
+      <text x="0" y="28" text-anchor="middle">170 厘米</text>
+    </g>
+  </svg>
+  {works.map((w, i) => <p class="sizes-note" data-n={i} hidden={i !== 0}>{w.note}</p>)}
+  <p class="sizes-small">本站按收藏机构公布的尺寸绘制的空画框，不是作品的图像；挂的高度是示意。</p>
+</section>
+
+<style>
+  .sizes-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+  .sizes-tabs button { padding: .35rem .8rem; border: 1px solid var(--silver); border-radius: 999px; background: transparent; color: var(--ink);
+    font: 500 .875rem/1.4 var(--sans); cursor: pointer; }
+  .sizes-tabs button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .sizes svg { display: block; width: 100%; max-width: 46rem; height: auto; }
+  .sizes-wall { fill: #ece9e2; }
+  .sizes-floor { stroke: #8d877b; stroke-width: 3; }
+  .sizes-work[hidden] { display: none; }
+  .sizes-work rect { fill: #faf8f3; stroke: #1c1d20; stroke-width: 4; }
+  .sizes-work text, .sizes-person text { font: 500 26px var(--sans); fill: #45474d; }
+  .sizes-person circle, .sizes-person path { fill: #6f6a61; }
+  .sizes-note { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .sizes-small { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-sizes]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const show = (k: number) => {
+      tabs.forEach((t, i) => t.setAttribute('aria-selected', String(i === k)));
+      root.querySelectorAll<SVGGElement>('[data-w]').forEach((g) => { g.toggleAttribute('hidden', Number(g.dataset.w) !== k); });
+      root.querySelectorAll<HTMLElement>('[data-n]').forEach((p) => { p.hidden = Number(p.dataset.n) !== k; });
+    };
+    tabs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+  });
+</script>

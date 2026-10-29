@@ -1,0 +1,6 @@
+{
+  "id": "gl-html-frames",
+  "term": "网页框架",
+  "pinyin": "wǎng yè kuàng jià",
+  "definition": "20 世纪 90 年代常用的一种网页结构（HTML 的 frameset）：把浏览器窗口分成几格，每格各自装一个页面，可以分别滚动和更换。后来的网页标准已不再推荐使用。"
+}

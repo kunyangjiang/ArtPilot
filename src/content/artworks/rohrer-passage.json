@@ -1,0 +1,125 @@
+{
+  "id": "art-rohrer-passage-001",
+  "kind": "object",
+  "titleZh": "通道",
+  "titleEn": "Passage",
+  "artist": "贾森·罗勒",
+  "attributionNote": "贾森·罗勒（1977 年生）独自设计、编程、绘制并作曲。2007 年 12 月发布第 3 版，作者在发布页上声明“放入公有领域”。",
+  "dateApprox": "2007 年",
+  "objectType": "电子游戏软件 · 一局 5 分钟",
+  "medium": "电子游戏软件",
+  "dimensions": "画面 100 × 16 像素（游戏区 100 × 12，上方 4 像素为记分栏），全屏时放大显示（据作者的发布页）",
+  "dimensionsSource": "据作者的发布页",
+  "collection": "纽约现代艺术博物馆，SC384.2012（建筑与设计部）",
+  "originalStatus": "软件，任何人都可以下载和运行；源代码由作者公开。",
+  "provenance": "2007 年发布，同年 12 月 13 日发布第 3 版（据作者的发布页）。2011 年在纽约现代艺术博物馆的展览“和我说话”中供观众完整地玩；2012 年 11 月该馆宣布收藏首批 14 款电子游戏，《通道》是其中之一（设计者捐赠，藏品号 SC384.2012），随后在“应用设计”展中展出。",
+  "infoSources": [
+    {
+      "label": "贾森·罗勒：Passage 发布页（版本、画面尺寸、时长、许可）",
+      "url": "http://hcsoftware.sourceforge.net/passage/"
+    },
+    {
+      "label": "贾森·罗勒：What I was trying to do with Passage（创作者自述，2007 年 11 月）",
+      "url": "http://hcsoftware.sourceforge.net/passage/statement.html"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Jason Rohrer, Passage，2007，SC384.2012",
+      "url": "https://www.moma.org/collection/works/145533"
+    },
+    {
+      "label": "纽约现代艺术博物馆杂志：Paola Antonelli, Video Games: 14 in the Collection, for Starters（2012 年 11 月 29 日，今题 When Video Games Came to the Museum）",
+      "url": "https://www.moma.org/magazine/articles/798"
+    },
+    {
+      "label": "贾森·罗勒：Passage 源代码与人物图（GitHub）",
+      "url": "https://github.com/jasonrohrer/Passage"
+    },
+    {
+      "label": "美国专利 748,626：Lizzie J. Magie, Game-Board，1904 年 1 月 5 日授权",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Landlord%27s_Game_patent_(US748626).pdf"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/rohrer-passage-screenshot.png",
+      "kind": "full",
+      "width": 2400,
+      "height": 384,
+      "alt": "一条又长又窄的像素画面：左边站着一个金发、穿绿衣服的小人，身边是一个闭着的宝箱，路上长着绿色的植物；画面的右端变成一片模糊的灰白。",
+      "caption": "罗勒《通道》第 3 版的截图：游戏开始不久，人物站在画面的左边，右边的远处是模糊的。",
+      "credit": {
+        "author": "游戏 Jason Rohrer；截图 AVRS（维基共享资源）",
+        "licence": "公有领域（作者声明“放入公有领域”）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Passage_3_by_Jason_Rohrer_screenshot.png",
+        "changes": "原图 600 × 96 像素，按整数倍（4 倍）放大，像素保持方形、不做平滑；未裁切、未调色",
+        "by": "截图 · AVRS（游戏：贾森·罗勒）"
+      }
+    },
+    {
+      "key": "ages",
+      "src": "/img/rohrer-passage-ages.png",
+      "kind": "detail",
+      "width": 1200,
+      "height": 272,
+      "alt": "五个放大的像素小图并排：一个金发的年轻人、一个棕发的人、一个头发变少的人、一个白发的老人，最后是一块刻着十字的灰色墓碑。",
+      "caption": "《通道》里人物的四个年龄和最后的墓碑，取自游戏自带的人物图（characterSprite.png），每个小图原为 8 × 8 像素。",
+      "credit": {
+        "author": "Jason Rohrer（游戏原有的人物图）",
+        "licence": "公有领域（作者声明“放入公有领域”）",
+        "sourceUrl": "https://github.com/jasonrohrer/Passage/blob/master/gameSource/characterSprite.png",
+        "changes": "从人物图中取出四个正面的人物和一块墓碑，各放大 24 倍（不做平滑），排成一行",
+        "by": "游戏人物图 · 贾森·罗勒"
+      }
+    },
+    {
+      "key": "magie",
+      "src": "/img/magie-landlords-game-1904.jpg",
+      "kind": "detail",
+      "subject": "莉齐·马吉《地主游戏》专利图（1904 年）",
+      "width": 1351,
+      "height": 1344,
+      "alt": "一张黑白的方形棋盘图：四边排满格子，写着“出租”“出售”“铁路”“奢侈品”“绝对必需品”等字样，四个角上有“公园”“济贫院”“禁止擅入，进监狱”和“劳动创造财富”的地球图案。中间四块写着“银行”“工资”“公共财库”“铁路”。",
+      "caption": "莉齐·马吉《地主游戏》的棋盘，美国专利 748,626 的图一，1904 年 1 月 5 日授权。",
+      "credit": {
+        "author": "Lizzie J. Magie（专利申请人）；美国专利商标局，经维基共享资源取得",
+        "licence": "公有领域（美国专利文件；1904 年出版）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:United_States_patent_748626_-_Fig_1.png",
+        "changes": "未缩放，只转为 JPEG；未裁切、未调色",
+        "by": "专利图 · 莉齐·马吉"
+      }
+    }
+  ],
+  "imagesNote": "截图和人物图来自作者已放入公有领域的游戏，按整数倍放大、不做平滑；棋盘图来自美国专利文件。来源与改动见“来源与版权”。",
+  "rights": {
+    "status": "公有领域：作者本人在发布页上声明把《通道》“放入公有领域”",
+    "basis": "罗勒在官方发布页和随源代码公开的说明里都写明 “License: Placed in the public domain”。MoMA 的藏品页上有一行“© 2026 Jason Rohrer”，这是博物馆藏品页的通用版权行；本站以作者本人的声明为依据，并在研究记录里记下这一处不一致。截图由维基共享资源用户 AVRS 制作，是对游戏画面的机械复制。",
+    "verifiedOn": "2026-10-29",
+    "note": "本站没有重做或改编这款游戏：课里的示意图只用游戏原有的人物图来解释屏幕的含义。要玩，请到作者的发布页下载。马吉的专利图是美国专利文件，属于公有领域。"
+  },
+  "card": {
+    "type": "电子游戏",
+    "maker": "贾森·罗勒",
+    "period": "2007 年",
+    "focus": "14% 50%",
+    "facets": [
+      {
+        "label": "设计者",
+        "value": "贾森·罗勒"
+      },
+      {
+        "label": "时长",
+        "value": "5 分钟"
+      },
+      {
+        "label": "画面",
+        "value": "100 × 16 像素"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "一局五分钟，一个人从年轻走到老：分数在墓碑上方，还有意义吗？"
+  }
+}

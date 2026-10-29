@@ -1,0 +1,111 @@
+---
+// A drawing made by rules: this site's own small program (not AARON, and not imitating any of its drawings) places a
+// number of closed shapes on the sheet without letting them overlap, draws each with a wobbling line, and links some
+// of them with wandering lines. The reader sets two rules (how many shapes; how much the line may wobble) and asks for
+// another drawing; the same rules never give the same picture twice. Then the reader colours shapes by hand (click or
+// tap a shape; the colour cycles), as Cohen hand-coloured his early computer drawings. Nothing is scored or stored.
+interface Props { prompt: string }
+const { prompt } = Astro.props;
+---
+<section class="module rules" data-rules>
+  <p class="module-label">互动 · 规则与作者</p>
+  <h3>{prompt}</h3>
+  <div class="rules-sheet">
+    <svg viewBox="0 0 600 400" role="img" aria-label="程序按规则画出的一幅线描：几个不重叠的闭合形状，彼此之间有弯曲的连线。点一个形状可以给它上色。" data-svg></svg>
+  </div>
+  <div class="rules-controls">
+    <label>形状的数目 <output data-count-out>6</output><input type="range" min="2" max="12" value="6" data-count /></label>
+    <label>线条的抖动 <output data-wob-out>中</output><input type="range" min="0" max="2" value="1" data-wob /></label>
+    <button type="button" class="btn btn-secondary" data-again>按同样的规则再画一张</button>
+  </div>
+  <p class="rules-read" aria-live="polite" data-read>程序画好了。点一个形状，给它上色：这一步是你做的。</p>
+  <p class="rules-note">本站编写的小程序，只为说明“按规则生成”的原理，与科恩的 AARON 无关，也不模仿它的任何一幅画。</p>
+</section>
+
+<style>
+  .rules-sheet { max-width: 46rem; background: #fbfaf6; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .08); }
+  .rules-sheet svg { display: block; width: 100%; height: auto; touch-action: manipulation; }
+  .rules-sheet :global(.rules-shape) { cursor: pointer; stroke: #1c1d20; stroke-width: 1.6; stroke-linejoin: round; }
+  .rules-sheet :global(.rules-shape:focus-visible) { outline: none; stroke-width: 3; }
+  .rules-sheet :global(.rules-link) { fill: none; stroke: #1c1d20; stroke-width: 1.2; }
+  .rules-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; max-width: 46rem; margin-top: 1.25rem; font: 500 .9375rem/1.6 var(--sans); }
+  .rules-controls label { display: inline-flex; align-items: center; gap: .5rem; }
+  .rules-controls input { accent-color: var(--ink); width: 8rem; }
+  .rules-controls output { min-width: 1.5em; font-variant-numeric: tabular-nums; }
+  .rules-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .rules-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-rules]').forEach((root) => {
+    const svg = root.querySelector<SVGSVGElement>('[data-svg]')!;
+    const count = root.querySelector<HTMLInputElement>('[data-count]')!;
+    const wob = root.querySelector<HTMLInputElement>('[data-wob]')!;
+    const countOut = root.querySelector('[data-count-out]')!;
+    const wobOut = root.querySelector('[data-wob-out]')!;
+    const read = root.querySelector('[data-read]')!;
+    const NS = 'http://www.w3.org/2000/svg';
+    const palette = ['none', '#d9a441', '#c4553d', '#4f7cac', '#7a9e5b', '#e6c9a8'];
+    let drawings = 0, coloured = 0;
+    const blob = (cx: number, cy: number, r: number, w: number) => {
+      const n = 14, ph = Math.random() * 6.3, pts: [number, number][] = [];
+      for (let i = 0; i < n; i++) {
+        const a = (i / n) * Math.PI * 2;
+        const k = 1 + w * (0.18 * Math.sin(3 * a + ph) + 0.12 * (Math.random() - 0.5));
+        pts.push([cx + Math.cos(a) * r * k, cy + Math.sin(a) * r * k * 0.85]);
+      }
+      // a closed smooth curve through the points
+      let d = '';
+      pts.forEach((p, i) => {
+        const p0 = pts[(i - 1 + n) % n], p1 = p, p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+        if (i === 0) d += `M${p1[0].toFixed(1)},${p1[1].toFixed(1)}`;
+        const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+        d += `C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+      });
+      return d + 'Z';
+    };
+    const draw = () => {
+      const k = Number(count.value), w = [0.15, 1, 2.2][Number(wob.value)];
+      countOut.textContent = String(k); wobOut.textContent = ['小', '中', '大'][Number(wob.value)];
+      const placed: { x: number; y: number; r: number }[] = [];
+      for (let tries = 0; placed.length < k && tries < 4000; tries++) {
+        const r = 22 + Math.random() * (90 - k * 4), x = r + 20 + Math.random() * (560 - 2 * r), y = r + 20 + Math.random() * (360 - 2 * r);
+        // rule: no shape may touch another
+        if (placed.every((p) => Math.hypot(p.x - x, p.y - y) > p.r * 1.35 + r * 1.35 + 8)) placed.push({ x, y, r });
+      }
+      svg.replaceChildren();
+      // rule: link some neighbouring shapes with a wandering line
+      placed.forEach((a, i) => {
+        if (i === 0 || Math.random() < 0.4) return;
+        const b = placed[i - 1], mx = (a.x + b.x) / 2 + (Math.random() - 0.5) * 120 * w, my = (a.y + b.y) / 2 + (Math.random() - 0.5) * 120 * w;
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', `M${a.x},${a.y} Q${mx},${my} ${b.x},${b.y}`); path.setAttribute('class', 'rules-link');
+        svg.append(path);
+      });
+      placed.forEach((p, i) => {
+        const s = document.createElementNS(NS, 'path');
+        s.setAttribute('d', blob(p.x, p.y, p.r, w)); s.setAttribute('class', 'rules-shape'); s.setAttribute('fill', '#fbfaf6');
+        s.setAttribute('tabindex', '0'); s.setAttribute('role', 'button'); s.setAttribute('aria-label', `第 ${i + 1} 个形状，按下换颜色`);
+        s.dataset.c = '0';
+        const paint = () => {
+          const c = (Number(s.dataset.c) + 1) % palette.length; s.dataset.c = String(c);
+          s.setAttribute('fill', c === 0 ? '#fbfaf6' : palette[c]);
+          coloured = svg.querySelectorAll('.rules-shape:not([data-c="0"])').length;
+          read.textContent = `你给 ${coloured} 个形状上了颜色。线是程序画的，颜色是你选的。这幅画的作者是谁：写程序的人、程序，还是你？`;
+        };
+        s.addEventListener('click', paint);
+        s.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); paint(); } });
+        svg.append(s);
+      });
+      drawings++;
+      coloured = 0;
+      read.textContent = drawings > 1
+        ? `这是按同样的规则画出的第 ${drawings} 张，和前面的每一张都不一样。点一个形状，给它上色。`
+        : '程序画好了。点一个形状，给它上色：这一步是你做的。';
+    };
+    count.addEventListener('input', draw);
+    wob.addEventListener('input', draw);
+    root.querySelector('[data-again]')!.addEventListener('click', draw);
+    draw();
+  });
+</script>

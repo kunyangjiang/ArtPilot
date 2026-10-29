@@ -12,6 +12,9 @@ const imageCredit = z.object({
   sourceUrl: z.string().url(),
   date: z.string().optional(), // when it was taken: matters where a restoration changed what is shown
   changes: z.string(), // what ArtPilot did to it, e.g. '缩小尺寸、重新压缩；未裁切'
+  // How a caption names the source when the image is not a photograph (a print, a patent drawing, a film still, a
+  // diagram), e.g. '图版 · 罗伯特·米切尔'; without it the caption reads "摄影 {author}".
+  by: z.string().optional(),
 });
 
 // Entry ids come from the record's own `id` field (stable, not file-name based).
@@ -35,6 +38,12 @@ const artworks = defineCollection({
       dimensions: z.string().optional(), // object: as the holding museum publishes them (heights, diameters, weights)
       originalStatus: z.string().optional(), // object: an original, or a copy of a lost original, and what has been restored
       provenance: z.string().optional(), // object: the documented history of ownership and any findspot; nothing invented
+      // Where the size comes from, when it is not the holding museum (an artist's page, a release page, nothing published);
+      // the record page shows it in place of "据收藏机构公布的数据".
+      dimensionsSource: z.string().optional(),
+      // A record whose images are not all museum open-access photographs only resized (patents, film stills, diagrams,
+      // a rotated plate): the line the record page shows under its images instead of the default one.
+      imagesNote: z.string().optional(),
       location: z.string().optional(), // building: where it stands
       facts: z.array(z.object({ label: z.string(), value: z.string() })).max(4).optional(), // building: a few measured facts
       buildingType: z.string().optional(), // building: e.g. 天主教主教座堂；哥特式建筑

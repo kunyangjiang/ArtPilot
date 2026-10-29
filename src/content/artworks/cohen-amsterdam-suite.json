@@ -1,0 +1,88 @@
+{
+  "id": "art-cohen-amsterdam-suite-001",
+  "kind": "painting",
+  "titleZh": "阿姆斯特丹组画",
+  "titleEn": "Amsterdam Suite",
+  "artist": "哈罗德·科恩",
+  "attributionNote": "线描由哈罗德·科恩（1928—2016）编写的绘画程序 AARON 在 1977 年生成，科恩本人 1982 年用彩色墨水手工上色，并签名、写上日期（据维多利亚与艾伯特博物馆）。",
+  "dateApprox": "1977 年生成线描，1982 年手工上色",
+  "medium": "纸上电脑生成的线描（印刷油墨），彩色墨水手工上色",
+  "dimensionsCm": {
+    "height": 56.1,
+    "width": 73.2
+  },
+  "collection": "伦敦维多利亚与艾伯特博物馆，E.327-2009",
+  "officialPage": {
+    "label": "维多利亚与艾伯特博物馆的作品页面",
+    "url": "https://collections.vam.ac.uk/item/O499577"
+  },
+  "infoSources": [
+    {
+      "label": "维多利亚与艾伯特博物馆：Harold Cohen, Amsterdam Suite，1977/1982，E.327-2009",
+      "url": "https://collections.vam.ac.uk/item/O499577"
+    },
+    {
+      "label": "计算机历史博物馆：Chris Garcia, Harold Cohen and AARON—A 40-Year Collaboration，2016 年 8 月 23 日",
+      "url": "https://computerhistory.org/blog/harold-cohen-and-aaron-a-40-year-collaboration/"
+    },
+    {
+      "label": "大都会艺术博物馆：Portrait of Joseph Marie Jacquard，1839，31.124",
+      "url": "https://www.metmuseum.org/art/collection/search/222531"
+    },
+    {
+      "label": "L. F. Menabrea, Sketch of the Analytical Engine, translated with notes by A. A. L.（Ada Lovelace），Scientific Memoirs, vol. 3，1843（维基文库本，译者注释）",
+      "url": "https://en.wikisource.org/wiki/Scientific_Memoirs/3/Sketch_of_the_Analytical_Engine_invented_by_Charles_Babbage,_Esq./Notes_by_the_Translator"
+    }
+  ],
+  "images": [
+    {
+      "key": "jacquard",
+      "src": "/img/jacquard-woven-portrait-1839.jpg",
+      "kind": "detail",
+      "subject": "《约瑟夫-玛丽·雅卡尔像》（1839 年，丝织）",
+      "width": 1362,
+      "height": 1600,
+      "alt": "一幅看起来像铜版画的黑白肖像：一位老人坐在工作室里的椅子上，手拿圆规，桌上放着工具，身后是一台织布机的局部。细看才知道，它是用丝线织出来的。",
+      "caption": "《约瑟夫-玛丽·雅卡尔像》，1839 年，里昂迪迪埃-珀蒂公司向织工米歇尔-玛丽·卡基亚订制，依据克洛德·博纳丰的油画织成，丝，60.3 × 50.8 厘米，大都会艺术博物馆藏（31.124）。它不是印刷品，是在装了雅卡尔提花装置的织机上织出来的。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/222531",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "这张图像不是本件作品，而是大都会艺术博物馆以 CC0 开放的 1839 年丝织肖像，只做了缩小与压缩。来源与许可见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供维多利亚与艾伯特博物馆作品页面的链接，不复制它的图像",
+    "basis": "科恩 2016 年去世，作品仍受版权保护。维多利亚与艾伯特博物馆的图像只按博物馆自己的条款提供（限非商业用途、限尺寸和年限），不是开放许可，本站不使用。本课的插图是大都会艺术博物馆以 CC0 开放的 1839 年丝织肖像。",
+    "verifiedOn": "2026-10-29",
+    "note": "规则绘画的互动是本站编写的小程序，与 AARON 无关，也不模仿它的画。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "电脑线描 · 手工上色",
+    "maker": "哈罗德·科恩与 AARON",
+    "period": "1977 / 1982 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "哈罗德·科恩"
+      },
+      {
+        "label": "线描",
+        "value": "程序 AARON"
+      },
+      {
+        "label": "上色",
+        "value": "科恩手工"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "线是程序画的，颜色是画家上的，签名是画家的：这幅画是谁画的？",
+    "image": null
+  }
+}

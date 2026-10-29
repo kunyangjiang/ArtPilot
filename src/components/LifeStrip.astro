@@ -1,0 +1,69 @@
+---
+import { getEntry } from 'astro:content';
+// What the long, narrow screen of Passage stands for, as its maker explained it: a diagram, not the game. A slider runs
+// through the five minutes of play; the figure (the game's own sprites, which its maker placed in the public domain)
+// walks from the left edge to the right; to its left lies what has been passed, to its right what can still be seen
+// ahead, and the figure changes with age. `stops` are notes for points along the way (percent of the five minutes).
+interface Stop { at: number; text: string }
+interface Props { artwork: string; image: string; prompt: string; stops: Stop[] }
+const { artwork, image, prompt, stops } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module life" data-life={JSON.stringify({ stops })}>
+  <p class="module-label">示意 · 一条横着的人生</p>
+  <h3>{prompt}</h3>
+  <div class="life-strip" data-strip>
+    <span class="life-past" data-past><span>身后：走过的路</span></span>
+    <span class="life-ahead" data-ahead><span>前方：还看得见的路</span></span>
+    <svg class="life-who" viewBox="40 40 192 192" data-who role="img" aria-label="游戏里的人物">
+      <image href={img.src} width={img.width} height={img.height} preserveAspectRatio="none" />
+    </svg>
+  </div>
+  <div class="life-controls">
+    <label for="life-t">游戏进行到 <output data-t>0:00</output> / 5:00</label>
+    <input id="life-t" type="range" min="0" max="100" value="0" step="1" data-range />
+  </div>
+  <p class="life-read" aria-live="polite" data-read></p>
+  <p class="life-note">示意图由本站绘制，用的是游戏原有的人物图（作者已放入公有领域）；它解释屏幕的含义，不是游戏本身。</p>
+</section>
+
+<style>
+  .life-strip { position: relative; max-width: 46rem; aspect-ratio: 25 / 4; display: flex; background: #6d6d6d; overflow: hidden; }
+  .life-past, .life-ahead { position: relative; display: flex; align-items: flex-end; padding: .4rem .6rem; font: 500 .75rem/1.3 var(--sans); }
+  .life-past { width: var(--x, 0%); background: #3f3f3f; color: #cfcfcf; justify-content: flex-start; }
+  .life-ahead { flex: 1; background: #b9b06a; color: #2b2a1e; justify-content: flex-end; }
+  .life-past span, .life-ahead span { white-space: nowrap; }
+  .life-who { position: absolute; top: 18%; left: var(--x, 0%); width: 12%; height: 64%; transform: translateX(-50%); image-rendering: pixelated; }
+  .life-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; max-width: 46rem; margin-top: 1.25rem; font: 500 .9375rem/1.6 var(--sans); }
+  .life-controls input { flex: 1 1 12rem; accent-color: var(--ink); }
+  .life-controls output { font-variant-numeric: tabular-nums; }
+  .life-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .life-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (max-width: 520px) { .life-past span, .life-ahead span { display: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-life]').forEach((root) => {
+    const { stops } = JSON.parse(root.dataset.life!) as { stops: { at: number; text: string }[] };
+    const strip = root.querySelector<HTMLElement>('[data-strip]')!;
+    const who = root.querySelector<SVGSVGElement>('[data-who]')!;
+    const range = root.querySelector<HTMLInputElement>('[data-range]')!;
+    const tOut = root.querySelector('[data-t]')!;
+    const read = root.querySelector('[data-read]')!;
+    const draw = () => {
+      const p = Number(range.value);
+      // keep the figure inside the strip at both ends
+      strip.style.setProperty('--x', `${6 + p * 0.88}%`);
+      const cell = p >= 100 ? 4 : Math.min(3, Math.floor(p / 25));
+      who.setAttribute('viewBox', `${40 + cell * 232} 40 192 192`);
+      const s = Math.round(p * 3);
+      tOut.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+      const near = stops.filter((x) => x.at <= p).pop() ?? stops[0];
+      read.textContent = near?.text ?? '';
+    };
+    range.addEventListener('input', draw);
+    draw();
+  });
+</script>
