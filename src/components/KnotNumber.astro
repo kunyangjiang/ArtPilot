@@ -1,0 +1,70 @@
+---
+// How a number can be tied into a cord, following the decimal knot system that scholars have read in many Inka khipus:
+// clusters of single knots for thousands, hundreds and tens, placed at set heights down the cord, and a long knot (with as
+// many turns as the digit) for units; an empty place means zero. The reader types a number and sees the cord. A diagram
+// drawn by this site; it does not reproduce any khipu, and many khipus also hold information that is not yet understood.
+interface Props { prompt: string; note: string }
+const { prompt, note } = Astro.props;
+---
+<section class="module knots" data-knots>
+  <p class="module-label">互动 · 把数字打成结</p>
+  <h3>{prompt}</h3>
+  <div class="knots-wrap">
+    <svg viewBox="0 0 220 420" role="img" aria-label="一根垂下的绳子，绳上按位置打着结，表示一个数字。" data-svg></svg>
+    <div class="knots-side">
+      <label>输入一个数（0—9999）<input type="number" min="0" max="9999" value="1426" inputmode="numeric" data-n /></label>
+      <ol class="knots-legend">
+        <li><b>千位</b>：最上面一组单结</li>
+        <li><b>百位</b>：往下一组单结</li>
+        <li><b>十位</b>：再往下一组单结</li>
+        <li><b>个位</b>：最下面一个长结，绕几圈就是几</li>
+      </ol>
+    </div>
+  </div>
+  <p class="knots-read" aria-live="polite" data-read></p>
+  <p class="knots-note">{note}</p>
+</section>
+
+<style>
+  .knots-wrap { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: flex-start; max-width: 46rem; }
+  .knots-wrap svg { flex: 0 0 11rem; width: 11rem; height: auto; background: #f3efe4; }
+  .knots-side { flex: 1 1 14rem; font: 400 .9375rem/1.7 var(--sans); }
+  .knots-side label { display: grid; gap: .4rem; font-weight: 500; }
+  .knots-side input { width: 9rem; padding: .4rem .6rem; border: 1px solid var(--silver); border-radius: 4px; font: 500 1.1rem/1.2 var(--sans); background: var(--paper); color: var(--ink); }
+  .knots-legend { margin: 1rem 0 0; padding-left: 1.2rem; color: var(--ink-2); }
+  .knots-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .knots-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-knots]').forEach((root) => {
+    const svg = root.querySelector<SVGSVGElement>('[data-svg]')!;
+    const input = root.querySelector<HTMLInputElement>('[data-n]')!;
+    const read = root.querySelector('[data-read]')!;
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (n: string, a: Record<string, string | number>) => { const e = document.createElementNS(NS, n); for (const [k, v] of Object.entries(a)) e.setAttribute(k, String(v)); return e; };
+    const names = ['千', '百', '十', '个'];
+    const draw = () => {
+      const n = Math.max(0, Math.min(9999, Math.floor(Number(input.value) || 0)));
+      const digits = String(n).padStart(4, '0').split('').map(Number);
+      svg.replaceChildren();
+      svg.append(el('line', { x1: 20, y1: 22, x2: 200, y2: 22, stroke: '#6b4a2b', 'stroke-width': 7, 'stroke-linecap': 'round' }));
+      svg.append(el('path', { d: 'M110 22 C 108 120, 112 260, 110 400', fill: 'none', stroke: '#c9a36b', 'stroke-width': 5 }));
+      const zones = [70, 160, 250, 345];
+      digits.forEach((d, i) => {
+        svg.append(el('text', { x: 196, y: zones[i] + 5, 'text-anchor': 'end', 'font-size': 13, fill: '#8d877b', 'font-family': 'sans-serif' }).appendChild(document.createTextNode(names[i])).parentNode as SVGElement);
+        if (d === 0) { svg.append(el('line', { x1: 96, y1: zones[i], x2: 124, y2: zones[i], stroke: '#d6d0c2', 'stroke-dasharray': '3 3' })); return; }
+        if (i < 3) {
+          for (let k = 0; k < d; k++) svg.append(el('circle', { cx: 110, cy: zones[i] - (d - 1) * 4.5 + k * 9, r: 4.6, fill: '#7a5532' }));
+        } else {
+          const h = 10 + d * 7;
+          svg.append(el('rect', { x: 104, y: zones[i] - h / 2, width: 12, height: h, rx: 5, fill: '#7a5532' }));
+          for (let k = 1; k < d; k++) svg.append(el('line', { x1: 104, y1: zones[i] - h / 2 + k * (h / d), x2: 116, y2: zones[i] - h / 2 + k * (h / d) + 3, stroke: '#c9a36b', 'stroke-width': 1.4 }));
+        }
+      });
+      read.textContent = `${n}：千位 ${digits[0]}、百位 ${digits[1]}、十位 ${digits[2]}、个位 ${digits[3]}。` + (digits.includes(0) ? '某一位是 0 的地方，那一段绳子空着不打结。' : '每一位都在固定的高度上，读的人看位置，也看结的数目。');
+    };
+    input.addEventListener('input', draw);
+    draw();
+  });
+</script>

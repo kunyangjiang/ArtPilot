@@ -1,0 +1,100 @@
+---
+// Two ways of working a surface, tried by hand on a simulated sheet (drawn by this site, not any artwork).
+// mode "pierce": a white-painted sheet laid over brown paper, several sheets of newspaper and a wooden board; each click
+// or tap punches a ragged hole that shows the layers underneath, as the Tate describes Shimamoto's support.
+// mode "incise": a cloth covered with wet whitish paint; dragging draws a pencil line into it, which leaves graphite and
+// pushes the paint aside, as the Cleveland Museum describes Park Seo-Bo's process. Nothing is scored or stored.
+interface Props { mode: 'pierce' | 'incise'; prompt: string; note: string }
+const { mode, prompt, note } = Astro.props;
+---
+<section class="module surf" data-surf={mode}>
+  <p class="module-label">互动 · {mode === 'pierce' ? '戳破画面' : '划进湿颜料'}</p>
+  <h3>{prompt}</h3>
+  <div class="surf-stage">
+    <canvas width="900" height="560" role="img" aria-label={mode === 'pierce' ? '一张刷白的纸面，点一下就戳出一个洞，露出下面的褐色纸、报纸和木板。' : '一块涂着湿白颜料的布面，拖动鼠标或手指，就用铅笔划出一道线。'} data-canvas></canvas>
+  </div>
+  <div class="surf-bar">
+    <button type="button" class="btn btn-secondary" data-reset>换一张新的</button>
+    <span class="surf-count" aria-live="polite" data-count></span>
+  </div>
+  <p class="surf-note">{note}</p>
+</section>
+
+<style>
+  .surf-stage { max-width: 46rem; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1); }
+  .surf-stage canvas { display: block; width: 100%; height: auto; touch-action: none; cursor: crosshair; }
+  .surf-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 1rem; font: 400 .9375rem/1.6 var(--sans); color: var(--ink-2); }
+  .surf-note { max-width: var(--measure); margin: .75rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-surf]').forEach((root) => {
+    const mode = root.dataset.surf as 'pierce' | 'incise';
+    const canvas = root.querySelector<HTMLCanvasElement>('[data-canvas]')!;
+    const ctx = canvas.getContext('2d')!;
+    const count = root.querySelector('[data-count]')!;
+    const W = canvas.width, H = canvas.height;
+    let n = 0, seed = 1;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    // The layers under a pierced sheet: a newspaper texture (grey type lines), brown paper, then the board.
+    const news = document.createElement('canvas'); news.width = W; news.height = H;
+    const nx = news.getContext('2d')!;
+    const paintNews = () => {
+      nx.fillStyle = '#e6e0d1'; nx.fillRect(0, 0, W, H);
+      nx.fillStyle = '#9d978a';
+      for (let y = 8; y < H; y += 9) for (let x = 6; x < W; x += 54) { const w = 20 + rnd() * 30; nx.fillRect(x, y, w, 3); }
+    };
+    const fresh = () => {
+      n = 0; seed = 7;
+      if (mode === 'pierce') {
+        paintNews();
+        ctx.fillStyle = '#f2f4f5'; ctx.fillRect(0, 0, W, H);
+        for (let i = 0; i < 260; i++) { ctx.fillStyle = `rgba(150,180,205,${0.04 + rnd() * 0.06})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H, 6 + rnd() * 30, 0, 7); ctx.fill(); }
+        count.textContent = '还没有洞。点一下画面。';
+      } else {
+        ctx.fillStyle = '#cdb98f'; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = '#efede6'; ctx.fillRect(0, 0, W, H);
+        for (let i = 0; i < 400; i++) { ctx.fillStyle = `rgba(205,185,143,${rnd() * 0.08})`; ctx.fillRect(rnd() * W, rnd() * H, 2 + rnd() * 6, 2 + rnd() * 6); }
+        count.textContent = '还没有划线。在画面上拖动。';
+      }
+    };
+    const blob = (x: number, y: number, r: number, k: number) => {
+      ctx.beginPath();
+      for (let i = 0; i <= 18; i++) { const a = (i / 18) * Math.PI * 2, rr = r * (1 + (rnd() - 0.5) * k); const px = x + Math.cos(a) * rr, py = y + Math.sin(a) * rr; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      ctx.closePath();
+    };
+    const pierce = (x: number, y: number) => {
+      const r = 22 + rnd() * 26;
+      // torn white edge, then brown paper, then newspaper, then the board at the centre
+      blob(x, y, r * 1.15, 0.5); ctx.fillStyle = '#d7d0c0'; ctx.fill();
+      blob(x, y, r, 0.45); ctx.fillStyle = '#a77d4f'; ctx.fill();
+      ctx.save(); blob(x, y, r * 0.78, 0.4); ctx.clip(); ctx.drawImage(news, 0, 0); ctx.restore();
+      blob(x, y, r * 0.38, 0.35); ctx.fillStyle = '#8a6a43'; ctx.fill();
+      n++; count.textContent = `戳了 ${n} 个洞：每个洞的边上，都露出褐色纸和旧报纸，最深处是木板。`;
+    };
+    let last: { x: number; y: number } | null = null;
+    const scratch = (x: number, y: number) => {
+      if (!last) { last = { x, y }; return; }
+      const dx = x - last.x, dy = y - last.y, len = Math.hypot(dx, dy); if (len < 1) return;
+      const nxv = -dy / len, nyv = dx / len;
+      // paint pushed aside on both sides of the line
+      ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+      for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(last.x + nxv * 5 * s, last.y + nyv * 5 * s); ctx.lineTo(x + nxv * 5 * s, y + nyv * 5 * s); ctx.stroke(); }
+      ctx.strokeStyle = 'rgba(190,178,150,.55)'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(x, y); ctx.stroke();
+      ctx.strokeStyle = 'rgba(70,72,78,.75)'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(x, y); ctx.stroke();
+      last = { x, y };
+    };
+    const pos = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: ((e.clientX - r.left) / r.width) * W, y: ((e.clientY - r.top) / r.height) * H }; };
+    if (mode === 'pierce') {
+      canvas.addEventListener('pointerdown', (e) => { const p = pos(e); pierce(p.x, p.y); });
+    } else {
+      canvas.addEventListener('pointerdown', (e) => { canvas.setPointerCapture(e.pointerId); last = null; const p = pos(e); scratch(p.x, p.y); });
+      canvas.addEventListener('pointermove', (e) => { if (e.buttons || e.pointerType === 'touch') { const p = pos(e); scratch(p.x, p.y); } });
+      canvas.addEventListener('pointerup', () => { if (last) { n++; count.textContent = `划了 ${n} 道：每一道都留下铅笔的灰线，两边的颜料被推开、鼓起。一道挨着一道，画面慢慢被“写”满。`; } last = null; });
+    }
+    root.querySelector('[data-reset]')!.addEventListener('click', fresh);
+    fresh();
+  });
+</script>

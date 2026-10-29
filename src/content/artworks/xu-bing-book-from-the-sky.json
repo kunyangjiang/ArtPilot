@@ -1,0 +1,88 @@
+{
+  "id": "art-xu-bing-book-from-the-sky-001",
+  "kind": "object",
+  "titleZh": "天书",
+  "titleEn": "Book from the Sky",
+  "artist": "徐冰",
+  "attributionNote": "徐冰（1955 年生）1987 年开始制作，前后用了约四年；M+ 的这一套为 1989 年印本（据 M+）。",
+  "dateApprox": "1987 年起制作；M+ 藏本 1989 年",
+  "objectType": "木活字印本 · 四册线装书与木函",
+  "medium": "木活字印刷，木函",
+  "dimensions": "每册（合起）2.6 × 29.8 × 45.7 厘米；整套 10 × 33.6 × 49.5 厘米（据 M+）",
+  "collection": "香港 M+ 博物馆，M+ 希克藏品，2012.1150",
+  "originalStatus": "原作，四册一函；整件作品共做了 120 套（据 M+）。",
+  "provenance": "属 M+ 希克藏品，经捐赠入藏 M+（据 M+）。",
+  "officialPage": {
+    "label": "M+ 博物馆的作品页面",
+    "url": "https://www.mplus.org.hk/en/collection/objects/book-from-the-sky-20121150/"
+  },
+  "infoSources": [
+    {
+      "label": "M+：Xu Bing, Book from the Sky，1989，2012.1150（字数、宋体、活字流程、120 套、尺寸）",
+      "url": "https://www.mplus.org.hk/en/collection/objects/book-from-the-sky-20121150/"
+    },
+    {
+      "label": "普林斯顿大学美术馆：Book from the Sky by Xu Bing（版式、装订、1988 年首展、1989 年“中国现代艺术展”），2019",
+      "url": "https://artmuseum.princeton.edu/art/stories-perspectives/book-sky-xu-bing"
+    },
+    {
+      "label": "大英博物馆：Xu Bing, Book from the Sky（四册本），A 1993,0709,0.1",
+      "url": "https://www.britishmuseum.org/collection/object/A_1993-0709-0-1"
+    },
+    {
+      "label": "美国国会图书馆（世界数字图书馆）：Kōki jiten（《康熙字典》，1780 年日本刊本）",
+      "url": "https://www.loc.gov/item/00695813/"
+    }
+  ],
+  "images": [
+    {
+      "key": "kangxi",
+      "src": "/img/kangxi-dictionary-1780-loc.jpg",
+      "kind": "detail",
+      "subject": "《康熙字典》书页（1780 年日本刊本，美国国会图书馆藏）",
+      "width": 2000,
+      "height": 1541,
+      "alt": "一本古书摊开的两页，纸色发黄，有虫蛀的痕迹。每页用细线分成竖行，满是端正的印刷汉字；大字是字头，下面用小两号的字作注解。右页中间有一个圆圈里的“三”和大字“中”。",
+      "caption": "《康熙字典》（日本安永九年、1780 年刊本）“丨部”的一个对开页，美国国会图书馆藏。字典按部首和笔画排列字头，字形是印刷书里通行的宋体（又称明体）。",
+      "credit": {
+        "author": "张玉书等编；美国国会图书馆日本善本部藏本，世界数字图书馆数字化",
+        "licence": "公有领域（1780 年刊本；美国国会图书馆注明无已知版权限制）",
+        "sourceUrl": "https://www.loc.gov/item/00695813/",
+        "changes": "取第 1 卷的一个对开页，按原图 75% 输出后缩小到 2000 像素宽并重新压缩；未裁切、未调色",
+        "by": "书页 · 美国国会图书馆藏本"
+      }
+    }
+  ],
+  "imagesNote": "这张图像不是本件作品，而是美国国会图书馆藏的 1780 年刊本《康熙字典》书页。来源与改动见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "M+ 的作品页面注明“© Xu Bing”，本站不复制它的图像。本课的书页图是美国国会图书馆藏 1780 年刊本《康熙字典》，属于公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "“造字”的互动由本站随机组合部件，不是徐冰的字。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "木活字印本 · 装置",
+    "maker": "徐冰",
+    "period": "1987 年起",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "徐冰"
+      },
+      {
+        "label": "字数",
+        "value": "四千多个“字”"
+      },
+      {
+        "label": "印数",
+        "value": "120 套"
+      },
+      {
+        "label": "藏地",
+        "value": "香港"
+      }
+    ],
+    "blurb": "一部谁也读不懂的书：每个字都像字，每一页都像古书。",
+    "image": null
+  }
+}

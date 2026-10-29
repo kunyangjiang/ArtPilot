@@ -1,0 +1,57 @@
+{
+  "id": "art-park-seo-bo-ecriture-22-77-001",
+  "kind": "painting",
+  "titleZh": "描法 No. 22-77",
+  "titleEn": "Ecriture No. 22–77",
+  "artist": "朴栖甫",
+  "attributionNote": "朴栖甫（1931—2023）1977 年作（据克利夫兰艺术博物馆）。",
+  "dateApprox": "1977 年",
+  "medium": "麻布上铅笔与油彩",
+  "dimensionsCm": {
+    "height": 130.2,
+    "width": 195.3
+  },
+  "collection": "克利夫兰艺术博物馆，2023.48（伦纳德·C. 汉纳基金购藏）",
+  "officialPage": {
+    "label": "克利夫兰艺术博物馆的作品页面",
+    "url": "https://www.clevelandart.org/art/2023.48"
+  },
+  "infoSources": [
+    {
+      "label": "克利夫兰艺术博物馆：Park Seo-Bo, Ecriture No. 22–77，1977，2023.48（做法、来历、展览）",
+      "url": "https://www.clevelandart.org/art/2023.48"
+    }
+  ],
+  "images": [],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "克利夫兰艺术博物馆注明“© Park Seo-Bo”，开放获取状态为“受版权保护”。",
+    "verifiedOn": "2026-10-29",
+    "note": "这是本课的附加藏品卡（A+）。划线的互动由本站绘制。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "绘画 · 单色画",
+    "maker": "朴栖甫",
+    "period": "1977 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "朴栖甫"
+      },
+      {
+        "label": "材料",
+        "value": "麻布、铅笔、油彩"
+      },
+      {
+        "label": "尺幅",
+        "value": "130 × 195 厘米"
+      },
+      {
+        "label": "藏地",
+        "value": "克利夫兰"
+      }
+    ],
+    "blurb": "铅笔一遍遍划进未干的白颜料：写下的线，也是擦去的线。",
+    "image": null
+  }
+}

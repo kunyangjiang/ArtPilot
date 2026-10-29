@@ -1,0 +1,65 @@
+{
+  "id": "art-huang-yong-ping-washing-machine-001",
+  "kind": "object",
+  "titleZh": "《中国绘画史》和《现代绘画简史》在洗衣机里搅拌了两分钟",
+  "titleEn": "The History of Chinese Art and A Concise History of Modern Painting Washed in a Washing Machine for Two Minutes",
+  "artist": "黄永砯",
+  "attributionNote": "黄永砯（1954—2019）1987 年作；沃克艺术中心著录的年代为 1987 / 1993 年。",
+  "dateApprox": "1987 年 / 1993 年",
+  "objectType": "装置 · 木箱、纸浆、玻璃",
+  "medium": "中国茶叶箱、纸浆、玻璃",
+  "dimensions": "整体约 76.8 × 48.3 × 69.9 厘米（据沃克艺术中心：30-1/4 × 19 × 27-1/2 英寸）",
+  "collection": "明尼阿波利斯沃克艺术中心，2001.125.1-.2",
+  "originalStatus": "沃克艺术中心著录两个年代（1987 / 1993），说明现藏的是后来重新制作的版本；1987 年原件的去向，博物馆页面没有说明。",
+  "provenance": "2001 年由沃克艺术中心购藏（T. B. 沃克收藏基金）。",
+  "officialPage": {
+    "label": "沃克艺术中心的作品页面",
+    "url": "https://walkerart.org/collections/artworks/the-history-of-chinese-art-and-a-concise-history-of-modern-painting-washed-in-a-washing-machine-for-two-minutes"
+  },
+  "infoSources": [
+    {
+      "label": "沃克艺术中心：Huang Yong Ping, The History of Chinese Art and A Concise History of Modern Painting Washed in a Washing Machine for Two Minutes，1987/1993，2001.125.1-.2",
+      "url": "https://walkerart.org/collections/artworks/the-history-of-chinese-art-and-a-concise-history-of-modern-painting-washed-in-a-washing-machine-for-two-minutes"
+    },
+    {
+      "label": "费大为：Two-Minute Wash Cycle（《神谕之屋：黄永砯回顾展》图录，2005；沃克艺术中心重刊）",
+      "url": "https://www.walkerart.org/reader/two-minute-wash-cycle/"
+    },
+    {
+      "label": "亚洲艺术文献库：Francesca Dal Lago 档案中的黄永砯作品照片",
+      "url": "https://aaa.org.hk/collection/search/archive/francesca-dal-lago-archive-huang-yongping/object/the-history-of-chinese-art-and-a-concise-history-of-modern-painting-washed-in-a-washing-machine-for-two-minutes-set-of-2-photographs-2"
+    }
+  ],
+  "images": [],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "黄永砯 2019 年去世，作品仍受版权保护；沃克艺术中心的复制须另行申请。",
+    "verifiedOn": "2026-10-29",
+    "note": "这是本课的附加藏品卡（A+）。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "装置",
+    "maker": "黄永砯",
+    "period": "1987 / 1993 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "黄永砯"
+      },
+      {
+        "label": "材料",
+        "value": "茶叶箱、纸浆、玻璃"
+      },
+      {
+        "label": "做法",
+        "value": "洗衣机搅两分钟"
+      },
+      {
+        "label": "藏地",
+        "value": "明尼阿波利斯"
+      }
+    ],
+    "blurb": "一部中国画史、一部西方现代画史，一起洗成一团纸浆。",
+    "image": null
+  }
+}

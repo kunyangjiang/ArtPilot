@@ -1,0 +1,130 @@
+{
+  "id": "art-anatsui-between-earth-and-heaven-001",
+  "kind": "object",
+  "titleZh": "天地之间",
+  "titleEn": "Between Earth and Heaven",
+  "artist": "埃尔·阿纳崔",
+  "attributionNote": "埃尔·阿纳崔（1944 年生于加纳安约科）2006 年在尼日利亚恩苏卡制作（据大都会艺术博物馆）。",
+  "dateApprox": "2006 年",
+  "objectType": "悬挂的金属“布” · 雕塑",
+  "medium": "铝、铜丝",
+  "dimensions": "高 220.3 厘米，宽 325.1 厘米，厚 20.3 厘米（据大都会艺术博物馆）",
+  "collection": "纽约大都会艺术博物馆，迈克尔·C. 洛克菲勒馆，2007.96",
+  "originalStatus": "原作；悬挂时的褶皱可以每次不同。",
+  "provenance": "2007 年由大都会艺术博物馆购藏。",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/319872"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：El Anatsui, Between Earth and Heaven，2006，2007.96（说明与艺术家语音导览）",
+      "url": "https://www.metmuseum.org/art/collection/search/319872"
+    },
+    {
+      "label": "泰特美术馆：El Anatsui, Ink Splash II，2012，T14331",
+      "url": "https://www.tate.org.uk/art/artworks/anatsui-ink-splash-ii-t14331"
+    },
+    {
+      "label": "泰特美术馆：El Anatsui, Solemn Crowd at Dawn，1989，T16522",
+      "url": "https://www.tate.org.uk/art/artworks/anatsui-solemn-crowd-at-dawn-t16522"
+    },
+    {
+      "label": "泰特现代美术馆：Hyundai Commission: El Anatsui: Behind the Red Moon 展览导览，2023",
+      "url": "https://www.tate.org.uk/whats-on/tate-modern/el-anatsui/exhibition-guide"
+    },
+    {
+      "label": "泰特美术馆：Yinka Shonibare, The Swing (after Fragonard)，2001，T07952",
+      "url": "https://www.tate.org.uk/art/artworks/shonibare-the-swing-after-fragonard-t07952"
+    },
+    {
+      "label": "大都会艺术博物馆：Man’s kente (prestige cloth)，阿散蒂-阿肯人，19 世纪，1972.56.1",
+      "url": "https://www.metmuseum.org/art/collection/search/85576"
+    }
+  ],
+  "images": [
+    {
+      "key": "kente",
+      "src": "/img/asante-kente-met.jpg",
+      "kind": "detail",
+      "subject": "阿散蒂-阿肯人的男式肯特布（19 世纪，大都会艺术博物馆藏）",
+      "width": 298,
+      "height": 728,
+      "alt": "一件披在人台上的大幅织物，从肩膀垂到脚面，由许多窄条拼成，满是橙、绿、黄、红的小方格和条纹。",
+      "caption": "男式肯特布（尊贵者的布），阿散蒂-阿肯人，19 世纪，棉、丝，大都会艺术博物馆藏（1972.56.1）。博物馆的照片把它披在人台上，看得出这种布怎样裹住身体、垂下褶子。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/85576",
+        "changes": "博物馆原图 298 像素宽，未缩放，只重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "kente-detail",
+      "src": "/img/asante-kente-detail-met.jpg",
+      "kind": "detail",
+      "subject": "同一件肯特布的局部（大都会艺术博物馆藏）",
+      "width": 728,
+      "height": 546,
+      "alt": "肯特布的局部特写：一条条窄布并排缝在一起，每条上织着不同的方块和条纹，黄、绿为主，夹着红、蓝、黑的细条。布面起伏，有几道褶。",
+      "caption": "同一件肯特布的局部：一条条窄布并排缝在一起，相邻两条的图案彼此错开。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/85576",
+        "changes": "博物馆原图 728 像素宽，未缩放，只重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "swing",
+      "src": "/img/fragonard-swing-wallace.jpg",
+      "kind": "detail",
+      "subject": "弗拉戈纳尔《秋千》（1767—1768 年，伦敦华莱士收藏馆）",
+      "width": 1493,
+      "height": 1800,
+      "alt": "一幅装在华丽金色画框里的油画，挂在展厅的墙上：茂密的树林里，一位穿粉红色长裙的女子坐在秋千上高高荡起，一只鞋飞了出去；左下角的草丛里躺着一个男子，正抬头看她。",
+      "caption": "让-奥诺雷·弗拉戈纳尔《秋千》，1767—1768 年，布面油画，伦敦华莱士收藏馆藏。这是展厅里拍的照片，画框也一起拍了进去。",
+      "credit": {
+        "author": "Philafrenzy（维基共享资源）",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fragonard,_The_Swing,_Wallace_Collection.jpg",
+        "changes": "缩小到 1800 像素高并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    }
+  ],
+  "imagesNote": "这些图像都不是本件作品：两张是大都会艺术博物馆以 CC0 开放的 19 世纪肯特布，一张是弗拉戈纳尔《秋千》的展厅照片（CC BY-SA 4.0）。来源与改动见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "大都会艺术博物馆注明“© El Anatsui. Courtesy of the artist and Jack Shainman Gallery”，图像不能放大或下载。本课的插图：肯特布由大都会艺术博物馆以 CC0 开放；《秋千》（弗拉戈纳尔 1806 年去世）属于公有领域，照片由拍摄者以 CC BY-SA 4.0 授权。修尼巴尔的作品只提供泰特美术馆的链接。",
+    "verifiedOn": "2026-10-29",
+    "note": "“同一块布，四种挂法”的示意图由本站绘制，不是作品的复制。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "金属“布” · 雕塑",
+    "maker": "埃尔·阿纳崔",
+    "period": "2006 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "埃尔·阿纳崔"
+      },
+      {
+        "label": "材料",
+        "value": "铝、铜丝"
+      },
+      {
+        "label": "尺幅",
+        "value": "2.2 × 3.3 米"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "成千上万块酒瓶上的铝片，用铜丝连成一块会起褶的金属布。",
+    "image": null
+  }
+}

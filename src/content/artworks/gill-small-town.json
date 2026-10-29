@@ -1,0 +1,65 @@
+{
+  "id": "art-gill-small-town-001",
+  "kind": "object",
+  "titleZh": "世纪之交的小镇",
+  "titleEn": "A Small Town at the Turn of the Century",
+  "artist": "西姆琳·吉尔",
+  "attributionNote": "西姆琳·吉尔 1999—2000 年在她的家乡、马来西亚的波德申拍摄（据泰特美术馆）。",
+  "dateApprox": "1999—2000 年",
+  "objectType": "摄影系列 · 40 张方形彩色照片",
+  "medium": "40 张 C 型彩色照片",
+  "dimensions": "每张约 101.5 × 102 厘米（据泰特美术馆）",
+  "collection": "伦敦泰特美术馆，P13507（2014 年捐赠；五版中的第一版）",
+  "originalStatus": "一版五套；可以整套、分组或单张展出，没有规定的顺序（据泰特美术馆）。",
+  "provenance": "2014 年由 Michael 和 Ali Hue-Williams 捐赠给泰特美术馆。",
+  "officialPage": {
+    "label": "泰特美术馆的作品页面",
+    "url": "https://www.tate.org.uk/art/artworks/gill-a-small-town-at-the-turn-of-the-century-p13507"
+  },
+  "infoSources": [
+    {
+      "label": "泰特美术馆：Simryn Gill, A Small Town at the Turn of the Century，1999–2000，P13507",
+      "url": "https://www.tate.org.uk/art/artworks/gill-a-small-town-at-the-turn-of-the-century-p13507"
+    },
+    {
+      "label": "Ilham 美术馆（吉隆坡）：Simryn Gill, A Small Town at the Turn of the Century #26",
+      "url": "https://collection.ilhamgallery.com/arts/a-small-town-at-the-turn-of-the-century-26-370"
+    },
+    {
+      "label": "澳大利亚艺术与艺术家设计辞典（DAAO）：A Small Town at the Turn of the Century（展览记录）",
+      "url": "https://daao.library.unsw.edu.au/bio/event/a-small-town-at-the-turn-of-the-century"
+    }
+  ],
+  "images": [],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "吉尔的照片受版权保护；泰特美术馆没有提供本作品的图像。",
+    "verifiedOn": "2026-10-29",
+    "note": "这是本课的附加藏品卡（A+）。挂法互动里的方框是本站画的占位。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "摄影系列",
+    "maker": "西姆琳·吉尔",
+    "period": "1999—2000 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "西姆琳·吉尔"
+      },
+      {
+        "label": "数量",
+        "value": "40 张"
+      },
+      {
+        "label": "地点",
+        "value": "马来西亚波德申"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "家乡小镇的四十张照片：每个人的脸，都被一个热带水果挡住。",
+    "image": null
+  }
+}

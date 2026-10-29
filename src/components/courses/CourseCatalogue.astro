@@ -53,8 +53,26 @@ const sections = stages.map((st) => {
 });
 const two = (n: number) => String(n).padStart(2, '0');
 const three = (n: number) => String(n).padStart(3, '0');
-// A pile shows up to three prints; the first published work lies on top.
-const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, k })).reverse();
+// The three prints each stage shows, by course number, top print first: works chosen to stand for the stage as a whole
+// (its regions, media and turning points), not simply its first three lessons. The top print is also the stage's plate
+// at the entrance. A course not yet published, or a stage not listed, falls back to the stage's first published works.
+const PILES: Record<string, number[]> = {
+  '01': [1, 3, 5],    // 范宽《溪山行旅图》, 卡拉瓦乔《圣彼得不认主》, 河马小像“威廉”: painting east and west, and an object
+  '02': [6, 8, 14],   // 阿尔塔米拉野牛, 兽面纹青铜尊, 圣洛伦索巨石头像: the first images, ritual bronze, the ancient Americas
+  '03': [16, 19, 21], // 犍陀罗佛立像, 圣母子圣像, 伊玛米经学院礼拜龛: Buddhist, Christian and Islamic images
+  '04': [26, 31, 33], // 郭熙《早春图》, 乔托《哀悼基督》, 舞王湿婆: three mature traditions, one new pictorial space
+  '05': [47, 53, 40], // 维米尔《倒牛奶的女仆》, 《沙贾汗立于露台》, 克拉克瓷盘: market, court and global exchange
+  '06': [60, 58, 61], // 莫奈《鲁昂大教堂》, 库尔贝《奥尔南的葬礼》, 修拉《大碗岛》: light, reality, modern life
+  '07': [64, 67, 71], // 马蒂斯《戴帽子的女人》, 杜尚《泉》, 奥罗斯科的壁画: colour, the readymade, public art beyond Europe
+  '08': [78, 84, 82], // 德累斯顿 1945（第 78 课）, 梅斯达赫全景画的观众（第 84 课）, 肯特布（第 82 课）: memory, immersion, a global material
+};
+const pileWorks = (s: (typeof sections)[number]) => {
+  const chosen = (PILES[s.no] ?? []).map((n) => s.works.find((w) => w.course === n)).filter((w): w is (typeof lessons)[number] => !!w);
+  return [...chosen, ...s.works.filter((w) => !chosen.includes(w))].slice(0, 3);
+};
+// A pile shows up to three prints; the first chosen work lies on top.
+const pileOf = (s: (typeof sections)[number]) => pileWorks(s).map((w, k) => ({ w, k })).reverse();
+const plateOf = (s: (typeof sections)[number]) => pileWorks(s).find((w) => w.small);
 ---
 <div class="ec" data-ec>
   <canvas class="ec-web" data-web aria-hidden="true"></canvas>
@@ -76,7 +94,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
         <li>
           <a class:list={['ec-plate', { 'is-empty': !s.opened }]} href={`#stage-${s.no}`}>
             <span class="ec-plate-img">
-              {(s.works.find((w) => w.cover) ?? s.works.find((w) => w.small)) ? <img src={(s.works.find((w) => w.cover) ?? s.works.find((w) => w.small))!.small} alt="" decoding="async" /> : <span class="ec-plate-blank" aria-hidden="true"></span>}
+              {plateOf(s) ? <img src={plateOf(s)!.small} alt="" decoding="async" /> : <span class="ec-plate-blank" aria-hidden="true"></span>}
             </span>
             <span class="ec-plate-no">{s.no}</span>
             <span class="ec-plate-title">{s.title}</span>
@@ -104,7 +122,7 @@ const pileOf = (works: typeof lessons) => works.slice(0, 3).map((w, k) => ({ w, 
         </div>
         {s.works.length > 0 && (
           <div class:list={['ec-pile', `n-${Math.min(s.works.length, 3)}`]}>
-            {pileOf(s.works).map(({ w, k }) => (
+            {pileOf(s).map(({ w, k }) => (
               <a class="ec-print" href={`/lessons/${w.id}/`} data-pos={k}>
                 {w.large
                   ? <img src={w.large.src} width={w.large.width || undefined} height={w.large.height || undefined} alt={w.alt} decoding="async" />

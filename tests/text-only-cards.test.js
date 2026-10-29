@@ -28,7 +28,8 @@ test('a text-only work is a first-class card: typographic face, a number, and a 
     assert.equal(a.card.image, null, `${a.id}: the card face is typographic, never one of the record's other images`);
     assert.ok([...a.card.blurb].length <= 60, `${a.id}: blurb fits the cover`);
     assert.ok(cards.get(a.id)?.no, `${a.id}: numbered with every other card`);
-    assert.ok(lessons.some((fm) => new RegExp(`^artwork: ${a.id}$`, 'm').test(fm)), `${a.id}: awarded by a lesson`);
+    // as a lesson's own work, or as one of its extra (A+) cards
+    assert.ok(lessons.some((fm) => new RegExp(`^artwork: ${a.id}$`, 'm').test(fm) || new RegExp(`^cards:.*\\b${a.id}\\b`, 'm').test(fm)), `${a.id}: awarded by a lesson`);
   }
 });
 

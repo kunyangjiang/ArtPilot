@@ -1,0 +1,93 @@
+---
+// Many small flat units joined at their corners make a sheet that has no fixed shape. This site's diagram (plain
+// rectangles in a few colours, not a copy of any work) shows one sheet hung four ways: flat like a painting, creased,
+// draped in deep folds, and gathered at the top. "近看连接" shows the wire ties between units. The same units and the
+// same ties give a different surface, light and silhouette each time. Nothing is scored or stored.
+interface Props { prompt: string; notes: { flat: string; crease: string; drape: string; gather: string } }
+const { prompt, notes } = Astro.props;
+const COLS = 26, ROWS = 18;
+---
+<section class="module units" data-units={JSON.stringify({ COLS, ROWS, notes })}>
+  <p class="module-label">示意 · 同一块“布”，四种挂法</p>
+  <h3>{prompt}</h3>
+  <div class="units-bar" role="group" aria-label="挂法">
+    <button type="button" class="btn btn-secondary" aria-pressed="true" data-m="flat">平挂</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-m="crease">起皱</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-m="drape">深褶垂坠</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-m="gather">上端收拢</button>
+    <label class="units-toggle"><input type="checkbox" data-wire /> 近看连接</label>
+  </div>
+  <div class="units-stage">
+    <svg viewBox="0 0 660 480" role="img" aria-label="由许多小方块连成的一块“布”，可以平挂、起皱、垂坠或收拢。" data-svg></svg>
+  </div>
+  <p class="units-read" aria-live="polite" data-read>{notes.flat}</p>
+  <p class="units-note">示意图由本站绘制：小方块代表压平的金属片，不是任何作品的复制。</p>
+</section>
+
+<style>
+  .units-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: 1rem; }
+  .units-bar [aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .units-toggle { display: inline-flex; align-items: center; gap: .4rem; margin-left: .5rem; font: 400 .9375rem/1.6 var(--sans); }
+  .units-toggle input { accent-color: var(--ink); }
+  .units-stage { max-width: 46rem; background: #ece9e2; }
+  .units-stage svg { display: block; width: 100%; height: auto; }
+  .units-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .units-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-units]').forEach((root) => {
+    const { COLS, ROWS, notes } = JSON.parse(root.dataset.units!) as { COLS: number; ROWS: number; notes: Record<string, string> };
+    const svg = root.querySelector<SVGSVGElement>('[data-svg]')!;
+    const wire = root.querySelector<HTMLInputElement>('[data-wire]')!;
+    const read = root.querySelector('[data-read]')!;
+    const NS = 'http://www.w3.org/2000/svg';
+    const palette = ['#c8a03a', '#d7b54a', '#a8332b', '#b8402f', '#26231f', '#3a332a', '#9c9a93'];
+    let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    // Colour regions, so the sheet reads as a field of colour like a strip-woven cloth: bands with patches.
+    const colours = Array.from({ length: ROWS }, (_, r) => Array.from({ length: COLS }, (_, c) => {
+      const band = Math.floor(c / 4) % 3, p = rnd();
+      return band === 0 ? (p < .85 ? palette[0 + (r + c) % 2] : palette[2]) : band === 1 ? (p < .7 ? palette[2 + (r % 2)] : palette[4]) : (p < .8 ? palette[4 + (c % 2)] : palette[1]);
+    }));
+    const uw = 20, uh = 20, ox = 70, oy = 50;
+    let mode = 'flat';
+    // Where each unit's centre goes, and how much it is foreshortened (folds turn units away from the viewer).
+    const place = (r: number, c: number): [number, number, number, number] => {
+      let x = ox + c * uw, y = oy + r * uh, sx = 1, shade = 0;
+      const u = c / (COLS - 1), v = r / (ROWS - 1);
+      if (mode === 'crease') { const a = Math.sin(u * Math.PI * 7 + v * 3) * 0.5 + Math.sin(u * 13 + v * 9) * 0.3; sx = 0.75 + 0.25 * Math.cos(a * 2); x += a * 6; y += Math.sin(u * 9) * 4; shade = a * 0.3; }
+      if (mode === 'drape') { const ph = u * Math.PI * 5, d = 0.35 + v * 0.65; x = ox + 260 * 0 + (u * (COLS - 1) * uw) * (0.82 + 0.18 * (1 - v)) + 30 * v; sx = 0.35 + 0.65 * Math.abs(Math.cos(ph)); shade = Math.sin(ph) * 0.45 * d; y += Math.sin(ph) * 8 * d; }
+      if (mode === 'gather') { const k = 1 - v; const cx = ox + (COLS - 1) * uw / 2; x = cx + (x - cx) * (0.35 + 0.65 * v); const ph = u * Math.PI * 6; sx = (0.35 + 0.65 * v) * (0.5 + 0.5 * Math.abs(Math.cos(ph))); shade = Math.sin(ph) * 0.35 * k; y += Math.sin(ph) * 5 * k; }
+      return [x, y, sx, shade];
+    };
+    const draw = () => {
+      svg.replaceChildren();
+      const g = document.createElementNS(NS, 'g'), w = document.createElementNS(NS, 'g');
+      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+        const [x, y, sx, shade] = place(r, c);
+        const rect = document.createElementNS(NS, 'rect');
+        const ww = uw * sx * 0.92, hh = uh * 0.86;
+        rect.setAttribute('x', (x - ww / 2).toFixed(1)); rect.setAttribute('y', (y - hh / 2).toFixed(1));
+        rect.setAttribute('width', ww.toFixed(1)); rect.setAttribute('height', hh.toFixed(1)); rect.setAttribute('rx', '2');
+        rect.setAttribute('fill', colours[r][c]);
+        rect.setAttribute('opacity', String(Math.max(0.45, Math.min(1, 1 - shade))));
+        g.append(rect);
+        if (wire.checked && c < COLS - 1) {
+          const [x2, y2] = place(r, c + 1);
+          const l = document.createElementNS(NS, 'line');
+          l.setAttribute('x1', (x + ww / 2 - 2).toFixed(1)); l.setAttribute('y1', (y - hh / 3).toFixed(1));
+          l.setAttribute('x2', (x2 - 6).toFixed(1)); l.setAttribute('y2', (y2 - hh / 3).toFixed(1));
+          l.setAttribute('stroke', '#b8733d'); l.setAttribute('stroke-width', '1.6');
+          w.append(l);
+        }
+      }
+      svg.append(g, w);
+    };
+    root.querySelectorAll<HTMLButtonElement>('[data-m]').forEach((b) => b.addEventListener('click', () => {
+      root.querySelectorAll('[data-m]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      mode = b.dataset.m!; read.textContent = notes[mode]; draw();
+    }));
+    wire.addEventListener('change', () => { draw(); if (wire.checked) read.textContent = '近看：每两块之间都用一小段铜丝扎住。连接是一点一点的，所以整块“布”能弯、能折、能垂下来。'; else read.textContent = notes[mode]; });
+    draw();
+  });
+</script>

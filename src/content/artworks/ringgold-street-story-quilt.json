@@ -1,0 +1,88 @@
+{
+  "id": "art-ringgold-street-story-quilt-001",
+  "kind": "object",
+  "titleZh": "街道故事被",
+  "titleEn": "Street Story Quilt",
+  "artist": "费丝·林戈尔德",
+  "attributionNote": "费丝·林戈尔德（1930—2024）1985 年作，她的第四件“故事被”（据大都会艺术博物馆）。",
+  "dateApprox": "1985 年",
+  "objectType": "故事被 · 三联",
+  "medium": "棉帆布、丙烯颜料、记号笔、染色和印花的棉布、亮片，缝在棉绒衬布上",
+  "dimensions": "整体 228.6 × 365.8 厘米（据大都会艺术博物馆）",
+  "collection": "纽约大都会艺术博物馆，1990.237a-c",
+  "originalStatus": "原作，三幅一组。",
+  "provenance": "1990 年由大都会艺术博物馆购藏，经手策展人洛厄里·斯托克斯·西姆斯（据该馆）。",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/485416"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Faith Ringgold, Street Story Quilt，1985，1990.237a-c",
+      "url": "https://www.metmuseum.org/art/collection/search/485416"
+    },
+    {
+      "label": "史密森尼学会国家美国历史博物馆：Harriet Powers’s Bible Quilt，1885–1886，nmah_556462",
+      "url": "https://www.si.edu/object/nmah_556462"
+    },
+    {
+      "label": "泰特美术馆：Cecilia Vicuña, Quipu Womb (The Story of the Red Thread, Athens)，2017，T15921",
+      "url": "https://www.tate.org.uk/art/artworks/vicuna-quipu-womb-the-story-of-the-red-thread-athens-t15921"
+    },
+    {
+      "label": "克利夫兰艺术博物馆：Inka Khipu (Fiber Recording Device)，约 1400–1532，1940.469",
+      "url": "https://www.clevelandart.org/art/1940.469"
+    }
+  ],
+  "images": [
+    {
+      "key": "khipu",
+      "src": "/img/inka-khipu-cleveland.jpg",
+      "kind": "detail",
+      "subject": "印加结绳（约 1400—1532 年，克利夫兰艺术博物馆藏）",
+      "width": 2000,
+      "height": 1661,
+      "alt": "一件平铺在浅色背景上的结绳：上方一根横着的主绳，下面垂下几十根细绳，像一把展开的扇子；细绳上隔一段有一个小结，有的细绳上还挂着更细的绳。",
+      "caption": "印加结绳，约 1400—1532 年，棉和羊驼毛，绳子打结、捻合，113 × 137.2 厘米，克利夫兰艺术博物馆藏（1940.469）。",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/1940.469",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "这张图像不是本件作品，而是克利夫兰艺术博物馆以 CC0 开放的印加结绳。来源与许可见“来源与版权”。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "大都会艺术博物馆注明“© 1985 Faith Ringgold”，图像不能放大或下载。本课的插图：哈丽特·鲍尔斯的《圣经被》由史密森尼学会以 CC0 开放（另见该作品的记录）；印加结绳由克利夫兰艺术博物馆以 CC0 开放。维库尼亚的作品只提供泰特美术馆的链接。",
+    "verifiedOn": "2026-10-29",
+    "note": "“把数字打成结”的互动由本站绘制。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "故事被 · 绘画",
+    "maker": "费丝·林戈尔德",
+    "period": "1985 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "费丝·林戈尔德"
+      },
+      {
+        "label": "形式",
+        "value": "三联故事被"
+      },
+      {
+        "label": "尺幅",
+        "value": "2.3 × 3.7 米"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "同一栋哈莱姆的楼，三个时刻：一床被子讲完一个男孩的半生。",
+    "image": null
+  }
+}

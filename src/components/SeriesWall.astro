@@ -1,0 +1,64 @@
+---
+// A photographic series that has no fixed order: `count` empty square frames (this site's placeholders, not the
+// photographs) hung in the ways the holding museum says the series may be shown — the full set, smaller groups, or a
+// single print — and shuffled, since no order is prescribed. The reader sees how the same series changes with the hang.
+// Nothing is scored or stored.
+interface Props { prompt: string; count: number; group?: number; notes: { all: string; groups: string; one: string; shuffle: string } }
+const { prompt, count, group = 4, notes } = Astro.props;
+---
+<section class="module swall" data-swall={JSON.stringify({ count, group, notes })}>
+  <p class="module-label">互动 · 怎样挂一组照片</p>
+  <h3>{prompt}</h3>
+  <div class="swall-bar" role="group" aria-label="挂法">
+    <button type="button" class="btn btn-secondary" aria-pressed="true" data-m="all">整套</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-m="groups">分成小组</button>
+    <button type="button" class="btn btn-secondary" aria-pressed="false" data-m="one">只挂一张</button>
+    <button type="button" class="btn btn-secondary" data-shuffle>打乱顺序</button>
+  </div>
+  <div class="swall-wall" data-wall data-mode="all">
+    {Array.from({ length: count }, (_, i) => <span class="swall-frame" data-n={i + 1}><span>{i + 1}</span></span>)}
+  </div>
+  <p class="swall-read" aria-live="polite" data-read>{notes.all}</p>
+  <p class="swall-note">方框是本站画的占位，只代表照片的位置，不复制作品。</p>
+</section>
+
+<style>
+  .swall-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+  .swall-bar [aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .swall-wall { display: grid; grid-template-columns: repeat(10, 1fr); gap: .35rem; max-width: 46rem; padding: 1rem; background: #ece9e2; }
+  .swall-wall[data-mode="groups"] { grid-template-columns: 1fr 1fr 1.2fr 1fr 1fr; max-width: 30rem; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(n+9) { display: none; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(1), .swall-wall[data-mode="groups"] .swall-frame:nth-child(3) { grid-column: 1; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(2), .swall-wall[data-mode="groups"] .swall-frame:nth-child(4) { grid-column: 2; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(5), .swall-wall[data-mode="groups"] .swall-frame:nth-child(7) { grid-column: 4; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(6), .swall-wall[data-mode="groups"] .swall-frame:nth-child(8) { grid-column: 5; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(-n+2), .swall-wall[data-mode="groups"] .swall-frame:nth-child(5), .swall-wall[data-mode="groups"] .swall-frame:nth-child(6) { grid-row: 1; }
+  .swall-wall[data-mode="groups"] .swall-frame:nth-child(3), .swall-wall[data-mode="groups"] .swall-frame:nth-child(4), .swall-wall[data-mode="groups"] .swall-frame:nth-child(7), .swall-wall[data-mode="groups"] .swall-frame:nth-child(8) { grid-row: 2; }
+  .swall-wall[data-mode="one"] { grid-template-columns: 1fr; justify-items: center; }
+  .swall-wall[data-mode="one"] .swall-frame:not(:first-child) { display: none; }
+  .swall-wall[data-mode="one"] .swall-frame:first-child { width: min(16rem, 70%); }
+  .swall-frame { position: relative; aspect-ratio: 1; background: #faf8f3; box-shadow: 0 1px 2px rgb(0 0 0 / .18); transition: transform var(--t) var(--ease); }
+  .swall-frame span { position: absolute; inset: auto .25rem .15rem auto; font: 500 .625rem/1 var(--sans); color: var(--ink-3); }
+  .swall-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .swall-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (max-width: 560px) { .swall-wall { grid-template-columns: repeat(5, 1fr); } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-swall]').forEach((root) => {
+    const { notes } = JSON.parse(root.dataset.swall!) as { notes: Record<'all' | 'groups' | 'one' | 'shuffle', string> };
+    const wall = root.querySelector<HTMLElement>('[data-wall]')!;
+    const read = root.querySelector('[data-read]')!;
+    root.querySelectorAll<HTMLButtonElement>('[data-m]').forEach((b) => b.addEventListener('click', () => {
+      root.querySelectorAll('[data-m]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      wall.dataset.mode = b.dataset.m!;
+      read.textContent = notes[b.dataset.m as 'all' | 'groups' | 'one'];
+    }));
+    root.querySelector('[data-shuffle]')!.addEventListener('click', () => {
+      const frames = [...wall.children];
+      for (let i = frames.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [frames[i], frames[j]] = [frames[j], frames[i]]; }
+      wall.replaceChildren(...frames);
+      read.textContent = notes.shuffle;
+    });
+  });
+</script>

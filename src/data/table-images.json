@@ -95,6 +95,30 @@
       "height": 114
     }
   },
+  "/img/asante-kente-detail-met.jpg": {
+    "large": {
+      "src": "/img/table/asante-kente-detail-met.jpg",
+      "width": 728,
+      "height": 546
+    },
+    "small": {
+      "src": "/img/table/s-asante-kente-detail-met.jpg",
+      "width": 260,
+      "height": 195
+    }
+  },
+  "/img/behold-small-town-structure-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/behold-small-town-structure-artpilot.jpg",
+      "width": 1100,
+      "height": 611
+    },
+    "small": {
+      "src": "/img/table/s-behold-small-town-structure-artpilot.jpg",
+      "width": 260,
+      "height": 144
+    }
+  },
   "/img/bellini-feast-gods.jpg": {
     "large": {
       "src": "/img/table/bellini-feast-gods.jpg",
@@ -623,6 +647,18 @@
       "height": 260
     }
   },
+  "/img/gutai-dansaekhwa-process-diagram-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/gutai-dansaekhwa-process-diagram-artpilot.jpg",
+      "width": 1100,
+      "height": 684
+    },
+    "small": {
+      "src": "/img/table/s-gutai-dansaekhwa-process-diagram-artpilot.jpg",
+      "width": 260,
+      "height": 162
+    }
+  },
   "/img/hatshepsut-seated.jpg": {
     "large": {
       "src": "/img/table/hatshepsut-seated.jpg",
@@ -755,6 +791,18 @@
       "height": 259
     }
   },
+  "/img/inka-khipu-cleveland.jpg": {
+    "large": {
+      "src": "/img/table/inka-khipu-cleveland.jpg",
+      "width": 1100,
+      "height": 914
+    },
+    "small": {
+      "src": "/img/table/s-inka-khipu-cleveland.jpg",
+      "width": 260,
+      "height": 216
+    }
+  },
   "/img/jacquard-woven-portrait-1839.jpg": {
     "large": {
       "src": "/img/table/jacquard-woven-portrait-1839.jpg",
@@ -837,6 +885,18 @@
       "src": "/img/table/s-kandinsky-improvisation-30.jpg",
       "width": 259,
       "height": 260
+    }
+  },
+  "/img/kangxi-dictionary-1780-loc.jpg": {
+    "large": {
+      "src": "/img/table/kangxi-dictionary-1780-loc.jpg",
+      "width": 1100,
+      "height": 848
+    },
+    "small": {
+      "src": "/img/table/s-kangxi-dictionary-1780-loc.jpg",
+      "width": 260,
+      "height": 200
     }
   },
   "/img/kangxi-tour-jinan.jpg": {
@@ -1221,6 +1281,18 @@
       "src": "/img/table/s-pensive-bodhisattva-korea.jpg",
       "width": 192,
       "height": 260
+    }
+  },
+  "/img/powers-bible-quilt-nmah.jpg": {
+    "large": {
+      "src": "/img/table/powers-bible-quilt-nmah.jpg",
+      "width": 1100,
+      "height": 921
+    },
+    "small": {
+      "src": "/img/table/s-powers-bible-quilt-nmah.jpg",
+      "width": 260,
+      "height": 217
     }
   },
   "/img/raphael-alba-madonna.jpg": {

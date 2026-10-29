@@ -1,0 +1,90 @@
+---
+// How an unreadable character can look readable: the reader puts a left-hand component next to a right-hand one and
+// sees whether the pair is a common character or a form that looks like one but is not. Then a page in a classical
+// layout (columns read top to bottom, right to left) is filled with this site's own combinations, so the reader can feel
+// what it is like to face a page that looks like a book and cannot be read. The combinations are this site's, never Xu
+// Bing's characters. `common` lists pairs that are common characters (left+right → character).
+interface Props { prompt: string; lefts: string[]; rights: string[]; common: Record<string, string>; cols?: number; rows?: number }
+const { prompt, lefts, rights, common, cols = 9, rows = 17 } = Astro.props;
+---
+<section class="module fakec" data-fakec={JSON.stringify({ lefts, rights, common, cols, rows })}>
+  <p class="module-label">互动 · 造一个“字”</p>
+  <h3>{prompt}</h3>
+  <div class="fakec-maker">
+    <div class="fakec-pick" role="group" aria-label="左边的部件">
+      {lefts.map((c, i) => <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-l={c}>{c}</button>)}
+    </div>
+    <div class="fakec-glyph" aria-live="polite" data-glyph><span class="fakec-l">{lefts[0]}</span><span class="fakec-r">{rights[0]}</span></div>
+    <div class="fakec-pick" role="group" aria-label="右边的部件">
+      {rights.map((c, i) => <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-r={c}>{c}</button>)}
+    </div>
+  </div>
+  <p class="fakec-read" aria-live="polite" data-read></p>
+  <div class="fakec-bar">
+    <button type="button" class="btn btn-secondary" data-page>用这些部件排满一页</button>
+  </div>
+  <div class="fakec-page" data-pagebox hidden aria-label="一页由本站随机组合的“字”，按竖行从右往左排列"></div>
+  <p class="fakec-note">部件组合由本站随机生成，只用来体会“看起来像字”的感觉，不是徐冰造的字。一页 {cols} 行、每行最多 {rows} 字，按普林斯顿大学美术馆对《天书》版式的描述设置。</p>
+</section>
+
+<style>
+  .fakec-maker { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 1rem; max-width: 46rem; }
+  .fakec-pick { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .fakec-pick:last-child { justify-content: flex-end; }
+  .fakec-pick button { width: 2.6rem; height: 2.6rem; border: 1px solid var(--silver); border-radius: 4px; background: transparent; color: var(--ink);
+    font: 400 1.35rem/1 var(--serif); cursor: pointer; }
+  .fakec-pick button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .fakec-glyph { display: flex; width: 7rem; height: 7rem; align-items: center; justify-content: center; background: #f3efe4;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1); font: 400 5.2rem/1 var(--serif); color: #1c1d20; overflow: hidden; }
+  .fakec-glyph span, .fakec-page :global(.fc-g span) { display: inline-block; }
+  .fakec-l { transform: scaleX(.46); transform-origin: right center; margin-right: -.27em; }
+  .fakec-r { transform: scaleX(.58); transform-origin: left center; margin-right: -.21em; }
+  .fakec-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .fakec-bar { margin-top: .5rem; }
+  .fakec-page { display: grid; grid-auto-flow: column; direction: rtl; justify-content: start; gap: .1rem .55rem; max-width: 46rem; margin-top: 1rem;
+    padding: 1.1rem; background: #f3efe4; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .12); overflow-x: auto; }
+  .fakec-page :global(.fc-g) { display: flex; width: 1.3rem; height: 1.3rem; align-items: center; justify-content: center; font: 400 1.15rem/1 var(--serif); color: #1c1d20; }
+  .fakec-page :global(.fc-g .l) { transform: scaleX(.46); transform-origin: right center; margin-right: -.27em; }
+  .fakec-page :global(.fc-g .r) { transform: scaleX(.58); transform-origin: left center; margin-right: -.21em; }
+  .fakec-note { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (max-width: 560px) { .fakec-maker { grid-template-columns: 1fr; justify-items: center; } .fakec-pick, .fakec-pick:last-child { justify-content: center; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-fakec]').forEach((root) => {
+    const { lefts, rights, common, cols, rows } = JSON.parse(root.dataset.fakec!) as { lefts: string[]; rights: string[]; common: Record<string, string>; cols: number; rows: number };
+    const glyph = root.querySelector<HTMLElement>('[data-glyph]')!;
+    const read = root.querySelector('[data-read]')!;
+    const page = root.querySelector<HTMLElement>('[data-pagebox]')!;
+    let l = lefts[0], r = rights[0];
+    const draw = () => {
+      glyph.querySelector('.fakec-l')!.textContent = l;
+      glyph.querySelector('.fakec-r')!.textContent = r;
+      const real = common[l + r];
+      read.textContent = real
+        ? `“${l}”加“${r}”是一个常用字：${real}。你一眼就认得它。`
+        : `“${l}”加“${r}”：看起来像一个字，有部首，有结构，笔画也端正；可是常用字里没有它，谁也读不出来。`;
+    };
+    root.querySelectorAll<HTMLButtonElement>('[data-l]').forEach((b) => b.addEventListener('click', () => {
+      l = b.dataset.l!; root.querySelectorAll('[data-l]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); draw();
+    }));
+    root.querySelectorAll<HTMLButtonElement>('[data-r]').forEach((b) => b.addEventListener('click', () => {
+      r = b.dataset.r!; root.querySelectorAll('[data-r]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); draw();
+    }));
+    root.querySelector('[data-page]')!.addEventListener('click', () => {
+      page.style.gridTemplateRows = `repeat(${rows}, auto)`;
+      page.replaceChildren();
+      let made = 0, readable = 0;
+      for (let i = 0; i < cols * rows; i++) {
+        const a = lefts[Math.floor(Math.random() * lefts.length)], b = rights[Math.floor(Math.random() * rights.length)];
+        const g = document.createElement('span'); g.className = 'fc-g'; g.setAttribute('aria-hidden', 'true');
+        const s1 = document.createElement('span'); s1.className = 'l'; s1.textContent = a;
+        const s2 = document.createElement('span'); s2.className = 'r'; s2.textContent = b;
+        g.append(s1, s2); page.append(g); made++; if (common[a + b]) readable++;
+      }
+      page.hidden = false;
+      read.textContent = `这一页排了 ${made} 个“字”，其中只有 ${readable} 个碰巧是常用字。整页看起来像一本古书，却读不通一句话。`;
+    });
+    draw();
+  });
+</script>

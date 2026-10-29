@@ -1,0 +1,85 @@
+{
+  "id": "art-shimamoto-holes-001",
+  "kind": "painting",
+  "titleZh": "洞",
+  "titleEn": "Holes",
+  "artist": "岛本昭三",
+  "attributionNote": "岛本昭三（1928—2013）1954 年作，“洞”系列之一；据艺术家说，这个系列始于 1949 年或 1950 年（据泰特美术馆）。",
+  "dateApprox": "1954 年",
+  "medium": "纸上油彩（以报纸和褐色纸糊成的支撑物，下有木板）",
+  "dimensionsCm": {
+    "height": 89.2,
+    "width": 69.9
+  },
+  "collection": "伦敦泰特美术馆，T07898（艺术家 2002 年捐赠）",
+  "dimensionsSource": "据泰特美术馆：画面 89.2 × 69.9 厘米；连支撑物 116.9 × 91.2 厘米。",
+  "officialPage": {
+    "label": "泰特美术馆的作品页面",
+    "url": "https://www.tate.org.uk/art/artworks/shimamoto-holes-t07898"
+  },
+  "infoSources": [
+    {
+      "label": "泰特美术馆：Shozo Shimamoto, Holes，1954，T07898（Giorgia Bottinelli 撰写的藏品说明，2002）",
+      "url": "https://www.tate.org.uk/art/artworks/shimamoto-holes-t07898"
+    },
+    {
+      "label": "泰特美术馆：Shozo Shimamoto, Holes，1953，T07897",
+      "url": "https://www.tate.org.uk/art/artworks/shimamoto-holes-t07897"
+    },
+    {
+      "label": "大都会艺术博物馆：Lee Ufan, Cut Up，1972，2025.315",
+      "url": "https://www.metmuseum.org/art/collection/search/912424"
+    }
+  ],
+  "images": [
+    {
+      "key": "process",
+      "src": "/img/gutai-dansaekhwa-process-diagram-artpilot.jpg",
+      "kind": "detail",
+      "subject": "两种做法的剖面示意图（本站绘制）",
+      "width": 1800,
+      "height": 1120,
+      "alt": "两张剖面示意图。上图：一块木板上叠着几层报纸、一层褐色纸和一层白色颜料，中间被戳出一个洞，露出下面的各层。下图：麻布上涂着一层没干的白颜料，一支铅笔斜着划进去，留下一排细线，线两边的颜料被推起。",
+      "caption": "两种对待画面的办法：上图按泰特美术馆对岛本昭三《洞》的说明画出支撑物的层次；下图按克利夫兰艺术博物馆对朴栖甫《描法》的说明画出铅笔划进湿颜料的样子。本站绘制，比例夸张。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制的示意图",
+        "sourceUrl": "https://www.tate.org.uk/art/artworks/shimamoto-holes-t07898",
+        "changes": "本站按两家博物馆的文字说明绘制，不描绘任何作品",
+        "by": "ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "这张图是本站绘制的做法示意，不是本件作品的图像。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "岛本昭三 2013 年去世，作品仍受版权保护；泰特美术馆的图像不提供开放许可。",
+    "verifiedOn": "2026-10-29",
+    "note": "戳洞的互动和示意图由本站绘制。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "绘画 · 具体派",
+    "maker": "岛本昭三",
+    "period": "1954 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "岛本昭三"
+      },
+      {
+        "label": "材料",
+        "value": "报纸、纸、油彩"
+      },
+      {
+        "label": "尺幅",
+        "value": "89 × 70 厘米"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "买不起画布，就把旧报纸糊起来画；纸破了，破洞成了画。",
+    "image": null
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "art-gowda-behold-001",
+  "kind": "object",
+  "titleZh": "注视",
+  "titleEn": "Behold",
+  "artist": "希拉·高达",
+  "attributionNote": "希拉·高达（生活和工作在印度班加罗尔）2009 年作，同年首次展出于第 53 届威尼斯双年展（据泰特美术馆）。",
+  "dateApprox": "2009 年",
+  "objectType": "装置 · 人发绳与汽车保险杠",
+  "medium": "人发、汽车保险杠",
+  "dimensions": "陈列尺寸可变；约 4 千米手工打结的发绳、约 20 根汽车保险杠（据泰特美术馆）",
+  "collection": "伦敦泰特美术馆，T14118（南亚购藏委员会出资，2014 年）",
+  "originalStatus": "原作；每次布展的形状随场地而变（据泰特美术馆）。",
+  "provenance": "2009 年在威尼斯双年展首展；2014 年由泰特美术馆购藏。",
+  "officialPage": {
+    "label": "泰特美术馆的作品页面",
+    "url": "https://www.tate.org.uk/art/artworks/gowda-behold-t14118"
+  },
+  "infoSources": [
+    {
+      "label": "泰特美术馆：Sheela Gowda, Behold，2009，T14118",
+      "url": "https://www.tate.org.uk/art/artworks/gowda-behold-t14118"
+    },
+    {
+      "label": "泰特美术馆：Who is Sheela Gowda?（材料、发绳的来源、班加罗尔的习俗、艺术家的话）",
+      "url": "https://www.tate.org.uk/art/artists/sheela-gowda-18148/who-is-sheela-gowda"
+    }
+  ],
+  "images": [
+    {
+      "key": "structure",
+      "src": "/img/behold-small-town-structure-artpilot.jpg",
+      "kind": "detail",
+      "subject": "两件作品的结构示意图（本站绘制）",
+      "width": 1800,
+      "height": 1000,
+      "alt": "两张并排的示意图。左边：墙前垂下几条弯曲的黑线，吊着七根灰色的横条，横条下又兜着黑线绕成的环，地上有几团黑色的堆。右边：五行八列、共四十个空白的方框。",
+      "caption": "两件作品的构成示意：左边按泰特美术馆的说明，画出发绳吊起保险杠、地上堆着发团的结构；右边是四十张方形照片的位置。本站绘制，不描绘作品的样子。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制的示意图",
+        "sourceUrl": "https://www.tate.org.uk/art/artworks/gowda-behold-t14118",
+        "changes": "本站按泰特美术馆的文字说明绘制，不描绘任何作品",
+        "by": "ArtPilot"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "高达的作品受版权保护；泰特美术馆的图像不提供开放许可。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。"
+  },
+  "card": {
+    "type": "装置",
+    "maker": "希拉·高达",
+    "period": "2009 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "希拉·高达"
+      },
+      {
+        "label": "材料",
+        "value": "人发、保险杠"
+      },
+      {
+        "label": "规模",
+        "value": "约 4 千米发绳"
+      },
+      {
+        "label": "藏地",
+        "value": "伦敦"
+      }
+    ],
+    "blurb": "四千米人发拧成的绳，吊起二十根汽车保险杠。",
+    "image": null
+  },
+  "imagesNote": "这张图是本站绘制的结构示意，不是任何一件作品的图像。"
+}

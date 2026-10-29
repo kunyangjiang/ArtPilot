@@ -1,0 +1,72 @@
+{
+  "id": "art-powers-bible-quilt-001",
+  "kind": "object",
+  "titleZh": "圣经被",
+  "titleEn": "Bible Quilt",
+  "artist": "哈丽特·鲍尔斯",
+  "attributionNote": "哈丽特·鲍尔斯（1837—1910）约 1885—1886 年在美国佐治亚州制作；她生而为奴，1886 年在当地的集市上展出这床被子（据史密森尼学会）。",
+  "dateApprox": "约 1885—1886 年",
+  "objectType": "贴布绣被",
+  "medium": "棉；手工与机器缝合的贴布，棉衬里，棉絮",
+  "dimensions": "未公布",
+  "dimensionsSource": "史密森尼学会的在线记录没有给出尺寸",
+  "collection": "华盛顿史密森尼学会国家美国历史博物馆，nmah_556462",
+  "originalStatus": "原件；织物因长期展出而褪色（据史密森尼学会）。",
+  "provenance": "1886 年展出后，美术教师詹妮·史密斯从鲍尔斯手中购得；史密斯 1968 年去世后，入藏史密森尼学会（据该馆）。",
+  "infoSources": [
+    {
+      "label": "史密森尼学会国家美国历史博物馆：1885 - 1886 Harriet Powers’s Bible Quilt，nmah_556462",
+      "url": "https://www.si.edu/object/nmah_556462"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/powers-bible-quilt-nmah.jpg",
+      "kind": "full",
+      "width": 2200,
+      "height": 1842,
+      "alt": "一床长方形的被子，分成三排共十一块画面。每一块都用剪好的布贴出图案：蓝灰色的人、棕色和黑色的动物、太阳、星星和十字，背景是褪了色的浅粉白色，画面之间有窄边。",
+      "caption": "哈丽特·鲍尔斯《圣经被》，约 1885—1886 年，史密森尼学会国家美国历史博物馆藏。十一块画面讲《圣经》故事，从左上角的亚当和夏娃开始。",
+      "credit": {
+        "author": "史密森尼学会国家美国历史博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.si.edu/object/nmah_556462",
+        "changes": "博物馆原图 3000 像素宽，缩小到 2200 像素并重新压缩；未裁切、未调色",
+        "by": "史密森尼学会"
+      }
+    }
+  ],
+  "rights": {
+    "status": "公有领域：约 1886 年制作，作者 1910 年去世；图像由史密森尼学会以 CC0 开放",
+    "basis": "史密森尼学会的记录标明该图像为 CC0。鲍尔斯 1910 年去世，作品属于公有领域。",
+    "verifiedOn": "2026-10-29",
+    "note": "这是本课的附加藏品卡（A+），配原作图像。"
+  },
+  "card": {
+    "type": "贴布绣被",
+    "maker": "哈丽特·鲍尔斯",
+    "period": "约 1886 年",
+    "facets": [
+      {
+        "label": "作者",
+        "value": "哈丽特·鲍尔斯"
+      },
+      {
+        "label": "画面",
+        "value": "11 块"
+      },
+      {
+        "label": "材料",
+        "value": "棉"
+      },
+      {
+        "label": "藏地",
+        "value": "华盛顿"
+      }
+    ],
+    "blurb": "一位生而为奴的女子，用十一块布讲完了《圣经》的故事。",
+    "focus": "30% 40%"
+  }
+}
