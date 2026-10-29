@@ -1,0 +1,179 @@
+{
+  "id": "art-deen-dayal-viceregal-001",
+  "kind": "object",
+  "titleZh": "西姆拉，1887 年 5 月 17 日：总督一行",
+  "titleEn": "Shimla 17th May 1887: Viceregal party",
+  "attributionNote": "拉贾·迪恩·达亚尔（1844–1905）摄。原是一本约 105 张照片的相册中的一张，相册拍于 1885 年至 1887 年夏，可能是一位英国文官为自己定制的纪念册，今已拆散（据克利夫兰艺术博物馆）。",
+  "dateApprox": "1887 年",
+  "objectType": "照片 · 蛋白照片（原贴在相册中，相册已拆散）",
+  "medium": "蛋白照片",
+  "dimensions": "图像 19.5 × 27 厘米（据克利夫兰艺术博物馆）",
+  "collection": "克利夫兰艺术博物馆，2023.121.26.1（约翰·L. 塞弗伦斯基金购藏）",
+  "originalStatus": "当时冲印的原件照片；原相册已经拆散，同一相册的另外 37 张照片也在该馆（2016.266）",
+  "provenance": "英国私人收藏；伦敦 Prahlad Bubbar 画廊售予克利夫兰艺术博物馆（据该馆来历记录）。",
+  "infoSources": [
+    {
+      "label": "克利夫兰艺术博物馆：Raja Deen Dayal, Shimla 17th May 1887: Viceregal party，2023.121.26.1",
+      "url": "https://www.clevelandart.org/art/2023.121.26.1"
+    },
+    {
+      "label": "大都会艺术博物馆：The Royal Visit to Hyderabad (Deccan) January 1889, Lala Deen Dayal Photographer，2021.381.4",
+      "url": "https://www.metmuseum.org/art/collection/search/853594"
+    },
+    {
+      "label": "大都会艺术博物馆：Lala Deen Dayal, The Great Elephant Saluting，2011.599.1a",
+      "url": "https://www.metmuseum.org/art/collection/search/633310"
+    },
+    {
+      "label": "大都会艺术博物馆：Lakshmi，1894，2013.10",
+      "url": "https://www.metmuseum.org/art/collection/search/78264"
+    },
+    {
+      "label": "J. Forbes Watson and John William Kaye (eds.), The People of India，第 1 卷，图版 17（新南威尔士州立图书馆藏本）",
+      "url": "https://collection.sl.nsw.gov.au/record/74VKDjxLkggM"
+    },
+    {
+      "label": "The Journal of Indian Art，第 1 卷第 1–16 号（London: W. Griggs, 1886），Internet Archive 本",
+      "url": "https://archive.org/details/sim_journal-of-indian-art-and-industries_1886-10_1_1-16"
+    },
+    {
+      "label": "史密森尼国立亚洲艺术博物馆档案：Photographs of Indonesia（Kurkdjian Studio），FSA.A2017.08",
+      "url": "https://asia.si.edu/research/archives/search/ead_collection:sova-fsa-a2017-08"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/deen-dayal-viceregal-1887.jpg",
+      "kind": "full",
+      "alt": "一张泛黄的老照片：十五个穿 19 世纪末欧洲服装的人在一座木板房前合影。后排的男人们站着，有的戴着帽子、拿着手杖，有一人双臂交叉；前排坐着几位穿长裙的女子、一个小女孩和一个抱在膝上的小孩，正中坐着一位穿深色西装、留着胡子的年长男人。背景是斜纹拼接的木门和一扇格子窗，地上铺着地毯。",
+      "caption": "拉贾·迪恩·达亚尔摄，1887 年，蛋白照片，图像 19.5 × 27 厘米，克利夫兰艺术博物馆藏（2023.121.26.1）。",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/2023.121.26.1",
+        "changes": "从开放获取的 TIFF 缩小到 1600 像素宽并压缩为 JPEG；未裁切、未调色"
+      }
+    },
+    {
+      "key": "royalparty",
+      "src": "/img/deen-dayal-hyderabad-album.jpg",
+      "kind": "detail",
+      "subject": "迪恩·达亚尔《1889 年海得拉巴皇家访问》相册中的一页（大都会艺术博物馆）",
+      "alt": "一张贴在相册纸上的老照片：一顶帐篷式的遮阳棚下，几排穿军装和便服的人坐着或站着，有人戴着头巾，有人戴着白色的遮阳帽，前排几位女子坐在椅子上。照片下方贴着一小条印好的说明。",
+      "caption": "迪恩·达亚尔摄，《1889 年 1 月海得拉巴（德干）皇家访问》相册中的一页，蛋白照片，大都会艺术博物馆藏（2021.381.4）。照片下的说明条写着：“Fateh Maidan Sports—‘Royal Party.’”",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/853594",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "elephant",
+      "src": "/img/deen-dayal-elephant.jpg",
+      "kind": "detail",
+      "subject": "迪恩·达亚尔《大象敬礼》（大都会艺术博物馆）",
+      "alt": "一张老照片：一头大象站在一片空地上，鼻子高高卷起，象背上坐着一个人，象腿边站着一个小小的人影。背景是稀疏的树。",
+      "caption": "拉拉·迪恩·达亚尔《大象敬礼》，1885–1900 年，蛋白照片，大都会艺术博物馆藏（2011.599.1a）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/633310",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "peopleofindia",
+      "src": "/img/people-of-india-plate17.jpg",
+      "kind": "detail",
+      "subject": "《印度人民》第 1 卷图版 17（新南威尔士州立图书馆藏本）",
+      "alt": "一本旧书摊开的一页：上方贴着一张椭圆形的照片，照片里一群人站在树下排成一行，似乎在跳舞；下方贴着一张印好的说明标签，写着“COLE NATIONAL DANCE. CHOTA NAGPOOR. (17)”。",
+      "caption": "《印度人民》（The People of India）第 1 卷图版 17，J. 福布斯·沃森、约翰·威廉·凯编，伦敦印度博物馆出版，1868–1875 年，蛋白照片，新南威尔士州立图书馆藏本。",
+      "credit": {
+        "author": "J. Forbes Watson、John William Kaye 编（1868 年）；新南威尔士州立图书馆藏本的扫描，经维基共享资源取得",
+        "licence": "公有领域（早期出版物）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_people_of_India_p_17_slnsw.jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "journal",
+      "src": "/img/journal-indian-art-1886-scheme.jpg",
+      "kind": "detail",
+      "subject": "《印度艺术杂志》第 1 卷中的《印度工业艺术促进计划草案》（1886 年）",
+      "alt": "一页印得密密麻麻的旧书页：顶上是花体的标题“Draft Scheme for The Promotion of Industrial Arts in India”，下面是一条条编号的条文。",
+      "caption": "《印度艺术杂志》第 1 卷第 1–16 号（伦敦：W. Griggs，1886 年）中刊印的《印度工业艺术促进计划草案》。",
+      "credit": {
+        "author": "The Journal of Indian Art（1886 年）；Internet Archive 扫描",
+        "licence": "公有领域（早期出版物）",
+        "sourceUrl": "https://archive.org/details/sim_journal-of-indian-art-and-industries_1886-10_1_1-16",
+        "changes": "取 Internet Archive 的 1600 像素宽页面图像，重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "lakshmi",
+      "src": "/img/lakshmi-chromolithograph-1894.jpg",
+      "kind": "detail",
+      "subject": "拉维·瓦尔马美术石印社《吉祥天女》（大都会艺术博物馆）",
+      "alt": "一张彩色石印画：女神吉祥天女站在一朵粉红色的大莲花上，穿着红色金边的纱丽，有四只手，上面两只手各托一朵莲花。她身后是树林、山和溪水，左边水里有天鹅，右边一头白象用鼻子递上花环。左下角写着“Ravi Varma 1894”，下边缘印着“PUBLISHED IN 1894”“LAXMI”和石印社的名字。",
+      "caption": "《吉祥天女》，拉维·瓦尔马美术石印社，孟买，1894 年，彩色石印，图像 71.4 × 50.8 厘米，大都会艺术博物馆藏（2013.10）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/78264",
+        "changes": "裁去扫描时放在一旁的灰阶色卡和黑色背景，缩小并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "kurkdjian",
+      "src": "/img/kurkdjian-surabaya.jpg",
+      "kind": "detail",
+      "subject": "库尔基安《泗水的节庆》（立体照片，莱顿大学图书馆）",
+      "alt": "一张老立体照片，并排两幅几乎一样的画面：一条街道上挤满了人，许多人戴着帽子背对镜头，街边是有遮檐的房子，中间竖着一根挂着旗子的高杆。",
+      "caption": "奥哈内斯·库尔基安工作室，《泗水的节庆》，约 1900 年，立体照片，莱顿大学图书馆藏（KITLV 180505）。",
+      "credit": {
+        "author": "奥哈内斯·库尔基安工作室；莱顿大学图书馆（KITLV）藏品，经维基共享资源取得",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:KITLV_-_180505_-_Kurkdjian%2C_Ohannes_-_Soerabaya_-_Festivities_in_Surabaya_-_circa_1900.tiff",
+        "changes": "从 TIFF 缩小到 1600 像素宽并压缩为 JPEG；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课图像均属公有领域，部分为博物馆的 CC0 开放获取图像",
+    "basis": "迪恩·达亚尔 1905 年去世，库尔基安 1903 年去世；《印度人民》（1868–1875）、《印度艺术杂志》（1886）和 1894 年的石印画都在 1931 年以前出版。克利夫兰艺术博物馆和大都会艺术博物馆以 CC0 开放这些照片和版画的图像。",
+    "verifiedOn": "2026-10-28",
+    "note": "《印度人民》图版上的分类标签是 19 世纪殖民当局的用语，本课把它作为历史文献展示和讨论，而不是当作对画中人的准确描述。"
+  },
+  "card": {
+    "type": "殖民时期的照片",
+    "maker": "拉贾·迪恩·达亚尔",
+    "period": "1887 年",
+    "facets": [
+      {
+        "label": "摄影",
+        "value": "迪恩·达亚尔"
+      },
+      {
+        "label": "媒材",
+        "value": "蛋白照片"
+      },
+      {
+        "label": "地点",
+        "value": "西姆拉"
+      },
+      {
+        "label": "藏地",
+        "value": "克利夫兰"
+      }
+    ],
+    "blurb": "十五个人摆好姿势：照片下那一长串名字，才告诉你他们是谁。",
+    "image": "full",
+    "focus": "55% 55%"
+  }
+}

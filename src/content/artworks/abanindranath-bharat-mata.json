@@ -1,0 +1,94 @@
+{
+  "id": "art-abanindranath-bharat-mata-001",
+  "kind": "painting",
+  "titleZh": "印度母亲（原名《孟加拉母亲》）",
+  "titleEn": "Bharat Mata (originally Banga Mata)",
+  "artist": "阿巴宁德拉纳特·泰戈尔（Abanindranath Tagore）",
+  "attributionNote": "阿巴宁德拉纳特·泰戈尔（1871–1951）1905 年所作。据后来的研究转述，它原名《孟加拉母亲》，后来在修女尼维迪塔的建议下改称《印度母亲》，1906 年刊登在孟加拉语杂志《流亡者》（Prabasi）上。",
+  "dateApprox": "1905 年",
+  "medium": "纸本水彩",
+  "dimensionsCm": {
+    "height": 26.7,
+    "width": 15.2
+  },
+  "collection": "加尔各答维多利亚纪念馆（据二手资料著录，本站未向馆方核对）",
+  "infoSources": [
+    {
+      "label": "E. B. Havell, Indian Sculpture and Painting（London: John Murray, 1908），Internet Archive 本",
+      "url": "https://archive.org/details/indiansculpture00have"
+    },
+    {
+      "label": "Google Arts & Culture（甘内什·希瓦斯瓦米基金会）：Raja Ravi Varma, Shakuntala Removing a Thorn from Her Foot，1898",
+      "url": "https://artsandculture.google.com/asset/shakuntala-removing-a-thorn-from-her-foot-raja-ravi-varma/UgFGr-9kgW8y7g?hl=en"
+    },
+    {
+      "label": "印度国立现代美术馆（Google Arts & Culture）：Amrita Sher-Gil, Group of Three Girls，1935",
+      "url": "https://artsandculture.google.com/asset/group-of-three-girls-amrita-sher-gil/wwH6P_d83npQIg?hl=en"
+    },
+    {
+      "label": "印度国立现代美术馆（Google Arts & Culture）：Rediscovering Haripura Panels: Nandalal Bose",
+      "url": "https://artsandculture.google.com/story/rediscovering-haripura-panels-nandalal-bose-national-gallery-of-modern-art-ngma-new-delhi/AwXRNpSFHeWVJw?hl=en"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/abanindranath-bharat-mata.jpg",
+      "kind": "full",
+      "alt": "一幅竖长的水彩画：一位年轻女子站在画面中央，身穿一袭橘黄色的长袍，头上蒙着同色的头巾，头后有一圈淡淡的白色光环。她有四只手：左上方的手拿着一块白布，左下方的手拿着一串念珠，右上方的手拿着一卷黄色的书页，右下方的手拿着一束稻穗。她赤脚站在一片淡绿色上，脚下是几朵白色的莲花。背景是一大片平平的暖黄色。",
+      "caption": "阿巴宁德拉纳特·泰戈尔《印度母亲》（原名《孟加拉母亲》），1905 年，纸本水彩，约 26.7 × 15.2 厘米，加尔各答维多利亚纪念馆藏。",
+      "credit": {
+        "author": "维基共享资源（来源网站 kamat.com 的翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bharat_Mata_by_Abanindranath_Tagore.jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "ravi",
+      "src": "/img/ravi-varma-shakuntala.jpg",
+      "kind": "detail",
+      "subject": "拉维·瓦尔马《沙恭达罗回首》（斯里·奇特拉美术馆）",
+      "alt": "一幅竖长的油画：林间小路上，几个穿纱丽的女子正往前走。最右边的女子回过头，一手扶着同伴，抬起一只脚，像是在拔脚上的刺，眼睛却望向画面外。人物的皮肤、布料和树林都用明暗画得很立体，像舞台上的一幕。",
+      "caption": "拉维·瓦尔马《沙恭达罗拔刺回首》，1898 年，布面油画，181 × 110 厘米，特里凡得琅斯里·奇特拉美术馆藏。",
+      "credit": {
+        "author": "甘内什·希瓦斯瓦米基金会（Google Arts & Culture）的图像，经维基共享资源取得",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课展示的作品均属公有领域（PD-Art）",
+    "basis": "阿巴宁德拉纳特·泰戈尔 1951 年去世，作品在印度（作者去世后 60 年，2012 年起）和按作者去世后 70 年计算的地区（2022 年起）已进入公有领域；《印度母亲》据二手资料 1906 年已在《流亡者》杂志上刊印，在美国也属公有领域。拉维·瓦尔马 1906 年去世，作品在各地都属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "《印度母亲》1906 年首次刊印的说法本站只见于二手资料，没有看到那一期杂志。课中讨论的阿姆丽塔·谢尔-吉尔、南达拉尔·博斯和罗宾德拉纳特·泰戈尔的画作，在美国的版权状态取决于首次发表的年份（或尚在保护期内），本课只用文字和官方链接。"
+  },
+  "card": {
+    "type": "孟加拉画派",
+    "maker": "阿巴宁德拉纳特·泰戈尔",
+    "period": "1905 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "阿巴宁德拉纳特"
+      },
+      {
+        "label": "媒材",
+        "value": "纸本水彩"
+      },
+      {
+        "label": "尺幅",
+        "value": "约 26.7 × 15.2 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "加尔各答"
+      }
+    ],
+    "blurb": "起初叫《孟加拉母亲》：四只手、一身橘黄，脚下是几朵白莲。",
+    "image": "full",
+    "focus": "50% 30%"
+  }
+}

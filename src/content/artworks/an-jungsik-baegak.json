@@ -1,0 +1,72 @@
+{
+  "id": "art-an-jungsik-baegak-001",
+  "kind": "painting",
+  "titleZh": "白岳春晓（夏）",
+  "titleEn": "Spring Dawn at Mount Baegak (Summer)",
+  "artist": "安中植（An Jung-sik）",
+  "attributionNote": "安中植（1861–1919）1915 年所作，画上自题“白岳春晓 乙卯夏日 心田写”（乙卯即 1915 年，心田是他的号）。他同一年还画了一幅秋天的版本。两幅都藏于韩国国立中央博物馆。",
+  "dateApprox": "1915 年",
+  "medium": "绢本设色",
+  "dimensionsCm": {
+    "height": 125.9,
+    "width": 51.4
+  },
+  "collection": "韩国国立中央博物馆（首尔）",
+  "infoSources": [
+    {
+      "label": "韩国国立中央博物馆（Google Arts & Culture）：Spring Dawn at Mount Baekak (Summer)，安中植，1915",
+      "url": "https://artsandculture.google.com/asset/spring-dawn-at-mount-baekak-summer-an-jung-sik/vAFiRT8XxiMI3g"
+    },
+    {
+      "label": "Literature Translation Institute of Korea：나혜석 Na Hye-seok 作家介绍",
+      "url": "https://library.ltikorea.or.kr/writer/201690"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/an-jungsik-baegak.jpg",
+      "kind": "full",
+      "alt": "一幅细长的立轴：上方是一座高耸的三角形山峰，山体用密集的短笔触画出，山腰飘着一条白色的晨雾。雾下是一片树林和层层宫殿屋顶，中间是一座有三个拱门的城门。城门前是一条宽阔、空无一人的大路，路两边各蹲着一尊石兽。左上角有题字和印章。",
+      "caption": "安中植《白岳春晓》（夏），1915 年，绢本设色，125.9 × 51.4 厘米，韩国国立中央博物馆藏。",
+      "credit": {
+        "author": "安中植（作品）；韩国国立中央博物馆藏品图像，经韩国著作权委员会“共享广场”（공유마당）发布",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:20975_%EC%95%88%EC%A4%91%EC%8B%9D_%EB%B0%B1%EC%95%85%EC%B6%98%ED%9A%A8.jpg",
+        "changes": "缩小到 2400 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "作品属公有领域；图像以 CC BY 4.0 发布",
+    "basis": "安中植 1919 年去世，作品在韩国和按作者去世后 70 年计算的地区早已进入公有领域，1996 年前在韩国已不受保护。图像由韩国著作权委员会的“共享广场”以 CC BY 4.0 发布，需署名。",
+    "verifiedOn": "2026-10-28",
+    "note": "尺寸据博物馆在 Google Arts & Culture 上的著录；其他资料给出的尺寸略有不同。"
+  },
+  "card": {
+    "type": "近代朝鲜绘画",
+    "period": "1915 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "安中植"
+      },
+      {
+        "label": "媒材",
+        "value": "绢本设色"
+      },
+      {
+        "label": "尺幅",
+        "value": "125.9 × 51.4 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "首尔"
+      }
+    ],
+    "blurb": "1915 年，宫殿正被拆改，他画出的却是完整的景福宫。",
+    "image": "full",
+    "focus": "50% 65%"
+  }
+}

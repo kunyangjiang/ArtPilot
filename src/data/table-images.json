@@ -1,4 +1,16 @@
 {
+  "/img/abanindranath-bharat-mata.jpg": {
+    "large": {
+      "src": "/img/table/abanindranath-bharat-mata.jpg",
+      "width": 595,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-abanindranath-bharat-mata.jpg",
+      "width": 140,
+      "height": 260
+    }
+  },
   "/img/admonitions-lady-ban.jpg": {
     "large": {
       "src": "/img/table/admonitions-lady-ban.jpg",
@@ -45,6 +57,18 @@
       "src": "/img/table/s-americo-independencia.jpg",
       "width": 260,
       "height": 139
+    }
+  },
+  "/img/an-jungsik-baegak.jpg": {
+    "large": {
+      "src": "/img/table/an-jungsik-baegak.jpg",
+      "width": 420,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-an-jungsik-baegak.jpg",
+      "width": 99,
+      "height": 260
     }
   },
   "/img/angkor-wat-aerial.jpg": {
@@ -297,6 +321,18 @@
       "src": "/img/table/s-david-death-of-socrates.jpg",
       "width": 260,
       "height": 173
+    }
+  },
+  "/img/deen-dayal-viceregal-1887.jpg": {
+    "large": {
+      "src": "/img/table/deen-dayal-viceregal-1887.jpg",
+      "width": 1100,
+      "height": 791
+    },
+    "small": {
+      "src": "/img/table/s-deen-dayal-viceregal-1887.jpg",
+      "width": 260,
+      "height": 187
     }
   },
   "/img/degas-dance-class.jpg": {
@@ -779,6 +815,18 @@
       "height": 260
     }
   },
+  "/img/kuroda-lakeside.jpg": {
+    "large": {
+      "src": "/img/table/kuroda-lakeside.jpg",
+      "width": 1100,
+      "height": 901
+    },
+    "small": {
+      "src": "/img/table/s-kuroda-lakeside.jpg",
+      "width": 260,
+      "height": 213
+    }
+  },
   "/img/liangzhu-cong.jpg": {
     "large": {
       "src": "/img/table/liangzhu-cong.jpg",
@@ -1017,6 +1065,18 @@
       "src": "/img/table/s-olmec-head-1.jpg",
       "width": 260,
       "height": 246
+    }
+  },
+  "/img/orozco-man-of-fire.jpg": {
+    "large": {
+      "src": "/img/table/orozco-man-of-fire.jpg",
+      "width": 1100,
+      "height": 825
+    },
+    "small": {
+      "src": "/img/table/s-orozco-man-of-fire.jpg",
+      "width": 260,
+      "height": 195
     }
   },
   "/img/osman-hamdi-tortoise-trainer.jpg": {
@@ -1305,6 +1365,18 @@
       "src": "/img/table/s-witte-leeuw-plate.jpg",
       "width": 260,
       "height": 260
+    }
+  },
+  "/img/xu-beihong-yuanwen.jpg": {
+    "large": {
+      "src": "/img/table/xu-beihong-yuanwen.jpg",
+      "width": 1100,
+      "height": 909
+    },
+    "small": {
+      "src": "/img/table/s-xu-beihong-yuanwen.jpg",
+      "width": 260,
+      "height": 215
     }
   },
   "/img/yungang-cave20.jpg": {

@@ -1,0 +1,103 @@
+{
+  "id": "art-kuroda-lakeside-001",
+  "kind": "painting",
+  "titleZh": "湖畔",
+  "titleEn": "Lakeside (Kohan)",
+  "artist": "黑田清辉（Kuroda Seiki）",
+  "attributionNote": "黑田清辉（1866–1924）1897 年夏在箱根芦之湖畔所作，模特是他的妻子照子。最初以《避暑》为题送展 1897 年第 2 回白马会展，1900 年又在巴黎世界博览会展出（据东京文化财研究所黑田纪念馆）。日本重要文化财。",
+  "dateApprox": "1897 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 69,
+    "width": 84.7
+  },
+  "collection": "东京国立博物馆（黑田纪念馆展示）",
+  "infoSources": [
+    {
+      "label": "东京文化财研究所·黑田纪念馆：Lakeside（作品说明、照子的回忆、黑田清辉的话）",
+      "url": "https://www.tobunken.go.jp/kuroda/gallery/english/kohan01.html"
+    },
+    {
+      "label": "Britannica：Hishida Shunsō",
+      "url": "https://www.britannica.com/biography/Hishida-Shunso"
+    },
+    {
+      "label": "东京国立近代美术馆藏品检索：岸田刘生《道路と土手と塀（切通之写生）》",
+      "url": "https://www.momat.go.jp/en?p=105181"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/kuroda-lakeside.jpg",
+      "kind": "full",
+      "alt": "一幅横幅油画：一位年轻女子侧身坐在湖边的石头上，穿着淡蓝色、带白色条纹的浴衣，头发挽起，插着一把梳子，脸转向右边，目光望向画外。她右手拿着一把白色的团扇，扇面上有淡淡的花纹。背后是一大片平静的灰蓝色湖水，远处是绿色的山坡和树林。左下角写着“SEIKI KOURODA -1897-”。",
+      "caption": "黑田清辉《湖畔》，1897 年，布面油画，69 × 84.7 厘米，东京国立博物馆藏（黑田纪念馆展示），日本重要文化财。",
+      "credit": {
+        "author": "国立文化财机构（ColBase / e 国宝的图像，经维基共享资源取得）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroda-seiki-kohan00-6-1b.jpeg",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "hishida",
+      "src": "/img/hishida-black-cat.jpg",
+      "kind": "detail",
+      "subject": "菱田春草《黑猫》（永青文库）",
+      "alt": "一幅细长的立轴：一棵树的枝干从下往上伸展，上面长着几片黄绿色、边缘带褐色的大叶子。一只黑猫蹲在枝干上，身体是一团没有轮廓线的浓黑，只有一对金黄的眼睛。背景是一片空白的淡色绢底。",
+      "caption": "菱田春草《黑猫》，1910 年，绢本设色，永青文库藏（寄存熊本县立美术馆），日本重要文化财。",
+      "credit": {
+        "author": "永青文库藏（图像经维基共享资源取得）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroki_Neko_by_Hishida_Shunso.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "kishida",
+      "src": "/img/kishida-road-cut.jpg",
+      "kind": "detail",
+      "subject": "岸田刘生《道路与土堤与墙（切通之写生）》（东京国立近代美术馆）",
+      "alt": "一幅近乎正方形的油画：一条明亮的黄土路从画面下方向上坡伸去，左边是一道白色的石墙和墙头的栏杆，右边是长着青草的土坡。路面上有两道长长的影子，坡顶是蓝天和白云。土和石头的质感画得很细、很实。",
+      "caption": "岸田刘生《道路与土堤与墙（切通之写生）》，1915 年，布面油画，56 × 53 厘米，东京国立近代美术馆藏，日本重要文化财。",
+      "credit": {
+        "author": "维基共享资源（Gallery Sugie 提供的翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kishida-ryusei000047.jpeg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课日本部分的图像均属公有领域（PD-Art）",
+    "basis": "黑田清辉 1924 年、菱田春草 1911 年、岸田刘生 1929 年去世，作品在日本和按作者去世后 70 年计算的地区均已进入公有领域；它们在 1996 年前已在日本进入公有领域，美国 1996 年恢复外国作品版权的规定不适用。",
+    "verifiedOn": "2026-10-28",
+    "note": "图像经维基共享资源取得，是平面作品的忠实翻拍；《黑猫》的图像分辨率较低。"
+  },
+  "card": {
+    "type": "明治洋画",
+    "period": "1897 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "黑田清辉"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "69 × 84.7 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "东京"
+      }
+    ],
+    "blurb": "原名《避暑》：一张后来被当成“明治美人”象征的湖边小憩。",
+    "image": "full",
+    "focus": "38% 35%"
+  }
+}

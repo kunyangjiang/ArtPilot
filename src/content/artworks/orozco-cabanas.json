@@ -1,0 +1,95 @@
+{
+  "id": "art-orozco-cabanas-001",
+  "kind": "object",
+  "titleZh": "卡瓦尼亚斯救济院礼拜堂壁画（穹顶《火人》）",
+  "titleEn": "Murals of the Hospicio Cabañas Chapel (dome: The Man of Fire)",
+  "attributionNote": "何塞·克莱门特·奥罗斯科（1883–1949）1930 年代末画在瓜达拉哈拉卡瓦尼亚斯救济院礼拜堂里的一组湿壁画，共 57 幅；中心是穹顶上的《火人》（据联合国教科文组织）。",
+  "dateApprox": "1930 年代末",
+  "objectType": "湿壁画组画，画在礼拜堂的穹顶、拱顶和墙面上，共 57 幅",
+  "medium": "湿壁画",
+  "dimensions": "礼拜堂穹顶高 32.5 米（据联合国教科文组织）；壁画总面积本课未核对",
+  "collection": "卡瓦尼亚斯救济院（今卡瓦尼亚斯文化中心），墨西哥瓜达拉哈拉；1997 年列入世界遗产",
+  "originalStatus": "画在建筑原址的湿壁画，与墙体一体，从未移动",
+  "provenance": "救济院由卡瓦尼亚斯主教在 19 世纪初创建，用来收容孤儿、老人、残疾人和长期病人；1930 年代末，奥罗斯科在它的礼拜堂里画了这组壁画（据联合国教科文组织）。委托过程的文件本课未核对。",
+  "infoSources": [
+    {
+      "label": "联合国教科文组织世界遗产：Hospicio Cabañas, Guadalajara（815）",
+      "url": "https://whc.unesco.org/en/list/815/"
+    },
+    {
+      "label": "Getty Conservation Institute：Conservation of América Tropical",
+      "url": "https://www.getty.edu/projects/conservation-america-tropical/"
+    },
+    {
+      "label": "美国国家公园管理局：The Epic of American Civilization Murals",
+      "url": "https://www.nps.gov/places/the-epic-of-american-civilization-murals.htm"
+    },
+    {
+      "label": "Wikimedia Commons：墨西哥版权规则（作者 1952 年以前去世的作品属公有领域）",
+      "url": "https://commons.wikimedia.org/wiki/Commons:Copyright_rules_by_territory/Mexico"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/orozco-man-of-fire.jpg",
+      "kind": "full",
+      "alt": "仰视礼拜堂穹顶的照片：一圈浅色石头的穹顶边框里，是一幅圆形的壁画，一个人形在红色、橙色的火焰中翻滚上升，四肢伸向四周，周围是灰色和黑色的人影。穹顶外圈一格一格的方框里，画着灰蓝色、扭曲的人体。",
+      "caption": "奥罗斯科《火人》，卡瓦尼亚斯救济院礼拜堂穹顶湿壁画，1930 年代末，墨西哥瓜达拉哈拉。P. Hughes 2003 年摄。",
+      "credit": {
+        "author": "P. Hughes（Indies1，维基共享资源）",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Man_of_Fire.jpg",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "chapel",
+      "src": "/img/orozco-cabanas-chapel.jpg",
+      "kind": "detail",
+      "subject": "卡瓦尼亚斯救济院礼拜堂内部（广角全景照片）",
+      "alt": "一张用超广角拍的礼拜堂全景照片，画面像一个向外弯曲的圆：中间是圆形的穹顶和《火人》，十字形的拱顶向上下左右伸展，拱顶和墙上都画满了壁画，石柱和窗户沿着圆弧排开。最下方，一个人坐在长椅上，显得很小。",
+      "caption": "卡瓦尼亚斯救济院礼拜堂内部，MowgliLand 2018 年摄。这是用超广角镜头拍的全景照片，建筑的线条被弯成了圆弧，并不是礼拜堂真实的形状。",
+      "credit": {
+        "author": "MowgliLand（维基共享资源）",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hospicio_Caba%C3%B1as._Murales_de_Jos%C3%A9_Clemente_Orozco_en_la_Capilla_Clementina.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    }
+  ],
+  "rights": {
+    "status": "壁画属公有领域；照片以 CC BY-SA 4.0 发布",
+    "basis": "奥罗斯科 1949 年去世：按墨西哥法律，1952 年以前去世的作者的作品已进入公有领域（此后的延期不追溯）；按作者去世后 70 年计算，2020 年起也进入公有领域；1996 年时它在墨西哥已不受保护，美国 1996 年恢复外国作品版权的规定不适用。两张照片的作者以 CC BY-SA 4.0 发布，需署名，改动后的版本按同一许可提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "课中提到的迭戈·里维拉（1957 年去世）和西凯罗斯（1974 年去世）的壁画仍受版权保护，本课只用文字和官方链接，不展示图像，也不因为壁画在公共场所可见就把它当作可以自由复制的。"
+  },
+  "card": {
+    "type": "墨西哥壁画",
+    "maker": "奥罗斯科",
+    "period": "1930 年代末",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "奥罗斯科"
+      },
+      {
+        "label": "媒材",
+        "value": "湿壁画"
+      },
+      {
+        "label": "数量",
+        "value": "57 幅"
+      },
+      {
+        "label": "地点",
+        "value": "瓜达拉哈拉"
+      }
+    ],
+    "blurb": "要抬头才看得见：救济院礼拜堂的穹顶上，一个人在火里升起。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}
