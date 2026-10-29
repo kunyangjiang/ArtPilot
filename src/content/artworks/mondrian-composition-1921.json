@@ -1,0 +1,71 @@
+{
+  "id": "art-mondrian-composition-1921-001",
+  "kind": "painting",
+  "titleZh": "红、黑、黄、蓝、灰的构图",
+  "titleEn": "Composition with Red, Black, Yellow, Blue and Grey",
+  "artist": "皮特·蒙德里安（Piet Mondrian）",
+  "attributionNote": "蒙德里安（1872–1944）1921 年所作；荷兰艺术史研究所编蒙德里安作品全集编号 B115。",
+  "dateApprox": "1921 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 80,
+    "width": 50
+  },
+  "collection": "海牙美术馆（Kunstmuseum Den Haag），0333163",
+  "infoSources": [
+    {
+      "label": "荷兰艺术史研究所：Piet Mondrian 作品全集在线版，B115",
+      "url": "https://pietmondrian.rkdstudies.nl/paris-2-1920-1937-b104-b281312/1920-1921-b104-b132/"
+    },
+    {
+      "label": "大都会艺术博物馆：“Geometric Abstraction”",
+      "url": "https://www.metmuseum.org/essays/geometric-abstraction"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/mondrian-composition-1921.jpg",
+      "alt": "一幅竖长的抽象画：粗细不一的黑色横线和竖线把白色的画面分成大小不同的长方块。左边一条窄长的红橙色，上方一块横着的大黑色，右边中下一条黄色，左下角一块深蓝，其余是白色和浅灰色。",
+      "caption": "皮特·蒙德里安《红、黑、黄、蓝、灰的构图》，1921 年，布面油画，海牙美术馆藏（0333163；全集编号 B115）。",
+      "credit": {
+        "author": "维基共享资源（据荷兰艺术史研究所 RKD 的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan_-_Composition_with_red%2C_black%2C_yellow%2C_blue_and_grey_-_0333163_-_Kunstmuseum_Den_Haag.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "蒙德里安 1944 年去世；图像来自荷兰艺术史研究所，经维基共享资源取得。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 66 课正文使用的是同一张照片。尺寸本站没有从馆方核对，卡片背面只写约数。"
+  },
+  "card": {
+    "type": "新造型主义",
+    "period": "1921 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "蒙德里安"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "元素",
+        "value": "横竖线 · 原色"
+      },
+      {
+        "label": "藏地",
+        "value": "海牙"
+      }
+    ],
+    "blurb": "几条黑线、几块颜色，彼此抵住：一种不对称的平衡。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}

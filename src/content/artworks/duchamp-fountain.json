@@ -1,0 +1,156 @@
+{
+  "id": "art-duchamp-fountain-001",
+  "kind": "object",
+  "titleZh": "泉",
+  "titleEn": "Fountain",
+  "attributionNote": "1917 年 4 月以假名“R. Mutt”送交纽约独立艺术家协会首届展览，一般认为是马塞尔·杜尚（1887–1968）的作品。杜尚 1917 年 4 月 11 日写给妹妹苏珊娜的信中说，是他的“一位女性朋友”用男性假名送来的；这封信引发了关于作者身份的争论，至今没有定论。",
+  "dateApprox": "1917 年",
+  "objectType": "现成品 · 一只放倒的瓷小便池，签有“R. MUTT 1917”",
+  "medium": "瓷（原物）；今天见到的是阿尔弗雷德·施蒂格利茨 1917 年拍的照片（银盐照片，刊于《盲人》第 2 期）",
+  "dimensions": "原物尺寸没有记录。1964 年的复制件之一（旧金山现代艺术博物馆 98.291）为 38.1 × 49 × 62.5 厘米",
+  "collection": "原物下落不明。本课用的照片据《盲人》杂志刊印本；1964 年的复制件分藏泰特美术馆（T07573）、旧金山现代艺术博物馆（98.291）等处",
+  "originalStatus": "1917 年的原物在展览后不久就不见了，只留下施蒂格利茨的照片。杜尚从 1938 年起陆续发行过几种版本；1964 年在米兰制作的一批全尺寸复制件，是用施了釉的陶土做成、再涂成瓷器的样子（据泰特美术馆与旧金山现代艺术博物馆）。",
+  "provenance": "从 J. L. 莫特铁工厂的展厅买来（据旧金山现代艺术博物馆）；1917 年 4 月送交独立艺术家协会展览，没有和观众见面；随后被带到施蒂格利茨的“291”画廊拍照；此后下落不明。",
+  "infoSources": [
+    {
+      "label": "旧金山现代艺术博物馆藏品页：Marcel Duchamp, Fountain，1917/1964，98.291",
+      "url": "https://www.sfmoma.org/artwork/98.291/"
+    },
+    {
+      "label": "泰特美术馆藏品页：Marcel Duchamp, Fountain，1917，复制件 1964，T07573",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "label": "The Blind Man, No. 2（New York, May 1917），Internet Archive 本",
+      "url": "https://archive.org/details/blindman00unse"
+    },
+    {
+      "label": "Francis M. Naumann, “Affectueusement, Marcel: Ten Letters from Marcel Duchamp to Suzanne Duchamp and Jean Crotti”, Archives of American Art Journal 22:4（1982）",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/aaa.22.4.1557366"
+    },
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Kurt Schwitters, Merz 3 Portfolio: Plate 1，1995.4",
+      "url": "https://www.clevelandart.org/art/1995.4"
+    },
+    {
+      "label": "Getty, The Scores Project：Hugo Ball performing Karawane at the Cabaret Voltaire, Zürich, 1916",
+      "url": "https://www.getty.edu/publications/scores/object-index/005/"
+    },
+    {
+      "label": "费城艺术博物馆藏品页：Morton Livingston Schamberg, God, c. 1917",
+      "url": "https://philamuseum.org/collection/object/51106"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：“God” by Baroness Elsa von Freytag-Loringhoven and Morton Schamberg（照片），1973.637",
+      "url": "https://www.metmuseum.org/art/collection/search/261000"
+    },
+    {
+      "label": "Aidan Dunne, “Queuing up to praise the urinal”, The Irish Times（2004 年 12 月 4 日）",
+      "url": "https://www.irishtimes.com/news/queuing-up-to-praise-the-urinal-1.1168737"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/duchamp-fountain-stieglitz.jpg",
+      "kind": "full",
+      "alt": "一张泛黄的老照片：一只白色的瓷小便池被放倒，开口朝前，立在一个白色的台座上。左前方的边缘上用黑颜料写着“R. MUTT 1917”，下方正中有一个圆形的排水口。小便池左边用细绳挂着一张卡片，背后是一幅深色、满是弯曲形状的画。",
+      "caption": "阿尔弗雷德·施蒂格利茨拍摄的《泉》，1917 年，刊于《盲人》第 2 期（纽约，1917 年 5 月）。这是 1917 年那只原物唯一留下的照片。",
+      "credit": {
+        "author": "阿尔弗雷德·施蒂格利茨（1917 年），经维基共享资源取得",
+        "licence": "公有领域（1917 年在美国出版）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marcel_Duchamp%2C_1917%2C_Fountain%2C_photograph_by_Alfred_Stieglitz.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "cover",
+      "src": "/img/blind-man-cover.jpg",
+      "kind": "detail",
+      "subject": "《盲人》第 2 期封面（1917 年 5 月）",
+      "alt": "一本杂志的封面：上方是大字“P·B·T”和“THE BLIND MAN”，下面是地址“33 WEST 67th STREET, NEW YORK”。中间一大块黑底上，印着一台机器：三个带细密条纹的滚筒，立在一张有弯腿的圆台上。最下方写着“MAY, 1917”“No. 2”“Price 15 Cents”。",
+      "caption": "《盲人》第 2 期封面，纽约，1917 年 5 月。封面图是杜尚的画《巧克力研磨机》。大都会艺术博物馆图书馆藏本的扫描。",
+      "credit": {
+        "author": "大都会艺术博物馆图书馆（扫描），经维基共享资源取得",
+        "licence": "公有领域（1917 年在美国出版）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_blind_man_MET_b1120124_001.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "mutt",
+      "src": "/img/blind-man-mutt.jpg",
+      "kind": "detail",
+      "subject": "《盲人》第 2 期第 5 页",
+      "alt": "一页印刷的杂志：顶上是“THE BLIND MAN”，下面是标题“The Richard Mutt Case”，正文是两栏大号斜体字。页面下半部是另一篇文章，标题为“Buddha of the Bathroom”，用的是小号的正体字。",
+      "caption": "《盲人》第 2 期第 5 页：《理查德·马特事件》（上）和另一篇文章《浴室里的佛陀》（下）。",
+      "credit": {
+        "author": "维基共享资源（杂志扫描）",
+        "licence": "公有领域（1917 年在美国出版）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Richard_Mutt_Case%2C_The_Blind_Man%2C_No._2%2C_New_York%2C_1917.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "ball",
+      "src": "/img/hugo-ball-cabaret-voltaire.jpg",
+      "kind": "detail",
+      "subject": "胡戈·巴尔在苏黎世伏尔泰酒馆（1916 年照片）",
+      "alt": "一张黑白老照片：一个人站在乐谱架后面，全身裹在硬纸板做的服装里：腿是两根粗圆筒，身上披着一件尖尖的、像斗篷又像翅膀的硬纸板，头上戴着一顶高高的圆筒帽。他两手垂着，戴着像爪子一样的手套，表情严肃。",
+      "caption": "胡戈·巴尔在苏黎世伏尔泰酒馆，1916 年。照片上的题字是“穿着立体主义服装的无词之诗”。摄影者不详，这张照片当年被用作演出宣传明信片。",
+      "credit": {
+        "author": "摄影者不详（1916 年）",
+        "licence": "公有领域（1916 年发表的匿名作品）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hugo_Ball_Cabaret_Voltaire.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "merz",
+      "src": "/img/schwitters-merz3-plate1.jpg",
+      "kind": "detail",
+      "subject": "库尔特·施维特斯《梅尔茨 3》版画集第 1 幅（克利夫兰艺术博物馆）",
+      "alt": "一张米白色纸上的黑白版画：许多黑色、灰色和棋盘格的长方块拼在一起，像一面贴满碎纸的墙。中间有一个大写字母“M”和一个花体的“Ex”，一个同心圆像靶子；左上角有几个很小的人形和一只跳跃的兔子，右上方是一排电线杆。左下角有铅笔签名。",
+      "caption": "库尔特·施维特斯《梅尔茨 3》版画集第 1 幅，1923 年，石版画，克利夫兰艺术博物馆藏（1995.4）。",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/1995.4",
+        "changes": "取自克利夫兰艺术博物馆开放获取图像，缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "照片与杂志页均属公有领域",
+    "basis": "施蒂格利茨的照片和《盲人》杂志 1917 年在美国出版，属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "杜尚后来的复制件（1938 年以后）受版权保护，本站不展示它们的图像。至于 1917 年那只原物本身——一只工厂生产的小便池加一个签名——在法律上算不算杜尚的作品、是否受版权保护，本站不作判断；本课只用 1917 年发表的照片。 胡戈·巴尔的照片是 1916 年作为宣传明信片发表的匿名作品，在美国和欧盟均属公有领域；施维特斯《梅尔茨 3》第 1 幅（1923 年发行的版画集）的图像来自克利夫兰艺术博物馆的开放获取（CC0）。尚伯格与男爵夫人的《上帝》只用文字和链接：费城艺术博物馆的图像限于教育用途，大都会博物馆的照片目前不是开放获取。"
+  },
+  "card": {
+    "type": "现成品",
+    "maker": "杜尚（一般认为）",
+    "period": "1917 年",
+    "facets": [
+      {
+        "label": "署名",
+        "value": "R. Mutt"
+      },
+      {
+        "label": "原物",
+        "value": "已失"
+      },
+      {
+        "label": "证据",
+        "value": "施蒂格利茨的照片"
+      },
+      {
+        "label": "地点",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "没有被展出，却被拍了下来：“他选择了它。”",
+    "image": "full",
+    "focus": "45% 40%"
+  }
+}

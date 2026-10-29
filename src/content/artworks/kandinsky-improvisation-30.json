@@ -1,0 +1,157 @@
+{
+  "id": "art-kandinsky-improvisation-30-001",
+  "kind": "painting",
+  "titleZh": "即兴 30 号（大炮）",
+  "titleEn": "Improvisation No. 30 (Cannons)",
+  "artist": "瓦西里·康定斯基（Vasily Kandinsky）",
+  "attributionNote": "康定斯基（1866–1944）1913 年所作。他在致收藏家埃迪的信中详细描述了这幅画（埃迪 1914 年发表）。",
+  "dateApprox": "1913 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 111,
+    "width": 111.3
+  },
+  "collection": "芝加哥艺术博物馆，1931.511（阿瑟·杰罗姆·埃迪纪念收藏）",
+  "infoSources": [
+    {
+      "label": "芝加哥艺术博物馆藏品页：Improvisation No. 30 (Cannons)，1931.511",
+      "url": "https://www.artic.edu/artworks/8991"
+    },
+    {
+      "label": "Arthur Jerome Eddy, Cubists and Post-Impressionism（Chicago, 1914），第 125–126 页",
+      "url": "https://archive.org/details/cubistspostimpre00eddy_1"
+    },
+    {
+      "label": "Wassily Kandinsky, Concerning the Spiritual in Art（Sadler 英译，1914）",
+      "url": "https://www.gutenberg.org/ebooks/5321"
+    },
+    {
+      "label": "大都会艺术博物馆：“Geometric Abstraction”",
+      "url": "https://www.metmuseum.org/essays/geometric-abstraction"
+    },
+    {
+      "label": "泰特美术馆：“Five ways to look at Malevich’s Black Square”",
+      "url": "https://www.tate.org.uk/art/artists/kazimir-malevich-1561/five-ways-look-malevichs-black-square"
+    },
+    {
+      "label": "Danny Lewis, Smithsonian Magazine（2015 年 11 月 16 日）",
+      "url": "https://www.smithsonianmag.com/smart-news/x-rays-unveil-two-hidden-paintings-beneath-classic-avant-garde-painting-180957279/"
+    },
+    {
+      "label": "荷兰艺术史研究所：Piet Mondrian 作品全集在线版，B115",
+      "url": "https://pietmondrian.rkdstudies.nl/paris-2-1920-1937-b104-b281312/1920-1921-b104-b132/"
+    },
+    {
+      "label": "芝加哥艺术博物馆藏品页：Vasily Kandinsky, Landscape with Two Poplars，1931.508",
+      "url": "https://www.artic.edu/artworks/8980"
+    },
+    {
+      "label": "古根海姆博物馆：Hilma af Klint: Paintings for the Future（2018–2019）",
+      "url": "https://www.guggenheim.org/exhibition/hilma-af-klint"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/kandinsky-improvisation-30.jpg",
+      "kind": "full",
+      "alt": "一幅近乎正方形的抽象油画：画面中间偏下有一大块不规则的蓝色，下面是一团灰色。四周挤满了红、黄、绿、粉、黑的色块和弯曲、交叉的黑线，左上角是一片深绿，右上角是一片红。右下角有两个黑色的轮状和管状的形，像两门大炮。",
+      "caption": "瓦西里·康定斯基《即兴 30 号（大炮）》，1913 年，布面油画，111 × 111.3 厘米，芝加哥艺术博物馆藏（1931.511）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/8991",
+        "changes": "取自芝加哥艺术博物馆的 IIIF 图像服务，缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "mondrian",
+      "src": "/img/mondrian-composition-1921.jpg",
+      "alt": "一幅竖长的抽象画：粗细不一的黑色横线和竖线把白色的画面分成大小不同的长方块。左边一条窄长的红橙色，上方一块横着的大黑色，右边中下一条黄色，左下角一块深蓝，其余是白色和浅灰色。",
+      "caption": "皮特·蒙德里安《红、黑、黄、蓝、灰的构图》，1921 年，布面油画，海牙美术馆藏（0333163；全集编号 B115）。",
+      "credit": {
+        "author": "维基共享资源（据荷兰艺术史研究所 RKD 的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan_-_Composition_with_red%2C_black%2C_yellow%2C_blue_and_grey_-_0333163_-_Kunstmuseum_Den_Haag.jpg",
+        "changes": "未缩放；只重新压缩，未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "蒙德里安《红、黑、黄、蓝、灰的构图》（海牙美术馆）"
+    },
+    {
+      "key": "square",
+      "src": "/img/malevich-black-square.jpg",
+      "alt": "一幅正方形的画：白色的底上，一块几乎占满画面的黑色正方形，四周留着一圈白边。黑色表面上隐约可见细密的裂纹。",
+      "caption": "卡济米尔·马列维奇《黑方块》，画上年代 1913 年，一般认为 1915 年所作，布面油画，79.5 × 79.5 厘米，莫斯科特列季亚科夫画廊藏。",
+      "credit": {
+        "author": "维基共享资源（据特列季亚科夫画廊网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9_%D1%81%D1%83%D0%BF%D1%80%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82._1915._%D0%93%D0%A2%D0%93.png",
+        "changes": "由 PNG 转为 JPEG 并重新压缩；未缩放、未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "马列维奇《黑方块》（特列季亚科夫画廊）"
+    },
+    {
+      "key": "exhibition",
+      "src": "/img/malevich-010.jpg",
+      "kind": "detail",
+      "subject": "“最后的未来主义画展 0.10”中马列维奇的展墙（1915 年照片）",
+      "alt": "一张黑白老照片：展厅的墙上挂满了大大小小的几何抽象画，方块、长条、十字形各种各样；右上方的墙角处，一幅黑色方块的画斜挂在两面墙相交的高处。",
+      "caption": "1915 年 12 月，彼得格勒“最后的未来主义画展 0.10”中马列维奇的作品。摄影者不详。",
+      "credit": {
+        "author": "摄影者不详（1915 年）",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:0.10_Exhibition.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "poplars",
+      "src": "/img/kandinsky-two-poplars.jpg",
+      "kind": "detail",
+      "subject": "康定斯基《有两棵白杨的风景》（芝加哥艺术博物馆）",
+      "alt": "一幅横幅油画：一条黄色的小路从左下方斜着伸进画面，路边有两棵高高的、深绿和暗红的白杨树；远处是深蓝色的山、粉红和绿色的天空，右边一座浅蓝色的房子。颜色是一大块一大块涂上去的，树、山和房子还认得出来，但边缘已经很松散。右下角有签名。",
+      "caption": "瓦西里·康定斯基《有两棵白杨的风景》，1912 年，布面油画，78.8 × 100.4 厘米，芝加哥艺术博物馆藏（1931.508，阿瑟·杰罗姆·埃迪纪念收藏）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/8980",
+        "changes": "取自芝加哥艺术博物馆的 IIIF 图像服务，缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；图像以 CC0、PD-Art、公有领域或公有领域发布",
+    "basis": "康定斯基、蒙德里安 1944 年去世，马列维奇 1935 年去世，作品均已进入公有领域。康定斯基的图像为芝加哥艺术博物馆的 CC0；蒙德里安的图像来自荷兰艺术史研究所；《黑方块》来自特列季亚科夫画廊网站；1915 年的展览照片属公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "蒙德里安的图像分辨率较低（1000 像素高）。 康定斯基《有两棵白杨的风景》（1912）的图像来自芝加哥艺术博物馆的开放获取（CC0）。课中提到的希尔玛·阿夫·克林特的画，大部分 1986 年才首次公开，按美国规则可能仍受保护，只用文字和链接。"
+  },
+  "card": {
+    "type": "抽象油画 · 即兴",
+    "period": "1913 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "康定斯基"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "111 × 111.3 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "芝加哥"
+      }
+    ],
+    "blurb": "“大炮”只是个记号：真正的内容，是画面的重量和观者的经验。",
+    "image": "full",
+    "focus": "45% 50%"
+  }
+}

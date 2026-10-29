@@ -323,6 +323,18 @@
       "height": 260
     }
   },
+  "/img/duchamp-fountain-stieglitz.jpg": {
+    "large": {
+      "src": "/img/table/duchamp-fountain-stieglitz.jpg",
+      "width": 842,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-duchamp-fountain-stieglitz.jpg",
+      "width": 199,
+      "height": 260
+    }
+  },
   "/img/fan-kuan-full.jpg": {
     "large": {
       "src": "/img/table/fan-kuan-full.jpg",
@@ -453,6 +465,30 @@
       "src": "/img/table/s-goryeo-crane-vase.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/gris-portrait-picasso.jpg": {
+    "large": {
+      "src": "/img/table/gris-portrait-picasso.jpg",
+      "width": 865,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-gris-portrait-picasso.jpg",
+      "width": 204,
+      "height": 260
+    }
+  },
+  "/img/gris-still-life-guitar.jpg": {
+    "large": {
+      "src": "/img/table/gris-still-life-guitar.jpg",
+      "width": 1100,
+      "height": 718
+    },
+    "small": {
+      "src": "/img/table/s-gris-still-life-guitar.jpg",
+      "width": 260,
+      "height": 170
     }
   },
   "/img/gubbio-studiolo-cabinet.jpg": {
@@ -683,6 +719,18 @@
       "height": 195
     }
   },
+  "/img/kandinsky-improvisation-30.jpg": {
+    "large": {
+      "src": "/img/table/kandinsky-improvisation-30.jpg",
+      "width": 1095,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-kandinsky-improvisation-30.jpg",
+      "width": 259,
+      "height": 260
+    }
+  },
   "/img/kangxi-tour-jinan.jpg": {
     "large": {
       "src": "/img/table/kangxi-tour-jinan.jpg",
@@ -693,6 +741,18 @@
       "src": "/img/table/s-kangxi-tour-jinan.jpg",
       "width": 260,
       "height": 195
+    }
+  },
+  "/img/kirchner-street-dresden.jpg": {
+    "large": {
+      "src": "/img/table/kirchner-street-dresden.jpg",
+      "width": 1100,
+      "height": 830
+    },
+    "small": {
+      "src": "/img/table/s-kirchner-street-dresden.jpg",
+      "width": 260,
+      "height": 196
     }
   },
   "/img/korin-rough-waves.jpg": {
@@ -755,6 +815,18 @@
       "height": 260
     }
   },
+  "/img/malevich-black-square.jpg": {
+    "large": {
+      "src": "/img/table/malevich-black-square.jpg",
+      "width": 1097,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-malevich-black-square.jpg",
+      "width": 260,
+      "height": 260
+    }
+  },
   "/img/mathura-buddha.jpg": {
     "large": {
       "src": "/img/table/mathura-buddha.jpg",
@@ -764,6 +836,18 @@
     "small": {
       "src": "/img/table/s-mathura-buddha.jpg",
       "width": 208,
+      "height": 260
+    }
+  },
+  "/img/matisse-woman-hat.jpg": {
+    "large": {
+      "src": "/img/table/matisse-woman-hat.jpg",
+      "width": 808,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-matisse-woman-hat.jpg",
+      "width": 190,
       "height": 260
     }
   },
@@ -836,6 +920,18 @@
     "small": {
       "src": "/img/table/s-mireuksa-plate-detail.jpg",
       "width": 184,
+      "height": 260
+    }
+  },
+  "/img/mondrian-composition-1921.jpg": {
+    "large": {
+      "src": "/img/table/mondrian-composition-1921.jpg",
+      "width": 654,
+      "height": 1000
+    },
+    "small": {
+      "src": "/img/table/s-mondrian-composition-1921.jpg",
+      "width": 170,
       "height": 260
     }
   },
@@ -980,6 +1076,18 @@
     "small": {
       "src": "/img/table/s-ren-yi-zhong-kui.jpg",
       "width": 153,
+      "height": 260
+    }
+  },
+  "/img/rozsda-amour-sacre.jpg": {
+    "large": {
+      "src": "/img/table/rozsda-amour-sacre.jpg",
+      "width": 813,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-rozsda-amour-sacre.jpg",
+      "width": 192,
       "height": 260
     }
   },

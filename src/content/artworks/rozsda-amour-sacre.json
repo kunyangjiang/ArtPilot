@@ -1,0 +1,170 @@
+{
+  "id": "art-rozsda-amour-sacre-001",
+  "kind": "painting",
+  "titleZh": "神圣之爱与世俗之爱",
+  "titleEn": "Sacred and Profane Love (Amour sacré, Amour profane)",
+  "artist": "恩德雷·罗兹达（Endre Rozsda）",
+  "attributionNote": "罗兹达（1913–1999）所作，右下角签名“ROZSDA”。年代各处记载不一：2019 年《梅吕西娜》论文集的图版说明作“约 1945 年”，同书一篇文章作 1944 年，罗兹达协会网站作 1947 年。布勒东选用这幅画来配他论罗兹达的文章，后收入《超现实主义与绘画》（据《梅吕西娜》论文集）。",
+  "dateApprox": "约 1945 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 115,
+    "width": 75.5
+  },
+  "collection": "第戎美术馆（Musée des Beaux-Arts de Dijon），据 2019 年《梅吕西娜》论文集图版说明",
+  "infoSources": [
+    {
+      "label": "Françoise Py, José Mangani (eds.), Endre Rozsda: Proceedings of the APRES study-day, Paris, 10 March 2018（Mélusine numérique, 2019；英译本）",
+      "url": "https://melusine-surrealisme.fr/2023-Melusine-Numerique-1-Rozsda-anglais-2023.pdf"
+    },
+    {
+      "label": "Mélusine（巴黎超现实主义研究会 APRES）：Endre Rozsda 专辑介绍",
+      "url": "https://www.melusine-surrealisme.fr/en/wp/presentation-melusine-rozsda"
+    },
+    {
+      "label": "匈牙利国家美术馆：Endre Rozsda, Mournful Laugh（画家小传）",
+      "url": "https://en.mng.hu/?p=2454"
+    },
+    {
+      "label": "罗兹达之友协会网站（rozsda.com）",
+      "url": "https://www.rozsda.com/"
+    },
+    {
+      "label": "大都会艺术博物馆：“Surrealism”，Heilbrunn Timeline of Art History",
+      "url": "https://www.metmuseum.org/essays/surrealism"
+    },
+    {
+      "label": "纽约现代艺术博物馆艺术术语：Exquisite corpse",
+      "url": "https://www.moma.org/collection/terms/exquisite-corpse"
+    },
+    {
+      "label": "东京国立近代美术馆藏品页：KOGA Harue, Sea，O00389（解说）",
+      "url": "https://www.momat.go.jp/en/collection/o00389"
+    },
+    {
+      "label": "独立行政法人国立美术馆所藏作品检索：古賀春江《海》（展览史）",
+      "url": "https://search.artmuseums.go.jp/records.php?sakuhin=4596"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/rozsda-amour-sacre.jpg",
+      "kind": "full",
+      "alt": "一幅竖长的油画，画面挤得满满的：顶上一条土黄色的带子，上面有一排浅色的斑块；左上方一块长长的平台上，躺着一个白色、粉色的形，有点像一个侧卧的身体；画面中间偏下，许多黑色的弯曲线条把红、蓝、白、紫的碎块缠在一起，中间有一个红黄相间、像轮子一样放射的圆形；左下方有一个白色的、带红圈的蛋形；右边是大片的蓝。右下角有签名“ROZSDA”。",
+      "caption": "恩德雷·罗兹达《神圣之爱与世俗之爱》，约 1945 年（各处记载为 1944–1947 年），布面油画，第戎美术馆藏（据 2019 年《梅吕西娜》论文集）。",
+      "credit": {
+        "author": "恩德雷·罗兹达（作品）；图像来源 rozsda.com，经维基共享资源发布",
+        "licence": "CC BY-SA 4.0（权利人许可，维基共享资源 VRT 工单 2018022710011712）",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endre_Rozsda_-_Amour_sacr%C3%A9%2C_Amour_profane_(1944).jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "large",
+      "src": "/img/rozsda-amour-sacre-large.jpg",
+      "kind": "detail",
+      "subject": "《神圣之爱与世俗之爱》（较大的图像，用于“走近，再退后”）",
+      "alt": "《神圣之爱与世俗之爱》的较大图像：能看到画布的织纹、刮擦过的白色颜料、一道道细短的平行笔触，以及黑色的轮廓线。",
+      "caption": "恩德雷·罗兹达《神圣之爱与世俗之爱》，约 1945 年，较大的图像。",
+      "credit": {
+        "author": "恩德雷·罗兹达（作品）；图像来源 rozsda.com，经维基共享资源发布",
+        "licence": "CC BY-SA 4.0（权利人许可，维基共享资源 VRT 工单 2018022710011712）",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endre_Rozsda_-_Amour_sacr%C3%A9%2C_Amour_profane_(1944).jpg",
+        "changes": "缩小到 2600 像素高并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "lorgnette",
+      "src": "/img/rozsda-lorgnette.jpg",
+      "kind": "detail",
+      "subject": "罗兹达《祖母的长柄眼镜》（签名的方向）",
+      "alt": "一幅竖长的油画，几乎没有空白：蓝、青、紫的底上挤满了缠绕的黑色线条、圆圈、小点和网状的纹理。右上方有一大团浅色的、像透明泡泡一样的形；左下方有几个由线连起来的圆环，旁边伸出一根细细的柄；右下方有一个白色的、像眼睛一样的小形。左下角有签名“ROZSDA”。",
+      "caption": "恩德雷·罗兹达《祖母的长柄眼镜》，1947 年，布面油画，95 × 77 厘米，罗兹达工作室（据 2019 年《梅吕西娜》论文集）。按签名的方向摆放。",
+      "credit": {
+        "author": "恩德雷·罗兹达（作品）；图像来源 rozsda.com，经维基共享资源发布",
+        "licence": "CC BY-SA 4.0（权利人许可，维基共享资源 VRT 工单 2018022710011712）",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endre_Rozsda_-_Face_%C3%A0_mains_de_ma_grand_m%C3%A8re_(1947).jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "lorgnette-turned",
+      "src": "/img/rozsda-lorgnette-rotated.jpg",
+      "kind": "detail",
+      "subject": "罗兹达《祖母的长柄眼镜》（倒转 180°）",
+      "alt": "同一幅《祖母的长柄眼镜》倒转过来：原来在左下方、由线连起来的圆环和细柄，现在到了右上方；原来右下方那个像眼睛的白色小形，现在到了左上方；签名倒过来出现在右上角。",
+      "caption": "同一幅画倒转 180°。2019 年《梅吕西娜》论文集就是按这个方向刊印的，并注明“画面倒置”。",
+      "credit": {
+        "author": "恩德雷·罗兹达（作品）；图像来源 rozsda.com，经维基共享资源发布",
+        "licence": "CC BY-SA 4.0（权利人许可，维基共享资源 VRT 工单 2018022710011712）",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endre_Rozsda_-_Face_%C3%A0_mains_de_ma_grand_m%C3%A8re_(1947).jpg",
+        "changes": "缩小到 1600 像素高，旋转 180°，重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "enfer",
+      "src": "/img/rozsda-enfer.jpg",
+      "kind": "detail",
+      "subject": "罗兹达《我在地狱里的最初几步》",
+      "alt": "一幅竖长的油画：上半部是一大片青绿色、像被压印或刮擦出来的纹理，右上方有一些橙色的碎片；中间是一大块灰白、粉红的形，边缘向下垂，像融化的东西；左下方有一个黄褐色的圆形，周围是深色和橙红色；画面下方有许多细小的黑色线条。左下角有签名。",
+      "caption": "恩德雷·罗兹达《我在地狱里的最初几步》，1945–1946 年（维基共享资源记为 1947 年），布面油画（据 2019 年《梅吕西娜》论文集）。",
+      "credit": {
+        "author": "恩德雷·罗兹达（作品）；图像来源 rozsda.com，经维基共享资源发布",
+        "licence": "CC BY-SA 4.0（权利人许可，维基共享资源 VRT 工单 2018022710011712）",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endre_Rozsda_-_Mes_premiers_pas_en_enfer_(1947).jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色。改动后的图像按同一许可（CC BY-SA 4.0）提供"
+      }
+    },
+    {
+      "key": "koga",
+      "src": "/img/koga-sea.jpg",
+      "kind": "detail",
+      "subject": "古贺春江《海》（东京国立近代美术馆）",
+      "alt": "一幅横幅油画，画面清晰、平滑，像插图一样：左边是一座高高的、机器一样的工厂建筑；天上飘着一艘白色的长条飞艇和几只海鸟；中间的海水被剖开，可以看到水下的鱼群、虾和一艘被切开、露出内部舱室的潜艇；远处有一艘帆船和一座白色灯塔；右边站着一个穿深蓝色泳衣、戴红色帽子的女人，一手高举，一手叉腰。",
+      "caption": "古贺春江《海》，1929 年，布面油画，130.0 × 162.5 厘米，东京国立近代美术馆藏（O00389）。1929 年第 16 回二科展展出。",
+      "credit": {
+        "author": "东京国立近代美术馆（经维基共享资源取得）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koga_Harue_-_Sea.jpg",
+        "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "受版权保护；权利人以 CC BY-SA 4.0 许可发布这些图像",
+    "basis": "罗兹达 1999 年去世，作品仍在版权保护期内。维基共享资源上的这三件作品图像来自罗兹达之友协会网站 rozsda.com，由维基共享资源的志愿者团队（VRT）核实权利人的许可（工单 2018022710011712，2018 年 3 月加注），以 CC BY-SA 4.0 发布。CC BY-SA 4.0 允许在署名、附许可链接的前提下公开使用（包括商业使用）；改动后的版本须按同一许可提供。",
+    "verifiedOn": "2026-10-28",
+    "note": "VRT 工单的内容不公开，本站据维基共享资源的许可标注和文件历史判断，没有直接联系权利人。rozsda.com 网站本身标注“版权所有”，本站使用的是维基共享资源上经许可发布的文件，而不是从该网站直接取图。《神圣之爱与世俗之爱》的图像长宽比（约 0.74）和发表的尺寸（115 × 75.5 厘米，约 0.66）不完全吻合，可能是照片的取景或尺寸记录有出入，本站没有向第戎美术馆核对。课中提到的唐吉、马格里特、达利、恩斯特、卡林顿等人的作品不展示图像，只用文字和链接。 古贺春江《海》（1929）：古贺 1933 年去世，作品在日本自 1984 年起、在作者去世后 70 年计算的地区也已进入公有领域；因为 1996 年时它在日本已不受保护，美国 1996 年恢复外国作品版权的规定不适用于它；它 1929 年起多次展出，1960–70 年代在多次展览中出现。图像为国立美术馆数据库图像的翻拍，经维基共享资源取得（标注 PD-Art、PD-Japan、PD-US）。本站没有找到 1978 年以前带图版刊印的具体记录，这是剩下的一点不确定。"
+  },
+  "card": {
+    "type": "超现实主义油画",
+    "period": "约 1945 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "罗兹达"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "方法",
+        "value": "反复的自动绘画"
+      },
+      {
+        "label": "藏地",
+        "value": "第戎"
+      }
+    ],
+    "blurb": "先自动地画，再挑出一部分重画；布勒东选它来代表这位画家。",
+    "image": "full",
+    "focus": "40% 45%"
+  }
+}

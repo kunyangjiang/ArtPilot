@@ -1,0 +1,67 @@
+{
+  "id": "art-gris-portrait-picasso-001",
+  "kind": "painting",
+  "titleZh": "毕加索像",
+  "titleEn": "Portrait of Pablo Picasso",
+  "artist": "胡安·格里斯（Juan Gris）",
+  "attributionNote": "格里斯 1912 年 1–2 月所作，右下角题“向巴勃罗·毕加索致敬”；1912 年春天在巴黎独立沙龙展出，目录标题为《人像》（据芝加哥艺术博物馆）。",
+  "dateApprox": "1912 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 93.3,
+    "width": 74.4
+  },
+  "collection": "芝加哥艺术博物馆，1958.525（Leigh B. Block 捐赠）",
+  "infoSources": [
+    {
+      "label": "芝加哥艺术博物馆藏品页：Portrait of Pablo Picasso，1958.525（说明、展览史、来历）",
+      "url": "https://www.artic.edu/artworks/8624"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gris-portrait-picasso.jpg",
+      "alt": "一幅竖长的油画：一个人半身坐着，被切成许多蓝、灰、褐色的几何面，像碎开的水晶。脸的几个面朝向不同，身上一排圆扣子，右下方的手里拿着一块调色板。背景也由斜斜的浅色面组成。",
+      "caption": "胡安·格里斯《毕加索像》，1912 年 1–2 月，布面油画，93.3 × 74.4 厘米，芝加哥艺术博物馆藏（1958.525）。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "格里斯 1927 年去世；照片为维基共享资源上的 Google 艺术计划翻拍。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 65 课正文使用的是同一张照片。"
+  },
+  "card": {
+    "type": "立体主义肖像",
+    "period": "1912 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "格里斯"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "93.3 × 74.4 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "芝加哥"
+      }
+    ],
+    "blurb": "一个画家被切成水晶般的面，手里还拿着他的调色板。",
+    "image": "full",
+    "focus": "40% 35%"
+  }
+}

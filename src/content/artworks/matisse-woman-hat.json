@@ -1,0 +1,156 @@
+{
+  "id": "art-matisse-woman-hat-001",
+  "kind": "painting",
+  "titleZh": "戴帽子的女人",
+  "titleEn": "Woman with a Hat (Femme au chapeau)",
+  "artist": "亨利·马蒂斯（Henri Matisse）",
+  "attributionNote": "马蒂斯（1869–1954）所作，画中人是他的妻子阿梅莉。左上角有签名。1905 年秋季沙龙展出（据旧金山现代艺术博物馆与大都会艺术博物馆）。",
+  "dateApprox": "1905 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 80.8,
+    "width": 59.7
+  },
+  "collection": "旧金山现代艺术博物馆，91.161（1991 年 Elise S. Haas 遗赠）",
+  "infoSources": [
+    {
+      "label": "旧金山现代艺术博物馆藏品页：Henri Matisse, Femme au chapeau，91.161",
+      "url": "https://www.sfmoma.org/artwork/91.161/"
+    },
+    {
+      "label": "大都会艺术博物馆：Sabine Rewald, “Fauvism”（2004）",
+      "url": "https://www.metmuseum.org/essays/fauvism"
+    },
+    {
+      "label": "大都会艺术博物馆：“Henri Matisse (1869–1954)”",
+      "url": "https://www.metmuseum.org/essays/henri-matisse-1869-1954"
+    },
+    {
+      "label": "纽约现代艺术博物馆藏品页：Ernst Ludwig Kirchner, Street, Dresden，12.1951",
+      "url": "https://www.moma.org/collection/works/78426"
+    },
+    {
+      "label": "施泰德博物馆藏品页：Ernst Ludwig Kirchner, Programm der Künstlergruppe Brücke，SG 3531",
+      "url": "https://sammlung.staedelmuseum.de/de/werk/programm-der-kuenstlergruppe-bruecke"
+    },
+    {
+      "label": "芝加哥艺术博物馆藏品页：Franz Marc, The Bewitched Mill，1931.522",
+      "url": "https://www.artic.edu/artworks/9021"
+    },
+    {
+      "label": "古根海姆博物馆：Franz Marc 小传",
+      "url": "https://www.guggenheim.org/artwork/artist/franz-marc"
+    },
+    {
+      "label": "Vivian Endicott Barnett, “Brothers in art and arms”, The Magazine Antiques（2018 年 11 月 29 日）",
+      "url": "https://www.themagazineantiques.com/?p=18119"
+    },
+    {
+      "label": "German History in Documents and Images：基希纳 1937 年 7 月 12 日致普鲁士艺术学院的信",
+      "url": "https://germanhistorydocs.org/en/nazi-germany-1933-1945/ghdi:document-5143"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/matisse-woman-hat.jpg",
+      "kind": "full",
+      "alt": "一幅半身肖像油画：一位女子侧身坐着，脸转向观者，头上戴着一顶巨大的帽子，帽子上堆满蓝、绿、橙、红的色块。她的脸上有绿、粉、黄、红等多种颜色，一手拿着扇子，扇子和衣服是一片片白、粉、绿。背景是粉、淡紫、黄、绿的大块颜色，笔触松散，有的地方露出画布。",
+      "caption": "亨利·马蒂斯《戴帽子的女人》，1905 年，布面油画，80.8 × 59.7 厘米，旧金山现代艺术博物馆藏（91.161）。",
+      "credit": {
+        "author": "维基共享资源（据旧金山现代艺术博物馆网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matisse-Woman-with-a-Hat.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "window",
+      "src": "/img/matisse-open-window.jpg",
+      "kind": "detail",
+      "subject": "马蒂斯《敞开的窗，科利乌尔》（美国国家美术馆）",
+      "alt": "一幅油画：一扇向外敞开的窗户，窗框和两扇窗板涂成绿、粉红、紫红和蓝。窗外是粉色的海面和几艘用红、蓝几笔点出的帆船，窗台下摆着几盆花，墙上爬着绿叶。",
+      "caption": "亨利·马蒂斯《敞开的窗，科利乌尔》，1905 年，布面油画，华盛顿美国国家美术馆藏。这张照片是参观者在展厅里拍摄的。",
+      "credit": {
+        "author": "维基共享资源（参观者在美国国家美术馆展厅拍摄）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Open_Window%2C_Collioure%2C_1905_-_Henri_Matisse.jpg",
+        "changes": "未缩小；只重新压缩，未裁切、未调色"
+      }
+    },
+    {
+      "key": "kirchner",
+      "src": "/img/kirchner-street-dresden.jpg",
+      "alt": "一幅横幅油画：一条拥挤的城市街道，路面是一大片倾斜的粉红色。右边几个戴大帽子、穿长大衣的女人又高又窄，紧挨在一起，脸色发绿发白，眼睛像空洞；左边一个穿红大衣的人背对我们走开，中间一个很小的孩子夹在人群里；远处一辆橙色的电车被人群挡住。左下角有签名和“07”。",
+      "caption": "恩斯特·路德维希·基希纳《德累斯顿的街道》，1908 年（1919 年重画；画上写 1907 年），布面油画，150.5 × 200.4 厘米，纽约现代艺术博物馆藏（12.1951）。",
+      "credit": {
+        "author": "维基共享资源（据纽约现代艺术博物馆网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirchner_-_Street%2C_Dresden%2C_1908%2C_12.1951.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "基希纳《德累斯顿的街道》（纽约现代艺术博物馆）"
+    },
+    {
+      "key": "programme",
+      "src": "/img/bruecke-programme.jpg",
+      "kind": "detail",
+      "subject": "基希纳《桥社纲领》木刻（施泰德博物馆）",
+      "alt": "一张对折的纸，右半边印着一个窄长的黑色方块，里面是棱角分明的大写德文字母，排得满满的，开头是一个大大的“M”。",
+      "caption": "恩斯特·路德维希·基希纳《桥社纲领》（文字页），1906 年，木刻，印在直纹纸上，版面 15.1 × 7.5 厘米，法兰克福施泰德博物馆藏（SG 3531）。",
+      "credit": {
+        "author": "施泰德博物馆（法兰克福）",
+        "licence": "公有领域",
+        "sourceUrl": "https://sammlung.staedelmuseum.de/de/werk/programm-der-kuenstlergruppe-bruecke",
+        "changes": "经维基共享资源取得，缩小到 1600 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "marc",
+      "src": "/img/marc-bewitched-mill.jpg",
+      "kind": "detail",
+      "subject": "弗朗茨·马尔克《着魔的磨坊》（芝加哥艺术博物馆）",
+      "alt": "一幅竖长的油画：左边是一个巨大的红色水车轮和几座白色、蓝色的房子；中间一道宽宽的白色瀑布从上往下冲，瀑布上停着几只小鸟；右边是绿色、紫色的树和弯曲的树干，右下角一只橙红色的动物低头在蓝色的水边喝水。颜色鲜亮，形状被切成许多棱角分明的块。",
+      "caption": "弗朗茨·马尔克《着魔的磨坊》，1913 年，布面油画，130.2 × 90.8 厘米，芝加哥艺术博物馆藏（1931.522，阿瑟·杰罗姆·埃迪纪念收藏）。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/9021",
+        "changes": "取自芝加哥艺术博物馆的 IIIF 图像服务，缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域；图像为公有领域作品的翻拍或博物馆公有领域图像",
+    "basis": "马蒂斯 1954 年、基希纳 1938 年去世，作品在各地均已进入公有领域（马蒂斯在欧盟自 2025 年起）；所用照片取自维基共享资源；施泰德博物馆把《桥社纲领》的图像标为公有领域。",
+    "verifiedOn": "2026-10-28",
+    "note": "《敞开的窗》是参观者在展厅里拍的照片，颜色与原作有差别。旧金山现代艺术博物馆网站上的照片注明“Glen Cheriton for SFMOMA”，本课用的是维基共享资源上的另一份图像。 马尔克《着魔的磨坊》（1913）的图像来自芝加哥艺术博物馆的开放获取（CC0）；马尔克 1916 年去世，这幅画 1919 年已刊印在埃迪的书中。"
+  },
+  "card": {
+    "type": "野兽派肖像",
+    "period": "1905 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "马蒂斯"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "80.8 × 59.7 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "旧金山"
+      }
+    ],
+    "blurb": "她那天穿的是黑色；画上的绿、红、橙，是在替明暗工作。",
+    "image": "full",
+    "focus": "55% 40%"
+  }
+}

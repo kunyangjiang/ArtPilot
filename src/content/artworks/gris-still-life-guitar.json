@@ -1,0 +1,134 @@
+{
+  "id": "art-gris-still-life-guitar-001",
+  "kind": "painting",
+  "titleZh": "吉他静物",
+  "titleEn": "Still Life with a Guitar",
+  "artist": "胡安·格里斯（Juan Gris）",
+  "attributionNote": "格里斯（1887–1927）1913 年所作（据大都会艺术博物馆）。",
+  "dateApprox": "1913 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 66,
+    "width": 100.3
+  },
+  "collection": "大都会艺术博物馆（纽约），1999.363.28（雅克与娜塔莎·盖尔曼收藏）",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆藏品页：Juan Gris, Still Life with a Guitar，1999.363.28",
+      "url": "https://www.metmuseum.org/art/collection/search/489983"
+    },
+    {
+      "label": "大都会艺术博物馆藏品页：Juan Gris, The Musician’s Table，2018.216",
+      "url": "https://www.metmuseum.org/art/collection/search/788081"
+    },
+    {
+      "label": "芝加哥艺术博物馆藏品页：Juan Gris, Portrait of Pablo Picasso，1958.525",
+      "url": "https://www.artic.edu/artworks/8624"
+    },
+    {
+      "label": "大都会艺术博物馆：Sabine Rewald, “Cubism”（2004）",
+      "url": "https://www.metmuseum.org/essays/cubism"
+    },
+    {
+      "label": "Guillaume Apollinaire, Les Peintres cubistes. Méditations esthétiques（Paris, 1913），Project Gutenberg 本",
+      "url": "https://www.gutenberg.org/ebooks/55638"
+    },
+    {
+      "label": "克利夫兰艺术博物馆藏品页：Robert Delaunay, La Tour，1989.59",
+      "url": "https://www.clevelandart.org/art/1989.59"
+    },
+    {
+      "label": "古根海姆博物馆：Harmony and Dissonance: Orphism in Paris, 1910–1930（2024–2025）",
+      "url": "https://www.guggenheim.org/exhibition/harmony-and-dissonance-orphism-in-paris-1910-1930"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gris-still-life-guitar.jpg",
+      "kind": "full",
+      "alt": "一幅横幅油画：一张木纹桌面上叠着许多鲜艳的几何形：黄色、绿色、蓝灰色的块，一把吉他的琴身是一块带木纹的面，上面有圆形的音孔和琴弦，琴颈斜伸向左边。四周有几个全黑的剪影，像酒杯、瓶子和烟斗；还有一张斜放的报纸，露出几个大写字母。",
+      "caption": "胡安·格里斯《吉他静物》，1913 年，布面油画，66 × 100.3 厘米，大都会艺术博物馆藏（1999.363.28）。",
+      "credit": {
+        "author": "维基共享资源（据大都会艺术博物馆网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Still_Life_with_a_Guitar.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "picasso",
+      "src": "/img/gris-portrait-picasso.jpg",
+      "alt": "一幅竖长的油画：一个人半身坐着，被切成许多蓝、灰、褐色的几何面，像碎开的水晶。脸的几个面朝向不同，身上一排圆扣子，右下方的手里拿着一块调色板。背景也由斜斜的浅色面组成。",
+      "caption": "胡安·格里斯《毕加索像》，1912 年 1–2 月，布面油画，93.3 × 74.4 厘米，芝加哥艺术博物馆藏（1958.525）。",
+      "credit": {
+        "author": "维基共享资源（Google 艺术计划翻拍）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      },
+      "kind": "detail",
+      "subject": "格里斯《毕加索像》（芝加哥艺术博物馆）"
+    },
+    {
+      "key": "table",
+      "src": "/img/gris-musicians-table.jpg",
+      "kind": "detail",
+      "subject": "格里斯《音乐家的桌子》（大都会艺术博物馆）",
+      "alt": "一幅竖长的拼贴作品：浅蓝色的底上，贴着一块块棕色、黑色、白色的纸，组成一张斜放的桌面。桌上有一只瓶子、一只玻璃杯、一把小提琴和一张白色的乐谱；右上角用线条画着小提琴的琴头，右边贴着一条印有字的报纸。",
+      "caption": "胡安·格里斯《音乐家的桌子》，1914 年 5 月，孔特蜡笔、蜡笔、水粉、剪贴的印花墙纸、直纹纸、报纸与包装纸等，局部上光油，裱于画布，81.9 × 60.3 厘米，大都会艺术博物馆藏（2018.216）。",
+      "credit": {
+        "author": "维基共享资源（据大都会艺术博物馆的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_table_de_musicien.JPG",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "delaunay",
+      "src": "/img/delaunay-la-tour.jpg",
+      "kind": "detail",
+      "subject": "罗贝尔·德劳内《塔》（克利夫兰艺术博物馆）",
+      "alt": "一张黑白石版画：埃菲尔铁塔立在画面中间，塔身被切成许多块，有的向左倾、有的向右倒，塔下的拱门清晰可见；两边的楼房也歪斜着，像要向塔倒过去；天上翻卷着一团团云。底下是一片小小的房子。下方有手写的字和签名。",
+      "caption": "罗贝尔·德劳内《塔》，1926 年，石版画，克利夫兰艺术博物馆藏（1989.59）。它重新处理了德劳内 1910 年前后画过的埃菲尔铁塔题材。",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/1989.59",
+        "changes": "取自克利夫兰艺术博物馆开放获取图像，缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "rights": {
+    "status": "本课作品均属公有领域（PD-Art）",
+    "basis": "格里斯 1927 年去世，作品在各地均已进入公有领域；所用照片取自维基共享资源。大都会和芝加哥艺术博物馆网站本身没有开放这些作品的下载。",
+    "verifiedOn": "2026-10-28",
+    "note": "课中提到的毕加索、布拉克作品仍受版权保护，本课不展示它们的图像。 德劳内的石版画《塔》（1926）图像来自克利夫兰艺术博物馆的开放获取（CC0）；德劳内 1941 年去世，这是 1926 年发行的版画。"
+  },
+  "card": {
+    "type": "立体主义静物",
+    "period": "1913 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "格里斯"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "66 × 100.3 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "酒杯只剩影子，吉他的影子却在变形：一场关于“看见”的游戏。",
+    "image": "full",
+    "focus": "45% 55%"
+  }
+}

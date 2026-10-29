@@ -1,0 +1,71 @@
+{
+  "id": "art-malevich-black-square-001",
+  "kind": "painting",
+  "titleZh": "黑方块",
+  "titleEn": "Black Square",
+  "artist": "卡济米尔·马列维奇（Kazimir Malevich）",
+  "attributionNote": "马列维奇（1879–1935）所作。画上写的年代是 1913 年，泰特美术馆认为它很可能画于 1915 年；他一共画了四个版本，这是 1915 年在 0.10 展览上首次展出的那一件。",
+  "dateApprox": "约 1915 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 79.5,
+    "width": 79.5
+  },
+  "collection": "莫斯科国立特列季亚科夫画廊",
+  "infoSources": [
+    {
+      "label": "泰特美术馆：“Five ways to look at Malevich’s Black Square”",
+      "url": "https://www.tate.org.uk/art/artists/kazimir-malevich-1561/five-ways-look-malevichs-black-square"
+    },
+    {
+      "label": "Danny Lewis, Smithsonian Magazine（2015 年 11 月 16 日）",
+      "url": "https://www.smithsonianmag.com/smart-news/x-rays-unveil-two-hidden-paintings-beneath-classic-avant-garde-painting-180957279/"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/malevich-black-square.jpg",
+      "alt": "一幅正方形的画：白色的底上，一块几乎占满画面的黑色正方形，四周留着一圈白边。黑色表面上隐约可见细密的裂纹。",
+      "caption": "卡济米尔·马列维奇《黑方块》，画上年代 1913 年，一般认为 1915 年所作，布面油画，79.5 × 79.5 厘米，莫斯科特列季亚科夫画廊藏。",
+      "credit": {
+        "author": "维基共享资源（据特列季亚科夫画廊网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9_%D1%81%D1%83%D0%BF%D1%80%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82._1915._%D0%93%D0%A2%D0%93.png",
+        "changes": "由 PNG 转为 JPEG 并重新压缩；未缩放、未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "马列维奇 1935 年去世；图像来自特列季亚科夫画廊网站，经维基共享资源取得。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 66 课正文使用的是同一张图像。尺寸据维基共享资源上的说明，本站没有从馆方核对。"
+  },
+  "card": {
+    "type": "至上主义",
+    "period": "约 1915 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "马列维奇"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "79.5 × 79.5 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "莫斯科"
+      }
+    ],
+    "blurb": "挂在圣像的位置上，从“零”开始：一块方的黑。",
+    "image": "full",
+    "focus": "50% 50%"
+  }
+}

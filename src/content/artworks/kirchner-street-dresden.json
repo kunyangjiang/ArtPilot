@@ -1,0 +1,67 @@
+{
+  "id": "art-kirchner-street-dresden-001",
+  "kind": "painting",
+  "titleZh": "德累斯顿的街道",
+  "titleEn": "Street, Dresden",
+  "artist": "恩斯特·路德维希·基希纳（Ernst Ludwig Kirchner）",
+  "attributionNote": "基希纳（1880–1938）所作。纽约现代艺术博物馆定为 1908 年，1919 年重画；画上写的年代是 1907 年。",
+  "dateApprox": "1908 年（1919 年重画）",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 150.5,
+    "width": 200.4
+  },
+  "collection": "纽约现代艺术博物馆，12.1951",
+  "infoSources": [
+    {
+      "label": "纽约现代艺术博物馆藏品页：Street, Dresden，12.1951",
+      "url": "https://www.moma.org/collection/works/78426"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/kirchner-street-dresden.jpg",
+      "alt": "一幅横幅油画：一条拥挤的城市街道，路面是一大片倾斜的粉红色。右边几个戴大帽子、穿长大衣的女人又高又窄，紧挨在一起，脸色发绿发白，眼睛像空洞；左边一个穿红大衣的人背对我们走开，中间一个很小的孩子夹在人群里；远处一辆橙色的电车被人群挡住。左下角有签名和“07”。",
+      "caption": "恩斯特·路德维希·基希纳《德累斯顿的街道》，1908 年（1919 年重画；画上写 1907 年），布面油画，150.5 × 200.4 厘米，纽约现代艺术博物馆藏（12.1951）。",
+      "credit": {
+        "author": "维基共享资源（据纽约现代艺术博物馆网站的图像）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirchner_-_Street%2C_Dresden%2C_1908%2C_12.1951.jpg",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      },
+      "kind": "full"
+    }
+  ],
+  "rights": {
+    "status": "公有领域（PD-Art）",
+    "basis": "基希纳 1938 年去世；照片取自维基共享资源。",
+    "verifiedOn": "2026-10-28",
+    "note": "与第 64 课正文使用的是同一张照片。纽约现代艺术博物馆网站上的图像另有授权条件。"
+  },
+  "card": {
+    "type": "表现主义油画",
+    "period": "1908 年",
+    "facets": [
+      {
+        "label": "画家",
+        "value": "基希纳"
+      },
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "尺幅",
+        "value": "150.5 × 200.4 cm"
+      },
+      {
+        "label": "藏地",
+        "value": "纽约"
+      }
+    ],
+    "blurb": "粉红的街道向前倾斜，面具般的脸挤在一起：被人流裹着走。",
+    "image": "full",
+    "focus": "65% 35%"
+  }
+}
