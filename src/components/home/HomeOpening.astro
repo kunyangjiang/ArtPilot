@@ -1,0 +1,75 @@
+---
+// The homepage opening: about a second before the study table's own entrance. The desk starts dark, the red seal of
+// the wordmark is stamped in the middle, a lamp's warm light opens from it as the prints are dealt, and the seal flies
+// home to the wordmark in the site bar. It plays on a fresh load or a reload only: never from another ArtPilot page,
+// never on Back or Forward, never with reduced motion.
+//
+// It is a picture, not a screen: the layer takes no pointer and no focus, and the table's entrance waits under it,
+// paused, then plays as it always has. Without JavaScript the layer stays hidden.
+---
+<div class="op" data-op hidden aria-hidden="true">
+  <span class="op-dark"></span>
+  <span class="op-glow"></span>
+  <span class="op-seal" data-op-seal></span>
+</div>
+<script is:inline>
+  (function () {
+    var root = document.querySelector('[data-op]'), html = document.documentElement;
+    var entry = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var type = entry ? entry.type : 'navigate', internal = false;
+    try { internal = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !(type === 'reload' || (type === 'navigate' && !internal))) { root.remove(); return; }
+    root.hidden = false;
+    html.setAttribute('data-opening', '');
+    html.setAttribute('data-opening-hold', '');
+    // Timed from the first frame, so a page opened in a background tab plays its opening when it is first shown:
+    // the table's entrance starts at 340 ms, and the opening is gone at 1250 ms.
+    requestAnimationFrame(function () {
+      setTimeout(function () { html.removeAttribute('data-opening-hold'); }, 340);
+      setTimeout(function () { html.removeAttribute('data-opening'); root.remove(); }, 1250);
+    });
+    // The seal ends exactly on the wordmark's red square, which is hidden until the seal has landed on it. If the
+    // wordmark is out of view (a reload that restored a scrolled position), the seal simply fades.
+    document.addEventListener('DOMContentLoaded', function () {
+      var mark = document.querySelector('.site-nav .brand-mark'), seal = root.querySelector('[data-op-seal]');
+      if (!mark) return;
+      var a = mark.getBoundingClientRect();
+      // Measured against the layer, not the window: the layer stops at the scrollbar.
+      var w = root.clientWidth, h = root.clientHeight;
+      if (a.bottom <= 0 || a.top >= h) return;
+      seal.style.setProperty('--tx', (a.left + a.width / 2 - w / 2) + 'px');
+      seal.style.setProperty('--ty', (a.top + a.height / 2 - h * 0.46) + 'px');
+      seal.style.setProperty('--ts', String(a.width / 44));
+      seal.style.setProperty('--to', '1');
+    });
+  })();
+</script>
+
+<style is:global>
+  @property --lamp { syntax: '<length>'; inherits: false; initial-value: 0px; }
+  .op { position: fixed; inset: 0; z-index: 900; pointer-events: none; }
+  .op > * { position: absolute; }
+  /* The dark, with a hole (the lamp's pool) that opens from the seal until the whole desk is lit. */
+  .op-dark { inset: 0; background: #050505; --lamp: -24vmax;
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, transparent var(--lamp), #000 calc(var(--lamp) + 24vmax));
+    mask-image: radial-gradient(circle at 50% 46%, transparent var(--lamp), #000 calc(var(--lamp) + 24vmax));
+    animation: op-lamp 800ms cubic-bezier(.4, 0, .2, 1) 340ms forwards; }
+  .op-glow { inset: 0; opacity: 0; mix-blend-mode: screen;
+    background: radial-gradient(circle at 50% 46%, rgb(255 226 186 / .26), rgb(255 226 186 / .08) 26vmax, rgb(255 226 186 / 0) 52vmax);
+    animation: op-glow 900ms ease-out 340ms forwards; }
+  /* The seal: pressed (a little ink spreading under it), then home to the wordmark. */
+  .op-seal { left: 50%; top: 46%; width: 44px; height: 44px; margin: -22px 0 0 -22px; background: var(--brand-red, #a3402e); opacity: 0;
+    animation: op-stamp 380ms cubic-bezier(.3, 0, .2, 1) 40ms both, op-home 520ms cubic-bezier(.65, 0, .25, 1) 700ms forwards; }
+  .op-seal::after { content: ""; position: absolute; inset: -3px; background: inherit; filter: blur(7px); opacity: 0; animation: op-bleed 650ms ease-out 220ms; }
+
+  /* The table's entrance waits, paused, until the opening hands over; the wordmark's square waits for the seal. */
+  html[data-opening-hold] .st, html[data-opening-hold] .st * { animation-play-state: paused !important; }
+  html[data-opening] .site-nav .brand-mark { visibility: hidden; }
+
+  @keyframes op-lamp { to { --lamp: 110vmax; } }
+  @keyframes op-glow { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes op-stamp { 0% { opacity: 0; transform: scale(1.8) rotate(-8deg); } 55% { opacity: 1; transform: scale(.9) rotate(0deg); }
+    78% { transform: scale(1.03); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes op-home { from { opacity: 1; transform: none; } to { opacity: var(--to, 0); transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--ts, .6)); } }
+  @keyframes op-bleed { 0% { opacity: 0; transform: scale(.9); } 30% { opacity: .55; } 100% { opacity: 0; transform: scale(2.4); } }
+</style>
