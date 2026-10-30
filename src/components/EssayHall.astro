@@ -31,7 +31,8 @@ const items = await Promise.all(entries.map(async (e, i) => {
     <h1 id="eh-title" tabindex="-1">{d.label === 'Cases' ? d.sub : d.label}</h1>
     <p class="eh-premise">{d.premise}</p>
   </header>
-  <ol class="eh-list">
+  <!-- Artist stories, a series of twenty, hang two to a row; the cases, a handful, keep one exhibit per row. -->
+  <ol class:list={['eh-list', { 'eh-grid': kind === 'artist-story' }]}>
     {items.map((it) => (
       <li>
         <a class="eh-item" href={it.href}>
@@ -50,7 +51,10 @@ const items = await Promise.all(entries.map(async (e, i) => {
 </section>
 
 <style>
-  .eh { position: relative; isolation: isolate; }
+  /* The room's red wall (drawHallWall) stands in the last 8.5% of the window (7% on a phone). Where the page's own
+     margin is narrower than that, the hall steps in from the right so no text or rule runs onto the wall. */
+  .eh { position: relative; isolation: isolate; margin-right: max(0px, calc(8.5vw + 1.5rem - max(1.25rem, (100vw - 66rem) / 2))); }
+  @media (max-width: 900px) { .eh { margin-right: max(0px, calc(7vw + .75rem - 1.25rem)); } }
   .eh-web { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
   .eh { --serif-d: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", serif; --latin-d: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif; }
   .eh-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
@@ -78,6 +82,37 @@ const items = await Promise.all(entries.map(async (e, i) => {
   @media (max-width: 640px) {
     .eh-item { grid-template-columns: 1fr; gap: 1.25rem; }
     .eh-print img { max-height: 24rem; }
+  }
+
+  /* Two to a row: each exhibit a print beside its text, the summary held to four lines. */
+  .eh-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1.5rem, 4vw, 3.5rem); }
+  .eh-grid .eh-item { grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; padding: 2rem 0; }
+  .eh-grid .eh-print img { max-height: 13rem; padding: .375rem; }
+  .eh-grid .eh-role { font-size: .6875rem; letter-spacing: .08em; }
+  .eh-grid .eh-text { gap: .4rem; }
+  .eh-grid .eh-no { font-size: .875rem; }
+  .eh-grid .eh-title { font-size: clamp(1.1875rem, 1.9vw, 1.4375rem); line-height: 1.45; }
+  .eh-grid .eh-subject { font-size: .8125rem; letter-spacing: .06em; }
+  .eh-grid .eh-summary { margin-top: .15rem; font-size: .875rem; line-height: 1.8;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+  .eh-grid .eh-go { margin-top: .25rem; font-size: .8125rem; }
+  /* Narrower windows: the print above its text, still two to a row; prints of a row share a top line. */
+  @media (max-width: 960px) {
+    .eh-grid .eh-item { --ph: 14rem; grid-template-columns: 1fr; gap: 1rem; padding: 1.75rem 0; }
+    .eh-grid .eh-print { align-items: flex-start; }
+    .eh-grid .eh-print img { max-height: var(--ph); }
+    .eh-grid .eh-role { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    .eh-grid { column-gap: 1rem; }
+    .eh-grid .eh-item { --ph: 10rem; gap: .75rem; padding: 1.25rem 0 1.5rem; }
+    .eh-grid .eh-print img { padding: .25rem; transform: rotate(-1deg); }
+    .eh-grid .eh-text { gap: .3rem; }
+    .eh-grid .eh-no { font-size: .75rem; }
+    .eh-grid .eh-title { font-size: 1rem; line-height: 1.5; letter-spacing: .02em; }
+    .eh-grid .eh-subject { font-size: .6875rem; line-height: 1.5; letter-spacing: .02em; }
+    .eh-grid .eh-summary { font-size: .75rem; line-height: 1.7; -webkit-line-clamp: 3; line-clamp: 3; }
+    .eh-grid .eh-go { font-size: .75rem; }
   }
 </style>
 
