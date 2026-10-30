@@ -1,0 +1,240 @@
+{
+  "id": "art-bada-birds-lotus-pond-001",
+  "kind": "painting",
+  "titleZh": "莲塘戏禽图",
+  "titleEn": "Birds in a Lotus Pond",
+  "artist": "八大山人（朱耷）",
+  "attributionNote": "八大山人（朱耷，1626—1705）作，自题“山房涉事”，署“八大山人”，钤“涉事”“八大山人”印；大都会艺术博物馆据风格定为约 1690 年。曾为张大千收藏，题签出自张大千之手。",
+  "dateApprox": "约 1690 年（据风格）",
+  "medium": "手卷，绫本水墨",
+  "dimensionsCm": {
+    "height": 27.3,
+    "width": 205.1
+  },
+  "collection": "大都会艺术博物馆（纽约），1989.363.135",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Birds in a lotus pond，1989.363.135（说明、自题、印记、张大千题签与收藏印）",
+      "url": "https://www.metmuseum.org/art/collection/search/49143"
+    },
+    {
+      "label": "大都会艺术博物馆：Two eagles，2014.721；Letters to Fang Shiguan，1982.458a–e；Landscape album，1989.363.138a–l",
+      "url": "https://www.metmuseum.org/art/collection/search/39540"
+    },
+    {
+      "label": "大都会艺术博物馆：After Wang Xizhi’s “Preface to the Orchid Pavilion Gathering Collection”，1989.363.136（释文、印记）",
+      "url": "https://www.metmuseum.org/art/collection/search/49144"
+    },
+    {
+      "label": "国立故宫博物院开放资料：清传綮写生 册（1659 年，十五开，题诗与印记）",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/4734?dep=P"
+    },
+    {
+      "label": "故宫博物院（北京）：朱耷荷石水鸟图轴（款识、印记、说明）",
+      "url": "https://www.dpm.org.cn/collection/paint/232837.html"
+    },
+    {
+      "label": "Mae Anna Pang, “Zhu Da: the mad monk painter”, Art Journal 25（维多利亚国家美术馆）",
+      "url": "https://ngv.vic.gov.au/essay/zhu-da-the-mad-monk-painter"
+    },
+    {
+      "label": "《清史稿》卷五百四·艺术三·朱耷传（维基文库）",
+      "url": "https://zh.wikisource.org/zh-hant/清史稿/卷504"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/bada-birds-lotus-pond-met.jpg",
+      "kind": "full",
+      "width": 3640,
+      "height": 485,
+      "alt": "一条横长的绫本水墨手卷，从右往左：先是一片巨大的、撕裂般的浓墨荷叶，挂在一根弯折的长茎上；接着是一块只用墨线勾出轮廓、内部空白的大石头，石顶上蹲着两只毛茸茸的小鸟；再往左，岸边两只深黑的八哥，一只背上驮着一只张嘴的雏鸟，都抬头向上看；最左边又是一片高高的荷叶，和两行字“山房涉事”，下面是一个像“笑之”二字的签名。",
+      "caption": "八大山人《莲塘戏禽图》，约 1690 年，绫本水墨手卷，27.3 × 205.1 厘米，大都会艺术博物馆藏。手卷从右往左看。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49143",
+        "changes": "从馆方全卷照片中裁去上下的黑色衬底与色卡，重新压缩；未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "mynahs",
+      "src": "/img/bada-birds-lotus-mynahs-met.jpg",
+      "kind": "detail",
+      "width": 2400,
+      "height": 1135,
+      "alt": "局部：两只深黑的八哥，左边一只低着身子，背上驮着一只小雏鸟，头却仰起，眼睛是一个白圈里点着黑点，瞳孔贴在上沿，直直往上看；中间一只站得高些，也抬头向上；右上角，一块白石头顶上蹲着两只带斑点的小鸟。大片淡墨晕开，像水汽，也像荷叶的影子。",
+      "caption": "局部：两只抬头的八哥与雏鸟。大都会的说明说，八大山人“大胆地利用绫极强的吸墨性”，让浓墨的线和点，衬在空白的底子上。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49143",
+        "changes": "馆方提供的局部照片，缩小到 2400 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "eagles",
+      "src": "/img/bada-two-eagles-met.jpg",
+      "kind": "detail",
+      "subject": "八大山人《二鹰图》，1702 年，大都会艺术博物馆藏",
+      "width": 1260,
+      "height": 2200,
+      "alt": "一幅高大的立轴：一棵枯树从右上方伸进画面，一块巨石从下往上耸起。石头上方站着一只老鹰，侧身，回头向右上看；下方石边另一只鹰缩着身子，转头向左。羽毛用浓淡不同的墨块层层叠出。左上角一行字，署“八大山人”。",
+      "caption": "八大山人《二鹰图》，1702 年，纸本水墨立轴，187.3 × 90.2 厘米，大都会艺术博物馆藏。自题：“壬午三月既望写。八大山人。”",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/39540",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "letter",
+      "src": "/img/bada-letter-fang-met.jpg",
+      "kind": "detail",
+      "subject": "八大山人致方士琯书之一（约 1694 年），大都会艺术博物馆藏",
+      "width": 1296,
+      "height": 1800,
+      "alt": "一张小小的信笺，竖写六七行行草，字有大有小，墨色浓淡不匀。第二行起头是“天人愧事”，左边一行写着“西城先生”，后面是一个像“笑之”的签名，最左是“九月廿五日”。下方钤着几方红印。",
+      "caption": "八大山人写给朋友方士琯的信，约 1694 年。信里说：“画一且未见，面见一喜可知也。”画你还没看到，看到了一定会高兴。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49147",
+        "changes": "取馆方此页照片，缩小到 1800 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "landscape",
+      "src": "/img/bada-landscape-1699-met.jpg",
+      "kind": "detail",
+      "subject": "八大山人《山水图》册之一开，1699 年，大都会艺术博物馆藏",
+      "width": 1496,
+      "height": 1882,
+      "alt": "一开册页：淡墨的山峦一层层斜着往上堆，山石由许多圆圆的、锥形的块组成，中间夹着几棵枯树和小亭子；笔触干而松，大片留白。右上角署“八大山人写”。",
+      "caption": "八大山人《山水图》册之一开，1699 年，纸本水墨设色，每开 18.7 × 23.2 厘米。大都会说，这些山水以倪瓒和董其昌的画法为起点，又“转化”了它们。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49145",
+        "changes": "馆方照片，重新压缩；未裁切、未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "chuanqi-text",
+      "src": "/img/bada-chuanqi-1659-inscription-npm.jpg",
+      "kind": "detail",
+      "subject": "传綮（八大山人）《写生》册·己亥七月一开，1659 年，台北故宫博物院藏",
+      "width": 2000,
+      "height": 1310,
+      "alt": "一开册页，满纸是密密的行楷小字，二十多行，从右往左，开头是“己亥七月旱甚”，末尾署“灌园长老题”。下方和左侧钤着红印。",
+      "caption": "传綮《写生》册中的一开长题，1659 年。他自称“灌园长老”，说七月大旱，画了一茄一菜寄给朋友。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/4737?dep=P",
+        "changes": "从馆方照片中裁去衬纸边缘与色卡，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "清传綮写生 册 己亥七月。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "chuanqi-melon",
+      "src": "/img/bada-chuanqi-1659-melon-npm.jpg",
+      "kind": "detail",
+      "subject": "传綮（八大山人）《写生》册·西瓜一开，1659 年，台北故宫博物院藏",
+      "width": 2000,
+      "height": 1310,
+      "alt": "一开册页：右下方两个大西瓜，用浓淡不同的墨块画出，瓜上的条纹是几道深墨；上方和左边写着三首题诗，盖着几方红印。",
+      "caption": "传綮《写生》册·西瓜。三首题诗之一：“和盘拓出大西瓜，眼里无端已著沙。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/4735?dep=P",
+        "changes": "从馆方照片中裁去衬纸边缘与色卡，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "清传綮写生 册 西瓜。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "chuanqi-poem",
+      "src": "/img/bada-chuanqi-1659-poem-npm.jpg",
+      "kind": "detail",
+      "subject": "传綮（八大山人）《写生》册·月自不受晦一开，1659 年，台北故宫博物院藏",
+      "width": 2000,
+      "height": 1310,
+      "alt": "一开册页，八行端正的行楷大字：“月自不受晦，澹烟蒙亦好……”，最左一行小字署“灯社释传綮书”，下面钤着三方印。",
+      "caption": "传綮《写生》册的末开，署“灯社释传綮书”。这是他用僧名传綮签的字。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/4748?dep=P",
+        "changes": "从馆方照片中裁去衬纸边缘与色卡，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "清传綮写生 册 月自不受晦。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "lanting",
+      "src": "/img/bada-lanting-met.jpg",
+      "kind": "detail",
+      "subject": "八大山人《行书节录王羲之兰亭序》轴，约 1694—1696 年，大都会艺术博物馆藏",
+      "width": 1049,
+      "height": 1900,
+      "alt": "一张竖长的米白色纸，五行行书，字距很宽，从右往左第一行是“虽无丝竹管弦之盛”。笔画细而匀，转弯处圆，几乎没有尖锐的钩和挑。左边小字“临兰亭序”，签名写成像“笑之”的样子，下面一方小印。",
+      "caption": "八大山人《行书节录王羲之兰亭序》，约 1694—1696 年，纸本，画心 46.7 × 25.4 厘米，大都会艺术博物馆藏。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49144",
+        "changes": "从馆方照片中裁去裱边，缩小到 1900 像素高并重新压缩；未调色",
+        "by": "大都会艺术博物馆"
+      }
+    }
+  ],
+  "imagesNote": "大都会艺术博物馆的五件作品图像为 CC0；《传綮写生册》三开由台北故宫以 CC BY 4.0 开放。北京故宫的《荷石水鸟图》只给出馆方页面。《鱼石图》已在本站第 39 课讲过，本篇不再用它的图像。",
+  "rights": {
+    "status": "公有领域：八大山人 1705 年去世；图像由收藏机构开放",
+    "basis": "大都会艺术博物馆对这几件作品标注 Public Domain，开放获取图像为 CC0。国立故宫博物院开放资料中阶图像为 CC BY 4.0，须标示“品名。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw”。北京故宫博物院藏品图像没有开放授权，本站只链接页面。",
+    "verifiedOn": "2026-10-29",
+    "note": "题诗、书信、史传均为古文，据馆方释文引用；书信的白话为本站转述，参照大都会的英译。"
+  },
+  "card": {
+    "type": "花鸟画 · 手卷",
+    "maker": "八大山人",
+    "period": "清 · 约 1690 年",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "绫本水墨"
+      },
+      {
+        "label": "尺寸",
+        "value": "27.3 × 205.1 cm"
+      },
+      {
+        "label": "自题",
+        "value": "山房涉事"
+      },
+      {
+        "label": "收藏",
+        "value": "大都会艺术博物馆"
+      }
+    ],
+    "blurb": "两只抬头的八哥，一个像“笑之”的签名。",
+    "focus": "25% 55%",
+    "image": "mynahs"
+  }
+}

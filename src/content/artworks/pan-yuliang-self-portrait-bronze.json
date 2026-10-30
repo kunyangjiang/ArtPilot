@@ -1,0 +1,85 @@
+{
+  "id": "art-pan-yuliang-self-portrait-bronze-001",
+  "kind": "painting",
+  "titleZh": "自塑像",
+  "titleEn": "Autoportrait (sculpted self-portrait)",
+  "artist": "潘玉良",
+  "attributionNote": "潘玉良（1895—1977；巴黎市立博物馆的著录记作 1894 年生）作，1951 年，铜像。像上有中文题记，馆方的法文著录写作“Autoportrait sculpté de Yuliang”（玉良雕塑的自像），中文原文本站未见。1982 年由中华人民共和国驻法国大使馆赠予赛努奇博物馆。",
+  "dateApprox": "1951 年",
+  "medium": "青铜",
+  "dimensionsCm": {
+    "height": 60.5,
+    "width": 25
+  },
+  "dimensionsSource": "据巴黎市立博物馆（Paris Musées）公布的数据：高 60.5 厘米，宽 25 厘米，深 19 厘米。",
+  "collection": "赛努奇博物馆（巴黎市立亚洲艺术博物馆），M.C. 9700",
+  "officialPage": {
+    "label": "巴黎市立博物馆（Paris Musées）：Autoportrait，M.C. 9700",
+    "url": "https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/autoportrait"
+  },
+  "infoSources": [
+    {
+      "label": "巴黎市立博物馆：Pan Yuliang, Autoportrait, 1951, M.C. 9700；Etude de nu, 1942, M.C. 12358；Etude des nus, 1942, M.C. 12361；Nu, 1946, M.C. 12359；Femme tenant un masque, 1952, M.C. 9650.3；Buste de René Grousset, 1954, M.C. 11891",
+      "url": "https://www.parismuseescollections.paris.fr/fr/musee-cernuschi/oeuvres/autoportrait"
+    },
+    {
+      "label": "中央美术学院美术馆：姚玳玫《守护自我：潘玉良与她的画作（1928—1937）》",
+      "url": "https://cafamuseum.org/exhibit/newsdetail/1704"
+    },
+    {
+      "label": "中国博物馆协会：《关于爱的“情书”——潘玉良的绘画世界》及潘玉良年表（2017）",
+      "url": "https://www.chinamuseum.org.cn/detail.html?contentId=822&id=14"
+    }
+  ],
+  "images": [
+    {
+      "key": "line-tone",
+      "src": "/img/pan-yuliang-line-tone-diagram.jpg",
+      "kind": "detail",
+      "subject": "本站绘制的示意图：同样的简单形体，用明暗塑造与用轮廓线表现，不是潘玉良的作品",
+      "width": 1800,
+      "height": 900,
+      "alt": "左右两半。左边是一个圆球放在一个上窄下宽的圆台上，用从亮到暗的灰色渐变画出体积，下面拖着一片阴影，背景有细细的颗粒，像木炭纸。右边是同样的圆球和圆台，只用几根黑线勾出外形，线有粗有细：左侧和底部的线粗，右侧的线细；圆球下面多了一道短短的弧线。中间一条虚线隔开。",
+      "caption": "本站绘制的示意图。左：用明暗的渐变“塑造”体积，这是欧洲学院派木炭素描的基本功；右：只用一根轮廓线，靠线的粗细、弯折和停顿来暗示体积。潘玉良两种训练都受过，后来越来越多地用后一种。图中形体是几何体，不是任何一件作品。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制",
+        "sourceUrl": "https://cafamuseum.org/exhibit/newsdetail/1704",
+        "changes": "依据文字资料对两种技法的一般说明绘制，不含任何作品的图像或形状",
+        "by": "示意图 · ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "潘玉良 1977 年去世，作品仍受著作权保护，本站不复制它们的图像，只给出收藏机构的页面。页面上唯一的图，是本站绘制的技法示意。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构页面的链接，不复制作品的图像",
+    "basis": "潘玉良 1977 年去世。按中国著作权法，作品保护至作者去世后 50 年（2027 年底）；按法国法律，保护至作者去世后 70 年（2047 年底）。巴黎市立博物馆的开放获取只适用于公有领域作品，这些作品不在其内。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。生平、名字与年份据中央美术学院美术馆刊发的姚玳玫论文、中国博物馆协会的年表和巴黎市立博物馆的著录；三者有出入的地方，正文并列说明。"
+  },
+  "card": {
+    "type": "雕塑 · 自塑像",
+    "maker": "潘玉良",
+    "period": "1951 年 · 巴黎",
+    "facets": [
+      {
+        "label": "材料",
+        "value": "青铜"
+      },
+      {
+        "label": "尺寸",
+        "value": "高 60.5 cm"
+      },
+      {
+        "label": "题记",
+        "value": "中文题记，馆方译为“玉良雕塑的自像”"
+      },
+      {
+        "label": "收藏",
+        "value": "巴黎赛努奇博物馆"
+      }
+    ],
+    "blurb": "一个用过好几个姓的人，给自己塑的一座头像。",
+    "image": null
+  }
+}

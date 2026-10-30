@@ -1,0 +1,200 @@
+{
+  "id": "art-xu-wei-pomegranate-001",
+  "kind": "painting",
+  "titleZh": "榴实图",
+  "titleEn": "Pomegranate",
+  "artist": "徐渭",
+  "attributionNote": "徐渭（1521—1593）作，自题五言诗，署“文长”，钤“徐渭印”“文长”“公孙大娘”“湘管斋”诸印；清宫旧藏，著录于《石渠宝笈续编》。台北故宫说明称“是徐渭本色”，未注年代。",
+  "dateApprox": "晚明，16 世纪后半（未注年代）",
+  "medium": "立轴，纸本水墨",
+  "dimensionsCm": {
+    "height": 91.4,
+    "width": 26.6
+  },
+  "collection": "国立故宫博物院（台北），故画 000566",
+  "infoSources": [
+    {
+      "label": "国立故宫博物院开放资料：明徐渭榴实 轴（题诗、印记、说明）",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3357?dep=P"
+    },
+    {
+      "label": "国立故宫博物院开放资料：明徐渭写生 卷；明徐渭画竹 卷；明徐渭花竹 轴；花卉画册·明徐渭秋蟹；明徐渭诗帖并书评 册",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5633?dep=P"
+    },
+    {
+      "label": "故宫博物院（北京）：徐渭水墨葡萄图轴（自题诗、尺寸、胶矾与晕散）",
+      "url": "https://www.dpm.org.cn/collection/paint/231318.html"
+    },
+    {
+      "label": "《明史》卷二百八十八·文苑四·徐渭传（维基文库）",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷288"
+    },
+    {
+      "label": "徐渭《自为墓志铭》（维基文库）",
+      "url": "https://zh.wikisource.org/zh-hant/自為墓誌銘_(徐渭)"
+    },
+    {
+      "label": "袁宏道《徐文长传》（维基文库）",
+      "url": "https://zh.wikisource.org/zh-hant/徐文長傳"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/xu-wei-pomegranate-npm.jpg",
+      "kind": "full",
+      "width": 662,
+      "height": 2200,
+      "alt": "一幅窄长的立轴，纸色发黄，有许多水渍和斑驳。右上方是两行半草书，字很大，笔画粗细变化剧烈；画面下半部，一根细枝从上方斜斜垂下，枝头挂着一个裂开的石榴，石榴身体是一团浅灰的淡墨，裂口处露出一粒粒深黑的籽；周围是几片尖尖的叶子，一笔一片。四周钤着许多红色的收藏印。",
+      "caption": "徐渭《榴实图》，纸本水墨，91.4 × 26.6 厘米，台北故宫博物院藏。自题：“山深熟石榴，向日笑开口；深山少人收，颗颗明珠走。文长。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3357?dep=P",
+        "changes": "取馆方 IIIF 提供的全图，缩小到 2200 像素高并重新压缩；未裁切、未调色",
+        "by": "明徐渭榴实 轴。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "fruit",
+      "src": "/img/xu-wei-pomegranate-fruit-npm.jpg",
+      "kind": "detail",
+      "width": 1451,
+      "height": 1450,
+      "alt": "石榴的局部：果身是一团浅灰色的淡墨，边缘颜色更深，像水渍干后留下的一圈；裂口处是许多深黑的小块，表示籽。下面几片叶子各是一笔，起笔宽、收笔尖；细枝用干而快的笔拖出，墨色断续，露出纸白，枝上点着几根小刺。",
+      "caption": "局部：石榴与枝叶。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3357?dep=P",
+        "changes": "从馆方全图裁出下半部，重新压缩；未缩放、未调色",
+        "by": "明徐渭榴实 轴。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "flowers-bamboo",
+      "src": "/img/xu-wei-flowers-bamboo-npm.jpg",
+      "kind": "detail",
+      "subject": "徐渭《花竹》轴，台北故宫博物院藏",
+      "width": 750,
+      "height": 2400,
+      "alt": "一幅极高的立轴：右边一丛竹子和芭蕉从上到下，中部一块巨大的、墨色浓重的怪石，四周挤满了各种花：牡丹、菊、梅、水仙、绣球等，有的用墨线勾出轮廓，有的直接用墨块点出。左上方是十几行小字题诗。",
+      "caption": "徐渭《花竹》，纸本水墨，337.6 × 103.5 厘米，台北故宫博物院藏。四季十六种花木画在同一幅里，左上自题《十六花姨舞》。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/3608?dep=P",
+        "changes": "取馆方 IIIF 提供的全图，缩小到 2400 像素高并重新压缩；未裁切、未调色",
+        "by": "明徐渭花竹 轴。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "crab",
+      "src": "/img/xu-wei-crab-npm.jpg",
+      "kind": "detail",
+      "subject": "徐渭《秋蟹》，《花卉画册》之一开，台北故宫博物院藏",
+      "width": 2000,
+      "height": 790,
+      "alt": "一张扇面形的纸，中间一只螃蟹，背壳是一团浓淡相间的墨，几条腿用几笔深墨撇出；左边两三根芦苇叶斜斜伸出。右边是四行行书题诗，末署“青藤道士”。",
+      "caption": "徐渭《秋蟹》，扇面，纸本水墨，18 × 50.3 厘米。自题：“夜窗宾主话，秋浦蟹初肥。配饮无钱酒，思将画换归。青藤道士。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/11131?dep=P",
+        "changes": "从馆方照片中裁去册页衬纸与色卡，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "花卉画册 册 明徐渭秋蟹。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "essay",
+      "src": "/img/xu-wei-calligraphy-essay-npm.jpg",
+      "kind": "detail",
+      "subject": "徐渭《诗帖并书评》册之一开（书评），1570 年，台北故宫博物院藏",
+      "width": 1309,
+      "height": 1500,
+      "alt": "左右两页米黄色的纸，每页竖写四五行行书，字距宽松，笔画有粗有细。右页开头是“孟頫虽媚犹可言也”，左页开头是“倪瓒书从隶入”。",
+      "caption": "徐渭《诗帖并书评》中评论古人书法的一开，隆庆庚午（1570）元日“醉后呼管”所写。这里写到赵孟頫：“孟頫虽媚犹可言也”。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/2846?dep=P",
+        "changes": "从馆方照片中裁出两页书迹，缩小到 1500 像素高并重新压缩；未调色",
+        "by": "明徐渭诗帖并书评 册。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "rain-bamboo",
+      "src": "/img/xu-wei-rain-bamboo-npm.jpg",
+      "kind": "detail",
+      "subject": "徐渭《画竹》卷局部，台北故宫博物院藏",
+      "width": 2000,
+      "height": 487,
+      "alt": "一段横幅：许多竹竿从下往上，前面的墨色深，后面的淡，竹节是一个个深墨的弯钩；竹叶都向下垂，一簇簇像被雨压弯，叶尖拖得很长。左端是几行行书，开头是“斋中一夜雨成河”。",
+      "caption": "徐渭《画竹》卷局部，纸本水墨，全卷 30.4 × 336.5 厘米。卷首自题《咏雨竹》：“斋中一夜雨成河……湿淋淋地墨龙拖。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5632?dep=P",
+        "changes": "从馆方全卷影像中裁出卷首一段，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "明徐渭画竹 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "sketches",
+      "src": "/img/xu-wei-sketches-from-life-npm.jpg",
+      "kind": "detail",
+      "subject": "徐渭《写生》卷，台北故宫博物院藏",
+      "width": 10568,
+      "height": 569,
+      "alt": "一条很长的手卷，从右往左：一段段水墨花卉，牡丹、荷、菊、兰竹、绣球、山茶、玉簪、石榴、水仙、竹、梅，每一种花旁边都有几行行书题诗；最左端写着“青藤道人徐渭画并题”。",
+      "caption": "徐渭《写生》卷，纸本水墨，29.1 × 525.6 厘米，台北故宫博物院藏。十一种花，各题七言或五言诗一首。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/5633?dep=P",
+        "changes": "馆方 IIIF 提供的全卷影像，重新压缩；未裁切、未缩放、未调色",
+        "by": "明徐渭写生 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    }
+  ],
+  "imagesNote": "全部图像来自台北故宫博物院开放资料（中阶图像 CC BY 4.0）。《水墨葡萄图》藏北京故宫博物院，本站只给出馆方页面，不复制图像。",
+  "rights": {
+    "status": "公有领域：徐渭 1593 年去世；图像由台北故宫以 CC BY 4.0 开放",
+    "basis": "国立故宫博物院开放资料对中阶图像注明 CC BY 4.0，须标示“品名。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw”。北京故宫博物院的藏品图像没有开放授权，本站只链接其页面。",
+    "verifiedOn": "2026-10-29",
+    "note": "题诗、书评、史传均为古文，据馆方释文与维基文库引用；白话为本站转述。"
+  },
+  "card": {
+    "type": "写意花卉 · 立轴",
+    "maker": "徐渭",
+    "period": "明 · 16 世纪",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "纸本水墨"
+      },
+      {
+        "label": "尺寸",
+        "value": "91.4 × 26.6 cm"
+      },
+      {
+        "label": "自题",
+        "value": "山深熟石榴，向日笑开口"
+      },
+      {
+        "label": "收藏",
+        "value": "台北故宫博物院"
+      }
+    ],
+    "blurb": "一个裂开的石榴，一首说“深山少人收”的诗。",
+    "focus": "50% 75%",
+    "image": "fruit"
+  }
+}

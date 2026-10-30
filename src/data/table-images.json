@@ -131,6 +131,18 @@
       "height": 195
     }
   },
+  "/img/bada-birds-lotus-pond-met.jpg": {
+    "large": {
+      "src": "/img/table/bada-birds-lotus-pond-met.jpg",
+      "width": 1100,
+      "height": 146
+    },
+    "small": {
+      "src": "/img/table/s-bada-birds-lotus-pond-met.jpg",
+      "width": 260,
+      "height": 34
+    }
+  },
   "/img/behold-small-town-structure-artpilot.jpg": {
     "large": {
       "src": "/img/table/behold-small-town-structure-artpilot.jpg",
@@ -464,6 +476,18 @@
     "small": {
       "src": "/img/table/s-duchamp-fountain-stieglitz.jpg",
       "width": 199,
+      "height": 260
+    }
+  },
+  "/img/el-greco-vision-saint-john-met.jpg": {
+    "large": {
+      "src": "/img/table/el-greco-vision-saint-john-met.jpg",
+      "width": 978,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-el-greco-vision-saint-john-met.jpg",
+      "width": 231,
       "height": 260
     }
   },
@@ -1007,6 +1031,18 @@
       "height": 196
     }
   },
+  "/img/kollwitz-freiwilligen.jpg": {
+    "large": {
+      "src": "/img/table/kollwitz-freiwilligen.jpg",
+      "width": 1100,
+      "height": 823
+    },
+    "small": {
+      "src": "/img/table/s-kollwitz-freiwilligen.jpg",
+      "width": 260,
+      "height": 194
+    }
+  },
   "/img/korin-rough-waves.jpg": {
     "large": {
       "src": "/img/table/korin-rough-waves.jpg",
@@ -1172,6 +1208,18 @@
     "small": {
       "src": "/img/table/s-mexica-tlaltecuhtli.jpg",
       "width": 224,
+      "height": 260
+    }
+  },
+  "/img/michelangelo-atlas-prisoner.jpg": {
+    "large": {
+      "src": "/img/table/michelangelo-atlas-prisoner.jpg",
+      "width": 734,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-michelangelo-atlas-prisoner.jpg",
+      "width": 173,
       "height": 260
     }
   },
@@ -1365,6 +1413,18 @@
       "src": "/img/table/s-osman-hamdi-tortoise-trainer.jpg",
       "width": 139,
       "height": 260
+    }
+  },
+  "/img/pan-yuliang-line-tone-diagram.jpg": {
+    "large": {
+      "src": "/img/table/pan-yuliang-line-tone-diagram.jpg",
+      "width": 1100,
+      "height": 550
+    },
+    "small": {
+      "src": "/img/table/s-pan-yuliang-line-tone-diagram.jpg",
+      "width": 260,
+      "height": 130
     }
   },
   "/img/pantheon-portico.jpg": {
@@ -1749,6 +1809,18 @@
       "src": "/img/table/s-xu-beihong-yuanwen.jpg",
       "width": 260,
       "height": 215
+    }
+  },
+  "/img/xu-wei-pomegranate-npm.jpg": {
+    "large": {
+      "src": "/img/table/xu-wei-pomegranate-npm.jpg",
+      "width": 331,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-xu-wei-pomegranate-npm.jpg",
+      "width": 78,
+      "height": 260
     }
   },
   "/img/yungang-cave20.jpg": {

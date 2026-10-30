@@ -27,7 +27,7 @@ const narrativeHan = (src) => {
 };
 
 test('Batch C follows Batch B in the artist series, in publication order', () => {
-  assert.deepEqual(ARTIST_CARDS.slice(9), BATCH.map(([, card]) => card));
+  assert.deepEqual(ARTIST_CARDS.slice(9, 14), BATCH.map(([, card]) => card));
   for (const [id, card] of BATCH) assert.match(fm(story(id)), new RegExp(`^card: ${card}$`, 'm'), `${id} awards ${card}`);
 });
 
@@ -35,7 +35,7 @@ test('numbers: everything before Batch C keeps its number; the new cards are 141
   const cards = publishedCards();
   assert.equal(cards.get('art-kingelez-kimbembele-ihunga-001').no, '140');
   BATCH.forEach(([, card], i) => assert.equal(cards.get(card).no, String(141 + i)));
-  assert.equal(cards.size, 145);
+  assert.ok(cards.size >= 145); // later batches append after these
 });
 
 test('Production Standard v2: every story carries at least 5,000 Han characters of narrative', () => {

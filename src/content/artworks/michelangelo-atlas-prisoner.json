@@ -1,0 +1,172 @@
+{
+  "id": "art-michelangelo-atlas-prisoner-001",
+  "kind": "object",
+  "titleZh": "囚徒（“阿特拉斯”）",
+  "titleEn": "Prisoner (“Atlas”)",
+  "artist": "米开朗基罗",
+  "attributionNote": "米开朗基罗（1475—1564）为教皇尤利乌斯二世陵墓所作的四尊“囚徒”之一，未完成。佛罗伦萨学院美术馆定为 1525—1530 年；该馆说明四尊囚徒的年代在 1519—1534 年之间。",
+  "dateApprox": "约 1525—1530 年",
+  "objectType": "大理石雕像（未完成）",
+  "medium": "大理石",
+  "dimensions": "高 277 厘米（据佛罗伦萨学院美术馆）",
+  "collection": "佛罗伦萨学院美术馆，Inv. Scult. n. 1080",
+  "originalStatus": "原作，未完成。四面仍保留着方形石块的边，表面留有凿子、锉刀和弓钻的痕迹。",
+  "provenance": "原为尤利乌斯二世陵墓而作；陵墓方案缩小后留在米开朗基罗的工作室；他去世后归托斯卡纳大公科西莫一世，安置在波波利花园的布翁塔伦蒂洞窟，1909 年移入学院美术馆（据学院美术馆）。",
+  "infoSources": [
+    {
+      "label": "佛罗伦萨学院美术馆：Atlas（年代、尺寸、来历、工具痕迹）",
+      "url": "https://www.galleriaaccademiafirenze.it/en/artworks/atlas-michelangelo/"
+    },
+    {
+      "label": "佛罗伦萨学院美术馆：David（1501 年 8 月 16 日委托、400 杜卡特、1504 年 1 月 25 日委员会、9 月 8 日揭幕、高 517 厘米、重 5560 公斤）",
+      "url": "https://www.galleriaaccademiafirenze.it/en/artworks/david-michelangelo/"
+    },
+    {
+      "label": "大英博物馆：西斯廷礼拜堂穹顶的第一份装饰方案与手臂研究，1508 年，1859,0625.567",
+      "url": "https://www.britishmuseum.org/collection/object/P_1859-0625-567"
+    },
+    {
+      "label": "《大英百科全书》：Michelangelo（生平、委托、方法、晚年）；How did Michelangelo paint the ceiling of the Sistine Chapel?",
+      "url": "https://www.britannica.com/biography/Michelangelo"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/michelangelo-atlas-prisoner.jpg",
+      "kind": "full",
+      "width": 1468,
+      "height": 2200,
+      "alt": "一块直立的白色大理石，四边还是方方正正的石块。石块中部，一个男人的躯干已经凿出来了：胸、腹的肌肉磨得光滑，一条腿从石头里伸出；左上方，他的头和举起的手臂还埋在一大团粗糙的石头里，只露出一块弯折的手肘；下半部的石面上布满了一道道平行的凿痕和坑点。",
+      "caption": "米开朗基罗《囚徒（“阿特拉斯”）》，约 1525—1530 年，大理石，高 277 厘米，佛罗伦萨学院美术馆藏。未完成。",
+      "credit": {
+        "author": "Jörg Bittner Unna",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%27Atlas_Slave%27_by_Michelangelo_-_JBU_01.jpg",
+        "date": "2011-08-23",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "pieta",
+      "src": "/img/michelangelo-pieta.jpg",
+      "kind": "detail",
+      "subject": "米开朗基罗《哀悼基督》（圣母怜子），1498—1499 年，梵蒂冈圣彼得大教堂",
+      "width": 1584,
+      "height": 1660,
+      "alt": "一组白色大理石雕像：年轻的圣母坐着，宽大的衣袍层层叠叠铺满膝盖，膝上横躺着基督死去的身体，头向后垂，一只手臂垂落。圣母低头看着，左手向外摊开。圣母胸前斜挂着一条衣带。",
+      "caption": "米开朗基罗《哀悼基督》，1498—1499 年，大理石，梵蒂冈圣彼得大教堂。圣母胸前的衣带上刻着他的名字。",
+      "credit": {
+        "author": "Stanislav Traykov",
+        "licence": "CC BY 2.5",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.5/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色"
+      }
+    },
+    {
+      "key": "david",
+      "src": "/img/michelangelo-david.jpg",
+      "kind": "detail",
+      "subject": "米开朗基罗《大卫》，1501—1504 年，佛罗伦萨学院美术馆",
+      "width": 1374,
+      "height": 2200,
+      "alt": "一尊巨大的白色大理石裸体青年立像，站在一个半圆形大厅的中央。他的重心在右腿上，左腿放松，右手垂在身侧，左手举到肩头，握着搭在肩上的投石带；头转向左边，眉头微皱，望着远处。",
+      "caption": "米开朗基罗《大卫》，1501—1504 年，大理石，连底座高 517 厘米，佛罗伦萨学院美术馆藏。",
+      "credit": {
+        "author": "Livioandronico2013",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michelangelo%27s_David_2015.jpg",
+        "date": "2015-12-06",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "ceiling",
+      "src": "/img/michelangelo-sistine-ceiling.jpg",
+      "kind": "detail",
+      "subject": "米开朗基罗，西斯廷礼拜堂穹顶壁画，1508—1512 年，梵蒂冈",
+      "width": 3129,
+      "height": 1125,
+      "alt": "从下往上拍的整个穹顶：中央一条长带被画出来的建筑框架分成九格，每格一个场景；两侧是一排坐在宝座上的巨大的先知和女先知，宝座之间是三角形的拱腹和弦月窗，画满了人物。颜色明亮，以粉、绿、橙、蓝为主。",
+      "caption": "西斯廷礼拜堂穹顶，1508—1512 年。中央九格是《创世记》的故事，两侧是七位先知和五位女先知。",
+      "credit": {
+        "author": "Qypchak",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CAPPELLA_SISTINA_Ceiling.jpg",
+        "date": "2010-05-04",
+        "changes": "重新压缩；未裁切、未缩放；上传者已调整过色偏，颜色可能偏蓝"
+      }
+    },
+    {
+      "key": "arm",
+      "src": "/img/michelangelo-arm-study-boijmans.jpg",
+      "kind": "detail",
+      "subject": "米开朗基罗，为西斯廷穹顶《挪亚醉酒》所作的伸臂习作，约 1508—1509 年，鹿特丹博伊曼斯·范伯宁恩博物馆",
+      "width": 1971,
+      "height": 2200,
+      "alt": "一张泛黄的纸上，用黑色粉笔画着两条伸出的右臂，一上一下，都是从肩到手：上面一条伸直，食指指向左方；下面一条手掌摊开，手指微曲。肌肉和骨节用细密的排线画出明暗，纸上还有一些淡淡的划痕和污点。",
+      "caption": "米开朗基罗为《挪亚醉酒》画的伸臂习作，约 1508—1509 年，纸本黑粉笔，20.5 × 16 厘米，鹿特丹博伊曼斯·范伯宁恩博物馆藏。",
+      "credit": {
+        "author": "博伊曼斯·范伯宁恩博物馆（Google Arts & Culture），经维基共享资源取得",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michelangelo_Buonarroti_-_Studies_of_an_outstretched_arm_for_the_fresco_%27The_Drunkenness_of_Noah%27_in_the_Sistine_Chapel_-_Google_Art_Project.jpg",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "laurentian",
+      "src": "/img/michelangelo-laurentian-stair.jpg",
+      "kind": "detail",
+      "subject": "米开朗基罗设计，洛伦佐图书馆前厅与楼梯，佛罗伦萨圣洛伦佐教堂",
+      "width": 2000,
+      "height": 1306,
+      "alt": "一间高而窄的灰白色厅堂：墙上一对对深灰色的石柱嵌在墙里面，而不是站在墙前；柱子之间是空着的假窗框。厅中央一道石阶从地面向上铺开，通向上方一扇门，门里露出长长的阅览室。",
+      "caption": "洛伦佐图书馆的前厅（ricetto）。柱子被“嵌”进墙里，楼梯从厅中央流下来。",
+      "credit": {
+        "author": "Richard Mortel",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staircase_of_the_Laurentian_LIbrary,_15th_century,_designed_by_Michelangelo;_Florence_(1)_(48768085723).jpg",
+        "date": "2019-06-20",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "米开朗基罗的作品早已进入公有领域。雕像和建筑的照片来自维基共享资源上以 CC BY / CC BY-SA 授权的摄影者，素描为公有领域平面作品的忠实翻拍。大英博物馆的穹顶方案素描图像为非商业授权，本站只给出馆方页面。",
+  "rights": {
+    "status": "作品属公有领域（米开朗基罗 1564 年去世）；照片各有授权",
+    "basis": "雕像、壁画、建筑与素描本身均已进入公有领域。立体作品的照片由摄影者以 CC BY 2.0 / 2.5、CC BY-SA 3.0 / 4.0 授权，须署名，CC BY-SA 须相同方式共享；素描为平面作品的忠实翻拍，按维基共享资源 PD-Art 政策视为公有领域。大英博物馆图像采用 CC BY-NC-SA 4.0，非商业限制超出本站的授权范围，故不复制。本站第 43 课已用过的《利比亚女先知》习作与壁画，本篇不再使用。",
+    "verifiedOn": "2026-10-29",
+    "note": "信件与诗句据二手资料转述；年份、尺寸据学院美术馆、大英博物馆与《大英百科全书》。"
+  },
+  "card": {
+    "type": "雕塑 · 未完成",
+    "maker": "米开朗基罗",
+    "period": "文艺复兴盛期 · 约 1525—1530 年",
+    "facets": [
+      {
+        "label": "材料",
+        "value": "大理石"
+      },
+      {
+        "label": "高度",
+        "value": "277 cm"
+      },
+      {
+        "label": "原定用途",
+        "value": "尤利乌斯二世陵墓"
+      },
+      {
+        "label": "收藏",
+        "value": "佛罗伦萨学院美术馆"
+      }
+    ],
+    "blurb": "一个还困在石头里的人，身上留着凿子和弓钻的痕迹。",
+    "focus": "50% 30%",
+    "image": "full"
+  }
+}

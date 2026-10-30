@@ -46,6 +46,12 @@ export const ARTIST_CARDS = [
   'art-monet-water-lily-pond-1900-001',
   'art-gaudi-sagrada-familia-001',
   'art-nek-chand-bangle-man-001',
+  'art-xu-wei-pomegranate-001',
+  'art-bada-birds-lotus-pond-001',
+  'art-pan-yuliang-self-portrait-bronze-001',
+  'art-michelangelo-atlas-prisoner-001',
+  'art-picasso-guernica-001',
+  'art-kollwitz-grieving-parents-001',
 ];
 
 /**

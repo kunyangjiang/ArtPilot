@@ -1,0 +1,141 @@
+{
+  "id": "art-picasso-guernica-001",
+  "kind": "painting",
+  "titleZh": "格尔尼卡",
+  "titleEn": "Guernica",
+  "artist": "巴勃罗·毕加索",
+  "attributionNote": "巴勃罗·毕加索（1881—1973）作，1937 年 5 月 1 日至 6 月 4 日画于巴黎大奥古斯丁街的画室，为 1937 年巴黎世界博览会西班牙共和国馆而作。",
+  "dateApprox": "1937 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 349.3,
+    "width": 776.6
+  },
+  "dimensionsSource": "据索菲亚王后国家艺术中心博物馆公布的数据：349.3 × 776.6 厘米。",
+  "collection": "马德里，索菲亚王后国家艺术中心博物馆，DE00050",
+  "officialPage": {
+    "label": "索菲亚王后国家艺术中心博物馆：Guernica，DE00050",
+    "url": "https://www.museoreinasofia.es/en/collections/artwork/guernica-0/"
+  },
+  "infoSources": [
+    {
+      "label": "索菲亚王后国家艺术中心博物馆：Guernica（日期、尺寸、入藏、西班牙共和国政府购得、寄存纽约现代艺术博物馆、1981 年回到西班牙、图像志）",
+      "url": "https://www.museoreinasofia.es/en/collections/artwork/guernica-0/"
+    },
+    {
+      "label": "索菲亚王后国家艺术中心博物馆“重思格尔尼卡”档案：Dora Maar’s report on Guernica’s progression（5 月 1 日起草图、5 月 11 日至 6 月 4 日的照片、二十八张照片）",
+      "url": "https://guernica.museoreinasofia.es/en/document/dora-maars-report-guernicas-progression"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Les Demoiselles d’Avignon，333.1939",
+      "url": "https://www.moma.org/collection/works/79766"
+    },
+    {
+      "label": "大都会艺术博物馆：Gertrude Stein，47.106",
+      "url": "https://www.metmuseum.org/art/collection/search/488221"
+    }
+  ],
+  "images": [
+    {
+      "key": "greco",
+      "src": "/img/el-greco-vision-saint-john-met.jpg",
+      "kind": "detail",
+      "subject": "埃尔·格列柯《圣约翰的幻象》，约 1608—1614 年，大都会艺术博物馆；不是毕加索的作品",
+      "width": 1956,
+      "height": 2200,
+      "alt": "一幅竖长的油画。左边是一个穿浅蓝长袍的巨大人物，跪着，两臂高高举向天空，脸仰着。右边远处是一群赤裸的人，有男有女，身体瘦长，有的站着，有的跪着，向上伸手去够空中小天使递下来的黄色、绿色和白色的布。天空是翻滚的褐色和灰白色的云，人物之间几乎没有纵深。",
+      "caption": "埃尔·格列柯《圣约翰的幻象》，约 1608—1614 年，布面油画，222.3 × 193 厘米，大都会艺术博物馆藏。画的上部在 1880 年被裁去了一截。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0（公有领域，开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436576",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "cezanne",
+      "src": "/img/cezanne-bathers-1874-met.jpg",
+      "kind": "detail",
+      "subject": "保罗·塞尚《浴者》，1874—1875 年，大都会艺术博物馆；不是毕加索的作品",
+      "width": 2000,
+      "height": 1675,
+      "alt": "一幅横幅的小油画：河边的树下，六个赤裸的女人或站或坐或躺，一个正走进水里，一个弯腰站在右边的岸上。左边一块白布挂在树上。笔触是一块块短短的方形色块，绿树、蓝天、肉色的身体，都没有细节。",
+      "caption": "保罗·塞尚《浴者》，1874—1875 年，布面油画，38.1 × 46 厘米，大都会艺术博物馆藏。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0（公有领域，开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/435867",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "gernika",
+      "src": "/img/gernika-ruins-1937-bundesarchiv.jpg",
+      "kind": "detail",
+      "subject": "1937 年轰炸后的格尔尼卡镇，德国联邦档案馆藏照片；不是毕加索的作品",
+      "width": 798,
+      "height": 584,
+      "alt": "一张黑白照片：一条街两边的楼房只剩下空壳，墙上是一排排没有玻璃的窗洞，屋顶都没了；街上堆满碎砖和瓦砾。远处有几个小小的人影。左边有一棵树，叶子还在。",
+      "caption": "1937 年，轰炸后的格尔尼卡。德国联邦档案馆藏，档案号 Bild 183-H25224；原说明只写“格尔尼卡的废墟”。",
+      "credit": {
+        "author": "摄影者不详；德国联邦档案馆（Bundesarchiv），Bild 183-H25224",
+        "licence": "CC BY-SA 3.0 DE",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-H25224,_Guernica,_Ruinen.jpg",
+        "date": "1937",
+        "changes": "重新压缩；未裁切、未缩放、未调色"
+      }
+    },
+    {
+      "key": "goya",
+      "src": "/img/goya-disasters-60-met.jpg",
+      "kind": "detail",
+      "subject": "戈雅《战争的灾难》第 60 号《没有人救他们》，1811—1812 年作，1863 年出版，大都会艺术博物馆；不是毕加索的作品",
+      "width": 2000,
+      "height": 1453,
+      "alt": "一张泛黄的纸中央印着一幅小小的褐色版画：荒野上，几个人横七竖八地倒在地上，一个裹着披风的人站在他们中间，用手捂着脸。背后是一片灰蒙蒙的天，像烟又像雾。画下面印着一行西班牙文标题。",
+      "caption": "弗朗西斯科·德·戈雅《战争的灾难》第 60 号《没有人救他们》（No hay quien los socorra），1811—1812 年作，1863 年出版；蚀刻、细点腐蚀，版面 14.9 × 20.5 厘米，大都会艺术博物馆藏。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "CC0（公有领域，开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/361849",
+        "changes": "缩小并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "毕加索 1973 年去世，作品仍受著作权保护，本站不复制它们的图像，只给出收藏机构的页面，并说明打开以后看什么。朵拉·玛尔拍摄《格尔尼卡》创作过程的照片另有著作权，也只给出链接。页面上的四张图，是与故事有关的别人的作品和一张 1937 年的照片，每张都标明了不是毕加索的作品。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构页面的链接，不复制作品的图像",
+    "basis": "毕加索 1973 年去世。在西班牙，1987 年以前去世的作者，作品保护至去世后 80 年（2053 年底）；在法国及欧盟其他国家，至少保护至去世后 70 年（2043 年底）；在美国，1937 年发表的作品保护至 2032 年底。毕加索遗产管理方通过各国集体管理组织授权，纽约现代艺术博物馆与大都会艺术博物馆页面都注明了版权限制。朵拉·玛尔的照片另受保护（VEGAP）。辅助图像：格列柯、塞尚、戈雅的作品在大都会开放获取中为 CC0；1937 年的格尔尼卡照片由德国联邦档案馆以 CC BY-SA 3.0 DE 授权。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。"
+  },
+  "card": {
+    "type": "油画 · 壁画尺幅",
+    "maker": "巴勃罗·毕加索",
+    "period": "1937 年 5 月 1 日—6 月 4 日 · 巴黎",
+    "facets": [
+      {
+        "label": "材料",
+        "value": "布面油画，只用黑、白、灰"
+      },
+      {
+        "label": "尺寸",
+        "value": "349.3 × 776.6 cm"
+      },
+      {
+        "label": "原定用途",
+        "value": "1937 年巴黎世博会西班牙馆"
+      },
+      {
+        "label": "收藏",
+        "value": "马德里，索菲亚王后艺术中心"
+      }
+    ],
+    "blurb": "一个月里改了又改的一面墙，二十八张照片记下了它怎样变成现在的样子。",
+    "image": null
+  }
+}

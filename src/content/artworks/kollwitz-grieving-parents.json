@@ -1,0 +1,170 @@
+{
+  "id": "art-kollwitz-grieving-parents-001",
+  "kind": "object",
+  "titleZh": "悲伤的父母",
+  "titleEn": "Grieving Parents (Trauernde Eltern)",
+  "artist": "凯绥·珂勒惠支",
+  "attributionNote": "凯绥·珂勒惠支（1867—1945）为长眠于比利时佛兰德斯的儿子彼得所作的一对纪念像，1914—1932 年。石像按她的石膏模型，由雕塑家奥古斯特·拉德斯与弗里茨·迪德里希用比利时花岗岩凿成（据科隆珂勒惠支博物馆）。",
+  "dateApprox": "1914—1932 年",
+  "objectType": "纪念雕像（一对：父亲与母亲）",
+  "medium": "比利时花岗岩",
+  "dimensions": "原作尺寸本站未见馆方公布；科隆老圣阿尔班教堂废墟中的复制品比原作放大约百分之十，父亲约 178 × 66 × 88 厘米，母亲约 164 × 70 × 120 厘米（据科隆珂勒惠支博物馆）",
+  "collection": "比利时弗拉兹洛德国士兵公墓（原作）",
+  "originalStatus": "原作，花岗岩，露天立于公墓中。科隆另有一对 1953—1954 年制作、1959 年落成的贝壳灰岩复制品。",
+  "provenance": "1931 年石膏模型首次在柏林艺术学院展出；1932 年凿成花岗岩，先在柏林国家美术馆前厅展出，同年 7 月由珂勒惠支夫妇亲自到比利时监督，立于罗格费尔德士兵公墓；1956 年该公墓的墓葬并入弗拉兹洛，雕像随之迁移（据科隆珂勒惠支博物馆）。",
+  "officialPage": {
+    "label": "科隆珂勒惠支博物馆：The Memorial »Grieving Parents«",
+    "url": "https://www.kollwitz.de/kollwitz-in-cologne/grieving-parents"
+  },
+  "infoSources": [
+    {
+      "label": "科隆珂勒惠支博物馆：The Memorial »Grieving Parents«（十八年；彼得 1914 年 10 月 22 日阵亡，十八岁；原先的三人方案；父母带着画家与丈夫的面容；1932 年 10 月 11 日致卡默勒的信；1956 年迁至弗拉兹洛；科隆复制品）",
+      "url": "https://www.kollwitz.de/kollwitz-in-cologne/grieving-parents"
+    },
+    {
+      "label": "科隆珂勒惠支博物馆：Biography（生平年表）",
+      "url": "https://www.kollwitz.de/biography"
+    },
+    {
+      "label": "哥本哈根国立美术馆（SMK）：Ein Weberaufstand – Weberzug，KKS19696；Not，KKS19693",
+      "url": "https://open.smk.dk/artwork/image/KKS19696"
+    },
+    {
+      "label": "荷兰国立博物馆：Staande volksvrouw moedigt oprukkende groep mannen aan（Losbruch 草图），RP-T-1960-79",
+      "url": "https://id.rijksmuseum.nl/200116822"
+    }
+  ],
+  "images": [
+    {
+      "key": "volunteers",
+      "src": "/img/kollwitz-freiwilligen.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支木刻组画《战争》第 2 幅《志愿兵》，1921—1922 年，第二状态的手印本；不是纪念像本身",
+      "width": 2200,
+      "height": 1646,
+      "alt": "一幅几乎全黑的木刻，白色的线条是用刀刻出来的。左上角是一个骷髅般的死神，一手高举，左下角是一面画着白色锯齿纹的鼓。死神身后，一排年轻人仰着头、张着嘴、闭着眼，身体向右前方冲去，头顶上的白色刻痕像一圈竖起的头发。一道细细的白色弧线从左上方划过整个画面。画面下方是一片锯齿状的白色。",
+      "caption": "凯绥·珂勒惠支《志愿兵》，组画《战争》第 2 幅，1921—1922 年，木刻，35 × 49.6 厘米。这一张是第二状态的手印本，画家亲笔标注“第二状态，手印”并签名。",
+      "credit": {
+        "author": "凯绥·珂勒惠支；图像来自 Ketterer Kunst 拍卖图录，经维基共享资源",
+        "licence": "公有领域（作者 1945 年去世；作品 1931 年以前发表）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:K%C3%A4the_Kollwitz_Die_Freiwilligen.jpg",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "march",
+      "src": "/img/kollwitz-weberzug-smk.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支组画《织工起义》第 4 幅《织工游行》，1897 年，哥本哈根国立美术馆；不是纪念像本身",
+      "width": 2200,
+      "height": 1697,
+      "alt": "一幅褐黑色的蚀刻版画：一大群衣衫破旧的男人从左往右走过一片空旷的平地，有人扛着斧头、镐头，有人举起拳头，张嘴喊着什么。人群中间，一个穿黑衣的女人低着头，背上趴着一个熟睡的孩子。人物都用密密的细线刻出来，背景是一道低低的地平线和空白的天空。",
+      "caption": "凯绥·珂勒惠支《织工游行》，组画《织工起义》第 4 幅，1897 年，蚀刻，画面 21.6 × 29.4 厘米，哥本哈根国立美术馆藏（KKS19696）。",
+      "credit": {
+        "author": "哥本哈根国立美术馆（SMK）",
+        "licence": "公有领域（公共领域标记 1.0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "sourceUrl": "https://open.smk.dk/artwork/image/KKS19696",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "need",
+      "src": "/img/kollwitz-not-smk.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支组画《织工起义》第 1 幅《贫困》，1897 年，哥本哈根国立美术馆；不是纪念像本身",
+      "width": 1775,
+      "height": 2200,
+      "alt": "一大张白纸中央印着一幅小小的方形褐色石版画：昏暗的屋子里，一个女人双手抱着头，弯腰坐在小床边；床上躺着一个脸色苍白、瘦小的孩子。屋子后面是一架织布机和一扇亮着的小窗，左边角落里坐着两个模糊的人影。",
+      "caption": "凯绥·珂勒惠支《贫困》，组画《织工起义》第 1 幅，1897 年，石版画，画面 17.1 × 16.9 厘米，哥本哈根国立美术馆藏（KKS19693）。",
+      "credit": {
+        "author": "哥本哈根国立美术馆（SMK）",
+        "licence": "公有领域（公共领域标记 1.0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "sourceUrl": "https://open.smk.dk/artwork/image/KKS19693",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "drawing",
+      "src": "/img/kollwitz-losbruch-drawing-rijks.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支为组画《农民战争》中《爆发》所作的草图，1898—1903 年，荷兰国立博物馆；不是纪念像本身",
+      "width": 2200,
+      "height": 1852,
+      "alt": "一张褐色的纸上用黑粉笔画着：画面中央一个穿长裙的女人背对着我们，两臂高高举起，拳头攥紧。她只用几根粗线勾出轮廓，里面是空白的。她右边，一大群男人弯着腰、握着武器向右冲去，画得又黑又密，几乎糊成一片；左边地上隐约躺着一个人。",
+      "caption": "凯绥·珂勒惠支《爆发》草图，1898—1903 年，褐纸黑粉笔，55 × 65 厘米，荷兰国立博物馆藏（RP-T-1960-79）。纸上写着“[La Révolte] Losbruch”。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "CC0（公有领域）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staande_volksvrouw_moedigt_oprukkende_groep_mannen_aan,_RP-T-1960-79.jpg",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "proof",
+      "src": "/img/kollwitz-losbruch-proof-smb.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支《爆发》的试印本，1903 年，画家又用铅笔、墨、彩色粉笔和白粉在上面改过，柏林国家博物馆版画素描馆；不是纪念像本身",
+      "width": 2200,
+      "height": 1891,
+      "alt": "和草图同一个构图的蚀刻版画：背对我们的女人高举双臂，右边一群农民握着镰刀、草叉冲出去，左边地上躺着一个人。纸面上有一层细细的布纹。女人举起的手臂画了两遍，一遍深一遍浅；人群和天空上有一些用笔加上去的浅褐、浅蓝色和白色。",
+      "caption": "《爆发》的一张试印本，1903 年，蚀刻、干刻、飞尘腐蚀与软底，并用两种布料压印出纹理；印好以后，画家又用铅笔、褐墨、彩色粉笔和白粉在上面修改。柏林国家博物馆版画素描馆藏。",
+      "credit": {
+        "author": "凯绥·珂勒惠支；柏林国家博物馆版画素描馆提供，经维基共享资源",
+        "licence": "公有领域（作者 1945 年去世；作品 1931 年以前发表）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kupferstichkabinett_(SMB)_K%C3%A4the_Kollwitz-Bauernkrieg_1920256.jpg",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "edition",
+      "src": "/img/kollwitz-losbruch-edition-smb.jpg",
+      "kind": "detail",
+      "subject": "珂勒惠支《爆发》，组画《农民战争》第 5 幅，1902—1903 年刻版、1921 年印的版本，柏林国家博物馆版画素描馆；不是纪念像本身",
+      "width": 2200,
+      "height": 1690,
+      "alt": "同一块铜版印出的定稿：背对我们的女人只剩一对举起的手臂，穿一件深色长裙；右边的农民握着武器冲出去，画面整体更暗、更统一。天空里有几块白云，画面下边留出了宽宽的纸边，右下角有铅笔签名。",
+      "caption": "《爆发》，组画《农民战争》第 5 幅，1902—1903 年作，1921 年由柏林费尔辛印刷所印、德累斯顿埃米尔·里希特出版，蚀刻、干刻、飞尘腐蚀与软底，版面约 51.5 × 59.2 厘米。柏林国家博物馆版画素描馆藏。",
+      "credit": {
+        "author": "凯绥·珂勒惠支；柏林国家博物馆版画素描馆提供，经维基共享资源",
+        "licence": "公有领域（作者 1945 年去世；作品 1931 年以前发表）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kupferstichkabinett_(SMB)_K%C3%A4the_Kollwitz-Bauernkrieg_2268562.jpg",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "《悲伤的父母》1932 年才完成，本站按保守的做法不复制它的图像，只给出科隆珂勒惠支博物馆的页面。页面上的图都是珂勒惠支 1931 年以前发表的版画和素描，每张都标明了不是纪念像本身。",
+  "rights": {
+    "status": "纪念像本身：只提供官方页面；文中图像：公有领域",
+    "basis": "珂勒惠支 1945 年去世，作品在欧盟自 2016 年起进入公有领域。在美国，1931 年以前发表的作品已进入公有领域；1932 年完成的《悲伤的父母》在美国可能仍受保护至 2027 年底，纪念像的照片另有摄影者的权利，故不复制。文中的版画和素描均为 1931 年以前发表或制作：哥本哈根国立美术馆以公共领域标记发布，荷兰国立博物馆以 CC0 发布，柏林版画素描馆提供给维基共享资源的图像与《志愿兵》均标为公有领域的平面翻拍。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。"
+  },
+  "card": {
+    "type": "纪念雕像 · 一对",
+    "maker": "凯绥·珂勒惠支",
+    "period": "1914—1932 年 · 比利时",
+    "facets": [
+      {
+        "label": "材料",
+        "value": "比利时花岗岩"
+      },
+      {
+        "label": "为谁而作",
+        "value": "1914 年阵亡的儿子彼得"
+      },
+      {
+        "label": "所在",
+        "value": "弗拉兹洛德国士兵公墓"
+      },
+      {
+        "label": "用了多久",
+        "value": "十八年"
+      }
+    ],
+    "blurb": "一位母亲用十八年，把一个阵亡士兵的纪念碑，改成了两个跪着的父母。",
+    "image": null
+  }
+}
