@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 shots/
+# Source videos for the Text Match Cut intro (Phase 4.29, canceled); kept locally, never committed.
+_assets/text-match-cut/
