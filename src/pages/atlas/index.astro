@@ -1,0 +1,14 @@
+---
+// The Atlas hall (同时代的世界): src/components/atlas/AtlasHall.astro.
+import Base from '../../layouts/Base.astro';
+import AtlasHall from '../../components/atlas/AtlasHall.astro';
+import BackToTop from '../../components/BackToTop.astro';
+import AtlasBackdrop from '../../components/atlas/AtlasBackdrop.astro';
+---
+<Base title="同时代的世界 · ArtPilot" description="选一个时代，看世界各地同时在创造什么：九个时间窗口，各地的作品、对照与证据。" dark nav={{ tone: 'gallery', back: { href: '/', label: '首页' }, hall: 'atlas', here: true }}>
+  <section class="archive">
+    <AtlasHall />
+    <AtlasBackdrop />
+  </section>
+  <BackToTop />
+</Base>

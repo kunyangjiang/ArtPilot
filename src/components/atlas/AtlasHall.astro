@@ -1,0 +1,1334 @@
+---
+// The Atlas hall (同时代的世界), in three levels.
+// 1. Time: one timeline across all nine windows, with one selection — a year and the years around it (the default), or
+//    a whole window (chosen from the numerals under the axis). Nothing else on the page selects time.
+// 2. Works: the works of that selection, from every part of the world, as cards with their images; a part of the
+//    world can be chosen above them.
+// 3. Deeper, on request, for the window holding the selection: its overview on a time axis (with what the site lacks),
+//    a plan of where the works were made, and the site's comparisons. Any two works can also be compared side by side.
+// Everything is rendered at build time, so the hall reads without scripts: the timeline at its opening year, every
+// work, and each window's comparisons. The data: src/data/atlas.ts over the collection's records; the time logic:
+// src/lib/atlasTime.js.
+import { getCollection } from 'astro:content';
+import { destinations } from '../../data/home';
+import { WINDOWS, ANCHORS, BANDS, BAND_COLOUR, CONTEXT, type Entry, type Source, type Precision, type Band } from '../../data/atlas';
+import { astro, relation, relationText, yearParts } from '../../lib/atlasTime.js';
+
+const d = destinations.find((x) => x.id === 'atlas')!;
+const records = new Map((await getCollection('artworks')).map((r) => [r.id, r.data]));
+const lessons = await getCollection('lessons');
+const essays = await getCollection('essays');
+const anchors = new Map(ANCHORS.map((a) => [a.id, a]));
+const contexts = new Map(CONTEXT.map((c) => [c.id, c]));
+const essayHref = (e: (typeof essays)[number]) => `${e.data.kind === 'artist-story' ? '/stories/' : '/cases/'}${e.id}/`;
+
+// Six parts of the world: the eight bands of the data, gathered so that none stands nearly empty.
+const WALLS: { id: string; label: string; en: string; bands: Band[] }[] = [
+  { id: 'east-asia', label: '东亚', en: 'East Asia', bands: ['east-asia'] },
+  { id: 'south-se-asia', label: '南亚与东南亚', en: 'South & Southeast Asia', bands: ['south-asia', 'southeast-asia'] },
+  { id: 'west-asia', label: '西亚', en: 'West Asia', bands: ['west-asia'] },
+  { id: 'africa', label: '非洲', en: 'Africa', bands: ['africa'] },
+  { id: 'europe', label: '欧洲', en: 'Europe', bands: ['europe'] },
+  { id: 'americas-oceania', label: '美洲与大洋洲', en: 'The Americas & Oceania', bands: ['americas', 'oceania'] },
+];
+const wallOf = (b: Band) => WALLS.find((w) => w.bands.includes(b))!;
+// Works whose place cannot be determined stand apart, as a part of the world of their own.
+const NOWHERE = { id: 'none', label: '地点无法确定', en: 'Place unknown', bands: [] as Band[] };
+const wallId = (x: { wall: { id: string } | null }) => x.wall?.id ?? 'none';
+// Each part of the world's colour (BAND_COLOUR), set as --wc on its row, cards and button; place unknown stays grey.
+const wc = (w: { bands: Band[] }) => `--wc:${w.bands.length ? BAND_COLOUR[w.bands[0]] : '169 168 162'}`;
+const bandLabel = (b: Band) => BANDS.find((x) => x.id === b)!.label;
+
+const PRECISION: Record<Precision, string> = {
+  year: '确切年份', range: '有记录的起止年份', approx: '约数', century: '只能定到世纪',
+  period: '只能定到时期', disputed: '有争议或不确定', deep: '最小年龄或地层年代',
+};
+const ESTIMATED = new Set<Precision>(['approx', 'century', 'period', 'disputed', 'deep']);
+// The plan's ground: one tile per cell of the 26 × 14 grid the anchors sit on (src/data/atlas.ts). # land, o an island,
+// . sea. Drawn to the anchors, not to scale: Europe and the Mediterranean are squeezed, the oceans narrowed, so that
+// every anchor lands on its own land and the map still reads at a glance.
+const LAND = [
+  '.#####.##...############..',
+  '.#####....o#############..',
+  '.#####....############....',
+  '..###.....############o...',
+  '..##......#####.######....',
+  '..##o.....#####.######o...',
+  '...#.....######..#.#.o....',
+  '....##.....####...o#.....o',
+  '....####....###.....oooo..',
+  '....####....###...........',
+  '....###.....###o....####..',
+  '....###.....##......####..',
+  '.....#......#........##..o',
+  '.....#....................',
+];
+const tiles = LAND.flatMap((row, r) => [...row].flatMap((t, c) => (t === '.' ? [] : [{ c, r, island: t === 'o' }])));
+const MAP_NAMES = [
+  { x: 3.5, y: 0.62, t: '北美洲' }, { x: 8.2, y: 12.6, t: '南美洲' }, { x: 11.5, y: 0.62, t: '欧洲' },
+  { x: 13.5, y: 10.62, t: '非洲' }, { x: 17.5, y: 1.62, t: '亚洲' }, { x: 21.5, y: 10.62, t: '大洋洲' },
+  { x: 7.5, y: 4.6, t: '大西洋', sea: true }, { x: 17.6, y: 9.6, t: '印度洋', sea: true }, { x: 24, y: 4.6, t: '太平洋', sea: true },
+];
+const PLACE: Record<string, string> = { site: '遗址或建筑', city: '城市', region: '地区', tradition: '只能定到传统或政权', unknown: '无法确定' };
+const CONTACT = { 'none-known': '没有已知的接触', documented: '有记录的往来', indirect: '共同的框架，没有直接联系' };
+
+const source = (s: Source) => {
+  if (s.lesson) { const l = lessons.find((x) => x.id === s.lesson); return { label: `本站课程：${l?.data.title ?? s.lesson}`, href: `/lessons/${s.lesson}/` }; }
+  if (s.essay) { const e = essays.find((x) => x.id === s.essay)!; return { label: `本站${e.data.kind === 'artist-story' ? '故事' : '案例'}：${e.data.title}`, href: essayHref(e) }; }
+  return { label: s.label!, href: s.url };
+};
+
+// A work as the hall shows it: from its record (or its context entry), with its Atlas entry beside it.
+function work(e: Entry) {
+  const anchor = e.place.anchor ? anchors.get(e.place.anchor)! : null;
+  const band = anchor?.band ?? null;
+  const base = { entry: e, anchor, band, wall: band ? wallOf(band) : null };
+  const c = contexts.get(e.id);
+  if (c) {
+    return { ...base, title: c.title, titleEn: c.titleEn, maker: c.maker, image: null, textOnly: true, record: null, official: null,
+      links: c.lesson ? [{ href: `/lessons/${c.lesson}/`, label: `本站课程：${lessons.find((l) => l.id === c.lesson)?.data.title}` }] : [],
+      sources: c.sources.map(source), context: true };
+  }
+  const r = records.get(e.id)!;
+  const img = r.officialPage ? null : (r.images.find((i) => i.key === 'full') ?? r.images[0]);
+  const links = [
+    ...lessons.filter((l) => l.data.artwork.id === e.id || l.data.cards?.some((c) => c.id === e.id) || l.body?.includes(e.id))
+      .map((l) => ({ href: `/lessons/${l.id}/`, label: `课程：${l.data.title}` })),
+    ...essays.filter((x) => x.data.hero.artwork.id === e.id || x.body?.includes(e.id))
+      .map((x) => ({ href: essayHref(x), label: `${x.data.kind === 'artist-story' ? '故事' : '案例'}：${x.data.title}` })),
+  ];
+  return { ...base, title: r.titleZh, titleEn: r.titleEn, maker: r.artist?.replace(/（[^）]*）/g, '') ?? '', image: img, textOnly: !img,
+    record: `/artworks/${e.id}/`, official: r.officialPage ?? null, links, sources: [], context: false };
+}
+type Work = ReturnType<typeof work>;
+
+// A window's own time axis (the overview): years as a fraction of its span, in astronomical years.
+const niceSteps = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 5000, 10000, 20000];
+const windows = WINDOWS.map((w, wi) => {
+  const span = astro(w.to) - astro(w.from) + 1;
+  const pos = (y: number) => ((astro(y) - astro(w.from)) / span) * 100;
+  const step = niceSteps.find((s) => span / s <= 7)!;
+  const ticks: number[] = [];
+  for (let a = Math.ceil(astro(w.from) / step) * step; a <= astro(w.to); a += step) ticks.push(a <= 0 ? a - 1 : a);
+  const works = w.entries.map(work);
+  // One row per part of the world that has works here, works in lanes so their bars and names do not collide.
+  const rows = [...WALLS, NOWHERE].map((wall) => {
+    const items = works.filter((x) => wallId(x) === wall.id).sort((a, b) => a.entry.when.from - b.entry.when.from);
+    const ends: number[] = [];
+    const placed = items.map((x) => {
+      const left = Math.max(0, pos(x.entry.when.from)), right = Math.min(100, pos(x.entry.when.to) + 100 / span);
+      const width = Math.max(right - left, 0.5);
+      const lw = x.title.length * 1.75 + 1.5, flip = left + lw > 100;
+      const start = flip ? Math.min(left, left + width - lw) : left, end = flip ? left + width : Math.max(left + width, left + lw);
+      let lane = ends.findIndex((e) => e <= start);
+      if (lane === -1) { lane = ends.length; ends.push(0); }
+      ends[lane] = end + 1;
+      return { ...x, left, width, lane, flip, start };
+    });
+    return { wall, items: placed, lanes: Math.max(1, ends.length) };
+  }).filter((r) => r.items.length);
+  const unlocated = works.filter((x) => !x.anchor);
+  const byAnchor = new Map<string, Work[]>();
+  works.forEach((x) => { if (x.anchor) byAnchor.set(x.anchor.id, [...(byAnchor.get(x.anchor.id) ?? []), x]); });
+  const comparisons = w.comparisons.map((c) => {
+    const ws = c.works.map((id) => works.find((x) => x.entry.id === id)!);
+    // The wedge between each neighbouring pair: their spans on a shared scale, and what the dates allow us to say.
+    const lo = Math.min(...ws.map((x) => astro(x.entry.when.from))), hi = Math.max(...ws.map((x) => astro(x.entry.when.to))) + 1;
+    const wpos = (y: number) => ((astro(y) - lo) / Math.max(1, hi - lo)) * 100;
+    const wedges = ws.slice(1).map((b, i) => {
+      const a = ws[i];
+      return { text: relationText(relation(a.entry.when, b.entry.when)),
+        a: { l: wpos(a.entry.when.from), r: wpos(a.entry.when.to) + 100 / Math.max(1, hi - lo) },
+        b: { l: wpos(b.entry.when.from), r: wpos(b.entry.when.to) + 100 / Math.max(1, hi - lo) } };
+    });
+    return { ...c, ws, wedges, sources: c.contact.sources.map(source) };
+  });
+  const deep = w.entries.some((e) => e.when.precision === 'deep');
+  return { ...w, wi, span, pos, ticks, works, rows, unlocated, byAnchor, comparisons, deep };
+});
+const shortYear = (y: number) => (y < 0 ? (y <= -10000 ? `${Math.round(-y / 1000)}k BCE` : `${-y} BCE`) : `${y}`);
+
+// Every work once, by date: the cards of level 2. Each knows the site's comparisons it belongs to.
+const cmpsOf = (id: string) => windows.flatMap((w) => w.comparisons.filter((c) => c.works.includes(id)).map((c) => [c.id, c.title, w.wi]));
+const cards = windows.flatMap((w) => w.works.map((x) => ({ ...x, w })))
+  .sort((a, b) => a.entry.when.from - b.entry.when.from || a.entry.when.to - b.entry.when.to);
+
+// The timeline: all nine windows on one axis, a row for each part of the world. Each window takes an equal ninth of
+// the width — the scale is even inside a window, not across them, so 72,000 years of deep time take the width of the
+// last eighty — and the numerals under the axis mark the ninths.
+const NINTH = 100 / WINDOWS.length;
+const spanOf = (w: (typeof WINDOWS)[number]) => astro(w.to) - astro(w.from) + 1;
+const winOf = (y: number) => { const i = WINDOWS.findIndex((w) => y <= w.to); return i === -1 ? WINDOWS.length - 1 : i; };
+/** The left edge of year y on the axis (its right edge with `end`), in % of the axis. */
+const riverX = (y: number, end = false) => {
+  const i = winOf(y), w = WINDOWS[i];
+  return (i + Math.min(1, (Math.max(astro(y), astro(w.from)) - astro(w.from) + (end ? 1 : 0)) / spanOf(w))) * NINTH;
+};
+// What counts as "around" a year: about a tenth of its window, as a plain number of years (±50 in window V).
+const NEAR = [5, 10, 25, 50, 100, 250, 500, 1000, 5000, 10000];
+const nearOf = (w: (typeof WINDOWS)[number]) => NEAR.find((n) => n >= spanOf(w) * 0.1) ?? 10000;
+const START = 1150; // window V, where the hall opens
+const startNear = nearOf(WINDOWS[winOf(START)]);
+const startLo = START - startNear, startHi = START + startNear;
+const river = [...WALLS, NOWHERE].map((wall) => ({ wall, marks: cards.filter((x) => wallId(x) === wall.id) })).filter((r) => r.marks.length);
+const isNear = (e: Entry) => Math.max(e.when.from, startLo) <= Math.min(e.when.to, startHi);
+const axisYear = (y: number) => (y <= -10000 ? `前 ${Math.round(-y / 1000) / 10} 万` : y < 0 ? `前 ${-y}` : `${y}`);
+const [startEra, startNum] = yearParts(START);
+const total = cards.length;
+---
+<section class="at" aria-labelledby="at-title" data-at>
+  <!-- Before anything below is parsed: the hall is scripted, so it streams in already in its scripted shape (one
+       window, the opening works, the controls) instead of the whole no-JS reading. The page restores its own scroll
+       once its height is final (the script at the end), so a reload never lands on a taller page that then shrinks. -->
+  <script is:inline>
+    document.currentScript.parentElement.setAttribute('data-js', '');
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  </script>
+  <header class="at-head">
+    <p class="at-kicker">{d.label} · <span lang="en">{d.sub}</span></p>
+    <h1 id="at-title" tabindex="-1">{d.label}</h1>
+    <p class="at-premise">{d.premise}</p>
+  </header>
+
+  <!-- Level 1: time. -->
+  <div class="rv" data-river data-start={START}
+    data-windows={JSON.stringify(WINDOWS.map((w) => [w.from, w.to, nearOf(w), w.roman, w.label]))}>
+    <div class="rv-top">
+      <p class="rv-year" data-year-out><span class="rv-era">{startEra}</span><span class="rv-num" lang="en">{startNum}</span><span class="rv-era">年</span></p>
+      <p class="rv-hint" data-js-only>拖动时间线或用方向键换一个年份；点下面的罗马数字，看整个时期。</p>
+    </div>
+    <div class="rv-chart" data-chart aria-hidden="true">
+      {river.map((r) => (
+        <div class="rv-row" data-row={r.wall.id} style={wc(r.wall)}>
+          <span class="rv-label">{r.wall.label}</span>
+          <span class="rv-track">
+            {r.marks.map((m) => (
+              <span class:list={['rv-m', { est: ESTIMATED.has(m.entry.when.precision), near: isNear(m.entry) }]}
+                style={`--a:${riverX(m.entry.when.from).toFixed(3)};--b:${riverX(m.entry.when.to, true).toFixed(3)}`}
+                data-mark={m.entry.id} data-y0={m.entry.when.from} data-y1={m.entry.when.to} data-wall={r.wall.id}></span>
+            ))}
+          </span>
+        </div>
+      ))}
+      <span class="rv-cursor" data-cursor style={`--x:${riverX(START).toFixed(3)}`}></span>
+    </div>
+    <div class="rv-axis" role="group" aria-label="九个时期：选一个，看整个时期">
+      {windows.map((w) => (
+        <button type="button" style={`--x:${w.wi * NINTH}`} data-axis-win={w.wi} aria-pressed="false" aria-label={`整个第 ${w.roman} 时期：${w.label}`}>
+          <span lang="en">{w.roman}</span><span class="rv-axis-y">{axisYear(w.from)}</span>
+        </button>
+      ))}
+    </div>
+    <div class="rv-scrub" data-js-only>
+      <span class="rv-range" data-range aria-hidden="true" style={`--a:${riverX(startLo).toFixed(3)};--b:${riverX(startHi, true).toFixed(3)}`}></span>
+      <input type="range" min="0" max="900" step="1" data-scrub aria-label="选择年份（时间线上每个时期占同样的宽度）" />
+    </div>
+    <div class="rv-mode" role="group" aria-label="时间范围" data-js-only>
+      <button type="button" data-mode="near" aria-pressed="true">前后 <span data-near-n>{startNear}</span> 年</button>
+      <button type="button" data-mode="window" aria-pressed="false" data-window-label>整个第 V 时期</button>
+    </div>
+  </div>
+  <!-- Before the timeline is painted: draw it at the selection in the address (#y1840, #period-05), or at the opening
+       year, so a reload does not show 1150 first and then move. The same arithmetic as the module below (posOf, edge,
+       nearSpan in src/lib/atlasTime.js); the module redraws the same state a moment later. -->
+  <script is:inline>
+    (function () {
+      var root = document.currentScript.parentElement, river = root.querySelector('[data-river]');
+      var b = JSON.parse(river.dataset.windows), N = b.length, last = N - 1;
+      var A = function (y) { return y < 0 ? y + 1 : y; }, H = function (a) { return a <= 0 ? a - 1 : a; };
+      var spanA = function (i) { return A(b[i][1]) - A(b[i][0]) + 1; };
+      var winOf = function (y) { var i = b.findIndex(function (w) { return y <= w[1]; }); return i < 0 ? last : i; };
+      var m = /^#y(-?\d+)$/.exec(location.hash), p = /^#(?:period-|w)0?([1-9])$/.exec(location.hash);
+      var year = +river.dataset.start, mode = 'near';
+      if (m && +m[1] && +m[1] >= b[0][0] && +m[1] <= b[last][1]) year = +m[1];
+      else if (p) {
+        var k = +p[1] - 1, s = b[k][2], a = Math.round((A(b[k][0]) + A(b[k][1])) / 2);
+        year = Math.round(H(a) / s) * s; if (year === 0) year = a <= 0 ? -1 : 1;
+        year = Math.max(b[k][0], Math.min(b[k][1], year)); mode = 'window';
+      }
+      var i = winOf(year), n = b[i][2], lo = A(year) - n, hi = A(year) + n;
+      if (i > 0) lo = Math.max(lo, A(b[i][0]) - b[i - 1][2]);
+      if (i < last) hi = Math.min(hi, A(b[i + 1][0]) + b[i + 1][2]);
+      lo = H(Math.max(lo, A(b[0][0]))); hi = H(Math.min(hi, A(b[last][1])));
+      if (mode === 'window') { lo = b[i][0]; hi = b[i][1]; }
+      root._sel = { year: year, mode: mode, i: i, n: n, lo: lo, hi: hi };
+
+      var pos = function (y) { var j = winOf(y); return j * 100 + ((A(y) - A(b[j][0]) + 0.5) / spanA(j)) * 100; };
+      var edge = function (y, end) { var j = winOf(y); return (j + (A(y) - A(b[j][0]) + (end ? 1 : 0)) / spanA(j)) * (100 / N); };
+      var parts = function (y) {
+        if (y <= -10000) return ['约公元前', Math.round(-y / 1000) / 10 + ' 万'];
+        return y < 0 ? ['公元前', String(-y)] : ['公元', String(y)];
+      };
+      var near = mode === 'near', out = near ? parts(year).concat('年') : ['整个时期', b[i][3], b[i][4]];
+      river.toggleAttribute('data-broad', !near);
+      [].forEach.call(river.querySelector('[data-year-out]').children, function (c, k) { c.textContent = out[k]; });
+      river.querySelector('[data-cursor]').style.setProperty('--x', String(pos(year) / N));
+      var range = river.querySelector('[data-range]');
+      range.style.setProperty('--a', String(edge(lo))); range.style.setProperty('--b', String(edge(hi, true)));
+      river.querySelector('[data-scrub]').value = String(pos(year));
+      river.querySelectorAll('[data-mark]').forEach(function (el) {
+        el.classList.toggle('near', Math.max(+el.dataset.y0, lo) <= Math.min(+el.dataset.y1, hi));
+      });
+      river.querySelectorAll('[data-axis-win]').forEach(function (el, j) { el.setAttribute('aria-pressed', String(!near && j === i)); });
+      river.querySelectorAll('[data-mode]').forEach(function (el) { el.setAttribute('aria-pressed', String(el.dataset.mode === mode)); });
+      river.querySelector('[data-near-n]').textContent = String(n);
+      river.querySelector('[data-window-label]').textContent = '整个第 ' + b[i][3] + ' 时期';
+    })();
+  </script>
+
+  <!-- Level 2: the works of the selection. Without the script, every work in the hall, by date. -->
+  <section class="aw" aria-labelledby="aw-t">
+    <div class="aw-head">
+      <h2 id="aw-t" class="aw-title" tabindex="-1" data-works-title>全部作品</h2>
+      <p class="aw-count" data-works-count>本页共 {total} 件作品与遗址，按年代排列。</p>
+    </div>
+    <div class="aw-regions" role="group" aria-label="按地区看" data-js-only>
+      <button type="button" data-wall-btn="all" aria-pressed="true">全部地区 <span data-n></span></button>
+      {[...WALLS, NOWHERE].map((w) => <button type="button" data-wall-btn={w.id} aria-pressed="false" style={wc(w)}>{w.label} <span data-n></span></button>)}
+    </div>
+    <div class="aw-empty" data-empty hidden></div>
+    <ul class="aw-grid" data-grid>
+      {cards.map((x) => {
+        const wall = x.wall ?? NOWHERE;
+        const est = ESTIMATED.has(x.entry.when.precision);
+        const place = `${x.entry.place.detail}${x.anchor ? ` · ${x.anchor.label}` : ''}`;
+        return (
+          <li data-card={x.entry.id} data-later={isNear(x.entry) ? undefined : ''} data-y0={x.entry.when.from} data-y1={x.entry.when.to} data-precision={x.entry.when.precision}
+            data-wall={wall.id} data-anchor-of={x.anchor?.id ?? 'none'} data-wi={x.w.wi} data-title={x.title} data-when={x.entry.when.label} data-region={wall.label}
+            data-place={place} data-form={`${x.entry.form} · ${x.entry.tradition}`} data-cmps={JSON.stringify(cmpsOf(x.entry.id))}>
+            <article class="at-card" id={`e${x.w.no}-${x.entry.id}`} style={wc(wall)}>
+              <button type="button" class="at-print" data-open={x.entry.id} aria-label={`查看详情：${x.title}`}>
+                {x.image
+                  ? <img src={x.image.src} alt={x.image.alt} width={x.image.width} height={x.image.height} loading="lazy" decoding="async" />
+                  : <span class="at-text-card"><span class="at-text-card-title">{x.title}</span><span class="at-text-card-sub">{x.context ? '本站未收录此作品 · 只有文字' : '受版权保护 · 本站只用文字介绍，可在收藏机构的官方页面观看'}</span></span>}
+              </button>
+              <div class="at-card-text">
+                <p class="at-card-region">{wall.label}</p>
+                <h3 class="at-card-title">{x.record ? <a href={x.record}>{x.title}</a> : x.title}</h3>
+                {x.maker && <p class="at-card-maker">{x.maker}</p>}
+                <p class="at-card-when">{x.entry.when.label}{est && <span class="at-est">年代为估计</span>}</p>
+                <p class="at-note">{x.entry.note}</p>
+                <details class="at-more">
+                  <summary>来源与链接</summary>
+                  <p class="at-card-en" lang="en">{x.titleEn}</p>
+                  <dl class="at-facts">
+                    <dt>年代</dt><dd>{x.entry.when.label}<span class="at-q">年代的性质：{PRECISION[x.entry.when.precision]}</span></dd>
+                    <dt>制作地</dt><dd>{place}<span class="at-q">地点的精度：{PLACE[x.entry.place.precision]}{x.band && <>（{bandLabel(x.band)}）</>}</span></dd>
+                    <dt>类型</dt><dd>{x.entry.form} · {x.entry.tradition}</dd>
+                    <dt>时期</dt><dd>第 {x.w.roman} 时期 · {x.w.label}</dd>
+                  </dl>
+                  <ul class="at-links">
+                    {x.record && <li><a href={x.record}>藏品记录：来源、版权与全部信息</a></li>}
+                    {x.official && <li><a href={x.official.url} rel="noopener">{x.official.label}</a></li>}
+                    {x.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+                    {x.sources.map((s) => <li>{s.href ? <a href={s.href} rel="noopener">{s.label}</a> : s.label}</li>)}
+                  </ul>
+                </details>
+                <p class="at-card-actions" data-js-only>
+                  <button type="button" data-open={x.entry.id}>详情</button>
+                  <button type="button" data-compare={x.entry.id} aria-pressed="false">加入比较</button>
+                </p>
+              </div>
+            </article>
+          </li>
+        );
+      })}
+    </ul>
+    <button type="button" class="aw-more" data-more hidden></button>
+    <!-- Before the works are painted: the selection's heading, counts and works, in the order renderWorks() gives them
+         (balanced across parts of the world, the first dozen), so the module's first render changes nothing. -->
+    <script is:inline>
+      (function () {
+        var aw = document.currentScript.parentElement, s = aw.closest('[data-at]')._sel;
+        var A = function (y) { return y < 0 ? y + 1 : y; };
+        var label = function (y) {
+          if (y <= -10000) return '约公元前 ' + Math.round(-y / 1000) / 10 + ' 万年';
+          return y < 0 ? '公元前 ' + -y + ' 年' : y + ' 年';
+        };
+        var b = JSON.parse(aw.closest('[data-at]').querySelector('[data-river]').dataset.windows)[s.i], near = s.mode === 'near';
+        var cards = [].slice.call(aw.querySelectorAll('[data-card]'));
+        var shown = cards.filter(function (c) { return Math.max(+c.dataset.y0, s.lo) <= Math.min(+c.dataset.y1, s.hi); });
+        var groups = new Map(), counts = new Map(), ordered = [];
+        shown.forEach(function (c) {
+          var w = c.dataset.wall; if (!groups.has(w)) groups.set(w, []); groups.get(w).push(c); counts.set(w, (counts.get(w) || 0) + 1);
+        });
+        for (var k = 0; ordered.length < shown.length; k++) groups.forEach(function (g) { if (g[k]) ordered.push(g[k]); });
+        cards.forEach(function (c) {
+          var at = ordered.indexOf(c);
+          c.style.order = String(at);
+          if (at > -1 && at < 12) c.removeAttribute('data-later'); else c.setAttribute('data-later', '');
+        });
+        var even = A(s.year) - A(s.lo) === s.n && A(s.hi) - A(s.year) === s.n;
+        aw.querySelector('[data-works-title]').textContent = near
+          ? label(s.year) + '前后' + (even ? ' ' + s.n + ' 年' : '') + '：' + label(s.lo) + '至 ' + label(s.hi)
+          : '整个第 ' + b[3] + ' 时期：' + b[4];
+        var est = shown.filter(function (c) { return /^(approx|century|period|disputed|deep)$/.test(c.dataset.precision); }).length;
+        aw.querySelector('[data-works-count]').textContent = '各地共 ' + shown.length + ' 件作品'
+          + (near && est ? '；其中 ' + est + ' 件的年代是估计，只是范围与这段时间有交集' : '') + '。';
+        aw.querySelectorAll('[data-wall-btn]').forEach(function (btn) {
+          var id = btn.dataset.wallBtn, n = id === 'all' ? shown.length : counts.get(id) || 0;
+          btn.querySelector('[data-n]').textContent = String(n);
+          btn.hidden = id !== 'all' && !n;
+          btn.setAttribute('aria-pressed', String(id === 'all'));
+        });
+        var more = aw.querySelector('[data-more]');
+        more.hidden = shown.length <= 12; more.textContent = '显示全部 ' + shown.length + ' 件';
+        if (near && shown.length < 3) {
+          var whole = cards.filter(function (c) { return Math.max(+c.dataset.y0, b[0]) <= Math.min(+c.dataset.y1, b[1]); }).length;
+          var empty = aw.querySelector('[data-empty]'), go = document.createElement('button');
+          go.type = 'button'; go.dataset.act = 'broaden'; go.textContent = '看整个第 ' + b[3] + ' 时期（' + whole + ' 件）';
+          empty.replaceChildren(shown.length ? '这段时间里本站只收录了 ' + shown.length + ' 件作品。' : '这段时间里本站没有收录作品。',
+            '本站的收藏是有选择的。', document.createElement('br'), go);
+          empty.hidden = false;
+        }
+      })();
+    </script>
+    <p class="aw-note">ArtPilot 的收藏是有选择的：某个地区在这里没有作品，不代表那里当时没有艺术。放在一起的作品，只说明它们大约在同一段时间里被做出来；同时，不是影响。</p>
+  </section>
+
+  <!-- Level 3: deeper into the window holding the selection, on request. -->
+  <section class="dp" aria-labelledby="dp-t">
+    <p class="dp-kicker" id="dp-t">深入这个时期</p>
+    <div class="dp-tools" role="group" aria-labelledby="dp-t" data-js-only>
+      <button type="button" data-tool="a" aria-pressed="false">时期全貌</button>
+      <button type="button" data-tool="c" aria-pressed="false">制作地平面图</button>
+      <button type="button" data-tool="d" aria-pressed="false">本站的对照</button>
+    </div>
+
+    {windows.map((w) => (
+      <section class="at-window" id={`w${w.no}`} data-window={w.wi} data-current={w.wi === winOf(START) ? '' : undefined} data-from={w.from} data-to={w.to} aria-labelledby={`w${w.no}-t`}>
+        <header class="at-window-head">
+          <p class="at-window-no" lang="en">{w.roman} · {w.en}</p>
+          <h2 id={`w${w.no}-t`} tabindex="-1">{w.label}</h2>
+          <p class="at-orientation">{w.orientation}</p>
+        </header>
+
+        <!-- The overview: the window's works on its own time axis, and what the site lacks. -->
+        <div class="at-view at-view-a" data-v="a">
+          {w.deep && <p class="at-deep-note">这个时期的年代多是“最小年龄”或“地层年代”，时间轴上的位置只表示大致的先后。</p>}
+          <div class="at-axis-scroll">
+            <div class="at-axis">
+              <div class="at-ticks" aria-hidden="true">
+                {w.ticks.map((t) => <span style={`left:${w.pos(t)}%`}>{shortYear(t)}</span>)}
+              </div>
+              <div class="at-slab" data-slab aria-hidden="true"></div>
+              {w.rows.map((row) => (
+                <div class="at-row" data-wall-row={row.wall.id} style={`--lanes:${row.lanes}`}>
+                  <p class="at-row-label">{row.wall.label}</p>
+                  <ul class="at-row-track">
+                    {row.items.map((x) => (
+                      <li class:list={['at-bar-item', `p-${x.entry.when.precision}`, { flip: x.flip }]} style={`--l:${x.left}%;--w:${x.width}%;--r:${Math.max(0, 100 - x.left - x.width)}%;--lane:${x.lane}`}
+                        data-entry={x.entry.id} data-wall={wallId(x)} data-y0={x.entry.when.from} data-y1={x.entry.when.to}>
+                        <button type="button" data-open={x.entry.id} aria-label={`${x.title}，${x.entry.when.label}，${x.anchor?.label ?? '地点无法确定'}`}>
+                          <span class="at-bar-span"></span><span class="at-bar-name">{x.title}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p class="at-legend"><span class="lg firm"></span>有记录的年份 <span class="lg soft"></span>约数、世纪或时期 <span class="lg dash"></span>有争议 <span class="lg deep"></span>最小年龄（实际可能更早）</p>
+          <div class="at-gaps">
+            <h3 class="at-sub">本站这个时期还没有收录的</h3>
+            <ul>{w.gaps.map((g) => <li>{g}</li>)}</ul>
+          </div>
+        </div>
+
+        <!-- The plan: a tile map drawn to the anchors, shapes and distances not to scale. -->
+        <div class="at-view at-view-c" data-v="c">
+          <div class="at-plan" role="group" aria-label="制作地示意地图">
+            <svg class="at-map" viewBox="0 0 26 14" aria-hidden="true">
+              {tiles.map((t) => t.island
+                ? <rect class="isle" x={t.c + 0.24} y={t.r + 0.24} width="0.52" height="0.52" />
+                : <rect x={t.c + 0.05} y={t.r + 0.05} width="0.9" height="0.9" rx="0.06" />)}
+              {MAP_NAMES.map((n) => <text x={n.x} y={n.y} class={n.sea ? 'sea' : undefined}>{n.t}</text>)}
+            </svg>
+            {/* Every place is a button; the script counts each from the works of the selected years (the grid's works),
+                which may come from the neighbouring window. Without the script, the counts are this window's. */}
+            {ANCHORS.map((a) => {
+              const n = (w.byAnchor.get(a.id) ?? []).length;
+              return (
+                <button type="button" class:list={['at-place', { on: n }]} style={`--x:${(a.plan[0] + 0.5) / 26 * 100}%;--y:${(a.plan[1] + 0.5) / 14 * 100}%;--n:${n}`}
+                  data-anchor={a.id} data-wall={wallOf(a.band).id} aria-pressed="false" disabled={!n}
+                  aria-label={n ? `${a.label}：${n} 件` : `${a.label}：本站没有收录`}>
+                  <span class="at-place-mark"></span><span class="at-place-name">{a.label}</span><span class="at-place-n" lang="en">{n}</span>
+                </button>
+              );
+            })}
+          </div>
+          <p class="at-plan-note">示意地图 · 每一格约是一个地区，形状和距离都不按比例；标的是作品的制作地，不是今天的收藏地</p>
+          <p class="at-legend"><span class="lg on"></span>所选年份里本站收录的件数 <span class="lg off"></span>所选年份里本站没有收录（不等于那里没有艺术）</p>
+          <p class="at-plan-pick" data-anchor-pick hidden><span data-anchor-name></span><button type="button" data-anchor-clear>显示全部地点</button></p>
+          <ul class="at-plan-list">
+            {[...w.byAnchor].map(([id, xs]) => (
+              <li data-anchor-list={id}>
+                <p class="at-plan-place">{anchors.get(id)!.label}</p>
+                <ul>{xs.map((x) => (
+                  <li data-entry={x.entry.id} data-wall={x.wall?.id} data-y0={x.entry.when.from} data-y1={x.entry.when.to}>
+                    <button type="button" data-open={x.entry.id}><span>{x.title}</span><span class="at-when">{x.entry.when.label}</span></button>
+                  </li>
+                ))}</ul>
+              </li>
+            ))}
+            {w.unlocated.length > 0 && (
+              <li data-anchor-list="none">
+                <p class="at-plan-place">无法定位</p>
+                <ul>{w.unlocated.map((x) => (
+                  <li data-entry={x.entry.id} data-wall="none" data-y0={x.entry.when.from} data-y1={x.entry.when.to}>
+                    <button type="button" data-open={x.entry.id}><span>{x.title}</span><span class="at-when">{x.entry.place.detail}</span></button>
+                  </li>
+                ))}</ul>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <!-- The site's comparisons: two or three works, the wedge of time between them, and the evidence of contact. -->
+        <div class="at-view at-view-d" data-v="d">
+          {w.comparisons.map((c) => (
+            <article class="at-cmp" id={c.id} data-works={c.works.join(' ')} aria-labelledby={`${c.id}-t`}>
+              <h3 class="at-cmp-title" id={`${c.id}-t`} tabindex="-1">{c.title}</h3>
+              <div class="at-cmp-row" style={`--n:${c.ws.length}`}>
+                {c.ws.map((x, i) => (
+                  <>
+                    {i > 0 && (
+                      <div class="at-wedge" aria-label={`时间关系：${c.wedges[i - 1].text}`}>
+                        <svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                          <rect x={c.wedges[i - 1].a.l} y="8" width={Math.max(0.8, c.wedges[i - 1].a.r - c.wedges[i - 1].a.l)} height="8" class="wa" />
+                          <rect x={c.wedges[i - 1].b.l} y="24" width={Math.max(0.8, c.wedges[i - 1].b.r - c.wedges[i - 1].b.l)} height="8" class="wb" />
+                          <polygon points={`${c.wedges[i - 1].a.l},16 ${c.wedges[i - 1].a.r},16 ${c.wedges[i - 1].b.r},24 ${c.wedges[i - 1].b.l},24`} class="wc" />
+                        </svg>
+                        <span>{c.wedges[i - 1].text}</span>
+                      </div>
+                    )}
+                    <figure class="at-cmp-work">
+                      <button type="button" data-open={x.entry.id} class="at-cmp-print" aria-label={`查看详情：${x.title}`}>
+                        {x.image
+                          ? <img src={x.image.src} alt={x.image.alt} width={x.image.width} height={x.image.height} loading="lazy" decoding="async" />
+                          : <span class="at-text-card"><span class="at-text-card-title">{x.title}</span><span class="at-text-card-sub">{x.context ? '只有文字' : '受版权保护'}</span></span>}
+                      </button>
+                      <figcaption>
+                        <span class="at-cmp-name">{x.title}</span>
+                        <span class="at-when">{x.entry.when.label}</span>
+                        <span class="at-where">{x.entry.place.detail}</span>
+                        <span class="at-look">{c.look[i]}</span>
+                      </figcaption>
+                    </figure>
+                  </>
+                ))}
+              </div>
+              <p class="at-cmp-body">{c.body}</p>
+              <div class={`at-contact k-${c.contact.kind}`}>
+                <p class="at-contact-kind">{CONTACT[c.contact.kind]}</p>
+                <p>{c.contact.text}</p>
+                <ul class="at-links">{c.sources.map((s) => <li>{s.href ? <a href={s.href} rel={s.href.startsWith('http') ? 'noopener' : undefined}>{s.label}</a> : s.label}</li>)}</ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </section>
+
+  <!-- Two works chosen for comparison. -->
+  <div class="at-tray" data-tray hidden>
+    <p class="at-tray-text" data-tray-text></p>
+    <button type="button" class="at-tray-go" data-compare-go>并排比较</button>
+    <button type="button" data-compare-clear>清除</button>
+  </div>
+
+  <aside class="at-panel" data-panel hidden aria-labelledby="at-panel-t" tabindex="-1">
+    <div class="at-panel-head">
+      <p class="at-panel-kicker" id="at-panel-t" data-panel-kicker>作品</p>
+      <button type="button" class="at-panel-close" data-close aria-label="关闭">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+    </div>
+    <div class="at-panel-body" data-panel-body></div>
+  </aside>
+  <p class="sr-only" aria-live="polite" data-announce></p>
+  <!-- Still before the first paint: the selection in the address, then the scroll a reload should come back to. The
+       module below redraws the same state without changing the page's height. Without scripts none of this runs, and
+       the whole hall reads. -->
+  <script is:inline>
+    (function () {
+      var root = document.currentScript.parentElement, key = 'atlas-scroll:' + location.pathname;
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      var back = nav && (nav.type === 'reload' || nav.type === 'back_forward');
+      var restore = function () {
+        // Instant: the site's smooth scrolling (global.css) would otherwise slide the page down in front of the reader.
+        try { var s = sessionStorage.getItem(key); if (back && s !== null) window.scrollTo({ top: +s, behavior: 'instant' }); } catch (e) {}
+      };
+      addEventListener('pagehide', function () { try { sessionStorage.setItem(key, String(Math.round(scrollY))); } catch (e) {} });
+      // The footer after the hall is not parsed yet; a position near the bottom is set again once it is.
+      document.addEventListener('DOMContentLoaded', restore, { once: true });
+      // The window of the selection drawn by the script after the timeline.
+      try { var i = root._sel.i; root.querySelectorAll('[data-window]').forEach(function (s, j) { s.toggleAttribute('data-current', j === i); }); }
+      finally { restore(); }
+    })();
+  </script>
+</section>
+
+<style>
+  .at { --serif-d: "ArtPilot Serif SC", "Noto Serif SC", "Source Han Serif SC", serif; --latin-d: "ArtPilot Bodoni", "Bodoni Moda", Didot, serif;
+    --brick: 170 74 58; }
+  .at-kicker { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .at h1 { margin: 0; font: 600 clamp(2.75rem, 7.5vw, 5rem)/1.15 var(--serif-d); letter-spacing: .04em; color: var(--gallery-ink); }
+  .at-premise { max-width: 32em; margin: 1.25rem 0 0; font: 400 1.0625rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+  .at button { font-family: var(--sans); }
+
+  /* Level 1: the timeline. */
+  .rv { --lc: 6.75rem; margin: 2.75rem 0 0; padding-top: 1.75rem; border-top: 1px solid var(--gallery-ink-2); }
+  .rv-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.5rem; }
+  .rv-year { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin: 0; color: var(--gallery-ink); }
+  .rv-era { font: 400 .875rem/1 var(--sans); letter-spacing: .12em; color: var(--gallery-ink-2); }
+  .rv-num { font: 400 clamp(3rem, 7vw, 4.5rem)/.9 var(--latin-d); letter-spacing: .01em; }
+  .rv-hint { max-width: 19rem; margin: 0; font: 400 .75rem/1.6 var(--sans); color: var(--gallery-ink-2); text-align: right; }
+  .rv-chart { position: relative; touch-action: pan-y; user-select: none; }
+  .at:not([data-js]) [data-js-only] { display: none !important; }
+  [data-js] .rv-chart { cursor: ew-resize; }
+  .rv-row { display: grid; grid-template-columns: var(--lc) 1fr; align-items: center; height: 1.6rem; border-bottom: 1px solid var(--gallery-rule); transition: opacity .2s; }
+  .rv-row.dim { opacity: .35; }
+  .rv-label { overflow: hidden; font: 400 .8125rem/1 var(--sans); color: var(--gallery-ink-2); white-space: nowrap; text-overflow: ellipsis; }
+  /* The colour code: a small square of the part of the world's colour (--wc) before its name, wherever the name appears. */
+  .rv-label::before, .at-card-region::before, .aw-regions button[style]::before { content: ''; display: inline-block; width: .5rem; height: .5rem;
+    margin-right: .45rem; background: rgb(var(--wc)); vertical-align: .05em; }
+  .rv-track { position: relative; height: 100%;
+    background: linear-gradient(90deg, var(--gallery-rule) 1px, transparent 1px) 0 0 / calc(100% / 9) 100%; }
+  .rv-m { position: absolute; top: 50%; left: calc(var(--a) * 1%); width: max(2px, calc((var(--b) - var(--a)) * 1%)); height: .5625rem;
+    transform: translateY(-50%); background: rgb(var(--wc) / .6); transition: background-color .2s; }
+  .rv-m.est { background: rgb(var(--wc) / .28); }
+  .rv-m.near { background: rgb(var(--brick)); }
+  /* The cursor glides to a year chosen by key or button, and follows the hand without delay while dragging. */
+  .rv-cursor { position: absolute; top: -.75rem; bottom: 0; left: calc(var(--lc) + (100% - var(--lc)) * var(--x) / 100); width: 1px;
+    background: var(--gallery-ink); pointer-events: none; transition: left .38s cubic-bezier(.2, .8, .2, 1); }
+  [data-dragging] .rv-cursor, [data-dragging] .rv-range { transition: none; }
+  .rv-cursor::before { content: ''; position: absolute; top: -4px; left: -4px; width: 9px; height: 9px; background: var(--gallery-ink); transform: rotate(45deg); }
+  [data-broad] .rv-cursor { display: none; }
+  .rv-axis { position: relative; height: 2.25rem; margin-left: var(--lc); }
+  .rv-axis button { position: absolute; top: 0; bottom: 0; left: calc(var(--x) * 1%); width: calc(100% / 9); display: flex; gap: .4rem; align-items: flex-start;
+    padding: .45rem 0 0 .3rem; border: 0; border-left: 1px solid var(--gallery-rule); background: none; cursor: pointer;
+    font: 400 .75rem/1 var(--latin-d); letter-spacing: .04em; color: var(--gallery-ink-2); white-space: nowrap; overflow: hidden; }
+  .rv-axis-y { font-size: .6875rem; }
+  .rv-axis button:hover, .rv-axis button:focus-visible { color: var(--gallery-ink); }
+  .rv-axis button[aria-pressed="true"] { color: var(--gallery-ink); box-shadow: inset 0 2px 0 rgb(var(--brick)); }
+  .rv-scrub { position: relative; padding-left: var(--lc); }
+  /* The span of the selection, drawn on the slider's own line as a short brick stroke, rather than a tint over the rows
+     (the works inside it turn brick red above). */
+  .rv-range { position: absolute; top: 50%; height: 3px; transform: translateY(-50%); pointer-events: none;
+    left: calc(var(--lc) + (100% - var(--lc)) * var(--a) / 100); width: max(3px, calc((100% - var(--lc)) * (var(--b) - var(--a)) / 100));
+    background: rgb(var(--brick)); transition: left .38s cubic-bezier(.2, .8, .2, 1), width .38s cubic-bezier(.2, .8, .2, 1); }
+  .rv-scrub input { position: relative; -webkit-appearance: none; appearance: none; display: block; width: calc(100% + 1.125rem); height: 2rem; margin: 0 0 0 -.5625rem;
+    background: none; cursor: pointer; }
+  .rv-scrub input::-webkit-slider-runnable-track { height: 1px; background: var(--gallery-ink-2); }
+  .rv-scrub input::-moz-range-track { height: 1px; background: var(--gallery-ink-2); }
+  .rv-scrub input::-webkit-slider-thumb { -webkit-appearance: none; width: 1.125rem; height: 1.125rem; margin-top: -.53rem; border: 0; border-radius: 50%; background: var(--gallery-ink); }
+  .rv-scrub input::-moz-range-thumb { width: 1.125rem; height: 1.125rem; border: 0; border-radius: 50%; background: var(--gallery-ink); }
+  .rv-scrub input::-webkit-slider-thumb { transition: transform .15s; }
+  [data-dragging] .rv-scrub input::-webkit-slider-thumb { transform: scale(1.18); }
+  [data-dragging] .rv-scrub input::-moz-range-thumb { transform: scale(1.18); }
+  .rv-num { font-variant-numeric: lining-nums tabular-nums; }
+  /* Works arriving in the grid. */
+  .aw-grid > li.arrive { animation: aw-arrive .42s cubic-bezier(.2, .8, .2, 1) both; }
+  @keyframes aw-arrive { from { opacity: 0; transform: translateY(6px); } }
+  .rv-scrub input:focus-visible { outline: none; }
+  .rv-scrub input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgb(var(--brick)); }
+  .rv-scrub input:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px rgb(var(--brick)); }
+  .rv-mode { display: inline-flex; margin: 1rem 0 0 var(--lc); border: 1px solid var(--gallery-rule); }
+  .rv-mode[hidden] { display: none; }
+  .rv-mode button { min-height: 2.5rem; padding: 0 1rem; border: 0; background: none; color: var(--gallery-ink-2); font-size: .8125rem; cursor: pointer; }
+  .rv-mode button + button { border-left: 1px solid var(--gallery-rule); }
+  .rv-mode button[aria-pressed="true"] { background: var(--gallery-ink); color: #141413; }
+  .rv-mode button:not([aria-pressed="true"]):hover { color: var(--gallery-ink); }
+
+  /* Level 2: the works. */
+  .aw { margin-top: 3rem; }
+  .aw-title { margin: 0; font: 500 clamp(1.375rem, 2.8vw, 1.875rem)/1.4 var(--serif-d); letter-spacing: .03em; color: var(--gallery-ink); }
+  .aw-count { margin: .4rem 0 0; font: 400 .875rem/1.7 var(--sans); color: var(--gallery-ink-2); }
+  .aw-regions { display: flex; flex-wrap: wrap; gap: .375rem; margin-top: 1.25rem; }
+  .aw-regions[hidden] { display: none; }
+  .aw-regions button { min-height: 2.25rem; padding: 0 .8rem; border: 1px solid var(--gallery-rule); background: none; color: var(--gallery-ink-2);
+    font-size: .8125rem; cursor: pointer; }
+  .aw-regions button span { font: 400 .75rem/1 var(--latin-d); margin-left: .15rem; }
+  .aw-regions button[aria-pressed="true"] { border-color: var(--gallery-ink); color: var(--gallery-ink); box-shadow: inset 0 -2px 0 rgb(var(--brick)); }
+  .aw-regions button:hover { color: var(--gallery-ink); }
+  .aw-regions button[hidden] { display: none; }
+  .aw-empty { margin: 1.5rem 0 0; padding: .9rem 1rem; border-left: 2px solid rgb(var(--brick)); background: rgb(255 255 255 / .03);
+    font: 400 .875rem/1.8 var(--sans); color: var(--gallery-ink); }
+  .aw-empty[hidden] { display: none; }
+  .aw-empty :global(button) { margin: .5rem .5rem 0 0; min-height: 2.25rem; padding: 0 .9rem; border: 1px solid var(--gallery-ink-2); background: none;
+    color: var(--gallery-ink); font: 400 .8125rem/1 var(--sans); cursor: pointer; }
+  .aw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 3rem 2.25rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  .aw-grid > li[hidden] { display: none; }
+  .at-card { display: grid; gap: 1rem; align-content: start; }
+  .at-print { display: flex; align-items: flex-end; height: 14rem; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; }
+  .at-print img { display: block; width: auto; height: auto; max-width: 100%; max-height: 14rem; padding: .375rem; background: var(--gallery-ink);
+    box-shadow: 0 16px 28px -16px rgb(0 0 0 / .9); }
+  .at-print:hover img, .at-print:focus-visible img { outline: 1px solid rgb(var(--brick)); outline-offset: 3px; }
+  .at-text-card { display: grid; align-content: space-between; width: 10rem; height: 13rem; padding: 1rem .9rem; background: #232321;
+    border: 1px solid var(--gallery-rule); box-shadow: 0 16px 28px -16px rgb(0 0 0 / .9); text-align: left; }
+  .at-text-card-title { font: 500 1rem/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-text-card-sub { font: 400 .6875rem/1.6 var(--sans); color: var(--gallery-ink-2); border-top: 1px solid rgb(var(--brick)); padding-top: .4rem; }
+  .at-card-text { display: grid; gap: .25rem; }
+  .at-card-region { margin: 0; font: 500 .6875rem/1.5 var(--sans); letter-spacing: .16em; color: rgb(var(--wc)); }
+  .at-card-title { margin: 0; font: 500 1.125rem/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-card-title a { color: inherit; text-decoration: none; }
+  .at-card-title a:hover, .at-card-title a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+  .at-card-en { margin: .75rem 0 0; font: 400 .75rem/1.5 var(--sans); color: var(--gallery-ink-2); }
+  .at-card-maker, .at-card-when { margin: 0; font: 400 .8125rem/1.6 var(--sans); color: var(--gallery-ink-2); }
+  .at-est { margin-left: .5rem; padding: 0 .35rem; border: 1px solid var(--gallery-rule); font-size: .6875rem; }
+  .at-note { margin: .5rem 0 0; font: 400 .875rem/1.85 var(--sans); color: var(--gallery-ink);
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .at-more summary { margin-top: .35rem; font: 400 .8125rem/1.6 var(--sans); color: var(--gallery-ink-2); cursor: pointer; }
+  .at-more[open] summary { color: var(--gallery-ink); }
+  .at-facts { display: grid; grid-template-columns: auto 1fr; gap: .35rem .75rem; margin: .75rem 0 0; font: 400 .8125rem/1.7 var(--sans); }
+  .at-facts dt { color: var(--gallery-ink-2); }
+  .at-facts dd { margin: 0; color: var(--gallery-ink); }
+  .at-q { display: block; font-size: .75rem; color: var(--gallery-ink-2); }
+  .at-links { display: grid; gap: .3rem; margin: .75rem 0 0; padding: 0; list-style: none; font: 400 .8125rem/1.6 var(--sans); color: var(--gallery-ink-2); }
+  .at-links a { color: var(--gallery-ink); text-underline-offset: 3px; }
+  .at-card-actions { display: flex; gap: .5rem; margin: .6rem 0 0; }
+  .at-card-actions[hidden] { display: none; }
+  .at-card-actions button, .at-tray button { min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--gallery-rule); background: none;
+    color: var(--gallery-ink-2); font-size: .8125rem; cursor: pointer; }
+  .at-card-actions button:hover, .at-card-actions button:focus-visible { color: var(--gallery-ink); border-color: var(--gallery-ink-2); }
+  .at-card-actions [data-compare][aria-pressed="true"] { color: var(--gallery-ink); border-color: rgb(var(--brick)); }
+  .aw-more { margin: 2.5rem 0 0; min-height: 2.75rem; padding: 0 1.25rem; border: 1px solid var(--gallery-ink-2); background: none;
+    color: var(--gallery-ink); font-size: .875rem; cursor: pointer; }
+  .aw-more[hidden] { display: none; }
+  .aw-note { max-width: 42em; margin: 2.5rem 0 0; font: 400 .8125rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+
+  /* Level 3: deeper into the window. */
+  .dp { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--gallery-ink-2); }
+  .dp-kicker { margin: 0; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .dp-tools { display: flex; flex-wrap: wrap; gap: .375rem; margin-top: 1rem; }
+  .dp-tools[hidden] { display: none; }
+  .dp-tools button { min-height: 2.5rem; padding: 0 1rem; border: 1px solid var(--gallery-rule); background: none; color: var(--gallery-ink-2); font-size: .875rem; cursor: pointer; }
+  .dp-tools button[aria-pressed="true"] { border-color: var(--gallery-ink); color: var(--gallery-ink); box-shadow: inset 0 -2px 0 rgb(var(--brick)); }
+  .dp-tools button:hover { color: var(--gallery-ink); }
+  .at-window { padding: 2.5rem 0 1rem; border-top: 1px solid var(--gallery-rule); margin-top: 2.5rem; scroll-margin-top: 4rem; }
+  [data-js] .at-window { display: none; border-top: 0; margin-top: 0; padding-top: 1.75rem; }
+  [data-js] .at-window[data-current] { display: block; }
+  /* Until the script first draws the works, the scripted page shows the opening year's (marked at build time). */
+  [data-js] .aw-grid > li[data-later] { display: none; }
+  .at-window-no { margin: 0; font: 400 .875rem/1 var(--latin-d); letter-spacing: .14em; color: var(--gallery-ink-2); }
+  .at-window h2 { margin: .5rem 0 0; font: 500 clamp(1.25rem, 2.4vw, 1.625rem)/1.4 var(--serif-d); letter-spacing: .03em; color: var(--gallery-ink); }
+  .at-orientation { max-width: 40em; margin: .75rem 0 0; font: 400 .9375rem/1.9 var(--sans); color: var(--gallery-ink-2); }
+  .at-deep-note { max-width: 40em; margin: 0 0 1rem; font: 400 .8125rem/1.8 var(--sans); color: var(--gallery-ink-2); }
+  .at-sub { margin: 0 0 .75rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+
+  /* The tools: without the script the comparisons read in full; with it, only the chosen tool. */
+  .at-view { margin-top: 2rem; }
+  .at-view-a, .at-view-c { display: none; }
+  [data-js] .at-view { display: none; }
+  [data-js][data-show="a"] .at-view-a, [data-js][data-show="c"] .at-view-c, [data-js][data-show="d"] .at-view-d { display: block; }
+  .at-window [data-out] { opacity: .18; }
+  .at-plan-list [data-out] { display: none; }
+  .at-window [data-wall-row][data-out] { display: none; }
+
+  /* The overview: the window's own time axis. */
+  .at-axis-scroll { overflow-x: auto; padding-bottom: .5rem; }
+  .at-axis { position: relative; min-width: 46rem; padding: 2rem 0 .5rem 7.5rem; }
+  .at-ticks { position: absolute; inset: 0 0 0 7.5rem; pointer-events: none; }
+  .at-ticks span { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--gallery-rule); padding-left: .3rem;
+    font: 400 .6875rem/1 var(--latin-d); letter-spacing: .04em; color: var(--gallery-ink-2); white-space: nowrap; }
+  .at-slab { position: absolute; top: 1.4rem; bottom: 0; left: calc(7.5rem + (100% - 7.5rem) * var(--a, 0) / 100); width: calc((100% - 7.5rem) * (var(--b, 100) - var(--a, 0)) / 100);
+    background: rgb(var(--brick) / .14); border-left: 1px solid rgb(var(--brick)); border-right: 1px solid rgb(var(--brick)); pointer-events: none; transition: left .25s, width .25s; }
+  .at-slab:not([data-on]) { opacity: 0; }
+  .at-row { position: relative; display: grid; grid-template-columns: 7.5rem 1fr; margin-left: -7.5rem; border-top: 1px solid var(--gallery-rule); }
+  .at-row-label { margin: 0; padding: .7rem .75rem 0 0; font: 400 .8125rem/1.4 var(--sans); color: var(--gallery-ink); }
+  .at-row-track { position: relative; height: calc(var(--lanes) * 2.6rem + .75rem); margin: 0; padding: 0; list-style: none; }
+  .at-bar-item { position: absolute; top: calc(.5rem + var(--lane) * 2.6rem); left: var(--l); }
+  .at-bar-item button { display: grid; justify-items: start; gap: .3rem; padding: 0; border: 0; background: none; color: var(--gallery-ink); cursor: pointer; text-align: left; }
+  .at-bar-span { display: block; order: 2; width: var(--bw, 6px); height: .6rem; }
+  .at-bar-name { order: 1; font: 400 .8125rem/1.3 var(--sans); white-space: nowrap; }
+  .at-bar-item.flip { left: auto; right: var(--r); }
+  .at-bar-item.flip button { justify-items: end; }
+  .at-bar-item button:hover .at-bar-name, .at-bar-item button:focus-visible .at-bar-name { text-decoration: underline; text-underline-offset: 3px; }
+  .p-year .at-bar-span, .p-range .at-bar-span { background: var(--gallery-ink); }
+  .p-approx .at-bar-span, .p-century .at-bar-span, .p-period .at-bar-span { background: linear-gradient(90deg, transparent, rgb(236 235 231 / .75) 22%, rgb(236 235 231 / .75) 78%, transparent); min-width: 10px; }
+  .p-disputed .at-bar-span { border: 1px dashed var(--gallery-ink); background: none; }
+  .p-deep .at-bar-span { background: linear-gradient(90deg, transparent, var(--gallery-ink)); min-width: 18px; }
+  .at-legend { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .9rem; margin: .75rem 0 0; font: 400 .75rem/1.5 var(--sans); color: var(--gallery-ink-2); }
+  .lg { display: inline-block; width: 1.25rem; height: .5rem; margin-right: -.5rem; vertical-align: middle; }
+  .lg.firm { background: var(--gallery-ink); }
+  .lg.soft { background: linear-gradient(90deg, transparent, rgb(236 235 231 / .75), transparent); }
+  .lg.dash { border: 1px dashed var(--gallery-ink); }
+  .lg.deep { background: linear-gradient(90deg, transparent, var(--gallery-ink)); }
+  .lg.on { width: .6rem; height: .6rem; background: rgb(var(--brick)); }
+  .lg.off { width: .45rem; height: .45rem; border: 1px solid var(--gallery-ink-2); }
+  /* A place with no works in the selected years: a small empty mark, no number, nothing to choose. */
+  .at-place:not(.on) .at-place-n { display: none; }
+  button.at-place:disabled { cursor: default; }
+  .at-gaps { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--gallery-rule); }
+  .at-gaps ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; font: 400 .8125rem/1.8 var(--sans); color: var(--gallery-ink-2); }
+
+  /* The plan. */
+  .at-plan { position: relative; aspect-ratio: 26 / 14; border: 1px solid var(--gallery-rule); background-color: rgb(0 0 0 / .18); }
+  .at-map { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .at-map rect { fill: rgb(236 233 226 / .085); }
+  .at-map rect.isle { fill: rgb(236 233 226 / .13); }
+  .at-map text { font: 500 .34px/1 var(--sans); letter-spacing: .12px; fill: rgb(236 233 226 / .42); text-anchor: middle; }
+  .at-map text.sea { font-weight: 400; font-size: .3px; letter-spacing: .2px; fill: rgb(236 233 226 / .26); }
+  .at-plan-note { margin: .6rem 0 0; font: 400 .6875rem/1.5 var(--sans); color: var(--gallery-ink-2); }
+  .at-place { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: flex; align-items: center; gap: .3rem; }
+  .at-place-mark { display: block; width: .4rem; height: .4rem; border: 1px solid rgb(169 168 162 / .55); }
+  button.at-place { padding: .25rem; border: 0; background: none; color: var(--gallery-ink); cursor: pointer; }
+  .at-place.on .at-place-mark { width: calc(1rem + min(var(--n), 6) * .12rem); height: calc(1rem + min(var(--n), 6) * .12rem);
+    border: 0; background: rgb(var(--brick)); }
+  .at-place-name { position: absolute; left: 50%; bottom: calc(100% + .1rem); transform: translateX(-50%); padding: .15rem .4rem; background: #111110;
+    font: 400 .75rem/1.2 var(--sans); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s; }
+  button.at-place:hover .at-place-name, button.at-place:focus-visible .at-place-name, .at-place[aria-pressed="true"] .at-place-name { opacity: 1; z-index: 2; }
+  .at-place-n { position: absolute; inset: 0; display: grid; place-items: center; font: 400 .6875rem/1 var(--latin-d); color: var(--gallery-ink); }
+  .at-place[aria-pressed="true"] .at-place-mark { outline: 1.5px solid var(--gallery-ink); outline-offset: 2px; }
+  .at-plan-pick { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin: 1.25rem 0 0; font: 400 .875rem/1.5 var(--sans); color: var(--gallery-ink); }
+  .at-plan-pick[hidden] { display: none; }
+  .at-plan-pick button { padding: .35rem .75rem; border: 1px solid var(--gallery-rule); background: none; color: var(--gallery-ink); font: inherit; font-size: .8125rem; cursor: pointer; }
+  .at-plan-pick button:hover { border-color: var(--gallery-ink-2); }
+  .at-plan-pick button:focus-visible { outline: 1.5px solid var(--gallery-ink); outline-offset: 2px; }
+  .at-plan-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.25rem 2rem; margin: 1.75rem 0 0; padding: 0; list-style: none; }
+  /* The list is rebuilt by the script from the selected years' works, so its parts are styled as :global. */
+  .at-plan-list :global(ul) { margin: .4rem 0 0; padding: 0; list-style: none; display: grid; gap: .2rem; }
+  .at-plan-list :global(.at-plan-place) { margin: 0; padding-bottom: .3rem; border-bottom: 1px solid var(--gallery-rule); font: 500 .875rem/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-plan-list :global(button) { display: grid; gap: .05rem; width: 100%; padding: .3rem 0; border: 0; background: none; text-align: left; cursor: pointer;
+    font: 400 .8125rem/1.5 var(--sans); color: var(--gallery-ink); }
+  .at-plan-list :global(button:hover span:first-child), .at-plan-list :global(button:focus-visible span:first-child) { text-decoration: underline; text-underline-offset: 3px; }
+  .at-plan-list :global(button:focus-visible) { outline: 1.5px solid var(--gallery-ink); outline-offset: 2px; }
+  .at-when, .at-where, .at-plan-list :global(.at-when) { font: 400 .75rem/1.5 var(--sans); color: var(--gallery-ink-2); }
+  .at-plan-list :global([data-anchor-list][hidden]) { display: none; }
+
+  /* The site's comparisons. */
+  .at-cmp { padding: 1.75rem 0 2.25rem; border-top: 1px solid var(--gallery-ink-2); scroll-margin-top: 4.5rem; }
+  .at-cmp-title { margin: 0 0 1.5rem; font: 500 clamp(1.125rem, 2.2vw, 1.375rem)/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-cmp-row { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding-bottom: .5rem; }
+  .at-cmp-work { flex: 1 1 0; min-width: 9.5rem; margin: 0; display: grid; gap: .75rem; align-content: start; }
+  .at-cmp-print { display: flex; align-items: flex-end; height: 12rem; padding: 0; border: 0; background: none; cursor: pointer; }
+  .at-cmp-print img { max-height: 12rem; max-width: 100%; width: auto; height: auto; padding: .375rem; background: var(--gallery-ink); box-shadow: 0 16px 28px -16px rgb(0 0 0 / .9); }
+  .at-cmp-work figcaption { display: grid; gap: .15rem; }
+  .at-cmp-name { font: 500 .9375rem/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-look { margin-top: .35rem; padding-top: .35rem; border-top: 1px solid var(--gallery-rule); font: 400 .8125rem/1.7 var(--sans); color: var(--gallery-ink); }
+  .at-wedge { flex: 0 0 7rem; display: grid; align-content: center; gap: .4rem; padding: 0 .75rem; }
+  .at-wedge svg { width: 100%; height: 2.5rem; }
+  .at-wedge .wa, .at-wedge .wb { fill: var(--gallery-ink); }
+  .at-wedge .wc { fill: rgb(var(--brick) / .55); }
+  .at-wedge span { font: 400 .75rem/1.5 var(--sans); color: var(--gallery-ink-2); text-align: center; }
+  .at-cmp-body { max-width: 42em; margin: 1.5rem 0 0; font: 400 .9375rem/1.95 var(--sans); color: var(--gallery-ink); }
+  .at-contact { max-width: 42em; margin: 1.25rem 0 0; padding: .9rem 1rem; border-left: 2px solid var(--gallery-ink-2); background: rgb(255 255 255 / .03);
+    font: 400 .8125rem/1.85 var(--sans); color: var(--gallery-ink-2); }
+  .at-contact.k-documented { border-left-color: var(--gallery-ink); }
+  .at-contact.k-indirect { border-left-style: dashed; border-left-color: var(--gallery-ink); }
+  .at-contact p { margin: 0; }
+  .at-contact-kind { font-weight: 500; letter-spacing: .1em; color: var(--gallery-ink) !important; margin-bottom: .3rem !important; }
+
+  /* The comparison tray, along the bottom while works are chosen. */
+  .at-tray { position: fixed; z-index: 15; left: 50%; bottom: 1rem; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+    width: min(40rem, calc(100vw - 2rem)); padding: .6rem .75rem .6rem 1rem; background: #1f1f1d; border: 1px solid var(--gallery-ink-2);
+    box-shadow: 0 20px 40px -20px rgb(0 0 0 / .9); }
+  .at-tray[hidden] { display: none; }
+  .at-tray-text { flex: 1 1 14rem; margin: 0; font: 400 .8125rem/1.6 var(--sans); color: var(--gallery-ink); }
+  .at-tray .at-tray-go { background: var(--gallery-ink); color: #141413; border-color: var(--gallery-ink); }
+  .at-tray .at-tray-go:disabled { opacity: .35; cursor: default; }
+
+  /* The details panel: beside the page on a wide screen, a sheet from below on a phone; wider for a comparison. */
+  .at-panel { position: fixed; z-index: 20; top: 4.25rem; right: 1rem; bottom: 1rem; width: min(26rem, calc(100vw - 2rem)); overflow: auto;
+    padding: 1rem 1.25rem 1.5rem; background: #1f1f1d; border: 1px solid var(--gallery-rule); box-shadow: -20px 20px 40px -20px rgb(0 0 0 / .9); }
+  .at-panel.wide { width: min(46rem, calc(100vw - 2rem)); }
+  .at-panel[hidden] { display: none; }
+  .at-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .75rem; }
+  .at-panel-kicker { margin: 0; font: 500 .75rem/1 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .at-panel-close { width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border: 0; background: none; color: var(--gallery-ink); cursor: pointer; }
+  .at-panel :global(.at-print) { height: auto; }
+  .at-panel :global(.at-print img) { max-height: 18rem; }
+  .at-panel :global(.at-note) { -webkit-line-clamp: unset; display: block; }
+  .at-panel :global(.at-more summary) { display: none; }
+  .at-panel :global(.at-card-actions [data-open]) { display: none; }
+  .at-panel :global(.pn-cmps) { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--gallery-rule); }
+  .at-panel :global(.pn-cmps button) { display: block; margin-top: .4rem; padding: .3rem 0; border: 0; background: none; text-align: left; cursor: pointer;
+    font: 400 .875rem/1.6 var(--serif-d); color: var(--gallery-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgb(var(--brick)); }
+  /* The comparison is built by the script, so its rules reach past the component's scoping. */
+  .at-panel :global(.cp-work .at-facts) { display: grid; grid-template-columns: auto 1fr; gap: .3rem .75rem; margin: .5rem 0 0; font: 400 .8125rem/1.7 var(--sans); }
+  .at-panel :global(.cp-work .at-facts dt) { color: var(--gallery-ink-2); }
+  .at-panel :global(.cp-work .at-facts dd) { margin: 0; color: var(--gallery-ink); }
+  .at-panel :global(.cp-work .at-note), .at-panel :global(.cp-rel .at-sub + p) { margin: .5rem 0 0; font: 400 .875rem/1.85 var(--sans); color: var(--gallery-ink); }
+  .at-panel :global(.cp-rel .at-sub) { margin: 0 0 .5rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .at-panel :global(.pn-cmps .at-sub) { margin: 0; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
+  .at-panel :global(.cp-works) { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .at-panel :global(.cp-work) { display: grid; gap: .5rem; align-content: start; margin: 0; }
+  .at-panel :global(.cp-work .at-print img) { max-height: 13rem; }
+  .at-panel :global(.cp-title) { margin: .25rem 0 0; font: 500 1rem/1.5 var(--serif-d); color: var(--gallery-ink); }
+  .at-panel :global(.cp-rel) { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--gallery-rule); font: 400 .9375rem/1.8 var(--sans); color: var(--gallery-ink); }
+  .at-panel :global(.cp-rel p) { margin: 0; }
+  .at-panel :global(.cp-go) { margin-top: .75rem; padding: 0; border: 0; background: none; cursor: pointer; font: 400 .8125rem/1.6 var(--sans);
+    color: var(--gallery-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 640px) {
+    .rv { --lc: 4.75rem; }
+    .rv-label { font-size: .6875rem; }
+    .rv-row { height: 1.35rem; }
+    .rv-axis-y { display: none; }
+    .rv-axis button { justify-content: center; padding-left: 0; }
+    .rv-top { flex-direction: column; align-items: flex-start; }
+    .rv-hint { text-align: left; }
+    .rv-mode { display: flex; margin-left: 0; }
+    .rv-mode button { flex: 1; }
+    .aw-grid { grid-template-columns: minmax(0, 1fr); gap: 2.75rem; }
+    .at-print { height: auto; max-height: 20rem; }
+    .at-print img { max-height: 20rem; }
+    .at-text-card { width: 100%; height: 9rem; }
+    .at-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto !important; max-height: 82vh; border-left: 0; border-right: 0; border-bottom: 0; }
+    .at-panel :global(.cp-works) { gap: 1rem; }
+    .at-cmp-row { flex-direction: column; }
+    .at-wedge { flex-basis: auto; padding: .75rem 0; }
+    .at-wedge svg { height: 2rem; }
+    .at-cmp-work { min-width: 0; }
+    .at-tray { bottom: .5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rv-m, .rv-row, .rv-cursor, .rv-range, .at-slab, .at-place-name { transition: none; }
+    .aw-grid > li.arrive { animation: none; }
+  }
+</style>
+
+<script>
+  import { startScrollFade } from '../../lib/scrollFade';
+  import { yearLabel, yearParts, relation, relationText, nearSpan } from '../../lib/atlasTime.js';
+
+  startScrollFade('.at-head');
+
+  const root = document.querySelector<HTMLElement>('[data-at]')!;
+  root.querySelectorAll('[data-js-only]').forEach((n) => n.removeAttribute('hidden'));
+  root.setAttribute('data-js', '');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Years: historical (no year 0) as the data writes them; astronomical (1 BCE = 0) for arithmetic.
+  const toA = (y: number) => (y < 0 ? y + 1 : y), fromA = (a: number) => (a <= 0 ? a - 1 : a);
+
+  const river = root.querySelector<HTMLElement>('[data-river]')!;
+  // Each window: from, to, how near counts as "around" a year in it, its numeral, its label.
+  const bounds = JSON.parse(river.dataset.windows!) as [number, number, number, string, string][];
+  const N = bounds.length;
+  const marks = [...river.querySelectorAll<HTMLElement>('[data-mark]')];
+  const rows = [...river.querySelectorAll<HTMLElement>('[data-row]')];
+  const scrub = river.querySelector<HTMLInputElement>('[data-scrub]')!;
+  const track = river.querySelector<HTMLElement>('.rv-track')!;
+  const chart = river.querySelector<HTMLElement>('[data-chart]')!;
+  const cursor = river.querySelector<HTMLElement>('[data-cursor]')!, range = river.querySelector<HTMLElement>('[data-range]')!;
+  const yearOut = river.querySelector<HTMLElement>('[data-year-out]')!;
+  const axisButtons = [...river.querySelectorAll<HTMLButtonElement>('[data-axis-win]')];
+  const modeButtons = [...river.querySelectorAll<HTMLButtonElement>('[data-mode]')];
+  const nearN = river.querySelector<HTMLElement>('[data-near-n]')!, windowLabel = river.querySelector<HTMLElement>('[data-window-label]')!;
+
+  const cards = [...root.querySelectorAll<HTMLElement>('[data-card]')];
+  const worksTitle = root.querySelector<HTMLElement>('[data-works-title]')!, worksCount = root.querySelector<HTMLElement>('[data-works-count]')!;
+  const regionButtons = [...root.querySelectorAll<HTMLButtonElement>('[data-wall-btn]')];
+  const empty = root.querySelector<HTMLElement>('[data-empty]')!, more = root.querySelector<HTMLButtonElement>('[data-more]')!;
+  const sections = [...root.querySelectorAll<HTMLElement>('[data-window]')];
+  const toolButtons = [...root.querySelectorAll<HTMLButtonElement>('[data-tool]')];
+  const tray = root.querySelector<HTMLElement>('[data-tray]')!, trayText = root.querySelector<HTMLElement>('[data-tray-text]')!;
+  const trayGo = root.querySelector<HTMLButtonElement>('[data-compare-go]')!;
+  const panel = root.querySelector<HTMLElement>('[data-panel]')!, panelBody = panel.querySelector<HTMLElement>('[data-panel-body]')!;
+  const panelKicker = panel.querySelector<HTMLElement>('[data-panel-kicker]')!;
+  const announce = root.querySelector<HTMLElement>('[data-announce]')!;
+  const say = (text: string) => { announce.textContent = ''; requestAnimationFrame(() => (announce.textContent = text)); };
+
+  const spanA = (i: number) => toA(bounds[i][1]) - toA(bounds[i][0]) + 1;
+  const winOfYear = (y: number) => { const i = bounds.findIndex(([, to]) => y <= to); return i === -1 ? N - 1 : i; };
+  // Years land on plain numbers as written (公元前 1750, not 公元前 1751), never on the missing year 0.
+  const roundYear = (i: number, a: number, s: number) => {
+    let y = Math.round(fromA(Math.round(a)) / s) * s;
+    if (y === 0) y = a <= 0 ? -1 : 1;
+    return Math.max(bounds[i][0], Math.min(bounds[i][1], y));
+  };
+  const startOf = (i: number) => roundYear(i, (toA(bounds[i][0]) + toA(bounds[i][1])) / 2, bounds[i][2]);
+  // The slider: a hundred positions to each window, as the axis gives each window an equal ninth.
+  const toYear = (v: number) => {
+    const i = Math.min(N - 1, Math.floor(v / 100));
+    return roundYear(i, toA(bounds[i][0]) + Math.min(1, v / 100 - i) * (spanA(i) - 1), Math.max(1, bounds[i][2] / 5));
+  };
+  const posOf = (y: number) => { const i = winOfYear(y); return i * 100 + ((toA(y) - toA(bounds[i][0]) + 0.5) / spanA(i)) * 100; };
+  /** The edge of year y on the axis, in % (its right edge with `end`). */
+  const edge = (y: number, end = false) => { const i = winOfYear(y); return (i + (toA(y) - toA(bounds[i][0]) + (end ? 1 : 0)) / spanA(i)) * (100 / N); };
+  const roman = (i: number) => bounds[i][3];
+  const inSpan = (el: HTMLElement, lo: number, hi: number) => Math.max(+el.dataset.y0!, lo) <= Math.min(+el.dataset.y1!, hi);
+  const ESTIMATED = ['approx', 'century', 'period', 'disputed', 'deep'];
+  const LIMIT = 12;
+
+  // The one selection of the page: a year and the years around it, or the whole window holding it; a part of the world.
+  // Everything else — the timeline, the works, their count, the regions, the window below — is drawn from it.
+  type Mode = 'near' | 'window';
+  const state = { year: +river.dataset.start!, mode: 'near' as Mode, wall: 'all', limit: LIMIT, tool: '', anchor: '',
+    open: '', opener: null as HTMLElement | null, compare: [] as string[] };
+
+  // The span of the selection: the whole window, or the years around the year (nearSpan: never reaching further into a
+  // neighbouring window than that window's own margin).
+  const interval = () => {
+    const near = nearSpan(state.year, bounds);
+    if (state.mode === 'window') return { i: near.i, lo: bounds[near.i][0], hi: bounds[near.i][1], n: 0 };
+    return near;
+  };
+  const wallName = (id: string) => regionButtons.find((b) => b.dataset.wallBtn === id)!.firstChild!.textContent!.trim();
+
+  /** Everything at once: the timeline, then the works and the window below. */
+  function render(updateHash = true) {
+    renderTime();
+    renderWorks(updateHash);
+  }
+
+  // While a hand is dragging, the timeline follows every frame and the works wait until it pauses, so the grid does not
+  // flicker through every year on the way. Released, or moved by keyboard or a button, everything settles at once.
+  let frame = 0, worksTimer = 0;
+  const dragging = () => river.hasAttribute('data-dragging');
+  function schedule() {
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      renderTime();
+      clearTimeout(worksTimer);
+      worksTimer = window.setTimeout(() => renderWorks(), 160);
+    });
+  }
+  function endDrag() {
+    if (!dragging()) return;
+    river.removeAttribute('data-dragging');
+    cancelAnimationFrame(frame); frame = 0; clearTimeout(worksTimer);
+    render();
+  }
+
+  function renderTime() {
+    const { i, lo, hi } = interval();
+    const near = state.mode === 'near';
+    river.toggleAttribute('data-broad', !near);
+    const [era, num] = yearParts(state.year);
+    const out = near ? [era, num, '年'] : ['整个时期', roman(i), bounds[i][4]];
+    [...yearOut.children].forEach((c, k) => (c.textContent = out[k]));
+    cursor.style.setProperty('--x', String(posOf(state.year) / N));
+    range.style.setProperty('--a', String(edge(lo))); range.style.setProperty('--b', String(edge(hi, true)));
+    if (document.activeElement !== scrub || !dragging()) scrub.value = String(posOf(state.year));
+    scrub.setAttribute('aria-valuetext', near ? `${yearLabel(state.year)}前后：${yearLabel(lo)}至 ${yearLabel(hi)}` : `整个第 ${roman(i)} 时期，${bounds[i][4]}`);
+    marks.forEach((m) => m.classList.toggle('near', inSpan(m, lo, hi)));
+    rows.forEach((r) => r.classList.toggle('dim', state.wall !== 'all' && r.dataset.row !== state.wall));
+    axisButtons.forEach((b, j) => b.setAttribute('aria-pressed', String(!near && j === i)));
+    modeButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+    nearN.textContent = String(bounds[i][2]);
+    windowLabel.textContent = `整个第 ${roman(i)} 时期`;
+  }
+
+  // The works shown at first paint count as already there, so the opening grid does not fade in on a load.
+  let shownBefore = new Set<HTMLElement>(cards.filter((c) => !c.hasAttribute('data-later')));
+  function renderWorks(updateHash = true) {
+    const { i, lo, hi, n } = interval();
+    const near = state.mode === 'near';
+
+    // The works: those of the selection, balanced across parts of the world, the first dozen unless asked for all.
+    const inTime = cards.filter((c) => inSpan(c, lo, hi));
+    const counts = new Map<string, number>();
+    inTime.forEach((c) => counts.set(c.dataset.wall!, (counts.get(c.dataset.wall!) ?? 0) + 1));
+    const shown = inTime.filter((c) => state.wall === 'all' || c.dataset.wall === state.wall);
+    const groups = new Map<string, HTMLElement[]>();
+    shown.forEach((c) => { const g = groups.get(c.dataset.wall!) ?? []; g.push(c); groups.set(c.dataset.wall!, g); });
+    const ordered: HTMLElement[] = [];
+    for (let k = 0; ordered.length < shown.length; k++) for (const g of groups.values()) if (g[k]) ordered.push(g[k]);
+    const visible = new Set(ordered.slice(0, state.limit));
+    // Works arriving in the grid fade in; those already there stay still.
+    cards.forEach((c) => {
+      c.removeAttribute('data-later');
+      c.hidden = !visible.has(c); c.style.order = String(ordered.indexOf(c));
+      c.classList.toggle('arrive', visible.has(c) && !shownBefore.has(c));
+    });
+    shownBefore = visible;
+    const estimated = shown.filter((c) => ESTIMATED.includes(c.dataset.precision!)).length;
+    // The heading gives the span in years; "前后 N 年" only when the span is N on both sides (at a window's edge the
+    // neighbouring window's margin can cut it short).
+    const even = toA(state.year) - toA(lo) === n && toA(hi) - toA(state.year) === n;
+    worksTitle.textContent = near
+      ? `${yearLabel(state.year)}前后${even ? ` ${n} 年` : ''}：${yearLabel(lo)}至 ${yearLabel(hi)}`
+      : `整个第 ${roman(i)} 时期：${bounds[i][4]}`;
+    worksCount.textContent = `${state.wall === 'all' ? '各地' : wallName(state.wall)}共 ${shown.length} 件作品`
+      + (near && estimated ? `；其中 ${estimated} 件的年代是估计，只是范围与这段时间有交集` : '') + '。';
+    regionButtons.forEach((b) => {
+      const id = b.dataset.wallBtn!, c = id === 'all' ? inTime.length : counts.get(id) ?? 0;
+      b.querySelector('[data-n]')!.textContent = String(c);
+      b.hidden = id !== 'all' && !c && state.wall !== id;
+      b.setAttribute('aria-pressed', String(state.wall === id));
+    });
+    more.hidden = shown.length <= state.limit;
+    more.textContent = `显示全部 ${shown.length} 件`;
+    // Few or none: say so, and offer to widen — never widen by itself.
+    const whole = cards.filter((c) => inSpan(c, bounds[i][0], bounds[i][1])).length;
+    const parts: (string | HTMLElement)[] = [];
+    const action = (act: string, text: string) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.act = act; b.textContent = text; return b; };
+    if (!shown.length && state.wall !== 'all' && inTime.length) {
+      parts.push(`所选的这段时间里，本站没有收录${wallName(state.wall)}的作品。这不代表那里当时没有艺术。`, document.createElement('br'), action('all-regions', `回到全部地区（${inTime.length} 件）`));
+      if (near) parts.push(action('broaden', `看整个第 ${roman(i)} 时期`));
+    } else if (near && inTime.length < 3) {
+      parts.push(inTime.length ? `这段时间里本站只收录了 ${inTime.length} 件作品。` : '这段时间里本站没有收录作品。', '本站的收藏是有选择的。', document.createElement('br'),
+        action('broaden', `看整个第 ${roman(i)} 时期（${whole} 件）`));
+    }
+    empty.hidden = !parts.length;
+    empty.replaceChildren(...parts);
+
+    // 3. Deeper: the window holding the selection, its overview and plan filtered by the same selection.
+    sections.forEach((s, j) => s.toggleAttribute('data-current', j === i));
+    const s = sections[i];
+    s.querySelectorAll<HTMLElement>('[data-entry][data-y0]').forEach((el) =>
+      el.toggleAttribute('data-out', !inSpan(el, lo, hi) || (state.wall !== 'all' && el.dataset.wall !== state.wall)));
+    s.querySelectorAll<HTMLElement>('[data-wall-row]').forEach((el) => el.toggleAttribute('data-out', state.wall !== 'all' && el.dataset.wallRow !== state.wall));
+    s.querySelectorAll<HTMLElement>('.at-place').forEach((el) => el.toggleAttribute('data-out', state.wall !== 'all' && el.dataset.wall !== state.wall));
+    // The map and its list follow the timeline like everything else: they are drawn from the grid's works (the selected
+    // years, the chosen part of the world, all of them rather than the first dozen), which near a window's edge include
+    // works of the neighbouring window. A place with none looks and acts like a place with no works.
+    const byPlace = new Map<string, HTMLElement[]>();
+    shown.forEach((c) => { const a = c.dataset.anchorOf!; byPlace.set(a, [...(byPlace.get(a) ?? []), c]); });
+    const places = [...s.querySelectorAll<HTMLButtonElement>('button.at-place')];
+    places.forEach((b) => {
+      const n = byPlace.get(b.dataset.anchor!)?.length ?? 0, name = b.querySelector('.at-place-name')!.textContent;
+      b.style.setProperty('--n', String(n));
+      b.querySelector('.at-place-n')!.textContent = String(n);
+      b.classList.toggle('on', !!n);
+      b.disabled = !n;
+      if (b.disabled && state.anchor === b.dataset.anchor) state.anchor = '';
+      b.setAttribute('aria-label', n ? `${name}：${n} 件` : `${name}：所选年份里本站没有收录`);
+      b.setAttribute('aria-pressed', String(b.dataset.anchor === state.anchor));
+    });
+    const group = (id: string, label: string, xs: HTMLElement[]) => {
+      const li = document.createElement('li'), ul = document.createElement('ul');
+      li.dataset.anchorList = id;
+      li.append(el('p', 'at-plan-place', label), ul);
+      xs.forEach((c) => {
+        const item = document.createElement('li'), btn = document.createElement('button');
+        btn.type = 'button'; btn.dataset.open = c.dataset.card!;
+        btn.append(el('span', '', c.dataset.title!), el('span', 'at-when', id === 'none' ? c.dataset.place! : c.dataset.when!));
+        item.append(btn); ul.append(item);
+      });
+      return li;
+    };
+    s.querySelector('.at-plan-list')!.replaceChildren(
+      ...places.filter((b) => byPlace.has(b.dataset.anchor!)).map((b) => group(b.dataset.anchor!, b.querySelector('.at-place-name')!.textContent!, byPlace.get(b.dataset.anchor!)!)),
+      ...(byPlace.has('none') ? [group('none', '无法定位', byPlace.get('none')!)] : []));
+    // A chosen place says which, and offers the way back (as do a second click on it, a click elsewhere, and Escape).
+    const pickLine = s.querySelector<HTMLElement>('[data-anchor-pick]');
+    if (pickLine) {
+      const chosen = state.anchor && s.querySelector<HTMLElement>(`button.at-place[data-anchor="${state.anchor}"]`);
+      pickLine.hidden = !chosen;
+      if (chosen) pickLine.querySelector('[data-anchor-name]')!.textContent = `只看：${chosen.querySelector('.at-place-name')!.textContent}`;
+    }
+    s.querySelectorAll<HTMLElement>('[data-anchor-list]').forEach((li) => { li.hidden = state.anchor !== '' && li.dataset.anchorList !== state.anchor; });
+    const slab = s.querySelector<HTMLElement>('[data-slab]')!, w0 = toA(bounds[i][0]);
+    slab.style.setProperty('--a', String(((Math.max(toA(lo), w0) - w0) / spanA(i)) * 100));
+    slab.style.setProperty('--b', String(((Math.min(toA(hi), toA(bounds[i][1])) + 1 - w0) / spanA(i)) * 100));
+    slab.toggleAttribute('data-on', near);
+    if (state.tool === 'a') requestAnimationFrame(sizeBars);
+
+    if (updateHash) history.replaceState(null, '', near ? `#y${state.year}` : `#period-${String(i + 1).padStart(2, '0')}`);
+  }
+
+  /** Change the selection; anything but "show all" starts again from the first dozen works. */
+  function update(change: Partial<typeof state>) {
+    if (!('limit' in change)) state.limit = LIMIT;
+    if ('year' in change || 'mode' in change) state.anchor = '';
+    Object.assign(state, change);
+    if (dragging()) schedule(); else render();
+  }
+
+  function setTool(t: string, toggle = true) {
+    state.tool = toggle && state.tool === t ? '' : t;
+    root.dataset.show = state.tool || 'none';
+    toolButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tool === state.tool)));
+    if (state.tool === 'a') requestAnimationFrame(sizeBars);
+  }
+
+  // The timeline: the slider, and dragging anywhere across the rows.
+  scrub.addEventListener('input', () => update({ year: toYear(+scrub.value), mode: 'near' }));
+  scrub.addEventListener('pointerdown', () => river.setAttribute('data-dragging', ''));
+  scrub.addEventListener('change', () => { endDrag(); scrub.value = String(posOf(state.year)); });
+  addEventListener('pointerup', endDrag);
+  addEventListener('pointercancel', endDrag);
+  // The keyboard moves by years, not slider positions: an arrow by a fifth of "near", Page Up/Down by all of it, Home and
+  // End to the ends; crossing into the next window, and over the missing year 0, as the years run.
+  scrub.addEventListener('keydown', (e) => {
+    const i = winOfYear(state.year), n = bounds[i][2], s = Math.max(1, n / 5);
+    if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); update({ year: e.key === 'Home' ? bounds[0][0] : bounds[N - 1][1], mode: 'near' }); return; }
+    const k = ({ ArrowRight: s, ArrowUp: s, ArrowLeft: -s, ArrowDown: -s, PageUp: n, PageDown: -n } as Record<string, number>)[e.key];
+    if (!k) return;
+    e.preventDefault();
+    let y = Math.round(fromA(toA(state.year) + k) / s) * s;
+    if (y === 0) y = k > 0 ? 1 : -1;
+    update({ year: Math.max(bounds[0][0], Math.min(bounds[N - 1][1], y)), mode: 'near' });
+  });
+  const fromPointer = (e: PointerEvent) => {
+    const r = track.getBoundingClientRect();
+    update({ year: toYear(Math.max(0, Math.min(0.9999, (e.clientX - r.left) / r.width)) * N * 100), mode: 'near' });
+  };
+  chart.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    chart.setPointerCapture(e.pointerId);
+    river.setAttribute('data-dragging', '');
+    fromPointer(e);
+  });
+  chart.addEventListener('pointermove', (e) => { if (chart.hasPointerCapture(e.pointerId)) fromPointer(e); });
+
+  // The details of a work, from its card.
+  const cardOf = (id: string) => cards.find((c) => c.dataset.card === id) ?? null;
+  const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', text = '') => {
+    const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n;
+  };
+  function showPanel(kicker: string, wide: boolean, focus: boolean) {
+    panelKicker.textContent = kicker;
+    panel.classList.toggle('wide', wide);
+    panel.hidden = false;
+    panel.scrollTop = 0;
+    if (focus) panel.focus();
+  }
+  function openWork(id: string, focus = true, opener: HTMLElement | null = null) {
+    const li = cardOf(id);
+    if (!li) return;
+    state.open = id; if (opener) state.opener = opener;
+    panelBody.innerHTML = li.querySelector('.at-card')!.innerHTML;
+    panelBody.querySelectorAll('details').forEach((d) => (d.open = true));
+    panelBody.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+    panelBody.querySelector('.at-print')?.removeAttribute('data-open');
+    // The site's comparisons this work belongs to.
+    const cmps = JSON.parse(li.dataset.cmps || '[]') as [string, string, number][];
+    if (cmps.length) {
+      const box = el('div', 'pn-cmps');
+      box.append(el('p', 'at-sub', '本站的对照'));
+      cmps.forEach(([cid, title, wi]) => { const b = el('button', '', title); b.type = 'button'; b.dataset.gotoCmp = cid; b.dataset.wi = String(wi); box.append(b); });
+      panelBody.append(box);
+    }
+    syncCompare();
+    root.querySelectorAll<HTMLElement>('[data-open]').forEach((b) => b.setAttribute('aria-expanded', String(b.dataset.open === id)));
+    showPanel('作品', false, focus);
+  }
+  function closePanel(restore = true) {
+    state.open = ''; panel.hidden = true;
+    root.querySelectorAll('[data-open]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    if (restore && state.opener?.isConnected && state.opener.offsetParent) state.opener.focus();
+  }
+  // To one of the site's comparisons: the window that holds it, with the comparisons open.
+  function gotoComparison(cid: string, wi: number) {
+    closePanel(false);
+    if (winOfYear(state.year) !== wi) update({ year: startOf(wi) });
+    setTool('d', false);
+    const target = document.getElementById(cid);
+    target?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    target?.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true });
+  }
+
+  // Any two works side by side: what their dates allow us to say, and whether the site knows of any contact.
+  function syncCompare() {
+    const [a, b] = state.compare.map((id) => cardOf(id)!.dataset.title);
+    tray.hidden = !state.compare.length;
+    trayText.textContent = state.compare.length === 1 ? `比较：${a} × 再选一件` : `比较：${a} × ${b}`;
+    trayGo.disabled = state.compare.length < 2;
+    root.querySelectorAll<HTMLButtonElement>('[data-compare]').forEach((btn) => {
+      const on = state.compare.includes(btn.dataset.compare!);
+      btn.setAttribute('aria-pressed', String(on));
+      btn.textContent = on ? '已加入比较' : '加入比较';
+    });
+  }
+  function toggleCompare(id: string) {
+    const k = state.compare.indexOf(id);
+    if (k >= 0) state.compare.splice(k, 1);
+    else { if (state.compare.length === 2) state.compare.shift(); state.compare.push(id); }
+    syncCompare();
+    say(state.compare.length === 2 ? '已选两件作品，可以并排比较。' : state.compare.length ? '已选一件，再选一件来比较。' : '已清除比较。');
+  }
+  function openCompare() {
+    const [a, b] = state.compare.map((id) => cardOf(id)!);
+    const when = (c: HTMLElement) => ({ from: +c.dataset.y0!, to: +c.dataset.y1!, precision: c.dataset.precision! });
+    const works = el('div', 'cp-works');
+    for (const c of [a, b]) {
+      const f = el('figure', 'cp-work');
+      const print = c.querySelector('.at-print')!.cloneNode(true) as HTMLElement;
+      print.dataset.open = c.dataset.card!;
+      const facts = el('dl', 'at-facts');
+      for (const [k, v] of [['年代', c.dataset.when!], ['制作地', c.dataset.place!], ['类型', c.dataset.form!], ['地区', c.dataset.region!]]) facts.append(el('dt', '', k), el('dd', '', v));
+      f.append(print, el('p', 'cp-title', c.dataset.title), facts, el('p', 'at-note', c.querySelector('.at-note')!.textContent!));
+      works.append(f);
+    }
+    const rel = el('div', 'cp-rel');
+    rel.append(el('p', 'at-sub', '时间关系'), el('p', '', relationText(relation(when(a), when(b)))));
+    const contact = el('div', 'cp-rel');
+    contact.append(el('p', 'at-sub', '往来'));
+    const curated = root.querySelector<HTMLElement>(`.at-cmp[data-works~="${CSS.escape(a.dataset.card!)}"][data-works~="${CSS.escape(b.dataset.card!)}"]`);
+    if (curated) {
+      contact.append(curated.querySelector('.at-contact')!.cloneNode(true));
+      const go = el('button', 'cp-go', `看本站的完整对照：${curated.querySelector('h3')!.textContent}`); go.type = 'button';
+      go.dataset.gotoCmp = curated.id; go.dataset.wi = String(sections.indexOf(curated.closest('[data-window]') as HTMLElement));
+      contact.append(go);
+    } else {
+      contact.append(el('p', '', '本站没有记录这两件作品之间的往来。年代相近，只说明它们大约在同一段时间里被做出来，不说明彼此影响。'));
+    }
+    panelBody.replaceChildren(works, rel, contact);
+    state.open = '';
+    showPanel('并排比较', true, true);
+  }
+
+  root.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    const pick = (sel: string) => t.closest<HTMLElement>(sel);
+    let b: HTMLElement | null;
+    if ((b = pick('[data-mode]'))) { update({ mode: b.dataset.mode as Mode }); return; }
+    if ((b = pick('[data-axis-win]'))) { const j = +b.dataset.axisWin!; update({ mode: 'window', year: winOfYear(state.year) === j ? state.year : startOf(j) }); return; }
+    if ((b = pick('[data-wall-btn]'))) { update({ wall: b.dataset.wallBtn! }); return; }
+    if ((b = pick('[data-act]'))) {
+      if (b.dataset.act === 'broaden') update({ mode: 'window' }); else update({ wall: 'all' });
+      worksTitle.focus({ preventScroll: true });
+      return;
+    }
+    if (pick('[data-more]')) { update({ limit: Infinity }); return; }
+    if ((b = pick('[data-tool]'))) { setTool(b.dataset.tool!); return; }
+    if ((b = pick('button.at-place'))) { state.anchor = state.anchor === b.dataset.anchor ? '' : b.dataset.anchor!; render(false); return; }
+    if (pick('[data-anchor-clear]')) { clearAnchor(true); return; }
+    if ((b = pick('[data-goto-cmp]'))) { gotoComparison(b.dataset.gotoCmp!, +b.dataset.wi!); return; }
+    if ((b = pick('[data-compare]'))) { toggleCompare(b.dataset.compare!); return; }
+    if (pick('[data-compare-go]')) { openCompare(); return; }
+    if (pick('[data-compare-clear]')) { state.compare = []; syncCompare(); return; }
+    if ((b = pick('[data-open]'))) { openWork(b.dataset.open!, true, b); return; }
+    if (pick('[data-close]')) { closePanel(); return; }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!panel.hidden) closePanel(); else if (state.anchor) clearAnchor(root.querySelector('[data-anchor-pick]:not([hidden])')?.contains(document.activeElement) ?? false);
+  });
+  // A chosen place lets go when the reader clicks anywhere but a place, the list of its works or the panel: the map's
+  // blank ground included.
+  function clearAnchor(refocus: boolean) {
+    const s = sections[interval().i], was = state.anchor;
+    state.anchor = '';
+    render(false);
+    if (refocus) s.querySelector<HTMLElement>(`button.at-place[data-anchor="${was}"]`)?.focus();
+  }
+  document.addEventListener('click', (e) => {
+    if (!state.anchor) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('button.at-place, .at-plan-list, .at-plan-pick, [data-panel], [data-tray]')) return;
+    clearAnchor(false);
+  });
+
+  // The overview's bars: their widths depend on the window's width (the axis is in %, the bar in px for its minimum).
+  function sizeBars() {
+    root.querySelectorAll<HTMLElement>('.at-window[data-current] .at-bar-item').forEach((li) => {
+      const t = li.parentElement!;
+      li.style.setProperty('--bw', `${Math.max(6, (parseFloat(li.style.getPropertyValue('--w')) / 100) * t.clientWidth)}px`);
+    });
+  }
+  addEventListener('resize', sizeBars);
+
+  // The address keeps the selection: #y1150 (a year and the years around it), #period-05 (a whole window).
+  const fromHash = (): Partial<typeof state> | null => {
+    let m = /^#y(-?\d+)$/.exec(location.hash);
+    if (m) { const y = +m[1]; if (y && y >= bounds[0][0] && y <= bounds[N - 1][1]) return { year: y, mode: 'near' }; }
+    m = /^#(?:period-|w)0?([1-9])$/.exec(location.hash);
+    if (m) return { year: startOf(+m[1] - 1), mode: 'window' };
+    return null;
+  };
+  addEventListener('hashchange', () => { const h = fromHash(); if (h) update(h); });
+
+  Object.assign(state, fromHash() ?? {});
+  setTool('', false);
+  render();
+  syncCompare();
+</script>

@@ -1,0 +1,73 @@
+---
+// The Atlas's background: a Swiss typographic grid (after Josef Müller-Brockmann, Grid Systems in Graphic Design, 1981).
+// Twelve columns and a baseline on the wall, one red rule, and the selected year set very large in outline. The grid is
+// dimmed where the works are; the year is not, so it stays whole, and its outline lets the text over it read.
+// Chosen in review from fourteen studies (SOURCES_AND_DECISIONS.md).
+---
+<div class="abd" aria-hidden="true">
+  <svg class="abd-grid" data-abd-grid xmlns="http://www.w3.org/2000/svg"></svg>
+  <svg class="abd-year" data-abd-year xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+
+<style>
+  /* The hall's wall is opaque (.archive); isolate it so a layer at z-index -1 sits on the wall, under the works. */
+  :global(.archive) { position: relative; isolation: isolate; }
+  .abd { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+  .abd svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+  /* The margins carry the grid; the middle, where the works are, keeps a third of it. */
+  .abd-grid {
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - 38rem), rgb(0 0 0 / .32) calc(50% - 28rem), rgb(0 0 0 / .32) calc(50% + 28rem), #000 calc(50% + 38rem), #000 100%);
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - 38rem), rgb(0 0 0 / .32) calc(50% - 28rem), rgb(0 0 0 / .32) calc(50% + 28rem), #000 calc(50% + 38rem), #000 100%); }
+  .abd-year { opacity: 0; transition: opacity .6s ease; }
+  .abd-year.on { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .abd-year { transition: none; } }
+</style>
+
+<script>
+  const grid = document.querySelector<SVGSVGElement>('[data-abd-grid]')!;
+  const yearSvg = document.querySelector<SVGSVGElement>('[data-abd-year]')!;
+  // What the timeline shows: a year (1888, 公元前 6000, 约公元前 4.2 万), or a window's numeral when a whole period is
+  // chosen. Years before the common era keep their 公元前, so 6000 is never read as 6000 CE.
+  const yearOut = document.querySelector<HTMLElement>('[data-year-out]');
+
+  const INK = '236 233 226', BRICK = '170 74 58';
+  const f = (n: number) => Math.round(n * 10) / 10;
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  function drawGrid() {
+    const w = innerWidth, h = innerHeight, cols = 12, gutter = 20, colW = (w - gutter * (cols + 1)) / cols;
+    let s = '';
+    for (let i = 0; i < cols; i++) s += `<rect x="${f(gutter + i * (colW + gutter))}" y="0" width="${f(colW)}" height="${h}" fill="rgb(${INK} / .018)"/>`;
+    for (let y = 24; y < h; y += 24) s += `<line x1="0" y1="${y}" x2="${w}" y2="${y}" stroke="rgb(${INK} / .03)" stroke-width=".5"/>`;
+    s += `<rect x="${gutter}" y="96" width="${f(colW * 2 + gutter)}" height="8" fill="rgb(${BRICK} / .75)"/>`;
+    grid.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    grid.innerHTML = s;
+  }
+
+  let shown = '';
+  function drawYear() {
+    const [eraEl, numEl] = [...(yearOut?.children ?? [])] as HTMLElement[];
+    const num = (numEl?.textContent ?? '').trim(), era = (eraEl?.textContent ?? '').trim();
+    const bce = era.includes('公元前') ? era : '';
+    if (`${bce}|${num}` === shown && yearSvg.innerHTML) return;
+    shown = `${bce}|${num}`;
+    const w = innerWidth, h = innerHeight, gutter = 20, size = Math.min(h * 0.42, w * 0.22);
+    // Outline only, firm enough to read and thin enough to read text through.
+    // 公元前 sits above the number, a third of its size, on the same left edge.
+    const paint = `fill="none" stroke="rgb(${INK} / .26)"`;
+    const eraSize = size * 0.3;
+    yearSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    yearSvg.innerHTML = (bce ? `<text x="${gutter}" y="${f(h - gutter - size * 0.8)}" font-size="${f(eraSize)}" font-weight="700"
+      font-family="var(--sans), sans-serif" letter-spacing="${f(eraSize * 0.06)}" ${paint} stroke-width="1">${esc(bce)}</text>` : '')
+      + `<text x="${f(gutter - size * 0.04)}" y="${f(h - gutter)}" font-size="${f(size)}" font-weight="700"
+      font-family="Helvetica Neue, Helvetica, Arial, sans-serif" letter-spacing="${f(-size * 0.04)}"
+      ${paint} stroke-width="1.25">${esc(num)}</text>`;
+    yearSvg.classList.add('on');
+  }
+
+  let t = 0;
+  addEventListener('resize', () => { clearTimeout(t); t = window.setTimeout(() => { shown = ''; drawGrid(); drawYear(); }, 120); });
+  if (yearOut) new MutationObserver(drawYear).observe(yearOut, { childList: true, characterData: true, subtree: true });
+  drawGrid();
+  drawYear();
+</script>

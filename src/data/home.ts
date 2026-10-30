@@ -19,7 +19,7 @@ export const destinations: Destination[] = [
     premise: '一位艺术家的生平，与他的艺术怎样一步步形成。' },
   { id: 'cases', no: '03', label: 'Cases', sub: '叙事案例', href: '/cases/',
     premise: '从一件作品或一处遗址出发的调查与重建。' },
-  { id: 'atlas', no: '04', label: '同时代的世界', sub: 'The World at the Same Time',
+  { id: 'atlas', no: '04', label: '同时代的世界', sub: 'The World at the Same Time', href: '/atlas/',
     premise: '选一个时代，看世界各地同时在创造什么。' },
   { id: 'collection', no: '05', label: 'Art Collection', sub: '藏品图鉴', href: '/collection/',
     premise: '学完一门课，领取它的藏品卡；翻到背面，进入完整的藏品记录。' },

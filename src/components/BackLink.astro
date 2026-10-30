@@ -20,6 +20,7 @@ const { href, label, class: className } = Astro.props;
     [/^\/$/, '首页'], [/^\/courses\/$/, '课程目录'], [/^\/collection\/$/, '藏品图鉴'],
     [/^\/lessons\/[^/]+\/$/, '课程页'], [/^\/artworks\/[^/]+\/$/, '藏品记录'],
     [/^\/stories\/$/, '艺术家故事馆'], [/^\/stories\/[^/]+\/$/, '故事'], [/^\/cases\/$/, '案例库'], [/^\/cases\/[^/]+\/$/, '案例'],
+    [/^\/atlas\/$/, '同时代的世界'],
   ];
   type Nav = { entries(): { url: string | null; key: string }[]; currentEntry: { index: number } | null; traverseTo(key: string): unknown };
   const nav = (window as unknown as { navigation?: Nav }).navigation;

@@ -16,6 +16,8 @@ import tableImages from '../../data/table-images.json';
 import { inCourseOrder } from '../../lib/publication.js';
 import { publishedCards } from '../../lib/cards';
 import { imageCredit } from '../../lib/credits.js';
+import { WINDOWS, ANCHORS, BAND_COLOUR } from '../../data/atlas';
+import { astro } from '../../lib/atlasTime.js';
 
 // The table shows scaled-down copies (whole images; scripts/table-images.mjs makes them and records their sizes, so
 // every print's box is known before it loads). A lesson or card without one stops the build with what to run.
@@ -96,8 +98,8 @@ const life = [
 const caseImgs = { samaritan: await pick('art-chartres-cathedral-001', 'samaritan'), belle: await pick('art-chartres-cathedral-001', 'belle-verriere'), walls: await pick('art-chartres-cathedral-001', 'restoration') };
 const evidence = [
   { tag: 'A', img: caseImgs.samaritan, note: '“好撒马利亚人”窗的一格，13 世纪初：有色玻璃、铅条，和用颜料画上去的五官。', x: 3, y: 14, r: -3 },
-  { tag: 'B', img: caseImgs.belle, note: '“美丽玻璃窗圣母”：上部约作于 1180 年，下部约 1225 年补成。', x: 40, y: 52, r: 2 },
-  { tag: 'C', img: caseImgs.walls, note: '2019 年，清理过的墙面挨着未清理的部分。清理到哪一层，是同一种判断。', x: 70, y: 10, r: 3 },
+  { tag: 'B', img: caseImgs.belle, note: '“美丽玻璃窗圣母”：上部约作于 1180 年，下部约 1225 年补成。', x: 42, y: 60, r: 2, side: true },
+  { tag: 'C', img: caseImgs.walls, note: '2019 年，清理过的墙面挨着未清理的部分。清理到哪一层，是同一种判断。', x: 72, y: 12, r: 3 },
 ];
 const caseDates = [
   { year: '1205–35', text: '侧廊与回廊的彩窗陆续装上。' },
@@ -105,6 +107,26 @@ const caseDates = [
   { year: '2001', text: '文物实验室与玻璃匠德比图斯的热成型保护玻璃，已装在沙特尔的窗外。' },
   { year: '2020s', text: '耳堂的墙面与彩窗，列入国家修复计划。' },
 ];
+// The World at the Same Time (Phase 4.28): the hall's opening selection, 1150 and the fifty years either side, as four
+// works from four parts of the world on the hall's Swiss grid. The works, their dates and places come from the hall's
+// data (src/data/atlas.ts), the images from their records (each with its own credit). The axis is the hall's: nine
+// windows, each an equal ninth, the cursor where 1150 falls in window V.
+const ATLAS_YEAR = 1150;
+const atlasWindow = WINDOWS.find((w) => ATLAS_YEAR >= w.from && ATLAS_YEAR <= w.to)!;
+const atlasWi = WINDOWS.indexOf(atlasWindow);
+const atlasX = (y: number) => ((atlasWi + (astro(y) - astro(atlasWindow.from)) / (astro(atlasWindow.to) - astro(atlasWindow.from) + 1)) / WINDOWS.length) * 100;
+const atlasWorks = await Promise.all([
+  { id: 'art-ma-yuan-spring-path-001', region: '东亚' },
+  { id: 'art-angkor-wat-001', region: '东南亚' },
+  { id: 'art-conques-tympanum-001', region: '欧洲' },
+  { id: 'art-nataraja-cleveland-001', region: '南亚' },
+].map(async ({ id, region }) => {
+  const entry = atlasWindow.entries.find((e) => e.id === id)!;
+  const art = (await getEntry('artworks', id))!.data;
+  const img = art.images.find((i: any) => i.key === 'full') ?? art.images[0];
+  const anchor = ANCHORS.find((a) => a.id === entry.place.anchor)!;
+  return { id, title: art.titleZh, when: entry.when.label, region, place: anchor.label, colour: BAND_COLOUR[anchor.band], img, credit: imageCredit(img, art) };
+}));
 // Continue Reading: every article this build has, by kind.
 const essays = await getCollection('essays');
 const essayItems = (kind: string, base: string) =>
@@ -245,8 +267,8 @@ window.__stHero=hero})();`;
     </article>
   </section>
 
-  <!-- Cases: an investigation board. The question in the middle, the evidence pinned round it and tied to it, and the
-       dates along the bottom. -->
+  <!-- Cases: an investigation board. The question in the middle, the evidence cut out round it with arrows to it, and
+       the dates along the bottom. -->
   <section class="st-cases" id="st-cases" aria-labelledby="st-h-cases">
     <article class="st-board" aria-labelledby="st-h-chartres" data-reveal>
       <span class="st-folder-tab" lang="en">Case 01</span>
@@ -257,12 +279,13 @@ window.__stHero=hero})();`;
       <div class="st-board-area">
         <svg class="st-ties" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {evidence.map(() => <path pathLength="1" d="" />)}
+          {evidence.map(() => <path class="st-head" d="" />)}
         </svg>
         <p class="st-question"><span>问题</span>给八百年前的彩窗加一层保护玻璃：它保护了什么，又改变了什么？</p>
         {evidence.map((e, i) => (
-          <figure class="st-evidence" style={`--x:${e.x}%;--y:${e.y}%;--r:${e.r}deg;--i:${i}`}>
+          <figure class:list={['st-evidence', { 'is-side': e.side }]} style={`--x:${e.x}%;--y:${e.y}%;--r:${e.r}deg;--i:${i}`}>
             <span class="st-ev-tag" lang="en">{e.tag}</span>
-            <img src={e.img.src} alt={e.img.alt} loading="lazy" />
+            <span class="st-ev-cut"><img src={e.img.src} alt={e.img.alt} loading="lazy" /></span>
             <figcaption>{e.note}</figcaption>
           </figure>
         ))}
@@ -277,6 +300,40 @@ window.__stHero=hero})();`;
       <h2 id="st-h-cases" tabindex="-1">一个问题，<br />一桌证据。</h2>
       <p class="st-sto-lede">叙事案例是一场调查：人物与场景依史料重建，证据都摆在桌上。第一个案例，发生在沙特尔的彩窗前。</p>
     </div>
+  </section>
+
+  <!-- The World at the Same Time: the last piece on the desk. One year on the hall's Swiss grid: the year in outline,
+       four works made around it in four parts of the world, and the hall's timeline with the cursor on that year. -->
+  <section class="st-atlas" id="st-atlas" aria-labelledby="st-h-atlas">
+    <div class="st-paper st-sto-label st-atlas-label">
+      <p class="st-kicker">同时代的世界</p>
+      <h2 id="st-h-atlas" tabindex="-1">同一年，<br />不同的世界。</h2>
+      <p class="st-sto-lede">选一个年份，看世界各地同时在做什么。放在一起，只说明它们大约在同一段时间里被做出来：同时，不是影响。</p>
+    </div>
+    <article class="st-chart" aria-labelledby="st-h-chart" data-reveal>
+      <span class="st-folder-tab" lang="en">Atlas</span>
+      <span class="st-chart-rule" aria-hidden="true"></span>
+      <span class="st-chart-year" aria-hidden="true" lang="en">{ATLAS_YEAR}</span>
+      <header class="st-chart-h">
+        <h3 id="st-h-chart">公元 {ATLAS_YEAR} 年前后</h3>
+        <p>第 {atlasWindow.roman} 时期 · {atlasWindow.label} · 四个地方，大约同时</p>
+      </header>
+      <ol class="st-chart-works">
+        {atlasWorks.map((w, i) => (
+          <li style={`--i:${i};--wc:${w.colour}`}>
+            <span class="st-chart-print"><img src={w.img.src} alt={w.img.alt} width={w.img.width} height={w.img.height} loading="lazy" decoding="async" /></span>
+            <span class="st-chart-region">{w.region} · {w.place}</span>
+            <b>{w.title}</b>
+            <em>{w.when}</em>
+          </li>
+        ))}
+      </ol>
+      <div class="st-chart-axis" aria-hidden="true" style={`--x:${atlasX(ATLAS_YEAR).toFixed(2)}%;--a:${atlasX(ATLAS_YEAR - 50).toFixed(2)}%;--b:${atlasX(ATLAS_YEAR + 50).toFixed(2)}%`}>
+        <span class="st-chart-range"></span><span class="st-chart-cursor"></span>
+        {WINDOWS.map((w, i) => <span class:list={['st-chart-win', { 'is-here': i === atlasWi }]} style={`--k:${i}`} lang="en">{w.roman}</span>)}
+      </div>
+      <a class="st-folder-go" href={`/atlas/#y${ATLAS_YEAR}`}>进入同时代的世界 <span aria-hidden="true">→</span></a>
+    </article>
   </section>
 
   <!-- A stage, opened: all its courses laid out as prints. -->
@@ -312,6 +369,9 @@ window.__stHero=hero})();`;
     <p>奥斯曼·哈姆迪·贝伊{story.caption}。图片：{story.credit.by}，{story.credit.licence}，<a href={story.credit.href}>来源</a>。</p>
     {[caseImgs.samaritan, caseImgs.belle, caseImgs.walls].map((im) => (
       <p>沙特尔主教座堂：{im.caption ?? im.alt.split('：')[0]}图片：{im.credit.by}，{im.credit.licenceUrl ? <a href={im.credit.licenceUrl}>{im.credit.licence}</a> : im.credit.licence}，<a href={im.credit.href}>来源</a>。</p>
+    ))}
+    {atlasWorks.map((w) => (
+      <p>{w.title}。图片：{w.credit.by}，{w.credit.licenceUrl ? <a href={w.credit.licenceUrl}>{w.credit.licence}</a> : w.credit.licence}，<a href={w.credit.href}>来源</a>。</p>
     ))}
     <p>完整的来源与授权，见各课程页的“来源与版权”。</p>
   </footer>
@@ -510,7 +570,51 @@ window.__stHero=hero})();`;
   .st-case-dates b { display: block; font: 400 22px/1 var(--latin); font-weight: 400; }
   .st-case-dates span { display: block; margin-top: 6px; font: 400 12.5px/1.65 var(--sans); color: var(--ink-2); }
 
-  /* ---------- The World at the Same Time ---------- */
+  /* ---------- The World at the Same Time ----------
+     The hall's own language (src/components/atlas/AtlasBackdrop.astro): a Swiss grid on the dark wall, one brick rule,
+     the year set very large in outline, works on paper mounts, and the hall's timeline with the year marked on it. */
+  .st-atlas { position: relative; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 1328px; margin: 0 auto; padding: 60px 56px 130px; scroll-margin-top: 24px; }
+  .st-atlas :global(h2:focus) { outline: none; }
+  .st .st-atlas-label { transform: rotate(-1.5deg); }
+  .st-chart { --brick: 170 74 58; position: relative; height: 640px; padding: 30px 34px;
+    background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 12 - 1px), rgb(255 255 255 / .05) calc(100% / 12 - 1px) calc(100% / 12)), #1a1a19;
+    border: 1px solid rgb(255 255 255 / .16); box-shadow: 10px 10px 0 rgb(0 0 0 / .5); }
+  .st-chart .st-folder-tab { left: -1px; top: -30px; height: 30px; padding: 8px 16px 0; border: 0; background: rgb(var(--brick)); color: var(--paper);
+    font: 700 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+  .st-chart-rule { position: absolute; left: 34px; top: 30px; width: 96px; height: 8px; background: rgb(var(--brick)); }
+  .st-chart-year { position: absolute; right: 22px; top: 6px; font: 700 220px/1 "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: -.04em;
+    color: transparent; -webkit-text-stroke: 1.2px rgb(236 235 231 / .26); pointer-events: none; user-select: none; }
+  .st-chart-h { position: relative; padding-top: 24px; }
+  .st-chart-h h3 { margin: 0; font: 700 30px/1.2 var(--sans); letter-spacing: .02em; }
+  .st-chart-h p { margin: 6px 0 0; font: 500 13px/1.4 var(--sans); letter-spacing: .04em; color: var(--ink-2); }
+  .st-chart-works { position: absolute; left: 34px; right: 34px; top: 150px; bottom: 150px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px;
+    align-items: end; margin: 0; padding: 0; list-style: none; }
+  .st-chart-works li { display: grid; align-content: end; min-width: 0; }
+  .st-chart-print { display: flex; align-items: flex-end; height: 230px; }
+  .st-chart-print img { display: block; max-width: 100%; max-height: 230px; width: auto; height: auto; padding: 7px; background: var(--paper);
+    box-shadow: 0 1px 2px rgb(0 0 0 / .5), 0 16px 26px -12px rgb(0 0 0 / .85); }
+  /* The hall's colour code (BAND_COLOUR): each part of the world's flat colour on its name and a square before it. */
+  .st-chart-region { margin-top: 14px; font: 500 11px/1.5 var(--sans); letter-spacing: .14em; color: rgb(var(--wc)); }
+  .st-chart-region::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; background: rgb(var(--wc)); vertical-align: .05em; }
+  .st-chart-works b { margin-top: 3px; font: 500 15px/1.5 var(--serif); letter-spacing: .03em; }
+  .st-chart-works em { margin-top: 2px; font: 400 12px/1.6 var(--sans); font-style: normal; color: var(--ink-2); }
+  /* The hall's timeline: nine windows, each an equal ninth; the fifty years either side in brick, the cursor on the year. */
+  .st-chart-axis { position: absolute; left: 34px; right: 34px; bottom: 84px; height: 30px; border-top: 1px solid rgb(236 235 231 / .45); }
+  .st-chart-win { position: absolute; left: calc(var(--k) * 100% / 9); top: 9px; padding-left: 6px; font: 400 12px/1 var(--latin); color: var(--ink-3); }
+  .st-chart-win::before { content: ""; position: absolute; left: 0; top: -9px; width: 1px; height: 14px; background: rgb(236 235 231 / .3); }
+  .st-chart-win.is-here { color: var(--ink); }
+  .st-chart-range { position: absolute; left: var(--a); width: calc(var(--b) - var(--a)); top: -2px; height: 3px; background: rgb(var(--brick)); }
+  .st-chart-cursor { position: absolute; left: var(--x); top: -30px; width: 1px; height: 30px; background: var(--ink); }
+  .st-chart-cursor::after { content: ""; position: absolute; left: -4px; top: -4px; width: 9px; height: 9px; background: var(--ink); transform: rotate(45deg); }
+  .st-chart .st-folder-go { color: var(--ink); border-bottom: 2px solid rgb(var(--brick)); }
+  /* As the chart comes into view: the cursor runs along the timeline to the year, and the works are laid down in turn. */
+  @keyframes st-run { from { left: 0; } }
+  @media (prefers-reduced-motion: no-preference) {
+    :global([data-reveal]:not(.is-in)) .st-chart-works li, :global([data-reveal]:not(.is-in)) .st-chart-range { opacity: 0; }
+    :global([data-reveal].is-in) .st-chart-cursor { animation: st-run 1100ms cubic-bezier(.4, 0, .2, 1) backwards; }
+    :global([data-reveal].is-in) .st-chart-range { transition: opacity 400ms var(--ease) 1000ms; }
+    :global([data-reveal].is-in) .st-chart-works li { animation: st-rise 600ms var(--ease) backwards; animation-delay: calc(700ms + var(--i) * 160ms); }
+  }
 
   /* The case board comes in as it is reached: the ties draw themselves, then the pieces settle in order. */
   @keyframes st-settle { from { opacity: 0; transform: translateY(16px) rotate(var(--r, 0deg)); } }
@@ -566,14 +670,16 @@ window.__stHero=hero})();`;
     :global(.st-folder.is-in) .st-life li { animation: st-pin 560ms var(--ease) backwards; animation-delay: calc(300ms + var(--i) * 300ms); }
     :global(.st-folder.is-in) .st-clip { animation: st-rise 700ms var(--ease) backwards; }
   }
-  /* ---------- The two series ----------
+  /* ---------- The three series ----------
      Each entrance is a door to a whole series, so its design belongs to the series, not to whichever article is first.
-     Two flat graphic languages:
+     Three flat graphic languages, each with its own use of colour:
      · Stories — Ukiyo-e: washi paper under a Prussian-blue bokashi band, sumi outlines, the title in a cartouche,
        seal-red square pins and tab. A life told as a printed picture.
-     · Cases — Swiss International Style: white paper on a visible modular grid, flush-left sans, one signal colour
-       (cobalt) for the column bar and the way in, the question as a black block, square evidence letters, the
-       timeline as a heavy rule. Order, for an investigation. */
+     · Cases — Constructivist factography (Rodchenko, Klutsis), toned down: cool grey newsprint (not the Stories' warm washi), black and one muted
+       vermilion, the evidence as cut-out photographs (in colour) on the diagonal, black arrows to the question in a
+       red band, the dates on a Prussian-blue bar. An argument made from documents.
+     · The World at the Same Time — Swiss, on the hall's dark grid, with a colour code for the parts of the world after
+       Otl Aicher's for Munich 1972 (BAND_COLOUR); brick marks the selected years. */
   .st-folder { background:
     linear-gradient(180deg, #24476e 0, rgb(36 71 110 / .55) 70px, transparent 150px),
     linear-gradient(0deg, rgb(185 140 70 / .35) 0, transparent 90px),
@@ -594,38 +700,51 @@ window.__stHero=hero})();`;
   .st-folder .st-folder-go { color: #1b1b1b; border-bottom: 2px solid #b93a2b; }
 
   .st-board {
-    --s-paper: #f4f4f1; --s-ink: #111; --s-signal: #2347d6; --s-grid: rgb(0 0 0 / .07);
+    --c-paper: #d6d7d3; --c-ink: #1b1c1c; --c-red: #b04a36;
     background:
-      linear-gradient(90deg, var(--s-signal) 0 10px, transparent 10px),
-      repeating-linear-gradient(90deg, transparent 0 calc(100% / 12 - 1px), var(--s-grid) calc(100% / 12 - 1px) calc(100% / 12)),
-      var(--s-paper);
-    border: 0; box-shadow: 10px 10px 0 rgb(0 0 0 / .55);
+      linear-gradient(-58deg, transparent 0 84%, rgb(176 74 54 / .55) 84% 85.2%, transparent 85.2%),
+      radial-gradient(rgb(29 27 25 / .05) .6px, transparent .9px) 0 0 / 4px 4px,
+      var(--c-paper);
+    border: 0; box-shadow: 10px 10px 0 rgb(0 0 0 / .55); transform: none;
   }
-  .st-board .st-folder-tab { left: 0; top: -30px; height: 30px; padding: 8px 16px 0; border: 0; background: var(--s-ink); color: var(--s-paper);
-    font: 700 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
-  .st-board-h h3 { color: var(--s-ink); font: 700 30px/1.2 var(--sans); letter-spacing: .02em; }
-  .st-board-h p { color: var(--s-ink); font: 500 13px/1.4 var(--sans); letter-spacing: .04em; }
-  .st-board .st-ties path { stroke: var(--s-ink); stroke-opacity: .6; }
-  .st-board .st-question { background: var(--s-ink); color: var(--s-paper); transform: translate(-50%, -50%); box-shadow: none; font-family: var(--sans); font-weight: 500; }
-  .st-board .st-question span { color: rgb(244 244 241 / .7); }
-  .st-board .st-evidence { transform: none; }
-  .st-board .st-evidence img { padding: 0; background: none; outline: 1px solid var(--s-ink); box-shadow: none; }
-  .st-board .st-evidence figcaption { color: var(--s-ink); }
-  .st-board .st-ev-tag { left: 0; top: 0; width: 26px; height: 26px; border-radius: 0; background: var(--s-ink); color: var(--s-paper); font: 700 13px/1 var(--sans); }
-  .st-board .st-case-dates { border-top: 3px solid var(--s-ink); }
-  .st-board .st-case-dates li::before { top: -9px; width: 9px; height: 9px; border-radius: 0; background: var(--s-signal); }
-  .st-board .st-case-dates b { color: var(--s-ink); font: 700 24px/1 var(--sans); }
-  .st-board .st-case-dates span { color: #333; }
-  .st-board .st-folder-go { border: 0; color: var(--s-signal); font-weight: 700; letter-spacing: .06em; }
-  .st-board { transform: none; } /* the Swiss board sits square on the grid */
-  @media (max-width: 900px) {
-    .st-board .st-question { transform: none; }
-    .st-folder-h h3, .st-board-h h3 { font-size: 24px; }
+  .st-board .st-folder-tab { left: 0; top: -30px; height: 30px; padding: 8px 16px 0; border: 0; background: var(--c-red); color: var(--c-paper);
+    font: 700 12px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; }
+  .st-board-h h3 { color: var(--c-ink); font: 700 32px/1.15 var(--sans); letter-spacing: .02em; }
+  .st-board-h p { color: var(--c-ink); font: 500 13px/1.4 var(--sans); letter-spacing: .04em; }
+  /* Black arrows from each piece of evidence to the question; the heads land after their lines. */
+  .st-board .st-ties path { stroke: var(--c-ink); stroke-width: 3; }
+  .st-board .st-ties .st-head { fill: var(--c-ink); stroke: none; transition: opacity 160ms linear; }
+  .st-board .st-question { top: 22%; width: 236px; padding: 13px 18px 15px; background: var(--c-red); color: #f6efe2; transform: translate(-50%, -50%) rotate(-2deg);
+    box-shadow: 4px 4px 0 var(--c-ink); font: 500 16px/1.6 var(--sans); }
+  .st-board .st-question span { margin-bottom: 7px; color: rgb(246 239 226 / .75); font: 700 11px/1 var(--sans); letter-spacing: .3em; }
+  /* The evidence as cut-out photographs set on the diagonal. They keep their colour: in this case the colour of the
+     glass is the evidence. */
+  .st-board .st-evidence { transform: rotate(calc(var(--r) * 1.5)); }
+  .st-board .st-evidence:hover { transform: rotate(0deg) translateY(-4px); }
+  .st-board .st-ev-cut { position: relative; display: block; width: fit-content; }
+  .st-board .st-evidence img { padding: 0; background: none; box-shadow: 4px 4px 0 var(--c-ink); }
+  .st-board .st-evidence figcaption { color: var(--c-ink); }
+  /* A tall, narrow photograph keeps its caption beside it, so the board can be shorter. */
+  .st-board .st-evidence.is-side { display: flex; align-items: flex-end; gap: 16px; width: 36%; }
+  .st-board .st-evidence.is-side .st-ev-cut { flex: none; }
+  .st-board .st-evidence.is-side figcaption { margin: 0; }
+  .st-board { height: 630px; }
+  .st-board-area { height: 310px; }
+  .st-board .st-ev-tag { left: -8px; top: -8px; z-index: 2; width: 26px; height: 26px; border-radius: 0; background: var(--c-ink); color: var(--c-paper); font: 700 13px/1 var(--sans); }
+  /* The dates on one Prussian-blue bar, the years in the board's red. */
+  .st-board .st-case-dates { left: 0; right: 0; padding: 16px 30px; border: 0; background: #1f3d5e; }
+  .st-board .st-case-dates li::before { display: none; }
+  .st-board .st-case-dates b { color: #e39a85; font: 700 24px/1 var(--sans); }
+  .st-board .st-case-dates span { color: rgb(214 215 211 / .85); }
+  .st-board .st-folder-go { color: var(--c-ink); font-weight: 700; letter-spacing: .06em; border-bottom: 3px solid var(--c-red); }
+  @media (prefers-reduced-motion: no-preference) {
+    .st-board:not(:global(.is-in)) .st-head { opacity: 0; }
   }
-  .st-board { transform: none; } /* the Swiss board sits square on the grid */
   @media (max-width: 900px) {
-    .st-board .st-question { transform: none; }
-    .st-board-h h3 { font-size: 24px; }
+    .st-board .st-question { width: auto; transform: rotate(-2deg); }
+    .st-board .st-evidence { transform: rotate(var(--r)); }
+    .st-folder-h h3 { font-size: 24px; }
+    .st-board-h h3 { font-size: 26px; }
     /* Phones: one piece of evidence under the question keeps the board short; the letters only matter beside the
        desktop's ties, which phones don't show. */
     .st-board .st-evidence ~ .st-evidence, .st-board .st-ev-tag { display: none; }
@@ -676,6 +795,21 @@ window.__stHero=hero})();`;
     .st-stories { display: block; padding: 70px 20px 60px; }
     .st-cases { display: flex; flex-direction: column-reverse; gap: 54px; padding: 20px 20px 60px; }
     .st .st-case-label { margin: 0; }
+    /* The chart: label first, then the year, the works two by two, the timeline under them. */
+    .st-atlas { display: flex; flex-direction: column; gap: 54px; padding: 20px 20px 70px; }
+    .st .st-atlas-label { margin: 0; padding: 22px 22px 24px; transform: rotate(-1deg); }
+    .st-chart { height: auto; padding: 22px 18px 24px; overflow: hidden; }
+    .st-chart-rule { left: 18px; top: 22px; }
+    .st-chart-year { right: 12px; top: 18px; font-size: 92px; }
+    .st-chart-h h3 { font-size: 24px; }
+    /* Phones: each picture at its own height, top-aligned, so no empty box stands above the shorter ones. */
+    .st-chart-works { position: relative; left: auto; right: auto; top: auto; bottom: auto; grid-template-columns: 1fr 1fr; gap: 20px 14px; margin-top: 22px; align-items: start; }
+    .st-chart-works li { align-content: start; }
+    .st-chart-print { height: auto; }
+    .st-chart-print img { max-height: 130px; padding: 5px; }
+    .st-chart-region { margin-top: 10px; }
+    .st-chart-axis { position: relative; left: auto; right: auto; bottom: auto; margin-top: 44px; }
+    .st-chart .st-folder-go { position: static; display: inline-block; margin-top: 10px; }
     .st-board { height: auto; padding: 22px 18px 24px; transform: none; }
     .st-board-area { position: relative; left: auto; right: auto; top: auto; height: auto; margin-top: 22px; display: grid; gap: 22px; }
     .st-board .st-ties { display: none; }
@@ -761,7 +895,7 @@ window.__stHero=hero})();`;
   });
 
   // Everything on the desk dims and settles back as it nears the edge of the window (src/lib/scrollFade.ts).
-  startScrollFade('.st-title, .st-slip, .st-print, .st-note, .st-tray, .st-shelves, .st-sto-label, .st-folder, .st-board, .st-case-label');
+  startScrollFade('.st-title, .st-slip, .st-print, .st-note, .st-tray, .st-shelves, .st-sto-label, .st-folder, .st-board, .st-case-label, .st-chart');
 
   // The card box: this browser's cards, lowest numbers first, at most three and then how many more.
   const showCards = () => {
@@ -823,19 +957,28 @@ window.__stHero=hero})();`;
     const o = svg?.getBoundingClientRect();
     if (!svg || !o?.width) return;
     svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`);
-    const paths = svg.querySelectorAll('path');
+    // The board's lines are arrows: they stop short of the question, and a solid head (.st-head) lands after the line.
+    const paths = svg.querySelectorAll('path:not(.st-head)'), heads = svg.querySelectorAll<SVGPathElement>('.st-head');
     pairs.forEach(([a, b], i) => {
       const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
       const ax = ra.left + ra.width / 2 - o.left, ay = ra.top + ra.height / 2 - o.top;
       const dx = rb.left + rb.width / 2 - o.left - ax, dy = rb.top + rb.height / 2 - o.top - ay, len = Math.hypot(dx, dy);
       // Where the centre line leaves a box, as a fraction of the way from one centre to the other.
       const out = (r: DOMRect) => Math.min(dx ? r.width / 2 / Math.abs(dx) : Infinity, dy ? r.height / 2 / Math.abs(dy) : Infinity);
-      const tuck = len ? 8 / len : 0, t0 = out(ra) - tuck, t1 = 1 - out(rb) + tuck;
+      const head = heads[i], tuck = len ? 8 / len : 0, t0 = out(ra) - tuck;
+      // An arrow's tip stops 8px short of the question; its line ends under the head, 18px before the tip.
+      const tip = 1 - out(rb) - (head ? 8 / len : -tuck), t1 = head ? tip - 18 / len : tip;
       // A line with less than 14px showing between the cards would read as a speck; cards that close need none.
       const p = paths[i];
       if (!p) return;
-      p.setAttribute('d', (t1 - t0) * len - 16 > 14 ? `M${ax + dx * t0} ${ay + dy * t0} L${ax + dx * t1} ${ay + dy * t1}` : '');
+      const shown = head ? (t1 - t0) * len > 12 : (t1 - t0) * len - 16 > 14;
+      p.setAttribute('d', shown ? `M${ax + dx * t0} ${ay + dy * t0} L${ax + dx * t1} ${ay + dy * t1}` : '');
       p.style.transition = `stroke-dashoffset 520ms cubic-bezier(.4, 0, .2, 1) ${delay(i)}ms`;
+      if (head) {
+        const ux = dx / len, uy = dy / len, tx = ax + dx * tip, ty = ay + dy * tip, bx = tx - ux * 22, by = ty - uy * 22;
+        head.setAttribute('d', shown ? `M${tx} ${ty} L${bx - uy * 10} ${by + ux * 10} L${bx + uy * 10} ${by - ux * 10}Z` : '');
+        head.style.transitionDelay = `${delay(i) + 480}ms`;
+      }
     });
   };
   const tie = () => {
@@ -858,13 +1001,14 @@ window.__stHero=hero})();`;
   });
 
   // On the homepage the site bar points at the desk itself rather than off the page: 课程 is the table already in view,
-  // so it does nothing here; 藏品图鉴 brings the card box into view (and lights it briefly); 艺术家故事馆 and 案例库 lead
-  // down to their folder and board, which then lead into the halls. On every other page, and without scripts, the
-  // links go to their pages as usual.
+  // so it does nothing here; 藏品图鉴 brings the card box into view (and lights it briefly); 艺术家故事馆, 案例库 and
+  // 同时代的世界 lead down to their folder, board and chart, which then lead into the halls. On every other page, and
+  // without scripts, the links go to their pages as usual.
   const sections: Record<string, { id: string; block: ScrollLogicalPosition }> = {
     '/collection/': { id: 'st-collection', block: 'center' },
     '/stories/': { id: 'st-stories', block: 'start' },
     '/cases/': { id: 'st-cases', block: 'start' },
+    '/atlas/': { id: 'st-atlas', block: 'start' },
   };
   document.querySelectorAll<HTMLAnchorElement>('.site-nav .nav-halls a').forEach((a) => {
     const href = a.getAttribute('href') ?? '';
