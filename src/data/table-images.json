@@ -107,6 +107,18 @@
       "height": 114
     }
   },
+  "/img/artemisia-judith-uffizi.jpg": {
+    "large": {
+      "src": "/img/table/artemisia-judith-uffizi.jpg",
+      "width": 895,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-artemisia-judith-uffizi.jpg",
+      "width": 211,
+      "height": 260
+    }
+  },
   "/img/asante-kente-detail-met.jpg": {
     "large": {
       "src": "/img/table/asante-kente-detail-met.jpg",
@@ -561,6 +573,18 @@
       "src": "/img/table/s-gandhara-buddha.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/gaudi-nativity-facade.jpg": {
+    "large": {
+      "src": "/img/table/gaudi-nativity-facade.jpg",
+      "width": 1100,
+      "height": 966
+    },
+    "small": {
+      "src": "/img/table/s-gaudi-nativity-facade.jpg",
+      "width": 260,
+      "height": 228
     }
   },
   "/img/gauguin-ia-orana-maria.jpg": {
@@ -1211,6 +1235,18 @@
       "height": 260
     }
   },
+  "/img/monet-water-lily-pond-1900-aic.jpg": {
+    "large": {
+      "src": "/img/table/monet-water-lily-pond-1900-aic.jpg",
+      "width": 1100,
+      "height": 978
+    },
+    "small": {
+      "src": "/img/table/s-monet-water-lily-pond-1900-aic.jpg",
+      "width": 260,
+      "height": 231
+    }
+  },
   "/img/monet-water-lily-pond-aic.jpg": {
     "large": {
       "src": "/img/table/monet-water-lily-pond-aic.jpg",
@@ -1281,6 +1317,18 @@
       "src": "/img/table/s-nataraja-cleveland.jpg",
       "width": 208,
       "height": 260
+    }
+  },
+  "/img/nek-chand-figure-diagram.jpg": {
+    "large": {
+      "src": "/img/table/nek-chand-figure-diagram.jpg",
+      "width": 1100,
+      "height": 550
+    },
+    "small": {
+      "src": "/img/table/s-nek-chand-figure-diagram.jpg",
+      "width": 260,
+      "height": 130
     }
   },
   "/img/olmec-head-1.jpg": {
@@ -1713,6 +1761,18 @@
       "src": "/img/table/s-yungang-cave20.jpg",
       "width": 260,
       "height": 255
+    }
+  },
+  "/img/zhao-twin-pines-met.jpg": {
+    "large": {
+      "src": "/img/table/zhao-twin-pines-met.jpg",
+      "width": 1100,
+      "height": 267
+    },
+    "small": {
+      "src": "/img/table/s-zhao-twin-pines-met.jpg",
+      "width": 260,
+      "height": 63
     }
   },
   "/img/zun-full.jpg": {

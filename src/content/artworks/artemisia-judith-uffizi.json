@@ -1,0 +1,123 @@
+{
+  "id": "art-artemisia-judith-uffizi-001",
+  "kind": "painting",
+  "titleZh": "朱迪斯斩杀荷罗孚尼",
+  "titleEn": "Judith Beheading Holofernes",
+  "artist": "阿尔泰米西娅·真蒂莱斯基",
+  "attributionNote": "阿尔泰米西娅·真蒂莱斯基（1593—1654 年或更晚）作，乌菲齐美术馆定为约 1620 年。馆方说明，画价是与托斯卡纳大公科西莫二世·德·美第奇约定的，大公 1621 年去世后迟迟未付，后来靠伽利略帮忙才拿到。她更早还画过一幅构图相近的同题作品，今藏那不勒斯卡波迪蒙特博物馆，一般定为约 1612—1613 年。",
+  "dateApprox": "约 1620 年",
+  "medium": "布面油画",
+  "dimensionsCm": { "height": 146.5, "width": 108 },
+  "collection": "乌菲齐美术馆（佛罗伦萨），1890 年清册第 1567 号",
+  "infoSources": [
+    { "label": "乌菲齐美术馆：Judith Beheading Holofernes（年代、尺寸、清册号、科西莫二世与伽利略、在佛罗伦萨引起的反应）", "url": "https://www.uffizi.it/en/artworks/judith-beheading-holofernes" },
+    { "label": "伦敦国家美术馆：Self Portrait as Saint Catherine of Alexandria，作品页与 2024 年藏品目录（技术检查、婚约与佛罗伦萨、学院注册日期、1612 年审讯中的刑讯）", "url": "https://www.nationalgallery.org.uk/paintings/catalogues/national-gallery-2024/self-portrait-as-saint-catherine-of-alexandria" },
+    { "label": "伦敦国家美术馆：Artemisia in her own words（审讯笔录与致鲁福的信中的句子）", "url": "https://www.nationalgallery.org.uk/exhibitions/past/artemisia/artemisia-in-her-own-words" },
+    { "label": "大都会艺术博物馆：Esther before Ahasuerus，69.281（作品说明与基思·克里斯琴森撰写的目录条目）", "url": "https://www.metmuseum.org/art/collection/search/436453" },
+    { "label": "英国皇家收藏：Self-Portrait as the Allegory of Painting (La Pittura)，RCIN 405551", "url": "https://www.rct.uk/collection/405551/self-portrait-as-the-allegory-of-painting-la-pittura" },
+    { "label": "《大英百科全书》：Artemisia Gentileschi", "url": "https://www.britannica.com/biography/Artemisia-Gentileschi" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/artemisia-judith-uffizi.jpg",
+      "kind": "full",
+      "width": 1383,
+      "height": 1700,
+      "alt": "一幅竖长的油画，背景几乎全黑。画面中间，一个男人仰面横躺在白色床单上，头朝向观者，满脸胡须，眼睛圆睁。右边的年轻女子穿着金黄色的长裙，袖子卷到肘上，左手揪住他的头发，右手握着一把长剑，正往他的脖子里压。上方另一个女子俯身用双手按住他。血从他的脖子喷出来，溅到女子的胸前，顺着床单流下，染红了床沿。",
+      "caption": "阿尔泰米西娅·真蒂莱斯基《朱迪斯斩杀荷罗孚尼》，约 1620 年，布面油画，146.5 × 108 厘米，佛罗伦萨乌菲齐美术馆藏。",
+      "credit": {
+        "author": "乌菲齐美术馆的图像（Google Arts & Culture），经维基共享资源取得并调整过色阶",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Artemisia_Gentileschi_-_Giuditta_decapita_Oloferne_-_Google_Art_Project-Adjust.jpg",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色（维基共享资源上的这一版本已由上传者调整过色阶）"
+      }
+    },
+    {
+      "key": "susanna",
+      "src": "/img/artemisia-susanna-1610.jpg",
+      "kind": "detail",
+      "subject": "阿尔泰米西娅·真蒂莱斯基《苏珊娜与长老》，1610 年（年份读法有争议），波默斯费尔登魏森施泰因宫藏",
+      "width": 1196,
+      "height": 1700,
+      "alt": "一幅竖长的油画：一个裸身的年轻女子坐在石砌的台阶上，身下只垫着一块白布，身体扭向左边，脸转开，双手抬起，一只挡在头边，一只向外推。她身后是一道高高的石墙，墙顶上两个男人探出身来，一个年轻、黑发，一个年老、秃顶、穿红衣，年老的那个凑在年轻人耳边说话，年轻的那个把手指压在嘴唇上。墙外只有一片蓝天和白云。",
+      "caption": "阿尔泰米西娅·真蒂莱斯基《苏珊娜与长老》，布面油画，约 170 × 119 厘米，德国波默斯费尔登魏森施泰因宫藏。画左下方的台阶上有她的签名和年份；最后一个数字有人读作 0，有人读作 6 或 9。",
+      "credit": {
+        "author": "维基共享资源（来源：Web Gallery of Art）",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Susanna_and_the_Elders_(1610),_Artemisia_Gentileschi.jpg",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "catherine",
+      "src": "/img/artemisia-saint-catherine-ng.jpg",
+      "kind": "detail",
+      "subject": "阿尔泰米西娅·真蒂莱斯基《化身亚历山大的圣加大肋纳的自画像》，约 1615—1617 年，伦敦国家美术馆藏",
+      "width": 1539,
+      "height": 1600,
+      "alt": "一个年轻女子的半身像，几乎和真人一样大，背景是平平的深褐色。她头上缠着浅色的头巾，头巾上戴着一顶尖尖的小金冠，头后有一圈细细的光环。她侧着身子，转过脸直直地看着观者，左手握着一根长长的棕榈叶，右手搭在一个断裂的、带铁尖的木轮上。她穿着暗红的衣裙，肩上披着一条透明的薄纱和一条黄色的披肩，袖口卷起一圈白边。",
+      "caption": "阿尔泰米西娅·真蒂莱斯基《化身亚历山大的圣加大肋纳的自画像》，约 1615—1617 年，布面油画，71.4 × 69 厘米，伦敦国家美术馆藏。2017 年在巴黎的拍卖会上才被发现，2018 年入藏。",
+      "credit": {
+        "author": "伦敦国家美术馆的图像，经维基共享资源取得",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Self-Portrait_as_Saint_Catherine_of_Alexandria_(Gentileschi).jpg",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "esther",
+      "src": "/img/artemisia-esther-met.jpg",
+      "kind": "detail",
+      "subject": "阿尔泰米西娅·真蒂莱斯基《以斯帖在亚哈随鲁王面前》，1620 年代，大都会艺术博物馆藏",
+      "width": 2000,
+      "height": 1530,
+      "alt": "一幅横长的大油画。左边，穿金黄色缎面长裙、系着蓝色腰带的王后以斯帖向后倒下，双眼闭着，头靠在一个侍女的肩上，另一个侍女从后面扶住她。右边，一个年轻的国王坐在圆形台阶上的宝座边，戴着插羽毛的帽子和一顶小金冠，穿着绿白条纹的灯笼袖、紫色披风和镶毛边的白靴子，身子前倾，一只脚已经踏下台阶。两组人物之间，是一大片空着的方格地面和一根深色的柱子。",
+      "caption": "阿尔泰米西娅·真蒂莱斯基《以斯帖在亚哈随鲁王面前》，1620 年代，布面油画，208.3 × 273.7 厘米，大都会艺术博物馆藏。X 光显示，她原先在国王膝盖左边的地面上画过一个牵狗的非洲少年，后来把它涂掉了。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436453",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "pittura",
+      "src": "/img/artemisia-la-pittura.jpg",
+      "kind": "detail",
+      "subject": "阿尔泰米西娅·真蒂莱斯基《化身“绘画”的自画像》，约 1638—1639 年，英国皇家收藏",
+      "width": 1236,
+      "height": 1650,
+      "alt": "一个女子侧着身子，几乎背对着观者向左前方探出，右臂高高举起，手里捏着一支画笔，正要在面前一块褐色的平面上落笔；左手低低地托着调色板。她黑发蓬乱，挽在脑后，穿一件发亮的绿色缎面衣裙，外面系着褐色围裙，脖子上挂着一条金链，链子下坠着一个小小的面具。背景是一片空空的褐色。",
+      "caption": "阿尔泰米西娅·真蒂莱斯基《化身“绘画”的自画像》，约 1638—1639 年，布面油画，98.6 × 75.2 厘米，英国皇家收藏。查理一世的藏品清册里记作“一幅‘绘画’，阿尔泰米西娅所作”。",
+      "credit": {
+        "author": "英国皇家收藏的图像，经维基共享资源取得",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Artemisia_Gentileschi_(Rome_1593-Naples_1652)_-_Self-Portrait_as_the_Allegory_of_Painting_(La_Pittura)_-_RCIN_405551_-_Royal_Collection.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色"
+      }
+    }
+  ],
+  "imagesNote": "这些都是 17 世纪的油画，属于公有领域。《以斯帖》由大都会艺术博物馆以 CC0 开放；其余四幅用的是维基共享资源上收藏机构图像的忠实翻拍（PD-Art）。后四幅是另外的作品，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：阿尔泰米西娅·真蒂莱斯基 1654 年或稍后去世",
+    "basis": "画作本身早已进入公有领域。大都会艺术博物馆对《以斯帖》标注 Public Domain，开放获取图像为 CC0。乌菲齐、伦敦国家美术馆、英国皇家收藏的图像取自维基共享资源，均标为公有领域平面作品的忠实翻拍（PD-Art）；按美国法律（Bridgeman v. Corel），忠实翻拍公有领域平面作品不产生新的著作权。",
+    "verifiedOn": "2026-10-29",
+    "note": "审讯笔录与书信的句子据伦敦国家美术馆公布的英译转述，由本站译成中文，不是原文。乌菲齐的这一张图像在维基共享资源上已被调整过色阶，颜色可能与原作略有出入。"
+  },
+  "card": {
+    "type": "历史画 · 油画",
+    "maker": "阿尔泰米西娅·真蒂莱斯基",
+    "period": "巴洛克 · 约 1620 年",
+    "facets": [
+      { "label": "媒材", "value": "布面油画" },
+      { "label": "尺寸", "value": "146.5 × 108 cm" },
+      { "label": "题材", "value": "《旧约·朱迪斯传》" },
+      { "label": "收藏", "value": "乌菲齐美术馆" }
+    ],
+    "blurb": "两个卷起袖子的女人，一把剑，和一张被血浸透的床单。",
+    "focus": "55% 45%"
+  }
+}

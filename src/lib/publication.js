@@ -41,6 +41,11 @@ export const ARTIST_CARDS = [
   'art-rembrandt-self-portrait-1660-001',
   'art-zhang-daqian-after-shitao-001',
   'art-kingelez-kimbembele-ihunga-001',
+  'art-zhao-mengfu-twin-pines-001',
+  'art-artemisia-judith-uffizi-001',
+  'art-monet-water-lily-pond-1900-001',
+  'art-gaudi-sagrada-familia-001',
+  'art-nek-chand-bangle-man-001',
 ];
 
 /**

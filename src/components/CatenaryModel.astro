@@ -1,0 +1,160 @@
+---
+// Interaction: Gaudí's hanging model, reduced to one string. A chain hangs between two points; the reader chooses where
+// extra weight hangs on it (a small bag of lead shot, as in the Colònia Güell model) and sees the chain take a new
+// shape, then turns the drawing upside down: the same line, standing, is the shape of an arch that carries those
+// loads in pure compression. The shape is computed, not drawn by hand: a hanging string under point loads takes the
+// shape of the bending-moment diagram of a simply supported beam with the same loads (here the chain's own weight is a
+// row of equal small loads), scaled to a fixed sag. A dashed semicircle can be laid over the standing arch for
+// comparison. Schematic, not a structural calculation. Nothing is scored or stored. Reduced motion: no flip animation.
+interface Props { prompt: string }
+const { prompt } = Astro.props;
+
+// Shared with the script below: N equal segments between the supports, loads at the N-1 inner joints.
+const N = 24, X0 = 40, X1 = 360, TOP = 60, SAG = 170;
+const shape = (extra: Record<number, number>) => {
+  const loads = Array.from({ length: N + 1 }, (_, i) => (i === 0 || i === N ? 0 : 1 + (extra[i] ?? 0)));
+  // Left reaction from moments about the right support; then the bending moment at each joint, one panel at a time.
+  const rLeft = loads.reduce((a, p, i) => a + p * (N - i), 0) / N;
+  const moment = [0];
+  let m = 0, shear = rLeft;
+  for (let i = 1; i <= N; i++) { m += shear; shear -= loads[i]; moment[i] = m; }
+  const peak = Math.max(...moment) || 1;
+  return moment.map((v, i) => [X0 + ((X1 - X0) * i) / N, TOP + (SAG * v) / peak]);
+};
+const toPath = (pts: number[][]) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+const even = shape({});
+---
+<section class="module catenary" data-catenary data-load="even" data-flip="false">
+  <p class="module-label">互动 · 一根链子</p>
+  <h3>{prompt}</h3>
+  <div class="cat-wrap">
+    <svg viewBox="0 0 400 300" role="img" aria-labelledby="cat-title" aria-describedby="cat-out">
+      <title id="cat-title">一根链子挂在左右两个固定点之间，向下垂成一条曲线；可以在链子上加重物，也可以把图倒过来看。</title>
+      <g class="cat-flip" data-flipper>
+        <line class="cat-beam" x1="20" y1="60" x2="380" y2="60" />
+        <circle class="cat-pin" cx={X0} cy={TOP} r="4" />
+        <circle class="cat-pin" cx={X1} cy={TOP} r="4" />
+        <path class="cat-semi" d={`M${X0} ${TOP} A${(X1 - X0) / 2} ${(X1 - X0) / 2} 0 0 0 ${X1} ${TOP}`} />
+        <path class="cat-chain" d={toPath(even)} data-chain />
+        <g data-bags></g>
+      </g>
+      <text class="cat-tag" x="200" y="288" text-anchor="middle" data-tag>挂着：链子受拉</text>
+    </svg>
+    <div class="cat-side">
+      <div class="cat-buttons" role="group" aria-label="在哪里加重">
+        <button type="button" data-load-pick="even" aria-pressed="true">只有链子</button>
+        <button type="button" data-load-pick="middle" aria-pressed="false">中间加一袋</button>
+        <button type="button" data-load-pick="left" aria-pressed="false">左边加一袋</button>
+        <button type="button" data-load-pick="two" aria-pressed="false">两边各一袋</button>
+      </div>
+      <div class="cat-buttons">
+        <button type="button" class="cat-flip-btn" data-flip-btn aria-pressed="false">倒过来看</button>
+        <button type="button" data-semi-btn aria-pressed="false">叠一个半圆拱</button>
+      </div>
+      <p class="cat-out" id="cat-out" aria-live="polite" data-out></p>
+      <template data-text="even"><strong>只有链子自己的重量。</strong>链子只能受拉，不能受弯，所以它会自己找到一条曲线，让每一小段都只被拉着。这条曲线叫悬链线，两头陡，中间平。</template>
+      <template data-text="middle"><strong>中间挂一袋重物。</strong>重物所在的地方，链子被拉出一个尖角，两边几乎变成了直线。重量放在哪里，曲线就在哪里拐弯。</template>
+      <template data-text="left"><strong>重物挂在偏左的地方。</strong>最低点跟着重物移到了左边，曲线不再左右对称。高迪在模型上挂的每一个小袋，代表房子上某一处要承受的重量。</template>
+      <template data-text="two"><strong>两边各挂一袋。</strong>链子在两袋之间变得较平，在两袋外侧变陡。改动重量的位置和大小，就能“算”出一种新的形状，不用写一个公式。</template>
+      <template data-text="flip"><strong>倒过来。</strong>挂着的链子处处受拉；把同一条线倒过来立着，变成一个拱，原来的拉力就变成了压力，而且同样顺着这条线传下去。砖和石头最怕被拉、最能受压，照这条线砌，拱身里就几乎只有压力。</template>
+      <template data-text="semi"><strong>和半圆拱比一比。</strong>虚线是同样跨度的半圆拱。它和倒过来的链子并不重合：半圆拱的两脚是竖直的，而压力的走向是斜的，偏离的地方，就得靠更厚的墙或扶壁去抵住。</template>
+      <p class="schematic-label">示意，不是结构计算：曲线按“悬挂的绳子与同样荷载下简支梁的弯矩图成比例”这一关系算出，链子的自重近似为沿水平方向等距的一排相等小重量（因此“只有链子”时画出的是抛物线，与真正的悬链线很接近，但不完全相同）；图中不表示力的大小，也没有考虑材料的厚度。</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stories run in a single reading column, so the drawing sits above its controls at every width. */
+  .cat-wrap { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .cat-side { margin-top: 1rem; }
+  .catenary svg { display: block; width: 100%; height: auto; background: var(--mist); }
+  .cat-flip { transform-origin: 200px 145px; transform-box: view-box; transition: transform var(--t-slow, .6s) var(--ease); }
+  .catenary[data-flip="true"] .cat-flip { transform: scaleY(-1); }
+  .cat-beam { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
+  .cat-pin { fill: var(--ink); }
+  .cat-chain { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; }
+  .cat-semi { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: 0; transition: opacity var(--t) var(--ease); }
+  .catenary.is-semi .cat-semi { opacity: 1; }
+  .cat-bag { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+  .cat-cord { stroke: var(--ink); stroke-width: 1; }
+  .cat-tag { font: 400 12px var(--sans); fill: var(--ink-3); }
+  .cat-buttons { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .6rem; }
+  .cat-buttons button { min-height: 2.75rem; padding: .5rem .8rem; border: 1px solid var(--silver); background: transparent; color: inherit;
+    font: 400 .9375rem/1.3 var(--sans); cursor: pointer; transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .cat-buttons button:hover { border-color: var(--ink-3); }
+  .cat-buttons button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .cat-out { min-height: 8rem; margin: .9rem 0 0; padding-top: 1rem; border-top: 1px solid var(--rule); font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .cat-out strong { color: var(--ink); font-weight: 600; }
+  .catenary .schematic-label { margin: 1rem 0 0; font: 400 .8125rem/1.75 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
+  @media (prefers-reduced-motion: reduce) { .cat-flip, .cat-semi { transition: none; } }
+</style>
+
+<script>
+  const N = 24, X0 = 40, X1 = 360, TOP = 60, SAG = 170;
+  const LOADS: Record<string, Record<number, number>> = { even: {}, middle: { 12: 14 }, left: { 7: 14 }, two: { 6: 9, 18: 9 } };
+  const shape = (extra: Record<number, number>) => {
+    const loads = Array.from({ length: N + 1 }, (_, i) => (i === 0 || i === N ? 0 : 1 + (extra[i] ?? 0)));
+    const rLeft = loads.reduce((a, p, i) => a + p * (N - i), 0) / N;
+    const moment = [0];
+    let m = 0, shear = rLeft;
+    for (let i = 1; i <= N; i++) { m += shear; shear -= loads[i]; moment[i] = m; }
+    const peak = Math.max(...moment) || 1;
+    return moment.map((v, i) => [X0 + ((X1 - X0) * i) / N, TOP + (SAG * v) / peak]);
+  };
+  const NS = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll<HTMLElement>('[data-catenary]').forEach((root) => {
+    const chain = root.querySelector<SVGPathElement>('[data-chain]')!;
+    const bags = root.querySelector<SVGGElement>('[data-bags]')!;
+    const out = root.querySelector<HTMLElement>('[data-out]')!;
+    const tag = root.querySelector<SVGTextElement>('[data-tag]')!;
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('[data-load-pick]')];
+    const flipBtn = root.querySelector<HTMLButtonElement>('[data-flip-btn]')!;
+    const semiBtn = root.querySelector<HTMLButtonElement>('[data-semi-btn]')!;
+    const say = (key: string) => out.replaceChildren(root.querySelector<HTMLTemplateElement>(`template[data-text="${key}"]`)!.content.cloneNode(true));
+    const draw = (key: string) => {
+      const extra = LOADS[key];
+      const pts = shape(extra);
+      chain.setAttribute('d', pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' '));
+      bags.replaceChildren();
+      for (const k of Object.keys(extra)) {
+        const [x, y] = pts[Number(k)];
+        const cord = document.createElementNS(NS, 'line');
+        cord.setAttribute('class', 'cat-cord');
+        cord.setAttribute('x1', String(x)); cord.setAttribute('y1', String(y));
+        cord.setAttribute('x2', String(x)); cord.setAttribute('y2', String(y + 14));
+        const bag = document.createElementNS(NS, 'rect');
+        bag.setAttribute('class', 'cat-bag');
+        bag.setAttribute('x', String(x - 6)); bag.setAttribute('y', String(y + 14));
+        bag.setAttribute('width', '12'); bag.setAttribute('height', '12'); bag.setAttribute('rx', '3');
+        bags.append(cord, bag);
+      }
+    };
+    const pick = (key: string) => {
+      root.dataset.load = key;
+      picks.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.loadPick === key)));
+      draw(key);
+      say(root.dataset.flip === 'true' ? 'flip' : key);
+    };
+    picks.forEach((b) => b.addEventListener('click', () => pick(b.dataset.loadPick!)));
+    const setFlip = (on: boolean) => {
+      root.dataset.flip = String(on);
+      flipBtn.setAttribute('aria-pressed', String(on));
+      flipBtn.textContent = on ? '挂回去' : '倒过来看';
+      tag.textContent = on ? '立着：拱受压' : '挂着：链子受拉';
+    };
+    flipBtn.addEventListener('click', () => {
+      const on = root.dataset.flip !== 'true';
+      setFlip(on);
+      say(on ? 'flip' : root.dataset.load!);
+    });
+    // The semicircle is compared with the standing arch, so laying it over also turns the drawing upright.
+    semiBtn.addEventListener('click', () => {
+      const on = !root.classList.contains('is-semi');
+      root.classList.toggle('is-semi', on);
+      semiBtn.setAttribute('aria-pressed', String(on));
+      if (on) setFlip(true);
+      say(on ? 'semi' : root.dataset.flip === 'true' ? 'flip' : root.dataset.load!);
+    });
+    pick('even');
+  });
+</script>

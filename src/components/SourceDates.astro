@@ -1,0 +1,83 @@
+---
+// When the sources disagree about dates. A few events of one life; for each, every source's year is a mark on one short
+// axis, so agreement shows as marks stacked on one year and disagreement as marks spread apart. Choosing an event
+// opens the sources' own wording and the way this site chooses to write it (`safe`). A source that gives no year, only
+// a phrase ("the early 1960s"), is drawn as a span, not a point. Nothing is scored or stored. Without script every
+// event's panel is in the page; the script only switches between them. Reduced motion: no transitions.
+interface Reading { source: string; from: number; to?: number; says: string }
+interface Event { id: string; label: string; readings: Reading[]; safe: string }
+interface Props { prompt: string; from: number; to: number; ticks: number[]; events: Event[]; caption: string }
+const { prompt, from, to, ticks, events, caption } = Astro.props;
+const at = (y: number) => ((y - from) / (to - from)) * 100;
+const sources = [...new Set(events.flatMap((e) => e.readings.map((r) => r.source)))];
+const row = (s: string) => sources.indexOf(s);
+---
+<section class="module srcdates" data-srcdates>
+  <p class="module-label">互动 · 几份资料，几个年份</p>
+  <h3>{prompt}</h3>
+  <div class="sd-picks" role="group" aria-label="选择一件事">
+    {events.map((e, i) => <button type="button" data-pick={e.id} aria-pressed={i === 0 ? 'true' : 'false'}>{e.label}</button>)}
+  </div>
+  {events.map((e, i) => (
+    <div class="sd-panel" data-panel={e.id} data-on={i === 0 ? 'true' : 'false'}>
+      <div class="sd-axis" style={`--rows:${sources.length}`} aria-hidden="true">
+        {sources.map((s, k) => <span class="sd-src" style={`--r:${k}`}>{s}</span>)}
+        <div class="sd-track">
+          {sources.map((_, k) => <span class="sd-line" style={`--r:${k}`}></span>)}
+          {ticks.map((t) => <span class="sd-tick" style={`left:${at(t)}%`}>{t}</span>)}
+          {e.readings.map((r) => r.to && r.to !== r.from
+            ? <span class="sd-span" style={`--r:${row(r.source)};left:${at(r.from)}%;width:${at(r.to) - at(r.from)}%`}></span>
+            : <span class="sd-dot" style={`--r:${row(r.source)};left:${at(r.from)}%`}></span>)}
+        </div>
+      </div>
+      <dl class="sd-says">
+        {e.readings.map((r) => (<><dt>{r.source}</dt><dd>{r.says}</dd></>))}
+      </dl>
+      <p class="sd-safe"><strong>本篇的写法：</strong>{e.safe}</p>
+    </div>
+  ))}
+  <p class="sd-cap">{caption}</p>
+</section>
+
+<style>
+  .sd-picks { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .sd-picks button { min-height: 2.75rem; padding: .5rem .8rem; border: 1px solid var(--silver); background: transparent; color: inherit;
+    font: 400 .9375rem/1.3 var(--sans); cursor: pointer; transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .sd-picks button:hover { border-color: var(--ink-3); }
+  .sd-picks button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .srcdates.is-live .sd-panel[data-on="false"] { display: none; }
+  .sd-panel + .sd-panel { margin-top: 2rem; }
+  .srcdates.is-live .sd-panel + .sd-panel { margin-top: 0; }
+  .sd-axis { display: grid; grid-template-columns: max-content minmax(0, 1fr); grid-template-rows: repeat(var(--rows), 2rem) 1.6rem;
+    column-gap: .9rem; padding: .9rem 1rem .4rem; background: var(--mist); }
+  .sd-src { grid-column: 1; grid-row: calc(var(--r) + 1); align-self: center; font: 400 .8125rem/1.3 var(--sans); color: var(--ink-2); }
+  .sd-track { grid-column: 2; grid-row: 1 / -1; position: relative; }
+  .sd-line { position: absolute; left: 0; right: 0; top: calc(var(--r) * 2rem + 1rem); border-top: 1px solid var(--rule); }
+  .sd-tick { position: absolute; bottom: 0; transform: translateX(-50%); font: 400 .75rem/1 var(--sans); color: var(--ink-3); }
+  .sd-tick::before { content: ''; position: absolute; left: 50%; bottom: 1.1rem; height: calc(var(--rows, 3) * 2rem); border-left: 1px dotted var(--silver); }
+  .sd-dot { position: absolute; top: calc(var(--r) * 2rem + 1rem - .4rem); width: .8rem; height: .8rem; margin-left: -.4rem; border-radius: 50%; background: var(--ink); }
+  .sd-span { position: absolute; top: calc(var(--r) * 2rem + 1rem - .25rem); height: .5rem; border-radius: .25rem; background: var(--ink-3); }
+  .sd-says { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .35rem 1rem; margin: 1rem 0 0; font: 400 .9375rem/1.75 var(--sans); }
+  .sd-says dt { color: var(--ink-3); }
+  .sd-says dd { margin: 0; color: var(--ink-2); }
+  .sd-safe { max-width: var(--measure); margin: .9rem 0 0; padding-top: .9rem; border-top: 1px solid var(--rule); font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .sd-safe strong { color: var(--ink); font-weight: 600; }
+  .sd-cap { max-width: var(--measure); margin: 1rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  @media (max-width: 560px) {
+    .sd-says { grid-template-columns: 1fr; }
+    .sd-says dd { margin-bottom: .4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .sd-picks button { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-srcdates]').forEach((root) => {
+    root.classList.add('is-live');
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('[data-pick]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    picks.forEach((b) => b.addEventListener('click', () => {
+      picks.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      panels.forEach((p) => (p.dataset.on = String(p.dataset.panel === b.dataset.pick)));
+    }));
+  });
+</script>

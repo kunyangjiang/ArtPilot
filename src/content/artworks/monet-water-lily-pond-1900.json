@@ -1,0 +1,146 @@
+{
+  "id": "art-monet-water-lily-pond-1900-001",
+  "kind": "painting",
+  "titleZh": "睡莲池",
+  "titleEn": "Water Lily Pond",
+  "artist": "克劳德·莫奈",
+  "attributionNote": "克劳德·莫奈（1840—1926）作，左上角题“Claude Monet / 1900”。芝加哥艺术博物馆说明，这是他 1899—1900 年所画的 18 幅同一母题的画之一。",
+  "dateApprox": "1900 年",
+  "medium": "布面油画",
+  "dimensionsCm": { "height": 89.8, "width": 101 },
+  "collection": "芝加哥艺术博物馆，1933.441",
+  "infoSources": [
+    { "label": "芝加哥艺术博物馆：Water Lily Pond，1933.441（作品说明、题款、尺寸）", "url": "https://www.artic.edu/artworks/87088/water-lily-pond" },
+    { "label": "芝加哥艺术博物馆：Water Lilies，1933.1157；Irises，1956.1202；Stacks of Wheat (End of Summer)，1985.1103；Stacks of Wheat（素描），2013.986", "url": "https://www.artic.edu/artworks/16568/water-lilies" },
+    { "label": "大都会艺术博物馆：Bridge over a Pond of Water Lilies，29.100.113（1893 年买地造池、“为了眼睛的愉悦，也为了作画的母题”、1899 年夏天的系列）", "url": "https://www.metmuseum.org/art/collection/search/437127" },
+    { "label": "橘园美术馆：History of the Water Lilies cycle（1909、1914、1916、1918、1920、1922、1927 各年的事）", "url": "https://www.musee-orangerie.fr/en/node/33" },
+    { "label": "纽约现代艺术博物馆：The Japanese Footbridge，约 1920—1922 年，242.1956", "url": "https://www.moma.org/collection/works/79254" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/monet-water-lily-pond-1900-aic.jpg",
+      "kind": "full",
+      "width": 1686,
+      "height": 1499,
+      "alt": "一幅接近正方形的油画：一座绿色的木拱桥从画面左边横跨到右边，桥身很细，栏杆是几道平行的横线。桥后面是一片垂下来的柳枝和密密的树丛，几乎看不到天空。桥下是一池水，水面上一片片圆圆的睡莲叶，夹着粉红、白色的小花，越往远处排得越密、越小，在水面上排成一道道横带；叶子之间的水里，映着树丛暗绿和红褐的倒影。",
+      "caption": "克劳德·莫奈《睡莲池》，1900 年，布面油画，89.8 × 101 厘米，芝加哥艺术博物馆藏。左上角题“Claude Monet / 1900”。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/87088/water-lily-pond",
+        "changes": "取馆方 IIIF 提供的 1686 像素宽图像，重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    },
+    {
+      "key": "late-bridge",
+      "src": "/img/monet-japanese-footbridge-moma.jpg",
+      "kind": "detail",
+      "subject": "克劳德·莫奈《日本桥》，约 1920—1922 年，纽约现代艺术博物馆藏",
+      "width": 1800,
+      "height": 1363,
+      "alt": "一幅横长的油画，几乎铺满了浓烈的红褐、橙黄和暗绿的笔触，一笔一笔又粗又急，相互缠绕。仔细看，画面中部隐约有一道向上拱起的弧线，那是桥；桥的上方和两侧是一团团黄色、红色的笔触，像花架上垂下的枝叶；画的下部是更暗的一片，分不清是水还是植物。",
+      "caption": "克劳德·莫奈《日本桥》，约 1920—1922 年，布面油画，89.5 × 116.3 厘米，纽约现代艺术博物馆藏。同一座桥，二十年后。",
+      "credit": {
+        "author": "纽约现代艺术博物馆的图像，经维基共享资源取得",
+        "licence": "公有领域（PD-Art：公有领域平面作品的忠实翻拍）",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Japanese_Footbridge.jpg",
+        "changes": "缩小到 1800 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "lilies-1906",
+      "src": "/img/monet-water-lilies-1906-aic.jpg",
+      "kind": "detail",
+      "subject": "克劳德·莫奈《睡莲》，1906 年，芝加哥艺术博物馆藏",
+      "width": 1686,
+      "height": 1619,
+      "alt": "一幅接近正方形的油画，画的只有水面：没有岸，没有桥，没有天空。左下角和右上角各有一团睡莲叶，绿色的圆叶上开着几朵粉红的花；中间是一条斜斜的、蓝色的水道，水里映着一大片白色和淡紫色的云，还有右上方深蓝紫色的树影。",
+      "caption": "克劳德·莫奈《睡莲》，1906 年，布面油画，89.9 × 94.1 厘米，芝加哥艺术博物馆藏。右下角题“Claude Monet 1906”。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/16568/water-lilies",
+        "changes": "取馆方 IIIF 提供的 1686 像素宽图像，重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    },
+    {
+      "key": "irises",
+      "src": "/img/monet-irises-aic.jpg",
+      "kind": "detail",
+      "subject": "克劳德·莫奈《鸢尾》，1914—1917 年，芝加哥艺术博物馆藏",
+      "width": 1686,
+      "height": 1684,
+      "alt": "一幅正方形的大油画，满幅都是绿色和蓝色的笔触，厚厚地叠在一起。左下方几簇鸢尾的长叶子从下往上伸，夹着几朵淡紫色的花；上半部是一片蓝绿、黄绿交织的颜色，像水面，又像树影，看不出远近，也没有地平线。",
+      "caption": "克劳德·莫奈《鸢尾》，1914—1917 年，布面油画，200 × 200.7 厘米，芝加哥艺术博物馆藏。这幅画在他死后一直留在吉维尼的画室里，1950 年代才被重新发现。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/4887/irises",
+        "changes": "取馆方 IIIF 提供的 1686 像素宽图像，重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    },
+    {
+      "key": "stacks",
+      "src": "/img/monet-stacks-end-of-summer-aic.jpg",
+      "kind": "detail",
+      "subject": "克劳德·莫奈《麦垛（夏末）》，1890—1891 年，芝加哥艺术博物馆藏",
+      "width": 1686,
+      "height": 996,
+      "alt": "一幅横长的油画：一片收割过的田野上，立着两个圆锥顶的大麦垛，一大一小，被斜照的阳光染成粉红和橙色，地上拖着长长的、淡紫蓝色的影子。背后是一排树和几间白墙的房子，再远是一道低低的山丘，天空是淡黄和淡紫的。",
+      "caption": "克劳德·莫奈《麦垛（夏末）》，1890—1891 年，布面油画，60 × 100.5 厘米，芝加哥艺术博物馆藏。左下角题“Claude Monet 91”。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/64818/stacks-of-wheat-end-of-summer",
+        "changes": "取馆方 IIIF 提供的 1686 像素宽图像，重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    },
+    {
+      "key": "stacks-drawing",
+      "src": "/img/monet-stacks-drawing-aic.jpg",
+      "kind": "detail",
+      "subject": "克劳德·莫奈《麦垛》，素描，1891 年，芝加哥艺术博物馆藏",
+      "width": 1686,
+      "height": 1200,
+      "alt": "一张米色的纸上，用黑色粉笔画着两个麦垛，左边一个小，右边一个大，轮廓是软软的、揉开的黑灰色，没有清楚的线；背后是一排模糊的树影。左下角是黑粉笔签的名字“Claude Monet”。",
+      "caption": "克劳德·莫奈《麦垛》，1891 年，米色纸上黑色粉笔，18.2 × 25.4 厘米，芝加哥艺术博物馆藏。莫奈很少画素描。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/186316/stacks-of-wheat",
+        "changes": "取馆方 IIIF 提供的 1686 像素宽图像，重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    }
+  ],
+  "imagesNote": "五张图来自芝加哥艺术博物馆的开放获取图像（CC0）；现代艺术博物馆的《日本桥》用的是维基共享资源上的忠实翻拍（PD-Art）。除第一张外，都是另外的作品，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：莫奈 1926 年去世，作品在各地都已进入公有领域",
+    "basis": "芝加哥艺术博物馆对这几件作品标注公有领域，开放获取图像为 CC0。现代艺术博物馆《日本桥》的图像取自维基共享资源，标为公有领域平面作品的忠实翻拍（PD-Art）。大都会艺术博物馆的《睡莲池上的桥》目前不提供图像下载，本篇只引用它的说明文字，不用它的图像。",
+    "verifiedOn": "2026-10-29",
+    "note": "莫奈信中的话据橘园美术馆、大都会艺术博物馆公布的英译转述，由本站译成中文。"
+  },
+  "card": {
+    "type": "风景画 · 油画",
+    "maker": "克劳德·莫奈",
+    "period": "印象派之后 · 1900 年",
+    "facets": [
+      { "label": "媒材", "value": "布面油画" },
+      { "label": "尺寸", "value": "89.8 × 101 cm" },
+      { "label": "地点", "value": "吉维尼，莫奈的水园" },
+      { "label": "收藏", "value": "芝加哥艺术博物馆" }
+    ],
+    "blurb": "一座他自己造的桥，一池他自己引来的水。",
+    "focus": "50% 40%"
+  }
+}

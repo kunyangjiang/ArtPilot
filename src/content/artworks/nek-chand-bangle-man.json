@@ -1,0 +1,93 @@
+{
+  "id": "art-nek-chand-bangle-man-001",
+  "kind": "painting",
+  "titleZh": "戴手镯的男人",
+  "titleEn": "Bangle Man",
+  "artist": "内克·昌德",
+  "attributionNote": "内克·昌德（1924—2015）作，1984 年。原为美国华盛顿国家儿童博物馆“内克·昌德幻想花园”的一部分；该花园 2004 年拆除后，由博物馆赠予美国民间艺术博物馆。昌德最主要的作品是印度昌迪加尔的岩石花园，见本篇。",
+  "dateApprox": "1984 年",
+  "medium": "混凝土浇在金属骨架上，加多种材料（碎玻璃、塑料手镯等）",
+  "dimensionsCm": {
+    "height": 109.2,
+    "width": 48.3
+  },
+  "dimensionsSource": "美国民间艺术博物馆公布的尺寸为 43 × 19 × 12 英寸（高 × 宽 × 厚），本站换算为厘米。",
+  "collection": "美国民间艺术博物馆（纽约），2004.25.23",
+  "officialPage": {
+    "label": "美国民间艺术博物馆的作品页面",
+    "url": "https://collection.folkartmuseum.org/objects/3295/bangle-man"
+  },
+  "infoSources": [
+    {
+      "label": "内克·昌德基金会：About Nek Chand（1951、1958、1965、1975、1976、1989 等年份；材料；面积与参观人数的不同说法）",
+      "url": "https://nekchand.org/about-nek-chand/"
+    },
+    {
+      "label": "约翰·迈克尔·科勒艺术中心：Nek Chand（生平、分治后的逃难、1965 年开始建造、科勒基金会的捐赠）",
+      "url": "https://jmkac.org/artist/chand-nek"
+    },
+    {
+      "label": "约翰·迈克尔·科勒艺术中心：Nek Chand, The Rock Garden of Chandigarh",
+      "url": "https://jmkac.org/?p=7348"
+    },
+    {
+      "label": "《大英百科全书》：Nek Chand（1955 年、1958 年、1965 年、1972 年发现、12 英亩、50 名工人、做法、勋章）",
+      "url": "https://www.britannica.com/biography/Nek-Chand"
+    },
+    {
+      "label": "美国民间艺术博物馆：Nek Chand, Bangle Man, 1984, 2004.25.23",
+      "url": "https://collection.folkartmuseum.org/objects/3295/bangle-man"
+    }
+  ],
+  "images": [
+    {
+      "key": "diagram",
+      "src": "/img/nek-chand-figure-diagram.jpg",
+      "kind": "detail",
+      "subject": "本站绘制的示意图：一件混凝土人像的三个步骤，不是内克·昌德的作品",
+      "width": 1800,
+      "height": 900,
+      "alt": "三个并排的简笔人形，中间用箭头连起来。左边是一副用粗线弯成的金属骨架，像一根竖杆分出两臂两腿。中间是同样的人形，被一层灰色的混凝土包住，脸上只有两个扁扁的眼睛。右边是同一个灰色人形，身上贴满了一块块白色、蓝色、橙色、黄色的碎瓷片，两只手臂上套着红、绿、黄三色的手镯。",
+      "caption": "本站绘制的示意图：先用金属（例如旧自行车架）做骨架，再浇上混凝土，最后在还没干透的表面嵌进碎瓷片、手镯等。据《大英百科全书》和美国民间艺术博物馆的描述绘制，比例和形状都不是哪一件真实作品。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制",
+        "sourceUrl": "https://www.britannica.com/biography/Nek-Chand",
+        "changes": "依据《大英百科全书》与美国民间艺术博物馆对做法的文字描述绘制，不是照片",
+        "by": "示意图 · ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "内克·昌德 2015 年去世，他的雕塑和园子仍受著作权保护，本站不复制它们的图像，只给出收藏机构和基金会的页面。页面上唯一的图，是本站绘制的做法示意。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供基金会和收藏机构页面的链接，不复制作品的图像",
+    "basis": "内克·昌德 2015 年去世。按印度著作权法，作品保护至作者去世后 60 年（2075 年底）；在美国等地也仍在保护期内。印度《著作权法》第 52 条第 1 款允许对永久陈列在公共场所的雕塑拍照发表，但这一例外不一定适用于其他国家的读者，美国民间艺术博物馆对这件作品注明“版权正在审核中”，因此本站不使用岩石花园或雕塑的照片。",
+    "verifiedOn": "2026-10-29",
+    "note": "卡片为文字卡片。生平和年份据基金会、科勒艺术中心和《大英百科全书》；三者有出入的地方，正文并列说明。"
+  },
+  "card": {
+    "type": "雕塑",
+    "maker": "内克·昌德",
+    "period": "1984 年",
+    "facets": [
+      {
+        "label": "材料",
+        "value": "混凝土、金属骨架、手镯碎片"
+      },
+      {
+        "label": "尺寸",
+        "value": "高约 109 cm"
+      },
+      {
+        "label": "来自",
+        "value": "华盛顿幻想花园（2004 年拆除）"
+      },
+      {
+        "label": "收藏",
+        "value": "美国民间艺术博物馆"
+      }
+    ],
+    "blurb": "一个从被拆掉的花园里走出来的人，身上嵌着碎掉的手镯。",
+    "image": null
+  }
+}

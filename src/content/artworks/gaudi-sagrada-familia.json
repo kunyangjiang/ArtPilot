@@ -1,0 +1,107 @@
+{
+  "id": "art-gaudi-sagrada-familia-001",
+  "kind": "building",
+  "titleZh": "圣家堂",
+  "titleEn": "Basílica de la Sagrada Família, Barcelona",
+  "attributionNote": "最初的新哥特式方案出自教区建筑师弗朗西斯科·德·保拉·德尔·比利亚尔（1882 年奠基）；1883 年起由安东尼·高迪主持，直到 1926 年去世。此后由他的弟子和几代建筑师按他留下的方案、模型碎片和照片接着建造：苏格拉涅斯、金塔纳、普伊赫·伊·博阿达与博内特·伊·加里、卡尔多内尔、霍尔迪·博内特，2012 年起为霍尔迪·福利（据圣家堂基金会）。受难立面的雕塑出自 1986 年起受委托的苏维拉克斯。",
+  "dateApprox": "1882 年奠基，至今仍在建造",
+  "location": "西班牙，巴塞罗那，马略卡街 401 号",
+  "facts": [
+    { "label": "奠基", "value": "1882 年 3 月 19 日" },
+    { "label": "高迪主持", "value": "1883—1926 年，最后十二年只做这一件" },
+    { "label": "1936 年", "value": "图纸和照片被烧，石膏模型被砸碎" },
+    { "label": "耶稣基督塔", "value": "2026 年 2 月外部完工，6 月 10 日祝圣" }
+  ],
+  "buildingType": "天主教赎罪堂，2010 年被立为宗座圣殿",
+  "materials": "石材饰面；早期部分以石砌为主，20 世纪后期起大量使用钢筋混凝土与预制石板构件；塔顶使用彩色陶瓷碎片镶嵌（trencadís）。",
+  "notes": [
+    "1885 年，地下墓室中的圣约瑟小堂启用。1891 年，诞生立面开工；1925 年，诞生立面上的圣巴拿巴钟塔完工，这是高迪生前唯一见到建成的一座塔。",
+    "1926 年 6 月 10 日，高迪在被电车撞伤后去世，葬于地下墓室的加尔默罗圣母小堂。",
+    "1936 年西班牙内战期间，圣家堂遭到破坏：图纸和照片被烧毁，石膏模型被砸碎。1939 年起，工程依靠从高迪工作室抢救出来的材料，以及根据已发表的图纸和照片重建的模型继续进行。",
+    "2005 年，诞生立面与地下墓室作为“安东尼·高迪的作品”的一部分列入世界遗产。2010 年 11 月 7 日，教宗本笃十六世为教堂祝圣。",
+    "2026 年 2 月 20 日，耶稣基督塔装上十字架的上臂，外部完工；6 月 10 日，高迪逝世一百周年之际，教宗良十四世为它祝圣，塔第一次亮灯。基金会的历史页面没有给出全部工程的完工日期。"
+  ],
+  "infoSources": [
+    { "label": "圣家堂基金会：History of the Temple（1882—2026 年大事记）", "url": "https://sagradafamilia.org/en/history-of-the-temple" },
+    { "label": "圣家堂基金会：Antoni Gaudí（生平、工作方法、去世）", "url": "https://sagradafamilia.org/en/antoni-gaudi" },
+    { "label": "圣家堂基金会：Basilica signs agreement to disseminate polyfunicular model（1983 年复原的悬挂模型）", "url": "https://sagradafamilia.org/en/detalle/-/asset_publisher/7JWibz9G2KUY/content/la-basilica-firma-un-convenio-para-difundir-la-maqueta-polifunicular" },
+    { "label": "居埃尔领地地下墓室：Gaudí Crypt（悬挂模型、材料、只建成地下墓室）", "url": "https://gaudicoloniaguell.org/en/cripta-gaudi/" },
+    { "label": "联合国教科文组织世界遗产名录：Works of Antoni Gaudí（No. 320）", "url": "https://whc.unesco.org/en/list/320/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/gaudi-nativity-facade.jpg",
+      "kind": "full",
+      "width": 1600,
+      "height": 1405,
+      "alt": "圣家堂诞生立面中央门洞的上部，被阳光照成橙黄色的石头上，密密麻麻刻满了枝叶、星辰和人物：正中一根细长的柱子从门洞中间升起，两侧是成组的雕像，有天使、圣人和吹奏乐器的人；上方石面像钟乳石和植物一样向下垂挂，几乎看不到一处平整的墙面。",
+      "caption": "圣家堂诞生立面，中央的“爱德之门”上部。诞生立面 1891 年开工，是高迪生前主持建造的部分，2005 年列入世界遗产。",
+      "credit": { "author": "Andrew Moore", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nativity_Facade._Sagrada_Fam%C3%ADlia.jpg", "date": "2014-05-18", "changes": "缩小到 1600 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "site-1905",
+      "src": "/img/gaudi-sagrada-familia-1905-gili.jpg",
+      "kind": "detail",
+      "subject": "1905 年的圣家堂工地，巴尔多梅尔·希利·罗伊格摄",
+      "width": 1024,
+      "height": 802,
+      "alt": "一张黑白老照片：前景是一片空旷的泥地，两个戴礼帽、穿黑西装的男人站着说话，一个拿着手杖。远处一道长长的围墙后面，是半截建筑：左边是一圈尖尖的、像针一样的小塔，围着后殿；右边是诞生立面的下半部，上面搭满了木脚手架，还看不到钟塔。",
+      "caption": "1905 年的圣家堂工地。巴尔多梅尔·希利·罗伊格（1873—1926）摄，玻璃底片的现代冲印，莱里达莫雷拉美术馆藏。",
+      "credit": { "author": "巴尔多梅尔·希利·罗伊格（莫雷拉美术馆藏玻璃底片），经维基共享资源取得", "licence": "公有领域（摄影者 1926 年去世）", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baldomer_Gili_Roig._La_Sagrada_Fam%C3%ADlia,_1905_Copia_moderna_del_negatiu_original_de_vidre.jpg", "date": "1905", "changes": "重新压缩；未裁切、未缩放、未调色" }
+    },
+    {
+      "key": "crypt",
+      "src": "/img/gaudi-colonia-guell-crypt.jpg",
+      "kind": "detail",
+      "subject": "居埃尔领地教堂的地下墓室，高迪设计，1908—1914 年，圣科洛马-德塞尔韦略",
+      "width": 1800,
+      "height": 1350,
+      "alt": "一间低矮的地下礼拜堂，暖黄的灯光照着砖砌的拱顶。画面左边是一根粗壮的灰色玄武岩柱子，不是垂直的，而是微微倾斜，柱头上方是一块不规则的石块；后面还有几根同样倾斜的石柱和砖柱，向上分出一条条砖砌的肋，托着弯弯的拱顶。墙上嵌着几扇圆形、花瓣状的彩色玻璃窗。",
+      "caption": "居埃尔领地教堂的地下墓室，1908—1914 年建成。倾斜的柱子是整块的玄武岩，这是工程中唯一专门买来的新材料；高迪原计划在上面建一座完整的教堂，最终只建成了这一层。",
+      "credit": { "author": "matilde.m.s（Flickr）", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cripta_de_la_Col%C3%B2nia_G%C3%BCell_(Santa_Coloma_de_Cervell%C3%B3)_-_9.jpg", "date": "2010-03-26", "changes": "缩小到 1800 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "attic",
+      "src": "/img/gaudi-casa-mila-attic.jpg",
+      "kind": "detail",
+      "subject": "米拉之家（拉佩德雷拉）的阁楼，高迪设计，1906—1912 年，巴塞罗那",
+      "width": 1800,
+      "height": 1200,
+      "alt": "一条昏暗的长廊，由一道接一道的砖砌拱组成，从近处一直排到远处。每一道拱都是一样的弧线：两脚很陡，顶部收得比较尖，不是半圆。拱与拱之间是一层层平砌的砖，拱的边缘被灯光照出一圈亮线，像一节节肋骨。",
+      "caption": "米拉之家阁楼里的砖拱。这些拱的弧线接近倒过来的悬链线，只用一层层薄砖砌成。",
+      "credit": { "author": "Mikani", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attic_of_Casa_Mil%C3%A0_by_Mikani_-_IMG_2444.jpg", "date": "2019-03-23", "changes": "缩小到 1800 像素宽并重新压缩；未裁切、未调色" }
+    },
+    {
+      "key": "cross-2026",
+      "src": "/img/gaudi-tower-jesus-cross-2026.jpg",
+      "kind": "detail",
+      "subject": "耶稣基督塔顶的十字架，2026 年，由今天的建筑团队按高迪的方案建造",
+      "width": 1824,
+      "height": 1224,
+      "alt": "蓝天白云下，一座高塔的塔尖：塔身表面嵌着彩色的陶瓷碎片，竖着拼出几个大写的拉丁字母；塔顶是一个巨大的十字架，四臂粗短，表面是一块块折面的白色和深蓝色玻璃，四周还挂着施工用的细缆绳。",
+      "caption": "2026 年春天的耶稣基督塔塔顶。十字架的上臂在 2026 年 2 月 20 日装上，外部从此完工。",
+      "credit": { "author": "Canaan", "licence": "CC BY-SA 4.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "sourceUrl": "https://commons.wikimedia.org/wiki/File:SF_Cruz_Jes%C3%BAs.jpg", "date": "2026-05-01", "changes": "重新压缩；未裁切、未缩放、未调色" }
+    }
+  ],
+  "imagesNote": "这些照片都不是高迪本人拍的：1905 年的老照片已进入公有领域，其余四张是摄影者以 CC BY-SA 授权的照片。高迪的建筑设计已进入公有领域；高迪身后由其他建筑师和雕塑家完成的部分，照片依据的是西班牙著作权法对公共场所永久陈列作品的“全景自由”条款。",
+  "rights": {
+    "status": "建筑与照片分两层：高迪 1926 年去世，他的设计已进入公有领域；每张照片各有授权",
+    "basis": "高迪的作品在西班牙（作者死后 80 年，1926 年去世者至 2006 年底）和美国都已进入公有领域。1905 年的照片由巴尔多梅尔·希利·罗伊格（1926 年去世）拍摄，已进入公有领域。其余照片为 CC BY-SA 2.0 / 4.0，须署名、相同方式共享。诞生立面上有后来添加的雕塑，耶稣基督塔的十字架是当代建筑团队的作品；它们永久陈列在面向街道的公共场所，西班牙《著作权法》第 35 条第 2 款允许以照片复制，这也是维基共享资源接受这两张照片的依据。悬挂模型的 1983 年复原件陈列在博物馆室内，本篇不用它的照片，改用本站绘制的示意互动。",
+    "verifiedOn": "2026-10-29",
+    "note": "工程进度据圣家堂基金会“History of the Temple”页面，2026 年 10 月 29 日查阅。受难立面的雕塑（苏维拉克斯，2014 年去世）仍受版权保护，本篇不收它的照片。"
+  },
+  "card": {
+    "type": "建筑",
+    "maker": "巴塞罗那",
+    "period": "1882 年奠基 · 仍在建造",
+    "facets": [
+      { "label": "建筑师", "value": "高迪（1883—1926）及其后几代人" },
+      { "label": "1936 年", "value": "模型被砸碎，后来一片片拼回" },
+      { "label": "世界遗产", "value": "诞生立面与地下墓室，2005 年" },
+      { "label": "状态", "value": "仍在建造" }
+    ],
+    "blurb": "一座设计者死后一百年还在建造的教堂，和一堆被拼回去的石膏碎片。",
+    "focus": "50% 40%"
+  }
+}

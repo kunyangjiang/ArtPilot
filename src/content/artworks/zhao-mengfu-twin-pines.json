@@ -1,0 +1,147 @@
+{
+  "id": "art-zhao-mengfu-twin-pines-001",
+  "kind": "painting",
+  "titleZh": "双松平远图",
+  "titleEn": "Twin Pines, Level Distance",
+  "artist": "赵孟頫",
+  "attributionNote": "赵孟頫（1254—1322）自题“子昂戏作双松平远”，卷末自跋署“孟頫”，钤“赵氏子昂”等印；大都会艺术博物馆定为约 1310 年。卷后有杨载（1271—1323）、童轩（1425—1498）两跋。",
+  "dateApprox": "约 1310 年",
+  "medium": "手卷，纸本水墨",
+  "dimensionsCm": { "height": 26.8, "width": 107.5 },
+  "collection": "大都会艺术博物馆（纽约），1973.120.5",
+  "infoSources": [
+    { "label": "大都会艺术博物馆：赵孟頫《双松平远图》（作品说明；自题、自跋、杨载与童轩跋的原文与英译；收藏印）", "url": "https://www.metmuseum.org/art/collection/search/40508" },
+    { "label": "大都会艺术博物馆：赵孟頫、赵雍、赵麟《吴兴赵氏三世人马图》（作品说明；1296 年自题，1359 年赵雍、赵麟题记，明人题跋）", "url": "https://www.metmuseum.org/art/collection/search/40507" },
+    { "label": "国立故宫博物院开放资料：元赵孟頫赵氏一门法书 册 · 赵孟頫致中峰和尚尺牍（“得旨南还，何图病妻道卒”）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/76?dep=P" },
+    { "label": "国立故宫博物院开放资料：元人集锦 卷 · 管道昇烟雨丛竹（1308 年自题、乾隆题诗）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/17466?dep=P" },
+    { "label": "《元史》卷一百七十二·赵孟頫传、程钜夫传（维基文库）", "url": "https://zh.wikisource.org/zh-hant/元史/卷172" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/zhao-twin-pines-met.jpg",
+      "kind": "full",
+      "width": 2967,
+      "height": 720,
+      "alt": "一段很长的淡黄纸，从右往左：最右边是一列列红色的收藏印；接着是两棵高高的松树，长在几块石头之间，旁边写着两行小字“子昂戏作双松平远”；往左是一大片什么也没画的空白，只在中间偏下有一只极小的船和一个人；再往左，远处是几道淡淡的山脊和沙洲；最左边是赵孟頫自己写的六行行书，下面钤着许多红印。",
+      "caption": "赵孟頫《双松平远图》，约 1310 年，纸本水墨手卷，本幅 26.8 × 107.5 厘米，大都会艺术博物馆藏。手卷从右往左看：先是双松，然后是水面和远山，最后是画家的自跋。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/40508",
+        "changes": "缩小到 720 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "pines",
+      "src": "/img/zhao-twin-pines-pines-met.jpg",
+      "kind": "detail",
+      "width": 1060,
+      "height": 951,
+      "alt": "两棵松树从几块石头中间长出来，一棵笔直，一棵稍稍弯向左边，树干用一圈圈小圆点和短线勾出鳞皮，松针是一簇簇放射的细线。石头只勾了轮廓，里面用干笔擦了几下，留着许多白。右边是两行字“子昂戏作双松平远”，再往右是一列红印。",
+      "caption": "局部：双松与画家的题名。松干的轮廓线粗细几乎不变，石头用干而快的笔擦出来，露着纸白。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/40508",
+        "changes": "从馆方原图裁出右段，重新压缩；未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "inscription",
+      "src": "/img/zhao-twin-pines-inscription-met.jpg",
+      "kind": "detail",
+      "width": 640,
+      "height": 951,
+      "alt": "六行竖写的行书，从右往左读，第一行是“仆自幼小学书之余时时戏弄小笔於”，最后一行末尾署名“孟頫”。字的大小相近，行距疏朗，左下角和下方钤着几方红印。",
+      "caption": "局部：卷末自跋。赵孟頫说自己学画山水，见不到唐代名家的真迹，五代诸家的“笔意”和近世画手“辽绝”；末尾说明是应“野云”之求而画。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/40508",
+        "changes": "从馆方原图裁出左段，重新压缩；未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "letter",
+      "src": "/img/zhao-letter-1319-npm.jpg",
+      "kind": "detail",
+      "subject": "赵孟頫致中峰和尚尺牍，1319 年六月十二日，台北故宫博物院藏",
+      "width": 2200,
+      "height": 1087,
+      "alt": "一张横幅的旧纸，从右往左竖写着二十来行行书，开头是大字“中峰和上老师”，接着一行“弟子赵孟頫和南上记”；中段几行写着“孟頫得旨南还何图病妻道卒哀痛之极不如无生”；左边结尾是“六月十二日”。纸上散落着许多方红色的收藏印，纸面有黄褐色的斑。",
+      "caption": "赵孟頫写给中峰和尚的信，元延祐六年（1319）六月十二日，纸本，30.7 × 62.7 厘米，收在《赵氏一门法书》册中。信里说：奉旨南归，不料病妻死在路上。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/76?dep=P",
+        "changes": "裁去馆方照片四周的台面、衬纸和色卡，缩小到 2200 像素宽并重新压缩；未调色",
+        "by": "元赵孟頫赵氏一门法书 册 · 赵孟頫致中峰和尚尺牍。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "grooms",
+      "src": "/img/zhao-grooms-and-horses-met.jpg",
+      "kind": "detail",
+      "subject": "赵孟頫《人马图》（《吴兴赵氏三世人马图》卷首段），1296 年，大都会艺术博物馆藏",
+      "width": 1945,
+      "height": 1036,
+      "alt": "淡黄的纸上，右边站着一个留胡子的马夫，戴黑色幞头，穿一件长到脚面的淡褐色袍子，双手拢在胸前，握着一根缰绳；缰绳牵着中间一匹浅色的马，马低着头，只有鬃毛和尾巴是浓黑的。马的背和臀部是一条又长又圆的弧线。马左上方写着两行楷书题字；最左边露出下一段画里另一个戴白帽、满脸胡须的马夫。四周钤着许多红印。",
+      "caption": "赵孟頫《人马图》，元贞二年（1296）正月，纸本设色，大都会艺术博物馆藏。这一段后来与他的儿子赵雍、孙子赵麟 1359 年所画的两段裱成一卷，左边露出的就是赵雍那一段的开头。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/40507",
+        "changes": "重新压缩；未裁切、未缩放、未调色（馆方原图即为卷首这一段）",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "guan-bamboo",
+      "src": "/img/guan-daosheng-bamboo-1308-npm.jpg",
+      "kind": "detail",
+      "subject": "管道昇《烟雨丛竹》，1308 年，《元人集锦》卷之一段，台北故宫博物院藏",
+      "width": 2400,
+      "height": 529,
+      "alt": "一条横长的淡墨画：右边两大丛竹子长在水边的坡石上，竹叶细密；中间是一片平静的水，水边有低低的沙岸和一排排淡得几乎看不见的竹篱；远处一层更淡的竹林像隔着雨雾。左边一丛小竹斜出石边，最左是四行小楷，末尾署“吴兴管道昇”。左上方有乾隆的四行题诗，四周钤着红印。",
+      "caption": "管道昇《烟雨丛竹》，元至大元年（1308）三月廿五日，纸本水墨。她自题：“为楚国夫人作于碧浪湖舟中。吴兴管道昇。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/17466?dep=P",
+        "changes": "从馆方这一段的照片（K2A001108N000000000PAZ）中裁去上下的台面、色卡，缩小到 2400 像素宽并重新压缩；未调色",
+        "by": "元人集锦 卷 · 管道昇烟雨丛竹。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    }
+  ],
+  "imagesNote": "《双松平远图》与《人马图》的图像由大都会艺术博物馆以 CC0 开放；赵孟頫的信与管道昇的竹子由台北故宫以 CC BY 4.0 开放。后三张是另外的作品，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：赵孟頫 1322 年去世，管道昇 1319 年去世；图像由收藏机构开放",
+    "basis": "大都会艺术博物馆对 40508、40507 两件标注 Public Domain，开放获取图像可自由使用（CC0）。国立故宫博物院开放资料对中阶图像注明 CC BY 4.0，须标示“品名。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw”。",
+    "verifiedOn": "2026-10-29",
+    "note": "题跋、书信据馆方释文引用（古文，公有领域）；英译不引用。裁切与缩放写在每张图的说明里。"
+  },
+  "card": {
+    "type": "山水画 · 手卷",
+    "maker": "赵孟頫",
+    "period": "元 · 约 1310 年",
+    "facets": [
+      { "label": "媒材", "value": "纸本水墨" },
+      { "label": "尺寸", "value": "26.8 × 107.5 cm" },
+      { "label": "自题", "value": "子昂戏作双松平远" },
+      { "label": "收藏", "value": "大都会艺术博物馆" }
+    ],
+    "blurb": "两棵松，一片空水，和一段说自己“少异”于近世画手的自跋。",
+    "focus": "50% 45%",
+    "image": "pines"
+  }
+}

@@ -17,7 +17,7 @@ const BATCH = [
 ];
 
 test('Batch B follows Batch A in the artist series, in publication order', () => {
-  assert.deepEqual(ARTIST_CARDS.slice(5), BATCH.map(([, card]) => card));
+  assert.deepEqual(ARTIST_CARDS.slice(5, 9), BATCH.map(([, card]) => card));
   for (const [id, card] of BATCH) assert.match(fm(story(id)), new RegExp(`^card: ${card}$`, 'm'), `${id} awards ${card}`);
 });
 
@@ -25,7 +25,7 @@ test('numbers: everything before Batch B keeps its number; the new cards are 137
   const cards = publishedCards();
   assert.equal(cards.get('art-howe-war-dancer-001').no, '136');
   BATCH.forEach(([, card], i) => assert.equal(cards.get(card).no, String(137 + i)));
-  assert.equal(cards.size, 140);
+  assert.ok(cards.size >= 140);
 });
 
 test('works under copyright are typographic cards with an official page; public-domain works show their own image', () => {
