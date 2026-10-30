@@ -416,7 +416,7 @@ dfn.term:hover { text-decoration-color: var(--ink); }
   border-radius: .75rem; font: 400 1rem/1.75 var(--sans); letter-spacing: .03em; cursor: pointer; color: var(--ink-2);
   transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), opacity var(--t) var(--ease);
 }
-.quiz label:hover { background: var(--hover); color: var(--ink); }
+@media (hover: hover) { .quiz label:hover { background: var(--hover); color: var(--ink); } }
 .quiz label:has(input:checked) { color: var(--ink); font-weight: 500; }
 .quiz label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
 .quiz input[type="radio"] {
@@ -1099,7 +1099,8 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .sort-bin { min-height: 2.5rem; padding: .35rem .95rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper);
   font: 400 .875rem/1.4 var(--sans); letter-spacing: .03em; color: var(--ink-2); cursor: pointer;
   transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
-.sort-bin:hover:not(:disabled) { background: var(--hover); color: var(--ink); }
+/* Hover only where a pointer really hovers: on touch screens :hover sticks to the tapped pill and hid its selection. */
+@media (hover: hover) { .sort-bin:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--hover); color: var(--ink); } }
 .sort-bin[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .sort-bin:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .sort-bin:disabled { cursor: default; }
