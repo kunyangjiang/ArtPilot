@@ -1,0 +1,95 @@
+{
+  "id": "art-van-gogh-bedroom-001",
+  "kind": "painting",
+  "titleZh": "卧室",
+  "titleEn": "The Bedroom",
+  "artist": "文森特·凡·高",
+  "attributionNote": "文森特·凡·高（1853—1890）1889 年 9 月在圣雷米画的第二版。第一版画于 1888 年 10 月的阿尔勒，后来受潮损坏；他据此在原尺寸上重画了这一幅，又为母亲和妹妹画了一幅较小的（据芝加哥艺术博物馆与凡·高书信 779、781、800、806）。",
+  "dateApprox": "1889 年 9 月",
+  "medium": "布面油画",
+  "dimensionsCm": { "height": 73.6, "width": 92.3 },
+  "collection": "芝加哥艺术博物馆，1926.417（海伦·伯奇·巴特利特纪念收藏）",
+  "infoSources": [
+    { "label": "芝加哥艺术博物馆：Vincent van Gogh, The Bedroom，1889，1926.417", "url": "https://www.artic.edu/artworks/28560/the-bedroom" },
+    { "label": "凡·高书信 705，致提奥，阿尔勒，1888 年 10 月 16 日（凡·高博物馆与惠更斯研究所书信版）", "url": "https://vangoghletters.org/vg/letters/let705/letter.html" },
+    { "label": "凡·高书信 779、781（提奥致文森特）、782、800、806（1889 年 6—9 月）", "url": "https://vangoghletters.org/vg/letters/let781/letter.html" },
+    { "label": "大都会艺术博物馆：Vincent van Gogh, First Steps, after Millet，1890，64.165.2", "url": "https://www.metmuseum.org/art/collection/search/436526" },
+    { "label": "大都会艺术博物馆：Vincent van Gogh, Self-Portrait with a Straw Hat，1887，67.187.70a", "url": "https://www.metmuseum.org/art/collection/search/436532" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/van-gogh-bedroom-aic.jpg",
+      "kind": "full",
+      "width": 2400,
+      "height": 1878,
+      "alt": "一间小卧室，地板向画面深处斜着收窄。右边一张很大的黄色木床，铺着淡绿的床单、两个枕头和一条红色的被子；左边一张黄色的草编椅子，后面一张小桌子，上面放着水壶、脸盆和几个瓶子；墙是蓝色的，挂着几幅画和一面镜子，后墙中间是一扇半开的绿色窗户，床头上方的墙上还挂着两幅肖像。",
+      "caption": "文森特·凡·高《卧室》，1889 年 9 月，布面油画，73.6 × 92.3 厘米，芝加哥艺术博物馆藏。这是他照着 1888 年的第一版重画的第二版。",
+      "credit": {
+        "author": "芝加哥艺术博物馆",
+        "licence": "CC0 1.0（公有领域作品图像）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.artic.edu/artworks/28560/the-bedroom",
+        "changes": "取自博物馆 IIIF 图像服务的 3000 像素版本，缩小到 2400 像素并重新压缩；未裁切、未调色",
+        "by": "芝加哥艺术博物馆"
+      }
+    },
+    {
+      "key": "first-steps",
+      "src": "/img/van-gogh-first-steps-met.jpg",
+      "kind": "detail",
+      "width": 1900,
+      "height": 1506,
+      "subject": "凡·高《第一步（仿米勒）》，1890 年，大都会艺术博物馆藏",
+      "alt": "一个春天的农家院子，开着白花的果树下晾着衣服。左边一个穿蓝衣服的农夫蹲下来，张开双臂；右边一个母亲扶着一个小孩，小孩正朝父亲迈出第一步。旁边放着一辆独轮车和一把铁锹，地面用短而弯的笔触画成。",
+      "caption": "文森特·凡·高《第一步（仿米勒）》，1890 年 1 月，布面油画，72.4 × 91.1 厘米，大都会艺术博物馆藏（64.165.2）。据该馆，他依据的是提奥寄来的一张米勒原作的照片，先打格子，再移到画布上。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436526",
+        "changes": "缩小到 1900 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "straw-hat",
+      "src": "/img/van-gogh-straw-hat-met.jpg",
+      "kind": "detail",
+      "width": 1607,
+      "height": 2000,
+      "subject": "凡·高《戴草帽的自画像》，1887 年，大都会艺术博物馆藏",
+      "alt": "一幅小小的自画像：画家侧过半边身子看着画外，戴一顶黄色的宽边草帽，红褐色的胡子，穿蓝灰色的外衣。整个画面由一道一道短促的彩色笔触排成，背景是橙粉色和蓝色交织的点。",
+      "caption": "文森特·凡·高《戴草帽的自画像》，1887 年，布面油画，40.6 × 31.8 厘米，大都会艺术博物馆藏（67.187.70a）。巴黎两年，他画了二十多幅自画像；这一幅画在一张旧的农民习作的背面。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/436532",
+        "changes": "缩小到 2000 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    }
+  ],
+  "imagesNote": "三张图像都是收藏机构以 CC0 开放的公有领域作品图像，本站只缩小、重新压缩。另外两件作品不是本篇故事的主角，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：凡·高 1890 年去世；三张图像都由收藏机构以 CC0 开放",
+    "basis": "芝加哥艺术博物馆的 API 对 1926.417 返回 is_public_domain: true，馆方规定公有领域作品图像以 CC0 提供；大都会艺术博物馆对 64.165.2 与 67.187.70a 标注“Public Domain”，API 返回 isPublicDomain: true。",
+    "verifiedOn": "2026-10-29",
+    "note": "书信引文由本站据法文、荷兰文原文自译，只引短句；没有使用凡·高书信版的英文译文、注释和手稿影像（该版的文字以 CC BY-NC-SA 4.0 发布，手稿影像未开放）。“照着信上色”的互动由本站绘制。"
+  },
+  "card": {
+    "type": "油画",
+    "maker": "文森特·凡·高",
+    "period": "1889 年",
+    "facets": [
+      { "label": "媒材", "value": "布面油画" },
+      { "label": "尺幅", "value": "73.6 × 92.3 cm" },
+      { "label": "版本", "value": "第二版，原尺寸重画" },
+      { "label": "收藏", "value": "芝加哥艺术博物馆" }
+    ],
+    "blurb": "一封信先把它的颜色一样一样写出来，后来它又靠几封信重画了一遍。",
+    "image": "full",
+    "focus": "55% 55%"
+  }
+}

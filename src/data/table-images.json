@@ -1,4 +1,16 @@
 {
+  "/img/abad-moves-stamps-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/abad-moves-stamps-artpilot.jpg",
+      "width": 1100,
+      "height": 770
+    },
+    "small": {
+      "src": "/img/table/s-abad-moves-stamps-artpilot.jpg",
+      "width": 260,
+      "height": 182
+    }
+  },
   "/img/abanindranath-bharat-mata.jpg": {
     "large": {
       "src": "/img/table/abanindranath-bharat-mata.jpg",
@@ -189,6 +201,18 @@
       "src": "/img/table/s-brihadishvara-vimana.jpg",
       "width": 173,
       "height": 260
+    }
+  },
+  "/img/brule-sioux-parfleches-met.jpg": {
+    "large": {
+      "src": "/img/table/brule-sioux-parfleches-met.jpg",
+      "width": 1100,
+      "height": 1063
+    },
+    "small": {
+      "src": "/img/table/s-brule-sioux-parfleches-met.jpg",
+      "width": 260,
+      "height": 251
     }
   },
   "/img/campbell-tomato-soup-ad-1928.jpg": {
@@ -719,6 +743,18 @@
       "height": 260
     }
   },
+  "/img/hokusai-great-wave-met.jpg": {
+    "large": {
+      "src": "/img/table/hokusai-great-wave-met.jpg",
+      "width": 1100,
+      "height": 759
+    },
+    "small": {
+      "src": "/img/table/s-hokusai-great-wave-met.jpg",
+      "width": 260,
+      "height": 179
+    }
+  },
   "/img/horyuji-shaka-triad.jpg": {
     "large": {
       "src": "/img/table/horyuji-shaka-triad.jpg",
@@ -909,6 +945,18 @@
       "src": "/img/table/s-kangxi-tour-jinan.jpg",
       "width": 260,
       "height": 195
+    }
+  },
+  "/img/katsushika-oi-guan-yu-cleveland.jpg": {
+    "large": {
+      "src": "/img/table/katsushika-oi-guan-yu-cleveland.jpg",
+      "width": 537,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-katsushika-oi-guan-yu-cleveland.jpg",
+      "width": 126,
+      "height": 260
     }
   },
   "/img/kirchner-street-dresden.jpg": {
@@ -1497,6 +1545,18 @@
       "src": "/img/table/s-tell-asmar-worshiper.jpg",
       "width": 195,
       "height": 260
+    }
+  },
+  "/img/van-gogh-bedroom-aic.jpg": {
+    "large": {
+      "src": "/img/table/van-gogh-bedroom-aic.jpg",
+      "width": 1100,
+      "height": 861
+    },
+    "small": {
+      "src": "/img/table/s-van-gogh-bedroom-aic.jpg",
+      "width": 260,
+      "height": 203
     }
   },
   "/img/van-gogh-wheat-cypresses.jpg": {

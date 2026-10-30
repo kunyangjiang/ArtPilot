@@ -1,0 +1,62 @@
+{
+  "id": "art-abad-new-kids-in-class-001",
+  "kind": "painting",
+  "titleZh": "班上的新同学",
+  "titleEn": "New Kids in Class",
+  "artist": "帕西塔·阿巴德",
+  "attributionNote": "帕西塔·阿巴德（1946—2004）1994 年作，属于她的“移民经验”系列（据史密森尼美国艺术博物馆与阿巴德艺术遗产网站）。",
+  "dateApprox": "1994 年",
+  "medium": "丙烯、油彩、布、亮片、纽扣、珠子，绘于缝制并填充的画布上（trapunto）",
+  "dimensionsCm": { "height": 218.4, "width": 175.3 },
+  "collection": "史密森尼美国艺术博物馆，2023.25",
+  "dimensionsSource": "据史密森尼美国艺术博物馆的作品页面",
+  "officialPage": {
+    "label": "史密森尼美国艺术博物馆的作品页面",
+    "url": "https://americanart.si.edu/artwork/new-kids-class-120709"
+  },
+  "infoSources": [
+    { "label": "史密森尼美国艺术博物馆：Pacita Abad, New Kids in Class，1994，2023.25", "url": "https://americanart.si.edu/artwork/new-kids-class-120709" },
+    { "label": "史密森尼美国艺术博物馆：Pacita Abad 艺术家页面（Katherine Markoski 撰，2024）", "url": "https://americanart.si.edu/artist/pacita-abad-7121" },
+    { "label": "阿巴德艺术遗产（Pacita Abad Art Estate）：生平与年表", "url": "https://www.pacitaabad.com/about" },
+    { "label": "美国国家女性艺术博物馆：Pacita Abad 艺术家页面", "url": "https://nmwa.org/art/artists/pacita-abad/" }
+  ],
+  "images": [
+    {
+      "key": "stamps",
+      "src": "/img/abad-moves-stamps-artpilot.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1400,
+      "subject": "本站绘制的示意图：阿巴德住过、工作过的地方",
+      "alt": "一张米色横线纸上盖满了彩色的“印章”，有长方形的也有圆形的，每一枚写着一个年份和一个地名：1946 巴斯科、1949 马尼拉、1970 旧金山、1973 土耳其到菲律宾的陆路、1976 华盛顿、1977 纽约、1978 达卡、1979 苏丹和曼谷、1980 波士顿、1982 马尼拉、1986 华盛顿、1994 雅加达、2000 新加坡、2004 巴丹群岛。",
+      "caption": "阿巴德住过、工作过的地方，按年份排列。本站据阿巴德艺术遗产网站的年表绘制，只列她搬去居住或长途旅行的起点。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制",
+        "sourceUrl": "https://www.pacitaabad.com/about",
+        "changes": "据阿巴德艺术遗产网站的年表绘制；不含阿巴德的任何作品图像",
+        "by": "示意图 · ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "这张图不是阿巴德的作品，而是本站据她的年表画的示意图。她的作品仍受版权保护，请到收藏机构的页面去看。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "史密森尼美国艺术博物馆的作品页注明“© Pacita Abad Art Estate”；阿巴德艺术遗产网站注明版权所有，没有开放许可。维基共享资源中没有经权利人授权（VRT）的阿巴德作品图像。本站没有申请授权，也没有购买许可。",
+    "verifiedOn": "2026-10-29",
+    "note": "故事中的示意图和“缝一幅画”“给桥上色”两个互动由本站绘制，不复制阿巴德的作品。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "绗缝绘画（trapunto）",
+    "maker": "帕西塔·阿巴德",
+    "period": "1994 年",
+    "facets": [
+      { "label": "艺术家", "value": "帕西塔·阿巴德" },
+      { "label": "材料", "value": "画布、布、亮片、纽扣、珠子" },
+      { "label": "尺幅", "value": "2.2 × 1.8 米" },
+      { "label": "收藏", "value": "史密森尼美国艺术博物馆" }
+    ],
+    "blurb": "华盛顿的一间教室：来自世界各地的孩子，被缝进同一块布。",
+    "image": null
+  }
+}

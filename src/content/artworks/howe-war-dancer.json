@@ -1,0 +1,63 @@
+{
+  "id": "art-howe-war-dancer-001",
+  "kind": "painting",
+  "titleZh": "战舞者",
+  "titleEn": "War Dancer",
+  "artist": "奥斯卡·豪（马祖哈·霍克西纳）",
+  "attributionNote": "奥斯卡·豪（1915—1983），扬克托奈达科他人，达科他名 Mazuha Hokshina（“小商人”，Trader Boy），1966 年作，右下角签“ '66 Oscar Howe”（据纳尔逊-阿特金斯艺术博物馆）。",
+  "dateApprox": "1966 年",
+  "medium": "酪素颜料与不透明水彩，铅笔起稿，白色布纹纸",
+  "dimensionsCm": { "height": 65.3, "width": 52.1 },
+  "collection": "纳尔逊-阿特金斯艺术博物馆（堪萨斯城），78-16",
+  "officialPage": {
+    "label": "纳尔逊-阿特金斯艺术博物馆的作品页面",
+    "url": "https://art.nelson-atkins.org/objects/3147/war-dancer"
+  },
+  "infoSources": [
+    { "label": "纳尔逊-阿特金斯艺术博物馆：Oscar Howe, War Dancer，1966，78-16", "url": "https://art.nelson-atkins.org/objects/3147/war-dancer" },
+    { "label": "美国印第安人国家博物馆《American Indian》杂志：Alexandra N. Harris, An American Modernist: Oscar Howe Fractured Stereotypes of Native Art（2022 年春季号）", "url": "https://www.americanindianmagazine.org/story/Oscar-Howe" },
+    { "label": "《史密森尼》杂志：Susannah Gardiner, Who Gets to Define Native American Art?（2022 年 4 月 25 日）", "url": "https://www.smithsonianmag.com/smithsonian-institution/who-gets-to-define-native-american-art-180979968/" },
+    { "label": "波特兰艺术博物馆：Dakota Modern: The Art of Oscar Howe 活动手册（2023）", "url": "https://portlandartmuseum.org/wp-content/uploads/2023/07/Dakota-Modern-Activity-Guide.pdf" },
+    { "label": "大都会艺术博物馆：Pair of Parfleches，布鲁莱苏族，1880–85，2011.154.152.1, .2", "url": "https://www.metmuseum.org/art/collection/search/319188" }
+  ],
+  "images": [
+    {
+      "key": "parfleches",
+      "src": "/img/brule-sioux-parfleches-met.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1933,
+      "subject": "布鲁莱苏族（拉科塔）彩绘生皮盒一对，1880—1885 年，大都会艺术博物馆藏",
+      "alt": "两个并排立着的长方形生皮盒，像对折的信封，用皮绳系住。浅米色的皮面上画着整齐的几何图案：红色的竖条，中间是蓝、绿、黄三色的三角形和菱形，上下对称地排列。",
+      "caption": "彩绘生皮盒（parfleche）一对，布鲁莱苏族，南达科他，1880—1885 年，生皮、颜料、鞣皮系带，约 57 × 34 厘米，大都会艺术博物馆藏（2011.154.152.1, .2）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/319188",
+        "changes": "原图 2000 像素宽，重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    }
+  ],
+  "imagesNote": "这张图像不是奥斯卡·豪的作品，而是大都会艺术博物馆以 CC0 开放的一对 19 世纪拉科塔彩绘生皮盒。豪的作品仍受版权保护，请到收藏机构的页面去看。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "纳尔逊-阿特金斯艺术博物馆的作品页注明“© Oscar Howe Estate”。维基共享资源中两张标为“1978—1989 年无版权声明出版”的豪作品图像，依据只是一本政府小册子的翻印，无法证明作品本身已进入公有领域，本站没有使用。本站没有申请授权，也没有购买许可。",
+    "verifiedOn": "2026-10-29",
+    "note": "插图是大都会艺术博物馆以 CC0 开放的拉科塔生皮盒，不是豪的作品。“点与线”互动由本站绘制，不复制豪的作品。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "酪素画",
+    "maker": "奥斯卡·豪",
+    "period": "1966 年",
+    "facets": [
+      { "label": "艺术家", "value": "奥斯卡·豪（扬克托奈达科他）" },
+      { "label": "媒材", "value": "酪素颜料、不透明水彩" },
+      { "label": "尺幅", "value": "65.3 × 52.1 cm" },
+      { "label": "收藏", "value": "纳尔逊-阿特金斯艺术博物馆" }
+    ],
+    "blurb": "1966 年的一位舞者。豪说，他的点与线来自达科他的传统，不是立体主义。",
+    "image": null
+  }
+}

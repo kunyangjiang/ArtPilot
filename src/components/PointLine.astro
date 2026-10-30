@@ -1,0 +1,109 @@
+---
+// Composing by points and lines, as the artist described his own method: a circle first (his symbol of unity), then
+// points placed in it, each joined to its nearest neighbours by straight lines, so that the space divides into planes.
+// Tap or click to place a point; with the keyboard, the drawing takes focus, arrow keys move a cursor and Enter places
+// it. This is this site's sketch of the method, not one of the artist's paintings. Nothing is scored or stored.
+interface Props { prompt: string; notes: { start: string; few: string; many: string }; caption: string }
+const { prompt, notes, caption } = Astro.props;
+---
+<section class="module pline" data-pline={JSON.stringify(notes)}>
+  <p class="module-label">示意 · 先放点，再连线</p>
+  <h3>{prompt}</h3>
+  <div class="pline-stage" tabindex="0" role="application" aria-label="作画区。用方向键移动光标，按回车放一个点。">
+    <svg viewBox="0 0 300 300" data-svg aria-hidden="true">
+      <rect width="300" height="300" fill="#f4ede0" />
+      <g data-planes></g>
+      <circle cx="150" cy="150" r="128" fill="none" stroke="#3b2f2a" stroke-width="2" />
+      <g data-lines stroke="#3b2f2a" stroke-width="1.6" stroke-linecap="round"></g>
+      <g data-points fill="#3b2f2a"></g>
+      <circle data-cursor r="5" fill="none" stroke="#c0392b" stroke-width="2" cx="150" cy="150" visibility="hidden" />
+    </svg>
+  </div>
+  <div class="pline-bar">
+    <button type="button" class="btn btn-secondary" data-fill disabled>给分出的面上色</button>
+    <button type="button" class="btn btn-secondary" data-clear>擦掉重来</button>
+  </div>
+  <p class="pline-read" aria-live="polite" data-read>{notes.start}</p>
+  <p class="pline-caption">{caption}</p>
+</section>
+
+<style>
+  .pline-stage { width: min(100%, 26rem); cursor: crosshair; touch-action: manipulation; }
+  .pline-stage svg { display: block; width: 100%; height: auto; }
+  .pline-stage:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  .pline-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .pline-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .pline-caption { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  .pline [data-planes] polygon { opacity: 0; transition: opacity .6s var(--ease); }
+  .pline [data-planes] polygon.on { opacity: .85; }
+  .pline [data-lines] line { stroke-dasharray: 400; stroke-dashoffset: 400; animation: pline-draw .5s var(--ease) forwards; }
+  @keyframes pline-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .pline [data-lines] line { animation: none; stroke-dashoffset: 0; }
+    .pline [data-planes] polygon { transition: none; }
+  }
+</style>
+
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  const COLOURS = ['#c92a2a', '#1864ab', '#e8b800', '#2b8a3e', '#5f3dc4', '#d9480f', '#0b7285'];
+  document.querySelectorAll<HTMLElement>('[data-pline]').forEach((root) => {
+    const notes = JSON.parse(root.dataset.pline!) as { start: string; few: string; many: string };
+    const stage = root.querySelector<HTMLElement>('.pline-stage')!;
+    const svg = root.querySelector<SVGSVGElement>('[data-svg]')!;
+    const gLines = root.querySelector('[data-lines]')!, gPoints = root.querySelector('[data-points]')!, gPlanes = root.querySelector('[data-planes]')!;
+    const cursor = root.querySelector<SVGCircleElement>('[data-cursor]')!;
+    const read = root.querySelector('[data-read]')!;
+    const fill = root.querySelector<HTMLButtonElement>('[data-fill]')!;
+    const pts: [number, number][] = [];
+    const edges = new Set<string>();
+    let cx = 150, cy = 150;
+    const el = (name: string, attrs: Record<string, string | number>) => { const e = document.createElementNS(NS, name); for (const k in attrs) e.setAttribute(k, String(attrs[k])); return e; };
+    const inside = (x: number, y: number) => Math.hypot(x - 150, y - 150) <= 128;
+    const link = (a: number, b: number) => {
+      const key = a < b ? `${a}-${b}` : `${b}-${a}`;
+      if (edges.has(key)) return;
+      edges.add(key);
+      gLines.append(el('line', { x1: pts[a][0], y1: pts[a][1], x2: pts[b][0], y2: pts[b][1] }));
+    };
+    const add = (x: number, y: number) => {
+      if (!inside(x, y) || pts.length >= 30) return;
+      pts.push([x, y]);
+      gPoints.append(el('circle', { cx: x, cy: y, r: 3.2 }));
+      const i = pts.length - 1;
+      // Each new point is joined by straight lines to its two nearest earlier points: a web grows outwards.
+      pts.slice(0, i).map((p, k) => [Math.hypot(p[0] - x, p[1] - y), k]).sort((a, b) => a[0] - b[0]).slice(0, 2).forEach(([, k]) => link(i, k));
+      fill.disabled = pts.length < 4;
+      read.textContent = pts.length < 4 ? notes.start : pts.length < 10 ? notes.few : notes.many;
+    };
+    const at = (e: PointerEvent) => { const r = svg.getBoundingClientRect(); return [((e.clientX - r.left) / r.width) * 300, ((e.clientY - r.top) / r.height) * 300]; };
+    stage.addEventListener('pointerdown', (e) => { const [x, y] = at(e); add(x, y); });
+    stage.addEventListener('focus', () => cursor.setAttribute('visibility', 'visible'));
+    stage.addEventListener('blur', () => cursor.setAttribute('visibility', 'hidden'));
+    stage.addEventListener('keydown', (e) => {
+      const d = e.shiftKey ? 20 : 6;
+      if (e.key === 'ArrowLeft') cx -= d; else if (e.key === 'ArrowRight') cx += d; else if (e.key === 'ArrowUp') cy -= d; else if (e.key === 'ArrowDown') cy += d;
+      else if (e.key === 'Enter' || e.key === ' ') { add(cx, cy); e.preventDefault(); return; } else return;
+      e.preventDefault();
+      cx = Math.max(22, Math.min(278, cx)); cy = Math.max(22, Math.min(278, cy));
+      cursor.setAttribute('cx', String(cx)); cursor.setAttribute('cy', String(cy));
+    });
+    // The planes: every triangle whose three sides are all drawn lines.
+    fill.addEventListener('click', () => {
+      gPlanes.replaceChildren();
+      let n = 0;
+      for (let a = 0; a < pts.length; a++) for (let b = a + 1; b < pts.length; b++) for (let c = b + 1; c < pts.length; c++) {
+        if (edges.has(`${a}-${b}`) && edges.has(`${b}-${c}`) && edges.has(`${a}-${c}`)) {
+          const p = el('polygon', { points: [pts[a], pts[b], pts[c]].map((q) => q.join(',')).join(' '), fill: COLOURS[n++ % COLOURS.length] });
+          gPlanes.append(p);
+          requestAnimationFrame(() => p.classList.add('on'));
+        }
+      }
+      read.textContent = n ? `直线把圆里的空间分成了 ${n} 个三角形的面。` : '还没有三条线围成的面：再放几个点试试。';
+    });
+    root.querySelector('[data-clear]')!.addEventListener('click', () => {
+      pts.length = 0; edges.clear(); gLines.replaceChildren(); gPoints.replaceChildren(); gPlanes.replaceChildren();
+      fill.disabled = true; read.textContent = notes.start;
+    });
+  });
+</script>

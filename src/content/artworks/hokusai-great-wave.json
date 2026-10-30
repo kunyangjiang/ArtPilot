@@ -1,0 +1,174 @@
+{
+  "id": "art-hokusai-great-wave-001",
+  "kind": "object",
+  "titleZh": "神奈川冲浪里",
+  "titleEn": "Under the Wave off Kanagawa (The Great Wave)",
+  "artist": "葛饰北斋",
+  "attributionNote": "画上落款“北斋改为一笔”（Hokusai aratame Iitsu hitsu），意思是“原名北斋、今名为一所画”。《富岳三十六景》系列之一，由版元永寿堂出版。北斋画的是底稿；雕版和印刷由别的工匠完成，他们的名字没有留在画上。",
+  "dateApprox": "约 1830—1832 年",
+  "objectType": "锦绘（多色木版画）· 风景 · 横大判",
+  "medium": "木版印刷，墨与颜料，纸本",
+  "dimensions": "24.4 × 35.7 厘米",
+  "collection": "纽约大都会艺术博物馆，JP10（罗杰斯基金，1914 年）",
+  "originalStatus": "江户时代印制的原版印张之一。同一套版木印出过许多张，各地博物馆收藏的是其中不同的几张；这一张左侧的落款贴近纸边，左下角的圆形印章是大都会艺术博物馆的收藏印。",
+  "provenance": "波士顿的威廉·斯波尔丁与约翰·斯波尔丁兄弟收藏，1914 年售予大都会艺术博物馆（据该馆）。",
+  "infoSources": [
+    { "label": "大都会艺术博物馆：Katsushika Hokusai, Under the Wave off Kanagawa (The Great Wave)，约 1830–32，JP10", "url": "https://www.metmuseum.org/art/collection/search/36491" },
+    { "label": "大都会艺术博物馆：South Wind, Clear Sky (Red Fuji)，JP9（系列扩充到 46 幅、版元永寿堂、“柏林蓝”）", "url": "https://www.metmuseum.org/art/collection/search/36490" },
+    { "label": "大都会艺术博物馆：The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō，JP741（落款“春朗画”）", "url": "https://www.metmuseum.org/art/collection/search/37189" },
+    { "label": "大都会艺术博物馆：Basket of Flowers with Bamboo Blind，JP659（落款“宗理改北斋辰画”）", "url": "https://www.metmuseum.org/art/collection/search/54303" },
+    { "label": "大都会艺术博物馆：Still Life: Double Cherry-Blossom Branch, Telescope, Sweet Fish, and Tissue Case，JP1870（落款“画狂人北斋画”）", "url": "https://www.metmuseum.org/art/collection/search/54435" },
+    { "label": "大都会艺术博物馆：Poem by Kakinomoto Hitomaro，JP4（落款“前北斋卍”、版元永寿堂）", "url": "https://www.metmuseum.org/art/collection/search/36486" },
+    { "label": "大都会艺术博物馆：Red Zhong Kui, the Demon Queller，14.76.37（落款“八十七老卍笔”）", "url": "https://www.metmuseum.org/art/collection/search/45818" },
+    { "label": "大都会艺术博物馆：Katsushika Taito II, Courtesan on Parade，JP2831（落款“葛饰戴斗”）", "url": "https://www.metmuseum.org/art/collection/search/57069" },
+    { "label": "史密森尼学会国立亚洲艺术博物馆：Katsushika Taito II, Carp，F1998.315（1820 年北斋把“戴斗”之名传给弟子）", "url": "https://asia.si.edu/object/F1998.315/" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/hokusai-great-wave-met.jpg",
+      "kind": "full",
+      "width": 2400,
+      "height": 1657,
+      "alt": "一道巨大的浪从左边卷起，浪头碎成一根根爪子似的白沫，悬在半空；浪下有三条细长的船，船上的人伏低了身子。远处画面正中，一座小小的富士山顶着白雪，夹在两道浪之间。左上角有一个竖写标题的长方框，框的左边竖写着落款，左下角有一枚圆形印章。",
+      "caption": "葛饰北斋《神奈川冲浪里》，《富岳三十六景》之一，约 1830—1832 年，锦绘，24.4 × 35.7 厘米，大都会艺术博物馆藏（JP10）。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/36491",
+        "changes": "缩小到 2400 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "sumo",
+      "src": "/img/hokusai-sumo-shunro-met.jpg",
+      "kind": "detail",
+      "width": 1008,
+      "height": 2200,
+      "subject": "北斋（署名春朗）《相扑力士高根山与一右卫门与千田川吉五郎》，约 1790—1793 年，大都会艺术博物馆藏",
+      "alt": "一张竖长的窄幅版画：两个相扑力士扭抱在一起，一人弯腰把头抵在对方胸前，系着红色的腰带；上方竖写着两人的名字，右下角竖写着落款“春朗画”。",
+      "caption": "北斋（署名春朗）《相扑力士高根山与一右卫门与千田川吉五郎》，约 1790—1793 年，锦绘，30.6 × 12.9 厘米，大都会艺术博物馆藏（JP741）。落款“春朗画”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/37189",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "basket",
+      "src": "/img/hokusai-basket-sori-met.jpg",
+      "kind": "detail",
+      "width": 2400,
+      "height": 1329,
+      "subject": "北斋《竹帘下的花篮》，约 1799—1810 年，大都会艺术博物馆藏",
+      "alt": "一张横长的摺物：上方斜着卷起一卷黄色的竹帘，帘下一只编织的花篮插满白花和绿叶，几条长长的丝绳被风吹向左边。右下方竖写着落款，下面盖着两枚小印。",
+      "caption": "北斋《竹帘下的花篮》，约 1799—1810 年，摺物（私人定制的版画），21 × 56.2 厘米，大都会艺术博物馆藏（JP659）。落款“宗理改北斋辰画”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/54303",
+        "changes": "缩小到 2400 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "still-life",
+      "src": "/img/hokusai-still-life-gakyojin-met.jpg",
+      "kind": "detail",
+      "width": 2200,
+      "height": 1677,
+      "subject": "北斋《八重樱、望远镜、香鱼与纸巾盒》，约 1804—1813 年，大都会艺术博物馆藏",
+      "alt": "一张近方形的摺物：下方斜放着一支橙色花纹的望远镜，上面用草绳串着两条香鱼，旁边是一枝重瓣的樱花和一个蓝色的纸巾盒；上半部分是几行草书的和歌。右侧樱花上方竖写着落款。",
+      "caption": "北斋《八重樱、望远镜、香鱼与纸巾盒》，约 1804—1813 年，摺物，20.6 × 27.1 厘米，大都会艺术博物馆藏（JP1870）。落款“画狂人北斋画”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/54435",
+        "changes": "缩小到 2200 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "hitomaro",
+      "src": "/img/hokusai-hitomaro-manji-met.jpg",
+      "kind": "detail",
+      "width": 2400,
+      "height": 1639,
+      "subject": "北斋《百人一首乳母绘解 · 柿本人麿》，1839 年，大都会艺术博物馆藏",
+      "alt": "一张横幅风景版画：绿色的山坡上，几个披着草蓑的渔夫拉着一张大网走向河边；左上方一间茅屋前升起一股巨大的、翻卷的白烟，背后是一座红色的山。右上角有红色的标题框和一个写着和歌的方框，右边缘竖写着落款，右下角有几枚印。",
+      "caption": "北斋《百人一首乳母绘解 · 柿本人麿》，1839 年，锦绘，25.1 × 35.6 厘米，大都会艺术博物馆藏（JP4）。落款“前北斋卍”，版元印“永寿堂”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/36486",
+        "changes": "缩小到 2400 像素宽并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "zhong-kui",
+      "src": "/img/hokusai-red-zhong-kui-met.jpg",
+      "kind": "detail",
+      "width": 1801,
+      "height": 2400,
+      "subject": "北斋《朱钟馗图》，1846 年，大都会艺术博物馆藏",
+      "alt": "一幅挂轴，金色花纹的裱边中间是一块浅褐色的绢：一个满脸大胡子的人全身用朱红画成，衣袍的下摆被风吹起，身体向左前方探出。右下方竖写着落款，下面一枚印，印文是一座山。",
+      "caption": "北斋《朱钟馗图》，1846 年，挂轴，绢本设色，画心 59.1 × 30.2 厘米，大都会艺术博物馆藏（14.76.37）。落款“八十七老卍笔”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/45818",
+        "changes": "缩小到 2400 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "taito-ii",
+      "src": "/img/taito-ii-courtesan-met.jpg",
+      "kind": "detail",
+      "width": 1052,
+      "height": 2200,
+      "subject": "二代葛饰戴斗《游行的花魁》，约 1830—1844 年，大都会艺术博物馆藏",
+      "alt": "一张竖长的窄幅版画：一个盛装的花魁侧身向左走，头上插满长簪，身上叠穿几层和服，黑色外衣上印着松针纹。上方是几行楷书汉诗，右下方竖写着落款“葛饰戴斗”和两枚红印。",
+      "caption": "二代葛饰戴斗《游行的花魁》，约 1830—1844 年，锦绘（剪开的“贴交绘”），35.6 × 16.2 厘米，大都会艺术博物馆藏（JP2831）。落款“葛饰戴斗”：这个名字北斋用过，后来传给了弟子。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/57069",
+        "changes": "缩小到 2200 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    }
+  ],
+  "imagesNote": "七张图像都是大都会艺术博物馆以 CC0 开放的公有领域作品图像，本站只缩小、重新压缩。除第一张外，都是别的作品，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：北斋 1849 年去世；七张图像都由大都会艺术博物馆以 CC0 开放",
+    "basis": "大都会艺术博物馆藏品页对 JP10、JP741、JP659、JP1870、JP4、14.76.37、JP2831 均标注“Public Domain”，收藏 API 返回 isPublicDomain: true。",
+    "verifiedOn": "2026-10-29",
+    "note": "落款的读法、年代与印章据大都会艺术博物馆各件藏品页的“Signatures, Inscriptions, and Markings”。“名字簿”互动由本站编排，放大的落款取自同一张图，未另作图。"
+  },
+  "card": {
+    "type": "锦绘 · 风景",
+    "maker": "葛饰北斋",
+    "period": "约 1830—1832 年",
+    "facets": [
+      { "label": "系列", "value": "富岳三十六景" },
+      { "label": "落款", "value": "北斋改为一笔" },
+      { "label": "尺寸", "value": "24.4 × 35.7 cm" },
+      { "label": "收藏", "value": "大都会艺术博物馆" }
+    ],
+    "blurb": "落款写着“北斋改为一笔”：画这道浪的人，刚换过名字。",
+    "image": "full",
+    "focus": "40% 45%"
+  }
+}

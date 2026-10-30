@@ -1,0 +1,75 @@
+---
+// A count made visible: each group is a row of dots, one dot per item (651 letters, 2,350 circles), so the reader sees
+// a proportion instead of reading two numbers. Dots are coloured from the group's palette, in turn or shuffled. A button
+// lays them out one row after another; with reduced motion they appear at once. Drawn by this site; nothing is
+// scored or stored.
+interface Group { label: string; count: number; palette: string[]; note?: string; shuffle?: boolean }
+interface Props { prompt: string; groups: Group[]; start: string; caption: string; label?: string; size?: number }
+const { prompt, groups, start, caption, label = '示意 · 一个一个数', size = 7 } = Astro.props;
+---
+<section class="module tally" data-tally={JSON.stringify(groups)} style={`--dot:${size}px`}>
+  <p class="module-label">{label}</p>
+  <h3>{prompt}</h3>
+  <button type="button" class="btn btn-secondary" data-go>{start}</button>
+  <div class="tally-rows">
+    {groups.map((g, i) => (
+      <div class="tally-row">
+        <p class="tally-head"><span class="tally-n" data-n={i}>0</span><span class="tally-label">{g.label}</span></p>
+        <div class="tally-dots" data-dots={i} role="img" aria-label={`${g.label}：${g.count} 个点`}></div>
+        {g.note && <p class="tally-note" data-note={i} hidden>{g.note}</p>}
+      </div>
+    ))}
+  </div>
+  <p class="tally-caption">{caption}</p>
+</section>
+
+<style>
+  .tally .btn { margin-bottom: 1.25rem; }
+  .tally-rows { display: grid; gap: 1.5rem; }
+  .tally-head { display: flex; align-items: baseline; gap: .75rem; margin: 0 0 .5rem; }
+  .tally-n { min-width: 3.5ch; font: 500 1.5rem/1 var(--latin); font-variant-numeric: tabular-nums; }
+  .tally-label { font: 400 .9375rem/1.6 var(--sans); color: var(--ink-2); }
+  .tally-dots { display: flex; flex-wrap: wrap; gap: 2px; min-height: var(--dot); }
+  .tally-dots i { display: block; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--c); opacity: .14; transform: scale(.6);
+    transition: opacity .25s var(--ease), transform .25s var(--ease); }
+  .tally-dots i.on { opacity: 1; transform: none; }
+  .tally-note { max-width: var(--measure); margin: .6rem 0 0; font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
+  .tally-caption { max-width: var(--measure); margin: 1.25rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (prefers-reduced-motion: reduce) { .tally-dots i { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tally]').forEach((root) => {
+    const groups = JSON.parse(root.dataset.tally!) as { count: number; palette: string[]; shuffle?: boolean }[];
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The dots exist from the start (so the proportion is visible to anyone who never presses the button) but faint.
+    const rows = groups.map((g, i) => {
+      const box = root.querySelector<HTMLElement>(`[data-dots="${i}"]`)!;
+      const dots = Array.from({ length: g.count }, (_, k) => {
+        const d = document.createElement('i');
+        const c = g.shuffle ? g.palette[Math.floor(Math.random() * g.palette.length)] : g.palette[k % g.palette.length];
+        d.style.setProperty('--c', c);
+        return d;
+      });
+      box.replaceChildren(...dots);
+      return dots;
+    });
+    const go = root.querySelector<HTMLButtonElement>('[data-go]')!;
+    go.addEventListener('click', () => {
+      go.disabled = true;
+      rows.forEach((dots, i) => {
+        const n = root.querySelector<HTMLElement>(`[data-n="${i}"]`)!;
+        const note = root.querySelector<HTMLElement>(`[data-note="${i}"]`);
+        if (still) { dots.forEach((d) => d.classList.add('on')); n.textContent = String(dots.length); if (note) note.hidden = false; return; }
+        const per = Math.max(1, Math.ceil(dots.length / 90)); // about a second and a half per row, whatever its length
+        let k = 0;
+        const step = () => {
+          for (let j = 0; j < per && k < dots.length; j++, k++) dots[k].classList.add('on');
+          n.textContent = String(k);
+          if (k < dots.length) requestAnimationFrame(step); else if (note) note.hidden = false;
+        };
+        requestAnimationFrame(step);
+      });
+    });
+  });
+</script>

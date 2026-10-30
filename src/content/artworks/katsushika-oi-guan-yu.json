@@ -1,0 +1,54 @@
+{
+  "id": "art-katsushika-oi-guan-yu-001",
+  "kind": "painting",
+  "titleZh": "关羽刮骨疗毒图",
+  "titleEn": "Operating on Guan Yu’s Arm",
+  "artist": "葛饰应为（阿荣）",
+  "attributionNote": "落款“应为荣女笔”（应为，名荣的女子所画），盖“葛しか”白文方印（据克利夫兰艺术博物馆）。葛饰应为是葛饰北斋的女儿，约 1800 年生，1857 年以后去世，卒年不详。",
+  "dateApprox": "1840 年代",
+  "medium": "挂轴，绢本墨、设色、金",
+  "dimensionsCm": { "height": 140.2, "width": 68.3 },
+  "collection": "克利夫兰艺术博物馆，1998.178（凯尔文·史密斯基金）",
+  "infoSources": [
+    { "label": "克利夫兰艺术博物馆：Katsushika Ōi, Operating on Guan Yu’s Arm，1840 年代，1998.178", "url": "https://www.clevelandart.org/art/1998.178" },
+    { "label": "大英博物馆博客：Julie Nelson Davis, Hokusai and Ōi: art runs in the family（2017 年 6 月 18 日）", "url": "https://www.britishmuseum.org/blog/hokusai-and-oi-art-runs-family" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/katsushika-oi-guan-yu-cleveland.jpg",
+      "kind": "full",
+      "width": 1366,
+      "height": 2800,
+      "alt": "一幅很高的挂轴：一间屋子里，左边一根粗大的柱子。画面中下部，一个长须的将军袒露左臂伸在桌上，一边下棋一边任人处理伤口，血从手臂流进一只大盘子里；周围的侍从有的掩面、有的扭过头去。右上方的桌上摆满了酒壶、盘子和菜肴，右下角竖写着落款，下面一枚方印。",
+      "caption": "葛饰应为《关羽刮骨疗毒图》，1840 年代，挂轴，绢本设色，画心 140.2 × 68.3 厘米，克利夫兰艺术博物馆藏（1998.178）。落款“应为荣女笔”。据该馆，这是她存世最大的一幅画。",
+      "credit": {
+        "author": "克利夫兰艺术博物馆",
+        "licence": "CC0 1.0（开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.clevelandart.org/art/1998.178",
+        "changes": "取自博物馆的“print”版本（3400 像素高），缩小到 2800 像素高并重新压缩；未裁切、未调色",
+        "by": "克利夫兰艺术博物馆"
+      }
+    }
+  ],
+  "rights": {
+    "status": "公有领域：作者 1857 年以后去世；图像由克利夫兰艺术博物馆以 CC0 开放",
+    "basis": "克利夫兰艺术博物馆开放获取 API 对 1998.178 返回 share_license_status: CC0。",
+    "verifiedOn": "2026-10-29",
+    "note": "这是《一个人为什么要一次又一次换名字？》的附加藏品卡（A+），配原作图像。"
+  },
+  "card": {
+    "type": "挂轴 · 绢本设色",
+    "maker": "葛饰应为",
+    "period": "1840 年代",
+    "facets": [
+      { "label": "落款", "value": "应为荣女笔" },
+      { "label": "尺幅", "value": "140.2 × 68.3 cm" },
+      { "label": "收藏", "value": "克利夫兰艺术博物馆" }
+    ],
+    "blurb": "北斋的女儿给自己取名“应为”，在这幅画上签下了它。",
+    "image": "full",
+    "focus": "50% 58%"
+  }
+}

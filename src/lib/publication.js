@@ -29,9 +29,14 @@ export function cardNumber(course, total = TOTAL_COURSES) {
 // series, when cases award cards, follows the whole artist series. A card is identified everywhere by its artwork id
 // (claims in the browser, #card-… links), never by its number, so a number can move without touching anyone's
 // collection: The Tortoise Trainer was No.074 on the 73-course site, No.084 with the 83-course syllabus, and moved again when the syllabus grew to 90; it follows
-// the A+ core block now.
+// the A+ core block now. New stories are appended in the order they are published; this list is also the order of the
+// stories hall (src/components/EssayHall.astro).
 export const ARTIST_CARDS = [
   'art-osman-hamdi-tortoise-trainer-001',
+  'art-van-gogh-bedroom-001',
+  'art-hokusai-great-wave-001',
+  'art-abad-new-kids-in-class-001',
+  'art-howe-war-dancer-001',
 ];
 
 /**

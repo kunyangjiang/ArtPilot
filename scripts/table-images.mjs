@@ -36,6 +36,14 @@ for (const id of ARTIST_CARDS) {
   const art = artworks[id];
   if (art) wanted.add((art.images.find((i) => i.key === 'full') ?? art.images[0]).src);
 }
+// A story's further cards (`cards: [id, …]`, as in a lesson), claimed with its own.
+for (const f of readdirSync(join(root, 'src/content/essays')).filter((x) => x.endsWith('.mdx'))) {
+  const fm = readFileSync(join(root, 'src/content/essays', f), 'utf8');
+  for (const id of fm.match(/^cards:\s*\[(.*)\]/m)?.[1].split(',').map((x) => x.trim()).filter(Boolean) ?? []) {
+    const extra = artworks[id];
+    if (extra && !extra.officialPage) wanted.add((extra.images.find((i) => i.key === 'full') ?? extra.images[0]).src);
+  }
+}
 // The print: at most 1100 px on its long side (the largest place on the table, at twice the pixel density); the small
 // copy, 260 px, for the stage stacks and the card box.
 const sizes = { large: 1100, small: 260 };

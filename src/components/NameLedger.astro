@@ -1,0 +1,96 @@
+---
+// A register of the names an artist signed with, one entry per signature found on a real work. Choosing a name shows
+// that signature enlarged from the work's own image (a window onto the same file, not a separate picture), the whole
+// work with the signature boxed, and what the name and its date tell us. `box` is the signature's place in percent of
+// the image: [left, top, width, height]. Nothing is scored or stored.
+import { getEntry } from 'astro:content';
+interface Entry { name: string; reading: string; gloss: string; when: string; artwork: string; image: string; box: [number, number, number, number]; note: string }
+interface Props { prompt: string; entries: Entry[]; caption: string }
+const { prompt, entries, caption } = Astro.props;
+const rows = await Promise.all(entries.map(async (e) => {
+  const img = (await getEntry('artworks', e.artwork))?.data.images.find((i) => i.key === e.image);
+  if (!img?.width || !img.height) throw new Error(`NameLedger: ${e.artwork}/${e.image} needs an image with width and height`);
+  const [x, y, w, h] = e.box;
+  return { ...e, img, ratio: (w * img.width) / (h * img.height), zoom: `width:${(10000 / w).toFixed(2)}%;height:${(10000 / h).toFixed(2)}%;left:${(-100 * x / w).toFixed(2)}%;top:${(-100 * y / h).toFixed(2)}%` };
+}));
+---
+<section class="module ledger" data-ledger>
+  <p class="module-label">互动 · 名字簿</p>
+  <h3>{prompt}</h3>
+  <div class="ledger-tabs" role="tablist" aria-label="落款">
+    {rows.map((r, i) => (
+      <button type="button" role="tab" class="ledger-tab" id={`ledger-tab-${i}`} aria-controls={`ledger-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+        <span class="ledger-name" lang="ja">{r.name}</span>
+        <span class="ledger-when">{r.when}</span>
+      </button>
+    ))}
+  </div>
+  {rows.map((r, i) => (
+    <div class="ledger-panel" role="tabpanel" id={`ledger-panel-${i}`} aria-labelledby={`ledger-tab-${i}`} hidden={i !== 0}>
+      <figure class="ledger-sig">
+        <div class="ledger-window" style={`--r:${r.ratio.toFixed(4)}`}>
+          <img src={r.img.src} alt={`落款放大：${r.name}`} style={r.zoom} loading="lazy" decoding="async" />
+        </div>
+        <figcaption lang="ja">{r.name}</figcaption>
+      </figure>
+      <div class="ledger-text">
+        <p class="ledger-reading"><span lang="ja-Latn">{r.reading}</span> · {r.gloss}</p>
+        <p class="ledger-note">{r.note}</p>
+        <figure class="ledger-work">
+          <div class="ledger-thumb">
+            <img src={r.img.src} alt={r.img.alt} width={r.img.width} height={r.img.height} loading="lazy" decoding="async" />
+            <span class="ledger-box" style={`left:${r.box[0]}%;top:${r.box[1]}%;width:${r.box[2]}%;height:${r.box[3]}%`} aria-hidden="true"></span>
+          </div>
+          <figcaption>{r.img.caption}</figcaption>
+        </figure>
+      </div>
+    </div>
+  ))}
+  <p class="ledger-caption">{caption}</p>
+</section>
+
+<style>
+  .ledger-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.25rem; }
+  .ledger-tab { display: grid; gap: .15rem; padding: .5rem .75rem; text-align: left; background: transparent; border: 1px solid var(--silver); color: inherit; cursor: pointer;
+    transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .ledger-tab:hover { border-color: var(--ink); }
+  .ledger-tab[aria-selected="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .ledger-name { font: 500 1.0625rem/1.3 var(--serif); letter-spacing: .06em; }
+  .ledger-when { font: 400 .75rem/1.4 var(--sans); opacity: .75; }
+  .ledger-panel { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .ledger-sig { margin: 0; display: grid; justify-items: center; gap: .5rem; }
+  .ledger-window { position: relative; overflow: hidden; width: calc(var(--r) * 20rem); max-width: 9rem; aspect-ratio: var(--r); background: #efe9dc; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .15); }
+  .ledger-window img { position: absolute; max-width: none; }
+  .ledger-sig figcaption { font: 500 1rem/1.4 var(--serif); letter-spacing: .1em; writing-mode: horizontal-tb; }
+  .ledger-reading { margin: 0 0 .5rem; font: 500 1rem/1.6 var(--sans); }
+  .ledger-note { max-width: var(--measure); margin: 0 0 1rem; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .ledger-work { margin: 0; }
+  .ledger-thumb { position: relative; width: fit-content; max-width: 100%; }
+  .ledger-thumb img { display: block; width: auto; max-width: 100%; max-height: 18rem; height: auto; }
+  .ledger-box { position: absolute; outline: 2px solid #c0392b; outline-offset: 2px; box-shadow: 0 0 0 9999px rgb(0 0 0 / .18); }
+  .ledger-work figcaption, .ledger-caption { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  .ledger-caption { margin-top: 1.25rem; }
+  @media (max-width: 640px) {
+    .ledger-panel { grid-template-columns: 1fr; }
+    .ledger-window { width: calc(var(--r) * 16rem); }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ledger]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('.ledger-tab')];
+    const panels = [...root.querySelectorAll<HTMLElement>('.ledger-panel')];
+    const pick = (i: number, focus = false) => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p, k) => p.hidden = k !== i);
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => pick(i));
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); pick((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); pick((i - 1 + tabs.length) % tabs.length, true); }
+      });
+    });
+  });
+</script>

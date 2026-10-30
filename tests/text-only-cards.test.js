@@ -9,6 +9,7 @@ const read = (dir, ext) => readdirSync(new URL(dir, import.meta.url)).filter((f)
 const artworks = read('../src/content/artworks/', '.json').map((t) => JSON.parse(t));
 const textOnly = artworks.filter((a) => a.officialPage);
 const lessons = read('../src/content/lessons/', '.mdx').map((src) => src.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
+const stories = read('../src/content/essays/', '.mdx').map((src) => src.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
 
 test('a work shown by its official page carries no image of itself, and every other image names what it shows', () => {
   assert.ok(textOnly.length >= 5, 'the five Stage 08 principal works');
@@ -21,15 +22,16 @@ test('a work shown by its official page carries no image of itself, and every ot
   }
 });
 
-test('a text-only work is a first-class card: typographic face, a number, and a lesson that awards it', () => {
+test('a text-only work is a first-class card: typographic face, a number, and a lesson or story that awards it', () => {
   const cards = publishedCards();
   for (const a of textOnly) {
     assert.ok(a.card, `${a.id}: has a card`);
     assert.equal(a.card.image, null, `${a.id}: the card face is typographic, never one of the record's other images`);
     assert.ok([...a.card.blurb].length <= 60, `${a.id}: blurb fits the cover`);
     assert.ok(cards.get(a.id)?.no, `${a.id}: numbered with every other card`);
-    // as a lesson's own work, or as one of its extra (A+) cards
-    assert.ok(lessons.some((fm) => new RegExp(`^artwork: ${a.id}$`, 'm').test(fm) || new RegExp(`^cards:.*\\b${a.id}\\b`, 'm').test(fm)), `${a.id}: awarded by a lesson`);
+    // as a lesson's own work or one of its extra (A+) cards, or as an artist story's card (Phase 4.22)
+    const by = (fm, own) => new RegExp(`^${own}: ${a.id}$`, 'm').test(fm) || new RegExp(`^cards:.*\\b${a.id}\\b`, 'm').test(fm);
+    assert.ok(lessons.some((fm) => by(fm, 'artwork')) || stories.some((fm) => by(fm, 'card')), `${a.id}: awarded by a lesson or story`);
   }
 });
 

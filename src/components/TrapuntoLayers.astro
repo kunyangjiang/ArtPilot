@@ -1,0 +1,90 @@
+---
+// How a trapunto painting is built, as the artist's estate and the museums describe it: paint on canvas, stitch around
+// the shapes, stuff them from behind, sew things on. Each step changes two drawings at once — the front, and a cut
+// through the cloth — so the reader sees the flat picture become a soft relief. The motif is this site's abstract
+// swatch, not any of the artist's works. Nothing is scored or stored.
+interface Step { label: string; note: string }
+interface Props { prompt: string; steps: [Step, Step, Step, Step]; caption: string }
+const { prompt, steps, caption } = Astro.props;
+---
+<section class="module trap" data-trap={JSON.stringify(steps.map((s) => s.note))} data-step="0">
+  <p class="module-label">示意 · 一幅画怎样被缝出来</p>
+  <h3>{prompt}</h3>
+  <div class="trap-bar" role="group" aria-label="步骤">
+    {steps.map((s, i) => <button type="button" class="btn btn-secondary" data-s={i} aria-pressed={i === 0 ? 'true' : 'false'}>{i + 1}. {s.label}</button>)}
+  </div>
+  <div class="trap-views">
+    <figure>
+      <svg viewBox="0 0 320 220" role="img" aria-label="正面：一块画布上的几个彩色图形，随着步骤出现针脚、鼓起和缝上的小东西。">
+        <defs>
+          <radialGradient id="trap-puff" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".55" /><stop offset="1" stop-color="#000" stop-opacity=".18" /></radialGradient>
+        </defs>
+        <rect x="6" y="6" width="308" height="208" fill="#f3c623" />
+        <circle cx="92" cy="104" r="62" fill="#d6336c" />
+        <circle cx="92" cy="104" r="34" fill="#1c7ed6" />
+        <path d="M168 40 Q250 20 290 90 Q300 150 230 186 Q170 196 160 130 Z" fill="#2b8a3e" />
+        <path d="M200 70 Q246 70 260 110 Q250 150 214 156 Q188 140 196 104 Z" fill="#f08c00" />
+        <g class="trap-puff"><circle cx="92" cy="104" r="62" fill="url(#trap-puff)" /><path d="M168 40 Q250 20 290 90 Q300 150 230 186 Q170 196 160 130 Z" fill="url(#trap-puff)" /></g>
+        <g class="trap-stitch" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5 4">
+          <circle cx="92" cy="104" r="62" /><circle cx="92" cy="104" r="34" />
+          <path d="M168 40 Q250 20 290 90 Q300 150 230 186 Q170 196 160 130 Z" /><path d="M200 70 Q246 70 260 110 Q250 150 214 156 Q188 140 196 104 Z" />
+        </g>
+        <g class="trap-things">
+          <circle cx="92" cy="104" r="9" fill="#e9ecef" stroke="#495057" stroke-width="2" /><circle cx="88" cy="101" r="1.6" fill="#495057" /><circle cx="96" cy="101" r="1.6" fill="#495057" /><circle cx="88" cy="108" r="1.6" fill="#495057" /><circle cx="96" cy="108" r="1.6" fill="#495057" />
+          {[[44, 70], [140, 70], [44, 140], [140, 140], [92, 46], [92, 162]].map(([x, y]) => <circle cx={x} cy={y} r="4" fill="#fff8d6" stroke="#b08900" stroke-width="1" />)}
+          {[[228, 112], [236, 126], [220, 128]].map(([x, y]) => <circle cx={x} cy={y} r="5" fill="#a5d8ff" stroke="#fff" stroke-width="1.5" />)}
+          <ellipse cx="270" cy="60" rx="9" ry="6" fill="#fff4e6" stroke="#868e96" stroke-width="1.2" transform="rotate(-20 270 60)" />
+        </g>
+      </svg>
+      <figcaption>正面</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 320 120" role="img" aria-label="剖面：画布、针脚和背后塞进的填充物；随着步骤，画布在缝线之间鼓起来，表面缝上小物件。">
+        <path class="trap-cloth-flat" d="M10 70 H310" stroke="#d6336c" stroke-width="5" fill="none" />
+        <path class="trap-cloth-puff" d="M10 70 H40 Q80 18 120 70 H170 Q240 10 300 70 H310" stroke="#d6336c" stroke-width="5" fill="none" />
+        <path class="trap-fill" d="M40 70 Q80 22 120 70 Z M170 70 Q240 14 300 70 Z" fill="#fff3bf" stroke="#e0c76a" stroke-dasharray="3 3" />
+        <path d="M10 76 H310" stroke="#adb5bd" stroke-width="3" fill="none" />
+        <g class="trap-stitch" stroke="#343a40" stroke-width="2">
+          <line x1="40" y1="62" x2="40" y2="82" /><line x1="120" y1="62" x2="120" y2="82" /><line x1="170" y1="62" x2="170" y2="82" /><line x1="300" y1="62" x2="300" y2="82" />
+        </g>
+        <g class="trap-things"><circle cx="80" cy="40" r="6" fill="#e9ecef" stroke="#495057" stroke-width="2" /><circle cx="236" cy="38" r="5" fill="#a5d8ff" stroke="#495057" stroke-width="1.5" /></g>
+        <text x="12" y="104" font-size="11" fill="currentColor">画布</text><text x="70" y="104" font-size="11" fill="currentColor">衬布</text>
+        <text class="trap-fill-label" x="200" y="104" font-size="11" fill="currentColor">填充物</text>
+      </svg>
+      <figcaption>剖面</figcaption>
+    </figure>
+  </div>
+  <p class="trap-read" aria-live="polite" data-read>{steps[0].note}</p>
+  <p class="trap-caption">{caption}</p>
+</section>
+
+<style>
+  .trap-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+  .trap-bar [aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .trap-views { display: grid; grid-template-columns: 3fr 2fr; gap: 1.25rem; align-items: center; }
+  .trap-views figure { margin: 0; }
+  .trap-views svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trap-views figcaption { margin-top: .35rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .trap [class^="trap-"] { transition: opacity .5s var(--ease); }
+  .trap .trap-stitch, .trap .trap-puff, .trap .trap-things, .trap .trap-fill, .trap .trap-fill-label, .trap .trap-cloth-puff { opacity: 0; }
+  .trap[data-step="1"] .trap-stitch, .trap[data-step="2"] .trap-stitch, .trap[data-step="3"] .trap-stitch { opacity: 1; }
+  .trap[data-step="2"] :is(.trap-puff, .trap-fill, .trap-fill-label, .trap-cloth-puff), .trap[data-step="3"] :is(.trap-puff, .trap-fill, .trap-fill-label, .trap-cloth-puff) { opacity: 1; }
+  .trap[data-step="2"] .trap-cloth-flat, .trap[data-step="3"] .trap-cloth-flat { opacity: 0; }
+  .trap[data-step="3"] .trap-things { opacity: 1; }
+  .trap-read { max-width: var(--measure); min-height: 3.6em; margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .trap-caption { max-width: var(--measure); margin: .5rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+  @media (max-width: 640px) { .trap-views { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .trap [class^="trap-"] { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-trap]').forEach((root) => {
+    const notes = JSON.parse(root.dataset.trap!) as string[];
+    const read = root.querySelector('[data-read]')!;
+    root.querySelectorAll<HTMLButtonElement>('[data-s]').forEach((b) => b.addEventListener('click', () => {
+      root.querySelectorAll('[data-s]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      root.dataset.step = b.dataset.s!;
+      read.textContent = notes[Number(b.dataset.s)];
+    }));
+  });
+</script>

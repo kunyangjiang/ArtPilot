@@ -6,6 +6,7 @@
 import { getEntry, render, type CollectionEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ArtworkFigure from './ArtworkFigure.astro';
+import WorkPlate from './WorkPlate.astro';
 import ArtworkRights from './ArtworkRights.astro';
 import BackToTop from './BackToTop.astro';
 import ReadingTracker from './ReadingTracker.astro';
@@ -24,7 +25,9 @@ const titleLines = entry.data.title.split(/(?<=[，：])/);
   links: [{ href: '#rights', label: '来源与版权' }],
 }}>
   <header class="opening">
-    <div class="opening-art"><ArtworkFigure artwork={entry.data.hero.artwork.id} image={entry.data.hero.image} hero /></div>
+    <div class="opening-art">{art.officialPage
+      ? <WorkPlate artwork={entry.data.hero.artwork.id} illustration={{ image: entry.data.hero.image, role: entry.data.hero.role ?? '示意' }} noun="本篇" />
+      : <ArtworkFigure artwork={entry.data.hero.artwork.id} image={entry.data.hero.image} hero />}</div>
     <div class="opening-label">
       <p class="stage-line"><span>{hall.label}</span><span class="stage-course">{entry.data.subject}</span></p>
       <p class="kicker">{entry.data.kicker}</p>

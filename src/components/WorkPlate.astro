@@ -5,8 +5,9 @@ import { getEntry } from 'astro:content';
 // another work, a source or a document — shown large under its role, then the work itself named with its official
 // page. Without one (the artwork record page): the work's label and official page alone. Never an empty frame or a
 // stand-in passed off as the work.
-interface Props { artwork: string; tone?: 'gallery' | 'paper'; illustration?: { image: string; role: string } }
-const { artwork, tone = 'gallery', illustration } = Astro.props;
+// `noun` names what the work leads: a lesson (本课, the default) or an artist story (本篇).
+interface Props { artwork: string; tone?: 'gallery' | 'paper'; illustration?: { image: string; role: string }; noun?: string }
+const { artwork, tone = 'gallery', illustration, noun = '本课' } = Astro.props;
 const record = await getEntry('artworks', artwork);
 const art = record?.data;
 if (!art?.officialPage) throw new Error(`WorkPlate needs an artwork with an officialPage: ${artwork}`);
@@ -18,19 +19,19 @@ const name = art.artist ? `${art.artist.replace(/（.*）/, '')}《${art.titleZh
 <div class:list={['plate', `plate-${tone}`]}>
   {img && (
     <figure class="plate-illus">
-      <p class="plate-role">{illustration!.role} · 不是本课的主角作品</p>
+      <p class="plate-role">{illustration!.role} · 不是{noun}的主角作品</p>
       <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="eager" decoding="async" />
       <figcaption>{img.caption}{img.credit && <span class="plate-credit"> 图片：{img.credit.author} · {img.credit.licence}</span>}</figcaption>
     </figure>
   )}
-  <section class="plate-work" aria-label="本课的主角作品">
-    <p class="plate-kicker">本课的主角作品</p>
+  <section class="plate-work" aria-label={`${noun}的主角作品`}>
+    <p class="plate-kicker">{noun}的主角作品</p>
     <p class="plate-title">{name}</p>
     <p class="plate-en" lang="en">{art.titleEn}</p>
     <p class="plate-meta">{art.dateApprox} · {art.medium} · {size}</p>
     {art.collection && <p class="plate-meta">{art.collection}</p>}
     <a class="plate-link" href={art.officialPage.url} rel="noopener">到{art.officialPage.label}看原作 →</a>
-    <p class="plate-note">这件作品仍受版权保护，本站不复制它的图像。请打开收藏机构的页面，对照本课的观看指引来看。</p>
+    <p class="plate-note">这件作品仍受版权保护，本站不复制它的图像。请打开收藏机构的页面，对照{noun}的观看指引来看。</p>
   </section>
 </div>
 

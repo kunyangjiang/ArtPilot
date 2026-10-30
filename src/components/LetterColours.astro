@@ -1,0 +1,118 @@
+---
+// Colour a room from a letter: a plain outline of the room (drawn by this site, not the painting) and the letter's
+// colour words, each a button. Pressing one fills its part of the room with a colour chosen from the word alone, so the
+// reader builds the picture the letter describes before seeing the painting; then the painting is shown beside it.
+// The colours are this site's choices for the words, not measurements of the canvas. Nothing is scored or stored.
+import { getEntry } from 'astro:content';
+interface Item { id: string; original: string; zh: string; colour: string }
+interface Props { artwork: string; image: string; prompt: string; source: string; items: Item[]; after: string }
+const { artwork, image, prompt, source, items, after } = Astro.props;
+const record = await getEntry('artworks', artwork);
+const img = record?.data.images.find((i) => i.key === image);
+if (!record || !img) throw new Error(`Unknown artwork/image: ${artwork}/${image}`);
+---
+<section class="module lcol" data-lcol={JSON.stringify(items.map(({ id, colour }) => ({ id, colour })))}>
+  <p class="module-label">互动 · 照着信上色</p>
+  <h3>{prompt}</h3>
+  <div class="lcol-grid">
+    <ol class="lcol-words" aria-label="信里的颜色">
+      {items.map((it) => (
+        <li><button type="button" class="lcol-word" data-id={it.id} aria-pressed="false">
+          <span class="lcol-chip" style={`--c:${it.colour}`} aria-hidden="true"></span>
+          <span class="lcol-fr" lang="fr">{it.original}</span>
+          <span class="lcol-zh">{it.zh}</span>
+        </button></li>
+      ))}
+    </ol>
+    <figure class="lcol-room">
+      <svg viewBox="0 0 400 300" role="img" aria-label="本站画的一间卧室的线稿：后墙正中一扇窗，左右两面斜墙各有一扇门，右边一张床，左边一张桌子和两把椅子。按信里的颜色词，相应的部分会被涂上颜色。" data-svg>
+        <rect class="lcol-frame" data-part="frame" x="1.5" y="1.5" width="397" height="297" />
+        <polygon data-part="walls" points="110,40 290,40 290,170 110,170" />
+        <polygon data-part="walls" points="4,4 110,40 110,170 4,256" />
+        <polygon data-part="walls" points="290,40 396,4 396,256 290,170" />
+        <polygon data-part="floor" points="4,256 110,170 290,170 396,256 396,296 4,296" />
+        <g class="lcol-tiles" aria-hidden="true">
+          <line x1="40" y1="296" x2="138" y2="170" /><line x1="110" y1="296" x2="166" y2="170" /><line x1="180" y1="296" x2="194" y2="170" />
+          <line x1="250" y1="296" x2="222" y2="170" /><line x1="320" y1="296" x2="250" y2="170" /><line x1="60" y1="215" x2="340" y2="215" /><line x1="20" y1="250" x2="380" y2="250" />
+        </g>
+        <polygon data-part="doors" points="14,30 58,45 58,196 14,226" />
+        <polygon data-part="doors" points="338,40 382,24 382,226 338,194" />
+        <rect data-part="window" x="168" y="58" width="56" height="74" />
+        <line x1="196" y1="58" x2="196" y2="132" class="lcol-line" />
+        <polygon data-part="table" points="122,138 182,138 186,148 118,148" />
+        <line x1="122" y1="148" x2="122" y2="182" class="lcol-line" /><line x1="182" y1="148" x2="182" y2="180" class="lcol-line" />
+        <ellipse data-part="basin" cx="150" cy="134" rx="14" ry="5" />
+        <polygon data-part="wood" points="244,96 312,86 316,152 246,158" />
+        <polygon data-part="wood" points="236,160 330,146 392,268 262,290" />
+        <polygon data-part="sheets" points="248,136 312,128 318,152 250,160" />
+        <polygon data-part="blanket" points="252,170 324,156 368,232 270,256" />
+        <polygon data-part="wood" points="196,150 222,150 224,196 194,196" />
+        <polygon data-part="wood" points="34,196 84,196 90,272 30,272" />
+        <polygon data-part="wood" points="38,150 78,158 84,196 34,196" />
+      </svg>
+      <figcaption>线稿由本站绘制，只按信里的描述摆放，不是画的复制。颜色是本站照着信里的词挑的，不是从画布上测出来的。</figcaption>
+    </figure>
+  </div>
+  <div class="lcol-bar">
+    <button type="button" class="btn btn-secondary" data-all>全部照信上色</button>
+    <button type="button" class="btn btn-secondary" data-show disabled>把画放在旁边</button>
+  </div>
+  <p class="lcol-read" aria-live="polite" data-read>{source}</p>
+  <figure class="lcol-painting" data-painting hidden>
+    <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+    <figcaption>{img.caption}</figcaption>
+  </figure>
+  <p class="lcol-after" data-after hidden>{after}</p>
+</section>
+
+<style>
+  .lcol-grid { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .lcol-words { margin: 0; padding: 0; list-style: none; display: grid; gap: .35rem; }
+  .lcol-word { display: grid; grid-template-columns: 1.1rem 1fr; column-gap: .6rem; width: 100%; padding: .45rem .6rem; text-align: left;
+    background: transparent; border: 1px solid var(--silver); color: inherit; cursor: pointer; transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .lcol-word:hover { border-color: var(--ink); }
+  .lcol-word[aria-pressed="true"] { border-color: var(--ink); background: var(--hover); }
+  .lcol-chip { grid-row: span 2; align-self: center; width: 1.1rem; height: 1.1rem; border: 1px solid var(--ink-3); background: transparent; transition: background var(--t) var(--ease); }
+  .lcol-word[aria-pressed="true"] .lcol-chip { background: var(--c); }
+  .lcol-fr { font: italic 400 .9rem/1.4 var(--latin); }
+  .lcol-zh { font: 400 .8125rem/1.5 var(--sans); color: var(--ink-2); }
+  .lcol-room { margin: 0; }
+  .lcol-room svg { display: block; width: 100%; height: auto; background: #fbfaf6; }
+  .lcol-room [data-part] { fill: #fbfaf6; stroke: #2b2622; stroke-width: 1.4; stroke-linejoin: round; transition: fill .6s var(--ease); }
+  .lcol-room .lcol-frame { fill: none; stroke: #d8d2c6; stroke-width: 3; transition: stroke .6s var(--ease); }
+  .lcol-room .lcol-frame.on { stroke: #ffffff; stroke-width: 10; }
+  .lcol-tiles line, .lcol-line { stroke: #2b2622; stroke-width: 1; opacity: .5; }
+  .lcol-tiles { pointer-events: none; }
+  .lcol-room figcaption, .lcol-painting figcaption { margin-top: .5rem; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  .lcol-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .lcol-read, .lcol-after { max-width: var(--measure); margin: 1rem 0 0; font: 400 .9375rem/1.8 var(--sans); color: var(--ink-2); }
+  .lcol-painting { margin: 1.25rem 0 0; }
+  .lcol-painting img { display: block; width: 100%; height: auto; }
+  @media (max-width: 720px) { .lcol-grid { grid-template-columns: 1fr; } .lcol-room { order: -1; } }
+  @media (prefers-reduced-motion: reduce) { .lcol-room [data-part], .lcol-chip, .lcol-room .lcol-frame { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-lcol]').forEach((root) => {
+    const items = JSON.parse(root.dataset.lcol!) as { id: string; colour: string }[];
+    const done = new Set<string>();
+    const show = root.querySelector<HTMLButtonElement>('[data-show]')!;
+    const read = root.querySelector<HTMLElement>('[data-read]')!;
+    const paint = (id: string) => {
+      const it = items.find((x) => x.id === id)!;
+      if (id === 'frame') root.querySelector('.lcol-frame')!.classList.add('on');
+      else root.querySelectorAll<SVGElement>(`[data-part="${id}"]`).forEach((p) => p.style.fill = it.colour);
+      root.querySelector(`.lcol-word[data-id="${id}"]`)!.setAttribute('aria-pressed', 'true');
+      done.add(id);
+      if (done.size === items.length) { show.disabled = false; read.textContent = '信里写到的颜色都上好了。现在，把画放在旁边比一比。'; }
+      else read.textContent = `已经照信涂了 ${done.size} / ${items.length} 处。`;
+    };
+    root.querySelectorAll<HTMLButtonElement>('.lcol-word').forEach((b) => b.addEventListener('click', () => paint(b.dataset.id!)));
+    root.querySelector('[data-all]')!.addEventListener('click', () => items.forEach((it) => paint(it.id)));
+    show.addEventListener('click', () => {
+      root.querySelector<HTMLElement>('[data-painting]')!.hidden = false;
+      root.querySelector<HTMLElement>('[data-after]')!.hidden = false;
+      show.disabled = true;
+    });
+  });
+</script>

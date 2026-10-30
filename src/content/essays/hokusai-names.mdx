@@ -1,0 +1,272 @@
+---
+kind: artist-story
+title: 一个人为什么要一次又一次换名字？
+kicker: 艺术家故事 · 江户 · 画号、版画与画室
+subject: 葛饰北斋 · 1760—1849
+summary: 世界上最有名的一道浪，落款写的是“北斋改为一笔”：原名北斋，今名为一。画它的人一生用过几十个名字，有的是老师给的，有的送给了弟子，有的一直用到八十七岁。这个故事不按年份走，而按落款走：一个名字一章，最后一章属于他的女儿。
+hero:
+  artwork: art-hokusai-great-wave-001
+  image: full
+card: art-hokusai-great-wave-001
+cards: [art-katsushika-oi-guan-yu-001]
+---
+
+import Band from '../../components/Band.astro';
+import Callout from '../../components/Callout.astro';
+import ArtworkFigure from '../../components/ArtworkFigure.astro';
+import FindOnImage from '../../components/FindOnImage.astro';
+import FirstLook from '../../components/FirstLook.astro';
+import NameLedger from '../../components/NameLedger.astro';
+import SortGame from '../../components/SortGame.astro';
+import LessonComplete from '../../components/LessonComplete.astro';
+
+<Band kind="prelude">
+
+这个故事的每一章，都以一个落款开头：画家写在画上的名字。落款的读法、年代都来自收藏这些画的博物馆；放大的落款就取自博物馆开放的那张图，没有另作。
+
+北斋留下的传说很多。凡是传说，本篇都会写明“传说”，或者写明它是后来的人记下的；凡是不知道的，就写不知道。
+
+</Band>
+
+## 北斋改为一笔
+
+先看这张画。不是看浪，是看浪以外的东西。
+
+<FindOnImage
+  artwork="art-hokusai-great-wave-001"
+  image="full"
+  prompt="浪之外，这张纸上还有三处字或印。把它们找出来。"
+  targets={[
+    { x: 5, y: 9.5, w: 4.3, h: 22, label: '标题', note: '长方框里竖写着系列名和这一幅的名字：“富岳三十六景 · 神奈川冲浪里”。' },
+    { x: 0.4, y: 17, w: 4.2, h: 19, label: '落款', note: '框外贴着纸边的一行小字，就是画家的名字：“北斋改为一笔”。' },
+    { x: 5, y: 32, w: 3.8, h: 5.5, label: '圆印', note: '这枚圆印的字是“METROPOLITAN”：大都会艺术博物馆后来盖上的收藏印，不是江户时代的东西。' },
+  ]}
+/>
+
+那行贴着纸边的小字，大都会艺术博物馆读作 *Hokusai aratame Iitsu hitsu*：北斋改为一笔。“改”是“改名”的改，意思是：原来叫北斋，现在叫为一，这张画是为一画的。
+
+这是很奇怪的一件事。一个画家画出了一生最有名的画，签名的时候，却先告诉人：我已经不叫这个名字了。
+
+还有一件事，落款没有说：这张画不是北斋一个人“画”出来的。他画的是底稿；把底稿刻成木版的雕版师、一块版一块版把颜色印上去的摺师，名字都没有留在纸上；出钱、定题材、发行的，是版元。“北斋改为一笔”签的，只是四个人里的一个。这四种人怎样分工，本站第 50 课讲过，这里不再重复。
+
+---
+
+## 数不清的名字
+
+那么，他到底换过多少次名字？
+
+答案取决于怎么数。日本的杂志《和乐》说，北斋一生改过三十次画号；《大英百科全书》的说法是，他的主要画号大约每十年换一个，此外还有二十几个偶尔使用的别号，通常附在当时的主名上；也有图录统计出五十多个。有的名字只出现在印章里，有的只在书的序跋中用过一次。
+
+所以本篇不说一个确切的数字。我们只数自己能看见的：签在画上、今天还挂在博物馆里的那些名字。
+
+<NameLedger
+  prompt="翻一翻这本名字簿。每个名字都签在一张真实的画上。"
+  caption="落款的读法与年代据大都会艺术博物馆、克利夫兰艺术博物馆的藏品记录。名字簿只收本篇用到的几个，不是北斋用过的全部名字。"
+  entries={[
+    { name: '春朗画', reading: 'Shunrō ga', gloss: '春朗画', when: '约 1790—1793', artwork: 'art-hokusai-great-wave-001', image: 'sumo', box: [39.5, 86, 8, 12], note: '老师胜川春章给的名字。“春”字取自老师。' },
+    { name: '宗理改北斋辰画', reading: 'Sōri aratame Hokusai Shin ga', gloss: '原名宗理、今名北斋辰所画', when: '约 1799—1810', artwork: 'art-hokusai-great-wave-001', image: 'basket', box: [80.6, 56.5, 6, 17], note: '新名字“北斋”，前面还带着旧名字“宗理”。' },
+    { name: '画狂人北斋画', reading: 'Gakyōjin Hokusai ga', gloss: '画狂人北斋所画', when: '约 1804—1813', artwork: 'art-hokusai-great-wave-001', image: 'still-life', box: [88.8, 49, 4.3, 12.2], note: '“画狂人”是一个别号，附在主名“北斋”前面。' },
+    { name: '葛饰戴斗', reading: 'Katsushika Taitō', gloss: '葛饰戴斗', when: '约 1830—1844', artwork: 'art-hokusai-great-wave-001', image: 'taito-ii', box: [78.5, 60.5, 8.5, 13], note: '这一个不是北斋签的。“戴斗”是北斋在 1810 年代用过的名字，1820 年传给了弟子；这是弟子二代戴斗的落款。' },
+    { name: '北斋改为一笔', reading: 'Hokusai aratame Iitsu hitsu', gloss: '原名北斋、今名为一所画', when: '约 1830—1832', artwork: 'art-hokusai-great-wave-001', image: 'full', box: [0.4, 16.5, 4.6, 20], note: '《神奈川冲浪里》的落款。“为一”是他六十岁以后的名字。' },
+    { name: '前北斋卍', reading: 'Zen Hokusai Manji', gloss: '前北斋，卍', when: '1839', artwork: 'art-hokusai-great-wave-001', image: 'hitomaro', box: [96.8, 20, 3.2, 13], note: '七十九岁，还在名字前写着“前北斋”：从前的北斋。' },
+    { name: '八十七老卍笔', reading: 'Hachijūshichi rō Manji hitsu', gloss: '八十七岁老人卍所画', when: '1846', artwork: 'art-hokusai-great-wave-001', image: 'zhong-kui', box: [66.5, 72.5, 7.5, 15], note: '名字前面写的是年龄。大都会注明：按传统的虚岁算法是八十七，按今天的算法是八十六。' },
+    { name: '应为荣女笔', reading: 'Ōi Ei-jo hitsu', gloss: '应为，名荣的女子所画', when: '1840 年代', artwork: 'art-katsushika-oi-guan-yu-001', image: 'full', box: [64, 89.5, 4.2, 9.5], note: '最后一个名字不是北斋的。它属于他的女儿，本篇的最后一章讲她。' },
+  ]}
+/>
+
+---
+
+## 春朗：老师给的名字
+
+<p class="dateline">落款 · 春朗画 · 约 1790—1793 年</p>
+
+<ArtworkFigure artwork="art-hokusai-great-wave-001" image="sumo" />
+
+他生在江户城东边的本所，1760 年。据《大英百科全书》，他小时候被一个工匠世家中岛家收养；据说少年时在租书铺当过伙计，十五到十八岁跟一个雕版师学过刻版。“据说”两个字很要紧：这些都来自后来的传记，不是当时的记录。
+
+当时的记录从 1778 年开始：十八岁，他成了浮世绘名家胜川春章的弟子。第二年，他的第一批作品出版，是歌舞伎演员的版画，正是胜川一派的拿手题材。
+
+老师给了他一个名字：春朗。名字里的“春”字，来自老师春章。
+
+这张相扑力士的画，签的就是“春朗画”。两个力士扭在一起，一个把头抵进对方怀里。大都会艺术博物馆说，这个签名是他选定“北斋”这个最为人熟知的名字之前用过一段时间的。
+
+第一个名字，不是他自己取的。
+
+---
+
+## 北斋：后来最出名的名字
+
+<p class="dateline">落款 · 宗理改北斋辰画 · 约 1799—1810 年</p>
+
+1793 年初，老师春章去世。此后几年，他用过“宗理”这个名字。据《大英百科全书》，1797 年，他再婚，开始用“北斋”。
+
+后来他又换了许多次名字，可世人记住的，始终是这一个。
+
+<ArtworkFigure artwork="art-hokusai-great-wave-001" image="basket" />
+
+这是一张摺物：不在店里卖，由私人出钱定制，用来贺新年、送朋友，纸和印工都格外讲究。卷起的竹帘下吊着一只花篮，几条长长的丝绳被风吹向一边。大都会艺术博物馆提醒，白色丝绳上还压着凸起的花纹，要凑近才看得见。
+
+落款是“宗理改北斋辰画”。新名字已经有了，他却把旧名字也写上：原名宗理，现在叫北斋。
+
+<Callout kind="interpretation">
+
+“某某改某某”这种写法，在北斋的落款里反复出现，最晚一直用到他七十九岁。一个常见的解释是：旧名字已经有了名气，带上它，熟悉旧名字的人就能认出新名字。北斋本人没有说明过为什么这样写；这是后人的推断。
+
+</Callout>
+
+### 别号：画狂人
+
+同一个时期，他还在“北斋”前面加过一个别号：画狂人，为画而狂的人。名字簿里那张静物摺物，签的就是“画狂人北斋画”。
+
+这类别号就是《大英百科全书》说的“偶尔使用的别号”：它们不取代主名，而是挂在主名旁边，像一顶帽子。
+
+### 插曲：送出去的名字
+
+1810 年代，北斋又用过一个名字：戴斗。据史密森尼学会国立亚洲艺术博物馆的说明，1820 年，他把它传给了一个弟子。于是有了“二代葛饰戴斗”。名字簿里那张署“葛饰戴斗”的花魁像，就是这个弟子画的；大都会特意提醒，二代戴斗的作品有时会被误认为出自北斋之手。
+
+名字在那个世界里，不只是一个人的称呼，还是可以转让的招牌，像一家店的字号。北斋为什么把它送人，本篇没有找到可靠的第一手说明。
+
+---
+
+## 为一：再从一开始
+
+<p class="dateline">落款 · 北斋改为一笔 · 约 1830—1832 年</p>
+
+过了六十岁，大约在 1820 年，他开始用“为一”。大英博物馆刊发的一篇文章解释了这个名字：意思是“再一次从一开始”。
+
+他七十岁上下画《富岳三十六景》的时候，签的就是这个名字，前面还带着“北斋改”。大都会艺术博物馆说，系列一出就轰动，版元永寿堂把原来三十六幅的计划扩充到了四十六幅；系列里那种特别的蓝，是荷兰商人新带来的颜料，叫“柏林蓝”。
+
+<ArtworkFigure artwork="art-hokusai-great-wave-001" image="full" />
+
+再看一次那道浪。
+
+它高高卷起，浪头碎成一根根爪子；三条船伏在浪谷里，船上的人低着头。富士山被放得很小，夹在两道浪中间，几乎像另一道浪。左上角是标题，标题旁边是那个“改了名”的签名。
+
+这是这个故事的中心。一个七十岁上下、名字的意思是“从一开始”的人，画出了他一生最有名的画；签名的时候，他还要把旧名字写在前面，提醒人们他是谁。
+
+---
+
+## 画狂老人卍：一张时间表
+
+<p class="dateline">落款 · 画狂老人卍 · 1834 年</p>
+
+如果说“为一”这个名字底下留下了他最出名的画，那么下一个名字底下，留下的是他对自己说的话。
+
+1834 年，他七十五岁，出版了一套黑白的画本《富岳百景》。从这本书起，他署名“画狂老人卍”：为画而狂的老人。
+
+书的末尾有一篇跋，是他自己写的，谈的是他自己。大意是这样的：
+
+> 七十岁以前画的东西，实在不值一提。到了七十三岁，才稍稍懂得鸟兽虫鱼的骨骼、草木生长的样子。所以到八十六岁，应当更有长进；九十岁，能领会其中的深意；一百岁，或许就到了神妙的境界；一百一十岁，一点一画都会像活的一样。
+>
+> 《富岳百景》跋，1834 年。本站据日文转述大意，不是逐字的翻译
+
+在这段话的前面，他还说，自己从六岁起就有临摹物形的癖好，五十岁前后出版了很多画。跋的署名，正是“画狂老人卍”。
+
+在本篇用到的材料里，这是他唯一一次亲口谈自己的一生：他给自己定下了一张按年龄排的时间表。名字从此跟着年龄走。
+
+<ArtworkFigure artwork="art-hokusai-great-wave-001" image="hitomaro" />
+
+1839 年，七十九岁，他给《百人一首》画插图，系列名的意思是“乳母讲解的百人一首”：把古代的和歌一首一首画出来。这一幅配的是柿本人麿的歌，画面却是一群披着草蓑的人在河边弯腰拖拽，一股白烟从茅屋前翻卷而上。落款是“前北斋卍”，右下角是版元永寿堂的印。
+
+七十九岁了，他还在名字前面写着“前北斋”。
+
+<p class="dateline">落款 · 八十七老卍笔 · 1846 年</p>
+
+<ArtworkFigure artwork="art-hokusai-great-wave-001" image="zhong-kui" />
+
+这是一幅挂在墙上的画，不是版画：没有雕版师，没有摺师，也没有版元，从头到尾是他一个人的手。画的是钟馗，全身用朱红画成。大都会艺术博物馆说，日本人在男孩节挂钟馗像，红色被认为能驱除天花。
+
+落款是“八十七老卍笔”：八十七岁的老人卍，画。最后的名字里，写的是年龄。
+
+他没能走完自己的时间表：1849 年，他在江户去世。关于他临终的话，有不同的版本在流传，本篇不引。
+
+<Callout kind="open">
+
+《大英百科全书》还记着一个常被拿来和换名字放在一起说的数字：他一生搬过九十多次家。这个数字同样来自后来的记载，本篇只把它当作一种说法。
+
+</Callout>
+
+---
+
+## 应为
+
+<p class="dateline">落款 · 应为荣女笔 · 1840 年代</p>
+
+名字簿的最后一页，不是北斋的名字。
+
+北斋的女儿名叫荣，大约生于 1800 年，卒年不详，只知道 1857 年她还活着。大英博物馆刊发的宾夕法尼亚大学教授朱莉·纳尔逊·戴维斯的文章说，北斋有几个女儿，都从小在父亲的画室里帮忙，学会了画家要做的每一件事，从备料到构图。阿荣是其中最好的画家。
+
+1824 年，她嫁给了北斋的一个弟子，画家堤等明；三年后离婚，回到父亲的画室。1828 年母亲去世以后，是她照顾已经快七十岁的父亲，也是她陪着他画到最后。
+
+她给自己取的画号叫“应为”（Ōi）。
+
+<Callout kind="interpretation">
+
+后来的传记里记着一个故事：北斋叫女儿的时候，总是喊“喂，喂”（日语读音 ōi），她就用读音相同的两个字给自己取了画号。戴维斯在文章中采用了这个故事，并认为“应为”的意思是“忠于为一”：为一，正是父亲六十岁以后的名字。这个故事是后来记下的轶事；“应为”的含义，是研究者的解读。
+
+</Callout>
+
+<FirstLook
+  artwork="art-katsushika-oi-guan-yu-001"
+  image="full"
+  prompt="这是应为存世最大的一幅画。先别读说明：你的目光最先落在哪里？点一下。"
+/>
+
+《三国演义》里，关羽中了毒箭，华佗为他刮骨疗毒，关羽一边下棋一边让人动刀。应为把这个故事画成了一幅一米四高的挂轴。
+
+大英博物馆的文章建议这样看：先被中间那一幕吓一跳，像那些掩面、扭头的侍从一样；再看整间屋子，直立的柱子、讲究的家具、背景里摆满酒菜的桌子。屋子越整齐，中间的这一幕就越惊心。它还指出：这幅画画在绢上，颜料浓重，都是昂贵的材料，应该是一位有钱的主顾定制的；主顾是谁，不知道。
+
+<ArtworkFigure artwork="art-katsushika-oi-guan-yu-001" image="full" />
+
+右下角的落款是“应为荣女笔”：应为，名荣的女子，画。克利夫兰艺术博物馆说，在她那个时代，一个女人能以画家的身份出名，是少见的事；她的才能能够显露出来，靠的是和父亲的合作。
+
+她的名气不只是后人追认的。同时代的浮世绘画家溪斋英泉写过，她擅长作画，继承父业成了职业画家，有能画的名声。她还给远方的学生写过信，教人怎样调制红色颜料，在信里画了手指，示范怎样把原料捻碎。
+
+<Callout kind="open">
+
+戴维斯认为，应为在北斋晚年可能当过他的“代笔”：一些署北斋名字的画，也许有她的手。哪些画是这样，研究者还在讨论。这个问题，至今没有定论。
+
+</Callout>
+
+<SortGame
+  prompt="关于北斋父女的三个说法，各属于哪一种？"
+  bins={[
+    { id: 'record', label: '有作品或记录为证' },
+    { id: 'story', label: '后来记下的轶事' },
+    { id: 'open', label: '研究者还在讨论' },
+  ]}
+  items={[
+    { text: '1820 年，北斋把“戴斗”这个名字传给了弟子。', bin: 'record', note: '史密森尼学会国立亚洲艺术博物馆这样著录；大都会也有二代戴斗署“葛饰戴斗”的版画。' },
+    { text: '“应为”这个画号，来自北斋喊女儿时的“喂，喂”。', bin: 'story', note: '这是后来的传记里记下的轶事，不是当时的记录。' },
+    { text: '一些署北斋名字的晚年作品，其实有应为的手笔。', bin: 'open', note: '研究者提出过这种可能，但哪些作品如此，没有定论。' },
+  ]}
+/>
+
+---
+
+## 为什么要换名字？
+
+故事讲到这里，标题里的问题还是没有一个干脆的答案。北斋自己没有留下解释。
+
+我们能说的，是从这些落款里看得见的东西。第一个名字是老师给的，标明他出自哪一门。新名字常常带着旧名字一起出现，像一块新招牌下面挂着旧招牌。名字可以送人，送出去的名字会被别人签在别人的画上，甚至让后人认错了画。到了晚年，名字和年龄连在了一起：画狂老人，八十七老。
+
+还有一个名字，是他的女儿用他喊她的声音给自己取的，她把它签在了一幅一米四高的画上。
+
+这些名字加起来，并没有把一个人分成三十几个人。它们更像是同一个画室在不同年份的门牌。
+
+<LessonComplete artwork="art-hokusai-great-wave-001" kind="story" />
+
+<Band kind="sources">
+
+### 出处与延伸阅读
+
+1. 大都会艺术博物馆藏品页（落款、印章与说明）：Under the Wave off Kanagawa，JP10；South Wind, Clear Sky (Red Fuji)，JP9；The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō，JP741；Basket of Flowers with Bamboo Blind，JP659；Still Life: Double Cherry-Blossom Branch, Telescope, Sweet Fish, and Tissue Case，JP1870；Poem by Kakinomoto Hitomaro，JP4；Red Zhong Kui, the Demon Queller，14.76.37；Katsushika Taito II, Courtesan on Parade，JP2831。[JP10](https://www.metmuseum.org/art/collection/search/36491) · [JP9](https://www.metmuseum.org/art/collection/search/36490) · [JP741](https://www.metmuseum.org/art/collection/search/37189) · [JP659](https://www.metmuseum.org/art/collection/search/54303) · [JP1870](https://www.metmuseum.org/art/collection/search/54435) · [JP4](https://www.metmuseum.org/art/collection/search/36486) · [14.76.37](https://www.metmuseum.org/art/collection/search/45818) · [JP2831](https://www.metmuseum.org/art/collection/search/57069)
+2. 史密森尼学会国立亚洲艺术博物馆：Katsushika Taito II, Carp，F1998.315（说明：北斋 1820 年把“戴斗”之名传给弟子）。[链接](https://asia.si.edu/object/F1998.315/)
+3. Richard Lane，“Hokusai”，《大英百科全书》（生年与出生地、中岛家、少年经历的“据说”、1778 年入胜川春章门下、1797 年用“北斋”、主名与别号、九十多次搬家、1849 年去世）。[链接](https://www.britannica.com/biography/Hokusai)
+4. 《和乐》网络版：北斋的画号（春朗、宗理、北斋、戴斗、为一、卍；一生三十次改画号；1834 年起署“画狂老人卍”）。[链接](https://intojapanwaraku.com/art/277071/)
+5. nippon.com：《富岳百景》跋文（七十五岁时出版；六岁、五十、七十、七十三、八十六、九十、一百、一百一十岁）。本篇据此转述，不是逐字翻译。[链接](https://www.nippon.com/ja/japan-topics/b11603/)
+6. Julie Nelson Davis，“Hokusai and Ōi: art runs in the family”，大英博物馆博客，2017 年 6 月 18 日（阿荣的生平、婚姻、画号的轶事与解读、溪斋英泉的评语、调色的信、《关羽》的观看方式与材料、“代笔”的可能）。[链接](https://www.britishmuseum.org/blog/hokusai-and-oi-art-runs-family)
+7. 克利夫兰艺术博物馆：Katsushika Ōi, Operating on Guan Yu’s Arm，1840 年代，1998.178（落款“应为荣女笔”、“葛しか”印；她存世最大的画）。[链接](https://www.clevelandart.org/art/1998.178)
+8. 版画的四种分工、版元与审查印，见本站第 50 课。[链接](/lessons/ukiyo-e-city-prints/)
+
+</Band>

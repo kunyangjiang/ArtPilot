@@ -158,7 +158,10 @@ const essays = defineCollection({
     kicker: z.string(), // the line above the title
     subject: z.string(), // who or what it is about, with dates, e.g. 奥斯曼·哈姆迪·贝伊 · 1842–1910
     summary: z.string(),
-    hero: z.object({ artwork: reference('artworks'), image: z.string() }), // the opening image
+    // The opening image. When the hero work cannot be reproduced here (its record has an officialPage), `image` is a
+    // lawful image from the same record — another work, a document or a diagram — shown under its `role` beside the
+    // work's typographic plate, as a lesson's `illustration` is (src/components/WorkPlate.astro).
+    hero: z.object({ artwork: reference('artworks'), image: z.string(), role: z.string().optional() }),
     card: reference('artworks').optional(), // the card the end of a story awards
     cards: z.array(reference('artworks')).optional(), // further cards it awards with that one, claimed in the same click
   }),
