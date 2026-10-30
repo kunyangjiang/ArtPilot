@@ -1,8 +1,8 @@
 ---
 // The homepage opening: about a second before the study table's own entrance. The desk starts dark, the red seal of
 // the wordmark is stamped in the middle, a lamp's warm light opens from it as the prints are dealt, and the seal flies
-// home to the wordmark in the site bar. It plays on a fresh load or a reload only: never from another ArtPilot page,
-// never on Back or Forward, never with reduced motion.
+// home to the wordmark in the site bar. It plays whenever the homepage is opened: a fresh visit, a reload, or a return
+// from any hall (a link or Back), so coming home always looks the same. Never with reduced motion.
 //
 // It is a picture, not a screen: the layer takes no pointer and no focus, and the table's entrance waits under it,
 // paused, then plays as it always has. Without JavaScript the layer stays hidden.
@@ -15,10 +15,7 @@
 <script is:inline>
   (function () {
     var root = document.querySelector('[data-op]'), html = document.documentElement;
-    var entry = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
-    var type = entry ? entry.type : 'navigate', internal = false;
-    try { internal = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !(type === 'reload' || (type === 'navigate' && !internal))) { root.remove(); return; }
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { root.remove(); return; }
     root.hidden = false;
     html.setAttribute('data-opening', '');
     html.setAttribute('data-opening-hold', '');
