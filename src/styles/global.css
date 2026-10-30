@@ -64,20 +64,23 @@ main { overflow-x: clip; }
    change hall at any point; it carries the page colour so text scrolls under it unseen. In-page jumps stop below it. */
 .site-nav {
   position: sticky; top: 0; z-index: 50; background: var(--paper);
-  display: flex; align-items: center; gap: 1rem clamp(1.25rem, 3vw, 2.5rem);
-  min-height: 3.5rem; padding-inline: clamp(1.25rem, 2.8vw, 2.5rem); border-bottom: 1px solid var(--rule);
+  /* One gap either side of every hairline (wordmark | back | halls), whether or not the page has a way back; fixed side
+     margins, so the wordmark stands in the same place at every window width. */
+  --nav-gap: 1.25rem;
+  display: flex; align-items: center; gap: 1rem var(--nav-gap);
+  min-height: 3.5rem; padding-inline: 2rem; border-bottom: 1px solid var(--rule);
   font: 400 .875rem/1 var(--sans); letter-spacing: .04em;
 }
 /* Wordmark: all caps, always the first thing at the top left. */
 .site-nav .brand {
-  flex: none; font: 400 1.1875rem/1 var(--latin); letter-spacing: .15em; text-transform: uppercase;
-  margin-right: -.15em; /* cancel the tracking after the last letter so the gaps either side of the divider match */
+  flex: none; font: 400 1.125rem/1 var(--latin); letter-spacing: .13em; text-transform: uppercase;
+  margin-right: -.13em; /* cancel the tracking after the last letter so the gaps either side of the divider match */
   text-decoration: none; color: inherit;
 }
-/* The mark: a brick-red square, about one and a third capitals tall, centred on the capitals (they measure .63em, so
-   their centre is .32em above the baseline: .32 - .84/2 = -.1), close to the name. The browser-tab icon is the same
-   square (public/favicon.svg). */
-.site-nav .brand-mark { display: inline-block; width: .84em; height: .84em; margin-right: .45em; vertical-align: -.1em; fill: var(--brand-red); }
+/* The mark: a brick-red square as tall as the capitals (they measure .63em; .66em allows the overshoot a flat top
+   needs to look level with them), standing on the baseline like a letter, set from the name by about two letter
+   spaces. The browser-tab icon is the same square (public/favicon.svg). */
+.site-nav .brand-mark { display: inline-block; width: .66em; height: .66em; margin-right: .34em; vertical-align: 0; fill: var(--brand-red); }
 .site-nav ul { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
 .site-nav ul a, .nav-soon { position: relative; display: inline-block; padding-block: .4rem; text-decoration: none; opacity: .72; transition: opacity var(--t-fast) var(--ease); }
 .site-nav ul a::after {
@@ -88,7 +91,7 @@ main { overflow-x: clip; }
 .site-nav ul a:hover::after, .site-nav ul a[aria-current]::after { transform: scaleX(1); }
 /* The halls follow the way back, set apart by the same short hairline; a hall still in preparation is shown, muted,
    and is not a link. The page's own links keep to the far end. */
-.site-nav .nav-halls { position: relative; padding-left: clamp(1.25rem, 3vw, 2.5rem); } /* .site-nav ul would zero it */
+.site-nav .nav-halls { position: relative; padding-left: var(--nav-gap); } /* .site-nav ul would zero it */
 .nav-halls::before {
   content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: .875rem; translate: 0 -50%;
   background: currentColor; opacity: .35;
@@ -98,7 +101,7 @@ main { overflow-x: clip; }
 .site-nav[data-tone="desk"] { position: static; background: none; /* its header (.cd-top) is what is pinned */ color: #e6e5e0; border-bottom-color: rgb(255 255 255 / .1); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .site-nav[data-tone="gallery"] { background: var(--gallery); color: var(--gallery-ink); border-bottom-color: var(--gallery-rule); }
-.nav-start { display: flex; align-items: center; gap: 1.125rem; white-space: nowrap; }
+.nav-start { display: flex; align-items: center; gap: var(--nav-gap); white-space: nowrap; }
 .site-nav ul { white-space: nowrap; }
 /* Narrower screens: the page's own links give way first (those sections are a scroll away). Phones: two rows on the
    same side margins. The wordmark (and Back, at the far end) in a 48px row, the same on every page, the homepage
@@ -107,7 +110,7 @@ main { overflow-x: clip; }
 @media (max-width: 1100px) { .nav-page { display: none !important; } }
 @media (max-width: 760px) {
   .site-nav { flex-wrap: wrap; gap: 0; padding: 0 1.375rem; }
-  .site-nav .brand { font-size: 1.0625rem; letter-spacing: .18em; }
+  .site-nav .brand { font-size: 1.0625rem; }
   .nav-start { flex: 1 0 100%; justify-content: space-between; min-height: 3rem; }
   .site-nav .nav-halls { flex: 1 0 100%; justify-content: space-between; align-items: center; gap: .5rem; padding-left: 0;
     border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 14%, transparent);
@@ -126,7 +129,7 @@ main { overflow-x: clip; }
 .back-link:hover svg, .back-link:focus-visible svg { transform: translateX(-2px); }
 /* In the site bar: a quiet text link just right of the wordmark, set apart from it by a short hairline
    (about the height of the wordmark capitals, not the full 44px hit area). */
-.nav-back { position: relative; padding-left: 1.125rem; opacity: .72; transition: opacity var(--t-fast) var(--ease); }
+.nav-back { position: relative; padding-left: var(--nav-gap); opacity: .72; transition: opacity var(--t-fast) var(--ease); }
 .nav-back::before {
   content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: .875rem; translate: 0 -50%;
   background: currentColor; opacity: .35;
