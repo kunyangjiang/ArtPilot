@@ -402,6 +402,9 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .btn-secondary:hover { border-color: var(--ink); }
 .btn-secondary:not(:disabled):active { background: var(--hover); }
 .btn:disabled { background: var(--mist); border-color: transparent; color: var(--ink-3); cursor: not-allowed; }
+/* A row of buttons under an interaction. The build strips the whitespace between them, so without a gap two pills
+   touch and read as one shape. */
+.module .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
 
 /* ---------- Interaction modules: ruled sections in the reading flow ---------- */
 .module { margin-block: 3rem 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--ink); }

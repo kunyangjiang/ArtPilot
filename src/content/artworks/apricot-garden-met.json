@@ -1,0 +1,197 @@
+{
+  "id": "art-apricot-garden-met-001",
+  "kind": "painting",
+  "titleZh": "杏园雅集图",
+  "titleEn": "Elegant Gathering in the Apricot Garden",
+  "artist": "传谢环",
+  "attributionNote": "画上没有作者的款识和印章。大都会艺术博物馆题作“After Xie Huan”（中文作“传谢环”），认为这是谢环为东道主杨荣所作构图（今藏镇江博物馆）的一个缩短的本子，大概是为杨士奇所作、由谢环身边的一位画家完成；这一判断来自何慕文（Maxwell K. Hearn）1999 年的研究。另有学者对两卷的作者各有不同看法。",
+  "dateApprox": "约 1437 年（明正统二年）",
+  "medium": "手卷，绢本设色",
+  "dimensionsCm": {
+    "height": 37.1,
+    "width": 243.2
+  },
+  "collection": "大都会艺术博物馆（纽约），1989.141.3",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Elegant Gathering in the Apricot Garden，1989.141.3（说明、尺寸、题跋释文、收藏印、来源、参考书目）",
+      "url": "https://www.metmuseum.org/art/collection/search/41478"
+    },
+    {
+      "label": "Maxwell K. Hearn, “An Early Ming Example of Multiples: Two Versions of Elegant Gathering in the Apricot Garden”, in Issues of Authenticity in Chinese Painting (The Metropolitan Museum of Art, 1999), pp. 221–256",
+      "url": "https://www.metmuseum.org/met-publications/issues-of-authenticity-in-chinese-painting"
+    },
+    {
+      "label": "吴诵芬，《镇江本〈杏园雅集图〉的疑问》，《故宫学术季刊》第 27 卷第 1 期（2009 年秋），页 73–101",
+      "url": "https://www.npm.edu.tw/NewChineseArtDownload.ashx?bid=3773"
+    },
+    {
+      "label": "美国国会图书馆：许论辑刻《二园集》二卷（明嘉靖年间，约 1560 年），卷一《杏园雅集图》",
+      "url": "https://www.loc.gov/item/2012402482/"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/apricot-garden-met.jpg",
+      "kind": "full",
+      "width": 3913,
+      "height": 542,
+      "alt": "一条横长的绢本设色手卷，画面泛着旧绢的黄褐色，两端是浅色的云纹裱绫。从右往左：竹林前两位官员并肩走来，一位穿深绿袍、胸前有补子，一位穿浅蓝袍；棋桌旁站着一位蓝袍官员；一只仙鹤低头走过；石屏和古树前，三人并排坐着，左边穿大红袍，中间穿蓝袍，右边穿墨绿袍、留长须；再往左，杏花与古树下又坐着三位官员，有人展卷，有人执笔；卷尾，几个侍从在大锡壶旁烹茶、端盘。右端裱绫上有一段竖写的小字。",
+      "caption": "传谢环《杏园雅集图》，约 1437 年，绢本设色手卷，画心 37.1 × 243.2 厘米，大都会艺术博物馆藏。手卷从右往左看；两端的浅色部分是裱绫，右端裱绫上的小字是翁同龢写的人物名单。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "馆方全卷照片（DT210847），重新压缩；未裁切、未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "center",
+      "src": "/img/apricot-garden-center-met.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1010,
+      "alt": "局部：一块玲珑的石屏和几棵古树前，三位官员并排坐在矮榻上。左边一位穿大红袍，胸前有金色纹样的方补，白须；中间一位穿浅蓝袍，白须，腰间一条白色带子；右边一位穿墨绿袍，满腮黑须，坐在一把椅子上。左边桌上摆着一件小屏风和铜器，桌后站着几个侍从；右边一只仙鹤低头走过。",
+      "caption": "局部：倚石屏而坐的三人。大都会的说明说，穿红袍的是东道主杨荣，穿蓝袍、坐在他身边的是年纪最长、官位最高的客人杨士奇；按翁同龢的名单，这一组的第三位是王直。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "馆方局部照片（DP273873），重新压缩；未裁切、未缩放、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "opening",
+      "src": "/img/apricot-garden-opening-met.jpg",
+      "kind": "detail",
+      "width": 2400,
+      "height": 1134,
+      "alt": "卷首局部：竹林和一棵粗大的古树前，两位官员并肩缓步走来。左边一位穿墨绿袍，胸前一块方补上画着几只长腿的白色水鸟；右边一位穿浅蓝袍，手里拿着一件小东西。画绢右边接着浅色的云纹裱绫，上面竖写着十几行小字，下方和右下角各有一方红印。",
+      "caption": "卷首：两位后至的官员，和裱绫上翁同龢（1830—1904）写的名单。名单开头说“由前至后，按记中所叙次第列之”，右边单独一行写着“画师谢庭循佚焉”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "馆方照片（DP-19448-002），裁去上下的黑色衬底，缩小到 2400 像素宽并重新压缩；未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "weiqi",
+      "src": "/img/apricot-garden-weiqi-met.jpg",
+      "kind": "detail",
+      "width": 1520,
+      "height": 1890,
+      "alt": "局部：一位穿浅蓝袍、留白须的官员站在一张棋桌前，双手笼在袖里。棋桌是黑色的，桌面画着细密的方格，上面放着两只红褐色的棋罐。身后是一把高背椅、一个鼓形绣墩，右边一张红漆案上插着一束签筒似的东西。地上几丛矮竹。",
+      "caption": "局部：棋桌旁的一位官员。桌面上的棋盘只是一片细格子，没有星位的圆点；何慕文比对两卷时注意过棋盘的不同画法。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "从馆方照片（DP-19448-003）中裁出棋桌一段，缩小到 1520 像素宽并重新压缩；未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "yang-rong",
+      "src": "/img/apricot-garden-yang-rong-met.jpg",
+      "kind": "detail",
+      "width": 1200,
+      "height": 1600,
+      "alt": "特写：一位老人的半身像，头戴黑色乌纱帽，帽翅很短；脸用淡赭色晕染，眉须是一根根细白线；大红色的袍子，胸前隐约可见金色的纹样。身后是深色的树石。",
+      "caption": "特写：杨荣。脸先勾出鼻子，再依次加上眉眼口须，一笔一笔画得很实；何慕文认为这是明初肖像的画法。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "馆方特写照片（DP274462），缩小到 1600 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "preface",
+      "src": "/img/apricot-garden-preface-met.jpg",
+      "kind": "detail",
+      "width": 1800,
+      "height": 1605,
+      "alt": "一段写在打了细格的纸上的隶书，竖排，从右往左，字形扁而方正，笔画粗重。第一行是“杏园雅集序”，接着“古之君子其闲居未尝一日而忘天下国家也”。右上角有一方小红印。",
+      "caption": "画后的第一段文字：杨士奇的《杏园雅集序》，隶书，署年 1437 年，钤三印（这里是开头部分）。序里写着：“乃正统丁巳三月之朔……谢君写而为图。”",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "从馆方照片（DP-19448-006）中裁出序文部分，裁去黑色衬底与右侧画面，缩小到 1800 像素宽并重新压缩；未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "poems",
+      "src": "/img/apricot-garden-poems-met.jpg",
+      "kind": "detail",
+      "width": 2400,
+      "height": 1134,
+      "alt": "两段竖写的诗，中间隔着一大片空白纸。右边一段是端正的小楷，开头“惠风扇和气，万物熙春阳”，末署“建安杨荣”，下钤两方红印；左边一段字大得多，是行书，开头“太和畅群芳”，末署“南郡杨溥”，钤印。",
+      "caption": "画后的两首诗：右为杨荣，左为杨溥。两段字的大小、写法都不同；何慕文认为，这卷上除杨士奇的序和诗以外，各人的诗文大概是由人代为抄录的。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/41478",
+        "changes": "馆方照片（DP-19448-008），裁去上下的黑色衬底，缩小到 2400 像素宽并重新压缩；未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "print-xie",
+      "src": "/img/apricot-garden-print-xie-loc.jpg",
+      "kind": "detail",
+      "subject": "《杏园雅集图》木刻版画，许论辑刻《二园集》卷一，约 1560 年，美国国会图书馆藏",
+      "width": 2000,
+      "height": 1439,
+      "alt": "一本线装书摊开的两页，黑白木刻线描。右页：松树和山石下，一位官员独自站着，头戴宽翅的帽子，胸前一块有纹样的方补，旁边刻着四个字“谢君廷循”。左页：两位官员并肩站立，也都戴宽翅帽、有补子，旁边刻着“泰和陈公循”“安成李公时勉”。",
+      "caption": "约 1560 年刊刻的《杏园雅集图》木刻本（局部）。右页刻着“谢君廷循”——画家谢环本人站在卷首；左页是陈循与李时勉。这是一部后来的版画，不是镇江本，也不是大都会本。",
+      "credit": {
+        "author": "美国国会图书馆",
+        "licence": "公有领域（馆方声明无已知版权限制）",
+        "licenceUrl": "https://www.loc.gov/legal/",
+        "sourceUrl": "https://www.loc.gov/item/2012402482/",
+        "changes": "馆方扫描（卷一第 3—4 页对开），裁去上下空白，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "《二园集》 · 美国国会图书馆 · 世界数字图书馆"
+      }
+    },
+    {
+      "key": "print-seated",
+      "src": "/img/apricot-garden-print-seated-loc.jpg",
+      "kind": "detail",
+      "subject": "《杏园雅集图》木刻版画，许论辑刻《二园集》卷一，约 1560 年，美国国会图书馆藏",
+      "width": 2000,
+      "height": 1436,
+      "alt": "一本线装书摊开的两页，黑白木刻线描。竹丛和一块长石前，三位官员坐着，都戴宽翅帽、胸前有方补。左边一位旁刻“建安杨公荣”，中间一位旁刻“庐陵杨公士奇”，右边一位旁刻“泰和王公直”。周围有桌案、古器和几个童子。",
+      "caption": "同一部木刻本里的“倚石屏而坐者三人”：杨荣、杨士奇、王直，每人旁边都刻着名字。",
+      "credit": {
+        "author": "美国国会图书馆",
+        "licence": "公有领域（馆方声明无已知版权限制）",
+        "licenceUrl": "https://www.loc.gov/legal/",
+        "sourceUrl": "https://www.loc.gov/item/2012402482/",
+        "changes": "馆方扫描（卷一第 5—6 页对开），裁去上下空白，缩小到 2000 像素宽并重新压缩；未调色",
+        "by": "《二园集》 · 美国国会图书馆 · 世界数字图书馆"
+      }
+    }
+  ],
+  "imagesNote": "大都会艺术博物馆的七张照片为开放获取（CC0）。两张木刻版画来自美国国会图书馆藏明刻本《二园集》，馆方声明不知有任何版权或其他限制。镇江博物馆藏的另一本没有开放授权的图像，本站不复制，只给出馆方页面和报道链接。",
+  "rights": {
+    "status": "公有领域：画作约作于 1437 年；版画约刊于 1560 年；图像由收藏机构开放",
+    "basis": "大都会艺术博物馆对此卷标注 Public Domain，开放获取图像可不经许可自由使用（CC0）。美国国会图书馆说明，它不知道世界数字图书馆藏品中这部书有任何版权或其他限制，可以自由使用和再使用，并请注明出处。镇江本的图像版权与授权情况不明，学术期刊中的插图也不在开放之列，两者都只链接、不复制。",
+    "verifiedOn": "2026-10-30",
+    "note": "题跋原文据大都会艺术博物馆的释文引用。人物与名字的对应，除大都会说明中写明的杨荣、杨士奇外，依据翁同龢题在卷前的名单。"
+  }
+}

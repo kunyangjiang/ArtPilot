@@ -1,0 +1,83 @@
+---
+// Writing a museum label: one object, a few defensible ways to say who made it. Choosing a wording rewrites the label
+// card; beside it, what that wording commits the museum to, the evidence it rests on, and where that evidence stops.
+// No wording is marked right or wrong — the point is to see what each one claims. Nothing is scored or stored, and the
+// story never waits for it. Without script every wording and its reading are listed one after another.
+// (Not `data-reading`: that attribute marks the page's ReadingTracker, which looks it up document-wide.)
+interface Option { id: string; label: string; maker: string; title: string; text: string; claims: string; basis: string; limit: string }
+interface Props { prompt: string; date: string; medium: string; holder: string; options: Option[] }
+const { prompt, date, medium, holder, options } = Astro.props;
+---
+<section class="module ld" data-ld>
+  <p class="module-label">互动 · 写一张展签</p>
+  <h3>{prompt}</h3>
+  <div class="ld-opts" role="group" aria-label="展签上作者一栏的写法">
+    {options.map((o) => <button type="button" data-opt={o.id} aria-pressed="false">{o.label}</button>)}
+  </div>
+  <div class="ld-body">
+    <div class="ld-card" aria-live="polite">
+      <p class="ld-maker" data-maker>作者一栏，还空着</p>
+      <p class="ld-title" data-title>《杏园雅集图》</p>
+      <p class="ld-meta">{date} · {medium}</p>
+      <p class="ld-meta">{holder}</p>
+      <p class="ld-text" data-text>选一种写法，看它会让这张展签说出什么。</p>
+    </div>
+    <div class="ld-readings">
+      {options.map((o) => (
+        <div class="ld-reading" data-ld-for={o.id} data-maker={o.maker} data-title={o.title} data-text={o.text} hidden>
+          <p class="ld-head">{o.label}</p>
+          <dl>
+            <div><dt>这样写，等于说</dt><dd>{o.claims}</dd></div>
+            <div><dt>凭的是</dt><dd>{o.basis}</dd></div>
+            <div><dt>它停在哪里</dt><dd>{o.limit}</dd></div>
+          </dl>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ld-opts { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+  .ld-opts button { padding: .5rem .85rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    font: 500 .875rem/1.4 var(--sans); cursor: pointer; text-align: left; }
+  .ld-opts button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .ld-body { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  /* The label as it would hang: a small white card with a hairline, the maker line first. */
+  .ld-card { padding: 1.1rem 1.2rem 1.25rem; background: #fbfaf7; border: 1px solid var(--rule); box-shadow: 0 10px 22px -18px rgb(0 0 0 / .6); }
+  .ld-card p { margin: 0; }
+  .ld-maker { font: 600 .9375rem/1.5 var(--sans); color: var(--ink); }
+  .ld-title { margin-top: .2rem !important; font: 500 1.125rem/1.5 var(--serif); color: var(--ink); }
+  .ld-meta { font: 400 .8125rem/1.6 var(--sans); color: var(--ink-3); }
+  .ld-text { margin-top: .8rem !important; padding-top: .7rem; border-top: 1px solid var(--rule); font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
+  :global(.ld:not(.is-picked)) .ld-maker, :global(.ld:not(.is-picked)) .ld-text { color: var(--ink-3); }
+  .ld-reading { animation: ld-in 380ms var(--ease) both; }
+  .ld-head { margin: 0 0 .6rem; font: 600 .875rem/1.5 var(--sans); letter-spacing: .06em; color: var(--ink); }
+  .ld-reading dl { display: grid; gap: .75rem; margin: 0; }
+  .ld-reading dt { font: 600 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .ld-reading dd { margin: .15rem 0 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  @keyframes ld-in { from { opacity: 0; transform: translateY(6px); } }
+  /* Without script: every reading is listed under the empty card. */
+  :global(.ld:not(.is-ready)) .ld-reading[hidden] { display: block; margin-bottom: 1.5rem; }
+  :global(.ld:not(.is-ready)) .ld-opts { display: none; }
+  @media (max-width: 640px) { .ld-body { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .ld-reading { animation: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ld]').forEach((root) => {
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-opt]')];
+    const readings = [...root.querySelectorAll<HTMLElement>('[data-ld-for]')];
+    const field = (name: string) => root.querySelector<HTMLElement>(`.ld-card [data-${name}]`)!;
+    root.classList.add('is-ready');
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      const r = readings.find((x) => x.dataset.ldFor === b.dataset.opt)!;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      readings.forEach((x) => { x.hidden = x !== r; });
+      field('maker').textContent = r.dataset.maker!;
+      field('title').textContent = r.dataset.title!;
+      field('text').textContent = r.dataset.text!;
+      root.classList.add('is-picked');
+    }));
+  });
+</script>
