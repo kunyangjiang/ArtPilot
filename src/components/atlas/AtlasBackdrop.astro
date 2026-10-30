@@ -18,6 +18,8 @@
   .abd-grid {
     -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - 38rem), rgb(0 0 0 / .32) calc(50% - 28rem), rgb(0 0 0 / .32) calc(50% + 28rem), #000 calc(50% + 38rem), #000 100%);
     mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - 38rem), rgb(0 0 0 / .32) calc(50% - 28rem), rgb(0 0 0 / .32) calc(50% + 28rem), #000 calc(50% + 38rem), #000 100%); }
+  /* Phones: the works fill the whole width, so the grid is not dimmed anywhere; it is drawn lighter instead (below). */
+  @media (max-width: 700px) { .abd-grid { -webkit-mask-image: none; mask-image: none; } }
   .abd-year { opacity: 0; transition: opacity .6s ease; }
   .abd-year.on { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { .abd-year { transition: none; } }
@@ -34,11 +36,15 @@
   const f = (n: number) => Math.round(n * 10) / 10;
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
+  // Phones get four columns, not twelve (twelve would be thin stripes), and, undimmed, a little more strength.
+  const phone = () => innerWidth <= 700;
+
   function drawGrid() {
-    const w = innerWidth, h = innerHeight, cols = 12, gutter = 20, colW = (w - gutter * (cols + 1)) / cols;
+    const w = innerWidth, h = innerHeight, cols = phone() ? 4 : 12, gutter = phone() ? 16 : 20, colW = (w - gutter * (cols + 1)) / cols;
+    const [col, base] = phone() ? ['.028', '.045'] : ['.018', '.03'];
     let s = '';
-    for (let i = 0; i < cols; i++) s += `<rect x="${f(gutter + i * (colW + gutter))}" y="0" width="${f(colW)}" height="${h}" fill="rgb(${INK} / .018)"/>`;
-    for (let y = 24; y < h; y += 24) s += `<line x1="0" y1="${y}" x2="${w}" y2="${y}" stroke="rgb(${INK} / .03)" stroke-width=".5"/>`;
+    for (let i = 0; i < cols; i++) s += `<rect x="${f(gutter + i * (colW + gutter))}" y="0" width="${f(colW)}" height="${h}" fill="rgb(${INK} / ${col})"/>`;
+    for (let y = 24; y < h; y += 24) s += `<line x1="0" y1="${y}" x2="${w}" y2="${y}" stroke="rgb(${INK} / ${base})" stroke-width=".5"/>`;
     s += `<rect x="${gutter}" y="96" width="${f(colW * 2 + gutter)}" height="8" fill="rgb(${BRICK} / .75)"/>`;
     grid.setAttribute('viewBox', `0 0 ${w} ${h}`);
     grid.innerHTML = s;
@@ -51,10 +57,11 @@
     const bce = era.includes('公元前') ? era : '';
     if (`${bce}|${num}` === shown && yearSvg.innerHTML) return;
     shown = `${bce}|${num}`;
-    const w = innerWidth, h = innerHeight, gutter = 20, size = Math.min(h * 0.42, w * 0.22);
+    // On a phone the year takes most of the width (four digits at about 0.6 em each) and a firmer line.
+    const w = innerWidth, h = innerHeight, gutter = phone() ? 16 : 20, size = phone() ? Math.min(h * 0.3, w * 0.36) : Math.min(h * 0.42, w * 0.22);
     // Outline only, firm enough to read and thin enough to read text through.
     // 公元前 sits above the number, a third of its size, on the same left edge.
-    const paint = `fill="none" stroke="rgb(${INK} / .26)"`;
+    const paint = `fill="none" stroke="rgb(${INK} / ${phone() ? '.34' : '.26'})"`;
     const eraSize = size * 0.3;
     yearSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
     yearSvg.innerHTML = (bce ? `<text x="${gutter}" y="${f(h - gutter - size * 0.8)}" font-size="${f(eraSize)}" font-weight="700"

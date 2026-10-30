@@ -291,6 +291,16 @@ A first version made the photographs black and white with a halftone screen. Tha
 this case the colour of the glass is the evidence. A heavy diagonal red stripe was also too loud, and is now a thin
 rule.
 
+**Fewer notices (review, 2026-10-30).** The hall dropped its explanatory small print, at the owner's request:
+
+- the timeline's how-to line;
+- the "the collection is selective / at the same time is not influence" paragraph and its echoes in empty states and the
+  pair panel;
+- the note on dating in the deep window;
+- the map's scale note.
+
+The map legend is now just "所选年份的作品件数 / 没有收录". The written comparisons themselves were not changed.
+
 ## 10. Not done, and open questions
 
 - **Font subsets.** `scripts/fonts/collect-chars.mjs` does not include `/atlas/`. Characters used only on the Atlas may

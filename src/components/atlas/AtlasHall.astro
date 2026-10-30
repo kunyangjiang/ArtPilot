@@ -179,10 +179,16 @@ const total = cards.length;
 <section class="at" aria-labelledby="at-title" data-at>
   <!-- Before anything below is parsed: the hall is scripted, so it streams in already in its scripted shape (one
        window, the opening works, the controls) instead of the whole no-JS reading. The page restores its own scroll
-       once its height is final (the script at the end), so a reload never lands on a taller page that then shrinks. -->
+       once its height is final (the script at the end), so a reload never lands on a taller page that then shrinks.
+       Arriving without a selection in the address (/atlas/), the hall reopens at the visitor's last one, put into the
+       address here so every script below reads it as if it had been linked. -->
   <script is:inline>
     document.currentScript.parentElement.setAttribute('data-js', '');
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    try {
+      var last = localStorage.getItem('atlas-selection');
+      if (!location.hash && last && /^#(y-?\d+|period-0[1-9])$/.test(last)) history.replaceState(null, '', last);
+    } catch (e) { /* storage blocked: open at the default */ }
   </script>
   <header class="at-head">
     <p class="at-kicker">{d.label} · <span lang="en">{d.sub}</span></p>
@@ -194,9 +200,7 @@ const total = cards.length;
   <div class="rv" data-river data-start={START}
     data-windows={JSON.stringify(WINDOWS.map((w) => [w.from, w.to, nearOf(w), w.roman, w.label]))}>
     <div class="rv-top">
-      <p class="rv-year" data-year-out><span class="rv-era">{startEra}</span><span class="rv-num" lang="en">{startNum}</span><span class="rv-era">年</span></p>
-      <p class="rv-hint" data-js-only>拖动时间线或用方向键换一个年份；点下面的罗马数字，看整个时期。</p>
-    </div>
+      <p class="rv-year" data-year-out><span class="rv-era">{startEra}</span><span class="rv-num" lang="en">{startNum}</span><span class="rv-era">年</span></p>    </div>
     <div class="rv-chart" data-chart aria-hidden="true">
       {river.map((r) => (
         <div class="rv-row" data-row={r.wall.id} style={wc(r.wall)}>
@@ -378,13 +382,11 @@ const total = cards.length;
           var empty = aw.querySelector('[data-empty]'), go = document.createElement('button');
           go.type = 'button'; go.dataset.act = 'broaden'; go.textContent = '看整个第 ' + b[3] + ' 时期（' + whole + ' 件）';
           empty.replaceChildren(shown.length ? '这段时间里本站只收录了 ' + shown.length + ' 件作品。' : '这段时间里本站没有收录作品。',
-            '本站的收藏是有选择的。', document.createElement('br'), go);
+            document.createElement('br'), go);
           empty.hidden = false;
         }
       })();
-    </script>
-    <p class="aw-note">ArtPilot 的收藏是有选择的：某个地区在这里没有作品，不代表那里当时没有艺术。放在一起的作品，只说明它们大约在同一段时间里被做出来；同时，不是影响。</p>
-  </section>
+    </script>  </section>
 
   <!-- Level 3: deeper into the window holding the selection, on request. -->
   <section class="dp" aria-labelledby="dp-t">
@@ -404,9 +406,7 @@ const total = cards.length;
         </header>
 
         <!-- The overview: the window's works on its own time axis, and what the site lacks. -->
-        <div class="at-view at-view-a" data-v="a">
-          {w.deep && <p class="at-deep-note">这个时期的年代多是“最小年龄”或“地层年代”，时间轴上的位置只表示大致的先后。</p>}
-          <div class="at-axis-scroll">
+        <div class="at-view at-view-a" data-v="a">          <div class="at-axis-scroll">
             <div class="at-axis">
               <div class="at-ticks" aria-hidden="true">
                 {w.ticks.map((t) => <span style={`left:${w.pos(t)}%`}>{shortYear(t)}</span>)}
@@ -458,8 +458,7 @@ const total = cards.length;
               );
             })}
           </div>
-          <p class="at-plan-note">示意地图 · 每一格约是一个地区，形状和距离都不按比例；标的是作品的制作地，不是今天的收藏地</p>
-          <p class="at-legend"><span class="lg on"></span>所选年份里本站收录的件数 <span class="lg off"></span>所选年份里本站没有收录（不等于那里没有艺术）</p>
+          <p class="at-legend"><span class="lg on"></span>所选年份的作品件数 <span class="lg off"></span>没有收录</p>
           <p class="at-plan-pick" data-anchor-pick hidden><span data-anchor-name></span><button type="button" data-anchor-clear>显示全部地点</button></p>
           <ul class="at-plan-list">
             {[...w.byAnchor].map(([id, xs]) => (
@@ -585,7 +584,6 @@ const total = cards.length;
   .rv-year { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin: 0; color: var(--gallery-ink); }
   .rv-era { font: 400 .875rem/1 var(--sans); letter-spacing: .12em; color: var(--gallery-ink-2); }
   .rv-num { font: 400 clamp(3rem, 7vw, 4.5rem)/.9 var(--latin-d); letter-spacing: .01em; }
-  .rv-hint { max-width: 19rem; margin: 0; font: 400 .75rem/1.6 var(--sans); color: var(--gallery-ink-2); text-align: right; }
   .rv-chart { position: relative; touch-action: pan-y; user-select: none; }
   .at:not([data-js]) [data-js-only] { display: none !important; }
   [data-js] .rv-chart { cursor: ew-resize; }
@@ -698,7 +696,6 @@ const total = cards.length;
   .aw-more { margin: 2.5rem 0 0; min-height: 2.75rem; padding: 0 1.25rem; border: 1px solid var(--gallery-ink-2); background: none;
     color: var(--gallery-ink); font-size: .875rem; cursor: pointer; }
   .aw-more[hidden] { display: none; }
-  .aw-note { max-width: 42em; margin: 2.5rem 0 0; font: 400 .8125rem/1.85 var(--sans); color: var(--gallery-ink-2); }
 
   /* Level 3: deeper into the window. */
   .dp { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--gallery-ink-2); }
@@ -716,7 +713,6 @@ const total = cards.length;
   .at-window-no { margin: 0; font: 400 .875rem/1 var(--latin-d); letter-spacing: .14em; color: var(--gallery-ink-2); }
   .at-window h2 { margin: .5rem 0 0; font: 500 clamp(1.25rem, 2.4vw, 1.625rem)/1.4 var(--serif-d); letter-spacing: .03em; color: var(--gallery-ink); }
   .at-orientation { max-width: 40em; margin: .75rem 0 0; font: 400 .9375rem/1.9 var(--sans); color: var(--gallery-ink-2); }
-  .at-deep-note { max-width: 40em; margin: 0 0 1rem; font: 400 .8125rem/1.8 var(--sans); color: var(--gallery-ink-2); }
   .at-sub { margin: 0 0 .75rem; font: 500 .75rem/1.5 var(--sans); letter-spacing: .2em; color: var(--gallery-ink-2); }
 
   /* The tools: without the script the comparisons read in full; with it, only the chosen tool. */
@@ -772,7 +768,6 @@ const total = cards.length;
   .at-map rect.isle { fill: rgb(236 233 226 / .13); }
   .at-map text { font: 500 .34px/1 var(--sans); letter-spacing: .12px; fill: rgb(236 233 226 / .42); text-anchor: middle; }
   .at-map text.sea { font-weight: 400; font-size: .3px; letter-spacing: .2px; fill: rgb(236 233 226 / .26); }
-  .at-plan-note { margin: .6rem 0 0; font: 400 .6875rem/1.5 var(--sans); color: var(--gallery-ink-2); }
   .at-place { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: flex; align-items: center; gap: .3rem; }
   .at-place-mark { display: block; width: .4rem; height: .4rem; border: 1px solid rgb(169 168 162 / .55); }
   button.at-place { padding: .25rem; border: 0; background: none; color: var(--gallery-ink); cursor: pointer; }
@@ -870,7 +865,6 @@ const total = cards.length;
     .rv-axis-y { display: none; }
     .rv-axis button { justify-content: center; padding-left: 0; }
     .rv-top { flex-direction: column; align-items: flex-start; }
-    .rv-hint { text-align: left; }
     .rv-mode { display: flex; margin-left: 0; }
     .rv-mode button { flex: 1; }
     .aw-grid { grid-template-columns: minmax(0, 1fr); gap: 2.75rem; }
@@ -1060,10 +1054,10 @@ const total = cards.length;
     const parts: (string | HTMLElement)[] = [];
     const action = (act: string, text: string) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.act = act; b.textContent = text; return b; };
     if (!shown.length && state.wall !== 'all' && inTime.length) {
-      parts.push(`所选的这段时间里，本站没有收录${wallName(state.wall)}的作品。这不代表那里当时没有艺术。`, document.createElement('br'), action('all-regions', `回到全部地区（${inTime.length} 件）`));
+      parts.push(`所选的这段时间里，本站没有收录${wallName(state.wall)}的作品。`, document.createElement('br'), action('all-regions', `回到全部地区（${inTime.length} 件）`));
       if (near) parts.push(action('broaden', `看整个第 ${roman(i)} 时期`));
     } else if (near && inTime.length < 3) {
-      parts.push(inTime.length ? `这段时间里本站只收录了 ${inTime.length} 件作品。` : '这段时间里本站没有收录作品。', '本站的收藏是有选择的。', document.createElement('br'),
+      parts.push(inTime.length ? `这段时间里本站只收录了 ${inTime.length} 件作品。` : '这段时间里本站没有收录作品。', document.createElement('br'),
         action('broaden', `看整个第 ${roman(i)} 时期（${whole} 件）`));
     }
     empty.hidden = !parts.length;
@@ -1121,7 +1115,10 @@ const total = cards.length;
     slab.toggleAttribute('data-on', near);
     if (state.tool === 'a') requestAnimationFrame(sizeBars);
 
-    if (updateHash) history.replaceState(null, '', near ? `#y${state.year}` : `#period-${String(i + 1).padStart(2, '0')}`);
+    const sel = near ? `#y${state.year}` : `#period-${String(i + 1).padStart(2, '0')}`;
+    if (updateHash) history.replaceState(null, '', sel);
+    // Remembered for the next visit without a selection in the address (the first inline script reads it back).
+    try { localStorage.setItem('atlas-selection', sel); } catch { /* storage blocked: the hall opens at 1150 */ }
   }
 
   /** Change the selection; anything but "show all" starts again from the first dozen works. */
@@ -1259,7 +1256,7 @@ const total = cards.length;
       go.dataset.gotoCmp = curated.id; go.dataset.wi = String(sections.indexOf(curated.closest('[data-window]') as HTMLElement));
       contact.append(go);
     } else {
-      contact.append(el('p', '', '本站没有记录这两件作品之间的往来。年代相近，只说明它们大约在同一段时间里被做出来，不说明彼此影响。'));
+      contact.append(el('p', '', '本站没有记录这两件作品之间的往来。'));
     }
     panelBody.replaceChildren(works, rel, contact);
     state.open = '';
