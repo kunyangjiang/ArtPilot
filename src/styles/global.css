@@ -16,6 +16,7 @@
   --gallery-ink: #ecebe7;
   --gallery-ink-2: #a9a8a2;
   --gallery-rule: rgb(255 255 255 / .14);
+  --brand-red: #a3402e; /* the site mark only; not a UI colour */
   --ok: #2f6b4f;
   --err: #a4473b;
 
@@ -73,6 +74,10 @@ main { overflow-x: clip; }
   margin-right: -.15em; /* cancel the tracking after the last letter so the gaps either side of the divider match */
   text-decoration: none; color: inherit;
 }
+/* The mark: a brick-red square, about one and a third capitals tall, centred on the capitals (they measure .63em, so
+   their centre is .32em above the baseline: .32 - .84/2 = -.1), close to the name. The browser-tab icon is the same
+   square (public/favicon.svg). */
+.site-nav .brand-mark { display: inline-block; width: .84em; height: .84em; margin-right: .45em; vertical-align: -.1em; fill: var(--brand-red); }
 .site-nav ul { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
 .site-nav ul a, .nav-soon { position: relative; display: inline-block; padding-block: .4rem; text-decoration: none; opacity: .72; transition: opacity var(--t-fast) var(--ease); }
 .site-nav ul a::after {

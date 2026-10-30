@@ -3,8 +3,7 @@
 // cross from any page to any hall. Halls that are not open yet are shown, muted, but are not links; opening one in
 // src/data/home.ts turns it into a link here too. Page-specific links (a lesson's glossary, its sources) sit at the
 // far end on wide screens.
-import BackLink from './BackLink.astro';
-import { destinations } from '../data/home';
+import BackLink from './BackLink.astro';import { destinations } from '../data/home';
 type NavLink = { href: string; label: string };
 interface Props {
   tone?: 'gallery' | 'desk';
@@ -25,7 +24,7 @@ const brandTab = back?.href === '/' ? -1 : undefined;
 ---
 <nav class="site-nav" aria-label="主导航" data-tone={tone}>
   <div class="nav-start">
-    <a class="brand" href="/" tabindex={brandTab}>ArtPilot</a>
+    <a class="brand" href="/" tabindex={brandTab}><svg class="brand-mark" viewBox="0 0 1 1" aria-hidden="true"><rect width="1" height="1" /></svg>ArtPilot</a>
     {back && <BackLink class="nav-back" href={back.href} label={back.label} />}
   </div>
   <ul class="nav-halls" aria-label="五个展区">
