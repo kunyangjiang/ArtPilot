@@ -2,7 +2,7 @@
 // Marks the status of a statement: an established fact, a primary source and how far it can be trusted,
 // an interpretation, an open scholarly question, a teaching simplification, or what to look for in a work this site cannot
 // reproduce (the reader opens its official page beside the lesson).
-interface Props { kind: 'fact' | 'source' | 'interpretation' | 'open' | 'schematic' | 'look' }
+interface Props { kind: 'fact' | 'source' | 'interpretation' | 'open' | 'schematic' | 'look' | 'fiction' }
 const { kind } = Astro.props;
 const labels = {
   fact: '已知事实',
@@ -11,6 +11,7 @@ const labels = {
   open: '未定 · 学界仍有分歧',
   schematic: '示意 · 简化说明',
   look: '观看指引 · 对照作品页面',
+  fiction: '虚构 · 不是史实',
 };
 ---
 <aside class={`callout ${kind}`}><span class="label">{labels[kind]}</span><slot /></aside>

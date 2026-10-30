@@ -37,6 +37,10 @@ export const ARTIST_CARDS = [
   'art-hokusai-great-wave-001',
   'art-abad-new-kids-in-class-001',
   'art-howe-war-dancer-001',
+  'art-su-shi-cold-food-001',
+  'art-rembrandt-self-portrait-1660-001',
+  'art-zhang-daqian-after-shitao-001',
+  'art-kingelez-kimbembele-ihunga-001',
 ];
 
 /**

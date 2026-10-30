@@ -1,0 +1,145 @@
+{
+  "id": "art-su-shi-cold-food-001",
+  "kind": "painting",
+  "titleZh": "黄州寒食诗帖",
+  "titleEn": "The Cold Food Observance",
+  "artist": "苏轼",
+  "attributionNote": "苏轼（1037—1101）自书诗两首，诗作于元丰五年（1082）寒食，书写当在其后；卷后有黄庭坚跋，台北故宫说明认为作于 1100 年九月以前（据国立故宫博物院开放资料）。",
+  "dateApprox": "约 1082 年以后（诗作于 1082 年寒食）",
+  "medium": "手卷，纸本，行书",
+  "dimensionsCm": { "height": 34.2, "width": 199.5 },
+  "collection": "国立故宫博物院（台北），购书 001001",
+  "infoSources": [
+    { "label": "国立故宫博物院开放资料：北宋苏东坡书黄州寒食诗 卷（释文、尺寸、黄庭坚、董其昌、张縯、颜世清、内藤虎次郎、罗振玉、王世杰等题跋全文，收传印记，作品说明）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P" },
+    { "label": "国立故宫博物院开放资料：宋苏轼书前赤壁赋 卷（卷末自识“多难畏事”；首三十六字为文徵明所补）", "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/882?dep=P" },
+    { "label": "国立故宫博物院精选文物：寒食帖", "url": "https://theme.npm.edu.tw/selection/Article.aspx?lang=2&sNo=04001005" },
+    { "label": "《宋史》卷三百三十八·苏轼传（维基文库）", "url": "https://zh.wikisource.org/zh-hans/宋史/卷338" },
+    { "label": "苏轼《文与可画筼筜谷偃竹记》（维基文库）", "url": "https://zh.wikisource.org/zh-hans/文與可畫篔簹谷偃竹記" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/su-shi-cold-food-npm.jpg",
+      "kind": "full",
+      "width": 5950,
+      "height": 640,
+      "alt": "一条很长的手卷，从右往左：先是一段淡黄的绫，接着是一张蓝绿色、画着海棠花枝的纸，上面写着四个大字“雪堂余韵”；然后是一段钤满红印的接缝，接着是苏轼的两首诗，十几行行书，字越往左越大；诗后是一小段乾隆的题字，再往左是黄庭坚的跋，字比苏轼的还大；最左边是董其昌的几行小楷。纸的下缘有一串深色的焦痕和水渍。",
+      "caption": "苏轼《黄州寒食诗帖》，纸本手卷，本幅 34.2 × 199.5 厘米，台北故宫博物院藏。这里从右到左依次是：乾隆题的引首“雪堂余韵”、苏轼的诗、乾隆题记、黄庭坚跋、董其昌跋。卷后还有张縯、颜世清、内藤虎次郎、罗振玉、王世杰等人的跋，这里没有收入。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P",
+        "changes": "馆方 IIIF 提供的是一张张相互重叠的分段照片（B2B001001N000000000PAA—PAG，每张 3058 × 2289 像素）；本站按重叠部分对齐、拼成一条（只平移，不变形、不调色），裁去上下的色卡与台面，缩小到 640 像素高并重新压缩。卷后的其他题跋没有收入。",
+        "by": "北宋苏东坡书黄州寒食诗 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "opening",
+      "src": "/img/su-shi-cold-food-opening-npm.jpg",
+      "kind": "detail",
+      "width": 1500,
+      "height": 1376,
+      "alt": "黄褐色的纸上，竖写着五行半行书，从右往左读，第一行是“自我来黄州已过三寒”。右边的接缝上钤着大大小小的红印。字有大有小，“年”字的最后一竖拉得很长，几乎占了半行。",
+      "caption": "局部：诗的开头。“自我来黄州，已过三寒食。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P",
+        "changes": "从本站拼接的全卷影像（由馆方分段照片拼成）中裁出，缩小并重新压缩；未调色",
+        "by": "北宋苏东坡书黄州寒食诗 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "corrections",
+      "src": "/img/su-shi-cold-food-corrections-npm.jpg",
+      "kind": "detail",
+      "width": 1300,
+      "height": 1528,
+      "alt": "诗卷中段的八行字。中间一行“年子病起须已白”的“子”字旁边点着几个小点；左边一行“不已雨小屋如渔舟”的“雨”字旁边也有一串小点；右下角“何殊少年”的“殊”和“少”之间，旁边用很小的字补写了一个“病”字。",
+      "caption": "局部：第一首诗的后半和第二首的开头。卷中有三处改动。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P",
+        "changes": "从本站拼接的全卷影像（由馆方分段照片拼成）中裁出，缩小并重新压缩；未调色",
+        "by": "北宋苏东坡书黄州寒食诗 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "damage",
+      "src": "/img/su-shi-cold-food-damage-npm.jpg",
+      "kind": "detail",
+      "width": 1600,
+      "height": 361,
+      "alt": "诗卷下半截的一长条：几行字的下半部分，其中“苇”字的一竖一直拉到纸边。纸的下缘一路都有深褐色的焦痕和水渍，有几处颜色更浅，是后来补过的纸。",
+      "caption": "局部：卷子的下缘。深色的边是焦痕和水渍；颜世清 1918 年的跋说，卷上的“烧痕”是 1860 年圆明园那场火留下的。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P",
+        "changes": "从本站拼接的全卷影像（由馆方分段照片拼成）中裁出下半截，缩小并重新压缩；未调色",
+        "by": "北宋苏东坡书黄州寒食诗 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "huang",
+      "src": "/img/su-shi-cold-food-huang-npm.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1017,
+      "alt": "黄庭坚的跋：九行大字行书，笔画长而舒展，横画常常向右上方斜挑，字比前面苏轼的诗还要大；最后一行是“称尊也”。右边是一小块乾隆写的小字题记。",
+      "caption": "黄庭坚的跋，约 1100 年。开头一句是“东坡此诗似李太白”，结尾是“应笑我于无佛处称尊也”。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/14714?dep=P",
+        "changes": "从本站拼接的全卷影像（由馆方分段照片拼成）中裁出，缩小并重新压缩；未调色",
+        "by": "北宋苏东坡书黄州寒食诗 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    },
+    {
+      "key": "red-cliff-note",
+      "src": "/img/su-shi-red-cliff-note-npm.jpg",
+      "kind": "detail",
+      "width": 1800,
+      "height": 1110,
+      "subject": "苏轼《前赤壁赋》卷末自识，1083 年，台北故宫博物院藏",
+      "alt": "米白的纸上竖写十行端正的行楷，从右往左读，第一行是“轼去岁作此赋未尝”，倒数第二行是“俟后信轼白”；周围钤着许多红印，左上角一方很大的“乾隆御览之宝”。",
+      "caption": "苏轼《前赤壁赋》卷末的自识，1083 年。他把这篇赋抄给朋友傅尧俞（字钦之），末尾写道：“多难畏事，钦之爱我，必深藏之不出也。”",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/882?dep=P",
+        "changes": "由馆方两张相邻的分段照片（K2B000068N000000000PAJ、PAK）对齐拼接，裁出卷末自识一段，缩小并重新压缩；未调色",
+        "by": "宋苏轼书前赤壁赋 卷。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    }
+  ],
+  "imagesNote": "全部图像都来自台北故宫博物院的开放资料（中阶图像以 CC BY 4.0 开放）。馆方的照片是一段一段拍的，全卷图由本站对齐拼接，只平移、不变形、不调色。《前赤壁赋》的自识是另一件作品，标明了作品名。",
+  "rights": {
+    "status": "公有领域：苏轼 1101 年去世；照片由台北故宫以 CC BY 4.0 开放",
+    "basis": "国立故宫博物院开放资料对本件与《前赤壁赋》卷注明：低阶图像 CC0，中阶图像（600 万像素）与网站文字 CC BY 4.0，须标示“品名。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw”。",
+    "verifiedOn": "2026-10-29",
+    "note": "诗句、题跋据馆方释文引用（古文，公有领域）。本站据开放资料的分段照片拼接全卷，改动已在每张图的说明中写明。"
+  },
+  "card": {
+    "type": "行书 · 手卷",
+    "maker": "苏轼",
+    "period": "北宋 · 1082 年以后",
+    "facets": [
+      { "label": "书体", "value": "行书" },
+      { "label": "内容", "value": "自书寒食诗二首" },
+      { "label": "尺寸", "value": "34.2 × 199.5 cm" },
+      { "label": "收藏", "value": "台北故宫博物院" }
+    ],
+    "blurb": "黄州的第三个寒食节，一场下了两个月的雨，和越写越大的字。",
+    "focus": "60% 40%",
+    "image": "opening"
+  }
+}

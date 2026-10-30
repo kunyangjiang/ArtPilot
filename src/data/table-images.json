@@ -959,6 +959,18 @@
       "height": 260
     }
   },
+  "/img/kingelez-scale-artpilot.jpg": {
+    "large": {
+      "src": "/img/table/kingelez-scale-artpilot.jpg",
+      "width": 1100,
+      "height": 600
+    },
+    "small": {
+      "src": "/img/table/s-kingelez-scale-artpilot.jpg",
+      "width": 260,
+      "height": 142
+    }
+  },
   "/img/kirchner-street-dresden.jpg": {
     "large": {
       "src": "/img/table/kirchner-street-dresden.jpg",
@@ -1355,6 +1367,18 @@
       "height": 260
     }
   },
+  "/img/rembrandt-self-portrait-1660-met.jpg": {
+    "large": {
+      "src": "/img/table/rembrandt-self-portrait-1660-met.jpg",
+      "width": 907,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-rembrandt-self-portrait-1660-met.jpg",
+      "width": 214,
+      "height": 260
+    }
+  },
   "/img/ren-yi-zhong-kui.jpg": {
     "large": {
       "src": "/img/table/ren-yi-zhong-kui.jpg",
@@ -1487,6 +1511,18 @@
       "height": 260
     }
   },
+  "/img/shitao-wilderness-taro-met.jpg": {
+    "large": {
+      "src": "/img/table/shitao-wilderness-taro-met.jpg",
+      "width": 866,
+      "height": 1100
+    },
+    "small": {
+      "src": "/img/table/s-shitao-wilderness-taro-met.jpg",
+      "width": 204,
+      "height": 260
+    }
+  },
   "/img/stick-chart-rebbelib.jpg": {
     "large": {
       "src": "/img/table/stick-chart-rebbelib.jpg",
@@ -1497,6 +1533,18 @@
       "src": "/img/table/s-stick-chart-rebbelib.jpg",
       "width": 260,
       "height": 241
+    }
+  },
+  "/img/su-shi-cold-food-npm.jpg": {
+    "large": {
+      "src": "/img/table/su-shi-cold-food-npm.jpg",
+      "width": 1100,
+      "height": 118
+    },
+    "small": {
+      "src": "/img/table/s-su-shi-cold-food-npm.jpg",
+      "width": 260,
+      "height": 28
     }
   },
   "/img/taharqo-shabti.jpg": {

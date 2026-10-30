@@ -17,7 +17,8 @@ const BATCH = [
 ];
 
 test('the artist series keeps The Tortoise Trainer first and appends the batch in publication order', () => {
-  assert.deepEqual(ARTIST_CARDS, ['art-osman-hamdi-tortoise-trainer-001', ...BATCH.map(([, card]) => card)]);
+  // Later batches append after these five (tests/artist-stories-batch-b.test.js).
+  assert.deepEqual(ARTIST_CARDS.slice(0, 5), ['art-osman-hamdi-tortoise-trainer-001', ...BATCH.map(([, card]) => card)]);
   for (const [id, card] of BATCH) assert.match(fm(story(id)), new RegExp(`^card: ${card}$`, 'm'), `${id} awards ${card}`);
 });
 
@@ -30,7 +31,7 @@ test('numbers: the core block and The Tortoise Trainer do not move; the new card
   assert.equal(cards.get('art-abad-new-kids-in-class-001').no, '135');
   assert.equal(cards.get('art-howe-war-dancer-001').no, '136');
   assert.deepEqual(cards.get('art-hokusai-great-wave-001').group, ['art-hokusai-great-wave-001', 'art-katsushika-oi-guan-yu-001'], 'one claim awards both');
-  assert.equal(cards.size, 136);
+  assert.ok(cards.size >= 136);
 });
 
 test('a story whose work cannot be reproduced opens with a named illustration, and its card is typographic', () => {

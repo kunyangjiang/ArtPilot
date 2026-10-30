@@ -1,0 +1,96 @@
+{
+  "id": "art-kingelez-kimbembele-ihunga-001",
+  "kind": "object",
+  "titleZh": "金本贝勒·伊洪加",
+  "titleEn": "Kimbembele Ihunga",
+  "artist": "博迪斯·伊塞克·金格雷兹",
+  "attributionNote": "博迪斯·伊塞克·金格雷兹（1948—2015）1994 年作，以他出生的村庄命名；纽约现代艺术博物馆说这是他第一件由许多建筑组成的城市作品（据 MoMA）。",
+  "dateApprox": "1994 年",
+  "objectType": "建筑模型式雕塑（他自己称为“极致模型”）",
+  "medium": "纸、彩纸、印刷纸、纸板、商品包装、木、丙烯、塑料、铝箔、金属箔纸、泡沫、墨水、铅笔、蜡笔、马克笔、颜料、胶带、贴纸、布、线、珠子、吸管、铁丝、牙签、图钉、铝罐、塑料瓶、瓶盖、镜子、小塑像、幻灯片框、圆珠笔杆、电路板二极管、电灯等（据 MoMA 的材料清单）",
+  "dimensions": "130 × 185 × 320 厘米（据纽约现代艺术博物馆）",
+  "collection": "纽约现代艺术博物馆，PG130.2019（让·皮戈齐非洲艺术收藏承诺捐赠）",
+  "originalStatus": "原作，由许多单独的建筑组成，安放在一块底板上。",
+  "provenance": "让·皮戈齐收藏（CAAC—The Pigozzi Collection）；承诺捐赠给纽约现代艺术博物馆（据 MoMA）。",
+  "officialPage": {
+    "label": "纽约现代艺术博物馆的作品页面",
+    "url": "https://www.moma.org/collection/works/222150"
+  },
+  "infoSources": [
+    {
+      "label": "Sarah Suzuki，“Kingelez Visionnaire”，原载 MoMA 2018 年展览图录（生平、材料与做法、“大地魔术师”、CAAC、作品年表）",
+      "url": "https://post.moma.org/kingelez-visionnaire/"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Bodys Isek Kingelez, Kimbembele Ihunga，1994，PG130.2019（材料、尺寸、说明）",
+      "url": "https://www.moma.org/collection/works/222150"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Bodys Isek Kingelez 艺术家页面（Hillary Reder 撰，2018，附出处注释）",
+      "url": "https://www.moma.org/artists/68319"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Bodys Isek Kingelez: City Dreams，2018 年 5 月 26 日—2019 年 1 月 1 日",
+      "url": "https://www.moma.org/calendar/exhibitions/3889"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Bodys Isek Kingelez, U.N.，1995，131.2019",
+      "url": "https://www.moma.org/collection/works/222868"
+    },
+    {
+      "label": "纽约现代艺术博物馆：Bodys Isek Kingelez, Kinshasa la Belle，1991，128.2019",
+      "url": "https://www.moma.org/collection/works/223287"
+    }
+  ],
+  "images": [
+    {
+      "key": "scale",
+      "src": "/img/kingelez-scale-artpilot.jpg",
+      "kind": "detail",
+      "width": 2200,
+      "height": 1200,
+      "subject": "本站绘制的示意图：《金本贝勒·伊洪加》外框的大小",
+      "alt": "一张米色方格纸上的侧面示意图：左边是一扇虚线画的门，高 200 厘米；中间是一个火柴人，高 170 厘米；右边是一个很长的浅红色矩形，最高约 130 厘米，最长约 320 厘米，框里写着“只画外框，不画模型”。",
+      "caption": "《金本贝勒·伊洪加》有多大：只画它的外框，旁边是一扇门和一个人。尺寸据纽约现代艺术博物馆。",
+      "credit": {
+        "author": "ArtPilot",
+        "licence": "本站绘制",
+        "sourceUrl": "https://www.moma.org/collection/works/222150",
+        "changes": "据 MoMA 公布的尺寸绘制；不含金格雷兹作品的任何图像或形状",
+        "by": "示意图 · ArtPilot"
+      }
+    }
+  ],
+  "imagesNote": "这张图不是金格雷兹的作品，而是本站根据尺寸画的示意图，只有一个矩形外框。他的作品仍受版权保护，请到收藏机构的页面去看。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "金格雷兹 2015 年去世，作品在刚果（金）、法国、美国都仍在保护期内。MoMA 的作品页没有开放许可；本站没有找到经权利人授权的开放图像，也没有申请授权。",
+    "verifiedOn": "2026-10-29",
+    "note": "故事开头的“未来来客”是本站明确标出的虚构；示意图与“多大”“标签与解读”两个互动由本站编写，不画、不模仿任何一件模型。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "城市模型 · 雕塑",
+    "maker": "博迪斯·伊塞克·金格雷兹",
+    "period": "1994 年",
+    "facets": [
+      {
+        "label": "艺术家",
+        "value": "金格雷兹（刚果）"
+      },
+      {
+        "label": "材料",
+        "value": "纸板、包装、塑料、铝罐、电灯"
+      },
+      {
+        "label": "尺寸",
+        "value": "1.3 × 1.85 × 3.2 米"
+      },
+      {
+        "label": "收藏",
+        "value": "纽约现代艺术博物馆"
+      }
+    ],
+    "blurb": "他把出生的农村，用纸板和瓶盖改造成一座有体育场和摩天楼的城市。",
+    "image": null
+  }
+}

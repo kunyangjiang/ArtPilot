@@ -1,0 +1,252 @@
+{
+  "id": "art-rembrandt-self-portrait-1660-001",
+  "kind": "painting",
+  "titleZh": "自画像",
+  "titleEn": "Self-Portrait",
+  "artist": "伦勃朗·范·莱因",
+  "attributionNote": "伦勃朗（1606—1669）1660 年作（据大都会艺术博物馆）。",
+  "dateApprox": "1660 年",
+  "medium": "布面油画",
+  "dimensionsCm": {
+    "height": 80.3,
+    "width": 67.3
+  },
+  "collection": "纽约大都会艺术博物馆，14.40.618（本杰明·奥特曼遗赠，1913）",
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Rembrandt, Self-Portrait，1660，14.40.618（作品说明与导览录音）",
+      "url": "https://www.metmuseum.org/art/collection/search/437397"
+    },
+    {
+      "label": "大都会艺术博物馆：Rembrandt, Aristotle with a Bust of Homer，1653，61.198（目录条目：鲁福的委托、1657 年的清单、1662 年的信）",
+      "url": "https://www.metmuseum.org/art/collection/search/437394"
+    },
+    {
+      "label": "弗里克收藏馆蒙蒂亚斯数据库：伦勃朗 1656 年财产清单（阿姆斯特丹市档案馆 DBK 5072/364，第 29 页正面至第 38 页背面），逐条原文与房间",
+      "url": "https://research.frick.org/montias/details/1262"
+    },
+    {
+      "label": "伦勃朗故居博物馆：伦勃朗·范·莱因",
+      "url": "https://www.rembrandthuis.nl/en/rembrandt-van-rijn/"
+    },
+    {
+      "label": "荷兰国立博物馆：Rembrandt, The Flight into Egypt, on a Plate by Segers，约 1653，RP-P-1962-31",
+      "url": "https://id.rijksmuseum.nl/200124881"
+    },
+    {
+      "label": "荷兰国立博物馆：Hercules Segers, Tobias and the Angel，约 1630—1633，RP-P-OB-796",
+      "url": "https://id.rijksmuseum.nl/200126231"
+    },
+    {
+      "label": "荷兰国立博物馆：Rembrandt, Rembrandt’s Son Titus in a Monk’s Habit，1660，SK-A-3138",
+      "url": "https://id.rijksmuseum.nl/200107937"
+    },
+    {
+      "label": "美国国家美术馆：Rembrandt van Rijn 艺术家传记（斯瓦嫩堡与拉斯特曼；惠更斯 1628 年的称赞；最早的学生道与尤德维尔；凡·厄伊伦堡的“学院”；1639 年借债买房；萨斯基亚的遗嘱；1654 年教会传唤亨德丽吉；1657、1658 年的拍卖；亨德丽吉与提图斯的合伙；《克劳狄乌斯·西维利斯》被拒；1669 年 10 月 4 日去世）",
+      "url": "https://www.nga.gov/artists/1822-rembrandt-van-rijn"
+    },
+    {
+      "label": "荷兰国立博物馆：Rembrandt, The Sampling Officials of the Amsterdam Drapers’ Guild（The Syndics），1662，SK-C-6；Self-portrait，约 1628，SK-A-4691",
+      "url": "https://id.rijksmuseum.nl/200107929"
+    },
+    {
+      "label": "大都会艺术博物馆艺术史时间线：Wendy Thompson，“The Printed Image in the West: Etching”，2003（蚀刻的步骤）",
+      "url": "https://www.metmuseum.org/toah/hd/etch/hd_etch.htm"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/rembrandt-self-portrait-1660-met.jpg",
+      "kind": "full",
+      "width": 1649,
+      "height": 2000,
+      "alt": "一个五十多岁的男人的半身像，从深暗的背景里转过身来看着画外。他戴一顶深色的软帽，穿棕色的外衣，灰白的头发从帽檐下露出来。光落在脸上：额头和鼻尖最亮，眼睛下面是厚厚的眼袋，脸颊上的颜料一道一道地堆起来。",
+      "caption": "伦勃朗《自画像》，1660 年，布面油画，80.3 × 67.3 厘米，大都会艺术博物馆藏。画于那份清单之后四年。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437397",
+        "changes": "缩小到 2000 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "aristotle",
+      "src": "/img/rembrandt-aristotle-homer-met.jpg",
+      "kind": "detail",
+      "width": 1896,
+      "height": 2000,
+      "subject": "伦勃朗《亚里士多德与荷马半身像》，1653 年，大都会艺术博物馆藏",
+      "alt": "一个蓄胡子的男人站在暗处，戴一顶宽边黑帽，穿宽大的白色袖子和黑色外衣，肩上斜挂着一条粗重的金链，链子下面吊着一枚圆形的像章。他的右手放在一尊白色的老人半身像头上，目光却没有看它，像在出神。",
+      "caption": "伦勃朗《亚里士多德与荷马半身像》，1653 年，布面油画，143.5 × 136.5 厘米，大都会艺术博物馆藏（61.198）。为西西里收藏家安东尼奥·鲁福所画，1654 年夏天运往墨西拿。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/437394",
+        "changes": "缩小到 2000 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "saskia",
+      "src": "/img/rembrandt-self-portrait-saskia-met.jpg",
+      "kind": "detail",
+      "width": 1446,
+      "height": 1600,
+      "subject": "伦勃朗《与萨斯基亚的自画像》，1636 年，蚀刻版画，大都会艺术博物馆藏",
+      "alt": "一张小小的蚀刻版画：一个戴着插羽毛的软帽的年轻男人坐在桌前，手里握着笔，侧过脸来看着画外；他身后坐着一个年轻女人，头上戴着软帽，也看向画外。左上角刻着签名和“1636”。线条细密，男人的脸和帽子刻得最清楚。",
+      "caption": "伦勃朗《与萨斯基亚的自画像》，1636 年，蚀刻版画，大都会艺术博物馆藏（17.37.71）。结婚两年后。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/391625",
+        "changes": "缩小到 1600 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "window",
+      "src": "/img/rembrandt-etching-at-window-met.jpg",
+      "kind": "detail",
+      "width": 1490,
+      "height": 1800,
+      "subject": "伦勃朗《在窗边蚀刻的自画像》，1648 年，蚀刻版画，大都会艺术博物馆藏",
+      "alt": "一张蚀刻版画：一个戴扁帽、穿朴素外衣的男人坐在窗边的桌前，右手握着笔，按在一本厚书上铺着的版子上，抬眼直直地看向画外。窗外的光从左上方照进来，桌上放着一本厚书；背景几乎全是密密的排线，很暗。",
+      "caption": "伦勃朗《在窗边蚀刻的自画像》，1648 年，蚀刻、干刻与雕刻刀，大都会艺术博物馆藏（20.46.12）。馆方注明这一张是“九个状态中的第四个”：同一块铜版，他前后改了好几次。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/369807",
+        "changes": "缩小到 1800 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "segers-plate",
+      "src": "/img/segers-tobias-angel-rijks.jpg",
+      "kind": "detail",
+      "width": 1600,
+      "height": 1177,
+      "subject": "赫拉克勒斯·塞赫斯《托比亚斯与天使》，约 1630—1633 年，蚀刻版画，荷兰国立博物馆藏",
+      "alt": "一张印成橄榄绿色的蚀刻版画：左边是一大片树丛和远处平原上的小城；右边一条土坡上，一个年轻人提着一条鱼往左走，旁边跟着一个长着巨大翅膀的天使，翅膀几乎占了右上角。",
+      "caption": "赫拉克勒斯·塞赫斯《托比亚斯与天使》，约 1630—1633 年，蚀刻，橄榄绿墨印在纸上，荷兰国立博物馆藏（RP-P-OB-796）。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "公有领域（CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://id.rijksmuseum.nl/200126231",
+        "changes": "取自馆方 IIIF 的 1600 像素版本，重新压缩；未裁切、未调色",
+        "by": "荷兰国立博物馆"
+      }
+    },
+    {
+      "key": "flight",
+      "src": "/img/rembrandt-flight-segers-plate-rijks.jpg",
+      "kind": "detail",
+      "width": 1600,
+      "height": 1195,
+      "subject": "伦勃朗《逃往埃及（在塞赫斯的铜版上）》，约 1653 年，蚀刻版画，荷兰国立博物馆藏",
+      "alt": "一张蚀刻版画：左半边的树丛和远处的小城，和塞赫斯那一张几乎一样；右边的土坡上，天使和提鱼的年轻人不见了，换成一片更浓密的树，树下有一个人牵着驴，驴背上坐着一个人，正往右走进树荫里。",
+      "caption": "伦勃朗《逃往埃及（在塞赫斯的铜版上）》，约 1653 年，蚀刻版画，荷兰国立博物馆藏（RP-P-1962-31）。用的是塞赫斯那块铜版：他把右边的人物刮掉，刻上了约瑟、马利亚和驴。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "公有领域（CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://id.rijksmuseum.nl/200124881",
+        "changes": "取自馆方 IIIF 的 1600 像素版本，重新压缩；未裁切、未调色",
+        "by": "荷兰国立博物馆"
+      }
+    },
+    {
+      "key": "titus",
+      "src": "/img/rembrandt-titus-monk-rijks.jpg",
+      "kind": "detail",
+      "width": 1690,
+      "height": 2000,
+      "subject": "伦勃朗《穿修士服的儿子提图斯》，1660 年，荷兰国立博物馆藏",
+      "alt": "一个年轻男人的半身像，穿着棕色的修士袍，兜帽罩在头上，低着眼睛，脸朝左下方，神情安静。背景是暗的，袍子的褶皱用宽而粗的笔触画成。",
+      "caption": "伦勃朗《穿修士服的儿子提图斯》，1660 年，布面油画，荷兰国立博物馆藏（SK-A-3138）。馆方说明他可能被画成阿西西的圣方济各。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "公有领域（CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://id.rijksmuseum.nl/200107937",
+        "changes": "取自馆方 IIIF 的 1800 像素版本，缩小到 2000 像素高（未放大）并重新压缩；未裁切、未调色",
+        "by": "荷兰国立博物馆"
+      }
+    },
+    {
+      "key": "early",
+      "src": "/img/rembrandt-self-portrait-1628-rijks.jpg",
+      "kind": "detail",
+      "width": 1677,
+      "height": 2000,
+      "subject": "伦勃朗《自画像》，约 1628 年，荷兰国立博物馆藏",
+      "alt": "一个年轻人的头像，半侧着脸。一大蓬卷发被光从后面照亮，发梢一根根分明；光落在他的脸颊、耳朵和衣领上，眼睛却整个藏在头发投下的阴影里，几乎看不清。背景是平的灰色。",
+      "caption": "伦勃朗《自画像》，约 1628 年，木板油画，荷兰国立博物馆藏（SK-A-4691）。二十二岁前后，还在莱顿。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "公有领域（CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://id.rijksmuseum.nl/200107941",
+        "changes": "取自馆方 IIIF 的 1800 像素宽版本，缩小到 2000 像素高（未放大）并重新压缩；未裁切、未调色",
+        "by": "荷兰国立博物馆"
+      }
+    },
+    {
+      "key": "syndics",
+      "src": "/img/rembrandt-syndics-rijks.jpg",
+      "kind": "detail",
+      "width": 2200,
+      "height": 1491,
+      "subject": "伦勃朗《阿姆斯特丹布商公会的样品检验官》（“布商公会理事”），1662 年，荷兰国立博物馆藏",
+      "alt": "六个穿黑衣、戴白色宽领的男人，聚在一张铺着红色波斯地毯的桌子后面；五个人戴着宽边黑帽，一个不戴帽子的站在后面。桌上摊着一本书。左边第二个人正从椅子上欠起身。他们几乎都抬眼看向画外，像是被谁打断了。背后是深色的木墙板。",
+      "caption": "伦勃朗《阿姆斯特丹布商公会的样品检验官》，1662 年，布面油画，荷兰国立博物馆藏（SK-C-6）。馆方列出了画中每一个人的名字；桌布上有签名“Rembrandt f. 1662”，右上方另一处写着 1661 的签名，馆方认为是后人加的。",
+      "credit": {
+        "author": "荷兰国立博物馆",
+        "licence": "公有领域（CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://id.rijksmuseum.nl/200107929",
+        "changes": "取自馆方 IIIF 的 2400 像素宽版本，缩小到 2200 像素宽并重新压缩；未裁切、未调色",
+        "by": "荷兰国立博物馆"
+      }
+    }
+  ],
+  "imagesNote": "九张图都来自收藏机构以 CC0 开放的公有领域作品图像，本站只缩小、重新压缩。除了这幅自画像，其余都不是本卡片的作品，各自标明了作品名。",
+  "rights": {
+    "status": "公有领域：伦勃朗 1669 年去世，塞赫斯 1630 年代去世；图像由收藏机构以 CC0 开放",
+    "basis": "大都会艺术博物馆对 14.40.618、61.198、17.37.71、20.46.12 标注“Public Domain”，API 返回 isPublicDomain: true；荷兰国立博物馆的关联数据对 RP-P-OB-796、RP-P-1962-31、SK-A-3138、SK-A-4691、SK-C-6 注明 CC0 1.0。",
+    "verifiedOn": "2026-10-29",
+    "note": "清单的荷兰文条目据弗里克收藏馆蒙蒂亚斯数据库的转录（事实性记录）逐字引用，中文由本站翻译。“清单上的房间”和“一块铜版”两个互动由本站编写，使用的图像都是公有领域作品。"
+  },
+  "card": {
+    "type": "油画 · 自画像",
+    "maker": "伦勃朗",
+    "period": "1660 年",
+    "facets": [
+      {
+        "label": "媒材",
+        "value": "布面油画"
+      },
+      {
+        "label": "年龄",
+        "value": "五十四岁"
+      },
+      {
+        "label": "尺寸",
+        "value": "80.3 × 67.3 cm"
+      },
+      {
+        "label": "收藏",
+        "value": "大都会艺术博物馆"
+      }
+    ],
+    "blurb": "清单之后四年：他照着镜子，把颜料一层层堆在自己的脸上。",
+    "focus": "50% 35%"
+  }
+}

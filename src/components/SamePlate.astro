@@ -1,0 +1,70 @@
+---
+// One copper plate, two printmakers: an impression pulled by the plate's first maker and one pulled after a later artist
+// reworked it, shown in the same frame so the reader can switch between them and see what was kept and what was
+// scraped away and redrawn. "铜版上" mirrors whichever impression is showing: the image on the plate runs the other way,
+// and only printing turns it round. Both pictures come from artwork records (public-domain impressions); the mirrored
+// view is the same file flipped, not a photograph of the plate. Nothing is scored or stored. Reduced motion: no fade.
+import { getEntry } from 'astro:content';
+interface Side { artwork: string; image: string; label: string; note: string }
+interface Props { prompt: string; first: Side; second: Side; plateNote: string; caption: string }
+const { prompt, first, second, plateNote, caption } = Astro.props;
+const load = async (s: Side) => {
+  const img = (await getEntry('artworks', s.artwork))?.data.images.find((i) => i.key === s.image);
+  if (!img) throw new Error(`SamePlate: unknown image ${s.artwork}/${s.image}`);
+  return { ...s, img };
+};
+const sides = [await load(first), await load(second)];
+---
+<section class="module plate" data-plate data-side="0">
+  <p class="module-label">互动 · 一块铜版</p>
+  <h3>{prompt}</h3>
+  <div class="plate-switch" role="group" aria-label="选择印本">
+    {sides.map((s, i) => <button type="button" data-pick={i} aria-pressed={i === 0 ? 'true' : 'false'}>{s.label}</button>)}
+    <button type="button" class="plate-mirror" data-mirror aria-pressed="false">铜版上的样子</button>
+  </div>
+  <div class="plate-stage">
+    {sides.map((s, i) => (
+      <img class="plate-img" data-img={i} src={s.img.src} alt={s.img.alt} width={s.img.width} height={s.img.height} loading="lazy" decoding="async" />
+    ))}
+  </div>
+  <div class="plate-notes" aria-live="polite">
+    {sides.map((s, i) => <p class="plate-note" data-note={i}>{s.note}</p>)}
+    <p class="plate-note plate-note-mirror" data-note-mirror>{plateNote}</p>
+  </div>
+  <p class="plate-cap">{caption}</p>
+</section>
+
+<style>
+  .plate-switch { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .plate-switch button { min-height: 2.75rem; padding: .5rem .9rem; border: 1px solid var(--silver); background: transparent; color: inherit;
+    font: 400 .9375rem/1.3 var(--sans); cursor: pointer; transition: border-color var(--t) var(--ease), background var(--t) var(--ease); }
+  .plate-switch button:hover { border-color: var(--ink-3); }
+  .plate-switch button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .plate-mirror { margin-left: auto; }
+  .plate-stage { display: grid; background: var(--mist); padding: clamp(.5rem, 2vw, 1rem); }
+  .plate-img { grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity var(--t) var(--ease), transform var(--t) var(--ease); }
+  .plate[data-side="0"] .plate-img[data-img="0"], .plate[data-side="1"] .plate-img[data-img="1"] { opacity: 1; }
+  .plate.is-mirror .plate-img { transform: scaleX(-1); }
+  .plate-notes { margin-top: .9rem; }
+  .plate-note { display: none; max-width: var(--measure); margin: 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .plate[data-side="0"]:not(.is-mirror) .plate-note[data-note="0"], .plate[data-side="1"]:not(.is-mirror) .plate-note[data-note="1"], .plate.is-mirror .plate-note-mirror { display: block; }
+  .plate-cap { max-width: var(--measure); margin: .75rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  @media (max-width: 640px) { .plate-mirror { margin-left: 0; } }
+  @media (prefers-reduced-motion: reduce) { .plate-img { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-plate]').forEach((root) => {
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('[data-pick]')];
+    const mirror = root.querySelector<HTMLButtonElement>('[data-mirror]')!;
+    picks.forEach((b) => b.addEventListener('click', () => {
+      root.dataset.side = b.dataset.pick!;
+      picks.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    }));
+    mirror.addEventListener('click', () => {
+      const on = !root.classList.contains('is-mirror');
+      root.classList.toggle('is-mirror', on);
+      mirror.setAttribute('aria-pressed', String(on));
+    });
+  });
+</script>

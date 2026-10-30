@@ -1,0 +1,194 @@
+{
+  "id": "art-zhang-daqian-after-shitao-001",
+  "kind": "painting",
+  "titleZh": "仿石涛野色图",
+  "titleEn": "Paintings after Shitao’s “Wilderness Colors”",
+  "artist": "张大千",
+  "attributionNote": "张大千（1899—1983）约 1930 年作，四开册页，临石涛《野色》册中的四开；画上不署年，大都会艺术博物馆据印章的印文推断为 1920 年代末至 1930 年代。竹那一开照抄了石涛的署名“清湘老人济”，接着写“大千临”（据大都会艺术博物馆的题跋著录）。",
+  "dateApprox": "约 1930 年",
+  "medium": "册页四开，纸本设色",
+  "dimensionsCm": {
+    "height": 26.7,
+    "width": 21
+  },
+  "dimensionsSource": "每开画心尺寸，据大都会艺术博物馆的作品页面",
+  "collection": "纽约大都会艺术博物馆，2002.605a–d（马克·施鲁姆·普拉特捐赠，2002）",
+  "officialPage": {
+    "label": "大都会艺术博物馆的作品页面",
+    "url": "https://www.metmuseum.org/art/collection/search/65060"
+  },
+  "infoSources": [
+    {
+      "label": "大都会艺术博物馆：Chang Dai-chien (Zhang Daqian), Paintings after Shitao’s “Wilderness Colors”，约 1930，2002.605a–d（说明：公开承认的临本；与石涛原作的四处不同；题跋译文）",
+      "url": "https://www.metmuseum.org/art/collection/search/65060"
+    },
+    {
+      "label": "大都会艺术博物馆：Shitao, Wilderness Colors，约 1700，1972.122a–l",
+      "url": "https://www.metmuseum.org/art/collection/search/49176"
+    },
+    {
+      "label": "大都会艺术博物馆：Chang Dai-chien, Through Ancient Eyes after Shitao，约 1920—1922，1989.363.189",
+      "url": "https://www.metmuseum.org/art/collection/search/49800"
+    },
+    {
+      "label": "史密森尼国立亚洲艺术博物馆来源研究项目：Zhang Daqian（收藏家与画商传记，2016）",
+      "url": "https://asia.si.edu/research/provenance-program/collectors-and-dealers-of-asian-art/"
+    },
+    {
+      "label": "《大英百科全书》：Zhang Daqian（Sophia Law Suk Mun、Q. L. Wan）",
+      "url": "https://www.britannica.com/biography/Zhang-Daqian"
+    },
+    {
+      "label": "国立故宫博物院开放资料：牛耳毫木管斗笔（赠文 000007）",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/45091?dep=U"
+    },
+    {
+      "label": "国立故宫博物院开放资料：民国张大千菇（购画 001198）",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/35858?dep=P"
+    },
+    {
+      "label": "大都会艺术博物馆：Chang Dai-chien, Lotus（红荷图），1946，1986.267.360（母亲教他画花；敦煌；八大山人、院体花鸟与日本画三种来源）",
+      "url": "https://www.metmuseum.org/art/collection/search/42107"
+    },
+    {
+      "label": "大都会艺术博物馆：Chang Dai-chien, Mountains Clearing after Rain（峰晴隔雨图），约 1965—1970，2005.510.5（泼墨泼彩的做法；赵无极）",
+      "url": "https://www.metmuseum.org/art/collection/search/73163"
+    },
+    {
+      "label": "Justin Jacobs，“Confronting Indiana Jones…”，载 China on the Margins（康奈尔大学，2010）（1941—1943 年在敦煌；兰州、成都的临本展览）",
+      "url": "https://edspace.american.edu/justinjacobs/wp-content/uploads/sites/986/2017/11/Jacobs-Stein-2010.pdf"
+    },
+    {
+      "label": "Ben Luke，“Zhang Daqian: A Man of Many Worlds”，苏富比，2019",
+      "url": "https://www.sothebys.com/en/articles/zhang-daqian-a-man-of-many-worlds"
+    },
+    {
+      "label": "朱景玄《唐朝名画录》，王墨条（维基文库）",
+      "url": "https://zh.wikisource.org/zh-hans/唐朝名畫錄"
+    }
+  ],
+  "images": [
+    {
+      "key": "taro",
+      "src": "/img/shitao-wilderness-taro-met.jpg",
+      "kind": "detail",
+      "width": 1338,
+      "height": 1700,
+      "subject": "石涛《野色》册之“芋头”，约 1700 年，大都会艺术博物馆藏",
+      "alt": "一页册页：一片青绿色的大叶子斜铺在纸上，叶子上放着一个粗壮的芋头，切口朝上，旁边还有两个小一些的芋头，褐色的皮上画着一圈圈的纹和须根。纸的右上方写着一段小字行书，钤着几方红印。",
+      "caption": "石涛《野色》册中的一开，芋头，约 1700 年，纸本设色，每开 27.6 × 24.1 厘米，大都会艺术博物馆藏（1972.122a–l）。张大千约 1930 年临过这一开。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49176",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "bamboo",
+      "src": "/img/shitao-wilderness-bamboo-met.jpg",
+      "kind": "detail",
+      "width": 1303,
+      "height": 1700,
+      "subject": "石涛《野色》册之“竹”，约 1700 年，大都会艺术博物馆藏",
+      "alt": "一页册页：左上角斜伸出几枝墨竹，竹叶尖而浓；纸的大半写满了大字行草，一行一行往左排，字的大小、粗细变化很大；左下角有落款和红印。",
+      "caption": "石涛《野色》册中的一开，竹，约 1700 年，大都会艺术博物馆藏。张大千临这一开时，照抄了石涛的署名“清湘老人济”，又在后面写上“大千临”。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49176",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "eggplant",
+      "src": "/img/shitao-wilderness-eggplant-met.jpg",
+      "kind": "detail",
+      "width": 1324,
+      "height": 1700,
+      "subject": "石涛《野色》册之“茄子”，约 1700 年，大都会艺术博物馆藏",
+      "alt": "一页册页：右边吊着一串紫色的茄子，用一根带子扎着，茄子由深紫渐渐过渡到浅紫；左边写着几行大字行草，钤着红印。",
+      "caption": "石涛《野色》册中的一开，茄子，约 1700 年，大都会艺术博物馆藏。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49176",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "orchid",
+      "src": "/img/shitao-wilderness-orchid-met.jpg",
+      "kind": "detail",
+      "width": 1319,
+      "height": 1700,
+      "subject": "石涛《野色》册之“兰石”，约 1700 年，大都会艺术博物馆藏",
+      "alt": "一页册页：右下方一块扁圆的石头，用淡墨和浅绿画出一圈圈的纹理；石头上方伸出几片细长的兰叶和一两朵兰花；左边写着十来行小字，最左一行落款，钤着几方红印。",
+      "caption": "石涛《野色》册中的一开，兰与石，约 1700 年，大都会艺术博物馆藏。",
+      "credit": {
+        "author": "大都会艺术博物馆",
+        "licence": "公有领域（开放获取，CC0）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://www.metmuseum.org/art/collection/search/49176",
+        "changes": "缩小到 1700 像素高并重新压缩；未裁切、未调色",
+        "by": "大都会艺术博物馆"
+      }
+    },
+    {
+      "key": "brush",
+      "src": "/img/zhang-daqian-brush-npm.jpg",
+      "kind": "detail",
+      "width": 1800,
+      "height": 522,
+      "subject": "牛耳毫木管斗笔，1969 年日本高诚堂为张大千七十寿辰定制，台北故宫博物院藏",
+      "alt": "一支很粗的毛笔横放着：深红褐色的木管，中间细、两头粗，尾端系着一个线环；笔头是灰白相间的长毫，收成一个尖。笔管上用绿色写着“艺坛主盟”四个字，旁边用红色写着两行小字。",
+      "caption": "牛耳毫木管斗笔，1969 年，长 26 厘米，台北故宫博物院藏（赠文 000007）。张大千七十岁时在日本高诚堂、玉川堂定做了五十支，分送艺术界的朋友；笔管上的绿字是他起的名字“艺坛主盟”，红字写着“牛耳毫特制恭介大千居士七十大寿”。",
+      "credit": {
+        "author": "国立故宫博物院（台北）",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceUrl": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/45091?dep=U",
+        "changes": "取自馆方 IIIF 中阶图像，裁去下方的文物号标签与多余的背景，缩小并重新压缩；未调色",
+        "by": "牛耳毫木管斗笔。国立故宫博物院，台北，CC BY 4.0 @ www.npm.gov.tw"
+      }
+    }
+  ],
+  "imagesNote": "这些图像都不是张大千的画：四开是他临过的石涛原作（大都会艺术博物馆以 CC0 开放），一张是他七十岁时定制的毛笔（台北故宫以 CC BY 4.0 开放）。张大千本人的作品仍受版权保护，本站只提供收藏机构的链接。",
+  "rights": {
+    "status": "作品仍受版权保护：本站只提供收藏机构作品页面的链接，不复制它的图像",
+    "basis": "大都会艺术博物馆对 2002.605a–d 注明“© Chang Dai-chien”，图像不能放大或下载。张大千 1983 年去世，作品在台湾、中国大陆、美国都仍在保护期内。台北故宫的开放资料虽对其收藏的张大千画作（如《菇》）标示 CC BY 4.0，但那是馆方购藏的作品，本站没有核实馆方是否同时取得著作权，因此只给链接，不复制。石涛（1642—1707）的原作属于公有领域，由大都会以 CC0 开放；毛笔是 1969 年日本笔庄的制品，照片由台北故宫以 CC BY 4.0 开放。",
+    "verifiedOn": "2026-10-29",
+    "note": "张大千的画一律给链接。卡片为文字卡片。"
+  },
+  "card": {
+    "type": "册页 · 临本",
+    "maker": "张大千",
+    "period": "约 1930 年",
+    "facets": [
+      {
+        "label": "临自",
+        "value": "石涛《野色》册"
+      },
+      {
+        "label": "媒材",
+        "value": "纸本设色，四开"
+      },
+      {
+        "label": "题款",
+        "value": "清湘老人济 · 大千临"
+      },
+      {
+        "label": "收藏",
+        "value": "大都会艺术博物馆"
+      }
+    ],
+    "blurb": "一位以伪作石涛出名的画家，在这四页的一页上写着：大千临。",
+    "image": null
+  }
+}

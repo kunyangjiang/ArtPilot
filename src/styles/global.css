@@ -316,6 +316,9 @@ dfn.term:hover { text-decoration-color: var(--ink); }
 .callout.schematic { padding: .1rem 0 .1rem 1.35rem; border-left: 1px dotted var(--ink-3); font: 400 .9375rem/1.85 var(--sans); letter-spacing: .03em; color: var(--ink-3); }
 /* What to look for in a work shown only by its official page: a framed checklist the reader follows with the work open. */
 .callout.look { padding: 1.1rem 1.35rem 1.2rem; border: 1px solid var(--rule); font: 400 .9375rem/1.9 var(--sans); letter-spacing: .03em; color: var(--ink-2); }
+/* An avowed fiction (a story's imagined frame): the narrative serif, set off by a double rule so it cannot pass for the
+   documented history around it. */
+.callout.fiction { padding: 1.2rem 0 1.2rem 1.35rem; border-left: 3px double var(--ink-3); font: italic 400 1.0625rem/1.95 var(--serif); color: var(--ink-2); }
 .callout ol { margin: .25rem 0 0; padding-left: 1.4em; }
 .callout li { margin-bottom: .5em; }
 .rights-images { margin: 0; padding-left: 1.4em; }
