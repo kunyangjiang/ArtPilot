@@ -1,0 +1,171 @@
+{
+  "id": "art-wayang-hanoman-tropenmuseum-001",
+  "kind": "object",
+  "titleZh": "爪哇皮影偶：哈努曼（Hanoman）",
+  "titleEn": "Wayang kulit shadow puppet of Hanoman",
+  "attributionNote": "爪哇皮影匠人所作（雕刻 tatah 与彩绘 sungging 往往出自不同的人）；作者姓名、产地和具体流派，收藏机构的公开记录都没有注明。",
+  "dateApprox": "1914 年以前（入藏年代）",
+  "objectType": "爪哇皮影偶（wayang kulit），罗摩衍那戏中的白猴将领哈努曼",
+  "medium": "镂刻、彩绘的兽皮（馆方记作 perkament，即未鞣制的生皮），角质主杆",
+  "dimensions": "收藏机构的公开图像记录中未注明尺寸",
+  "collection": "阿姆斯特丹世界博物馆（原热带博物馆，Tropenmuseum），TM-8-283",
+  "originalStatus": "原件。照片中可见中央主杆；两臂各有肩、肘两处关节，但操纵双臂的细杆不在照片中。",
+  "provenance": "1914 年以前入藏阿姆斯特丹热带博物馆（馆方著录“before 1914”）。更早由谁制作、在哪里使用、如何离开爪哇，公开记录中没有。",
+  "infoSources": [
+    { "label": "Wereldmuseum（原 Tropenmuseum）藏品图像，经维基共享资源发布：Wajangfiguur van perkament voorstellende de aap Hanoman，TMnr 8-283", "url": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Wajangfiguur_van_perkament_voorstellende_de_aap_Hanoman_TMnr_8-283.jpg" },
+    { "label": "UNESCO 非物质文化遗产：Wayang puppet theatre（印度尼西亚，2008 年列入代表作名录）", "url": "https://ich.unesco.org/en/RL/wayang-puppet-theatre-00063" },
+    { "label": "Museum Sonobudoyo（日惹）：参观与演出信息（皮影戏罗摩衍那晚场 20:00—21:30）", "url": "https://sonobudoyo.jogjaprov.go.id/en/information" },
+    { "label": "Museum Sonobudoyo：Mengenal Tokoh Pewayangan Sang Hanoman（第 1、2 部分）", "url": "https://sonobudoyo.jogjaprov.go.id/id/tulisan/read/mengenal-tokoh-pewayangan-sang-hanoman-part-2" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/wayang-hanoman-tropenmuseum.jpg",
+      "kind": "full",
+      "width": 800,
+      "height": 800,
+      "alt": "一件平面的皮影偶，侧身面朝左：猴脸张着嘴、露出牙齿，眼睛涂成红色，头上一圈向后卷的黑白花纹头冠。身体是灰绿色的，双臂在肘部弯折、手叉在腰间；腰下是金、红、黑相间的格纹裙布和蓝白卷云纹的腿饰。两脚之间连着一条红色的地面。一根深色的长杆从头顶斜贯全身，伸到脚下。",
+      "caption": "哈努曼皮影偶，爪哇，1914 年以前入藏，阿姆斯特丹世界博物馆（原热带博物馆）藏。皮面镂空、彩绘，手臂在肩、肘两处可以转动；贯穿全身的是操纵用的主杆。",
+      "credit": {
+        "author": "Tropenmuseum（Wereldmuseum Amsterdam）",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Wajangfiguur_van_perkament_voorstellende_de_aap_Hanoman_TMnr_8-283.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色",
+        "by": "Tropenmuseum / Wereldmuseum Amsterdam"
+      }
+    },
+    {
+      "key": "cutout",
+      "src": "/img/wayang-hanoman-tropenmuseum-cutout.png",
+      "kind": "detail",
+      "width": 800,
+      "height": 800,
+      "alt": "同一件哈努曼皮影偶，白色的照片背景已去除，只剩偶本身的轮廓。",
+      "caption": "哈努曼皮影偶，1914 年以前入藏，阿姆斯特丹世界博物馆（原热带博物馆）藏。示意图里的“影子”由这张去掉背景的照片生成，不是真实演出中拍下的影子。",
+      "credit": {
+        "author": "Tropenmuseum（Wereldmuseum Amsterdam）",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Wajangfiguur_van_perkament_voorstellende_de_aap_Hanoman_TMnr_8-283.jpg",
+        "changes": "由本站去除白色背景、转为透明 PNG 并减色压缩；轮廓与颜色未改动。此衍生图按 CC BY-SA 3.0 相同方式共享",
+        "by": "Tropenmuseum / Wereldmuseum Amsterdam · 去背景：ArtPilot"
+      }
+    },
+    {
+      "key": "backstage",
+      "src": "/img/wayang-sonobudoyo-backstage.jpg",
+      "kind": "detail",
+      "subject": "日惹 Sonobudoyo 博物馆的皮影戏演出，幕后一侧，2008 年",
+      "width": 2000,
+      "height": 1500,
+      "alt": "从幕后拍的照片：一面被灯照亮的白色幕布，上沿挂着红色花布帷幔。幕前左右各立着一件高大的、树形的彩色皮影；中间两件彩绘皮影插在幕前，一件红脸、一件戴尖冠。左边一长排皮影的杆子插在一条横放的芭蕉树干上，排成斜斜的一列。前景是一个背对镜头坐着的人，身穿深色花衣，正面对幕布。",
+      "caption": "日惹 Sonobudoyo 博物馆的皮影戏，从达朗身后看：白幕、两侧的“山”（gunungan）、插在芭蕉树干上的一排皮影，和坐在幕前的达朗。",
+      "credit": {
+        "author": "Eric Lefevre-Ardant",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yogyakarta_Wayang_Kulit_mus%C3%A9e_Sono-Budoyo.jpg",
+        "date": "2008 年 8 月",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "screen",
+      "src": "/img/wayang-yogyakarta-screen.jpg",
+      "kind": "detail",
+      "subject": "日惹一场皮影戏的观众一侧，2008 年",
+      "width": 2000,
+      "height": 1082,
+      "alt": "从观众一侧拍的照片：一面横长的白色幕布被从后面照亮，幕上是黑色的影子。左右两端各有一个尖顶的山形影子，中间两个人形影子相对而立，一个高大、一个弓着身子，影子的边缘清晰，细小的镂空纹样都透着光。",
+      "caption": "同一类演出的另一面：观众看到的是影子。摄影者注明，这一场演的是罗摩衍那，而且用的是电灯，而不是从前的油灯。",
+      "credit": {
+        "author": "Michael Gunther",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wayang_performance,_Yogyakarta_1136.jpg",
+        "date": "2008 年",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "gamelan",
+      "src": "/img/wayang-yogyakarta-gamelan.jpg",
+      "kind": "detail",
+      "subject": "日惹一场皮影戏的幕后：甘美兰乐手与皮影箱，2008 年",
+      "width": 1800,
+      "height": 1432,
+      "alt": "幕后一角：五六位穿黄褐色花衬衫、头扎布巾的乐手坐在地毯上，面前是一排排铜锣和铜盆形的乐器，身后挂着大小不同的铜锣。前景是一只红色、画着狮头图案的大木箱，箱里平躺着许多彩色的皮影。",
+      "caption": "幕后的另一半：甘美兰乐手，和装着整箱皮影的木箱（kotak）。达朗要的皮影，就从这样的箱子和芭蕉树干上取。",
+      "credit": {
+        "author": "Michael Gunther",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wayang_Performance_in_Yogyakarta,_Java_1050.jpg",
+        "date": "2008 年",
+        "changes": "缩小到 1800 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "cephas",
+      "src": "/img/wayang-kraton-gamelan-1885-cephas.jpg",
+      "kind": "detail",
+      "subject": "日惹苏丹王宫内的达朗、女歌手与甘美兰乐手，约 1885 年，卡西安·塞法斯摄",
+      "width": 1920,
+      "height": 1174,
+      "alt": "一张褐色调的老照片：宫殿前的空地上，二十来个头戴圆筒帽、赤裸上身或穿短衣的男子盘腿坐成一排，面前是一排排铜锣和金属板乐器，后面架着几面大锣；队伍中间坐着一位女子。背景是带栏杆的长廊建筑和一棵大树。",
+      "caption": "约 1885 年，日惹苏丹王宫：一位达朗、一位女歌手（pesinden）和甘美兰乐手。摄影者卡西安·塞法斯（1845—1912）被视为印度尼西亚摄影的先驱。",
+      "credit": {
+        "author": "Kassian Céphas",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:KITLV_3930_-_Kassian_C%C3%A9phas_-_A_Dalang,_a_pesinden_and_nijaga_with_a_gamelan_in_the_Kraton_of_the_Sultan_of_Yogyakarta_-_Around_1885.tif",
+        "date": "约 1885 年",
+        "changes": "取 1920 像素宽的版本并重新压缩；未裁切、未调色",
+        "by": "摄影 Kassian Céphas · 莱顿大学图书馆 KITLV 3930"
+      }
+    },
+    {
+      "key": "tatah",
+      "src": "/img/wayang-kraton-tatah-sungging.jpg",
+      "kind": "detail",
+      "subject": "日惹王宫内的皮影雕刻匠人，2012 年",
+      "width": 1300,
+      "height": 1950,
+      "alt": "一位戴眼镜、穿白色印花短袖的男子坐在木墩前，左手扶着一张平铺的浅色皮子，右手举着一把木槌，正往皮上敲一根细细的凿子。皮子上已经凿出了密密的镂空花纹。",
+      "caption": "日惹王宫里的皮影匠人正在雕刻（tatah）：一手执凿，一手执槌，在皮上凿出镂空。上色（sungging）是另一道工序。",
+      "credit": {
+        "author": "Herusutimbul",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perajin_Wayang_Yogyakarta.jpg",
+        "date": "2012 年 10 月",
+        "changes": "缩小到 1300 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "gunungan",
+      "src": "/img/wayang-gunungan-tropenmuseum.jpg",
+      "kind": "detail",
+      "subject": "爪哇皮影“山”（gunungan / kayon），1914 年以前入藏，阿姆斯特丹世界博物馆藏",
+      "width": 711,
+      "height": 800,
+      "alt": "一件尖顶、像一片叶子或一座山的皮影：上半部密密地镂刻着一棵枝叶缠绕的大树，树间有动物；下半部是一座带门的建筑，门两边站着两个守门的人物。整件涂着金、红、蓝、绿等颜色，一根长杆从中间穿下。",
+      "caption": "“山”（gunungan，也叫 kayon），1914 年以前入藏，阿姆斯特丹世界博物馆（原热带博物馆）藏。演出开场时，幕布上还空着，先出场的就是它。",
+      "credit": {
+        "author": "Tropenmuseum（Wereldmuseum Amsterdam）",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Wajangfiguur_van_perkament_voorstellende_een_pauzeteken_TMnr_8-224.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色",
+        "by": "Tropenmuseum / Wereldmuseum Amsterdam"
+      }
+    }
+  ],
+  "imagesNote": "两件皮影来自阿姆斯特丹世界博物馆（原热带博物馆）以 CC BY-SA 3.0 发布的藏品图像；演出与匠人的照片是摄影者在维基共享资源以 CC BY-SA 发布的；塞法斯约 1885 年的照片属公有领域。本篇没有使用任何录音或录像：现场声音的版权与授权无法逐一确认，文中只给出 UNESCO 官方页面的视频链接。",
+  "rights": {
+    "status": "两件皮影为 1914 年以前的作品；照片各有许可，见上方“图片”",
+    "basis": "按各自的 CC BY-SA 2.0、3.0、4.0 条款署名作者、许可与来源；塞法斯的照片约摄于 1885 年，摄影者 1912 年去世，已进入公有领域。本站只做了缩小和重新压缩。",
+    "verifiedOn": "2026-10-30",
+    "note": "照片中出现的演出者是在公开演出或工作场所中被拍到的；本篇不点出他们的姓名，也不把他们写成故事里的人物。"
+  }
+}

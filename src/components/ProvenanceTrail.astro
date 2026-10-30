@@ -1,0 +1,98 @@
+---
+// An object's provenance as a trail of events, oldest first. Each event says what kind of ground it stands on — a
+// documented record, an inference, or a gap where the record is silent — and, beside it, four things that are easy to
+// confuse and that changed at different times: who owned the object, who held it, where it was, and whether it was on
+// view. Choosing an event opens its evidence and fills the four lines; a gap is drawn as a broken line and says what is
+// missing rather than guessing. Nothing is scored or stored. Without script every event's evidence and status is listed.
+type Kind = 'record' | 'inferred' | 'gap';
+interface Status { owner: string; holder: string; place: string; view: string }
+interface Event { id: string; date: string; title: string; kind: Kind; text: string; source: string; status: Status }
+interface Props { prompt: string; events: Event[] }
+const { prompt, events } = Astro.props;
+const kinds: Record<Kind, string> = { record: '有记录', inferred: '推断', gap: '断档' };
+const rows: [keyof Status, string][] = [['owner', '归谁所有'], ['holder', '谁在保管'], ['place', '实物在哪里'], ['view', '能不能看到']];
+---
+<section class="module pt" data-pt>
+  <p class="module-label">互动 · 一件东西的履历</p>
+  <h3>{prompt}</h3>
+  <p class="pt-legend"><span class="is-record">有记录</span><span class="is-inferred">推断</span><span class="is-gap">断档</span></p>
+  <div class="pt-body">
+    <ol class="pt-trail" role="tablist" aria-label="履历中的事件" aria-orientation="vertical">
+      {events.map((e, i) => (
+        <li class={`is-${e.kind}`}>
+          <button type="button" role="tab" id={`pt-tab-${e.id}`} aria-controls={`pt-panel-${e.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-e={e.id}>
+            <span class="pt-date">{e.date}</span><span class="pt-title">{e.title}</span>
+          </button>
+        </li>
+      ))}
+    </ol>
+    <div class="pt-panels">
+      {events.map((e, i) => (
+        <div class={`pt-panel is-${e.kind}`} role="tabpanel" id={`pt-panel-${e.id}`} aria-labelledby={`pt-tab-${e.id}`} data-panel={e.id} hidden={i !== 0}>
+          <p class="pt-kind">{kinds[e.kind]} · {e.date}</p>
+          <p class="pt-text">{e.text}</p>
+          <dl class="pt-status">
+            {rows.map(([k, label]) => <div><dt>{label}</dt><dd>{e.status[k]}</dd></div>)}
+          </dl>
+          <p class="pt-source"><span>出处</span>{e.source}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pt-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0 0 1rem; font: 400 .75rem/1.5 var(--sans); color: var(--ink-3); }
+  .pt-legend span::before { content: ""; display: inline-block; width: 1.4rem; margin-right: .4rem; vertical-align: middle; border-top: 2px solid var(--ink); }
+  .pt-legend .is-inferred::before { border-top-style: dotted; }
+  .pt-legend .is-gap::before { border-top: 2px dashed var(--ink-3); }
+  .pt-body { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+  .pt-trail { margin: 0; padding: 0; list-style: none; }
+  .pt-trail li { position: relative; padding: 0 0 .2rem 1.1rem; border-left: 2px solid var(--ink); }
+  .pt-trail li.is-inferred { border-left-style: dotted; }
+  .pt-trail li.is-gap { border-left: 2px dashed var(--ink-3); }
+  .pt-trail li::before { content: ""; position: absolute; left: -6px; top: .85rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+  .pt-trail li.is-gap::before { background: var(--paper); border: 1.5px dashed var(--ink-3); left: -7px; }
+  .pt-trail button { display: grid; gap: .1rem; width: 100%; padding: .5rem .6rem; border: 1px solid transparent; background: none; color: var(--ink-2); text-align: left; cursor: pointer; font: inherit; }
+  .pt-trail button[aria-selected="true"] { border-color: var(--rule); background: var(--mist); color: var(--ink); }
+  .pt-trail button:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+  .pt-date { font: 600 .75rem/1.4 var(--sans); letter-spacing: .08em; color: var(--ink-3); }
+  .pt-title { font: 500 .9375rem/1.5 var(--serif); }
+  .pt-panel { animation: pt-in 340ms var(--ease) both; }
+  .pt-kind { margin: 0 0 .5rem; font: 600 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  .pt-panel.is-gap .pt-kind { color: var(--ink); }
+  .pt-text { margin: 0; font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .pt-status { display: grid; gap: .1rem; margin: 1rem 0 0; padding: .8rem 1rem; background: var(--mist); }
+  .pt-status div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; padding: .3rem 0; border-bottom: 1px solid var(--rule); }
+  .pt-status div:last-child { border-bottom: 0; }
+  .pt-status dt { font: 600 .8125rem/1.6 var(--sans); color: var(--ink); }
+  .pt-status dd { margin: 0; font: 400 .875rem/1.6 var(--sans); color: var(--ink-2); }
+  .pt-source { margin: .75rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  .pt-source span { margin-right: .5rem; font-weight: 600; letter-spacing: .1em; }
+  @keyframes pt-in { from { opacity: 0; transform: translateY(6px); } }
+  /* Without script every event is listed with its evidence. */
+  :global(.pt:not(.is-ready)) .pt-panel[hidden] { display: block; margin-top: 1.5rem; }
+  @media (max-width: 640px) { .pt-body { grid-template-columns: 1fr; } .pt-status div { grid-template-columns: 5.5rem minmax(0, 1fr); } }
+  @media (prefers-reduced-motion: reduce) { .pt-panel { animation: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pt]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    root.classList.add('is-ready');
+    const select = (i: number, focus = false) => {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panels.forEach((p, k) => { p.hidden = k !== i; });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+  });
+</script>

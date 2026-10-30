@@ -1,0 +1,157 @@
+{
+  "id": "art-bonampak-structure1-001",
+  "kind": "building",
+  "titleZh": "博南帕克第一号建筑（壁画殿）",
+  "titleEn": "Bonampak, Structure 1 (Temple of the Paintings)",
+  "attributionNote": "墨西哥国家人类学与历史研究所（INAH）认为，这座建筑由博南帕克统治者亚哈乌·陈·穆万（INAH 称“陈·穆万二世”，776 年即位）下令修建并装饰；画师的姓名没有留下来。",
+  "dateApprox": "约 790—792 年（壁画；Magaloni 等 1995 年据壁画样品的研究）",
+  "location": "墨西哥恰帕斯州，拉坎冬丛林中的博南帕克考古区，卫城第一层平台",
+  "facts": [
+    { "label": "长度", "value": "约 16.5 米（INAH）" },
+    { "label": "房间", "value": "三间，各有一门，自左至右编为 1、2、3 号" },
+    { "label": "壁画年代", "value": "约 790—792 年" },
+    { "label": "外界看见", "value": "1946 年由当地拉坎冬人引路" }
+  ],
+  "buildingType": "古典期晚期玛雅宫殿建筑（叠涩拱）",
+  "materials": "石砌，叠涩拱（逐层向内收的“玛雅拱”）；内壁、拱顶和室内长凳的侧面抹灰后绘画。三道门上各有一块雕刻石门楣；外立面上方有三个壁龛，龛内残存灰塑坐像。",
+  "notes": [
+    "1946—1948 年，华盛顿卡内基研究所组织的前三次考察中，安东尼奥·特赫达与阿古斯丁·比利亚格拉临摹了壁画；墙面被厚厚的碳酸盐沉积覆盖，临摹十分困难（INAH）。",
+    "1984 年，INAH 在国内外长时间讨论之后修复壁画，在很大程度上恢复了原来鲜亮的颜色（INAH）。",
+    "1990 年代：墨西哥国立自治大学美学研究所出版两卷全套照片；耶鲁大学玛丽·米勒主持的“博南帕克记录项目”自 1995 年起以彩色透明片、红外摄影和红外录像记录壁画，1999 年起由一位考古画家据此手绘重建（INAH；耶鲁大学）。",
+    "自 2011 年起，INAH 以新的方法进行第二次修复，第 3 号房间的细节因此可以看得更清楚（INAH）。"
+  ],
+  "infoSources": [
+    { "label": "INAH：Bonampak（考古区介绍、壁画的发现、临摹与修复史、三间屋子的内容）", "url": "https://lugares.inah.gob.mx/en/node/4331" },
+    { "label": "INAH：The Most Significant Places in Bonampak（第一号建筑的尺寸、门楣、壁龛、三间屋子的叙事）", "url": "https://lugares.inah.gob.mx/en/node/5416" },
+    { "label": "耶鲁大学新闻：Yale Professor Presents Mexican Government with Records of Ancient Maya Art（2002 年 5 月 15 日）", "url": "https://news.yale.edu/2002/05/15/yale-professor-presents-mexican-government-records-ancient-maya-art" },
+    { "label": "D. Magaloni 等，An Analysis of Mayan Painting Techniques at Bonampak, Chiapas, Mexico，MRS Proceedings 352（1995）：381–388（摘要）", "url": "https://link.springer.com/article/10.1557/PROC-352-381" }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/bonampak-room1-panorama.jpg",
+      "kind": "full",
+      "width": 3840,
+      "height": 968,
+      "alt": "一张很宽的全景照片：一间窄长的石屋内部，墙面和拱顶都布满褪色的壁画。中段的墙上，一长排身穿白色斗篷的人物并肩站着，上方是红褐与青绿色的条带，下方是一条高起的长凳。两端的墙壁向里弯，颜色斑驳。",
+      "caption": "第 1 号房间内景全景。人站在门口，墙、拱顶和长凳一眼看不完：壁画是包着人画的。",
+      "credit": {
+        "author": "Rafael Saldaña",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mural_room_1_bonampak.jpg",
+        "date": "2015 年 12 月",
+        "changes": "缩小到 3840 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "niche",
+      "src": "/img/bonampak-structure1-niche.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1333,
+      "alt": "石砌外墙的近景：墙上凹进去一个竖长的壁龛，龛里残留着一尊灰白色、已经风化得看不清面目的灰塑人像。右边竖着一根保护用的金属支架。",
+      "caption": "第一号建筑外墙上方的壁龛之一，龛内残存灰塑人像。INAH 认为，每个龛里的人像很可能对应其下方门楣上的统治者。",
+      "credit": {
+        "author": "ProtoplasmaKid",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonampak_-_24_-_17.jpg",
+        "date": "2024 年 9 月",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "lintel1",
+      "src": "/img/bonampak-lintel1.jpg",
+      "kind": "detail",
+      "width": 1200,
+      "height": 1804,
+      "alt": "雕刻石板的局部近景：石面风化成灰黄和浅粉色，凹下去的底子上残留着大片蓝绿色颜料。能看出弧形展开的羽饰和层层叠叠的衣饰纹样，上缘和下缘各有一排刻着字符的方格。人物的整体轮廓在这个距离上已难以分辨。",
+      "caption": "第 1 号房间门上的门楣（Lintel 1）局部。INAH 说，整块门楣刻的是博南帕克统治者亚哈乌·陈·穆万在约 789 年的战斗中擒获俘虏；上下两排方格是字符，凹处仍残留着当年的蓝绿色颜料。",
+      "credit": {
+        "author": "ProtoplasmaKid",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonampak_-_24_-_3_(cropped).jpg",
+        "date": "2024 年 9 月",
+        "changes": "缩小到 1200 像素宽并重新压缩；未调色"
+      }
+    },
+    {
+      "key": "nobles",
+      "src": "/img/bonampak-room1-nobles.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1333,
+      "alt": "壁画局部：一排十来个人物并肩站着，都披着长长的白色斗篷，斗篷下露出深色的身体和腰间的饰物；他们头戴不同的头饰，面朝同一个方向。上方的墙面被大片橙褐色的斑渍覆盖，许多脸已经模糊。",
+      "caption": "第 1 号房间：一排披白斗篷的贵族。墙面上的橙褐色斑渍和剥落，是一千两百年的潮湿和后来的沉积留下的。",
+      "credit": {
+        "author": "ProtoplasmaKid",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonampak_-_24_-_11.jpg",
+        "date": "2024 年 9 月",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "musicians",
+      "src": "/img/bonampak-room1-musicians.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1333,
+      "alt": "壁画局部，青绿色的底子上，五个深红褐色皮肤的男子从左向右排成一列，每人双手各举一只圆鼓鼓的红色摇铃，摇铃顶上插着黄色的羽毛；他们头上戴着白色、向后弯的高头饰，颈间围着一圈白色锯齿状的领饰，腰下系着带花纹的裙布。",
+      "caption": "第 1 号房间下层：举着摇铃的乐手。INAH 列出的乐器有摇铃、大海螺做的号和龟壳做的鼓。",
+      "credit": {
+        "author": "Arian Zwegers",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonampak,_Temple_of_the_Murals,_musicians_(14179847567).jpg",
+        "date": "2013 年 5 月",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "battle",
+      "src": "/img/bonampak-room2-battle.jpg",
+      "kind": "detail",
+      "width": 1920,
+      "height": 1440,
+      "alt": "壁画局部，色调偏紫蓝：画面挤满了扭在一起的人体，长矛斜斜交错，有人被抓住头发、有人倒向地面。许多地方灰泥剥落，露出浅色的补块，人物的轮廓时断时续。",
+      "caption": "第 2 号房间：战斗。一百多个人挤在墙上，长矛交错；剥落的地方比别的房间多。照片的颜色受现场灯光影响，偏紫。",
+      "credit": {
+        "author": "Dennis G. Jarvis",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mexico-2311_(2213860947).jpg",
+        "date": "2007 年 2 月",
+        "changes": "取 1920 像素宽的版本并重新压缩；未裁切、未调色"
+      }
+    },
+    {
+      "key": "dancers",
+      "src": "/img/bonampak-room3-dancers.jpg",
+      "kind": "detail",
+      "width": 2000,
+      "height": 1333,
+      "alt": "壁画局部，红橙和青绿交杂：几位舞者的背后张开巨大的、像翅膀一样的羽饰，绿色的长羽向上翻卷，下方是层层叠叠的织物和饰带。人物的脸和手已经褪得很淡，羽饰的颜色却还鲜亮。",
+      "caption": "第 3 号房间：背着巨大羽饰的舞者。INAH 说，2011 年以来的第二次修复，让这间屋子的细节能看得更清楚。",
+      "credit": {
+        "author": "Bernard DUPONT",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paintings_in_Room_3_..._(49533946127).jpg",
+        "date": "2020 年 2 月",
+        "changes": "缩小到 2000 像素宽并重新压缩；未裁切、未调色"
+      }
+    }
+  ],
+  "imagesNote": "壁画本身约作于公元 790 年前后，早已进入公有领域；这里的照片都是游客在现场拍摄、在维基共享资源以 CC BY 或 CC BY-SA 许可发布的。INAH、耶鲁大学项目、墨西哥国立自治大学的照片和红外影像，以及 1999 年以来的手绘重建，都没有开放授权，本站只链接、不复制。",
+  "rights": {
+    "status": "壁画与建筑属公有领域；照片各有许可，见上方“图片”",
+    "basis": "照片来自维基共享资源，按各自的 CC BY 2.0、CC BY-SA 2.0 或 CC BY-SA 4.0 条款署名作者、许可与来源；本站只做了缩小和重新压缩。",
+    "verifiedOn": "2026-10-30",
+    "note": "这里的照片许可只管摄影版权。墨西哥《联邦考古、艺术与历史古迹及区域法》第 17 条另行规定：以商业为目的复制考古古迹（包括其影像），须经 INAH 许可；本站免费、无广告、不出售任何东西，属非商业的教育用途。若本站将来收费、投放广告或用于商业推广，须先取得 INAH 许可或更换这些图片。壁画人物与事件的辨认依据 INAH 的说明，学者之间仍有不同读法（见正文）。"
+  }
+}

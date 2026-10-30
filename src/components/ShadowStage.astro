@@ -1,0 +1,145 @@
+---
+// A shadow screen and one puppet, to see what the distance between them does. A slider moves the puppet from touching
+// the screen to far back towards the lamp; a switch changes sides: on the audience's side the puppet is a shadow
+// (reversed left to right, larger and softer the farther it is from the screen, since the lamp is a small source behind
+// it), on the puppeteer's side it is the painted, gilded figure. A few moments from the play ask what that moment
+// needs; the moment tabs sit above the stage and its name is written on the screen, and the one note under the stage
+// describes what the chosen distance does to the shadow in that moment, not a right answer. The physics is simplified;
+// the puppet is a museum photograph, its shadow is drawn from that photograph. Nothing is scored or stored.
+import { getEntry } from 'astro:content';
+interface Moment { id: string; label: string; ask: string; near: string; mid: string; far: string }
+interface Props { artwork: string; image: string; prompt: string; moments: Moment[] }
+const { artwork, image, prompt, moments } = Astro.props;
+if (moments.length > 3) throw new Error(`ShadowStage "${prompt}": keep it to three moments at most.`);
+const record = (await getEntry('artworks', artwork))!.data;
+const img = record.images.find((i) => i.key === image);
+if (!img) throw new Error(`ShadowStage: unknown image ${artwork}/${image}`);
+const bands = [
+  { key: 'near', label: '贴近幕布' },
+  { key: 'mid', label: '离开一段' },
+  { key: 'far', label: '退向灯边' },
+] as const;
+---
+<section class="module ss" data-ss data-side="front" data-band="near">
+  <p class="module-label">互动 · 示意 · 灯、皮影与幕布</p>
+  <h3>{prompt}</h3>
+  {moments.length > 0 && (
+    <div class="ss-mtabs" role="group" aria-label="戏里的时刻">
+      {moments.map((m, i) => <button type="button" data-m={m.id} aria-pressed={i === 0 ? 'true' : 'false'}>{m.label}</button>)}
+    </div>
+  )}
+  {moments.map((m, i) => <p class="ss-ask" data-ask={m.id} hidden={i !== 0}>{m.ask}</p>)}
+  <div class="ss-controls">
+    <div class="ss-sides" role="group" aria-label="从哪一边看">
+      <button type="button" data-side-btn="front" aria-pressed="true">观众这一边：影子</button>
+      <button type="button" data-side-btn="back" aria-pressed="false">达朗这一边：皮影</button>
+    </div>
+    <label class="ss-range">
+      <span>皮影离幕布 <output data-out>贴着幕布</output></span>
+      <input type="range" min="0" max="100" step="1" value="4" data-dist aria-label="皮影离幕布的距离" />
+    </label>
+  </div>
+  <div class="ss-stage" aria-hidden="true">
+    <div class="ss-screen">
+      <span class="ss-lamp"></span>
+      <img class="ss-puppet" src={img.src} alt="" width={img.width} height={img.height} loading="lazy" decoding="async" />
+      <span class="ss-tag ss-tag-moment" data-tag-moment>{moments[0]?.label}</span>
+      <span class="ss-tag ss-tag-side ss-front-only">观众看到：影子<span class="ss-wide">，左右相反</span></span>
+      <span class="ss-tag ss-tag-side ss-back-only">达朗看到：皮影<span class="ss-wide">本身</span></span>
+    </div>
+  </div>
+  <div class="ss-notes" aria-live="polite">
+    {moments.map((m, i) => (
+      <div class="ss-moment" data-moment={m.id} hidden={i !== 0}>
+        {bands.map((b) => (
+          <p class="ss-note ss-front-only" data-band-note={b.key}><span>{m.label} · {b.label}</span>{m[b.key]}</p>
+        ))}
+      </div>
+    ))}
+    <p class="ss-note ss-back-only"><span>达朗这一边</span>从这一边看，皮影就是皮影：颜色、金箔和镂空都在，远近也不改变它的大小。距离改变的只是幕布另一边的影子。切回“观众这一边”，再拖动滑块看看。</p>
+  </div>
+  <p class="ss-cap">{img.caption}<span class="credit">{img.credit ? `${img.credit.by ?? `摄影 ${img.credit.author}`} · ${img.credit.licence}` : ''}</span></p>
+</section>
+
+<style>
+  .ss-controls { display: grid; gap: .9rem; margin: 1rem 0; }
+  .ss-sides { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .ss-sides button, .ss-mtabs button { padding: .45rem .9rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); font: 500 .875rem/1.4 var(--sans); cursor: pointer; }
+  .ss-sides button[aria-pressed="true"], .ss-mtabs button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .ss-range { display: grid; gap: .4rem; font: 500 .8125rem/1.5 var(--sans); color: var(--ink-2); }
+  .ss-range output { margin-left: .4rem; font-weight: 600; color: var(--ink); }
+  .ss-range input { width: 100%; }
+  .ss-mtabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .7rem; }
+  .ss-ask { margin: 0; font: 500 1rem/1.7 var(--serif); color: var(--ink); }
+  .ss-stage { --d: .04; position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #120f0c; }
+  .ss-screen { position: absolute; inset: 6% 5% 10%; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #fff7e3 0%, #f1e3c4 45%, #c9b48f 100%); transition: background 300ms var(--ease); }
+  .ss-lamp { position: absolute; top: 4%; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: #ffd27a; box-shadow: 0 0 18px 8px rgb(255 200 110 / .55); opacity: 0; }
+  /* Absolutely placed so the percentage height resolves against the screen; left/right 0 with auto margins centres it. */
+  .ss-puppet { position: absolute; top: 9%; left: 0; right: 0; margin: 0 auto; height: 82%; width: auto; max-width: none;
+    transform: scaleX(-1) scale(calc(1 + var(--d) * .9)); filter: brightness(0) blur(calc(var(--d) * 7px)); opacity: calc(.95 - var(--d) * .35);
+    transition: transform 200ms var(--ease), filter 200ms var(--ease), opacity 200ms var(--ease); }
+  /* Labels written on the screen: which moment, and which side the reader is looking from. */
+  .ss-tag { position: absolute; padding: .2rem .55rem; font: 600 .75rem/1.5 var(--sans); letter-spacing: .08em; color: #3a2c20; background: rgb(255 247 227 / .8); }
+  .ss-tag-moment { top: .6rem; left: .6rem; }
+  .ss-tag-side { bottom: .6rem; right: .6rem; font-weight: 500; }
+  .ss-back-only { display: none; }
+  /* On a phone the screen is small: shorter, smaller labels, so the bottom one stays clear of the puppet's feet. */
+  @media (max-width: 560px) {
+    .ss-tag { padding: .1rem .4rem; font-size: .625rem; letter-spacing: .04em; }
+    .ss-tag-moment { top: .35rem; left: .35rem; }
+    .ss-tag-side { bottom: .35rem; right: .35rem; }
+    .ss-wide { display: none; }
+  }
+  /* The puppeteer's side: the screen is lit from this side, the figure keeps its colour and its own size. */
+  :global(.ss[data-side="back"]) .ss-screen { background: linear-gradient(#3a2c20, #1d1610); }
+  :global(.ss[data-side="back"]) .ss-lamp { opacity: 1; }
+  :global(.ss[data-side="back"]) .ss-puppet { transform: none; filter: none; opacity: 1; }
+  :global(.ss[data-side="back"]) .ss-tag { color: #f1e3c4; background: rgb(18 15 12 / .7); }
+  :global(.ss[data-side="back"]) .ss-front-only { display: none; }
+  :global(.ss[data-side="back"]) .ss-back-only { display: block; }
+  .ss-notes { margin-top: .6rem; }
+  .ss-note { display: none; margin: 0; padding: .8rem 1rem; background: var(--mist); font: 400 .9375rem/1.85 var(--sans); color: var(--ink-2); }
+  .ss-note span { display: block; margin-bottom: .15rem; font: 600 .75rem/1.5 var(--sans); letter-spacing: .12em; color: var(--ink-3); }
+  :global(.ss[data-side="front"][data-band="near"]) .ss-note[data-band-note="near"],
+  :global(.ss[data-side="front"][data-band="mid"]) .ss-note[data-band-note="mid"],
+  :global(.ss[data-side="front"][data-band="far"]) .ss-note[data-band-note="far"] { display: block; }
+  .ss-cap { margin: .6rem 0 0; display: grid; gap: .1rem; font: 400 .75rem/1.6 var(--sans); color: var(--ink-3); }
+  /* Without script: every moment and every note is shown, the stage is a still shadow. */
+  :global(.ss:not(.is-ready)) .ss-note[data-band-note], :global(.ss:not(.is-ready)) .ss-moment[hidden], :global(.ss:not(.is-ready)) .ss-ask[hidden] { display: block; }
+  :global(.ss:not(.is-ready)) .ss-mtabs, :global(.ss:not(.is-ready)) .ss-tag-moment { display: none; }
+  @media (prefers-reduced-motion: reduce) { .ss-puppet, .ss-screen { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ss]').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('.ss-stage')!;
+    const range = root.querySelector<HTMLInputElement>('[data-dist]')!;
+    const out = root.querySelector<HTMLElement>('[data-out]')!;
+    const tag = root.querySelector<HTMLElement>('[data-tag-moment]');
+    const sideBtns = [...root.querySelectorAll<HTMLButtonElement>('[data-side-btn]')];
+    const mBtns = [...root.querySelectorAll<HTMLButtonElement>('[data-m]')];
+    const moments = [...root.querySelectorAll<HTMLElement>('[data-moment]')];
+    const asks = [...root.querySelectorAll<HTMLElement>('[data-ask]')];
+    root.classList.add('is-ready');
+    const update = () => {
+      const v = Number(range.value);
+      stage.style.setProperty('--d', String(v / 100));
+      const band = v < 34 ? 'near' : v < 67 ? 'mid' : 'far';
+      root.dataset.band = band;
+      out.textContent = v < 6 ? '贴着幕布' : band === 'near' ? '很近' : band === 'mid' ? '离开一段' : '退向灯边';
+    };
+    range.addEventListener('input', update);
+    sideBtns.forEach((b) => b.addEventListener('click', () => {
+      root.dataset.side = b.dataset.sideBtn!;
+      sideBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    }));
+    mBtns.forEach((b) => b.addEventListener('click', () => {
+      mBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      moments.forEach((m) => { m.hidden = m.dataset.moment !== b.dataset.m; });
+      asks.forEach((a) => { a.hidden = a.dataset.ask !== b.dataset.m; });
+      if (tag) tag.textContent = b.textContent;
+    }));
+    update();
+  });
+</script>

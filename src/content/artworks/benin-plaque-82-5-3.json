@@ -1,0 +1,126 @@
+{
+  "id": "art-benin-plaque-82-5-3-001",
+  "kind": "object",
+  "titleZh": "贝宁宫廷铜板：持矛的首领与随从",
+  "titleEn": "Relief plaque (Ama-Ẹrọnmwọn) with a warrior chief and attendants",
+  "attributionNote": "贝宁王国宫廷铸铜行会（Igun-Ẹrọnmwọn）的埃多工匠所作；工匠姓名没有留下记录。",
+  "dateApprox": "16 世纪（Digital Benin：约 1504—1550 年；史密森尼旧著录：16 世纪中至 17 世纪）",
+  "objectType": "宫廷建筑浮雕铜板（埃多语 Ama-Ẹrọnmwọn）",
+  "medium": "铜合金，失蜡铸造",
+  "dimensions": "高 45.6 × 宽 35 × 厚 8.9 厘米（史密森尼国立非洲艺术博物馆著录）",
+  "collection": "所有权自 2022 年 10 月 11 日起属贝宁奥巴（Omo n'Oba n'Edo Uku Akpolokpolo）与尼日利亚国家博物馆和纪念物委员会（NCMM）；原为史密森尼国立非洲艺术博物馆藏品，编号 82-5-3",
+  "originalStatus": "原件。右缘靠近盾牌处有一块残缺，四角与上下缘有钉孔；这些在 1900 年出版的图版上已经能看到。",
+  "provenance": "约 16 世纪由贝宁城铸铜行会制作，用于王宫建筑。1897 年 2 月英军攻入贝宁城后，宫中器物遭劫掠。1900 年以前归英国收藏家皮特-里弗斯所有，刊于其私人印行的《来自贝宁的古代艺术品》图版一第 4 图，存于他在法纳姆的家族博物馆（该馆藏品于 1960 年代初散出）。1900 年至 1982 年间的经手人不明。1982 年由史密森尼国立非洲艺术博物馆用馆藏购置经费购入。2021 年的来源评估认定它属于 1897 年被掠的器物；2022 年 6 月史密森尼董事会表决除藏，2022 年 10 月 11 日所有权移交。",
+  "infoSources": [
+    {
+      "label": "Digital Benin：Object 82-5-3（埃多语名称、图像志注释、来源事件：制作、1897 年劫掠、皮特-里弗斯、1982 年购入、2022 年归还）",
+      "url": "https://digitalbenin.org/catalogue/8253"
+    },
+    {
+      "label": "史密森尼学会新闻稿：Smithsonian Returns 29 Benin Bronzes to the National Commission for Museums and Monuments in Nigeria（2022 年 10 月 11 日）",
+      "url": "https://www.si.edu/newsdesk/releases/smithsonian-returns-29-benin-bronzes-national-commission-museums-and-monuments"
+    },
+    {
+      "label": "史密森尼国立非洲艺术博物馆展览：Benin Bronzes（2024 年 6 月 3 日起，所有权移交后借展的九件作品）",
+      "url": "https://www.si.edu/exhibitions/benin-bronzes%3Aevent-exhib-6746"
+    },
+    {
+      "label": "A. Pitt-Rivers, Antique Works of Art from Benin（伦敦，私人印行，1900 年），图版一与说明（Internet Archive）",
+      "url": "https://archive.org/details/antiqueworksofar00pittuoft"
+    }
+  ],
+  "images": [
+    {
+      "key": "full",
+      "src": "/img/benin-plaque-82-5-3-nmafa.jpg",
+      "kind": "full",
+      "width": 1236,
+      "height": 1500,
+      "alt": "一块竖长的铜板，表面深灰带褐色锈斑。正中一位高大的人物：头戴网格纹的高盔，盔顶有尖饰，下巴到颈部是一圈高高的项圈，右手斜举一支长矛，左肩挂着一面长盾。他身边站着三个小一些的人：左边一个手握大刀，一个捧着一把刀身宽大如叶、柄端带环的仪仗刀，右边一个把一支长号横在嘴边吹。铜板上方左右两角各有一个戴帽、长发的侧面人头。底子上刻满四瓣花叶纹，四周边缘有几个钉孔，右缘靠盾牌处缺了一块。",
+      "caption": "贝宁宫廷铜板（Ama-Ẹrọnmwọn），约 16 世纪，铜合金，高 45.6 厘米。史密森尼国立非洲艺术博物馆原藏品 82-5-3，2022 年起所有权属贝宁奥巴与尼日利亚国家博物馆和纪念物委员会。",
+      "credit": {
+        "author": "Franko Khoury，史密森尼国立非洲艺术博物馆",
+        "licence": "CC0（史密森尼开放获取）",
+        "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plaque_Benin_kingdom_court_style_82-5-3.jpg",
+        "changes": "取维基共享资源保存的史密森尼开放获取图像，重新压缩；未裁切、未缩放、未调色",
+        "by": "摄影 Franko Khoury · 史密森尼国立非洲艺术博物馆"
+      }
+    },
+    {
+      "key": "pitt1900",
+      "src": "/img/benin-plaque-82-5-3-pitt1900.jpg",
+      "kind": "detail",
+      "subject": "皮特-里弗斯《来自贝宁的古代艺术品》（1900 年）图版一第 4 图",
+      "width": 1100,
+      "height": 1436,
+      "alt": "一张旧书里的黑白照片：同一块铜板，持矛的人物、长盾、两侧的随从和上角的侧面人头都在。铜板边缘的钉孔透出白色的书页，右缘靠盾牌处的残缺也看得见。",
+      "caption": "1900 年，皮特-里弗斯私人印行的藏品图录，图版一第 4 图。Digital Benin 正是依据这张图版，认定 82-5-3 曾在他的收藏里。",
+      "credit": {
+        "author": "A. Pitt-Rivers（图录作者）",
+        "licence": "公有领域",
+        "sourceUrl": "https://archive.org/details/antiqueworksofar00pittuoft",
+        "changes": "从 Internet Archive 的扫描页（多伦多大学图书馆藏本）中裁出第 4 图，缩小到 1100 像素宽并重新压缩；未调色",
+        "by": "图版 · A. Pitt-Rivers, Antique Works of Art from Benin, 1900"
+      }
+    },
+    {
+      "key": "pitt1900-text",
+      "src": "/img/benin-pitt1900-plate1-fig4-text.jpg",
+      "kind": "detail",
+      "subject": "同一图录中“图版一说明”的第 4 图条目（1900 年）",
+      "width": 1500,
+      "height": 567,
+      "alt": "一段英文印刷体文字，开头是“Fig. 4.—Bronze plaque, figure of warrior with spear in right hand, shield on left shoulder.”，逐一列出头饰、方铃、项圈、随从手中的刀与乐器，最后一句以带有种族色彩的词语评论上方人物的长相。",
+      "caption": "1900 年图录对这块铜板的描述。它细致地点出了矛、盾、项圈和随从，却把上方的人像当作“举着书板的人”，并用了种族化的措辞。",
+      "credit": {
+        "author": "A. Pitt-Rivers（图录作者）",
+        "licence": "公有领域",
+        "sourceUrl": "https://archive.org/details/antiqueworksofar00pittuoft",
+        "changes": "从 Internet Archive 的扫描页中裁出第 4 图的说明段落，缩小到 1500 像素宽并重新压缩",
+        "by": "书页 · A. Pitt-Rivers, Antique Works of Art from Benin, 1900"
+      }
+    },
+    {
+      "key": "compound1891",
+      "src": "/img/benin-oba-compound-1891-punch.jpg",
+      "kind": "detail",
+      "subject": "贝宁城奥巴宫院，1891 年 5 月，西里尔·庞奇摄",
+      "width": 1000,
+      "height": 749,
+      "alt": "一张褐色调、边缘有斑点的旧照片：一座泥土砌的祭坛台上，左右各立着一件铜铸头像，头像顶上各插着一根雕满花纹的象牙；两件头像之间排着几只方形的铜铃和一组小人像。台子两侧还各立着一根象牙。照片上方有一行手写字：“… altar. King's compound Benin City May 1891”。",
+      "caption": "目前所知最早拍摄奥巴宫院的照片，1891 年 5 月，西里尔·庞奇摄：一座祭坛上，铜铸头像托着雕刻的象牙，中间是铜铃和小人像。六年后，这座宫院被焚毁。",
+      "credit": {
+        "author": "Cyril Punch（1857—1932）",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancestral_shrine_Royal_Palace,_Benin_City,_1891.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色",
+        "by": "摄影 Cyril Punch · 史密森尼国立非洲艺术博物馆藏"
+      }
+    },
+    {
+      "key": "compound1897",
+      "src": "/img/benin-oba-compound-1897-granville.jpg",
+      "kind": "detail",
+      "subject": "被焚烧后的奥巴宫院内景，1897 年 2 月 18 日，雷金纳德·格兰维尔摄",
+      "width": 1656,
+      "height": 1181,
+      "alt": "一张黑白照片：没有屋顶的院子，四周是波纹铁皮墙，头顶只剩几根歪斜的铁架。地上一排排平放着几十块铜板，前景有一件铜铸头像；三个穿白衣、戴遮阳帽的英国士兵坐在铜板后面。",
+      "caption": "1897 年 2 月 18 日，英军攻占贝宁城后不久：被烧掉屋顶的宫院里，铜板一块块摊在地上，三个英军士兵坐在后面。照片里的哪一块是 82-5-3，无法辨认。",
+      "credit": {
+        "author": "Reginald Kerr Granville（卒于 1912 年）",
+        "licence": "公有领域",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_Oba%27s_compound_burnt_during_siege_of_Benin_City,_1897.jpg",
+        "changes": "重新压缩；未裁切、未缩放、未调色",
+        "by": "摄影 Reginald Kerr Granville"
+      }
+    }
+  ],
+  "imagesNote": "铜板的照片是史密森尼在归还之前以 CC0 开放的图像，经维基共享资源保存；CC0 一经声明便不可撤回。1891 年、1897 年的照片和 1900 年的图录为公有领域。本篇不使用任何博物馆在归还之后另行拍摄、未开放授权的图像。",
+  "rights": {
+    "status": "铜板本身是 16 世纪的作品；照片为 CC0 或公有领域",
+    "basis": "史密森尼开放获取图像以 CC0 声明发布，可自由使用；该图像在 2022 年所有权移交后已不在史密森尼的开放获取接口中，本站使用的是维基共享资源保存的、当时以 CC0 发布的文件。1891 年庞奇、1897 年格兰维尔的照片和 1900 年出版的图录均已进入公有领域。照片的使用许可与文物的所有权是两回事：前者不改变、也不代表后者。",
+    "verifiedOn": "2026-10-30",
+    "note": "铜板此刻的实物所在地，本站没有在公开资料中找到确切记录（见正文）。"
+  }
+}

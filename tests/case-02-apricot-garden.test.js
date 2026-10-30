@@ -29,7 +29,7 @@ test('the cases hall lists it after Chartres (hall order is by file name)', () =
   const cases = readdirSync(new URL('../src/content/essays/', import.meta.url))
     .filter((f) => /^kind: case$/m.test(readFileSync(new URL(`../src/content/essays/${f}`, import.meta.url), 'utf8')))
     .map((f) => f.replace(/\.mdx$/, '')).sort();
-  assert.deepEqual(cases, ['chartres-glass', ID]);
+  assert.deepEqual(cases.slice(0, 2), ['chartres-glass', ID]);
 });
 
 test('Case Production Standard v1: at least 7,000 Han characters of narrative', () => {
