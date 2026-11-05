@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import ArtworkCard from './ArtworkCard.astro';
+import LessonPager from './LessonPager.astro';
 import { publishedCards } from '../lib/cards';
 // COL-01: finishing a core lesson earns its cards. The reader says so explicitly, with one button at the end of the
 // lesson; no quiz answer is needed, and opening the page claims nothing. Most lessons award one card, their
@@ -23,6 +24,9 @@ const words = kind === 'story'
   : { kicker: '课程完成', text: `读到这里，这一课就学完了。领取${what}，收入你的图鉴。`, button: n === 1 ? '完成本课 · 领取藏品卡' : `完成本课 · 领取 ${n} 张藏品卡`,
       fresh: n === 1 ? '本课已完成，这件作品的卡片已收入你的图鉴。' : `本课已完成，这 ${n} 张卡片都已收入你的图鉴。`,
       again: n === 1 ? '本课已完成，这张卡片已在你的图鉴中。' : `本课已完成，这 ${n} 张卡片都已在你的图鉴中。` };
+// A lesson's way on (the previous and next course) follows straight after, before its sources; stories have none.
+const lessonId = kind === 'lesson' ? Astro.url.pathname.match(/^\/lessons\/([^/]+)\/?$/)?.[1] : undefined;
+if (kind === 'lesson' && !lessonId) throw new Error(`LessonComplete: ${Astro.url.pathname} is not a lesson page`);
 // The button when some of the cards are already here: it names how many are still to come.
 const rest = kind === 'story' ? '读完故事 · 领取其余 {n} 张藏品卡' : '完成本课 · 领取其余 {n} 张藏品卡';
 ---
@@ -49,6 +53,7 @@ const rest = kind === 'story' ? '读完故事 · 领取其余 {n} 张藏品卡' 
     </div>
   </div>
 </section>
+{lessonId && <LessonPager id={lessonId} />}
 
 <script>
   import { collect, readCollection, deviceStorage } from '../lib/collection.js';

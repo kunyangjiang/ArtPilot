@@ -1,0 +1,78 @@
+---
+// The way on, at the foot of a lesson: the previous and the next course in syllabus order, each with its number and
+// title. The first course has only a next, the last only a previous; the missing side stays empty so the other keeps
+// its place. A quiet catalogue footer, not a button bar: the documentary sans for the label, the narrative serif for
+// the title, a hairline between the two, and the arrow easing outward on hover as the back link's does.
+import { getCollection } from 'astro:content';
+import { inCourseOrder } from '../lib/publication.js';
+
+interface Props { id: string }
+const { id } = Astro.props;
+const lessons = inCourseOrder((await getCollection('lessons')).map((l) => ({ id: l.id, course: l.data.course, title: l.data.title })));
+const i = lessons.findIndex((l) => l.id === id);
+if (i < 0) throw new Error(`LessonPager: no lesson "${id}"`);
+const prev = lessons[i - 1], next = lessons[i + 1];
+const no = (n: number) => String(n).padStart(2, '0');
+---
+<nav class="lesson-pager" aria-label="上一课与下一课">
+  {prev ? (
+    <a class="lp-link lp-prev" href={`/lessons/${prev.id}/`} rel="prev">
+      <span class="lp-label">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+        上一课 · 第 {no(prev.course)} 课
+      </span>
+      <span class="lp-title">{prev.title}</span>
+    </a>
+  ) : <span class="lp-empty" aria-hidden="true" />}
+  {next ? (
+    <a class="lp-link lp-next" href={`/lessons/${next.id}/`} rel="next">
+      <span class="lp-label">
+        下一课 · 第 {no(next.course)} 课
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </span>
+      <span class="lp-title">{next.title}</span>
+    </a>
+  ) : <span class="lp-empty" aria-hidden="true" />}
+</nav>
+
+<style>
+  /* In the lesson's text column, straight after the card claim and before the sources, its hairlines on the
+     column's edges like the claim's rule above. Kept small: a footnote-sized way on, not a second ending. */
+  .lesson-pager {
+    display: grid; grid-template-columns: 1fr 1fr; margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    border-block: 1px solid var(--rule);
+  }
+  .lp-link {
+    display: flex; flex-direction: column; gap: .3rem; padding: .85rem 0;
+    color: var(--ink); text-decoration: none;
+  }
+  .lp-prev { padding-right: 1rem; }
+  .lp-next { padding-left: 1rem; align-items: flex-end; text-align: right; border-left: 1px solid var(--rule); }
+  .lp-label {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font: 400 .75rem/1.5 var(--sans); letter-spacing: .08em; color: var(--ink-3);
+  }
+  .lp-label svg { flex: none; width: 13px; height: 13px; transition: transform var(--t) var(--ease); }
+  .lp-title {
+    font: 500 .9375rem/1.55 var(--serif); letter-spacing: .03em; text-wrap: balance;
+    text-decoration: underline 1px transparent; text-underline-offset: .3em; transition: text-decoration-color var(--t) var(--ease);
+  }
+  @media (hover: hover) {
+    .lp-link:hover .lp-title { text-decoration-color: currentColor; }
+    .lp-prev:hover .lp-label svg { transform: translateX(-2px); }
+    .lp-next:hover .lp-label svg { transform: translateX(2px); }
+  }
+  .lp-link:focus-visible { outline-offset: 2px; }
+  /* Phones: the same row, a step smaller */
+  @media (max-width: 640px) {
+    .lesson-pager { margin-top: 1.5rem; }
+    .lp-link { gap: .2rem; padding-block: .65rem; }
+    .lp-prev { padding-right: .6rem; }
+    .lp-next { padding-left: .6rem; }
+    .lp-label { gap: .25rem; font-size: .625rem; letter-spacing: .04em; }
+    .lp-label svg { width: 10px; height: 10px; }
+    .lp-title { font-size: .8125rem; line-height: 1.45; letter-spacing: .01em; }
+  }
+</style>
