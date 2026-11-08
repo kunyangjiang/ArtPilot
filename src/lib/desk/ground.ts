@@ -1,7 +1,6 @@
 // The desk's ground: a canvas laid just beneath the page's light canvas ([data-web]), fixed to the window, on which a
 // drawing paints the whole ground from the base colour up, so the page's own background does not show through. The
-// homepage draws its room on it (combined.ts) and the halls their quieter version (hall.ts); the background
-// comparison on the dev server (src/lib/bgStudies/) draws its studies with it too.
+// homepage draws its room on it (combined.ts) and the halls their quieter version (hall.ts).
 // The drawing follows the scroll like a camera rather than locked to it: the scroll it is handed eases towards the
 // page's, so a quick flick of the page glides the room into place instead of jumping it there.
 export type RGB = [number, number, number];

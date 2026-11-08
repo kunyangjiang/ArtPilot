@@ -3,7 +3,6 @@
 // brighter towards the middle, as light reads in his rooms, and the room around it takes on a trace of the same colour.
 // The light changes as the page goes down, from dusk blue through violet to the last ember of evening, as the sky does
 // in his skyspaces. No object is added: only an opening and its light, laid between the walls and the bodies.
-// The opening and its evening are shared with the three studies built on it on the dev server (src/lib/bgStudies/).
 import { drawScarpa } from './scarpa';
 import { drawRoomBodies } from './combined';
 import { rgba, deskFrame, type RGB, type Draw } from './ground';
