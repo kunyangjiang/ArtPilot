@@ -33,6 +33,10 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
 
     <p class="sr-status" role="status" aria-live="polite" data-status></p>
     <div class="sr-results" data-results></div>
+    <!-- Coming back to a search (Back, or the way back from a result): its saved state, from this history entry or,
+         where the browser opened it afresh, from this tab's session. The page stands where the reader left it before it
+         paints; the results then fill the space they had (the script below draws them and lets the space go). -->
+    <script is:inline>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';var st=history.state,u=location.pathname+location.search;if(!(st&&st.u===u)){var r=document.referrer&&new URL(document.referrer);if(r&&r.origin===location.origin&&r.pathname!=='/search/'){st=JSON.parse(sessionStorage.getItem('artpilot:search')||'null');if(!(st&&st.u===u))st=null;}else st=null;}if(st&&st.y>0){var box=document.querySelector('[data-results]');box.style.minHeight=st.h+'px';window.__srBack=st;window.scrollTo(0,st.y);}else if(st){window.__srBack=st;}}catch(e){}})();</script>
   </section>
   <BackToTop />
 </Base>
@@ -180,7 +184,19 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   // reader sees the whole answer at a glance and opens one list at a time. The open tab is kept in the address.
   const BRIEF = 3; // per kind, in the overview
   const PAGE = 10; // per kind, before "再显示"
-  let current: { r: Result; q: string; here: string } | null = null;
+  let current: { r: Result; q: string; here: string; tab: string; shown: Record<string, number> } | null = null;
+
+  // What a return to this page needs to find it as it was: the query and tab (also in the address), how far each list
+  // was opened, where the page stood and how tall the results were. Kept in this history entry, for Back, and in this
+  // tab's session, for the way back from a result when the browser opens the page afresh.
+  type Saved = { u: string; tab: string; shown: Record<string, number>; y: number; h: number };
+  const url = () => location.pathname + location.search;
+  function remember() {
+    if (!current) return;
+    const st: Saved = { u: url(), tab: current.tab, shown: current.shown, y: Math.round(scrollY), h: results.offsetHeight };
+    history.replaceState(st, '');
+    try { sessionStorage.setItem('artpilot:search', JSON.stringify(st)); } catch {}
+  }
 
   function placePanel(r: Result) {
     if (!r.places.length) return '';
@@ -202,10 +218,12 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
         + `<button type="button" class="sr-open" data-open="${g.type}">${g.items.length > BRIEF ? `查看全部 ${g.items.length} 条${NAMES[g.type]}` : `查看${NAMES[g.type]}的详细结果`} <span aria-hidden="true">→</span></button></section>`).join('');
     }
     const g = r.groups.find((x) => x.type === tab)!;
+    const n = current!.shown[tab] ?? PAGE;
     return (r.groups.length === 1 ? placePanel(r) : '')
-      + `<section class="sr-group"><ol class="sr-list">${g.items.map((it, i) => (i < PAGE ? item(it, here) : item(it, here).replace('<li class="sr-item">', '<li class="sr-item" hidden>'))).join('')}</ol>`
-      + (g.items.length > PAGE ? `<button type="button" class="sr-more" data-more>再显示 ${Math.min(PAGE, g.items.length - PAGE)} 条 · 共 ${g.items.length} 条</button>` : '') + '</section>';
+      + `<section class="sr-group"><ol class="sr-list">${g.items.map((it, i) => (i < n ? item(it, here) : item(it, here).replace('<li class="sr-item">', '<li class="sr-item" hidden>'))).join('')}</ol>`
+      + (g.items.length > n ? `<button type="button" class="sr-more" data-more>${moreLabel(g.items.length - n, g.items.length)}</button>` : '') + '</section>';
   }
+  const moreLabel = (left: number, total: number) => `再显示 ${Math.min(PAGE, left)} 条 · 共 ${total} 条`;
 
   function show(tab: string, focus = false) {
     const { r, q } = current!;
@@ -220,11 +238,13 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     });
     const box = results.querySelector<HTMLElement>('[data-panel]')!;
     if (r.groups.length > 1) box.setAttribute('aria-labelledby', `sr-tab-${tab}`);
+    current!.tab = tab;
     box.innerHTML = panel(tab);
-    history.replaceState(null, '', `/search/?q=${encodeURIComponent(q)}${tab === 'all' || r.groups.length === 1 ? '' : `&in=${tab}`}`);
+    history.replaceState(history.state, '', `/search/?q=${encodeURIComponent(q)}${tab === 'all' || r.groups.length === 1 ? '' : `&in=${tab}`}`);
+    remember();
   }
 
-  function draw(q: string, tab: string) {
+  function draw(q: string, tab: string, shown: Record<string, number> = {}) {
     const r = search(index!, q);
     const total = r.groups.reduce((n, g) => n + g.items.length, 0);
     if (!total) {
@@ -234,7 +254,7 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
       return;
     }
     status.textContent = `“${q}”：共 ${total} 条结果。`;
-    current = { r, q, here: r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '' };
+    current = { r, q, here: r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '', tab, shown: { ...shown } };
     // One kind only: no tabs, just the list.
     const tabs = r.groups.length > 1
       ? `<div class="sr-tabs" role="tablist" aria-label="结果分类">`
@@ -260,20 +280,26 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   addEventListener('resize', setNav);
 
   let ticket = 0;
-  async function run(q: string, push: boolean, tab = 'all') {
+  async function run(q: string, push: boolean, tab = 'all', back?: Saved) {
     q = q.trim();
-    const url = q ? `/search/?q=${encodeURIComponent(q)}` : '/search/';
-    if (push) history.replaceState(null, '', url);
+    if (push) history.replaceState(null, '', q ? `/search/?q=${encodeURIComponent(q)}` : '/search/');
     document.title = q ? `${q} · 搜索 · ArtPilot` : '搜索 · ArtPilot';
     if (q) document.documentElement.dataset.searching = ''; else delete document.documentElement.dataset.searching;
-    if (!q) { status.textContent = ''; results.innerHTML = ''; return; }
+    if (!q) { status.textContent = ''; results.innerHTML = ''; current = null; return; }
     const mine = ++ticket;
     if (!index) {
       const slow = setTimeout(() => { if (mine === ticket) status.textContent = '正在载入搜索索引…'; }, 250);
       try { await load(); } catch { clearTimeout(slow); if (mine === ticket) status.textContent = '搜索索引没有载入成功。请检查网络后再试一次。'; return; }
       clearTimeout(slow);
     }
-    if (mine === ticket) draw(q, tab);
+    if (mine !== ticket) return;
+    draw(q, back?.tab ?? tab, back?.shown);
+    if (back) {
+      // Back where the reader was: the reserved space goes once the results stand in it.
+      scrollTo({ top: back.y, behavior: 'instant' });
+      results.style.minHeight = '';
+      remember();
+    }
   }
 
   // As the reader types, after a short pause; Enter searches at once.
@@ -288,11 +314,18 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     if (go) return open(go.dataset.open!, true);
     const more = t.closest<HTMLButtonElement>('[data-more]');
     if (!more) return;
-    const hidden = [...more.parentElement!.querySelectorAll('.sr-item[hidden]')];
+    const list = [...more.parentElement!.querySelectorAll('.sr-item')];
+    const hidden = list.filter((li) => li.hasAttribute('hidden'));
     hidden.slice(0, PAGE).forEach((li) => li.removeAttribute('hidden'));
     const left = hidden.length - PAGE;
-    if (left > 0) more.textContent = more.textContent!.replace(/再显示 \d+ 条/, `再显示 ${Math.min(PAGE, left)} 条`); else more.remove();
+    current!.shown[current!.tab] = list.length - Math.max(0, left);
+    if (left > 0) more.textContent = moreLabel(left, list.length); else more.remove();
+    remember();
   });
+  // Where the page stands, kept as the reader scrolls and as they leave (by a link, Back, or closing the tab).
+  let still = 0;
+  addEventListener('scroll', () => { clearTimeout(still); still = window.setTimeout(remember, 150); }, { passive: true });
+  addEventListener('pagehide', remember);
   // The tabs from the keyboard: the arrows move between them, Home and End go to the ends.
   results.addEventListener('keydown', (e) => {
     const tab = (e.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]');
@@ -310,5 +343,6 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
 
   const params = new URLSearchParams(location.search);
   const q = params.get('q') ?? '';
-  if (q) run(q, false, params.get('in') ?? 'all'); else input.focus({ preventScroll: true });
+  const back = (window as unknown as { __srBack?: Saved }).__srBack;
+  if (q) run(q, false, params.get('in') ?? 'all', back); else input.focus({ preventScroll: true });
 </script>

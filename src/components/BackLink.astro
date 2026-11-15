@@ -3,8 +3,8 @@
 // course book goes back to the book, open where it was; the collection opened from a lesson goes back to the lesson).
 // Built as an ordinary link to the page's parent, the way back for a visitor who arrived directly; in the browser it
 // is pointed at the previous ArtPilot page instead, and steps back in history when that page is the one just before,
-// so the browser restores it as it was. One visual language everywhere (arrow, short label, 44px target); each page
-// places it in its own layout.
+// so the browser restores it as it was (a result opened from the search goes back to the same results, as they were).
+// One visual language everywhere (arrow, short label, 44px target); each page places it in its own layout.
 interface Props { href: string; label: string; class?: string }
 const { href, label, class: className } = Astro.props;
 ---
@@ -20,7 +20,7 @@ const { href, label, class: className } = Astro.props;
     [/^\/$/, '首页'], [/^\/courses\/$/, '课程目录'], [/^\/collection\/$/, '藏品图鉴'],
     [/^\/lessons\/[^/]+\/$/, '课程页'], [/^\/artworks\/[^/]+\/$/, '藏品记录'],
     [/^\/stories\/$/, '艺术家故事馆'], [/^\/stories\/[^/]+\/$/, '故事'], [/^\/cases\/$/, '案例库'], [/^\/cases\/[^/]+\/$/, '案例'],
-    [/^\/atlas\/$/, '同时代的世界'],
+    [/^\/atlas\/$/, '同时代的世界'], [/^\/search\/$/, '搜索结果'],
   ];
   type Nav = { entries(): { url: string | null; key: string }[]; currentEntry: { index: number } | null; traverseTo(key: string): unknown };
   const nav = (window as unknown as { navigation?: Nav }).navigation;
