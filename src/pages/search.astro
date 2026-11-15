@@ -1,0 +1,212 @@
+---
+// The site search: one field, and the results grouped by kind — courses, artist stories, cases and artwork records.
+// It reads the index written at build time (src/pages/search-index.json.ts) the first time it is opened; the matching
+// itself is in src/lib/search.js, the place register (search a city or a country) in src/data/places.js.
+// The query lives in the address (/search/?q=华盛顿), so a search can be shared, bookmarked and gone back to.
+import Base from '../layouts/Base.astro';
+import BackToTop from '../components/BackToTop.astro';
+// Starting points, each chosen to show one way in: a place, a medium, a movement, a person, a country.
+const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '日本'];
+---
+<Base title="搜索 · ArtPilot" description="在 ArtPilot 的课程、艺术家故事、叙事案例与藏品记录中查找：作品、艺术家、地点、博物馆或术语。" nav={{ back: { href: '/', label: '首页' } }}>
+  <section class="sr" aria-labelledby="sr-title">
+    <header class="sr-head">
+      <p class="kicker">搜索 · <span lang="en">Search</span></p>
+      <h1 id="sr-title" tabindex="-1">在 ArtPilot 里查找</h1>
+      <form class="sr-form" action="/search/" method="get" role="search" data-form>
+        <label class="sr-only" for="sr-q">搜索课程、故事、案例与藏品</label>
+        <svg class="sr-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 20 20" /></svg>
+        <input id="sr-q" name="q" type="search" autocomplete="off" enterkeyhint="search" spellcheck="false"
+          placeholder="作品、艺术家、城市、博物馆或术语" data-q />
+        <button type="submit" class="sr-submit">搜索</button>
+      </form>
+      <!-- Before the page paints: the field shows the query from the address, so the page never shows an empty field first. -->
+      <script is:inline>(function(){var q=new URLSearchParams(location.search).get('q');var i=document.querySelector('[data-q]');if(q&&i)i.value=q;if(q)document.documentElement.dataset.searching='';})();</script>
+      <p class="sr-hint">可以输入城市或国家：搜“华盛顿”，会找到收藏在那里的作品，以及写到那里各家博物馆的课程与故事，即使它们的名字里没有“华盛顿”。多个词用空格隔开，结果需同时包含每一个词。</p>
+    </header>
+
+    <div class="sr-tries" data-tries>
+      <p class="kicker">试试看</p>
+      <ul>{tries.map((t) => <li><a href={`/search/?q=${encodeURIComponent(t)}`} data-try={t}>{t}</a></li>)}</ul>
+    </div>
+
+    <p class="sr-status" role="status" aria-live="polite" data-status></p>
+    <div class="sr-results" data-results></div>
+  </section>
+  <BackToTop />
+</Base>
+
+<style>
+  .sr { max-width: 48rem; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) 1.25rem 5rem; }
+  .sr-head h1 { margin: .75rem 0 0; font: 500 clamp(1.75rem, 4vw, 2.5rem)/1.3 var(--serif); letter-spacing: .05em; }
+
+  /* The field: one hairline underneath, the magnifier in front, the button at the end; no box. */
+  .sr-form { display: flex; align-items: center; gap: .75rem; margin-top: 2rem; border-bottom: 1px solid var(--ink); }
+  .sr-icon { flex: none; color: var(--ink-3); }
+  .sr-form input {
+    flex: 1; min-width: 0; height: 3.25rem; padding: 0; border: 0; background: none; color: var(--ink);
+    font: 400 clamp(1.125rem, 2.4vw, 1.375rem)/1.4 var(--serif); letter-spacing: .03em; outline: none;
+  }
+  .sr-form input::placeholder { color: var(--silver); }
+  .sr-form input::-webkit-search-cancel-button { cursor: pointer; }
+  .sr-form:focus-within { box-shadow: 0 1px 0 var(--ink); }
+  .sr-submit {
+    flex: none; min-height: 2.75rem; padding: 0 .25rem; border: 0; background: none; color: var(--ink); cursor: pointer;
+    font: 500 .875rem/1 var(--sans); letter-spacing: .12em;
+  }
+  .sr-submit:hover { text-decoration: underline; text-underline-offset: .35em; }
+  .sr-hint { max-width: 38em; margin: 1rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
+
+  .sr-tries { margin-top: 2.5rem; }
+  html[data-searching] .sr-tries { display: none; }
+  .sr-tries ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0; padding: 0; list-style: none; }
+  .sr-tries a {
+    display: inline-flex; align-items: center; min-height: 2.25rem; padding: 0 .9rem; border: 1px solid var(--rule);
+    font: 400 .875rem/1 var(--sans); letter-spacing: .06em; text-decoration: none; color: var(--ink-2);
+    transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .sr-tries a:hover { border-color: var(--ink); color: var(--ink); }
+
+  .sr-status { min-height: 1.5rem; margin: 2.5rem 0 0; font: 400 .875rem/1.7 var(--sans); color: var(--ink-3); }
+  .sr-status:empty { margin: 0; min-height: 0; }
+
+  /* Results are drawn by the script; their styles reach into what it writes. */
+  .sr-results :global(.sr-place) { margin-top: 1.5rem; padding: 1.25rem 0; border-block: 1px solid var(--rule); }
+  .sr-results :global(.sr-place h2) { margin: .35rem 0 0; font: 500 1.375rem/1.4 var(--serif); letter-spacing: .05em; }
+  .sr-results :global(.sr-place p) { margin: .5rem 0 0; font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
+  .sr-results :global(.sr-place ul) { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: .75rem 0 0; padding: 0; list-style: none;
+    font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
+  .sr-results :global(.sr-place b) { font-weight: 500; color: var(--ink); }
+
+  .sr-results :global(.sr-jump) { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: 1.5rem 0 0; padding: 0; list-style: none;
+    font: 400 .8125rem/1.7 var(--sans); letter-spacing: .04em; }
+  .sr-results :global(.sr-jump a) { color: var(--ink-2); }
+
+  .sr-results :global(.sr-group) { margin-top: 3rem; }
+  .sr-results :global(.sr-group > h2) { display: flex; align-items: baseline; gap: .6rem; margin: 0; padding-bottom: .75rem;
+    border-bottom: 1px solid var(--ink); font: 500 .875rem/1.5 var(--sans); letter-spacing: .16em; color: var(--ink); }
+  .sr-results :global(.sr-group > h2 span) { font-weight: 400; letter-spacing: .04em; color: var(--ink-3); }
+  .sr-results :global(.sr-list) { margin: 0; padding: 0; list-style: none; }
+  .sr-results :global(.sr-item) { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+  .sr-results :global(.sr-meta) { margin: 0; font: 400 .75rem/1.6 var(--sans); letter-spacing: .08em; color: var(--ink-3); }
+  .sr-results :global(.sr-title) { display: inline-block; margin-top: .2rem; font: 500 1.125rem/1.55 var(--serif); letter-spacing: .03em;
+    color: var(--ink); text-decoration: none; }
+  .sr-results :global(.sr-title:hover) { text-decoration: underline; text-decoration-color: currentColor; }
+  .sr-results :global(.sr-why) { margin: .35rem 0 0; font: 400 .8125rem/1.7 var(--sans); color: var(--ink-2); }
+  .sr-results :global(.sr-why b) { font-weight: 500; color: var(--ink); }
+  .sr-results :global(.sr-passage) { margin: .5rem 0 0; font: 400 .9375rem/1.85 var(--serif); color: var(--ink-2); }
+  .sr-results :global(.sr-passage a) { margin-right: .4rem; font: 400 .75rem/1 var(--sans); letter-spacing: .04em; color: var(--ink-3); }
+  .sr-results :global(mark) { background: var(--mist); color: var(--ink); font-weight: 500; padding: 0 .1em; box-shadow: inset 0 -1px 0 var(--ink-3); }
+  .sr-results :global(.sr-more) { margin-top: 1rem; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--rule); background: none;
+    color: var(--ink); cursor: pointer; font: 500 .8125rem/1 var(--sans); letter-spacing: .08em; }
+  .sr-results :global(.sr-more:hover) { border-color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .sr { padding-top: 2rem; }
+    .sr-form { margin-top: 1.5rem; gap: .5rem; }
+    .sr-form input { height: 3rem; font-size: 1.0625rem; }
+    .sr-hint { font-size: .75rem; }
+    .sr-results :global(.sr-group) { margin-top: 2.25rem; }
+    .sr-results :global(.sr-item) { padding: 1rem 0; }
+    .sr-results :global(.sr-title) { font-size: 1rem; }
+    .sr-results :global(.sr-passage) { font-size: .875rem; line-height: 1.8; }
+  }
+</style>
+
+<script>
+  import { prepare, search, placeLine } from '../lib/search.js';
+
+  const form = document.querySelector<HTMLFormElement>('[data-form]')!;
+  const input = document.querySelector<HTMLInputElement>('[data-q]')!;
+  const status = document.querySelector<HTMLElement>('[data-status]')!;
+  const results = document.querySelector<HTMLElement>('[data-results]')!;
+  const NAMES: Record<string, string> = { lesson: '课程', story: '艺术家故事', case: '叙事案例', artwork: '藏品记录' };
+  const SHOWN = 12; // per group, before "显示全部"
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+  // The index is fetched once, on the first search; a failed fetch says so and can be retried by searching again.
+  let index: ReturnType<typeof prepare> | null = null;
+  let loading: Promise<ReturnType<typeof prepare>> | null = null;
+  const load = () => (loading ??= fetch('/search-index.json').then((r) => {
+    if (!r.ok) throw new Error(String(r.status));
+    return r.json();
+  }).then((docs) => (index = prepare(docs))).catch((e) => { loading = null; throw e; }));
+
+  function item(it: ReturnType<typeof search>['groups'][number]['items'][number], here: string) {
+    const d = it.doc;
+    const why: string[] = [];
+    if (it.where.length) why.push(it.where.map((p) => `<b>${esc(placeLine(p))}</b>`).join('；'));
+    if (it.via.length) why.push(`本篇的作品 ${it.via.map((t) => `《${esc(t)}》`).join('')} 收藏在${esc(here)}`);
+    // A work found by its place says where it is; the passage would only repeat its record's holding line.
+    const byPlace = it.where.length > 0;
+    if (it.count && !byPlace) why.push(`提到 ${it.count} 次`);
+    const passages = (byPlace ? [] : it.passages).map((p) => `<p class="sr-passage">${p.h ? `<a href="${d.url}${p.a ? `#${encodeURIComponent(p.a)}` : ''}">${esc(p.h)}</a>` : ''}${p.html}</p>`).join('');
+    return `<li class="sr-item">${d.meta ? `<p class="sr-meta">${esc(d.meta)}</p>` : ''}<a class="sr-title" href="${d.url}">${esc(d.title)}</a>`
+      + (why.length ? `<p class="sr-why">${why.join(' · ')}</p>` : '') + passages + '</li>';
+  }
+
+  function draw(q: string) {
+    const r = search(index!, q);
+    const total = r.groups.reduce((n, g) => n + g.items.length, 0);
+    if (!total) {
+      status.textContent = `没有找到包含“${q}”的内容。换一个说法试试，或者少输入几个词。`;
+      results.innerHTML = '';
+      return;
+    }
+    status.textContent = `“${q}”：共 ${total} 条结果。`;
+    let html = '';
+    // A place: what is there, and in which institutions, before the lists.
+    if (r.places.length) {
+      const works = r.placeWorks;
+      const by = new Map<string, number>();
+      for (const p of works) by.set(p.by, (by.get(p.by) ?? 0) + 1);
+      const name = r.places.length === 1 ? `${r.places[0].name}${r.places[0].country ? ` · ${r.places[0].country}` : ''}` : r.places[0].country;
+      html += `<section class="sr-place" aria-label="地点"><p class="kicker">地点</p><h2>${esc(name)}</h2>`
+        + `<p>${works.length ? `ArtPilot 收录的作品中，有 ${new Set(works.map((w) => w.id)).size} 件收藏或位于这里。` : 'ArtPilot 收录的作品中，暂时没有收藏在这里的。'}`
+        + `结果也包括写到这里各家博物馆的课程与故事。</p>`
+        + (by.size ? `<ul>${[...by].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<li><b>${esc(k)}</b> ${n} 件</li>`).join('')}</ul>` : '') + '</section>';
+    }
+    const here = r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '';
+    html += `<ul class="sr-jump" aria-label="跳到">${r.groups.map((g) => `<li><a href="#sr-${g.type}">${NAMES[g.type]} ${g.items.length}</a></li>`).join('')}</ul>`;
+    for (const g of r.groups) {
+      html += `<section class="sr-group" id="sr-${g.type}"><h2>${NAMES[g.type]}<span>${g.items.length} 条</span></h2><ol class="sr-list">`
+        + g.items.map((it, i) => (i < SHOWN ? item(it, here) : item(it, here).replace('<li class="sr-item">', '<li class="sr-item" hidden>'))).join('')
+        + `</ol>${g.items.length > SHOWN ? `<button type="button" class="sr-more" data-more>显示全部 ${g.items.length} 条</button>` : ''}</section>`;
+    }
+    results.innerHTML = html;
+  }
+
+  let ticket = 0;
+  async function run(q: string, push: boolean) {
+    q = q.trim();
+    const url = q ? `/search/?q=${encodeURIComponent(q)}` : '/search/';
+    if (push) history.replaceState(null, '', url);
+    document.title = q ? `${q} · 搜索 · ArtPilot` : '搜索 · ArtPilot';
+    if (q) document.documentElement.dataset.searching = ''; else delete document.documentElement.dataset.searching;
+    if (!q) { status.textContent = ''; results.innerHTML = ''; return; }
+    const mine = ++ticket;
+    if (!index) {
+      const slow = setTimeout(() => { if (mine === ticket) status.textContent = '正在载入搜索索引…'; }, 250);
+      try { await load(); } catch { clearTimeout(slow); if (mine === ticket) status.textContent = '搜索索引没有载入成功。请检查网络后再试一次。'; return; }
+      clearTimeout(slow);
+    }
+    if (mine === ticket) draw(q);
+  }
+
+  // As the reader types, after a short pause; Enter searches at once.
+  let timer = 0;
+  input.addEventListener('input', () => { clearTimeout(timer); timer = window.setTimeout(() => run(input.value, true), 220); });
+  form.addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(timer); run(input.value, true); input.blur(); });
+  results.addEventListener('click', (e) => {
+    const more = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-more]');
+    if (!more) return;
+    more.parentElement!.querySelectorAll('.sr-item[hidden]').forEach((li) => li.removeAttribute('hidden'));
+    more.remove();
+  });
+  // Warm the index as soon as the reader shows intent, so the first results are not kept waiting.
+  input.addEventListener('focus', () => { load().catch(() => {}); }, { once: true });
+
+  const q = new URLSearchParams(location.search).get('q') ?? '';
+  if (q) run(q, false); else input.focus({ preventScroll: true });
+</script>

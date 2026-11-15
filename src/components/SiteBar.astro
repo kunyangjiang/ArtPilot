@@ -2,7 +2,7 @@
 // The site bar on every page but the homepage: the wordmark (home), the way back, and the five halls, so a visitor can
 // cross from any page to any hall. Halls that are not open yet are shown, muted, but are not links; opening one in
 // src/data/home.ts turns it into a link here too. Page-specific links (a lesson's glossary, its sources) sit at the
-// far end on wide screens.
+// far end on wide screens, then the search, last of all, on every page.
 import BackLink from './BackLink.astro';import { destinations } from '../data/home';
 type NavLink = { href: string; label: string };
 interface Props {
@@ -21,6 +21,7 @@ const order = ['courses', 'collection', 'stories', 'cases', 'atlas'];
 const halls = order.map((id) => destinations.find((d) => d.id === id)!);
 // When the way back leads home, the wordmark goes there too: keep one tab stop for it, the explicit back link.
 const brandTab = back?.href === '/' ? -1 : undefined;
+const searching = Astro.url.pathname.startsWith('/search');
 ---
 <nav class="site-nav" aria-label="主导航" data-tone={tone}>
   <div class="nav-start">
@@ -35,4 +36,8 @@ const brandTab = back?.href === '/' ? -1 : undefined;
     ))}
   </ul>
   {links.length > 0 && <ul class="nav-page">{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>}
+  <a class="nav-search" href="/search/" aria-current={searching ? 'page' : undefined} aria-label="搜索">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+      aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 20 20" /></svg><span class="nav-search-label" aria-hidden="true">搜索</span>
+  </a>
 </nav>

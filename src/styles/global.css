@@ -98,6 +98,13 @@ main { overflow-x: clip; }
 }
 .nav-soon { opacity: .34; cursor: default; }
 .nav-page { margin-left: auto !important; }
+/* Search, last in the bar on every page: the magnifier and its word, at the far end (after the page's own links when
+   it has them); on phones the magnifier alone, at the end of the wordmark's row. */
+.nav-search { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; margin-left: auto; padding-inline: .25rem;
+  color: inherit; text-decoration: none; opacity: .72; transition: opacity var(--t-fast) var(--ease); }
+.nav-page + .nav-search { margin-left: 0; }
+.nav-search:hover, .nav-search[aria-current] { opacity: 1; }
+.nav-search svg { flex: none; }
 .site-nav[data-tone="desk"] { position: static; background: none; /* its header (.cd-top) is what is pinned */ color: #e6e5e0; border-bottom-color: rgb(255 255 255 / .1); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .site-nav[data-tone="gallery"] { background: var(--gallery); color: var(--gallery-ink); border-bottom-color: var(--gallery-rule); }
@@ -120,6 +127,10 @@ main { overflow-x: clip; }
   .site-nav .nav-halls a, .site-nav .nav-halls .nav-soon { display: flex; align-items: center; height: 2.5rem; padding-block: 0; line-height: 1; }
   .site-nav .nav-halls a::after { bottom: .55rem; }
   .nav-back { padding-left: 0; }
+  .nav-start { flex-basis: calc(100% - 2.75rem); }
+  .nav-search { order: 1; justify-content: flex-end; width: 2.75rem; min-height: 3rem; padding: 0; }
+  .nav-search-label { display: none; }
+  .nav-halls { order: 2; }
   .nav-back::before { display: none; }
 }
 /* Back to the parent page (BackLink.astro): an arrow and a short label, a 44px target, the arrow easing left on hover
