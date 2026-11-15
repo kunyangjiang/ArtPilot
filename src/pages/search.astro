@@ -59,7 +59,8 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   .sr-hint { max-width: 38em; margin: 1rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
 
   .sr-tries { margin-top: 2.5rem; }
-  html[data-searching] .sr-tries { display: none; }
+  /* While there are results, the explanations give way to them. */
+  html[data-searching] .sr-tries, html[data-searching] .sr-hint { display: none; }
   .sr-tries ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0; padding: 0; list-style: none; }
   .sr-tries a {
     display: inline-flex; align-items: center; min-height: 2.25rem; padding: 0 .9rem; border: 1px solid var(--rule);
@@ -68,22 +69,41 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   }
   .sr-tries a:hover { border-color: var(--ink); color: var(--ink); }
 
-  .sr-status { min-height: 1.5rem; margin: 2.5rem 0 0; font: 400 .875rem/1.7 var(--sans); color: var(--ink-3); }
+  .sr-status { min-height: 1.5rem; margin: 2rem 0 .5rem; font: 400 .875rem/1.7 var(--sans); color: var(--ink-3); }
   .sr-status:empty { margin: 0; min-height: 0; }
 
   /* Results are drawn by the script; their styles reach into what it writes. */
-  .sr-results :global(.sr-place) { margin-top: 1.5rem; padding: 1.25rem 0; border-block: 1px solid var(--rule); }
+  .sr-results :global(.sr-place) { margin-top: 0; padding: 1.25rem 0 1.5rem; border-bottom: 1px solid var(--rule); }
   .sr-results :global(.sr-place h2) { margin: .35rem 0 0; font: 500 1.375rem/1.4 var(--serif); letter-spacing: .05em; }
   .sr-results :global(.sr-place p) { margin: .5rem 0 0; font: 400 .875rem/1.8 var(--sans); color: var(--ink-2); }
   .sr-results :global(.sr-place ul) { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: .75rem 0 0; padding: 0; list-style: none;
     font: 400 .8125rem/1.7 var(--sans); color: var(--ink-3); }
   .sr-results :global(.sr-place b) { font-weight: 500; color: var(--ink); }
 
-  .sr-results :global(.sr-jump) { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: 1.5rem 0 0; padding: 0; list-style: none;
-    font: 400 .8125rem/1.7 var(--sans); letter-spacing: .04em; }
-  .sr-results :global(.sr-jump a) { color: var(--ink-2); }
+  /* The tabs: pinned under the site bar while a list scrolls, so the other kinds and their counts stay in view. */
+  .sr-results { scroll-margin-top: var(--nav-h, 3.5rem); }
+  .sr-results :global(.sr-tabs) { position: sticky; top: var(--nav-h, 3.5rem); z-index: 5; display: flex; gap: clamp(1.25rem, 3vw, 2rem);
+    background: var(--paper); border-bottom: 1px solid var(--rule); overflow-x: auto; scrollbar-width: none; }
+  .sr-results :global([role="tab"]) { position: relative; flex: none; display: inline-flex; align-items: baseline; gap: .4rem; height: 3rem;
+    padding: 0; border: 0; background: none; color: var(--ink-3); cursor: pointer; font: 500 .875rem/3rem var(--sans); letter-spacing: .1em;
+    transition: color var(--t-fast) var(--ease); }
+  .sr-results :global([role="tab"] span) { font-weight: 400; font-size: .8125rem; letter-spacing: .02em; }
+  .sr-results :global([role="tab"] b) { font-weight: inherit; }
+  .sr-results :global(.sr-short) { display: none; }
+  .sr-results :global([role="tab"]::after) { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink);
+    transform: scaleX(0); transform-origin: left; transition: transform var(--t) var(--ease); }
+  .sr-results :global([role="tab"]:hover), .sr-results :global([role="tab"][aria-selected="true"]) { color: var(--ink); }
+  .sr-results :global([role="tab"][aria-selected="true"]::after) { transform: scaleX(1); }
+  .sr-results :global([role="tab"]:focus-visible) { outline-offset: -2px; }
 
-  .sr-results :global(.sr-group) { margin-top: 3rem; }
+  .sr-results :global(.sr-group) { margin-top: 2.5rem; }
+  .sr-results :global(.sr-panel > .sr-group:first-child) { margin-top: 0; }
+  .sr-results :global(.sr-brief) { padding: .85rem 0; }
+  .sr-results :global(.sr-brief .sr-title) { font-size: 1rem; }
+  .sr-results :global(.sr-open) { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; margin-top: .5rem; padding: 0;
+    border: 0; background: none; color: var(--ink); cursor: pointer; font: 500 .8125rem/1 var(--sans); letter-spacing: .08em; }
+  .sr-results :global(.sr-open span) { transition: transform var(--t) var(--ease); }
+  .sr-results :global(.sr-open:hover span) { transform: translateX(3px); }
   .sr-results :global(.sr-group > h2) { display: flex; align-items: baseline; gap: .6rem; margin: 0; padding-bottom: .75rem;
     border-bottom: 1px solid var(--ink); font: 500 .875rem/1.5 var(--sans); letter-spacing: .16em; color: var(--ink); }
   .sr-results :global(.sr-group > h2 span) { font-weight: 400; letter-spacing: .04em; color: var(--ink-3); }
@@ -107,7 +127,12 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     .sr-form { margin-top: 1.5rem; gap: .5rem; }
     .sr-form input { height: 3rem; font-size: 1.0625rem; }
     .sr-hint { font-size: .75rem; }
-    .sr-results :global(.sr-group) { margin-top: 2.25rem; }
+    .sr-results :global(.sr-group) { margin-top: 2rem; }
+    .sr-results :global(.sr-tabs) { justify-content: space-between; gap: .75rem; }
+    .sr-results :global(.sr-long) { display: none; }
+    .sr-results :global(.sr-short) { display: inline; }
+    .sr-results :global([role="tab"]) { font-size: .8125rem; letter-spacing: .04em; }
+    .sr-results :global([role="tab"] span) { font-size: .75rem; }
     .sr-results :global(.sr-item) { padding: 1rem 0; }
     .sr-results :global(.sr-title) { font-size: 1rem; }
     .sr-results :global(.sr-passage) { font-size: .875rem; line-height: 1.8; }
@@ -122,7 +147,8 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   const status = document.querySelector<HTMLElement>('[data-status]')!;
   const results = document.querySelector<HTMLElement>('[data-results]')!;
   const NAMES: Record<string, string> = { lesson: '课程', story: '艺术家故事', case: '叙事案例', artwork: '藏品记录' };
-  const SHOWN = 12; // per group, before "显示全部"
+  // The tabs' names on a phone, where all five must fit in one row.
+  const SHORT: Record<string, string> = { all: '概览', lesson: '课程', story: '故事', case: '案例', artwork: '藏品' };
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
   // The index is fetched once, on the first search; a failed fetch says so and can be retried by searching again.
@@ -133,7 +159,11 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     return r.json();
   }).then((docs) => (index = prepare(docs))).catch((e) => { loading = null; throw e; }));
 
-  function item(it: ReturnType<typeof search>['groups'][number]['items'][number], here: string) {
+  type Result = ReturnType<typeof search>;
+  type Item = Result['groups'][number]['items'][number];
+
+  // One result. `brief`: the overview's form — what it is and why it was found, without the passages.
+  function item(it: Item, here: string, brief = false) {
     const d = it.doc;
     const why: string[] = [];
     if (it.where.length) why.push(it.where.map((p) => `<b>${esc(placeLine(p))}</b>`).join('；'));
@@ -141,44 +171,96 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     // A work found by its place says where it is; the passage would only repeat its record's holding line.
     const byPlace = it.where.length > 0;
     if (it.count && !byPlace) why.push(`提到 ${it.count} 次`);
-    const passages = (byPlace ? [] : it.passages).map((p) => `<p class="sr-passage">${p.h ? `<a href="${d.url}${p.a ? `#${encodeURIComponent(p.a)}` : ''}">${esc(p.h)}</a>` : ''}${p.html}</p>`).join('');
-    return `<li class="sr-item">${d.meta ? `<p class="sr-meta">${esc(d.meta)}</p>` : ''}<a class="sr-title" href="${d.url}">${esc(d.title)}</a>`
+    const passages = (byPlace || brief ? [] : it.passages).map((p) => `<p class="sr-passage">${p.h ? `<a href="${d.url}${p.a ? `#${encodeURIComponent(p.a)}` : ''}">${esc(p.h)}</a>` : ''}${p.html}</p>`).join('');
+    return `<li class="sr-item${brief ? ' sr-brief' : ''}">${d.meta ? `<p class="sr-meta">${esc(d.meta)}</p>` : ''}<a class="sr-title" href="${d.url}">${esc(d.title)}</a>`
       + (why.length ? `<p class="sr-why">${why.join(' · ')}</p>` : '') + passages + '</li>';
   }
 
-  function draw(q: string) {
+  // The results in sections: an overview (the place, then the first few of each kind) and one tab per kind, so a
+  // reader sees the whole answer at a glance and opens one list at a time. The open tab is kept in the address.
+  const BRIEF = 3; // per kind, in the overview
+  const PAGE = 10; // per kind, before "再显示"
+  let current: { r: Result; q: string; here: string } | null = null;
+
+  function placePanel(r: Result) {
+    if (!r.places.length) return '';
+    const works = r.placeWorks;
+    const by = new Map<string, number>();
+    for (const p of works) by.set(p.by, (by.get(p.by) ?? 0) + 1);
+    const name = r.places.length === 1 ? `${r.places[0].name}${r.places[0].country ? ` · ${r.places[0].country}` : ''}` : r.places[0].country;
+    return `<section class="sr-place" aria-label="地点"><p class="kicker">地点</p><h2>${esc(name)}</h2>`
+      + `<p>${works.length ? `ArtPilot 收录的作品中，有 ${new Set(works.map((w) => w.id)).size} 件收藏或位于这里。` : 'ArtPilot 收录的作品中，暂时没有收藏在这里的。'}`
+      + `结果也包括写到这里各家博物馆的课程与故事。</p>`
+      + (by.size ? `<ul>${[...by].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<li><b>${esc(k)}</b> ${n} 件</li>`).join('')}</ul>` : '') + '</section>';
+  }
+
+  function panel(tab: string) {
+    const { r, here } = current!;
+    if (tab === 'all') {
+      return placePanel(r) + r.groups.map((g) => `<section class="sr-group"><h2>${NAMES[g.type]}<span>${g.items.length} 条</span></h2>`
+        + `<ol class="sr-list">${g.items.slice(0, BRIEF).map((it) => item(it, here, true)).join('')}</ol>`
+        + `<button type="button" class="sr-open" data-open="${g.type}">${g.items.length > BRIEF ? `查看全部 ${g.items.length} 条${NAMES[g.type]}` : `查看${NAMES[g.type]}的详细结果`} <span aria-hidden="true">→</span></button></section>`).join('');
+    }
+    const g = r.groups.find((x) => x.type === tab)!;
+    return (r.groups.length === 1 ? placePanel(r) : '')
+      + `<section class="sr-group"><ol class="sr-list">${g.items.map((it, i) => (i < PAGE ? item(it, here) : item(it, here).replace('<li class="sr-item">', '<li class="sr-item" hidden>'))).join('')}</ol>`
+      + (g.items.length > PAGE ? `<button type="button" class="sr-more" data-more>再显示 ${Math.min(PAGE, g.items.length - PAGE)} 条 · 共 ${g.items.length} 条</button>` : '') + '</section>';
+  }
+
+  function show(tab: string, focus = false) {
+    const { r, q } = current!;
+    const tabs = ['all', ...r.groups.map((g) => g.type)];
+    if (r.groups.length === 1) tab = r.groups[0].type;
+    else if (!tabs.includes(tab)) tab = 'all';
+    results.querySelectorAll<HTMLButtonElement>('[role="tab"]').forEach((b) => {
+      const on = b.dataset.tab === tab;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    const box = results.querySelector<HTMLElement>('[data-panel]')!;
+    if (r.groups.length > 1) box.setAttribute('aria-labelledby', `sr-tab-${tab}`);
+    box.innerHTML = panel(tab);
+    history.replaceState(null, '', `/search/?q=${encodeURIComponent(q)}${tab === 'all' || r.groups.length === 1 ? '' : `&in=${tab}`}`);
+  }
+
+  function draw(q: string, tab: string) {
     const r = search(index!, q);
     const total = r.groups.reduce((n, g) => n + g.items.length, 0);
     if (!total) {
       status.textContent = `没有找到包含“${q}”的内容。换一个说法试试，或者少输入几个词。`;
       results.innerHTML = '';
+      current = null;
       return;
     }
     status.textContent = `“${q}”：共 ${total} 条结果。`;
-    let html = '';
-    // A place: what is there, and in which institutions, before the lists.
-    if (r.places.length) {
-      const works = r.placeWorks;
-      const by = new Map<string, number>();
-      for (const p of works) by.set(p.by, (by.get(p.by) ?? 0) + 1);
-      const name = r.places.length === 1 ? `${r.places[0].name}${r.places[0].country ? ` · ${r.places[0].country}` : ''}` : r.places[0].country;
-      html += `<section class="sr-place" aria-label="地点"><p class="kicker">地点</p><h2>${esc(name)}</h2>`
-        + `<p>${works.length ? `ArtPilot 收录的作品中，有 ${new Set(works.map((w) => w.id)).size} 件收藏或位于这里。` : 'ArtPilot 收录的作品中，暂时没有收藏在这里的。'}`
-        + `结果也包括写到这里各家博物馆的课程与故事。</p>`
-        + (by.size ? `<ul>${[...by].sort((a, b) => b[1] - a[1]).map(([k, n]) => `<li><b>${esc(k)}</b> ${n} 件</li>`).join('')}</ul>` : '') + '</section>';
-    }
-    const here = r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '';
-    html += `<ul class="sr-jump" aria-label="跳到">${r.groups.map((g) => `<li><a href="#sr-${g.type}">${NAMES[g.type]} ${g.items.length}</a></li>`).join('')}</ul>`;
-    for (const g of r.groups) {
-      html += `<section class="sr-group" id="sr-${g.type}"><h2>${NAMES[g.type]}<span>${g.items.length} 条</span></h2><ol class="sr-list">`
-        + g.items.map((it, i) => (i < SHOWN ? item(it, here) : item(it, here).replace('<li class="sr-item">', '<li class="sr-item" hidden>'))).join('')
-        + `</ol>${g.items.length > SHOWN ? `<button type="button" class="sr-more" data-more>显示全部 ${g.items.length} 条</button>` : ''}</section>`;
-    }
-    results.innerHTML = html;
+    current = { r, q, here: r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '' };
+    // One kind only: no tabs, just the list.
+    const tabs = r.groups.length > 1
+      ? `<div class="sr-tabs" role="tablist" aria-label="结果分类">`
+        + [['all', '概览', total] as const, ...r.groups.map((g) => [g.type, NAMES[g.type], g.items.length] as const)]
+          .map(([id, label, n]) => `<button type="button" role="tab" id="sr-tab-${id}" data-tab="${id}" aria-controls="sr-panel" aria-label="${label} ${n} 条">`
+            + `<b class="sr-long" aria-hidden="true">${label}</b><b class="sr-short" aria-hidden="true">${SHORT[id]}</b><span aria-hidden="true">${n}</span></button>`).join('')
+        + '</div>'
+      : '';
+    results.innerHTML = tabs + `<div class="sr-panel" id="sr-panel"${tabs ? ' role="tabpanel"' : ''} data-panel></div>`;
+    show(tab);
   }
 
+  // Opening a tab from further down the page brings its list back to the top, under the bars.
+  function open(tab: string, focus: boolean) {
+    show(tab, focus);
+    if (results.getBoundingClientRect().top < navHeight()) results.scrollIntoView({ block: 'start' });
+  }
+
+  // The site bar's height, for the tabs to pin beneath it (it is two rows on a phone).
+  const navHeight = () => document.querySelector<HTMLElement>('.site-nav')?.offsetHeight ?? 56;
+  const setNav = () => document.documentElement.style.setProperty('--nav-h', `${navHeight()}px`);
+  setNav();
+  addEventListener('resize', setNav);
+
   let ticket = 0;
-  async function run(q: string, push: boolean) {
+  async function run(q: string, push: boolean, tab = 'all') {
     q = q.trim();
     const url = q ? `/search/?q=${encodeURIComponent(q)}` : '/search/';
     if (push) history.replaceState(null, '', url);
@@ -191,7 +273,7 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
       try { await load(); } catch { clearTimeout(slow); if (mine === ticket) status.textContent = '搜索索引没有载入成功。请检查网络后再试一次。'; return; }
       clearTimeout(slow);
     }
-    if (mine === ticket) draw(q);
+    if (mine === ticket) draw(q, tab);
   }
 
   // As the reader types, after a short pause; Enter searches at once.
@@ -199,14 +281,34 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   input.addEventListener('input', () => { clearTimeout(timer); timer = window.setTimeout(() => run(input.value, true), 220); });
   form.addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(timer); run(input.value, true); input.blur(); });
   results.addEventListener('click', (e) => {
-    const more = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-more]');
+    const t = e.target as HTMLElement;
+    const tab = t.closest<HTMLButtonElement>('[role="tab"]');
+    if (tab) return open(tab.dataset.tab!, false);
+    const go = t.closest<HTMLButtonElement>('[data-open]');
+    if (go) return open(go.dataset.open!, true);
+    const more = t.closest<HTMLButtonElement>('[data-more]');
     if (!more) return;
-    more.parentElement!.querySelectorAll('.sr-item[hidden]').forEach((li) => li.removeAttribute('hidden'));
-    more.remove();
+    const hidden = [...more.parentElement!.querySelectorAll('.sr-item[hidden]')];
+    hidden.slice(0, PAGE).forEach((li) => li.removeAttribute('hidden'));
+    const left = hidden.length - PAGE;
+    if (left > 0) more.textContent = more.textContent!.replace(/再显示 \d+ 条/, `再显示 ${Math.min(PAGE, left)} 条`); else more.remove();
+  });
+  // The tabs from the keyboard: the arrows move between them, Home and End go to the ends.
+  results.addEventListener('keydown', (e) => {
+    const tab = (e.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]');
+    if (!tab) return;
+    const all = [...results.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const i = all.indexOf(tab);
+    const j = e.key === 'ArrowRight' ? (i + 1) % all.length : e.key === 'ArrowLeft' ? (i - 1 + all.length) % all.length
+      : e.key === 'Home' ? 0 : e.key === 'End' ? all.length - 1 : -1;
+    if (j < 0) return;
+    e.preventDefault();
+    open(all[j].dataset.tab!, true);
   });
   // Warm the index as soon as the reader shows intent, so the first results are not kept waiting.
   input.addEventListener('focus', () => { load().catch(() => {}); }, { once: true });
 
-  const q = new URLSearchParams(location.search).get('q') ?? '';
-  if (q) run(q, false); else input.focus({ preventScroll: true });
+  const params = new URLSearchParams(location.search);
+  const q = params.get('q') ?? '';
+  if (q) run(q, false, params.get('in') ?? 'all'); else input.focus({ preventScroll: true });
 </script>
