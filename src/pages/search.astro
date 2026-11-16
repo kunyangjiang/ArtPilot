@@ -36,7 +36,7 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     <!-- Coming back to a search (Back, or the way back from a result): its saved state, from this history entry or,
          where the browser opened it afresh, from this tab's session. The page stands where the reader left it before it
          paints; the results then fill the space they had (the script below draws them and lets the space go). -->
-    <script is:inline>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';var st=history.state,u=location.pathname+location.search;if(!(st&&st.u===u)){var r=document.referrer&&new URL(document.referrer);if(r&&r.origin===location.origin&&r.pathname!=='/search/'){st=JSON.parse(sessionStorage.getItem('artpilot:search')||'null');if(!(st&&st.u===u))st=null;}else st=null;}if(st&&st.y>0){var box=document.querySelector('[data-results]');box.style.minHeight=st.h+'px';window.__srBack=st;window.scrollTo(0,st.y);}else if(st){window.__srBack=st;}}catch(e){}})();</script>
+    <script is:inline>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';var st=history.state,u=location.pathname+location.search;if(!(st&&st.u===u)){var r=document.referrer&&new URL(document.referrer);if(r&&r.origin===location.origin&&r.pathname!=='/search/'){st=JSON.parse(sessionStorage.getItem('artpilot:search')||'null');if(!(st&&st.u===u))st=null;}else st=null;}if(st&&st.y>0){var box=document.querySelector('[data-results]');box.style.minHeight=st.h+'px';window.__srBack=st;window.scrollTo({top:st.y,behavior:'instant'});}else if(st){window.__srBack=st;}}catch(e){}})();</script>
   </section>
   <BackToTop />
 </Base>
@@ -299,6 +299,8 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
       scrollTo({ top: back.y, behavior: 'instant' });
       results.style.minHeight = '';
       remember();
+      // Once more after the next layout, should the page have moved under it (a phone settling its bars or fonts).
+      requestAnimationFrame(() => { if (Math.abs(scrollY - back.y) > 1) scrollTo({ top: back.y, behavior: 'instant' }); remember(); });
     }
   }
 
@@ -323,9 +325,21 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     remember();
   });
   // Where the page stands, kept as the reader scrolls and as they leave (by a link, Back, or closing the tab).
-  let still = 0;
-  addEventListener('scroll', () => { clearTimeout(still); still = window.setTimeout(remember, 150); }, { passive: true });
-  addEventListener('pagehide', remember);
+  // While the page is being left (and while the browser keeps it aside for Back), scrolls it makes on its own are not the
+  // reader's and must not overwrite the place.
+  let still = 0, leaving = false, kept = 0;
+  addEventListener('scroll', () => { if (leaving) return; clearTimeout(still); still = window.setTimeout(remember, 150); }, { passive: true });
+  addEventListener('pagehide', () => { clearTimeout(still); remember(); kept = Math.round(scrollY); leaving = true; });
+  // Back to the page as it was kept (Safari and Chrome on iPhone keep it whole, but with the scroll ours to restore,
+  // and may show it at the top): put the reader back where they left.
+  addEventListener('pageshow', (e) => {
+    leaving = false;
+    if (!e.persisted || !current) return;
+    const y = kept;
+    const put = () => { if (Math.abs(scrollY - y) > 1) scrollTo({ top: y, behavior: 'instant' }); };
+    put();
+    requestAnimationFrame(() => { put(); remember(); });
+  });
   // The tabs from the keyboard: the arrows move between them, Home and End go to the ends.
   results.addEventListener('keydown', (e) => {
     const tab = (e.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]');
