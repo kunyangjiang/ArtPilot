@@ -1,7 +1,9 @@
 ---
 // The site search: one field, and the results grouped by kind — courses, artist stories, cases and artwork records.
 // It reads the index written at build time (src/pages/search-index.json.ts) the first time it is opened; the matching
-// itself is in src/lib/search.js, the place register (search a city or a country) in src/data/places.js.
+// itself is in src/lib/search.js, the place register (search a city or a country) in src/data/places.js, the other
+// names of artists (凡高, Monet) in src/data/aliases.js. A query typed without spaces that finds nothing is read as its
+// words, and the status line says how. Artwork results show the small copy of their card image (src/lib/thumbs.js).
 // The query lives in the address (/search/?q=华盛顿), so a search can be shared, bookmarked and gone back to.
 import Base from '../layouts/Base.astro';
 import BackToTop from '../components/BackToTop.astro';
@@ -18,20 +20,22 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
         <svg class="sr-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 20 20" /></svg>
         <input id="sr-q" name="q" type="search" autocomplete="off" enterkeyhint="search" spellcheck="false"
-          placeholder="作品、艺术家、城市、博物馆或术语" data-q />
+          placeholder="作品、艺术家、城市或博物馆" data-q />
         <button type="submit" class="sr-submit">搜索</button>
       </form>
       <!-- Before the page paints: the field shows the query from the address, so the page never shows an empty field first. -->
       <script is:inline>(function(){var q=new URLSearchParams(location.search).get('q');var i=document.querySelector('[data-q]');if(q&&i)i.value=q;if(q)document.documentElement.dataset.searching='';})();</script>
-      <p class="sr-hint">可以输入城市或国家：搜“华盛顿”，会找到收藏在那里的作品，以及写到那里各家博物馆的课程与故事，即使它们的名字里没有“华盛顿”。多个词用空格隔开，结果需同时包含每一个词。</p>
+      <p class="sr-hint">可以输入城市或国家：搜“华盛顿”，会找到收藏在那里的作品，以及写到那里各家博物馆的课程与故事，即使它们的名字里没有“华盛顿”。输入几个词时，结果会同时包含每一个词；词与词之间可以加空格，也可以直接连着写，比如“华盛顿青铜”。艺术家的不同译名与外文名都能找到，比如“凡高”“Monet”。</p>
     </header>
 
+    <p class="sr-status" role="status" aria-live="polite" data-status></p>
+    <!-- When a search finds nothing: the same explanation as above, under the message, and the examples after it. -->
+    <div class="sr-again"><p class="sr-hint">可以输入作品名、艺术家、城市、国家或博物馆。艺术家的不同译名与外文名都能找到；几个词连着写也可以，比如“华盛顿青铜”。</p></div>
     <div class="sr-tries" data-tries>
       <p class="kicker">试试看</p>
       <ul>{tries.map((t) => <li><a href={`/search/?q=${encodeURIComponent(t)}`} data-try={t}>{t}</a></li>)}</ul>
     </div>
 
-    <p class="sr-status" role="status" aria-live="polite" data-status></p>
     <div class="sr-results" data-results></div>
     <!-- Coming back to a search (Back, or the way back from a result): its saved state, from this history entry or,
          where the browser opened it afresh, from this tab's session. The page stands where the reader left it before it
@@ -52,7 +56,7 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     flex: 1; min-width: 0; height: 3.25rem; padding: 0; border: 0; background: none; color: var(--ink);
     font: 400 clamp(1.125rem, 2.4vw, 1.375rem)/1.4 var(--serif); letter-spacing: .03em; outline: none;
   }
-  .sr-form input::placeholder { color: var(--silver); }
+  .sr-form input::placeholder { color: var(--ink-3); opacity: 1; }
   .sr-form input::-webkit-search-cancel-button { cursor: pointer; }
   .sr-form:focus-within { box-shadow: 0 1px 0 var(--ink); }
   .sr-submit {
@@ -63,8 +67,13 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   .sr-hint { max-width: 38em; margin: 1rem 0 0; font: 400 .8125rem/1.8 var(--sans); color: var(--ink-3); }
 
   .sr-tries { margin-top: 2.5rem; }
-  /* While there are results, the explanations give way to them. */
-  html[data-searching] .sr-tries, html[data-searching] .sr-hint { display: none; }
+  /* While there are results, the explanations give way to them; when a search finds nothing, they come back under it. */
+  html[data-searching]:not([data-empty]) .sr-tries, html[data-searching]:not([data-empty]) .sr-hint { display: none; }
+  html[data-empty] .sr-head .sr-hint { display: none; }
+  .sr-again .sr-hint { display: block; margin-top: 1.5rem; }
+  .sr-again { display: none; }
+  html[data-empty] .sr-again { display: block; }
+  html[data-empty] .sr-tries { margin-top: 1.5rem; }
   .sr-tries ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0; padding: 0; list-style: none; }
   .sr-tries a {
     display: inline-flex; align-items: center; min-height: 2.25rem; padding: 0 .9rem; border: 1px solid var(--rule);
@@ -75,6 +84,9 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
 
   .sr-status { min-height: 1.5rem; margin: 2rem 0 .5rem; font: 400 .875rem/1.7 var(--sans); color: var(--ink-3); }
   .sr-status:empty { margin: 0; min-height: 0; }
+  html[data-empty] .sr-status { color: var(--ink); }
+  .sr-status :global(.sr-retry) { margin-left: .5rem; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--ink); background: none;
+    color: var(--ink); cursor: pointer; font: 500 .8125rem/1 var(--sans); letter-spacing: .08em; }
 
   /* Results are drawn by the script; their styles reach into what it writes. */
   .sr-results :global(.sr-place) { margin-top: 0; padding: 1.25rem 0 1.5rem; border-bottom: 1px solid var(--rule); }
@@ -93,7 +105,6 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     transition: color var(--t-fast) var(--ease); }
   .sr-results :global([role="tab"] span) { font-weight: 400; font-size: .8125rem; letter-spacing: .02em; }
   .sr-results :global([role="tab"] b) { font-weight: inherit; }
-  .sr-results :global(.sr-short) { display: none; }
   .sr-results :global([role="tab"]::after) { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink);
     transform: scaleX(0); transform-origin: left; transition: transform var(--t) var(--ease); }
   .sr-results :global([role="tab"]:hover), .sr-results :global([role="tab"][aria-selected="true"]) { color: var(--ink); }
@@ -125,6 +136,12 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   .sr-results :global(.sr-more) { margin-top: 1rem; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--rule); background: none;
     color: var(--ink); cursor: pointer; font: 500 .8125rem/1 var(--sans); letter-spacing: .08em; }
   .sr-results :global(.sr-more:hover) { border-color: var(--ink); }
+  .sr-results :global(.sr-work) { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0 1.25rem; align-items: start; }
+  .sr-results :global(.sr-work > div) { min-width: 0; }
+  .sr-results :global(.sr-thumb), .sr-results :global(.sr-tile) { grid-row: 1 / span 9; width: 4.5rem; height: 4.5rem; margin-top: .2rem; }
+  .sr-results :global(.sr-thumb) { display: block; object-fit: cover; background: var(--mist); }
+  .sr-results :global(.sr-tile) { display: grid; place-items: center; border: 1px solid var(--rule); color: var(--ink-3);
+    font: 500 1.375rem/1 var(--serif); }
 
   @media (max-width: 640px) {
     .sr { padding-top: 2rem; }
@@ -133,13 +150,13 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     .sr-hint { font-size: .75rem; }
     .sr-results :global(.sr-group) { margin-top: 2rem; }
     .sr-results :global(.sr-tabs) { justify-content: space-between; gap: .75rem; }
-    .sr-results :global(.sr-long) { display: none; }
-    .sr-results :global(.sr-short) { display: inline; }
     .sr-results :global([role="tab"]) { font-size: .8125rem; letter-spacing: .04em; }
     .sr-results :global([role="tab"] span) { font-size: .75rem; }
     .sr-results :global(.sr-item) { padding: 1rem 0; }
     .sr-results :global(.sr-title) { font-size: 1rem; }
     .sr-results :global(.sr-passage) { font-size: .875rem; line-height: 1.8; }
+    .sr-results :global(.sr-work) { grid-template-columns: 3.5rem 1fr; gap: 0 1rem; }
+    .sr-results :global(.sr-thumb), .sr-results :global(.sr-tile) { width: 3.5rem; height: 3.5rem; }
   }
 </style>
 
@@ -150,12 +167,12 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   const input = document.querySelector<HTMLInputElement>('[data-q]')!;
   const status = document.querySelector<HTMLElement>('[data-status]')!;
   const results = document.querySelector<HTMLElement>('[data-results]')!;
-  const NAMES: Record<string, string> = { lesson: '课程', story: '艺术家故事', case: '叙事案例', artwork: '藏品记录' };
-  // The tabs' names on a phone, where all five must fit in one row.
-  const SHORT: Record<string, string> = { all: '概览', lesson: '课程', story: '故事', case: '案例', artwork: '藏品' };
+  // One name per kind, the same in the tabs, the overview's headings and its buttons, at every width (five tabs must fit
+  // a phone's row).
+  const NAMES: Record<string, string> = { all: '概览', lesson: '课程', story: '故事', case: '案例', artwork: '藏品' };
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
-  // The index is fetched once, on the first search; a failed fetch says so and can be retried by searching again.
+  // The index is fetched once, on the first search; a failed fetch says so, with a button to try again.
   let index: ReturnType<typeof prepare> | null = null;
   let loading: Promise<ReturnType<typeof prepare>> | null = null;
   const load = () => (loading ??= fetch('/search-index.json').then((r) => {
@@ -166,7 +183,14 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   type Result = ReturnType<typeof search>;
   type Item = Result['groups'][number]['items'][number];
 
-  // One result. `brief`: the overview's form — what it is and why it was found, without the passages.
+  // An artwork's picture in a result: the small copy of its card image, or, for a card shown as text only (or a copy
+  // that fails to load), a tile with the first character of its title. Never another image in its place.
+  const tile = (title: string) => `<span class="sr-tile" aria-hidden="true">${esc([...title][0] ?? '')}</span>`;
+  const picture = (d: Item['doc']) => d.img
+    ? `<img class="sr-thumb" src="${d.img}" alt="" loading="lazy" decoding="async" data-tile="${esc([...d.title][0] ?? '')}"${d.focus ? ` style="object-position:${esc(d.focus)}"` : ''} />`
+    : tile(d.title);
+
+  // One result. `brief`: the overview's form — what it is, why it was found, and its one best passage.
   function item(it: Item, here: string, brief = false) {
     const d = it.doc;
     const why: string[] = [];
@@ -174,10 +198,12 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     if (it.via.length) why.push(`本篇的作品 ${it.via.map((t) => `《${esc(t)}》`).join('')} 收藏在${esc(here)}`);
     // A work found by its place says where it is; the passage would only repeat its record's holding line.
     const byPlace = it.where.length > 0;
-    if (it.count && !byPlace) why.push(`提到 ${it.count} 次`);
-    const passages = (byPlace || brief ? [] : it.passages).map((p) => `<p class="sr-passage">${p.h ? `<a href="${d.url}${p.a ? `#${encodeURIComponent(p.a)}` : ''}">${esc(p.h)}</a>` : ''}${p.html}</p>`).join('');
-    return `<li class="sr-item${brief ? ' sr-brief' : ''}">${d.meta ? `<p class="sr-meta">${esc(d.meta)}</p>` : ''}<a class="sr-title" href="${d.url}">${esc(d.title)}</a>`
-      + (why.length ? `<p class="sr-why">${why.join(' · ')}</p>` : '') + passages + '</li>';
+    const passages = (byPlace ? [] : brief ? it.passages.slice(0, 1) : it.passages).map((p) => `<p class="sr-passage">${p.h ? `<a href="${d.url}${p.a ? `#${encodeURIComponent(p.a)}` : ''}">${esc(p.h)}</a>` : ''}${p.html}</p>`).join('');
+    const body = `${d.meta ? `<p class="sr-meta">${esc(d.meta)}</p>` : ''}<a class="sr-title" href="${d.url}">${esc(d.title)}</a>`
+      + (why.length ? `<p class="sr-why">${why.join(' · ')}</p>` : '') + passages;
+    return d.type === 'artwork'
+      ? `<li class="sr-item sr-work${brief ? ' sr-brief' : ''}">${picture(d)}<div>${body}</div></li>`
+      : `<li class="sr-item${brief ? ' sr-brief' : ''}">${body}</li>`;
   }
 
   // The results in sections: an overview (the place, then the first few of each kind) and one tab per kind, so a
@@ -213,9 +239,9 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   function panel(tab: string) {
     const { r, here } = current!;
     if (tab === 'all') {
-      return placePanel(r) + r.groups.map((g) => `<section class="sr-group"><h2>${NAMES[g.type]}<span>${g.items.length} 条</span></h2>`
+      return placePanel(r) + r.overview.map((t) => r.groups.find((g) => g.type === t)!).map((g) => `<section class="sr-group"><h2>${NAMES[g.type]}<span>${g.items.length} 条</span></h2>`
         + `<ol class="sr-list">${g.items.slice(0, BRIEF).map((it) => item(it, here, true)).join('')}</ol>`
-        + `<button type="button" class="sr-open" data-open="${g.type}">${g.items.length > BRIEF ? `查看全部 ${g.items.length} 条${NAMES[g.type]}` : `查看${NAMES[g.type]}的详细结果`} <span aria-hidden="true">→</span></button></section>`).join('');
+        + `<button type="button" class="sr-open" data-open="${g.type}">查看全部 ${g.items.length} 条${NAMES[g.type]} <span aria-hidden="true">→</span></button></section>`).join('');
     }
     const g = r.groups.find((x) => x.type === tab)!;
     const n = current!.shown[tab] ?? PAGE;
@@ -248,19 +274,24 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     const r = search(index!, q);
     const total = r.groups.reduce((n, g) => n + g.items.length, 0);
     if (!total) {
-      status.textContent = `没有找到包含“${q}”的内容。换一个说法试试，或者少输入几个词。`;
+      const words = r.words.map((w) => `“${w}”`).join('');
+      status.textContent = r.words.length > 1
+        ? `没有同时包含${words}的内容。去掉一个词再试，或者从下面的例子开始。`
+        : `没有找到包含${words}的内容。换成作品名、艺术家、城市或博物馆再试，或者从下面的例子开始。`;
+      document.documentElement.dataset.empty = '';
       results.innerHTML = '';
       current = null;
       return;
     }
-    status.textContent = `“${q}”：共 ${total} 条结果。`;
+    delete document.documentElement.dataset.empty;
+    status.textContent = r.split ? `按“${r.split.join(' ')}”查找“${q}”：共 ${total} 条结果。` : `“${q}”：共 ${total} 条结果。`;
     current = { r, q, here: r.places.length === 1 ? r.places[0].name : r.places[0]?.country ?? '', tab, shown: { ...shown } };
     // One kind only: no tabs, just the list.
     const tabs = r.groups.length > 1
       ? `<div class="sr-tabs" role="tablist" aria-label="结果分类">`
         + [['all', '概览', total] as const, ...r.groups.map((g) => [g.type, NAMES[g.type], g.items.length] as const)]
           .map(([id, label, n]) => `<button type="button" role="tab" id="sr-tab-${id}" data-tab="${id}" aria-controls="sr-panel" aria-label="${label} ${n} 条">`
-            + `<b class="sr-long" aria-hidden="true">${label}</b><b class="sr-short" aria-hidden="true">${SHORT[id]}</b><span aria-hidden="true">${n}</span></button>`).join('')
+            + `<b aria-hidden="true">${label}</b><span aria-hidden="true">${n}</span></button>`).join('')
         + '</div>'
       : '';
     results.innerHTML = tabs + `<div class="sr-panel" id="sr-panel"${tabs ? ' role="tabpanel"' : ''} data-panel></div>`;
@@ -285,11 +316,15 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
     if (push) history.replaceState(null, '', q ? `/search/?q=${encodeURIComponent(q)}` : '/search/');
     document.title = q ? `${q} · 搜索 · ArtPilot` : '搜索 · ArtPilot';
     if (q) document.documentElement.dataset.searching = ''; else delete document.documentElement.dataset.searching;
-    if (!q) { status.textContent = ''; results.innerHTML = ''; current = null; return; }
+    if (!q) { status.textContent = ''; results.innerHTML = ''; current = null; delete document.documentElement.dataset.empty; return; }
     const mine = ++ticket;
     if (!index) {
       const slow = setTimeout(() => { if (mine === ticket) status.textContent = '正在载入搜索索引…'; }, 250);
-      try { await load(); } catch { clearTimeout(slow); if (mine === ticket) status.textContent = '搜索索引没有载入成功。请检查网络后再试一次。'; return; }
+      try { await load(); } catch {
+        clearTimeout(slow);
+        if (mine === ticket) status.innerHTML = '搜索数据没有载入成功，请检查网络。<button type="button" class="sr-retry" data-retry>重新载入</button>';
+        return;
+      }
       clearTimeout(slow);
     }
     if (mine !== ticket) return;
@@ -308,6 +343,14 @@ const tries = ['华盛顿', '青铜', '印象派', '浮世绘', '张大千', '�
   let timer = 0;
   input.addEventListener('input', () => { clearTimeout(timer); timer = window.setTimeout(() => run(input.value, true), 220); });
   form.addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(timer); run(input.value, true); input.blur(); });
+  status.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('[data-retry]')) run(input.value, false, current?.tab ?? new URLSearchParams(location.search).get('in') ?? 'all');
+  });
+  // A small copy that fails to load gives way to the work's tile.
+  results.addEventListener('error', (e) => {
+    const img = e.target as HTMLElement;
+    if (img instanceof HTMLImageElement && img.classList.contains('sr-thumb')) img.outerHTML = tile(img.dataset.tile ?? '');
+  }, true);
   results.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
     const tab = t.closest<HTMLButtonElement>('[role="tab"]');

@@ -43,7 +43,7 @@ test('the text for the search keeps what a reader sees and drops markup', () => 
 test('华盛顿 finds the works held there and the pages about them, including those that never write 华盛顿', { skip: !built }, () => {
   const r = search(index, '华盛顿');
   assert.deepEqual(r.places.map((p) => p.id), ['washington']);
-  assert.equal(r.groups[0].type, 'artwork', 'a place search lists the works first');
+  assert.equal(r.overview[0], 'artwork', 'a place search shows the works first in the overview');
   const held = artworks.filter((a) => placesOfArtwork(a.id, a).some((p) => p.place === 'washington' && p.role === 'held')).map((a) => `/artworks/${a.id}/`);
   assert.ok(held.length >= 7);
   for (const u of held) assert.ok(urls(r, 'artwork').includes(u), `work held in Washington: ${u}`);
@@ -75,6 +75,49 @@ test('every word must match, and the suggested searches all find something', { s
   const page = readFileSync(new URL('../src/pages/search.astro', import.meta.url), 'utf8');
   const tries = JSON.parse(page.match(/const tries = (\[[^\]]*\])/)[1].replace(/'/g, '"'));
   for (const t of tries) assert.ok(total(search(index, t)) > 0, `suggested search finds nothing: ${t}`);
+});
+
+test('a query typed without spaces is read as its words, and other spellings of a name find the same pages', { skip: !built }, () => {
+  const total = (r) => r.groups.reduce((n, g) => n + g.items.length, 0);
+  for (const q of ['华盛顿青铜', '华盛顿的青铜', '青铜华盛顿']) {
+    const r = search(index, q);
+    assert.ok(total(r) > 0, `${q} finds nothing`);
+    assert.ok(r.split, `${q} should say how it was read`);
+  }
+  assert.equal(search(index, '水星人').groups.length, 0, 'a split must not invent words');
+  const same = (a, b) => assert.deepEqual(urls(search(index, a), 'lesson').sort(), urls(search(index, b), 'lesson').sort(), `${a} ≠ ${b}`);
+  same('凡高', '梵高');
+  same('Monet', '莫奈');
+  same('Cezanne', 'Cézanne');
+});
+
+test('a plain word is found wherever it stands, a museum’s name only for its own city', { skip: !built }, () => {
+  const total = (r) => r.groups.reduce((n, g) => n + g.items.length, 0);
+  assert.ok(total(search(index, '故宫')) >= total(search(index, '故宫博物院')), '故宫 must find at least what 故宫博物院 finds');
+  // 故宫博物院 is Beijing's: a page that only names Taipei's 国立故宫博物院 is not found for it.
+  for (const g of search(index, '故宫博物院').groups) for (const it of g.items) for (const p of it.passages) {
+    assert.doesNotMatch(p.html, /国立<mark>|台北<mark>/, `${it.doc.url}: ${p.html}`);
+  }
+});
+
+test('the kinds keep one order, and passages come from what a page tells, not its source list', { skip: !built }, () => {
+  for (const q of ['华盛顿', '青铜', '大都会', '张大千']) {
+    const kinds = search(index, q).groups.map((g) => g.type);
+    assert.deepEqual(kinds, ['lesson', 'story', 'case', 'artwork'].filter((t) => kinds.includes(t)), q);
+  }
+  for (const q of ['华盛顿', '大都会', '美国国家美术馆']) for (const g of search(index, q).groups) for (const it of g.items) {
+    const told = it.doc.s.some((s) => !/出处|链接|来源|参考|延伸阅读|注释|图片说明|致谢/.test(s.h) && s.t.includes(q));
+    if (told) for (const p of it.passages) assert.doesNotMatch(p.h, /出处|链接/, `${q} ${it.doc.url}`);
+  }
+});
+
+test('an artwork result has the small copy of its card image, and only a card that shows an image has one', { skip: !built }, () => {
+  for (const d of index.docs.filter((x) => x.type === 'artwork')) {
+    const a = artworks.find((x) => x.id === d.id);
+    const hasImage = a.card?.image !== null && (a.images ?? []).some((i) => i.key === (a.card?.image ?? 'full'));
+    assert.equal(Boolean(d.img), hasImage, d.id);
+    if (d.img) assert.ok(existsSync(new URL(`../dist${d.img}`, import.meta.url)), `missing ${d.img}`);
+  }
 });
 
 test('every section a result points to exists on its page', { skip: !built }, () => {
